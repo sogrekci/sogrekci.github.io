@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/42-ozdegerler-ve-ozfonksiyonlar/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 4.2. Özdeğerler ve Özfonksiyonlar
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>4.2. Özdeğerler ve Özfonksiyonlar</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-10">
+          10 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste daha önce <a class="eqref" href="../39-gecici-cozum/index.html">Bölüm 3.9</a> ile ortaya koyduğumuz dokuz önemli sorudan bazılarına cevap vereceğiz. Bu cevapları özdeğer ve özvektörlerin özelliklerini araştırırken bulacağız.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/ozdeger/index.html">özdeğer</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/ozfonksiyon/index.html">özfonksiyon</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/sturm-liouville-problemi/index.html">sturm-liouville problemi</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Şimdi daha önce <a class="eqref" href="../39-gecici-cozum/index.html">Bölüm 3.9</a>'da ortaya koyduğumuz dokuz sorudan birkaçına cevap arayacağız. Bu araştırmada aşağıdaki lemma sıklıkla bize kolaylık sağlayacak.
+</p>
+
+<p>
+<div class="envtheo" id="slp-lm1"><h6 class="thenv">Lemma 4.2.1</h6>$X_1$ ve $X_2$ fonksiyonları bir Sturm-Liouville probleminin özfonksiyonları olsunlar. Bu durumda
+<ol type="i"><li>eğer $p(a)>0$ ise $$X_2(a)=CX_1(a)\quad\text{ve}\quad X'_2(a)=CX'_1(a)$$ olacak şekilde bir $C$ sabiti vardır,</li>
+<li>eğer $p(b)>0$ ise $$X_2(b)=CX_1(b)\quad\text{ve}\quad X'_2(b)=CX'_1(b)$$ olacak şekilde bir $C$ sabiti vardır.</li></ol></div>
+</p>
+
+<p>
+<strong>İspat: </strong>Eğer $p(a)>0$ ise <a class="eqref" href="../41-sturm-liouville-problemleri/index.html#eq:slp-bvp-1">(4.1.2)</a> eşitliği gereği $$\begin{array}{l}
+a_1X_1(a)-b_1X_1'(a)=0\\
+a_1X_2(a)-b_1X_2'(a)=0
+\end{array}$$ denklem sistemi elde edilir. Bu durumda $$\begin{array}{l}
+a_1X_1(a)=b_1X_1'(a)\\
+a_1X_2(a)=b_1X_2'(a)
+\end{array}$$ olduğundan bu sistemin $a_1$ ve $b_1$ için çözümünün olması için ikinci satırın birincinin sabit katı olması gerekir. Bu da (i) şıkkını kanıtlar, diğer şık da aynı şekilde kanıtlanır.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+Aşağıdaki teorem 1823 yılında Poisson tarafından keşfedilmiştir ve <a class="eqref" href="../39-gecici-cozum/index.html">Bölüm 3.9</a>'da verdiğimiz (v) sorusuna cevap verir.
+</p>
+
+<p>
+<div class="envtheo" id="slp-theo-1"><h6 class="thenv">Teorem 4.2.1</h6>$X_1$ ve $X_2$ fonksiyonları <a class="eqref" href="../41-sturm-liouville-problemleri/index.html#eq:slp-1">(4.1.1)</a> Sturm-Liouville probleminin farklı $\lambda_1$ ve $\lambda_2$ özdeğerlerine karşılık gelen özfonksiyonları iseler $$\int_{a}^{b}rX_1X_2=0$$ olur.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$$\begin{array}{l}
+(pX_1')'+(\lambda_1r-q)X_1=0\\
+(pX_2')'+(\lambda_2r-q)X_2=0
+\end{array}$$ eşitlikleri sırasıyla $X_2$ ve $X_1$ ile çarpılıp taraf tarafa çıkartılırsa $$(\lambda_1-\lambda2)rX_1X_2=X_1(pX_2')'-X_2(pX_1')'=\left[p(X_1X_2'-X_1X_2')\right]'$$ eşitliğine varılır (son eşitlik kolaylıkla doğrulanailir). Buradaki tüm fonksiyonlar integrallenebilir olduğundan $$(\lambda_1-\lambda_2)\int_{a}^{b}rX_1X_2=p(b)\left[X_1(b)X_2'(b)-X_2(b)X_1'(b)\right]- p(a)\left[X_1(a)X_2'(a)-X_2(a)X_1'(a)\right]$$ eşitliği sağlanır. <a class="eqref" href="#slp-lm1">Lemma 4.2.1</a> gereği bu eşitliğin sağ tarafı sıfır olacaktır, böylece $\lambda_1\neq\lambda_2$ olduğundan istenen elde edilmiş olur.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envdef" id="def-ortogonal"><h6 class="thenv">Tanım 4.2.1</h6>İntegrallenebilir herhangi iki $X_1$ ve $X_2$ fonksiyonu için eğer $$\int_{a}^{b}rX_1X_2=0$$ oluyorsa bu iki fonksiyona $(a,b)$ aralığında $r$ ağırlık fonksiyonuna göre <strong>ortogonaldir</strong> denir.
+</div>
+</p>
+
+<p>
+Yani yukarıda <a class="eqref" href="#slp-theo-1">Teorem 4.2.1</a> ile Sturm-Liouville probleminin farklı özdeğerlerine karşılık gelen özfonksiyonların $r$ ağırlık fonksiyonuna göre $(a,b)$ aralığında ortogonal olduğu kanıtlandı. Sıradaki teorem ile de en az bir sınır koşulu verilmişse her özdeğere karşılık tek bir özfonksiyonun karşılık geldiğini (sabitle çarpım hariç) kanıtlayacağız.
+</p>
+
+<p>
+Ama buna geçmeden önce not etmemiz gereken önemli bir nokta var. Sturm-Lioville probleminin $\lambda$ ve bunun eşleniği olan $\overline{\lambda}$ özdeğerlerini ele alırsak, ki bunlara karşılık gelen özfonksiyonların $X$ ve $\overline{X}$ olacağı Sturm-Liouville denklemi ve kompleks sayıların eşlenik özellikleri kullanılarak kolayca gösterilebilir, yukarıdaki ispatta olduğu gibi $$(\lambda-\overline{\lambda})\int_{a}^{b}rX\overline{X}=(\lambda-\overline{\lambda})\int_{a}^{b}r|X|^2=0$$ eşitliğine ulaşırız. Yani bunun sonucu olarak Sturm-Liouville probleminin bir özfonksiyonu varsa buna karşılık gelen özdeğer bir <strong>reel sayı</strong> olmalıdır, bu da daha önce ortaya koyduğumuz sorulardan birine cevap verir (<strong>soru ii</strong>).
+</p>
+
+<p>
+<div class="envtheo" id="slp-theo-2"><h6 class="thenv">Teorem 4.2.2</h6>$p(a)+p(b)>0$ olsun. Eğer $X_1$ ve $X_2$ fonksiyonları Sturm-Liouville probleminin bir $\lambda$ özdeğerine karşılık gelen özfonksiyonlar ise, $X_2=CX_1$ olacak şekilde bir $C$ sabiti vardır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$p(a)>0$ ve $C$ sabiti <a class="eqref" href="#slp-lm1">Lemma 4.2.1-(i)</a> ile verilen sabit olsun, bu durumda $$\phi:=X_2-CX_1$$ fonksiyonu da, çözümlerin bir lineer kombinasyonu olduğundan, bir çözümdür. Ayrıca bu çözüm <a class="eqref" href="../41-sturm-liouville-problemleri/index.html#eq:slp-bvp-1">(4.1.2)</a> gereği $$\phi(a)=\phi'(a)=0$$ başlangıç koşullarını sağlar. Fakat diferensiyel denklemler teorisinden biliyoruz ki bu <a class="eqref" href="../41-sturm-liouville-problemleri/index.html#eq:slp-1">(4.1.1)</a> denkleminin $x=a$ noktasında hem kendisi hem de türevi sıfır olan tek çözümü $\phi\equiv0$ fonksiyonudur (çözümün tekliği gereği). Eğer $p(b)>0$ ise de kanıt benzerdir.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+Yukarıdaki teorem $p(a)=p(b)=0$ ise yani her iki sınır koşulu da verilmemişse geçerli değildir. Ayrıca $q$ üzerinde bazı ek koşullarla özdeğerlerin pozitif olduklarını kanıtlayabiliriz.
+</p>
+
+<p>
+<div class="envtheo" id="slp-theo-3"><h6 class="thenv">Teorem 4.2.3</h6>$[a,b]$ aralığında $q$ fonksiyonu sürekli ve negatif olmayan bir fonksiyon olsun. İlaveten
+<ol type="i"><li>$p(a)>0$ ise $a_1,b_1\geq0$ olsun,</li>
+<li>$p(b)>0$ ise $a_2,b_2\geq0$ olsun.</li></ol>Bu durumda Sturm-Liouville probleminin her özdeğeri için $\lambda\geq0$ olur. Ayrıca $\lambda=0$ sayısının bir özdeğer olması için gerek ve yeter koşul $q\equiv0$ ve $p(a)a_1=p(b)a_2=0$ olmasıdır, bu durumda da karşılık gelen özfonksiyon sabittir.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$\lambda$ özdeğerine karşılık gelen özfonksiyon $X$ olsun. <a class="eqref" href="../41-sturm-liouville-problemleri/index.html#eq:slp-1">(4.1.1)</a> denklemini $X$ ile çarpıp düzenlersek $$\lambda rX^2=qX^2-(pX')'X$$ elde edilir ve integrasyonla
+\begin{equation}
+\label{eq:slp-2}
+\tag{4.2.1}
+\lambda\int_{a}^{b}rX^2=\int_{a}^{b}qX^2-\int_{a}^{b}(pX')'X=\int_{a}^{b}qX^2-pX'X\bigg\vert_a^b+\int_{a}^{b}p(X')^2
+\end{equation}
+eşitliğine varılır. Şimdi $$-pX'X\bigg\vert_a^b=p(a)X'(a)X(a)-p(b)X'(b)X(b)$$ teriminin negatif olmayacağını gösterelim. <a class="eqref" href="../41-sturm-liouville-problemleri/index.html#eq:slp-bvp-1">(4.1.2)</a> gereği $b_1>0$ ise $$X'(a)=\frac{a_1}{b_1}X(a)$$ olur. Eğer $p(a)=0$ ise $b_1=0$ olsa bile $p(a)X'(a)X(a)=0$ olduğu da açıktır. Sonuç olarak (i) hipotezi gereği her durumda $p(a)X'(a)X(a)\geq0$ eşitsizliği sağlanır. Benzer şekilde $p(b)X'(b)X(b)\leq 0$ olduğu da gözterilebilir. Böylece $(a,b)$ aralığında $p,r>0$ ve $q\geq 0$ olduğundan \eqref{eq:slp-2} gereği $\lambda\geq0$ olduğu sonucuna varılır.
+</p>
+
+<p>
+Eğer $\lambda=0$ bir özdeğer ise <a class="eqref" href="../41-sturm-liouville-problemleri/index.html#eq:slp-bvp-1">(4.1.2)</a> eşitliğinden $q\equiv X'\equiv0$ olup $X$ fonksiyonunun sabit olduğu görülür. $X\not\equiv0$ olduğundan <a class="eqref" href="../41-sturm-liouville-problemleri/index.html#eq:slp-bvp-1">(4.1.2)</a> gereği $a_1=0$ olmalıdır yani $p(a)a_1=0$. Ayrıca $p(a)=0$ ise $p(a)a_1=0$ olacağı açıktır. $p(a)>0$ ise de  benzer şekilde $p(b)a_2=0$ olduğu da görülür. Tersine, eğer $q\equiv0$ ve $p(a)a_1=p(b)a_2=0$ ise, <a class="eqref" href="../41-sturm-liouville-problemleri/index.html#eq:slp-1">(4.1.1)</a>-<a class="eqref" href="../41-sturm-liouville-problemleri/index.html#eq:slp-bvp-2">(4.1.3)</a> sınır değer probleminin $(pX')'+\lambda rX=0$ denklemi ve $X'(a)=0$ ve $X'(b)=0$ sınır koşullarından meydana gelmesi mümkündür. Bu problemin ise $\lambda=0$ için özdeş olarak sıfır olmayan sabit bir çözümü vardır, yani $\lambda=0$ bir özdeğerdir.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+Bir Sturm-Liouville problemi, $q$ negatif bir fonksiyon ise veya $a_1b_1\leq0$ ise elbette negatif özdeğerlere sahip olabilir.
+</p>
+
+<p>
+<div class="envex" id="ex-4.3"><h6 class="thenv">Örnek 4.2.1</h6>aşağıdaki Sturm-Liouville probleminin $\lambda=-1$ için sıfırdan farklı sabit bir çözümünün olduğu açıktır, yani $\lambda=-1$ sayısı bir özdeğerdir.$$\begin{array}{l}
+	X''+(\lambda+1) X=0\\
+	X'(a)=0\\
+	X'(b)=0
+	\end{array}$$
+</div>
+</p>
+
+<p>
+Böylece <a class="eqref" href="../39-gecici-cozum/index.html">Bölüm 3.9</a>'da oartaya koyduğumuz sorulardan (ii), (iv), (v) ve (vii)'nin ilk eşitsizliği olumlu olarak cevaplanmış oldu.
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../41-sturm-liouville-problemleri/index.html">4.1. Sturm-Liouville Problemleri</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Fourier Analizi</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../43-ozdegerlerin-varligi/index.html">4.3. Özdeğerlerin Varlığı</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/42-ozdegerler-ve-ozfonksiyonlar/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:35 GMT -->
+</html>

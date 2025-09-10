@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/23-tersinir-matrisler/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:04 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 2.3. Tersinir Matrisler
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>2.3. Tersinir Matrisler</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-31">
+          31 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste matris terslerini ele alacağız. Bir matris bir dönüşümü temsil ediyorsa onun <strong>tersi</strong> denilen matris de bu dönüşümün ters dönüşümünü (varsa) temsil eder.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/birim-matris/index.html">birim matris</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/endomorfizm/index.html">endomorfizm</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/matris-tersi/index.html">matris tersi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/otomorfizm/index.html">otomorfizm</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/singuler-matris/index.html">singüler matris</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/tekil-matris/index.html">tekil matris</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/ters-donusum/index.html">ters dönüşüm</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/tersinir-matris/index.html">tersinir matris</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Bu bölümde $U=V$ olması durumunu ele alacağız, bir kümeden yine kendisine ($V$'den $V$'ye) tanımlı olan homomorfizme bir <strong>endomorfizm</strong> denir. $V$'de bir baz seçilirse böyle dönüşümleri bu baza göre temsil eden matrisler $n\times n$ boyutlu bir kare matrisler olur. Bu dönüşümlerin tanım ve değer kümeleri aynı olduklarından bu dönüşümler, değişmeli olmasa da, her zaman herhangi bir sırayla çarpılabilir. Bundan dolayı aynı boutlu kare matrisler her zaman, değişmeli olmasa da, herhangi bir sırayla çarpılabilir.
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:21"><h6 class="thenv">Uyarı 2.3.1</h6>
+Daha önce <a class="eqref" href="../21-lineer-donusumler/index.html#rmk:lint:3">Uyarı 2.1.6</a> ile $V$'den $V$'ye tanımlı olan ve $\sigma(\alpha)=\alpha$ özelliğine sahip olan dönüşümü <strong>birim</strong> dönüşüm olarak adlandırmıştık ve $1$ ile göstermiştik. Bu dönüşümü temsil eden matrisin $I:=\left[\delta_{ij} \right]$ olduğu (bk. <a class="eqref" href="../13-baz-ve-boyut/index.html#ex:vec:4:kronecker">Örnek 1.3.3-1</a>) açıktır, bu matris $n-$boyutlu <strong>birim matris</strong> olarak adlandırılır. Boyutunu belirtmek istersek bunu $I$ yerine $I_n$ ile gösteririz. Bir $a$ skaler dönüşümünün (bk. <a class="eqref" href="../21-lineer-donusumler/index.html#rmk:lint:3">Uyarı 2.1.6</a>) $aI$ matrisi ile temsil edildiği ve herhangi bir $n\times n$ boyutlu $A$ matrisi için $AI=IA=A$ olduğu açıktır.
+</div>
+</p>
+
+<p>
+Tanım ve değer kümesi aynı olan izmorfizme bir <strong>otomorfizm</strong> denir, otomorfizmler bir çeşit izmorfizm olduğundan tersleri mevcuttur. $\sigma(\alpha)=\overline{\alpha}$ ise $\sigma^{-1}(\overline{\alpha})=\alpha$ dönüşümüne $\sigma$'nın <strong>ters dönüşümü</strong> denir. Aşağıdaki üç sonucu daha önce izomorfizmler için kanıtladık, dolayısıyla şimdi ispatsız olarak vereceğiz.
+</p>
+
+<p>
+<div class="envtheo" id="theo:lint:15"><h6 class="thenv">Teorem 2.3.2</h6>
+Bir otomorfizmin ters dönüşümü de bir otomorfizmdir.
+
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:lint:16"><h6 class="thenv">Teorem 2.3.3</h6>
+$n-$boyutlu bir vektör uzayında bir lineer dönüşümün otomorfizm olması için gerek ve yeter koşul bu dönüşümün rankının $n$ olmasıdır, yani bir epimorfizm olmasıdır.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:lint:17"><h6 class="thenv">Teorem 2.3.4</h6>
+$n-$boyutlu bir vektör uzayında bir $\sigma$ lineer dönüşümünün bir otomorfizm olması için gerek ve yeter koşul $\nu(\sigma)=0$ olmasıdır, yani bir monomorfizm olmasıdır.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:22"><h6 class="thenv">Uyarı 2.3.5</h6>
+$U=V$ için rankı $n$'den küçük olan dönüşümlerin, örten olmadıklarından, ters dönüşümleri yoktur. Yani bu durum için sadece otomorfizmlerin tersleri var olabilir. Ters dönüşümleri mevcut olan dönüşümlere <strong>tersinir</strong> yada <strong>süngüler olmayan</strong> (tekil olmayan) dönüşüm denir, aksi durumda bu dönüşümlere <strong>singüler</strong> (tekil) dönüşüm denir. Bir $\sigma$ otomorfizmini $A$ matrisi, bunun ters dönüşümü olan $\sigma^{-1}$ dönüşümünü de $A^{-1}$ matrisi temsil etsin. Bu durumda $\sigma^{-1}\sigma$ dönüşümünü $A^{-1}A$ matrisi temsil eder, ayrıca $\sigma^{-1}\sigma$ dönüşümü birim dönüşüm olduğundan $A^{-1}A=I$ sağlanmak zorundadır. Diğer yandan $\sigma$ dönüşümü $\sigma^{-1}$ dönüşümünün tersi olduğundan $\sigma\sigma^{-1}=1$ olur, dolayısıyla $AA^{-1}=I$ eşitliği de sağlanır.
+</div>
+</p>
+
+<p>
+<div class="envdef" id="def:tersmatr"><h6 class="thenv">Tanım 2.3.6</h6>
+<a class="eqref" href="#rmk:lint:22">Uyarı 2.3.5</a> ile verilen $A^{-1}$ matrisine $A$ matrisinin <strong>tersi</strong> denir, tersi mevcut olan matrislere <strong>tersinir</strong> yada <strong>singüler olmayan</strong> (tekil olmayan) matrsi denir. Tersi mevcut olmayan matrislere <strong>singüler</strong> (tekil) matris denir, sadece kare matrislerin tersinir olabileceği açıktır.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:lint:18"><h6 class="thenv">Teorem 2.3.7</h6>
+$A$ ve $B$ kare matrisleri için $BA=I$ eşitliği sağlanıyorsa $AB=I$ eşitliği de sağlanır. Eğer $AB=I$ eşitliği sağlanıyorsa $BA=I$ eşitliği de sağlanır, her iki durumda da $B$ matrisi $A$'nın tersidir ve tek türlüdür.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>Bir $A$ matrisi için $BA=I$ olacak şekilde bir matris var olsun. $\rho(I)=n$ olduğundan $A$ matrisinin de rankı $n$ olmalıdır (bk <a class="eqref" href="../22-matrisler/index.html#theo:lint:14">Teorem 2.2.11</a>) ve dolayısıyla $A$ matrisi bir $\sigma$ otomorfizmini temsil eder. Bu durumda $\sigma^{-1}\sigma=1$ olduğundan $B$ matrisi $\sigma^{-1}$ dönüşümünü temsil etmek zorundadır, yani $B=A^{-1}$ olur. Aynı yöntemle $C$ matrisi $AC=I$ eşitliğini sağlıyorsa $C=A^{-1}$ olduğu da gösterilebilir.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="theo:lint:19"><h6 class="thenv">Teorem 2.3.8</h6>
+$A$ ve $B$ tersinir matrisler olsun, bu durumda
+<ol type="i">
+<li class="py-2">$AB$ matrisi tersinirdir ve $(AB)^{-1}=B^{-1}A^{-1}$,</li>
+<li class="py-2">$A^{-1}$ matrisi tersinirdir ve $\left(A^{-1}\right)^{-1}=A$,</li>
+<li class="py-2">$a\neq0$ olmak üzere $aA$ matrisi tersinirdir ve $(aA)^{-1}=a^{-1}A^{-1}$.</li>
+</ol>
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong><a class="eqref" href="#theo:lint:18">Teorem 2.3.7</a> ispatında açıklandığı üzere her bir iddianın tek tarafının kanıtlanması yeterlidir.
+<ol type="i">
+<li class="py-2">$\left(B^{-1}A^{-1}\right)(AB)^{-1}=B^{-1}\left(A^{-1}A\right)B^{-1}=B^{-1}IB=B^{-1}B=I$,</li>
+<li class="py-2">$AA^{-1}=I$,</li>
+<li class="py-2">$\left(a^{-1}A^{-1}\right)\left(aA\right)=a^{-1}\left( aA^{-1} \right)A=\left(a^{-1}a\right)\left(A^{-1}A\right)=1I=I$.</li>$$\tag*{$\blacksquare$}$$
+</ol>
+</p>
+
+<p>
+<div class="envtheo" id="theo:lint:20"><h6 class="thenv">Teorem 2.3.9</h6>
+$A$ tersinir ise, uygun boyuttaki bir $B$ matrisi için, $XA=B$ ve $AY=B$ denklemleri tek türlü olarak çözülebilir. Bu çözümler aynı olmak zorunda değildir.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$\left(BA^{-1}\right)A=B\left(A^{-1}A\right)=BI=B$ ve $A\left(A^{-1}B\right)=\left(AA^{-1}\right)B=IB=B$ eşitlikleri gereği çözümler vardır. Eğer bir $C$ matrisi $CA=B$ eşitliğini sağlıyorsa $C=CI=C\left(AA^{-1}\right)=\left(CA\right)A^{-1}=BA^{-1}$ olduğundan ilk denklemin çözümü tektir. Diğer denklemin çözümünün tekliği de benzer şekilde gösterilebilir.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envex" id="ex:lint:4"><h6 class="thenv">Örnek 2.3.10</h6>
+<a class="eqref" href="#theo:lint:20">Teorem 2.3.9</a> sonucunda
+$$A:=\left[\begin{array}{rr}1&2\\0&1\end{array}\right],\quad A^{-1}=\left[\begin{array}{rr}1&-2\\0&1\end{array}\right],\quad B:=\left[\begin{array}{rr}1&0\\2&1\end{array}\right]$$
+alınırsa
+$$X=BA^{-1}=\left[\begin{array}{rr}1&-2\\2&-3\end{array}\right]\quad\text{ve}\quad Y=A^{-1}B=\left[\begin{array}{rr}-3&-2\\2&1\end{array}\right]$$ olur.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:lint:21"><h6 class="thenv">Teorem 2.3.11</h6>
+Bir matris (kare olması gerekmez), tersinir bir matrisle çapılırsa rankı değişmez.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$A$ tersinir bir matris, $B$ de rankı $\rho$ olan bir matris olsun. <a class="eqref" href="../22-matrisler/index.html#theo:lint:14">Teorem 2.2.11</a> gereği $AB$ matrsinin rankı olan $r$ sayısı $r\leq\rho$ eşitsizliğini sağlar. Diğer yandan $A^{-1}\left(AB\right)=B$ olduğundan $\rho\leq r$ eşitsizliği de sağlanmalıdır.$$\tag*{$\blacksquare$}$$
+</p>
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Alıştırmalar</h3>
+
+
+
+
+<ol>
+<li class="py-2">Aşağıdaki $A$ matrisi için verilen tersini doğrulayın. $$A:=\left[\begin{array}{rrr}1&2&3\\2&3&4\\3&4&6\end{array}\right],\qquad A^{-1}=\left[\begin{array}{rrr}-2&0&1\\0&3&-2\\1&-2&1\end{array}\right]$$</li>
+<li class="py-2">Aşağıdaki matrisin karesini hesaplayın, daha sonra da tersini belirleyin. $$A:=\frac{1}{3}\left[\begin{array}{rrr}1&2&2\\2&-2&1\\2&1&-2\end{array}\right]$$</li>
+<li class="py-2">Aşağıdaki matris tarafından temsil edilen lineer dönüşüm altında $(1,-2,1)$ vektörünün görüntüsünü hesaplayın. Bundan hareketle bu matrisin singüler olduğunu gösterin.$$A:=\left[\begin{array}{rrr}1&2&3\\2&3&4\\0&1&2\end{array}\right]$$</li>
+<li class="py-2">Bir matrisin tersini hesaplamak için etkili yöntemleri bu bölümde öğrenmedik, ama bu alıştırmadaki yöntem bazı durumlarda kullanılabilir. $$\left[\begin{array}{rr}x_{11}&x_{12}\\x_{21}&x_{22}\end{array}\right]\cdot\left[\begin{array}{rr}3&-1\\-5&2\end{array}\right]=\left[\begin{array}{rr}3x_{11}-5x_{12}&-x_{11}+2x_{12}\\3x_{21}-5x_{22}&-x_{21}+2x_{22}\end{array}\right]$$ eşitliğinden hareketle $$\left[\begin{array}{rr}3&-1\\-5&2\end{array}\right]$$ matrisinin tersini hesaplamak için
+		$$\begin{array}{rrrr}3x_{11}-5x_{12}&&=&1\\
+		-x_{11}+2x_{12}&&=&0\\
+		&3x_{21}-5x_{22}&=&0\\
+		&-x_{21}+2x_{22}&=&1
+		\end{array}$$
+		eşitliklerinden ters matrisin elemanlarını tespit edin, daha sonra bunun gerçekten bir ters matris olup olmadığını kontrol edin.</li>
+<li class="py-2">Bir alt uzayın bir otomorfizm altındaki görüntüsü aynı boyutlu bir alt uzaydır, kanıtlayın.</li>
+<li class="py-2">Genel olarak kare olmayan matrisler için <a class="eqref" href="#theo:lint:18">Teorem 2.3.7</a> geçerli değildir. Aşağıdaki matrisler için $AB=I$ ve $BA\neq I$ olduğunu doğrulayın.
+		$$A:=\left[\begin{array}{rrr}1&0&0\\0&1&0\\\end{array}\right],\qquad B:=\left[\begin{array}{rr}1&0\\0&1\\0&0\end{array}\right]$$</li>
+</ol>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../22-matrisler/index.html">2.2. Matrisler</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Lineer Cebire Giriş</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../24-baz-degisimi/index.html">2.4. Baz Değişimi</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/23-tersinir-matrisler/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:04 GMT -->
+</html>

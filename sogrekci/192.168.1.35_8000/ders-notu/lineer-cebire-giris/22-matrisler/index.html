@@ -1,0 +1,394 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/22-matrisler/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:04 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 2.2. Matrisler
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>2.2. Matrisler</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-29">
+          29 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-06-03">
+          3 Haziran 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste <strong>matris</strong> kavramını tanımlayacağız, daha sonra bu nesneler ile lineer dönüşümlerin nasıl temsil edileceğini tartışacağız. Lineer dönüşümler seçilen baza bağlı olarak bir matris ile temsil edilir.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/esas-kosegen/index.html">esas köşegen</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/kosegen-matris/index.html">köşegen matris</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/matris/index.html">matris</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/rank/index.html">rank</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/satir-ranki/index.html">satır rankı</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/sifirlik-sayisi/index.html">sıfırlık sayısı</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/sutun-ranki/index.html">sütun rankı</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+<div class="envdef" id="def:matris"><h6 class="thenv">Tanım 2.2.1 (Matris)</h6>
+Bir $F$ cisminin bir bazı skalerinin
+
+\begin{equation}
+\label{eq:lint:2}
+\tag{2.2.1}
+A:=\left[\begin{array}{cccc}
+a_{11} & a_{12} & \cdots & a_{1n}\\
+a_{21} & a_{22} & \cdots & a_{2n}\\
+\vdots & \vdots & \ddots & \vdots\\
+a_{m1} & a_{m2} & \cdots & a_{mn}
+\end{array}\right]
+\end{equation}
+
+biçiminde dikdörtgensel bir dizisine $F$ üzerinde bir <strong>matris</strong> denir. $m$ tane satır ve $n$ tane sütundan oluşan böyle bir matris $m\times n$ <strong>boyutlu</strong> bir matris olarak adlandırılır, $n\times n$ boyutlu bir matrise $n-$inci mertebeden bir <strong>kare</strong> matris denir. \eqref{eq:lint:2} gibi bir matrisi kısaca $A:=\left[a_{ij}\right]$ olarak gösterilebilir, buradaki $a_{ij}$ ifadesi $i-$nci satır ve $j-$inci sütundaki skaleri gösterir ve bu skalerlere matrisin elemanları denir. Tüm elemanları 0 olan matrise sıfır matris denir ve $0$ ile gösterilir. $t:=\min\{m,n\}$ olmak üzere $\{a_{11}, a_{22},\ldots,a_{tt} \}$ elemanlarına matrisin <strong>esas köşegen</strong> elemanları denir, esas köşegeni dışındaki tüm elemanları sıfır olan kare matrislere <strong>köşegen</strong> matris denir.
+</div>
+</p>
+
+
+<p>
+<div class="envrem" id="rmk:lint:16"><h6 class="thenv">Uyarı 2.2.2</h6>
+$U$ ve $V$ aynı $F$ cismi üzerinde sırasıyla $n$ ve $m$ boyutlu iki vektör uzayı, $A:=\{ \alpha_1,\ldots,\alpha_n \}$ ve $B:=\{ \beta_1,\ldots,\beta_m \}$ kümeleri bu uzayların birer bazı olmak üzere $U$'dan $V$'ye tanımlı bir $\sigma$ lineer dönüşümünü ele alalım. Her $\sigma(\alpha_j)\in V$ vektörü
+
+\begin{equation}
+\label{eq:lint:3}
+\tag{2.2.2}
+\sigma(\alpha_j) = \sum_{i=1}^{m}a_{ij}\beta_i
+\end{equation}
+
+olarak ifade edilebilir. Buradaki $a_{ij}$ skalerlerinin oluşturduğu $A:=\left[a_{ij}\right]$ matrisine $A$ ve $B$ bazlarına göre $\sigma:A\to B$ dönüşümünü <strong>temsil eden</strong> matris denir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:17"><h6 class="thenv">Uyarı 2.2.3</h6>
+Lineer dönüşümler ile matrisler arasındaki <a class="eqref" href="#rmk:lint:16">Uyarı 2.2.2</a> ile tarif edilen eşleşme bire bir ve örten bir eşleşmedir, şimdi bunu gösterelim. Bir $\sigma$ lineer dönüşümü verildiğinde $B$ kümesi $V$'yi gerdiğinden \eqref{eq:lint:3} eşitliğindeki $a_{ij}$ katsayıları her zaman vardır, ayrıca $B$ lineer bağımsız olduğundan bu katsayılar tek türlüdür. Sonuç olarak verilen her dönüşüm için tek bir matris karşılık gelir. Diğer yandan $m\times n$ boyutlu bir $A:=\left[a_{ij} \right]$ matrisi verilmiş olsun ve her $\alpha_i\in A$ için $\sigma(\alpha_i):=\sum_{j=1}^{m}a_{ij}\beta_j$ olacak şekilde bir $\sigma$ dönüşümü tanımlansın. Eğer $\xi\in U$ ise ve $\xi=\sum_{j=1}^nx_j\alpha_j$ açılımına sahip ise
+
+\begin{equation}
+\label{eq:lint:4}
+\tag{2.2.3}
+\sigma\left(\xi\right)
+=\sigma\left(\sum_{j=1}^nx_j\alpha_j\right)
+=\sum_{j=1}^nx_j\sigma(\alpha_j)
+=\sum_{j=1}^{n}x_j\left(\sum_{i=1}^{m}a_{ij}\beta_i\right)
+=\sum_{i=1}^{m}\left(\sum_{j=1}^{n}a_{ij}x_j\right)\beta_j
+\end{equation}
+
+olur ve $A$ kümesi $U$ için baz olduğundan buradaki $x_j$ katsayıları tek türlü olur ve bu $\sigma$ lineer dönüşümü tüm $U$ kümesinde tanımlı olacak şekilde genişletilmiş olur. Sonuç olarak verilen her matris için tek bir lineer dönüşüm karşılık gelir.	
+</div>
+</p>
+
+<p>
+<div class="envex" id="ex:lint:2"><h6 class="thenv">Örnek 2.2.4</h6>
+$U=V=\mathbb{R}^2$ ve $A=B=\{(1, 0), (0, 1)\}$ olsun. Saatin tersi yönünde $90^\circ$ döndürme ile $(1,0)$ vektörü $(0,1)$ vektörüne, $(0,1)$ vektörü de $(-1,0)$ vektörüne dönüşür. Şimdi bu işi yapan $\sigma$ lineer dönüşümünü bu bazlara göre temsil eden matrisi belirleyelim.
+$$\sigma\left((1,0)\right)=(0,1)=0\cdot(1,0)+1\cdot(0,1)\quad\text{ve}\quad\sigma\left((1,0)\right)=(-1,0)=(-1)\cdot(1,0)+0\cdot(0,1)$$ olduklarından bu matris $$\left[\begin{array}{lr}0&-1\\1&0\end{array}\right]$$ olarak bulunur. Dikkat edilirse her bir bazın görüntüsünün koordinatları ayrı bir sütunda belirmektedir.
+</p>
+
+<p>	
+Daha genel olarak bir vektörü saatin tersi yönünde $\theta$ açısı kadar döndüren bir dönüşüm $(1,0)$ vektörünü $(\cos\theta, \sin\theta)$ vektörüne, $(0,1)$ vektörünü de $(-\sin\theta, \cos\theta)$ vektörüne dönüştürür. Dolayısıyla $$\sigma\left((1,0)\right)=(\cos\theta, \sin\theta)=\cos\theta\cdot(1,0) + \sin\theta\cdot(0,1)$$ ve $$\sigma\left((0,1)\right)=(-\sin\theta, \cos\theta)=-\sin\theta\cdot(1,0)+\cos\theta\cdot(0,1)$$ olup bu dönüşümü bu bazlara göre temsil eden matris $$\left[\begin{array}{lr}\cos\theta&-\sin\theta\\ \sin\theta&\cos\theta\end{array}\right]$$ olur.
+</div>
+</p>
+
+<p>
+<div class="envdef" id="def:matristoplam"><h6 class="thenv">Tanım 2.2.5</h6>
+$U$ ile $V$ uzayları arasında $\sigma$ ve $\tau$ lineer dönüşümleri tanımlı olsun ve bunlar sırasıyla $A:=\left[a_{ij}\right]$ ve $B:=\left[b_{ij}\right]$ matrisleri ile temsil edilsin. $\sigma+\tau$ dönüşümünü temsil eden matris $A$ ile $B$ matrislerinin <strong>toplamı</strong> olarak adlandırılır ve $A+B$ ile gösterilir. $\sigma+\tau$ dönüşümü için $$(\sigma+\tau)(\alpha_j)=\sigma(\alpha_j)+\tau(\alpha_j)=\sum_{i=1}^{m}a_{ij}\beta_i+\sum_{i=1}^{m}b_{ij}\beta_i=\sum_{i=1}^{m}\left(a_{ij}+b_{ij} \right)\beta_i$$ eşitliği sağlandığından tanım gereği $$A+B:=\left[a_{ij}+b_{ij}\right]$$ olduğu açıktır. İki matrisin toplamının tanımlı olması için bunların satır ve sütun sayılarının, yani boyutlarının, aynı olması gerekir.
+</div>
+</p>
+
+<p>
+<div class="envdef" id="def:matrisskalercarpim"><h6 class="thenv">Tanım 2.2.6</h6>
+$a\in F$ bir skaler ve $\sigma$ da $A:=\left[a_{ij}\right]$ matrisi ile temsil edilen bir lineer dönüşüm olsun. Bu durumda $a\sigma$ dönüşümünü temsil eden matris $aA$ ile gösterilir ve $A$ matrisi ile $a$ skalerinin <strong>skaler çarpımı</strong> olarak adlandırılır. $$(a\sigma)(\alpha_j)=a\sigma(\alpha_j)=\sum_{i=1}^{m}a_{ij}\beta_i=\sum_{i=1}^{m}(aa_{ij})\beta_i$$ olduğundan bu tanım gereği $$aA:=\left[aa_{ij}\right]$$ olur.
+</div>
+</p>
+
+<p>
+<div class="envdef" id="def:matiscarpim"><h6 class="thenv">Tanım 2.2.7</h6>
+$F$ cismi üzerinde üçüncü bir $W$ vektör uzayı $r-$boyutlu olsun, ayrıca $C:=\{\gamma_1,\ldots,\gamma_r \}\subset W$ kümesi herhangi bir baz olsun. $U$'dan $V$'ye tanımlı $\sigma$ dönüşümü $m\times n$ boyutlu $A:=\left[a_{ij} \right]$ matrisi ile, $V$'den $W$'ye tanımlı $\tau$ dönüşümü de $r\times m$ boyutlu $B:=\left[b_{ij} \right]$ matrisi ile temsil edilsin. Bu durumda $U$'dan $W$'ye tanımlı olan $\tau\sigma$ dönüşümünü temsil eden matris $B$ ile $A$ matrisinin <strong>çarpımı</strong> olarak adlandırılır ve $BA$ ile gösterilir.
+	\begin{eqnarray}
+		(\tau\sigma)(\alpha_j) &=& \tau\left(\sigma\left(\alpha_j\right) \right)\notag\\
+		&=& \tau\left(\sum_{i=1}^{m}a_{ij}\beta_i \right)\notag\\
+		&=& \sum_{i=1}^{m}a_{ij}\tau\left(\beta_i\right)\notag\\
+		&=& \sum_{i=1}^{m}a_{ij}\left(\sum_{k=1}^r b_{ki}\gamma_k \right)\notag\\
+		&=& \sum_{k=1}^{r}\left(\sum_{i=1}^m b_{ki}a_{ij} \right)\gamma_k\label{eq:lint:5}\tag{2.2.4}
+	\end{eqnarray}
+	olduğundan $c_{kj}:=\sum_{i=1}^{m}b_{ki}a_{ij}$ olmak üzere $C:=BA=\left[c_{kj}\right]$ eşitliği sağlanır.
+</div>
+</p>
+
+<p>
+<div class="envex" id="ex:lint:3"><h6 class="thenv">Örnek 2.2.8</h6>
+Aşağıdaki matris çarpımlarının doğrulanması okuyucuya bırakılmıştır.
+<ol>
+<li class="py-2">$\left[\begin{array}{rrrr}1&4&-1&2\\0&2&1&3\\-2&1&-2&2\end{array}\right]\left[\begin{array}{rr}1&-1\\0&2\\2&1\\3&-2\end{array}\right] = \left[\begin{array}{rr}5&2\\11&-1\\0&-2\end{array}\right]$</li>
+<li class="py-2">$\left[\begin{array}{rrr}3&1&-2\\-5&2&3\end{array}\right]\left[\begin{array}{rrr}2&1&-3\\-1&6&1\\1&0&-2\end{array}\right]=\left[\begin{array}{rrr}3&9&-4\\-9&7&11\end{array}\right]$</li></ol></div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:18"><h6 class="thenv">Uyarı 2.2.9</h6>
+Aşağıdakilerin sağlandığı lineer dönüşümlerin özellikleri gereği açıktır (bk. <a class="eqref" href="../21-lineer-donusumler/index.html#rmk:lint:7">Uyarı 2.1.12</a>). Bu eşitliklerde terimlerin tanımlı olmasını varsayıyoruz, örneğin bazı matrislerin toplanabilir olması için aynı boyutlu olduğunu varsayıyoruz.
+<ol>
+<li class="py-2">$0\cdot A=0$, burada soldaki sıfır bir skaler fakat sağdaki matristir.</li>
+<li class="py-2">$1\cdot A=A$</li>
+<li class="py-2">$A(B+C)=AB+AC$</li>
+<li class="py-2">$(A+B)C=AC+BC$</li>
+<li class="py-2">$A(BC)=(AB)C$</li>
+</ol>
+</div>
+</p>
+
+<p>
+<div class="envdef" id="def:matrisrank"><h6 class="thenv">Tanım 2.2.10</h6>
+Bir $A$ matrisinin <strong>rankı</strong> ve <strong>sıfırlığı</strong> kavramları, temsil ettiği lineer dönüşümün rankı ve sıfırlığı olarak tanımlanır. Bunlar sırasıyla $\rho(A)$ ve $\nu(A)$ ile gösterilir.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:lint:14"><h6 class="thenv">Teorem 2.2.11</h6>
+$m\times n$ boyutlu bir $A$ matrisinin rankı ile sıfırlığının toplamı $n$'dir. $BA$ çarpımının rankı hem $B$'nin hem de $A$'nın rankından küçük eşittir.
+</div>
+</p>
+
+<p2
+<strong>İspat: </strong>Bu teorem daha onda dönüşümler için elde edilen <a class="eqref" href="../21-lineer-donusumler/index.html#theo:lint:5">Teorem 2.1.22</a> ve <a class="eqref" href="../21-lineer-donusumler/index.html#theo:lint:9">Teorem 2.1.30</a> sonuçlarının yeniden ifadesidir.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:19"><h6 class="thenv">Uyarı 2.2.12</h6>
+$\sigma$ dönüşümünün rankı $V$'nin $\im(\sigma)$ alt uzayının boyutudur. $\im(\sigma)$ kümesi $\{\sigma(\alpha_1),\ldots,\sigma(\alpha_n) \}$ kümesi tarafından gerildiği için aslında $\rho(\sigma)$ sayısı $\{\sigma(\alpha_1),\ldots,\sigma(\alpha_n) \}$ kümesinin lineer bağımsız bir maksimal alt kümesinin eleman sayısıdır. Her $j=1,\ldots,m$ için $\sigma(\alpha_j)=\sum_{i=1}^{m}a_{ij}\beta_i$ vektörü $\left(a_{1j},a_{2j},\ldots,a_{mj} \right)$ sıralı $m-$lisi ile temsil edilir, bu ise $A=\left[a_{ij}\right]$ matrisinin $j-$inci sütunudur. Sonuç olarak bir matrisin rankı onun lineer bağımsız sütun sayısına eşit olur ve bu genellikle matrisin <strong>sütun rankı</strong> olarak adlandırılır. Buna benzer olarak bir matrisin lineer bağımsız satır sayısı da o matrisin <strong>satır rankı</strong> olarak adlandırılır, bunun sütun rankına eşit olduğunu daha sonra göstereceğiz.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:20"><h6 class="thenv">Uyarı 2.2.13</h6>
+Daha önce \eqref{eq:lint:4} ile görüldüğü gibi eğer bir $\xi\in U$ vektörü $(x_1,\ldots,x_n)$ ile temsil ediliyorsa ve $U$'dan $V$'ye tanımlı bir $\sigma$ dönüşümü $A:=\left[a_{ij}\right]$ matrisi ile temsil ediliyorsa, bu durumda $\sigma(\xi)\in V$ vektörü de
+
+\begin{equation}
+\label{eq:lint:6}
+\tag{2.2.5}
+y_i=\sum_{j=1}^{n}a_{ij}x_j,\qquad i=1,\ldots,m
+\end{equation}
+
+olmak üzere $(y_1,\ldots,y_m)$ ile temsil edilir. Bu da  \eqref{eq:lint:5} ile verilen matris çarpımı tanımı gereği $$Y:=\left[\begin{array}{c}y_1\\ \vdots\\ y_m \end{array}\right]\qquad\text{ve}\qquad X:= \left[\begin{array}{c}x_1\\ \vdots\\x_n \end{array}\right]$$ olmak üzere
+
+<span id="eq:lint:7">
+\begin{equation}
+\label{eq:lint:7}
+\tag{2.2.6}
+Y=AX
+\end{equation}
+</span>
+
+olarak yazılabilir.
+</p>
+
+<p>
+Dikkat edilirse daha önce $\xi$ vektörünü $(x_1,\ldots,x_n)$ sıralı $n-$lisi ile temsil ettiğimiz gibi \eqref{eq:lint:7} eşitliğinde bu vektörü bir sütun matris ile temsil ettik. Pratik yazılış açısından bundan sonra sedece $\xi$ vektörünü değil ayrıca onun $X$ sütun matrisini de $(x_1,\ldots,x_n)$ terimi ile göstereceğiz.
+</div>
+</p>
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Alıştırmalar</h3>
+
+
+
+
+<ol>
+<li class="py-2">Aşağıdaki matrisler için $AB$ ve $BA$ matrislerini hesaplayın.%nering-exe-p42
+		$$A:=\left[\begin{array}{rrrr}1&0&0&1\\0&1&1&0\\1&0&1&0\\0&1&0&1\end{array}\right],\qquad B:=\left[\begin{array}{rrrr}1&2&3&4\\5&6&7&8\\-1&-2&-3&-4\\-5&-6&-7&-8\end{array}\right]$$</li>
+<li class="py-2">$\mathbb{R}^2$'den $\mathbb{R}^2$'ye tanımlı $\sigma$ lineer dönüşümü $(1,0)$'ı $(3,-1)$'e ve $(0,1)$'i $(-1,2)$'ye dönüştürsün. Bu dönüşümün $A=B=\{(1,0), (0,1) \}$ bazlarına göre matris temsilini hesaplayın.</li>
+<li class="py-2">$\mathbb{R}^2$'den $\mathbb{R}^2$'ye tanımlı $\sigma$ lineer dönüşümü $(1,1)$'i $(2,-3)$'e ve $(1,-1)$'i $(4,-7)$'ye dönüştürsün. Bu dönüşümün $A=B=\{(1,0), (0,1) \}$ bazlarına göre matris temsilini hesaplayın. <strong>İp ucu:</strong> $(1,0)=\frac{1}{2}(1,1)+\frac{1}{2}(1,-1)$ olduğunu ve dönüşümün linerliğini kullanarak $(1,0)$ ve $(0,1)$'in görüntülerini tespit edin.</li>
+<li class="py-2">$U:=\mathbb{R}^2$ ve $V:=\mathbb{R}^3$ olmak üzere $\sigma$ dönüşümü $(1,1)$'i $(0,1,2)$'ye ve $(-1,1)$'i $(2,1,0)$'a dönüştürsün. Bu dönüşümün $A:=\{(1,0), (0,1) \}$ ve $B:=\{(1,0,0), (0,1,0), (0,0,1) \}$ bazlarına göre matris temsilini hesaplayın. <strong>İp ucu:</strong> $\frac{1}{2}(1,1)-\frac{1}{2}(-1,1)=(1,0)$</li>
+<li class="py-2">Her $a_j$ ve her $b_j$ sıfır değilse $A:=\left[a_ib_j\right]$ matrisinin rankı 1'dir, gösterin. <strong>İp ucu:</strong> <a class="eqref" href="../21-lineer-donusumler/index.html#theo:lint:9">Teorem 2.1.30</a> sonucunu kullanın.</li>
+</ol>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../21-lineer-donusumler/index.html">2.1. Lineer Dönüşümler</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Lineer Cebire Giriş</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../23-tersinir-matrisler/index.html">2.3. Tersinir Matrisler</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/22-matrisler/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:04 GMT -->
+</html>

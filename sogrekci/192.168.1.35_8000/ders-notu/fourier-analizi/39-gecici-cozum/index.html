@@ -1,0 +1,306 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/39-gecici-cozum/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 3.9. Geçici Çözüm
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>3.9. Geçici Çözüm</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-09">
+          9 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste Eğer $u$ fonksiyonu <a class="eqref" href="../37-zamandan-bagimsiz-problemler/index.html#bvp3-heat-1">(3.7.1)</a>-<a class="eqref" href="../37-zamandan-bagimsiz-problemler/index.html#bvp3-mod-3">(3.7.4)</a> probleminin denge çözümünü araştırmaya başlayacağız. Bu araştırmamızda dokuz önemli soruya cevap vermemiz gerektiğini göreceğiz, bu sorular sonraki bölümlerde bizi önemli kavramlara götürecek.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/degiskenlere-ayirma/index.html">değişkenlere ayırma</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/gecici-cozum/index.html">geçici çözüm</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/zamandan-bagimsiz-problem/index.html">zamandan bağımsız problem</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Eğer $u$ fonksiyonu <a class="eqref" href="../37-zamandan-bagimsiz-problemler/index.html#bvp3-heat-1">(3.7.1)</a>-<a class="eqref" href="../37-zamandan-bagimsiz-problemler/index.html#bvp3-mod-3">(3.7.4)</a> probleminin bir çözümü ve $U$ fonksiyonu <a class="eqref" href="../38-denge-durumu-cozumu/index.html#bvp3-mod2-1">(3.8.1)</a>-<a class="eqref" href="../38-denge-durumu-cozumu/index.html#bvp3-mod2-1">(3.8.3)</a> probleminin bir çözümü ise bu durumda $v:=u-U$ fonksiyonu da 
+
+<span id="bvp3-mod3-1">\begin{eqnarray}
+	cv_{t}=(\kappa v_x)_x ,&& \qquad0\lt x\lt a\text{ ve }t>0\text{ için}\label{bvp3-mod3-1}\tag{3.9.1}\\
+	a_1v(0,t)-b_1v_x(0,t)=0, && \qquad t\geq0\text{ için}\label{bvp3-mod3-2}\tag{3.9.2}\\
+	a_2v(a,t)+b_2v_x(10,t)=0, && \qquad t\geq0\text{ için}\label{bvp3-mod3-3}\tag{3.9.3}  \\
+	v(x,0)=f(x)-U(x), && \qquad0\leq x\leq a \text{ için}\label{bvp3-mod3-4}\tag{3.9.4}
+\end{eqnarray}</span>
+
+sınır değer probleminin bir çözümü olacaktır, yani <a class="eqref" href="../37-zamandan-bagimsiz-problemler/index.html#bvp3-heat-1">(3.7.1)</a>-<a class="eqref" href="../37-zamandan-bagimsiz-problemler/index.html#bvp3-mod-3">(3.7.4)</a> orijinal problemimizin çözümü $u=U+v$ olacaktır.
+</p>
+
+<p>
+Bu problemde denklem ve sınır koşulları lineer olduğundan değişkenlere ayırma yöntemi ve süperpozisyon ilkesi kullanılabilir. Eğer $v(x,t)=X(x)T(t)$ biçiminde bit çözüm varsa bunu \eqref{bvp3-mod3-1} eşitliğinde kullanarak $$cXT'=\kappa X''T+\kappa'X'T$$ denklemine varılır. Bu eşitliği $cXT$ ile bölersek $$\frac{T'}{T}=\frac{\kappa X''+\kappa'X'}{cX}$$ eşitliği elde edilir, dikkat edilirse bu eşitliğin sağlanması için her iki tarafın da aynı sabite eşit olması gerekir çünkü bir taraf $t$ değişkeninin diğer taraf is $x$ değişkenini fonksiyonudur. Bu sabiti $-\lambda$ ile gösterirsek $$T'+\lambda T=0$$ ve
+
+\begin{equation}
+\label{eq:bvp3-mod3-eq-1}
+\tag{3.9.5}
+\kappa X''+\kappa'X'+\lambda c X=0
+\end{equation}
+
+diferensiyel denklemlerine varırız. İlk denklemin çözümü iyi bilinse de birkaç özel durum dışında (katsayıların sabit olması gibi) \eqref{eq:bvp3-mod3-eq-1} denkleminin genel çözümü bilinmiyor. Ayrıca bu genel çözüm bilinse bile $$a_1X(0)-a_2X'(0)=0\quad\text{ve}\quad a_2X(a)+b_2X'(a)=0$$ koşullarını sağlayacak bir çözüm üretecek şekilde bir $\lambda$ sayısının varlığı açık değildir.
+</p>
+
+<p>
+Fakat şimdi özel olarak verilen $\kappa$ ve $c$ fonksiyonları için bir $\lambda_1,\lambda_2,\ldots,\lambda_n,\ldots$ dizisi bulabildiğimizi ve her $\lambda=\lambda_n$ sayısına karşılık bir \eqref{eq:bvp3-mod3-eq-1} diferensiyel denkleminin çözümü olan ve ilgili sınır koşullarını sağlayan bir $X_n\not\equiv0$ fonksiyonu bulabildiğimizi varsayalım. Bu durumda her $n\in\mathbb{N}$ için, $c_n$'ler keyfi sabitler olmak üzere $$v_n(x,t)=c_ne^{-\lambda_nt}X_n(x)$$ fonksiyonları \eqref{bvp3-mod3-1}-\eqref{bvp3-mod3-3} probleminin bir çözümü olur, lineerlik gereği bu fonksiyonların herhangi sonlu toplamları da bir çözüm olacaktır. Fakat \eqref{bvp3-mod3-4} başlangıç koşulunun sağlanması için
+
+\begin{equation}
+\label{bvp3-mod3-init-1}
+\tag{3.9.6}
+\sum\limits_{n=1}^{\infty}c_ne^{-\lambda_nt}X_n(x)
+\end{equation}
+
+sonsuz serisini ele almalıyız. Eğer bu seri sürekli bir $v:\overline{D}\rightarrow\mathbb{R}$ fonksiyonuna yakınsak ise $t=0$ yazarak ve \eqref{bvp3-mod3-4} eşitliğini kullanarak
+
+\begin{equation}
+\label{bvp3-mod3-init-2}
+\tag{3.9.7}
+\sum\limits_{n=1}^{\infty}c_nX_n(x)=f(x)-U(x)
+\end{equation}
+
+eşitliğini elde ederiz. Daha önce Fourier serileri için yaptığımız gibi bu serinin yakınsak olduğunu, terim terim integrallenebildiğini, \eqref{bvp3-mod3-init-2} eşitliğinin sağlandığını ve $m\neq n$ için $$\int_{0}^{a}rX_mX_n=0$$ olacak şekilde integrallenebilir bir $r\not\equiv0$ fonksiyonunun varlığını varsayabilir ve bu koşullar altında \eqref{bvp3-mod3-init-2} eşitliğinin her iki tarafını $rX_m$ ile çarpıp terim terim integralleyerek buradan $c_n$ katsayılarını $$c_n=\frac{\int_{0}^{a}r(f-U)X_n}{\int_{0}^{a}rX^2_n}$$ olarak hesaplayabiliriz. Dikkat edilirse Fourier serilerini araştırırken $r\equiv1$ almıştık ama genel durumda iki fonksiyonun çarpımının integrali sıfır olmazken onların bir $r$ fonksiyonu ile çarpımının integrali sıfır olabilir.
+</p>
+
+<p>
+Bu yüzden geçici çözümü elde etmek için $\lambda_n$ sayılarını ve bunlara karşılık gelen $X_n$ fonksiyonlarını belirlemek durumundayız, bu bazı özel durumlarda yapılabilse de her zaman olanaklı değildir.
+</p>
+
+<p>
+O zaman genel durumda geçici çözümün varlığını gösterebilir miyiz? Bunu yapabilmek için, yukarıda gördüğümüz gibi, öncelikle bazı sorulara olumlu cevaplar verebilmeliyiz.
+</p>
+
+<p>
+<ol type="i">
+<li>\eqref{eq:bvp3-mod3-eq-1} denkleminin $a_1X(0)-b_1X'(0)=0$ ve $a_2X(a)+b_2X'(a)=0$ koşullarını sağlayan bir $X\not\equiv0$ çözümü var olacak şekilde $\lambda$ sayıları var mıdır?</li>
+<li>Varsa bu sayılar reel sayı mıdır?</li>
+<li>Bu $\lambda$ sayıları bir dizi oluşturur mu?</li>
+<li>Her $\lambda_n$ sayısına karşılık tek bir $X_n$ (sabitle çarpım hariç) çözümü var mı?</li>
+<li>$m\neq n$ ise $\int_0^arX_mX_n=0$ olacak şekilde bir $r$ fonksiyonu var mı?</li>
+<li>Yukarıda verilen $c_n$ katsayılarıyla beraber \eqref{bvp3-mod3-init-1} serisi $f(x)-U(x)$ fonksiyonuna $[0,a]$ aralığında düzgün yakınsar mı?</li>
+</ol>
+</p>
+
+<p>
+Bu soruların hepsinin cevabının olumlu olduğunu varsaysak bile hala \eqref{bvp3-mod3-init-1} serisinin $\overline{D}$ kümesinde sürekli olan ve \eqref{bvp3-mod3-1}-\eqref{bvp3-mod3-4} eşitliklerini sağlayan bir fonksiyona yakınsadığını göstermemiz gerekir. Bunu, daha önce verdiğimiz <a class="eqref" href="../31-cozumun-varligi/index.html#bvp-lm1">Lemma 3.1.1</a>, <a class="eqref" href="../31-cozumun-varligi/index.html#bvp-lm2">Lemma 3.1.2</a> ve <a class="eqref" href="../31-cozumun-varligi/index.html#bvp-teo-varlik">Teorem 3.1.1</a> kanıtlarını baz alarak yapabiliriz. Eğer $$X_n(x):=\sin\frac{n\pi}{a}x\quad\text{ve}\quad g_n(t):=e^{-n^2\pi^2kt/a^2}$$ notasyonunu kullanırsak <a class="eqref" href="../31-cozumun-varligi/index.html#bvp-lm1">Lemma 3.1.1</a> ve <a class="eqref" href="../31-cozumun-varligi/index.html#bvp-lm2">Lemma 3.1.2</a> kanıtlarının
+$$\begin{array}{l}
+A.\quad\text{bir } M>0 \text{ sayısı ve her } n\in\mathbb{N} \text{ için } |c_nX_n|< M,\\ B.\quad t_0>0\text{ keyfi olmak üzere her }t\geq t_0 \text{ ve her } n\in\mathbb{N} \text{ için } g_n(t)\leq g_n(t_0),\\
+C.\quad \lim\limits_{n\rightarrow\infty}\left[g_n(t_0)\right]^\frac{1}{n}<1
+\end{array}$$koşullarına dayandığını hatırlayalım. Ayrıca <a class="eqref" href="../31-cozumun-varligi/index.html#bvp-teo-varlik">Teorem 3.1.1</a> ve <a class="eqref" href="../31-cozumun-varligi/index.html#bvp-teo-varlik-2">Teorem 3.1.2</a> kanıtları $$\begin{array}{l}
+D.\quad\text{her } n\in\mathbb{N} \text{ ve her } t\in[0,\infty) \text{ için } g_n(t)\leq1 \text{ ve } g_{n+1}(t)\leq g_n(t)
+\end{array}$$ eşitsizliklerine de dayanıyordu.
+</p>
+
+<p>
+Genel durumda ise, yani $X_n$ fonksiyonları \eqref{eq:bvp3-mod3-eq-1} denkleminin çözümleri ve $g_n(t):=e^{-\lambda_nt}$ iken, yukarıda (vi) sorusunun cevabını olumlu kabul ettiğimiz için düzgün yakınsaklık gereği A eşitsizliği sağlanır. (Bunu görmek için Cauchy düzgün yakınsaklık kriteri kullanılabilir.) Ayrıca $g_n$ için verdiğimiz diğer dört eşitsizlik de ancak aşağıdaki soruların cevapları olumlu ise sağlanır.
+</p>
+
+<p>
+<ol type="i" start="7">
+<li>Her $n\in\mathbb{N}$ için $0\leq \lambda_n<\lambda_{n+1}$ eşitsizliği sağlanır mı?</li>
+<li>$\lim\limits_{n\rightarrow\infty}\frac{\lambda_n}{n}>0$ eşitsizliği sağlanır mı?</li>
+</ol>
+</p>
+
+<p>
+Bunların da cevaplarını olumlu kabul edelim, bu durumda \eqref{bvp3-mod3-init-1} serisi sürekli bir $v:\overline{D}\rightarrow\mathbb{R}$ fonksiyonuna yakınsayacaktır. Bu $v$ fonksiyonunun geçici çözüm olabilmesi için artık sadece $t\rightarrow\infty$ için $v(x,t)\rightarrow0$ olduğunu göstermeliyiz. Eğer $\lambda_1>0$ ise bu durumda (vii) gereği her $n\in\mathbb{N}$ için $\lambda_n/n>0$ olacak ve dolayısıyla (viii) gereği her $n\in\mathbb{N}$ için $\lambda_n/n\geq\alpha$ olacak şekilde bir $\alpha>0$ sayısı bulunabilecektir. Böylece $$|v(x,t)|\leq\sum\limits_{n=1}^{\infty}\left|c_ne^{-\lambda_nt}X_n(x)\right|\leq \sum\limits_{n=1}^{\infty}Me^{-\lambda_nt}\leq M\sum\limits_{n=1}^{\infty}\left(e^{-\alpha t}\right)^n=\frac{e^{-\alpha t}}{1-e^{-\alpha t}}$$ eşitsizliği sağlanacağından $t\rightarrow\infty$ için $v(x,t)\rightarrow0$ olduğu görülmüş olur. Diğer yandan eğer $\lambda_1=0$ ise $\lambda_n\geq n\alpha$ eşitsizliği bu defa $n\geq2$ için sağlanacağından benzer düşünüşle $t\rightarrow\infty$ için $v(x,t)-c_1X_1(x)\rightarrow0$ olacağı açıktır. Dolayısıyla $\lambda_1=0$ durumunda $c_1=0$ oluyorsa bu $v$ fonksiyonu yine geçici çözüm olur. O halde şu sorunun da cevabının olumlu olması gerekmektedir
+</p>
+
+<p>
+<ol type="i" start="9">
+<li>$\lambda_1=0$ ise $c_1=0$ oluyor mu?</li>
+</ol>
+</p>
+
+<p>
+Sonuç olarak bu dokuz soruyu olumlu olarak cevaplamak şartıyla geçici çözümün varlığına ulaşmış oluruz. Bu soruların detaylı araştırmasını daha sonra yapacağız.
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../38-denge-durumu-cozumu/index.html">3.8. Denge Durumu Çözümü</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Fourier Analizi</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../310-tam-cozum/index.html">3.10. Tam Çözüm</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/39-gecici-cozum/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:35 GMT -->
+</html>

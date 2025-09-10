@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/blog/django-tabanli-web-sitesini-yayinlamak/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:36:40 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - Django Tabanlı Web Sitesini Yayınlamak
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../static/site/prism.css">
+    <script src="../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>Django Tabanlı Web Sitesini Yayınlamak</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-06-24">
+          24 Haziran 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-06-29">
+          29 Haziran 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Django tabanlı bir site geliştirdikten sonra bunu genel erişime açmak için izleyebileceğiniz bazı yöntemler var, bu yazımda bunun için en yaygın yöntemleri açıklıyorum.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../dizin/apache/index.html">Apache</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/aws/index.html">AWS</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/django/index.html">Django</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/gunicorn/index.html">Gunicorn</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/heroku/index.html">Heroku</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/mod_wsgi/index.html">mod_wsgi</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/nginx/index.html">Nginx</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-5 text-justify">
+        <p>
+Bin bir emek verip ilk defa bir <a class="outref" href="https://www.djangoproject.com/" target="_blank">Django</a> sitesi geliştirdiniz ve yerel sunucunuzda sorunsuz şekilde test ettiniz diyelim, bunu gerçek bir sunucuya yüklemek istediğinizde öğreneceğiniz daha çok şeyin var olduğunu keşfedersiniz (bu konuda yazılmış <a class="outref" href="https://djangodeployment.com/" target="_blank">kitap</a> var). Gerçekten Django tabanlı web sitesini internette yayınlamak için klasik web hosting yöntemlerini biraz aşmanız gerekir. Geleneksel web barındırma hizmetlerini kullanmaya alışıksanız bilirsiniz, orada her şey hazırdır ve sunucu sizden yayınlanacak sitenizin dosyalarını beklemektedir. Django sitesini barındırırken senaryo böyle değildir, bir çok şey sizin elinize bakar.
+</p>
+
+<p>
+Yine de karamsar olmayın, bazı işlemleri otomatize etmiş olan barındırma sağlayıcıları var artık, biraz da olsa işleriniz kolaylaşmış durumda. Bu yazımda Django sitesi barındırmak için yaygın bir kaç yöntemden bahsedeceğim.
+</p>
+
+<img class="envfig my-5" src="https://brand.heroku.com/static/media/heroku-logotype-horizontal.81c49462.svg" width="40%">
+
+<p>
+Bahsedeceğim ilk yöntem Django sitesini <a class="outref" href="https://www.heroku.com/" target="_blank"><strong>Heroku</strong></a> ile barındırma yöntemi. Heroku firması uzun zamandır var olan bir bulut bilişim firması ve günümüzde Django barındırma konusunda yaygın olarak kullanılıyor. Bu firma Django sitenizi barındırmak için bir çok şeyi hazır olarak kurmuş ve sizden sadece sitenizin dosyalarınızı yüklemenizi ve birkaç basit ayarlamayı yapmanızı bekliyor. Size bahsedeceğim en basit yöntem budur, ayrıca <strong>tamamen ücretsiz</strong> olan bir paketi de var, geliştirme süresince kullanılabilir. Django sitelerini Heroku sunucularında nasıl barındırabileceğiniz <a class="outref" href="https://devcenter.heroku.com/articles/getting-started-with-python" target="_blank">şu sayfada</a> adım adım anlatılmış, bir göz atın.
+</p>
+
+<div class="row">
+
+<div class="col mx-auto">
+<img class="envfig my-5" src="https://httpd.apache.org/images/httpd_logo_wide_new.png" width="200%">
+</div>
+
+<div class="col mx-auto">
+<img class="envfig my-5" src="https://www.nginx.com/wp-content/uploads/2020/06/NGINX-Logo-White-Endorsement-RGB.svg" width="50%">
+</div>
+
+</div>
+
+<p>
+Bahsedeceğim diğer yöntemler biraz daha karmaşık ama size daha fazla kontrol sunar. Bu yöntem bir sanal sunucu (<strong>VPS</strong>, virtual private server) kiralayıp bir işletim sistemi yükledikten sonra kendi web sunucunuzu kurmanızı ve gerekli ayarlamaları yapmanızı içerir. Çok karmaşık görünse de aslında öyle değildir, bir çok elemanın kurulumunu sadece bir kez yaparsınız ve bunu öğrenirken sistem yöneticiliğine ilk adımınızı atmış olursunuz. Django web çatısı Python tabanlı olduğu için Django tabanlı sitenizi barındırmak için önce bir web sunucusu ve daha sonra HTTP isteklerini ve cevaplarını Python diline çeviren bir ara yazılım kurmanız gerekir. Web sunucusu için en yaygın iki seçenek <a class="outref" href="https://httpd.apache.org/" target="_blank">Apache</a> ve <a class="outref" href="https://www.nginx.com/" target="_blank">Nginx</a> sunucularıdır. Bunların Python iletişimleri için de sırasıyla <a class="outref" href="https://modwsgi.readthedocs.io/en/develop/" target="_blank">mod_wsgi</a> (Apache için) veya <a class="outref" href="https://gunicorn.org/" target="_blank">Gunicorn</a> (Nginx için) kullanabilirsiniz.
+</p>
+
+<img class="envfig my-5" src="https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png" width="40%">
+
+<p>
+Bu yöntemi kullanmak için ihtiyacınız olan şey bir VPS ve sonrasında biraz bilgi. VPS kiralayan bir çok şirket var, en bilinenlerinden birisi <a class="outref" href="https://aws.amazon.com/tr/" target="_blank"><strong>AWS</strong></a>'dir. AWS içinde çok sayıda hizmet sunuluyor, bir çoğu farklı amaçlar için kullanılacak olan farklı VPS türleri sunuyor. Sitenizi barındırmak için bunların tek birini veya birden fazlasının bir kombinasyonunu kullanmanız gerekebilir; mesela <strong>işlem + statik depo + veritabanı</strong> için <strong>EC2+S3+RDS</strong> gibi bir kombinasyona ihtiyacınız olabilir. Bu servislerin her birini ayrı ayrı konfigüre etmeniz gerekiyor, ilk başta bunları öğrenmek biraz zahmetli gelebilir. Sizin için bütün bu konfigürasyonu otomatik olarak yapan bir AWS servisi geliştirilmiş: <a class="outref" href="https://aws.amazon.com/tr/elasticbeanstalk/" target="_blank">Elastic Beanstalk</a>. Heroku'ya rakip olarak geliştirilen bu servis ile Django sitesi barındırmanın adımları <a class="outref" href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-django.html#python-django-configure-for-eb" target="_blank">şu sayfada</a> tarif ediliyor. Ayrıca AWS içinde işlem ve depolamayı birlikte sunan bir de <a class="outref" href="https://aws.amazon.com/tr/lightsail/" target="_blank">Lightsail</a> VPS hizmeti var, bununla Django site barındırma adımları (Apache+mod_wsgi ile) da <a class="outref" href="https://aws.amazon.com/tr/getting-started/hands-on/deploy-python-application/" target="_blank">şu sayfada</a> anlatılıyor. Veritabanı konusunda AWS tarafından sunulan yönetilen veritabanı hizmetlerini (RDS gibi) kullanabilirsiniz (ücretli hizmetler), alternatif olarak sunucunuda istediğiniz veritabanı motorunu da kurabilirsiniz (bu ücretsiz ama bakım ve yedekleme gibi işlemler ellerinizden öper). Amazon servislerinde veya başka bir VPS sağlayıcı için bir Ubuntu işletim sisteminde Nginx+Gunicorn ile Django sitesi barındırmak için <a class="outref" href="https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-18-04" target="_blank">şu sayfada</a> anlatılan adımlar genel yöntemi açıklıyor.
+</p>
+
+<p>
+Bu yazımda size Django tabanlı web sitenizi barındırmak için en yaygın seçenekleri anlattım, işe koyulduğunuzda daha fazla detayla karşılaşacaksınız ve sitenizin özelliklerine ve gereksinimlerine göre bir çok teknik ayarlama yapmak zorunda kalacaksınız. Umarım bu yazı size temel anlamda bir kılavuz olur.
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Blog Yazısı:<br>
+        <a href="../matris-izi-ve-integrasyon/index.html">Matris İzi ve İntegrasyon</a>
+        
+      </div>
+      <div class="col text-center mt-auto">
+        <a href="../index.html">Blog Ana Sayfası</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Blog Yazısı:<br>
+        <a href="../bedava-lisansli-mathematica/index.html">Bedava Lisanslı Mathematica</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+
+
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../ders-notu/index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/blog/django-tabanli-web-sitesini-yayinlamak/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:36:40 GMT -->
+</html>

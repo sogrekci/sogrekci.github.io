@@ -1,0 +1,480 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/derin-ogrenme/1-tahmin-etme-forward-propagation/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:41:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 1. Tahmin Etme, Forward Propagation
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>1. Tahmin Etme, Forward Propagation</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-10-25">
+          25 Ekim 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-10-28">
+          28 Ekim 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste bir program ile bir sorunun cevabının nasıl tahmin edildiği açıklanıyor. Bu işlem son derece basit aslında; tahmin işlemi dediğimiz işlem sadece girişi verisini belirli bir sayı ile çarpmaktan ibaret.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/forward-propagation/index.html">forward propagation</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/input/index.html">input</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/output/index.html">output</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/prediction/index.html">prediction</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/tahmin/index.html">tahmin</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/weight/index.html">weight</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Öncelikle makinenin nasıl tahmin ürettiğini açıklayacağım. Farz edelim ki bir futbol takımının (mesela Antalyaspor) önceki maçlarına ait bilgileri kullanarak belirli bir maçı kazanıp kazanamayacağının tahminini yapmaya çalışıyoruz, basitlik açısından sadece kazanmak ve kaybetmek durumlarının olduğunu kabul edelim, beraberlik yok. Şimdi sadece tahmin olayını açıkladığımız için biz (insan olarak) önceki maçların bilgilerini analiz ettiğimizi ve öğrenme aşamasını tamamladığımızı düşünelim. Bu analiz sonucunda şöyle bir çıkarımda bulunduk mesela: <em>takımın attığı şut sayısı maçı kazanma durumunu yüksek derecede etkiliyor!</em> Örneğin takımımız 1 şut attığı maçların çok azını kazanmış, 5 ila 10 şut attığı maçların bazılarını kazanmış, 10-20 şut attığı maçların çoğunu kazanmış ve daha fazla şut attığı maçların hepsini kazanmış.
+</p>
+
+<p>
+Şu aşamada tahminimizi sadece şut sayısına göre şekillendiriyoruz, bir maçta takımımızın kaç şut attığına bakarak maçı kazanıp kazanamadığını tahmin edeceğiz. Şut sayısının tahminimini etkileme oranına <strong>ağırlık</strong> katsayısı (<strong>weight</strong>) diyoruz. Tahmini de şöyle yapıyoruz; şut sayısını input olarak alıyoruz ve bu sayıyı weight ile çarpıp bir output üretiyoruz. Bu output değeri bu maçı kazanma ihtimalimizi belirten bir sayı; ne kadar büyük ise o kadar yüksek ihtimal.
+
+<img class="envfig my-5" src="../../../static/ders-notu/derin-ogrenme/deep_learning_1.jpg" width="42%">
+</p>
+
+<p>
+Söylediğim gibi tahmin yapmak olarak belirttiğimiz şey sadece şut sayısını weight ile çarpmak, oldukça basit ama mantıklı! Aşağıdaki basit program bu tahmini yapabilir. Şut sayısının tahmini etkileme katsayısı (weight) 0.2 olsun.
+
+<pre class="my-4"><code class="language-python line-numbers">
+weight = 0.2
+
+def neural_network(input, weight):
+    prediction = input*weight
+    return prediction
+
+number_of_shots = [2.5, 7.5, 10.0, 3.5] #farkli maclardaki ortalama sut sayiları
+input = number_of_shots[0] #ilk mac icin tahmin yapacagiz
+pred = neural_network(input, weight) #tahmin
+print(pred)
+</code></pre>
+
+<pre class="my-4"><code class="language-">
+ >>> 0.5
+</code></pre>
+</p>
+
+<p>
+Yukarıda yazdığınız fonksiyon bir sinir ağı (neural network) olarak adlandırılır, görüp görebileceğiniz en basit sinir ağı budur fakat hepsinin mantığı aynıdır.
+</p>
+
+<p>
+Şimdi tahmin mekanizmasını biraz geliştirelim, mesela sadece şut değil atılan başarılı pas sayısı ve maçı izleyen seyirci sayısı da tahminimizi etkilesin. Bunların weight değerleri 0.025 (pas), 0.1 (şut) ve 0.01 (seyirci) olsun. Bu durumda her bir input (pas, şut ve seyirci) değerini kendi weight değeri ile çarpıp toplayacağız.
+
+<img class="envfig my-5" src="../../../static/ders-notu/derin-ogrenme/deep_learning_2.jpg" width="40%">
+
+<pre class="my-4"><code class="language-python line-numbers">
+weights = [0.025, 0.1, 0.01]
+
+def neural_network(input, weights):
+    pred = w_sum(input, weights)
+    return pred
+
+def w_sum(a, b):
+    assert(len(a) == len(b))
+    output = 0
+    for i in range(len(a)):
+        output += a[i]*b[i]
+    return output
+
+passes = [23.5, 39.25, 10.9, 40.8]
+shots = [2.5, 7.5, 10.0, 3.5]
+fans = [1.2, 1.3, 0.5, 1.0] #x10K
+
+input = [passes[0], shots[0], fans[0]]
+pred = neural_network(input, weights)
+print(pred)
+</code></pre>
+
+<pre class="my-4"><code class="language-">
+ >>> 0.8495
+</code></pre>
+</p>
+
+
+
+<p>
+Bu programı <strong>numpy</strong> ile daha basit olarak da kodlayabiliriz, <code class="language-python">w_sum</code> olarak tanımladığımız işlem aslında nokta çarpım (<code class="language-python">dot</code>) işleminden başka bir şey değildir.
+
+<pre class="my-4"><code class="language-python line-numbers">
+import numpy as np
+
+weights = np.array([0.025, 0.1, 0.01])
+
+def neural_network(input, weights):
+    pred = input.dot(weights)
+    return pred
+
+passes = np.array([23.5, 39.25, 10.9, 40.8])
+shots = np.array([2.5, 7.5, 10.0, 3.5])
+fans = np.array([1.2, 1.3, 0.5, 1.0])
+
+input = np.array([passes[0], shots[0], fans[0]])
+pred = neural_network(input, weights)
+print(pred)
+</code></pre>
+
+<pre class="my-4"><code class="language-">
+ >>> 0.8495
+</code></pre>
+</p>
+
+
+<p>
+Şimdi bir de tek bir input ile çoklu output üretelim, mesela atılan şut sayısını kullanarak maçı kazanma, futbolcuların mutlu olması ve takımın gelirinin artması olasılıklarını tahmin edelim. Bunların her biri için weight değerleri aşağıdaki gibi olsun, tek tahmin için yaptığımız işi her bir tahmin için tekrar edeceğiz.
+
+<img class="envfig my-5" src="../../../static/ders-notu/derin-ogrenme/deep_learning_3.jpg" width="40%">
+
+<pre class="my-4"><code class="language-python line-numbers">
+weights = [0.3, 0.2, 0.35]
+
+def neural_network(input, weights):
+    pred = ele_mul(input, weights)
+    return pred
+
+def ele_mul(number, vector):
+    output = [0, 0, 0]
+    assert(len(output) == len(vector))
+    for i in range(len(vector)):
+        output[i] = number*vector[i]
+    return output
+
+shots = [2.5, 7.5, 10.0, 3.5]
+input = shots[0]
+pred = neural_network(input, weights)
+print(pred)
+</code></pre>
+
+<pre class="my-4"><code class="language-">
+ >>> [0.75, 0.5, 0.875]
+</code></pre>
+</p>
+
+
+<p>
+Şimdi de çoklu input ile çoklu output üretelim. Bu durumda pas, şut ve taraftar sayılarının kazanmaya, mutluluğa ve kazanca ayır ayrı etkileri için ayrı weight değerlerine ihtiyacımız var, toplam 9 tane. Her bir weight değerini ilgili sayı ile çarpıp toplayacağız. Anlayacağınız gibi weight değerleri bir matris oluşturacak ve bir matris çarpması yapacağız ve mantık aynı, sadece çarptığımız nesnelerin boyutları farklı.
+
+<img class="envfig my-5" src="../../../static/ders-notu/derin-ogrenme/deep_learning_4.jpg" width="42%">
+
+<pre class="my-4"><code class="language-python line-numbers">
+weights = [
+    [0.045, 0.1, -0.3], #win?
+    [0.01, 0.2, 0.0], #happy?
+    [0.0, 0.3, 0.1] #income?
+]
+
+def neural_network(input, weights):
+    pred = vect_mat_mul(input, weights)
+    return pred
+
+def w_sum(a, b):
+    assert(len(a) == len(b))
+    output = 0
+    for i in range(len(a)):
+        output += a[i]*b[i]
+    return output
+
+def vect_mat_mul(vector, matrix):
+    assert(len(vector) == len(matrix))
+    output = [0, 0, 0]
+    for i in range(len(vector)):
+        output[i] = w_sum(vector, matrix[i])
+    return output
+
+passes = [23.5, 39.25, 10.9, 40.8]
+shots = [2.5, 7.5, 10.0, 3.5]
+fans = [1.2, 1.3, 0.5, 1.0]
+
+input = [passes[0], shots[0], fans[0]]
+pred = neural_network(input, weights)
+
+print(pred)
+</code></pre>
+
+<pre class="my-4"><code class="language-">
+ >>> [0.9474999999999999, 0.735, 0.87]
+</code></pre>
+</p>
+
+
+<p>
+Buraya kadar öğrendiğimiz her şey makine öğrenmesi lügatında <strong>forward propagation</strong> olarak adlandırılır.
+</p
+
+<p>
+Bazen (aslında sıklıkla) çoklu tahminler yaparız, yani tahminde bulunduktan sonra bu tahminleri tekrar input olarak programa verip bunun üzerine bir tahminde daha bulunuruz. Bunun sebebini daha sonra anlayacaksınız, şimdilik böyle bir şeyin yapıldığnı bilmeniz yeterli.
+
+<pre class="my-4"><code class="language-python line-numbers">
+#passes #shots #fans
+ih_weight = [
+    [0.1, 0.2, -0.1], #hid[0]
+    [0.1, 0.1, 0.9], #hid[1]
+    [0.1, 0.4, 0.1] #hid[2]
+]
+
+#hid[0] #hid[1] #hid[2]
+hp_weight = [
+    [0.03, 0.2, -0.1], #hurt?
+    [0.01, 0.2, 0.0], #win?
+    [0.05, 0.3, -0.1] #sad
+]
+
+weights = [ih_weight, hp_weight]
+
+def neural_network(input, weights):
+    hid = vect_mat_mul(input, weights[0])
+    pred = vect_mat_mul(hid, weights[1])
+    return pred
+
+def w_sum(a, b):
+    assert(len(a) == len(b))
+    output = 0
+    for i in range(len(a)):
+        output += a[i]*b[i]
+    return output
+
+def vect_mat_mul(vector, matrix):
+    assert(len(vector) == len(matrix))
+    output = [0, 0, 0]
+    for i in range(len(vector)):
+        output[i] = w_sum(vector, matrix[i])
+    return output
+
+passes = [23.5, 39.25, 10.9, 40.8]
+shots = [2.5, 7.5, 10.0, 3.5]
+fans = [1.2, 1.3, 0.5, 1.0]
+
+pred = neural_network(input, weights)
+print(pred)
+</code></pre>
+
+<pre class="my-4"><code class="language-">
+ >>> [0.47090000000000004, 0.7633000000000001, 0.8935000000000002]
+</code></pre>
+</p>
+
+
+<p>
+Aşağıdaki program da bunun numpy versiyonudur
+
+<pre class="my-4"><code class="language-python line-numbers">
+import numpy as np
+
+#toes %win #fans
+ih_wgt = np.array([ 
+            [0.1, 0.2, -0.1], #hid[0]
+            [0.1, 0.1, 0.9], #hid[1]
+            [0.1, 0.4, 0.1]]).T #hid[2]
+
+# hid[0] hid[1] hid[2]
+hp_wgt = np.array([  
+            [0.03, 0.2, -0.1], #hurt?
+            [0.01, 0.2, 0.0], #win?
+            [0.05, 0.3, -0.1]]).T #sad?
+
+weights = [ih_wgt, hp_wgt]
+
+def neural_network(input, weights):
+    hid = input.dot(weights[0])
+    pred = hid.dot(weights[1])
+    return pred
+
+passes =  np.array([23.5, 39.25, 10.9, 40.8])
+shots = np.array([2.5, 7.5, 10.0, 3.5])
+fans = np.array([1.2, 1.3, 0.5, 1.0])
+
+input = np.array([passes[0],shots[0],fans[0]])
+pred = neural_network(input,weights)
+print(pred)
+</code></pre>
+
+<pre class="my-4"><code class="language-">
+ >>> [0.4709 0.7633 0.8935]
+</code></pre>
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Derin Öğrenme</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../2-ogrenme-gradient-descent/index.html">2. Öğrenme, Gradient Descent</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/derin-ogrenme/1-tahmin-etme-forward-propagation/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:41:55 GMT -->
+</html>

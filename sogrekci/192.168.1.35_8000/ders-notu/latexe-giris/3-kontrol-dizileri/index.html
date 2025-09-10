@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/latexe-giris/3-kontrol-dizileri/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:41:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 3. Kontrol Dizileri
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>3. Kontrol Dizileri</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-16">
+          16 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>LaTeX ile dizgi yaparken <strong>kontrol dizileri</strong> dediğimiz LaTeX komutlarına mutlaka işimiz düşer. Bu derste bu kontrol dizilerinin yapısını tartışacağız, ayrıca bazı örnekler de vereceğiz.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/dokuman-siniflari/index.html">doküman sınıfları</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/kontrol-dizileri/index.html">kontrol dizileri</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/latex-komutlari/index.html">LaTeX komutları</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/latex-yorumlari/index.html">LaTeX yorumları</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+LaTeX ile belgeleri biçimlendirirken <strong>kontrol dizilerinden</strong> (yani komutlardan) faydalanırız, önceki derste bazı kontrol dizisi örnekleri ile karşılaştınız. LaTeX kontrol dizileri <code class="language-latex">\</code> karakteri ile başlar ve şu biçimlerde görünebilirler:
+</p>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\komut
+\komut{parametreler}
+\komut[seçenekler]{parametreler}
+</code></pre>
+
+<p>
+Bazı komutlar parametreye bağlı <strong>olmadan</strong> çalışırken bazıları bir veya daha fazla parametreye <strong>ihtiyaç duyarlar</strong>. Bazı komutlar ise ek olarak zorunlu olmayan parametreler ile beraber de kullanılabilir. Örneğin <code class="language-latex">\today</code>, <code class="language-latex">\LaTeX</code> ve <code class="language-latex">\ldots</code> komutları parametresiz kullanılırlar. LaTeX programı komutlardan sonra gelen boşlukları görmezden gelir, komuttan hemen sonraki boşluğun kaybolmaması için komuttan sonra <code class="language-latex">{}</code> eklenmelidir (Ör: <code class="language-latex">\today{}</code>)
+</p>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 4} 
+\maketitle 
+Bugün \today{} ve yine \TeX perliğim üzerimde \ldots
+\end{document}
+</code></pre>
+
+<p>
+Yukarıdaki örnekte kullandığımız kontrol dizilerini, mesela önce <code class="language-latex">\documentclass[a4paper,11pt]{article}</code>  komutunu inceleyelim. Bu komut dokümanımızın A4 boyutunda kağıda 11 pt ile yazılacak bir makale olacağını bildiriyor. LaTeX'te sık kullanılan doküman sınıfları aşağıdaki tabloda özetleniyor.
+</p>
+
+<div class="table-responsive">
+<table class="table my-5">
+  <thead class="table-primary">
+    <tr>
+      <th scope="col">Sınıf</th>
+      <th scope="col">Tanımı</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><code class="language-latex">article</code></th>
+      <td>Genel makale sınıfıdır, orta ölçekli dokümanlar için en uygun sınıftır.</td>
+    </tr>
+    <tr>
+      <th scope="row"><code class="language-latex">report</code></th>
+      <td>Daha uzun makaleler, cok sayıda bölüm içeren raporlar, tezler, vs…</td>
+    </tr>
+    <tr>
+      <th scope="row"><code class="language-latex">book</code></th>
+      <td>Kitaplar, dergiler gibi daha büyük ölçekli dokümanlar için uygun bir sınıftır.</td>
+    </tr>
+<tr>
+      <th scope="row"><code class="language-latex">letter</code></th>
+      <td>Kısa notlar, mektuplar, vs…</td>
+    </tr>
+<tr>
+      <th scope="row"><code class="language-latex">beamer</code></th>
+      <td>Sunumlar.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>
+Bu komutta doküman sınıfı (article) parametresi <strong>zorunlu</strong> bir parametre olup kağıt boyutu (a4paper) ve font boyutu (11pt) <strong>opsiyonel</strong> parametrelerdir. Bazı önemli opsiyonel parametreleri aşağıdaki tabloda görebilirsiniz.
+</p>
+
+<div class="table-responsive">
+<table class="table my-5">
+  <thead class="table-primary">
+    <tr>
+      <th scope="col">Seçenek</th>
+      <th scope="col">Tanımı</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><code class="language-latex">10pt, 11pt, 12pt,...</code></th>
+      <td>Dokümanda kullanılacak yazıtipi boyutu.</td>
+    </tr>
+    <tr>
+      <th scope="row"><code class="language-latex">a4paper, b5paper,...</code></th>
+      <td>Kullanılacak kağıt boyutu.</td>
+    </tr>
+    <tr>
+      <th scope="row"><code class="language-latex">twocolumn,...</code></th>
+      <td>Çift sütun yazmak için.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>
+<code class="language-latex">\usepackage[turkish]{babel}</code> komutu ile de <strong>babel</strong> isimli bir paketi kullanacağımızı ve makalenin dilinin Türkçe olacağını belirtiyoruz, buradaki <strong>turkish</strong> parametresi babel paketinin <strong>opsiyonel</strong> bir parametresidir.  <code class="language-latex">\usepackage</code> komutu ile LaTeX programına ek özellikler ve yeni komutlar eklemek için yeni <strong>paketler</strong> tanımlıyoruz. Örneğin <code class="language-latex">\usepackage[T1]{fontenc}</code> komutu ile <strong>fontenc</strong> isimli bir paketi ekledik. Bu paket kelimelerin hecelemesini düzenler. Biz Türkçe dilini kullandığımız için heceleme sisteminin <strong>T1</strong> olarak belirttik. Bu komut sayesinde satır sonuna sığmayan Türkçe kelimeler düzgün bir şekilde parçalanacaktır. Çift sütunlu yazım için aşağıdaki örneği inceleyebilirsiniz.
+</p>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt,twocolumn]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 5}
+\maketitle 
+Lorem Ipsum, masaüstü yayıncılık ve basın yayın sektöründe kullanılan taklit yazı bloğu olarak tanımlanır.
+Lipsum, oluşturulacak şablon ve taslaklarda içerik yerine geçerek yazı bloğunu doldurmak için kullanılır.
+Lipsum, 1500'lerin başlarında bir matbaacının font model kitabı oluşturmak için, bir yazı tipi kütüphanesindeki
+harflerin sıralamasını bozarak yerleştirdiğinden bu yana endüstri standardı haline gelmiştir. Lorem Ipsum,
+500 yıl boyunca varlığını sürdürmekle kalmamış ve günümüzde elektronik yazı tipinin gerektiği birçok konuda
+hazır bir araç olarak kullanılmaya başlanmıştır. Lipsum. . . . . 
+\end{document}
+</code></pre>
+
+<p>
+Bazen LaTeX kaynak dosyamıza <strong>yorumlar</strong> eklemek faydalı olabilir. LaTeX yazılımı kaynak dosyayı işlerken <code class="language-latex">%</code> sembolünü görürse o satırın kalanını işlemez bir sonraki satırın başına atlar. Bu karakterden sonra o satırda yazdığımız metin parçaları çıktıda görünmez, bu metinler ile kaynak dosyası üzerine bazı notlar düşebiliriz.
+</p>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} %ilk satırın sonuna dikkat edelim.
+\begin{document} 
+\title{Belge 6} %bu başlık daha sonra değişebilir.
+\maketitle 
+Daha önce de bahsettiğimiz gibi bu operatörün düzgün yakınsaklığı Teorem.1 den %geçen bölümdeki uzun teorem
+dolayı aşikardır. Dikkat, bu örnekte bazı gizli yorumlar var, ama \TeX{} %ya da \LaTeX
+bu yorumları gizledi ve siz göremiyorsunuz.
+\end{document}
+</code></pre>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../2-latex-belgesinin-yapisi/index.html">2. LaTeX Belgesinin Yapısı</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">LaTeX'e Giriş</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../4-bosluklar-ve-heceleme/index.html">4. Boşluklar ve Heceleme</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/latexe-giris/3-kontrol-dizileri/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:41:18 GMT -->
+</html>

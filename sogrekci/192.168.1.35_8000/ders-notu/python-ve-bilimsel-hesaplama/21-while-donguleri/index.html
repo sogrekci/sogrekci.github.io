@@ -1,0 +1,453 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/python-ve-bilimsel-hesaplama/21-while-donguleri/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 2.1. While Döngüleri
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>2.1. While Döngüleri</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-22">
+          22 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-06-03">
+          3 Haziran 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>İlk öğreneceğimiz döngü çeşidi <strong>while</strong> döngüleridir. Bu döngüleri kullanabilmek için <strong>bool</strong> verilerine ihtiyacımız var. Matematik derslerindeki sembolik mantık konusundan aşina olduğunuz bu konuyu açıkladıktan sonra Fourier serileri ve Gauss dağılımı ile ilgili döngü örnekleri vereceğiz.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/and/index.html">and</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/bool-verisi/index.html">bool verisi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/fourier-serisi/index.html">Fourier serisi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/gibbs-olgusu/index.html">Gibbs olgusu</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/or/index.html">or</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/sonlu-toplam/index.html">sonlu toplam</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/while-dongusu/index.html">while döngüsü</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <h3 class="mb-3">Bool Verileri</h3>
+
+
+
+
+
+<p>
+Python'da değeri sadece <code class="language-python">True</code> veya <code class="language-python">False</code>, yani <strong>Doğru</strong> veya <strong>Yanlış</strong> olabilen özel bir veri tipi vardır, bu nesnelere <strong>bool</strong> (boolean) nesnesi denir. Bool nesneleri farklı yöntemlerle oluşturulabilir, en sık kullanılan yöntem mukayese yapmaktır. İki nesne arasında bir bağıntı oluşturup buun doğruluk değerini bool verisi olarak alabiliriz. Örneğin <code class="language-python">x < 2</code> bağıntısı 2'den küçük değişken değerleri için <code class="language-python">True</code>, diğer durumlarda <code class="language-python">False</code> olacaktır. Kullanabileceğimiz diğer bağıntılar <code class="language-python">==</code>, <code class="language-python">!=</code>, <code class="language-python"><=</code>, <code class="language-python">>=</code> biçimindedir ve bunlar eşittir, eşit değildir, küçük eşittir, büyük eşittir anlamlarına sahiptir. Dikkat edin, <code class="language-python">=</code> bir değişkene atama yaparken <code class="language-python">==</code> bir bağıntı kurar!
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> x = 5
+>>> 
+>>> x < 2
+False
+>>> x > 0
+True
+>>> x != 5
+False
+>>> 2*x -1 >= 10
+False
+>>> x**2 - 5 == 20
+True
+</code></pre>
+
+<p>
+Bool nesneleri <code class="language-python">and</code> ve <code class="language-python">or</code> <strong>bağlaçlarıyla</strong> birleştirilip yeni bool nesneleri oluşturulabilir. Bu bağlaçlar matematikte kullandığımız <strong>ve</strong> ile <strong>veya</strong> ($\boldsymbol{\wedge}$ ile $\boldsymbol{\vee}$) ile aynı şekilde çalışır. Yani <code class="language-python">and</code> ile bağlanmış bool verilerinden en az biri <code class="language-python">False</code> ise bu verinin değeri de <code class="language-python">False</code>, aksi durumda <code class="language-python">True</code> olur. Benzer şekilde <code class="language-python">or</code> ile bağlanmış bool nesnelerinden en az birisi <code class="language-python">True</code> ise nesne <code class="language-python">True</code>, aksi durumda <code class="language-python">False</code> değer döndürür. Ayrıca bir bool nesnesinin önüne <code class="language-python">not</code> ifadesi bu nesnenin değerini tersine çevirir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> from scipy import sqrt
+>>>
+>>> x = 2
+>>> x >= 0 or x**2 != 2*x
+True
+>>> not x >= 0 or x**2 != 2*x
+False
+>>> x**2 - 2*x > 0 or sqrt(x - 1) == 0 
+False
+>>> y = x**2 - 2*x -1
+>>> sqrt(y).real <= 0 and sqrt(y).imag != 0
+True
+</code></pre>
+
+<p>
+Son olarak bool nesneleri hakkında bir kaç teknik bilgi verelim. Aslında Python'da <strong>her</strong> nesnenin bir bool değeri vardır ve bu değere <code class="language-python">bool(nesne)</code> komutuyla ulaşılabilir. Buradaki nesne kendisi bir bool verisi değil ise <code class="language-python">nesne</code> sonucunun değeri hesaplanırken temel kural şöyledir. Sıfır sayıları (<code class="language-python">0</code> veya <code class="language-python">0.0</code>), boş string nesneleri (<code class="language-python">""</code> veya <code class="language-python">''</code>), boş list, tuple, dict gibi veriler (bunları daha sonra öğreneceğiz) <code class="language-python">False</code>, diğer tüm nesneler <code class="language-python">True</code> bool değerine sahiptir. Biz <code class="language-python">x or y</code> veya <code class="language-python">x and y</code> komutunu girdiğimizde Python aslında <code class="language-python">True</code> veya <code class="language-python">False</code> değerini döndürmez, arka planda <code class="language-python">x</code> veya <code class="language-python">y</code> nesnelerinden birini sonuç olarak döndürür, bu nesnenin de bool değeri hesaplanıp ekrana yazdırılır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> bool(x)
+True
+>>> bool(x - 2)
+False
+>>> x or x + 1 or 5 or "python"
+2
+>>> x - 2 or 0 or 2*x - 4 or x + 1 or "python"
+3
+>>> x - 2 or 0 or 2*x - 4 or x**2 - 4 or "python"
+'python'
+>>> x - 2 or 0 or 2*x - 4 or x**2 - 4
+0
+>>> x and 2*x and x - 1 and "python"
+'python'
+>>> x and 2*x and x - 2 and "python"
+0
+</code></pre>
+
+<p>
+Anlaşılacağı üzere <code class="language-python">or</code> ile bağlanmış ifadelerin en az bir bileşeni <code class="language-python">True</code> ise sonuç <code class="language-python">True</code> olacağından ilk <code class="language-python">True</code> değeri ile karşılaşılınca gerisi değerlendirilmez. Yani <code class="language-python">or</code> ile bağlı ifadelerin değeri ilk karşılaşılan <code class="language-python">True</code> nesnedir, <code class="language-python">True</code> nesne yoksa değeri son nesnedir. <code class="language-python">and</code> ile bağlı ifadelerde durum bunun tam tersidir. Son olarak şunu da ekleyelim, bir nesnenin <code class="language-python">bool(nesne)</code> ile getirilen bool değeri cebirsel işlemlerse <code class="language-python">0</code> ve <code class="language-python">1</code> olarak değerlendirilir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> bool(x) + 3
+4
+>>> 2*bool(x > 0) + 3
+5
+>>> bool(x - 2) + 10
+10
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Döngü Yapısı</h3>
+
+
+
+
+<p>
+İstatistik hesabında normal dağılımı tanımlamak için kullanılan ve <strong>Gauss Fonksiyonu</strong> olarak adlandırılan $$f(x)=\frac{1}{\sqrt{2\pi}s}\exp\left[{-\frac{1}{2}\left( \frac{x-m}{s} \right)^2}\right]$$ fonksiyonunu ele alalım, burada $m$ ve $s>0$ reel parametrelerdir. Amacımız $m=0$ ve $s=1$ seçip $x=-3, -2, -1, 0, 1, 2, 3$ için $f(x)$ değerlerini bir tablo halinde yazdırmaktır. Bunu aşağıdaki program yapabilir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+from math import sqrt, pi, exp
+
+m = 0.0
+s = 1.0
+K = (1/(sqrt(2*pi)*s))
+
+x=-3.0; f=K*exp(-(1.0/2)*((x-m)/s)**2); print "x=%2d f(x)=%g" % (x, f)
+x=-2.0; f=K*exp(-(1.0/2)*((x-m)/s)**2); print "x=%2d f(x)=%g" % (x, f)
+x=-1.0; f=K*exp(-(1.0/2)*((x-m)/s)**2); print "x=%2d f(x)=%g" % (x, f)
+x=0.0; f=K*exp(-(1.0/2)*((x-m)/s)**2); print "x=%2d f(x)=%g" % (x, f)
+x=1.0; f=K*exp(-(1.0/2)*((x-m)/s)**2); print "x=%2d f(x)=%g" % (x, f)
+x=2.0; f=K*exp(-(1.0/2)*((x-m)/s)**2); print "x=%2d f(x)=%g" % (x, f)
+x=3.0; f=K*exp(-(1.0/2)*((x-m)/s)**2); print "x=%2d f(x)=%g" % (x, f)
+</code></pre>
+
+<p>
+Yukarıdaki yazımdan fark ettiğiniz üzere Python'da komutlar farklı satırlar yerine, noktalı virgül ile ayrılmak şartıyla, aynı satırda da yazılabilir. Şimdi yukarıdaki programı çalıştırırsak aşağıdaki gibi bir çıktı alırız.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python gauss1.py
+x=-3 f(x)=0.00443185
+x=-2 f(x)=0.053991
+x=-1 f(x)=0.241971
+x= 0 f(x)=0.398942
+x= 1 f(x)=0.241971
+x= 2 f(x)=0.053991
+x= 3 f(x)=0.00443185
+</code></pre>
+
+<p>
+Bu çıktı tam istediğimiz gibi, fakat programın kodları üzerinde biraz durmamız gerekiyor. Buradaki sorun şu, aynı (veya benzer) komutlar bir çok defa tekrarlanıyor. Aynı işlemleri farklı değişken değerlerine defalarca uygulamak için bir <strong>döngü</strong> kullanabiliriz.
+</p>
+
+<p>
+Python'da <strong>while</strong> döngüleri, belirli bir <code class="language-python">koşul</code> sağlandığı sürece bir işlemi tekrarlamaya yarar. Buradaki koşul bir bool verisi ile belirtilir, dolayısı ile bu bool nesnesinin değeri <code class="language-python">True</code> olduğu sürece belirtilen bir işlem tekrarlanır. Bu döngünün söz dizimini aşağıdaki örnek üzerinde gözlemleyelim.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+from math import sqrt, pi, exp
+
+m = 0.0
+s = 1.0
+K = (1/(sqrt(2*pi)*s))
+
+x = -3
+while x < 4:
+    f = K*exp(-(1.0/2)*((x - m)/s)**2)
+    print "x=%2d f(x)=%g" % (x, f)
+    x = x + 1
+</code></pre>
+
+<p>
+Bu program da yukarıdaki çıktının aynısını üretir fakat çok daha kompakt ve modern bir kod ile. Şimdi bu kodları açıklayalım, <code class="language-python">x = -3</code> satırına kadar önceki kodlar ile aynıdır. Bu satırda tanımladığımız <code class="language-python">x</code> değişkenine kuracağımız döngü için bir <strong>sayaç</strong> değişkeni deriz, aslında bu değişken bizim Gauss fonksiyonumuzun ana değişkenidir. Daha sonra bir sonraki satıra <code class="language-python">while</code> kelimesini takip eden bir bool nesnesi ve hemen sonrasında iki nokta üst üste yazılıp alt satıra geçilir. Tekrarlanmasını istediğimiz işlemleri bir veya birkaç satırda belirtiriz fakat bu satırların <code class="language-python">while</code> satırı ile aynı paragraf hizasında başlamaması gerekiyor. Tekrar işlemleri belirten satırların hepsi aynı hizada ama <code class="language-python">while</code> satırından daha sağdan başlamalı. Yukarıdaki örnekte tekrarlanmasını istediğimiz işlemleri <strong>dört karakter</strong> boşluk (bir tab uzunluğu kadar) bıraktıktan sonra başlattık. Bu boşluk sayısının dört olması zorunlu değildir, istediğimiz uzunluğu seçebiliriz ama dört karakter seçimi Python'da bir gelenek olmuştur. Bir <code class="language-python">while</code> döngüsünün amacı, altındaki kendinden farklı hizada bulunan tüm satırları (kendi ile aynı hizada bir satır görene kadar bütün satırları) belirtilen bool nesnesi <code class="language-python">True</code> olduğu sürece tekrarlamaktır. Dolayısıyla sonsuz bir döngüye girmemek için bu satırlar içinde belirtilen bool nesnesini etkileyecek işlemler de yapmalıyız. Yukarıdaki örnekte döngüden önce <code class="language-python">x = -3</code> değişkenini tanımladık, daha sonra <code class="language-python">while</code> döngüsünde <code class="language-python">x < 4</code> olduğu sürece bu <code class="language-python">x</code> değişkenini kullanarak <code class="language-python">f</code> değerini hesaplayıp yazdırmasını istedik. Döngü içinde bu yazım işleminden sonra <code class="language-python">x</code> değişkeni değerini 1 arttırdık, döngünün sonraki adımına bu şekilde gitmezsek döngü aynı <code class="language-python">x</code> değeri ile aynı <code class="language-python">f</code> değerini yazdırır ve bunları tekrarlayarak hiç bir zaman durmazdı. Ama bu şekilde değişkeni her tekrarda arttırınca belirli sayıda tekrardan sonra <code class="language-python">x < 4</code> bool verisi <code class="language-python">False</code> olacaktır ve döngü sona erecektir. Bundan sonra programımız döngüden sonraki kodlarla devam edecektir.
+</p>
+
+</p>
+Bu döngü içinde kullandığımız <code class="language-python">x = x + 1</code> ifadesine dikkat edelim. Bu ifade matematiksel olarak bir çelişki ise de Python dilinde sıklıkla kullanılan bir ifadedir. Python'da <code class="language-python">=</code> ile bir değişkene değer atanırken önce eşitliğin sağ tarafındaki ifade hesaplanıp sonucu bellekte tutulur, daha sonra bu bellekteki değere eşitliğin solundaki isim atanır. Burada ele aldığımız örnekte önce <code class="language-python">x + 1</code> değeri hesaplanıp belleğe alınır, hali hazırda bellekte <code class="language-python">x</code> adında bir değişkenin değeri vardı. Daha sonra bu yeni hesaplanan değere <code class="language-python">x</code> ismi atanır, daha önceden bu isimle başka bir değer vardı ve bu yeni atamadan sonra bu ismin atıf verdiği eski değer bellekten silinir. Böyle işlemler Python döngüleri içinde sıklıkla yapıldığı için kısa yolları vardır, <code class="language-python">x = x + 1</code> ifadesi ile <code class="language-python">x += 1</code> ifadesi aynı atamayı yapar. Diğer cebirsel işlemler için de <code class="language-python">-=</code>, <code class="language-python">*=</code>, <code class="language-python">/=</code>, <code class="language-python">**=</code> kısaltmaları kullanılabilir. Dolayısıyla aşağıdaki program da yukarıdakilerle aynı çıktıyı verecektir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+from math import sqrt, pi, exp
+
+m = 0.0
+s = 1.0
+K = (1/(sqrt(2*pi)*s))
+
+x = -3
+while x < 4:
+    f = K*exp(-(1.0/2)*((x - m)/s)**2)
+    print "x=%2d f(x)=%g" % (x, f)
+    x += 1
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Sonlu Toplamlar</h3>
+
+
+
+
+<p>
+Bilimsel hesaplamalarda $\sum x_n$  biçiminde toplamlarla çok sık karşılaşırız, böyle <strong>sonlu</strong> toplamları hesaplarken döngüleri kullanırız. Uygun bir ilk terim tanımladıktan sonra kurulan döngünün her adımında toplamın bir terimi hesaplanıp ilk terime eklenir ve bu terimin değeri güncellenir. Ayrıca bir de sayaç değişkeni tanımlanıp toplam kaç adım hesaplanacaksa ona göre bir bool verisi oluşturulur. Örneğin
+$$
+f(t)=
+\left\{
+\begin{array}{ll}
+1, & \quad 0 < t < T/2\\
+0, & \quad t = T/2\\
+-1, & \quad T/2 < t < T
+\end{array}
+\right.
+$$
+fonksiyonunun bir $t$ noktasındaki yaklaşık değerlerini $$ S(t;n) = \frac{4}{\pi}\sum_{i=1}^n\frac{1}{2i-1}\sin\left( \frac{2(2i-1)\pi t}{T} \right) $$ toplamı ile hesaplayabiliriz. Bu tip serilere literatürde <a class="eqref" href="../../fourier-analizi/index.html"><strong>Fourier serileri</strong></a> denir ve bu örnekteki $f(t)$ için $n\rightarrow\infty$ için $S(t;n)\rightarrow f(t)$ olduğu gösterilebilir, belirli şartları sağlamayan fonksiyonların Fourier serileri yakınsak olmayabilir. Bu tür serilerin elektronik mühendisliği, sinyal ve resim işleme, akustik, kuantum mekaniği gibi bir çokalanda kullanım alanı vardır. Buradaki toplamı aşağıdaki programda görülen döngü ile hesaplayabiliriz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+from math import sin, pi
+
+t = pi/2
+i = 1
+n = 10000
+T = 2*pi
+s = 0
+
+while i <= n:
+    terim = (1.0/(2*i - 1))*sin((2*(2*i - 1)*pi*t)/T)
+    s += terim
+    i += 1
+
+toplam = (4/pi)*s
+print "f(t)=%.16f  (yaklasik hesap, n=%d)" % (toplam, n)
+</code></pre>
+
+<p>
+Bu programda $f(\pi/2)$ değerini hesaplamak için yukarıdaki seriyi $(0, 2\pi)$ aralığında 10.000 adım ile kullandık. Fonksiyon tanımından $f(\pi/2)=0$ olduğu görülüyor, bu hesaplama ile de yakın bir sonuç bulacağımızı umuyoruz. Programın çıktısı aşağıdaki gibi olur.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python fourier1.py
+f(t)=0.9999681690114585  (yaklasik hesap, n=10000)
+</code></pre>
+
+<p>
+Görüldüğü gibi sonuç gerçek değere yakın, adım sayısı arttırılarak daha da yakın sonuçlar elde etmeyi umabiliriz. Gerçekten $t=\pi/2$ noktasında böyle olacaktır ama süreksizlik noktaları olan $t=0$, $t=\pi$ ve $t=\pi/2$ noktalarına yakın noktalarda adım sayısını arttırmak çok işe yaramaz. Aşağıda verilen grafikte bu durumu gözlemleyebilirsiniz. Bu durum Fourier serilerinin doğasıyla alakalı bir durumdur ve literatürde <a class="eqref" href="../../fourier-analizi/26-gibbs-olgusu/index.html"><strong>Gibbs olgusu</strong></a> olarak adlandırılır.
+</p>
+
+
+<img class="envfig" src="../../../static/ders-notu/python-bilimsel-hesaplama/fourier1.svg" width="75%">
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../13-matematiksel-fonksiyonlar/index.html">1.3. Matematiksel Fonksiyonlar</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Python ve Bilimsel Hesaplama</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../22-donguleri/index.html">2.2. For Döngüleri</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/python-ve-bilimsel-hesaplama/21-while-donguleri/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:47 GMT -->
+</html>

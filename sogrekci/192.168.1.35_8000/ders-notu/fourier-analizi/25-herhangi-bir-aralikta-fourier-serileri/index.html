@@ -1,0 +1,283 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/25-herhangi-bir-aralikta-fourier-serileri/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:13 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 2.5. Herhangi Bir Aralıkta Fourier Serileri
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>2.5. Herhangi Bir Aralıkta Fourier Serileri</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-07">
+          7 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu bölümde şu ana kadar standart olarak ele aldığımız aralığın dışında <strong>keyfi</strong> aralıklarda Fourier serilerini ele alacağız. Ayrıca özel Fourier serileri olan <strong>Fourier-sinüs</strong> ve <strong>Fourier-kosinüs</strong> serileri de tanıtılacaktır.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/fourier-cosinus-serisi/index.html">Fourier-cosinüs serisi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/fourier-sinus-serisi/index.html">Fourier-sinüs serisi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/periyodik-fonksiyon/index.html">periyodik fonksiyon</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Bu ana kadar sadece $(-\pi,\pi)$ aralığında tanımlı olan $2\pi-$periyotlu fonksiyonların ve bunların periyodik genişlemelerinin Fourier serilerini inceledik. Aslında genel durumda $a>0$ olmak üzere $f:(\alpha-a,\alpha+a)\rightarrow\mathbb{R}$ biçiminde tanımlanmış $2a-$periyodik fonksiyonlar için de elde ettiğimz sonuçlar geçerlidir. Bunu görmek için yeni bir $$y:=\frac{\pi}{a}(x-\alpha)$$ değişkenini ve yeni bir $$h(y):=f(x)$$ fonksiyonunu tanımlayalım. Bu durumda eğer $f$ fonksiyonu $2a-$periyodik ise $h$ fonksiyonu $2\pi-$ periyodik olacaktır, ayrıca $f$'nin $x$ noktasında sağ ve sol türevleri var ise $h$'ın da $y$ noktasında sağ ve sol türevleri mevcut olacaktır. $f$ fonksiyonu $x$ noktasını içeren bir aralıkta parçalı sürekli ise $h$'ın da $y$'yi içeren bir aralıkta parçalı sürekli olacağı da açıktır. Bu durumda <a class="eqref" href="../24-fourier-serilerinin-yakinsakligi/index.html#fs-yakteo"> Teorem 2.4.1</a> gereği $$a_n:=\frac{1}{\pi}\int_{-\pi}^{\pi}h(y)\cos ny\,dy,\qquad n=0,1,2,\ldots$$ ve $$b_n:=\frac{1}{\pi}\int_{-\pi}^{\pi}h(y)\sin ny\,dy,\qquad n=1,2,3,\ldots$$ olmak üzere $$\frac{1}{2}\left[h(y+)+h(y-)\right]=\frac{1}{2}a_0+\sum\limits_{n=1}^{\infty}\left(a_n\cos ny+b_n\sin ny\right)$$ eşitliği geçerli olur. Bunlarda değişken değişiminin tersini uygularsak
+\begin{equation}
+\tag{2.5.1}
+\label{eq:fs-3}
+\frac{1}{2}\left[f(x+)+f(x-)\right]=\frac{1}{2}a_0+\sum\limits_{n=1}^{\infty}\left[a_n\cos \frac{n\pi}{a}(x-\alpha)+b_n\sin \frac{n\pi}{a}(x-\alpha)\right],
+\end{equation}
+\begin{equation}
+\label{eq:fs-4}
+\tag{2.5.2}
+a_n:=\frac{1}{a}\int_{\alpha-a}^{\alpha+a}f(x)\cos \frac{n\pi}{a}(x-\alpha)\,dx,\qquad n=0,1,2,\ldots
+\end{equation}
+ve
+\begin{equation}
+\label{eq:fs-5}
+\tag{2.5.3}
+b_n:=\frac{1}{a}\int_{\alpha-a}^{\alpha+a}f(x)\sin \frac{n\pi}{a}(x-\alpha)\,dx,\qquad n=1,2,3,\ldots
+\end{equation}
+eşitlikleri elde edilir. Bu eşitliklerle tanımlı seriye $f$ fonksiyonunun $(\alpha-a,\alpha+a)$ aralığındaki Fourier serisi denir.
+</p>
+
+<p>
+<div class="envex" id="ex-2.5">
+<h6 class="thenv">Örnek 2.5.1</h6>$$
+f(x):=\left\{\begin{array}{ll}
+1,\quad & 4\lt x\leq5\text{ ise}\\
+2,\quad & 5\lt x\lt 6\text{ ise}
+\end{array}
+\right.
+$$
+olarak tanımlanan fonksiyonun $(4,6)$ aralığında Fourier serisini bulalım. Burada $\alpha=5$ ve $a=1$ olup Fourier katsayıları $$a_0=\int_{4}^{6}f(x)\,dx=\int_{4}^{5}dx+\int_{5}^{6}2\,dx=3,$$ $$a_n=\int_{4}^{5}\cos n\pi(x-5)\,dx+\int_{5}^{6}2\cos n\pi(x-5)\,dx=0,\quad n>0$$ ve
+\begin{eqnarray*}
+b_n &=& \int_{4}^{5}\sin n\pi(x-5)\,dx+\int_{5}^{5}2\sin n\pi(x-5)\,dx\\
+&=& -\frac{\cos n\pi(x-5)}{n\pi}\bigg|_4^5-\frac{2\cos n\pi(x-5)}{n\pi}\bigg|_5^6\\
+&=& \left\{\begin{array}{ll}
+0,\quad & n\text{ çift ise}\\
+\frac{2}{n\pi}, \quad & n\text{ tek ise}
+\end{array}
+\right.
+\end{eqnarray*}
+olarak bulunur. Böylece $x\in(4,6)\backslash\{5\}$ için $$f(x)=\frac{3}{2}+\frac{2}{\pi}\sum\limits_{n=1}^{\infty}\frac{1}{2n-1}\sin (2n-1)\pi(x-5)$$ olarak bulunur, $x=5$ için serinin toplamı $1.5$ olur.
+<img id="fig:fsornek4" class="envfig" src="../../../static/ders-notu/fourier-analizi/ex-2-5-1.svg" width="50%">
+<span style="margin:auto; display:table;"><span class="figcap">Şekil 2.4:</span> Yukarıdaki örnekte bahsedilen fonksiyon ve onun Fourier serisi</span>	
+</div>
+</p>
+
+<p>
+$(-a,0)$ aralığında tanımlı bir fonksiyonun $ (-a,a) $ aralığında Fourier serisini bulmak için önce fonksiyonu bu aralığa genişletmemiz gerekir. Bu genişletme farklı şekillerde yapılabilir, örneğin $f$ fonksiyonu $(-a,a)$ aralığında çift (veya tek) bir fonksiyon olacak şekilde genişletilebilir. Bunlardan hiç biri sağlanmayacak şekilde de genişletme yapılabilir fakat eğer bu şekilde genişletme yapılırsa buna ayrı bir isim veririz.
+</p>
+
+<p>
+<div class="envdef" id="fourierseri-sinkos"><h6 class="thenv">Tanım 2.5.1</h6>$a>0$ olmak üzere $f:(0,a)\rightarrow\mathbb{R}$ integrallenebilir bir fonksiyon olsun.
+<ol type="i"><li>$f$ fonksiyonunun $(-a,a)$ aralığında tek genişletmesinin Fourier serisine $f$ fonksiyonunun $(0,a)$ aralığında <strong>Fourier sinüs serisi</strong> denir, bu seri $$b_n:=\frac{2}{a}\int_{0}^{a}f(x)\sin \frac{n\pi}{a}x\,dx$$ olmak üzere $$\sum\limits_{n=1}^{\infty}b_n\sin\frac{n\pi}{a}x$$ şeklindedir.</li>
+<li>$f$ fonksiyonunun $(-a,a)$ aralığında çift genişletmesinin Fourier serisine $f$ fonksiyonunun $(0,a)$ aralığında <strong>Fourier kosinüs serisi</strong> denir, bu seri $$a_n:=\frac{2}{a}\int_{0}^{a}f(x)\cos \frac{n\pi}{a}x\,dx$$ olmak üzere $$\sum\limits_{n=1}^{\infty}a_n\cos\frac{n\pi}{a}x$$ şeklindedir.</li></ol></div>
+</p>
+
+<p>
+<div class="envex" id="ex-2.6"><h6 class="thenv">Örnek 2.5.2</h6>$f(x):=\sin x$ fonksiyonunun $(0,\pi)$ aralığında Fourier kosinüs serisini hesaplayalım. Öncelikle $$a_0=\frac{2}{\pi}\int_{0}^{\pi}\sin x\,dx=\frac{4}{\pi}\quad\text{ve}\quad a_1=\frac{2}{\pi}\int_{0}^{\pi}\sin x\cos x\,dx=0$$ olur (neden $a_1$'i ayrıca hesapladığımızı aşağıda göreceğiz). $n>1$ için de
+\begin{eqnarray*}
+a_n &=& \frac{2}{\pi}\int_{0}^{\pi}\sin x\cos nx\,dx\\
+&=& \frac{1}{\pi}\int_{0}^{\pi}\left[\sin (1+n)x+\sin(1-n)x\right]\,dx\\
+&=& -\frac{1}{\pi}\left[\frac{\cos(1+n)x}{1+n}+\frac{\cos(1-n)x}{1-n}\right]\bigg|_0^\pi\\
+&=& \left\{\begin{array}{ll}
+\frac{4}{\pi(1-n^2)},\quad & n\text{ çift ise}\\
+0,\quad & n\text{ tek ise}
+\end{array}\right.
+\end{eqnarray*}
+olarak bulunur. Böylece $(0,\pi)$ aralığında $$\sin(x)=\frac{2}{\pi}+\frac{4}{\pi}\sum\limits_{n=1}^{\infty}\frac{1}{1-4n^2}\cos2nx$$ elde edilmiş olur. Aslında bu seri tüm reel eksende $|sin x|$ fonksiyonuna yakınsar.
+</p>
+
+<p>
+<img id="fig: fsornek5" class="envfig" src="../../../static/ders-notu/fourier-analizi/ex-2-5-2.svg" width="50%">
+<span style="margin:auto; display:table;"><span class="figcap">Şekil 2.5:</span> Yukarıdaki örnekte bahsedilen fonksiyon ve onun Fourier serisi</span>		
+</div>
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../24-fourier-serilerinin-yakinsakligi/index.html">2.4. Fourier Serilerinin Yakınsaklığı</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Fourier Analizi</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../26-gibbs-olgusu/index.html">2.6. Gibbs Olgusu</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/25-herhangi-bir-aralikta-fourier-serileri/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:16 GMT -->
+</html>

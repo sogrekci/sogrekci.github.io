@@ -1,0 +1,441 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/derin-ogrenme/6-aktivasyon-fonksiyonlari/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:43:01 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 6. Aktivasyon Fonksiyonları
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>6. Aktivasyon Fonksiyonları</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-10-27">
+          27 Ekim 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-10-28">
+          28 Ekim 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Daha önce sinir ağlarımızda sadece <strong>relu</strong> aktivasyon fonksiyonunu kullandık fakat tek seçenek bu değildir. Farklı amaçlara göre uygun bir aktivasyon kullanabiliriz, bu derste bu konuya değineceğiz.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/aktivasyon-fonksiyonu/index.html">aktivasyon fonksiyonu</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/cross-entropy/index.html">cross entropy</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/regresyon/index.html">regresyon</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/relu/index.html">relu</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/sigmoid/index.html">sigmoid</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/softmax/index.html">softmax</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/tanh/index.html">tanh</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Bir aktivasyon fonksiyonu özünde bir katmanın tüm nöronlarına uygulanan bir fonksiyondur, bu zamana kadar <code class="language-python">relu</code> aktivasyon fonksiyonunu kullandık. Bunun dışında standart olarak kullanılan bazı aktivasyon fonksiyonları vardır ve istediğimiz gibi kendi aktivasyon fonksiyonlarımızı da tanımlayabiliriz. Fakat bir aktivasyon fonksiyonunun sahip olması gereken bazı özellikler vardır, şimdi bunlara değineceğiz. Bu özelliklerden bazıları zorunlu teknik özelliklerdir ve olmazsa olmazdır, bazıları ize sinir ağınin iyi çalışması için gereklidir ve teknik olarak zorunlu değildir.
+
+
+<ul>
+<li class="py-2">Öncelikle tanımlayacağımız aktivasyon fonksiyonu <strong>sürekli</strong> bir fonksiyon olmalıdır ve tanım kümesi <strong>tüm değerleri</strong> kapsamalıdır. Bazı weight değerleri için bir çıktı üretmeyen bir fonksiyon düşünün, böyle bir fonksiyon aktivasyon fonksiyonu olarak kullanılamaz.</li>
+
+<li class="py-2">İyi bir aktivasyon fonksiyonunun <strong>monoton</strong> olması gerekir, yani yönünün değişmemesi gerekir. Çünkü monoton olmayan fonksiyonlar farklı input değerleri için aynı output değerini üretebilir. Bunu iki farklı açıdan düşünün; doğru bir weight değerinin birden fazla defa üretilmesi tahmini güçlendirecektir, diğer yandan yanlış weight değerlerinin fazla sayıda olması ise hatayı büyütecektir. Biz burada ikinci bakış açısını daha çok kafaya takmalıyız, dolayısıyla monoton aktivasyon yapmak bizim yararımıza olacaktır.</li>
+
+<li class="py-2">İyi aktivasyon fonksiyonları ayrıca <strong>non-lineer</strong> olmalıdır, bunu daha önce tartışık. Lineer aktivasyonla gizli katmanda korelasyon elde edemeyiz.</li>
+
+<li class="py-2">Son olarak aktivasyon fonksiyonu ve türevi <strong>kolay hesaplanabilir</strong> olmalıdır. Bu fonksiyon büyük matrislere defalarca uygulanacak.</li>
+</ul>
+</p>
+
+<p>
+Bu derste bu koşullara uyan ve günümüzde sinir ağlarında çok yaygın olarak kullanılan aktivasyon fonksiyonlarını tanıtacağım, siz buradaki koşullara uyan kendi isteğinize göre sonsuz çeşitlilikte aktivasyon fonksiyonu tanımlayabilirsiniz.
+</p>
+
+<p>
+Biz buraya kadar sadece gizli katmanda aktivasyon kullandık fakat genelde hem gizli katmanlarda hem son katmanda (output katmanı) aktivasyon yapılır, sadece bunlarda hangi aktivasyon fonksiyonu seçmenin daha uygun olacağına biraz kafa yormamız gerekir. Bu derste bazı örnekler vereceğim.
+</p>
+
+<p>
+Şimdi <strong>gizli katmanlar</strong> için en uygun aktivasyon fonksiyonlarına değinelim. Son yıllarda bu konuda çok çalışma yapılıyor fakat günümüzde çok yaygın kullandığımız sadece birkaç aktivasyon fonksiyonu var. Bunlardan en yaygınları <strong>sigmoid</strong> ve <strong>tanh</strong> aktivasyon fonksiyonlarıdır.
+</p>
+
+<p>
+<strong>sigmoid</strong> aktivasyon fonksiyonu bir nöronun değerini <code class="language-python">0</code> ile <code class="language-python">1</code> arası bir değere döünştürür, bir çok durumda nöronların değerini bir olaslık değeri gibi yaptığından bu aktivasyon fonksiyonu hem gizli katmanlarda hem de output katmanlarında kullanılabilir. $$\sigma(x):=\dfrac{1}{1+\rm{e}^{-x}}$$
+
+<img class="envfig my-5" src="../../../static/ders-notu/derin-ogrenme/deep_learning_33.jpg" width="40%">
+</p>
+
+
+
+<p>
+Hiperbolik tanjant, <strong>tanh</strong>, aktivasyon fonksiyonu da sigmoid'e benzer; tek farkı nöronların değerlerini <code class="language-python">-1</code> ile <code class="language-python">1</code> arasına sıkıştırmasıdır. Bundan dolayı gizli katmanlarda sigmoid yerine bunu kullanmak mantıklı olabilir.
+
+<img class="envfig my-5" src="../../../static/ders-notu/derin-ogrenme/deep_learning_34.jpg" width="40%">
+</p>
+
+
+
+<p>
+<strong>Output katmanı</strong> için en uygun aktivasyon fonksiyonunu seçerken sinir ağının neyi tahmin etmeye çalıştığına dikkat etmeliyiz. Mesela tahminimizde olasılıklar veya evet-hayır (0-1) cevapları değil de ham sayılar üreteceksek output katmanında hiç bir aktivasyon kullanmamak gerekir. Mesela bir bölgenin hava sıcaklığı, bir maçta atılacak gol sayısını veya bir malın fiyatını tahmin etme işi buna bir örnektir; böyle problemlere <strong>regresyon</strong> problemleri denir. Böyle sinir ağlarında son katmanda aktivasyon kullanırsak tahminleri ham değerler yerine dönüştürülmüş değerler olarak alırız, bundan dolayı bu tür problemlerde son katman aktivasyonsuz olarak çalıştırılır.
+</p>
+
+<p>
+Diğer yandan çoklu output varsa, yani daha önce yaptığımız futbol maçı örneğindeki gibi (galibiyet, kazanç ve mutluluk tahmini) bir model varsa ve bu evet/hayır (1/0) cevapları birbirinden bağımsız ise son katmanda sigmoid aktivasyonu kullanmak daha uygun olacaktır.
+</p>
+
+<p>
+Tek outputlu ve çok label içeren (multiclass, MNIST örneğindeki gibi) problemlerde son katmanda <strong>softmax</strong> denilen aktivasyon fonksiyonu kullanmak iyi sonuç verir; bu aktivasyon fonksiyonu yüksek olasılıklı tahminlerin değerini yükseltirken diğerlerini de azaltır, böylece doğru tahmini daha belirgin hale getirir. Bu aktivasyon fonksiyonu şöyle çalışır; önce uygulandığı katmanın tüm nöronlarının $x$ değeri için $\exp(x)$ değerlerini hesaplar ve katmanın tüm nöronlarının toplamına böler.
+</p>
+
+
+
+<p>
+Bazı yaygın aktivasyon fonksiyonlarını öğrendiğimize göre şimdi bunları sinir ağımıza nasıl entegre edeceğimize odaklanalım. Daha önce <code class="language-python">relu</code> aktivasyon fonksiyonunu bir katmana nasıl yüklediysek her aktivasyon fonksiyonu <strong>forward propagation aşamasında</strong> aynı şekilde yüklenir; katmanın her bir nöronuna bu fonksiyon uygulanır.
+
+<pre class="my-4"><code class="language-python">
+layer_0 = images[i:i+1]
+layer_1 = relu(np.dot(layer_0, weights_0_1)) ###
+layer_2 = np.dot(layer_1, weights_1_2)
+</code></pre>
+</p>
+
+<p>
+Fakat aktivasyon fonksiyonunun <strong>back propagation aşamasında</strong> uygulanmasına biraz kafa yormak gerekiyor. Hatırlarsanız <code class="language-python">relu</code> aktivasyon fonksiyonunda şöyle yapmıştık; bu aktivasyon katmanın bazı nöronlarını sıfır yapıyordu ve dolayısıyla bu nöronların tahmindeki hata üzerinde hiç bir etkisi kalmadığından bunlara ilşikin <code class="language-python">delta</code> değerlerini de sıfır yapmıştık. <code class="language-python">delta</code> değeri bir önceki katmana son hatayı azaltmak için nöron değerlerini nasıl değiştireceğini bildiren bir değerdir, önceki katmanın bazı nöronları son hataya hiç bir katkı sağlamıyorsa bunların değişmemesi gerekir. Şimdi bu tekniği diğer aktivasyon fonksiyonlarına da uygulamamız gerekir, bir aktivasyon fonksiyonu sonrasında oluşan nöron değerlerinin çıktıya katkısı nasıl belirlenir? Bu nöron değerleri çıktıyı ne kadar değiştirebilir?
+</p>
+
+<p>
+Aktivasyon fonksiyonunun etki ettiği katman $x$ olsun, mesela <code class="language-python">relu(x)</code> gibi. Bu fonksiyonun katman çıktısında oluşturduğu değişim matematiksel olarak o fonksiyonun <strong>türevi</strong> ile ifade edilir, katmandaki küçük bir değişimin çıktıda oluşturacağı değişim
+
+$$\dfrac{\rm{d}}{\rm{dx}}\rm{relu}(x)$$
+
+olur. Sadece <code class="language-python">relu</code> değil, türevlenebilen her fonksiyon için bu böyledir. Dolayısıyla backpropagation aşamasında ilgili katmanın <code class="language-python">delta</code> değerini bu türev ile çarparsak aktivasyon fonksiyonun katmanda oluşturduğu etki ile packpropagation dengesini sağlayabiliriz. Daha önce <code class="language-python">relu</code> ile çalışırken backpropagation aşamasında çarptığımız fonksiyona neden <code class="language-python">relu2deriv</code> dediğimizi şimdi anlamışsınızdır.
+</p>
+
+<p>
+Bu bölümde anlattığım aktivasyon fonksiyonları türevleri kolayca hesaplanabilir fonksiyonlardır, aşağıdaki tabloda bu aktivasyon fonksiyonlarının forward ve back propagation aşamalarında nasıl uygulandığı açıklanıyor.
+</p>
+
+<p>
+<table class="table my-5">
+<thead class="thead-dark">
+<tr>
+<th>Aktivasyon Fonksiyonu</th>
+<th>Forward Propagation</th>
+<th>Backpropagation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="language-python">relu</code></td>
+<td><code class="language-python">ones_and_zeros = (input &gt; 0)</code><br><code class="language-python">output = input*ones_and_zeros</code></td>
+<td><code class="language-python">mask = (output &gt; 0)</code><br><code class="language-python">deriv = output*mask</code></td>
+</tr>
+<tr>
+<td><code class="language-python">sigmoid</code></td>
+<td><code class="language-python">output = 1/(1 + np.exp(-input)</code></td>
+<td><code class="language-python">deriv = output*(1 - output)</code></td>
+</tr>
+<tr>
+<td><code class="language-python">tanh</code></td>
+<td><code class="language-python">output = np.tanh(input)</code></td>
+<td><code class="language-python">deriv = 1 - output**2</code></td>
+</tr>
+<tr>
+<td><code class="language-python">softmax</code></td>
+<td><code class="language-python">temp = np.exp(input)</code><br><code class="language-python">output /= np.sum(temp)</code></td>
+<td><code class="language-python">temp = output - truth</code><br><code class="language-python">output = temp/len(truth)</code></td>
+</tr>
+</tbody>
+</table>
+
+</p>
+
+<p>
+Şimdi bu öğrendiklerimizi MNIST problemi üzerinde tatbik edelim, bu problemda gizli katman aktivasyonunu olarak <code class="language-python">tanh</code> ve son katman için de <code class="language-python">softmax</code> kullanalım. Bunun için aktivasyon dışında bir kaç basit düzenleme daha yapacağız. Öncelikle <code class="language-python">tanh</code> için weight matrisinin standart sapmasını düşürmeliyiz; daha önce <code class="language-python">relu</code> uygularken <code class="language-python">np.random.random</code> ile 0 ile 1 arasında rastgele sayılardan oluşan başlangıç weight matrisini <code class="language-python">0.2</code> ile çarpıp <code class="language-python">0.1</code> çıkartmış ve böylece weight değerlerini <code class="language-python">-0.1</code> ile <code class="language-python">0.1</code> arasında ölçeklendirmiştik. Bu aralığı <code class="language-python">tanh</code> için daha uygun olan <code class="language-python">-0.01</code> ve <code class="language-python">0.01</code> arasında tutacağız, bunun için çarpma ve çıkarma katsayılarıyla oynayacağız. Ayrıca son katmanda hata hesaplamasını sileceğiz; <code class="language-python">softmax</code> aktivasyonlu katmanlarda hata hesaplaması en iyi şekilde <strong>cross entropy</strong> denilen yöntemle yapılır ve bunu daha sonra tartışacağız. Son olarak <code class="language-python">alpha</code> sayısını ayarlayacağız, deneme yoluyla 300 iterasyonda çok daha büyük bir <code class="language-python">alpha</code> katsayısının iyi sonuç verdiğini gözlemledim.
+</p>
+
+<p>
+Sonuçlar aşağıda, beklediğimiz kadar test doğruluğu %87 değerine kadar ulaştı!
+
+<pre class="my-4"><code class="language-python line-numbers">
+import sys
+import numpy as np
+import tensorflow as tf
+np.random.seed(1)
+
+(x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()
+images, labels = (x_train[0:1000].reshape(1000,28*28)/255, y_train[0:1000])
+
+one_hot_labels = np.zeros((len(labels), 10))
+for i,l in enumerate(labels):
+    one_hot_labels[i][l] = 1
+labels = one_hot_labels
+
+test_images = x_test.reshape(len(x_test), 28*28)/255
+test_labels = np.zeros((len(y_test), 10))
+for i,l in enumerate(y_test):
+    test_labels[i][l] = 1
+
+tanh = lambda x: np.tanh(x)
+tanh2deriv = lambda output: 1 - (output**2)
+
+def softmax(x):
+    temp = np.exp(x)
+    return temp/np.sum(temp, axis=1, keepdims=True)
+
+alpha, iterations, hidden_size = 2, 300, 100
+pixels_per_image, num_labels = 784, 10
+batch_size = 100
+
+weights_0_1 = 0.02*np.random.random((pixels_per_image,hidden_size)) - 0.01
+weights_1_2 = 0.2*np.random.random((hidden_size,num_labels)) - 0.1
+
+for j in range(iterations):
+    correct_cnt = 0
+    for i in range(int(len(images)/batch_size)):
+        batch_start, batch_end=((i*batch_size), ((i+1)*batch_size))
+        layer_0 = images[batch_start:batch_end]
+        layer_1 = tanh(np.dot(layer_0, weights_0_1))
+        dropout_mask = np.random.randint(2, size=layer_1.shape)
+        layer_1 *= dropout_mask*2
+        layer_2 = softmax(np.dot(layer_1, weights_1_2))
+
+        for k in range(batch_size):
+            correct_cnt += int(np.argmax(layer_2[k:k+1]) == np.argmax(labels[batch_start+k:batch_start+k+1]))
+
+        layer_2_delta = (labels[batch_start:batch_end]-layer_2)/(batch_size*layer_2.shape[0])
+        layer_1_delta = layer_2_delta.dot(weights_1_2.T)*tanh2deriv(layer_1)
+        layer_1_delta *= dropout_mask
+
+        weights_1_2 += alpha*layer_1.T.dot(layer_2_delta)
+        weights_0_1 += alpha*layer_0.T.dot(layer_1_delta)
+
+    test_correct_cnt = 0
+    for i in range(len(test_images)):
+        layer_0 = test_images[i:i+1]
+        layer_1 = tanh(np.dot(layer_0, weights_0_1))
+        layer_2 = np.dot(layer_1, weights_1_2)
+        test_correct_cnt += int(np.argmax(layer_2) == np.argmax(test_labels[i:i+1]))
+    if(j % 10 == 0):
+        sys.stdout.write("\n"+ \
+         "I:" + str(j) + \
+         " Test-Acc:"+str(test_correct_cnt/float(len(test_images)))+\
+         " Train-Acc:" + str(correct_cnt/float(len(images))))
+</code></pre>
+
+<pre class="my-4"><code class="language-">
+>>>
+I:0 Test-Acc:0.394 Train-Acc:0.156
+I:10 Test-Acc:0.6867 Train-Acc:0.723
+I:20 Test-Acc:0.7025 Train-Acc:0.732
+I:30 Test-Acc:0.734 Train-Acc:0.763
+I:40 Test-Acc:0.7663 Train-Acc:0.794
+I:50 Test-Acc:0.7913 Train-Acc:0.819
+I:60 Test-Acc:0.8102 Train-Acc:0.849
+I:70 Test-Acc:0.8228 Train-Acc:0.864
+I:80 Test-Acc:0.831 Train-Acc:0.867
+I:90 Test-Acc:0.8364 Train-Acc:0.885
+I:100 Test-Acc:0.8407 Train-Acc:0.883
+I:110 Test-Acc:0.845 Train-Acc:0.891
+I:120 Test-Acc:0.8481 Train-Acc:0.901
+I:130 Test-Acc:0.8505 Train-Acc:0.901
+I:140 Test-Acc:0.8526 Train-Acc:0.905
+I:150 Test-Acc:0.8555 Train-Acc:0.914
+I:160 Test-Acc:0.8577 Train-Acc:0.925
+I:170 Test-Acc:0.8596 Train-Acc:0.918
+I:180 Test-Acc:0.8619 Train-Acc:0.933
+I:190 Test-Acc:0.863 Train-Acc:0.933
+I:200 Test-Acc:0.8642 Train-Acc:0.926
+I:210 Test-Acc:0.8653 Train-Acc:0.931
+I:220 Test-Acc:0.8668 Train-Acc:0.93
+I:230 Test-Acc:0.8672 Train-Acc:0.937
+I:240 Test-Acc:0.8681 Train-Acc:0.938
+I:250 Test-Acc:0.8687 Train-Acc:0.937
+I:260 Test-Acc:0.8684 Train-Acc:0.945
+I:270 Test-Acc:0.8703 Train-Acc:0.951
+I:280 Test-Acc:0.8699 Train-Acc:0.949
+I:290 Test-Acc:0.8701 Train-Acc:0.94
+</code></pre>
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../5-ezbere-kacma-overfitting/index.html">5. Ezbere Kaçma, Overfitting</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Derin Öğrenme</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../7-konvolusyonel-katmanlar-cnns/index.html">7. Konvolüsyonel Katmanlar, CNNs</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/derin-ogrenme/6-aktivasyon-fonksiyonlari/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:43:05 GMT -->
+</html>

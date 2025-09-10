@@ -1,0 +1,746 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/python-ve-bilimsel-hesaplama/41-array-nesneleri-ve-vektorizasyon/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 4.1. Array Nesneleri ve Vektörizasyon
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>4.1. Array Nesneleri ve Vektörizasyon</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-23">
+          23 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-29">
+          29 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste <strong>NumPy</strong> paketini ve <strong>array</strong> nesnelerini tanıyacaksınız. Bir fonksiyonu <strong>vektörize</strong> etmenin çeşitli yollarını da göreceksiniz, vektörizasyon işlemi bir sonraki bölümde ele alacağımız grafik çizme işlemi için bir gerekliliktir.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/array/index.html">array</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/clock/index.html">clock</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/linspace/index.html">linspace</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/logical_and/index.html">logical_and</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/ndarray/index.html">ndarray</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/numpy/index.html">numpy</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/ones/index.html">ones</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/ones_like/index.html">ones_like</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/time/index.html">time</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/vectorize/index.html">vectorize</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/vektorizasyon/index.html">vektörizasyon</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/where/index.html">where</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/zeros/index.html">zeros</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/zeros_like/index.html">zeros_like</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <h3 class="mb-3">NumPy Array Nesneleri</h3>
+
+
+
+
+
+<p>
+NumPy paketinin bize sunduğu en temel öge, <strong>array</strong> nesneleridir (<code class="language-python">numpy.ndarray</code>, n-dimensional array). Bu nesneler daha önce çalıştığımız <code class="language-python">list</code> nesnesine çok benzerdir, fakat aşağıdaki temel farklılıklara sahiptir.
+<ul>
+<li class="py-2">Her elemanı aynı tipte bir nesne olmalıdır; sıklıkla <code class="language-python">int</code>, <code class="language-python">float</code> ve <code class="language-python">complex</code>.</li>
+<li class="py-2">Array nesnesi oluşturulurken eleman sayısı belirli olmalıdır.</li>
+<li class="py-2">Array nesneleri pythonda standart olarak bulunmaz, bu nesnelere <strong>Numerical Python</strong> (NumPy) paketinden ulaşırız.</li>
+</ul>
+</p>
+
+<p>
+Bu özellikler üzerine şunları da vurgulamamız gerekir. Öncelikle Python'da standart olarak gelen bir <code class="language-python">array</code> nesnesi daha vardır, fakat bilimsel hesaplamalarda NumPy array nesneleri kadar kullanışlı değildir ve bunları bu metinde hiç kullanmayacağız. İkincisi de, aslında array nesnelerinin eleman sayıları daha sonra değiştirilebilir fakat bu durumda nesnede saklanan tüm veriler kaybedilir.
+</p>
+
+<p>
+Anlaşılacağı üzere array nesneleri aslında list nesneleri kadar esnek değil, bazı ciddi kısıtlamaları var. O halde neden bu nesnelere ihtiyacımız olabilir? Çok yakında gözlemleyeceğimiz gibi <code class="language-python">list</code> veya <code class="language-python">tuple</code> verileri yerine bu nesneler üzerinde hesaplama yapmak programımızı çok daha verimli yapar. Bilimsel hesaplamalar yapan bir programda genellikle sayılardan oluşan çok büyük uzunlukta listelerle çalışırız, bunların üzerinde matematiksel operasyonlar yapıp sonuçları manipüle ederiz. Örnek olarak içinde sayılar olan ve 100.000 elemandan oluşan bir list nesnesi üzerinde matematiksel operasyonlar ($\sin, \exp, \log$ gibi) yardımıyla hesaplamalar yaptığınızı düşünün. Bunları yaparken 100.000 adımdan oluşan döngüler kuracaksınız ve bu hesaplamaları tamamlamak uzun bir süre alabilir. Bu verileri array nesnelerinde saklayarak aynı hesaplamaları tekrar denerseniz çok daha kısa sürede tamamlandığına şahit olursunuz.
+</p>
+
+<p>
+Programlarımızda bir fonksiyon ile çalışırken fonksiyon verilerini bir nesne olarak kaydedip üzerinde işlemler yaparız. Örneğin $$f(x):=\text{e}^{-x^2}\sin(x)$$ fonksiyonunun $[-4, 4]$ aralığındaki verilerini hesaplayıp saklayalım. Bir fonksiyonun verisi demek belirli sayıdaki $x$ koordinatları ve bunlara karşılık gelen $y=f(x)$ değerleri demektir. Örnek olarak 10 nokta kullanarak bu verileri hesaplayıp saklayalım. Bunun için iki ayrı liste kullanacağız, daha sonra da bu verileri yazdıracağız.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+from math import exp, sin
+
+f = lambda x: exp(-x**2)*sin(x)
+a = -4.0; b = 4.0; h = (b - a)/10.0
+X = [-4 + i*h for i in range(11)]
+Y = [f(x) for x in X]
+
+for x, y in zip(X, Y):
+    print "x=%4.1f, f(x)=%g" % (x, y)
+</code></pre>
+
+<p>
+Bu programı çalıştırırsak aşağıdaki çıktıyı alırız.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python array1.py
+x=-4.0, f(x)=8.51669e-08
+x=-3.2, f(x)=2.08471e-06
+x=-2.4, f(x)=-0.00212846
+x=-1.6, f(x)=-0.0772718
+x=-0.8, f(x)=-0.378256
+x= 0.0, f(x)=0
+x= 0.8, f(x)=0.378256
+x= 1.6, f(x)=0.0772718
+x= 2.4, f(x)=0.00212846
+x= 3.2, f(x)=-2.08471e-06
+x= 4.0, f(x)=-8.51669e-08
+</code></pre>
+
+<p>
+Şimdi aynı işlemleri bir de <code class="language-python">array</code> nesneleri kullanarak yapacağız. Bir <code class="language-python">numpy.ndarray</code> nesnesini oluşturmanın çeşitli yolları vardır. Bunlardan birisi, önce bir list nesnesi oluşturup sonra bunu <code class="language-python">numpy.array()</code> fonksiyonunu kullanarak bir <code class="language-python">array</code> nesnesine dönüştürmektir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> a = -4.0
+>>> b = 4.0
+>>> h = (b - a)/10.0
+>>> X = [-4 + i*h for i in range(11)]
+>>>
+>>> type(X)
+type 'list'>
+>>> import numpy as np
+>>> X1 = np.array(X)
+>>> type(X1)
+type 'numpy.ndarray'>
+</code></pre>
+
+<p>
+Bir aralıkta düzgün dağılmış sayıların bir <code class="language-python">array</code> nesnesini oluşturmak çok sık kullanılan bir işlemdir ve bunun kısa bir yolu vardır. NumPy içindeki <code class="language-python">linspace(a, b, n)</code> komutuyla $[a,b]$ aralığı içinde düzgün dağılımlı $n$ tane nokta içeren bir <code class="language-python">array</code> nesnesi oluşturulur.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> X2 = np.linspace(-4, 4, 10)
+>>> type(X2)
+type 'numpy.ndarray'>
+</code></pre>
+
+<p>
+Şimdi bu array nesnesini kullanarak $f(x)$ değerlerini içeren bir array oluşturalım. Bunun için şöyle bir yol izlenebilir, önce bir array nesnesi oluşturup bunun elemanlarını bir döngü ile değiştirebiliriz. Bu en pratik yol değildir ama array nesnelerini anlamamıza yardımcı olacak. Python'da boş array nesnesi oluşturup sonradan eleman ekleyemeyiz, çünkü array nesnelerinin uzunlukları değişirse verileri kaybolur. Bunun yerine belirli uzunlukta sabit bir array oluşturup elemanları güncellemeliyiz, bu array oluşturma işini <code class="language-python">np.zeros(n)</code> komutuyla yaparız. Bu komut, $n$ tane <code class="language-python">0.0</code> (float) sayısından oluşan bir array nesnesi üretir. Farklı tipten verilerle bunu yapmak için <code class="language-python">np.zeros(10, dtype=int)</code> gibi bunu belirtiriz. Eğer önceden oluşturduğumuz bir array nesnesi ile aynı yapıda ve uzunlukta sıfır array oluşturmak istersek bunu <code class="language-python">np.zeros_like(x)</code> komutuyla yaparız, bu komut <code class="language-python">x</code> array nesnesi ile aynı veri yapısına ve uzunluğuna sahip olan fakat sıfırla dolu bir array üretir. Bunları sıfır yerine bir sayılarıyla yapan ve aynı şekilde çalışan <code class="language-python">np.ones()</code> ve <code class="language-python">np.ones_like()</code> komutları da vardır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> Y2 = np.zeros(10)
+>>> print Y2
+[ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+>>> A = np.zeros(5, dtype=int)
+>>> print A
+[0 0 0 0 0]
+>>> B = np.ones_like(Y2)
+>>> print B
+[ 1.  1.  1.  1.  1.  1.  1.  1.  1.  1.]
+>>> C = np.ones_like(A)
+>>> print C
+[1 1 1 1 1]
+</code></pre>
+
+<p>
+Şimdi bu array nesnesinin elemanlarını güncelleyeceğiz. Bir array nesnesini tıpkı bir list nesnesi gibi indisleyebilir ve dilimleyebiliriz. Fakat dilimleme konusunda bir uyarı yapmamız gerekiyor. Array nesnesinden alınan dilimler yeni bir nesnede saklanmaz, sadece orijinal nesneye atıf verir. Yani alınan dilimde bir değişiklik yaparsak bundan dilimi aldığımız nesne de etkilenir. Bunun dışında listelerdeki dilimleme ve indisleme ilgili her işlem array nesneleri için de geçerlidir. Diğer yandan array nesnelerinin list nesnelerinde olmayan çok daha gelişmiş dilimleme ve indisleme yöntemleri de mevcuttur, bunları daha sonra öğreneceğiz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> x = np.linspace(0, 1, 11)
+>>> print x
+[ 0.   0.1  0.2  0.3  0.4  0.5  0.6  0.7  0.8  0.9  1. ]
+>>> x[5]
+0.5
+>>> x[2:7]
+array([ 0.2,  0.3,  0.4,  0.5,  0.6])
+>>> A = x[3:]
+>>> A
+[ 0.3  0.4  0.5  0.6  0.7  0.8  0.9  1. ]
+>>> A[-1] = 0.0
+>>> A
+[ 0.3  0.4  0.5  0.6  0.7  0.8  0.9  0. ]
+>>> x
+[ 0.   0.1  0.2  0.3  0.4  0.5  0.6  0.7  0.8  0.9  0. ]
+</code></pre>
+
+<p>
+Sonuç olarak yukarıdaki programı list yerine array nesneleriyle yeniden yazarsak aşağıdaki gibi olacaktır ve aynı çıktıyı üretecektir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+from math import exp, sin
+import numpy as np
+
+f = lambda x: exp(-x**2)*sin(x)
+a = -4.0; b = 4.0; h = (b - a)/10.0
+X = np.linspace(-4, 4, 10)
+Y = np.zeros_like(X)
+
+for i in xrange(10):
+    Y[i] = f(X[i])
+
+for x, y in zip(X, Y):
+    print "x=%4.1f, f(x)=%g" % (x, y)
+</code></pre>
+
+
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Vektörizasyon</h3>
+
+
+
+
+
+<p>
+Programlarımızda matematiksel fonksiyonları NumPy array nesnelerine kayıt ederken kullandığımız döngüler verimliliği düşürür. En az sayıda döngü kullanmalı, mümkünse hiç kullanmamalıyız. Array nesneleri üzerinde işlem yaparken döngülere başvurmak yerine NumPy paketinde bulunan array nesneleri ile çalışmak için tanımlanmış hazır fonksiyonları kullanmalıyız.
+<p>
+
+<p>
+Aşağıdaki Python oturumunda da göreceğimiz gibi bir $f$ fonksiyoununun bir <code class="language-python">x</code> array nesnesindeki sayılardaki değerlerinden oluşan bir <code class="language-python">y</code> array nesnesi oluşturmak için döngü kullanmak zorunda değiliz. Çoğu durumda bu işlemi yapmak için sadece <code class="language-python">y = f(x)</code> komutu yeterlidir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> import numpy as np
+>>> f = lambda x: x**2 -3*x + 2
+>>> x = np.linspace(0, 3, 10)
+>>> x
+>>> x = np.linspace(0, 3, 5)
+>>> x
+array([ 0.  ,  0.75,  1.5 ,  2.25,  3.  ])
+>>> y = f(x)
+>>> y
+array([ 2.    ,  0.3125, -0.25  ,  0.3125,  2.    ])
+</code></pre>
+
+<p>
+Yani bir fonksiyona argüman olarak bir array nesnesi verdiğimizde o array nesnesinin her bir elemanına fonksiyon uygulanır ve sonuçta bir array nesnesi döndürülür. Bu durum, array nesnelerinin büyük bir avantajıdır. Fakat bu yöntemi kullanırken dikkat edilmesi gereken bir kaç husus var. Örnek olarak bu bölümün başında ele aldığımız $f(x):=\text{e}^{-x^2}\sin(x)$ fonksiyonunu düşünelim.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> import numpy as np
+>>> from math import exp, sin
+>>> f = lambda x: exp(-x**2)*sin(x)
+>>> x = np.linspace(-4, 4, 100)
+>>> y = f(x)
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+File "<stdin>", line 1, in <lambda>
+TypeError: only length-1 arrays can be converted to Python scalars
+</code></pre>
+
+<p>
+Gördüğümüz gibi bu fonksiyonda bu işlem işe yaramadı. Bunun sebebi, <code class="language-python">math</code> modülündeki fonksiyonların array nesneleri ile çalışacak şekilde tanımlanmamış olmasıdır. Onlar <code class="language-python">float</code> nesneleri ile çalışacak şekilde tanımlanmıştır. Bu sorunun oldukça basit bir çözümü vardır. NumPy paketi içinde de <code class="language-python">sin</code>, <code class="language-python">cos</code>, <code class="language-python">sqrt</code>, <code class="language-python">exp</code>, <code class="language-python">log</code> gibi matematiksel fonksiyonlar tanımlanmıştır ve bunlar array nesneleri ile uyumludur. Üstelik bu fonksiyonlar sadece array nesneleri ile değil, aynı zamanda float nesneleri ile de çalışabilir. Sonuç olarak bu örnekte <code class="language-python">exp</code> ve <code class="language-python">sin</code> fonksiyonlarını <code class="language-python">math</code> yerine <code class="language-python">numpy</code> paketinden almalıyız.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> import numpy as np
+>>>
+>>> f = lambda x: np.exp(-x**2)*np.sin(x)
+>>> x = np.linspace(-4, 4, 10)
+>>> y = f(x)
+>>> y
+array([  8.51669010e-08,  -1.90733964e-06,  -5.69932230e-03,
+	-1.64270447e-01,  -3.52888753e-01,   3.52888753e-01,
+         1.64270447e-01,   5.69932230e-03,   1.90733964e-06,
+	-8.51669010e-08])
+</code></pre>
+
+<p>
+Bir fonksiyon değerlerini bu örnekte olduğu gibi hiç döngü kullanmadan array nesnelerinde saklamak işine fonksiyonu <strong>vektörize etmek</strong> denir. Ayrıca bir işlemi döngü kullanmadan sadece array operasyonları ile yapan kodlar <strong>vektörize</strong> kodlamaya örnektir, aksi duruma <strong>skaler</strong> kodlama denir. Programların maksimum verimde ve hızda çalışmaları için vektörize kodlama ile yazılması gerekir.
+</p>
+
+<p>
+Şimdi skaler kodlama ile vektörize kodlama arasındaki performans farkını gözlemleyelim. Bunun için skaler kodlanmış fonksiyon ile vektörize kodlanmış fonksiyonun çalışmasında bilgisayar işlemcisinin ne kadar süre kullanıldığını ölçeceğiz. Python'da <code class="language-python">time</code> modülü içinde bulunan <code class="language-python">clock()</code> fonksiyonu ile programın başlatıldığı andan itibaren merkezi işlemcinin (CPU) saniye cinsinden ne kadar süre meşgul edildiği öğrenilebilir. Dolayısıyla ilgili kodlar öncesinde ve sonrasında bu CPU zamanlarını alıp birbirinden çıkarırsak o kodların ne kadar CPU süresinde çalıştığını anlamış oluruz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import numpy as np
+from math import exp, sin
+
+def h1(f, a, b, k):                 #skaler kodlama
+    h = (b - a)/k
+    x = [a + i*h for i in range(k)]
+    y = [f(a) for a in x]
+    s = sum(y)
+
+def h2(f, a, b, k):                 #vektorize kodlama
+    x = np.linspace(a, b, k)
+    y = f(x)
+    s = np.sum(y)
+</code></pre>
+
+<p>
+Yukarıda tanımlanan iki fonksiyon da aynı işlemi yapıyor, <code class="language-python">f</code> fonksiyonunun $[a,b]$ aralığında <code class="language-python">k</code> tane değerinin toplamını hesaplıyor. Toplama işlemini <code class="language-python">sum()</code> fonksiyonu yardımıyla yapıyoruz, bu fonksiyon verilen list nesnesinin tüm elemanlarının toplamını döndürür. Bu fonksiyon array nesneleri ile de çalışır fakat NumPy paketinde bulunan <code class="language-python">np.sum()</code> fonksiyonu array nesneleri üzerinde daha verimli çalışır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import time
+
+k = 10000000
+f1 = lambda x: exp(-x**2)*sin(x)
+f2 = lambda x: np.exp(-x**2)*np.sin(x)
+
+t0 = time.clock()       #cpu zaman baslangic
+h1(f1, -4, 4, k)        #skaler hesap
+t1 = time.clock()       #cpu zaman bitis
+print "Skaler Kodlama\ncpu zaman: %f" % (t1 - t0)
+
+t2 = time.clock()       #cpu zaman baslangic
+h2(f2, -4, 4, k)        #vektorize hesap
+t3 = time.clock()       #cpu zaman bitis
+print "Vektorize Kodlama\ncpu zaman: %f" % (t3 - t2)
+</code></pre>
+
+<p>
+Yukarıdaki kodlarda bu bölümde ele aldığımız fonksiyonun $[-4, 4]$ aralığında 10.000.000 noktada değerlerinin toplamını hesaplıyoruz ve geçen zamanı hesaplatıyoruz. Programın çıktısı aşağıdaki gibi olacaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal python array3.py
+Skaler Kodlama
+cpu zaman: 7.236636
+Vektorize Kodlama
+cpu zaman: 0.641086
+</code></pre>
+
+<p>
+Aradaki bariz performans farkını görüyorsunuz. Bu kadar büyük array nesneleri ile çalışmayabilirsiniz, ama ortalama büyüklükteki arraylar ile yapılan hesapları üst üste koyarsanız sıradan bir programda benzer bir iş yükü oluşacaktır. Burada ölçülen zaman bilgisi çalıştığınız bilgisayarın donanımına, işletim sistemine ve anlık olarak çalışan yazılımlara bağlı olarak değişebilir.
+</p>
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Gelişmiş Vektörizasyon Teknikleri</h3>
+
+
+
+
+
+
+<p>Şu ana kadar öğrendiğimiz yöntemlerle <code class="language-python">if-else</code> bloklarını içeren fonksiyonları vektörize edemeyiz. Örnek olarak daha önce incelediğimiz ve Heaviside fonksiyonu olarak bilinen
+$$
+H(x)=
+\left\{
+\begin{array}{ll}
+0, & \quad  x < 0\\
+1, & \quad x\geq 0
+\end{array}
+\right.
+$$
+fonksiyonunu düşünelim.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> import numpy as np
+>>> def H(x):
+...     return (0 if x < 0 else 1)
+...
+>>> x = np.linspace(-2, 2, 5)
+>>> x
+array([-2., -1.,  0.,  1.,  2.])
+>>> y = H(x)
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+File "<stdin>", line 2, in H
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+</code></pre>
+
+<p>
+Burada karşılaştığımız sorunun kaynağı şudur, <code class="language-python">H</code> fonksiyonundaki <code class="language-python">if-else</code> kısmında bulunan <code class="language-python">x < 0</code> bool ifadesini sonucu bir tek bool nesnesi değildir. Bu ifadenin sonucunda, <code class="language-python">x</code> bir array nesnesi olduğundan, <code class="language-python">True</code> veya <code class="language-python">False</code> değerlerinden oluşan bir array nesnesi oluşur.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> import numpy as np
+>>> x = np.linspace(-2, 2, 5)
+>>> x
+array([-2., -1.,  0.,  1.,  2.])
+>>> x < 0
+array([ True,  True, False, False, False], dtype=bool)
+>>> x >= 0
+array([False, False,  True,  True,  True], dtype=bool)
+</code></pre>
+
+<p>
+Dolayısıyla <code class="language-python">if-else</code> blokları içeren fonksiyonları vektörize etmek için bunları uygun şekilde düzenlemeliyiz. Bunun akla gelen ilk yöntemi bir döngü ile array nesnesinin tüm elemanlarını güncellemektir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import numpy as np
+
+def H(x):
+    return (0 if x < 0 else 1)
+
+def Hv1(x):
+    r = np.zeros_like(x)
+    for i in range(len(x)):
+        r[i] = H(x[i])
+    return r
+
+x = np.linspace(-2, 2, 5)
+print x
+print Hv1(x)
+</code></pre>
+
+<p>
+Yukarıdaki programda <code class="language-python">H</code> fonksiyonunu manuel olarak vektörize eden başka bir <code class="language-python">Hv1</code> fonksiyonu tanımladık. Programın çıktısı aşağıdaki gibi olacaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python array5.py
+[-2. -1.  0.  1.  2.]
+[ 0.  0.  1.  1.  1.]
+</code></pre>
+
+<p>
+Bu yaklaşımın hiç bir zorluğu olmasa da kodlarda açık olarak bulunan döngü programımızın verimliliğini düşürür. Döngüler yerine aynı işi yapan hazır fonksiyonları kullanmalıyız. NumPy modülünde bulunan <code class="language-python">where()</code> fonksiyonunu bu iş için kullanabiliriz. Bir <code class="language-python">kosul</code> array nesnesi bool değerler içersin (<code class="language-python">x < 0</code> gibi), <code class="language-python">A</code> ve <code class="language-python">B</code> de iki array nesnesi olsun. Bu üç array nesnesi aynı sayıda eleman içeriyorsa <code class="language-python">r = where(kosul, A, B)</code> kullanımı ile yeni bir <code class="language-python">r</code> array nesnesi oluşturulur; eğer <code class="language-python">kosul[i]</code> değeri <code class="language-python">True</code> ise <code class="language-python">r[i]=A[i]</code>, aksi durumda <code class="language-python">r[i]=B[i]</code> olur. Burada <code class="language-python">A</code> ve <code class="language-python">B</code> nesneleri array yerine float olarak da verilebilir. Aşağıdaki program da aynı çıktıyı üretecektir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import numpy as np
+
+def Hv2(x):
+    return np.where(x < 0, 0.0, 1.0)
+
+x = np.linspace(-2, 2, 5)
+print x
+print Hv2(x)
+</code></pre>
+
+<p>
+Bu işlemin daha pratik bir yolu daha vardır; buna bool indisleme (<strong>boolean indexing</strong>) denir. Genel olarak bir array nesnesi başk bir bool array nesnesi ile indislenebilir. Bu yöntemin ana fikri şudur; bir <code class="language-python">a</code> array verisi başka bir <code class="language-python">b</code> array verisi ile <code class="language-python">a[b]</code> biçiminde indislenebilir. Bunun sonucunda yeni bir array verisi oluşur, bunun elemanları <code class="language-python">b[i]</code> True olan <code class="language-python">a[i]</code> elemanlarıdır. Dolayısıyla <code class="language-python">a[b]= c</code> gibi atama ile <code class="language-python">a</code> array nesnesinin <code class="language-python">b[i]=True</code> olan elemanlarını <code class="language-python">a</code> nesnesine yerleştiririz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> import numpy as np
+>>> x = np.linspace(-2, 2, 5)
+>>> x
+array([-2., -1.,  0.,  1.,  2.])
+>>> a = x >= 0
+>>> a
+array([False, False,  True,  True,  True], dtype=bool)
+>>> x[a]
+array([ 0.,  1.,  2.])
+>>> x[a] = 3
+>>> x
+array([-2., -1.,  3.,  3.,  3.])
+</code></pre>
+
+<p>
+Sonuç olarak Heaviside fonksiyonunu aşağıdaki biçimde de vektörize edebiliriz. Bool indisleme yöntemi ile vektörizasyon diğerlerine göre daha hızlı çalışır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import numpy as np
+
+def Hv3(x):
+    r = np.zeros_like(x)
+    r[x >= 1] = 1
+    return r
+
+x = np.linspace(-2, 2, 5)
+print x
+print Hv3(x)
+</code></pre>
+
+<p>
+Başka bir örnek olarak daha önce incelediğimiz düzeltilmiş Heaviside fonksiyonu olarak adlandırılan ve
+$$
+H_\epsilon(x)=
+\left\{
+\begin{array}{ll}
+0, & \quad x<-\epsilon\\
+\frac{1}{2}+\frac{x}{2\epsilon}+\frac{1}{2\pi}\sin\left( \frac{\pi x}{\epsilon} \right), & \quad -\epsilon\leq x\leq\epsilon\\
+1, & \quad x>\epsilon
+\end{array}
+\right.
+$$
+olarak tanımlanan fonksiyonu ele alalım. Bu fonksiyonu aşağıdaki gibi tanımlayabiliriz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import numpy as np
+
+def H_eps(x, epsilon=1E-5):
+    if x < -epsilon:
+        return 0
+    elif -epsilon <= x <= epsilon:
+        return 0.5+x/(2.0*epsilon)+1/(2*np.pi)*np.sin(np.pi*x/epsilon)
+    else:
+        return 1
+</code></pre>
+
+<p>
+Bu fonksiyonu farklı şekillerde aşağıdaki vektörize edebiliriz. Öncelikle açık bir döngü kullanarak aşağıdaki kodları yazabiliriz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+def H_eps_v1(x, epsilon=1E-5):
+    r = np.zeros_like(x)
+    for i in range(len(x)):
+        r[i] = H_eps(x[i])
+    return r
+</code></pre>
+
+<p>
+İkinci bir seçenek olarak <code class="language-python">np.where()</code> fonksiyonunu kullanabiliriz. Fakat burada dikkat etmemiz gereken bir nokta var. Koşullardan birini kodlarken <code class="language-python">-epsilon <= x <= epsilon</code> ifadesini yazmalıyız, bu ise <code class="language-python">-epsilon <= x and x <= epsilon</code> komutunu çalıştırır. Fakat <code class="language-python">and</code> operatörü standart olarak array nesneleriyle çalışmaz, bunun yerine NumPy içinde bulunan <code class="language-python">logical_and()</code> fonksiyonunu kullanmalıyız. <code class="language-python">np.logical_and(a, b)</code> ifadesi <code class="language-python">a and b</code> demektir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+def H_eps_v2(x, epsilon=1E-5):
+    k1 = x < -epsilon
+    k2 = np.logical_and(-epsilon <= x, x <= epsilon)
+    k3 = x > epsilon
+
+    v = 0.5 + x/(2.0*epsilon) + 1/(2*np.pi)*np.sin(np.pi*x/epsilon)
+
+    r = np.zeros_like(x)
+    r = np.where(k1, 0, r)
+    r = np.where(k2, v, r)
+    r = np.where(k3, 1, r)
+
+    return r
+</code></pre>
+
+<p>
+Son olarak bool indisleme yöntemini kullanalım. Aşağıdaki programı inceleyin, yukarıdaki ile aynı işi aynı mantıkla yapar, çok ufak bir farklılığı var.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+def H_eps_v3(x, epsilon=1E-5):
+    k1 = x < -epsilon
+    k2 = x > epsilon
+
+    r = 0.5 + x/(2.0*epsilon) + 1/(2*np.pi)*np.sin(np.pi*x/epsilon)
+
+    r[k1] = 0
+    r[k2] = 1
+
+    return r
+</code></pre>
+
+<p>
+Bunların çıktısını aşağıdaki gibi kontrol edersek hepsinin aynı çıktıyı verdiğini gözlemleriz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+x = np.linspace(-0.5, 0.5, 10)
+print [H_eps(xx) for xx in x]
+print H_eps_v1(x)
+print H_eps_v2(x)
+print H_eps_v3(x)
+</code></pre>
+
+<p>
+Son olarak bir vektörizasyon tekniğinden daha bahsedeceğiz. Bir fonksiyonu <strong>otomatik</strong> olarak vektörize etmek için aslında sadece <code class="language-python">np.vectorize(H_eps)</code> komutu yeterlidir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+H_eps_v = np.vectorize(H_eps)
+x = np.linspace(-0.5, 0.5, 10)
+print H_eps_v(x)
+</code></pre>
+
+<p>
+Peki, madem bu kadar basit bir yolu var, neden diğer vektörizasyon tekniklerine ihtiyaç duyarız? Otomatik vektörizasyon çok pratik olmasına rağmen diğerleri gibi verimli değildir, özellikle bool indisleme ve <code class="language-python">where()</code> tekniğine göre belirgin şekilde yavaş çalışır. Bu yöntemle vektörize edilen fonksiyonlarda array nesnelerinin getirdiği verimlilikten faydalanamayız. Dolayısıyla bu yöntemi en son çare olarak kullanmalıyız.
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../33-pythonda-moduller/index.html">3.3. Python'da Modüller</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Python ve Bilimsel Hesaplama</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../42-grafik-cizimi/index.html">4.2. Grafik Çizimi</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/python-ve-bilimsel-hesaplama/41-array-nesneleri-ve-vektorizasyon/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:48 GMT -->
+</html>

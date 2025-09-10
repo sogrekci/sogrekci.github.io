@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/latexe-giris/6-ortamlar/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:41:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 6. Ortamlar
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>6. Ortamlar</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-17">
+          17 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste LaTeX <strong>ortamlarının</strong> yapısı ve kullanımını tartışacağız. En temel ortam örnekleri olan hizalama, alıntılama ve verbatim ortamını örnek olarak çalışacağız. Bunların dışında listeleme ortamlarını da ele alacağız.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/alinti/index.html">alıntı</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/center/index.html">center</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/flushleft/index.html">flushleft</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/flushright/index.html">flushright</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/maddelendirme/index.html">maddelendirme</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/numaralandirma/index.html">numaralandırma</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/ortamlar/index.html">ortamlar</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+LaTeX te <strong>ortamlar</strong> da komutlar gibi çalışır. Bir ortamı, bir grup öğeye etki eden komutlar dan oluşan bir sistem olarak tanımlayabiliriz. Ortamlar <code class="language-latex">\begin{ortam adı}</code> ile başlayıp <code class="language-latex">\end{ortam adı}</code> ile biter. İç içe farklı ortamlar kullanılabilir. Mesela <code class="language-latex">document</code> bir ortamdır, <code class="language-latex">\begin{document}</code> ile <code class="language-latex">\end{document}</code> ifadeleri arasında kalan metine sahanlıkta belirtilen komutları uygulayan bir ortamdır.
+</p>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\begin{ortam1}
+Metin metin metin metin metin metin
+Metin metin metin metin metin metin
+   \begin{ortam2}
+   Metin metin metin metin metin metin
+   \end{ortam2}
+\end{ortam1}
+</code></pre>
+
+
+<h3 class="mt-5 mb-3">Hizalama Ortamları</h3>
+
+<p>
+Bu derste bazı ortamları tanıyacağız, mesela LaTeX ile bir grup <strong>metni hizalamak</strong> için çeşitli ortamlar kullanılır. Paragrafları sola yaslı, sağa yaslı ve ortalı hizalamak için sırasıyla <code class="language-latex">flushleft</code>, <code class="language-latex">flushright</code> ve <code class="language-latex">center</code> ortamları kullanılır. Kısa <strong>alıntıları</strong> hizalamak için <code class="language-latex">quote</code> ortamı, uzun alıntılar içinse <code class="language-latex">quotation</code> ortamı kullanılır. Şiir kıtalarını hizalamak için de <code class="language-latex">verse</code> ortamı kullanılır. Yazıldığı gibi basılması gereken (<strong>kaynak kodu</strong>) metinler için <code class="language-latex">verbatim</code> ortamı kullanılır. <code class="language-latex">verbatim*</code> ortamı ile de kaynak kodundaki boşlukları belirten özel bir işaret kullanılır. Paragraf yerine tek bir kelime için de <code class="language-latex">\verb|metin|</code> komutu kullanılır.
+</p>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 20}
+\maketitle 
+\begin{flushleft} 
+Kabil'in kışına bayılıyordum. Geceleri pencereme pıtır pıtır vuran kar tanelerine,
+yeni yağmış karın siyah, kauçuk botlarımın altında ezilirken çıkardığı çıtırtıya,
+rüzgar bahçelerde, sokaklarda uğuldarken demir sobadan yayılan sıcaklığa bayılıyordum.
+Ama en çok da, ağaçlar donup yollar buz tutunca, Baba'yla aramdaki buzların
+azıcık da olsa erimesine. Bunu sağlayansa uçurtmalardı. Baba'yla aynı evde yaşıyorduk,
+ama farklı dünyalarda. Uçurtmalar bu iki dünya arasındaki, kağıt inceliğindeki kesişme noktasıydı.
+\end{flushleft} 
+\end{document}
+</code></pre>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 21}
+\maketitle 
+\begin{center} 
+"Bir daha bize yemeğe geldiğinde Davut Han'a ne diyeceğim, biliyor musun?" dedi Assef.
+"Onunla erkek erkeğe konuşacağım; iki mert gibi. Anneme söylediğimi ona da söyleyeceğim.
+Hitler hakkında. İşte, o gerçek bir liderdi. Büyük bir lider. Vizyonu olan bir adamdı. Davut Han'a,
+Hitler'in başladığı işi bitirmesine izin verselerdi, dünya şimdi çok daha güzel bir yer olurdu, diyeceğim." 
+\end{center} 
+\end{document}
+</code></pre>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 22}
+\maketitle 
+\begin{flushright} 
+Sokağın köşesini dönmek üzereydi; lastik botları yerden kar öbekleri kaldırıyordu. Durdu,
+döndü ellerini ağzının iki yanına götürdü. ” Bin Tane İste, Senin İçin Yakalayayım! ” dedi.
+Sonra o bildik hasan gülümsemesiyle gülümsedi, köşeyi dönüp gözden yitti. Onu bir kez daha
+böylesine tasasız, böylesine içten gülümserken ancak yirmi altı yıl sonra, solmuş bir polaroid
+fotoğrafta gördüm. 
+\end{flushright} 
+\end{document}
+</code></pre>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 23}
+\maketitle 
+Sevgili okuyucum, o öylesine güzel bir geceydi ki, böylesini ancak gençliğimizde görebiliriz!
+Gökyüzünün aydınlığında, yıldızların parlaklığına bakıp bakıp da,
+\begin{quote} 
+"Böyle bir göğün altında insan nasıl olur da öfke duyar, hırçınlaşabilir?"
+\end{quote} 
+diye düşünürsünüz. Ama bu düşünce de gençler içindir, sevgili okuyucum,
+hem de çok gençler için. Dilerim, sizin de gönlünüz uzun süre genç kalsın\ldots
+\end{document}
+</code></pre>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 24}
+\maketitle 
+Meryem elleri dizlerinin arasında, kanepede yattı, camın önünde girdap gibi dönen, çevrilen tipiyi
+seyretti. Aklına Nana'nın bir keresinde söylediği bir şey geldi:
+\begin{quotation} 
+Pusulanın hep kuzeyi gösteren ibresi gibi, bir erkeğin suçlayan parmağı da daima, bir kadını gösterir.
+Her zaman. Bunu hiç unutma Meryem\ldots Seninle benim gibi kadınlara hayatta yalnızca bir,
+tek bir marifet gereklidir, o da zaten okulda öğretilmez. O da tahammül. Sabretmek. Katlanmak.
+Sahip olduğumuz tek şey bu yeteneğimizdir \ldots 
+\end{quotation} 
+Orada,geleceğin hiçbir önemi yoktu. Geçmişse yalnızca tek bir dersi içeriyordu:
+Sevgi,insana zarar veren bir hatadır;
+işbirlikçisi, yani umutsa tehlikeli bir yanılsama. \end{document}
+</code></pre>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 25}
+\maketitle 
+Filmlerinin ilk gösterimlerinden yıllar sonra bile hala büyük bir ilgiyle izlenmesi olgusunu, yazmış
+olduğu yüksek lisans tezinde sosyolojik olarak irdelemiştir. 
+\begin{verse} 
+Suya attım bir taş,\\ Çıkardı bir ses faş faş,\\
+Birisi kafama vurunca,\\ Gözümden geliyor yaş.\\[2ex]
+
+Hüsniye Hüsniye,\\ Beni döndürdün deliye,\\
+İstersen sor beni Veli’ye,\\
+Diyecek ki Hüsnü 12'de binecek gemiye.\\ 
+\end{verse}
+\end{document}
+</code></pre>
+
+
+<h3 class="mt-5 mb-3">Sıralama Ortamları</h3>
+
+
+<p>
+LaTeX ile bir grup öğe <strong>numaralandırılarak</strong> veya <strong>maddelendirilerek</strong> sıralandırılabilir. Numaralandırma işlemi için <code class="language-latex">enumerate</code>, maddelendirme işlemi için de <code class="language-latex">itemize</code> ortamı kullanılır. Maddelendirme işleminde madde işareti değiştirilebilir. Açıklamalı liste için <code class="language-latex">description</code> ortamı kullanılabilir. Bu ortamda anahtar kelimeler kalın yazı tipi ile dizilir. Maddeler <code class="language-latex">\item</code> komutuyla belirtilir.
+</p>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 26}
+\maketitle 
+\LaTeX{} ile numaralı listeye bir örnek\ldots
+\begin{enumerate}
+	\item madde 1
+	\item madde 2
+	\begin{enumerate}
+		\item alt maddelerden 1
+		\item alt maddelerden 2
+		\begin{enumerate}
+			\item en alt madde 1
+			\item en alt madde 2
+		\end{enumerate}
+		\item alt maddelerden 3
+		\item alt maddelerden 4		
+	\end{enumerate}
+	\item madde 3
+	\item madde 4
+\end{enumerate}
+\end{document}
+\end{document}
+</code></pre>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 27}
+\maketitle 
+\LaTeX{} ile maddeli listeye bir örnek\ldots
+\begin{itemize}
+	\item madde 1
+	\item madde 2
+	\item madde 3
+	\item[$\sim$] madde 4
+	\item[$\circ$] madde 5
+	\item[+] madde 6
+	\item[-] madde 7
+	\item[\#] madde 8
+\end{itemize}
+\end{document}
+</code></pre>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 28}
+\maketitle 
+\LaTeX{} ile karışık bir liste \ldots
+\begin{enumerate}
+	\item Numaralandırılmış bir liste öğesi
+	\item Numaralandırılmış bir liste öğesi
+	\begin{itemize}
+		\item Maddelendirilmiş alt öğe
+		\item Maddelendirilmiş alt öğe
+	\end{itemize}
+\end{enumerate}
+Şimdi de açıklamalı bir liste \ldots
+\begin{enumerate}
+	\item[İsim-Soyisim] Cristian Mark Junio Nascimento Oliveira Baroni
+	\item[Mevki] Orta saha
+	\item[Kod Adı] Yok
+	\item[Numarası] 16
+\end{enumerate}
+\end{document}
+</code></pre>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 29}
+\maketitle 
+İçindeki bal sevgisi ve en vahşi arılara bile dayanabilen kalın derisi nedeniyle kendisine
+bal porsuğu (honey badger) denilen ve bir kedi gibi masum görünen hayvanın Guinnes
+rekorlar kitabına göre dünyanın en korkusuz hayvanı olduğunu, sürekli yalnız dolaştığını,
+dolaşırken kuşlardan akreplere, yılanlardan arılara kadar önüne çıkan her türlü canlıyı öldürüp
+yediğini, bilinen bir çok zehire karşı doğuştan bağışıklığa sahip olduğunu biliyor muydunuz?
+\begin{description}
+	\item[Bilimsel İsmi] Mellivora Capensis
+	\item[Koruma seviyesi] Koruma yok %ihtiyacı da yok...
+	\item[Anavatanı] Asya, Avrupa
+	\item[Rengi] Gümüş gri, siyah
+	\item[Uzunluğu] 60-77 cm
+	\item[Ağırlığı] 7-13 kg
+	\item[Yaşam Süresi] 25-28 yıl
+\end{description}
+\end{document}
+</code></pre>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../5-duz-metin-bicimleme/index.html">5. Düz Metin Biçimleme</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">LaTeX'e Giriş</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../7-tablolar/index.html">7. Tablolar</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/latexe-giris/6-ortamlar/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:41:18 GMT -->
+</html>

@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/26-elementer-matrisler/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:04 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 2.6. Elementer Matrisler
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>2.6. Elementer Matrisler</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-06-01">
+          1 Haziran 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste şunu keşfedeceğiz: bir matrise <strong>elementer işlem</strong> dediğimiz bazı işlemler uygulanınca lineer dönüşümü temsil etmesi için seçilen bir bazda bir eleman değişir. Bu işlemleri uygulamak demek aslında matrisi <strong>elementer matrisler</strong> denilen matrislerle çarpmak demektir. Böylece Hermite normal biçime ulaşmak için ardışık olarak elementer işlemler uygulanabilir.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/elementer-islem/index.html">elementer işlem</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/elementer-matris/index.html">elementer matris</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/elementer-satir-islemleri/index.html">elementer satır işlemleri</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/elementer-sutun-islemleri/index.html">elementer sütun işlemleri</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/hermite-normal-bicim/index.html">Hermite normal biçim</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/matris-tersi/index.html">matris tersi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/tersinir-matris/index.html">tersinir matris</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Bu bölümde bazı hesaplama yöntemleri geliştireceğiz. Lineer dönüşümleri temsil eden matrislerin bir baz değişince nasıl değişeceğini ele alacağız. Göstereceğiz ki bu değişim, satır ve sütunlar üzerinde yapılan basit işlemlerle etkilenebilir.
+</p>
+
+<p>
+<div class="envdef" id="def:elementerislem"><h6 class="thenv">Tanım 2.6.1</h6>
+Bir matris üzerinde yapılan aşağıdaki işlemlere <strong>elementer satır işlemleri</strong> denir.
+<ul style="list-style:none">
+<li class="py-2"><strong>Tip 1:</strong> Bir satırı sıfırdan farklı bir skaler ile çarpmak.</li>
+<li class="py-2"><strong>Tip 2:</strong> Bir satırın bir katını başka bir satıra eklemek.</li>
+<li class="py-2"><strong>Tip 3:</strong> İki satırın yerlerini birbiri ile değiştirmek.</li></ul>
+<strong>Elementer sütun işlemleri</strong> de benzer şekilde tanımlanır.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:32"><h6 class="thenv">Uyarı 2.6.2</h6>
+Bir elementer işlem, $A$ matrisini bir matris ile soldan çarparak uygulanabilir. Örneğin $A$ matrisinin ikinci satırını $c$ skaleri ile çarpmak için onu
+	$$
+	E_2(c):=\left[\begin{array}{ccccc}1&0&0&\cdots&0\\0&c&0&\cdots&0\\0&0&1&\cdots&0\\\vdots&\vdots&\vdots&\ddots&\vdots\\0&0&0&\cdots&1\end{array}\right]
+	$$
+	matrisi ile soldan çarpabiliriz. $A$ matrisinin üçüncü satırının $k-$katını birinci satırına eklemek için onu
+	$$
+	E_{31}(k):=\left[\begin{array}{ccccc}1&0&k&\cdots&0\\0&1&0&\cdots&0\\0&0&1&\cdots&0\\\vdots&\vdots&\vdots&\ddots&\vdots\\0&0&0&\cdots&1\end{array}\right]
+	$$
+	matrisi ile soldan çarpabiliriz. Ayrıca $A$ matrisinin birinci ve ikinci satırını yer değiştirmek için onu
+	$$
+	E_{12}:=\left[\begin{array}{ccccc}0&1&0&\cdots&0\\1&0&0&\cdots&0\\0&0&1&\cdots&0\\\vdots&\vdots&\vdots&\ddots&\vdots\\0&0&0&\cdots&1\end{array}\right]
+	$$
+	matrisi ile soldan çarpabiliriz. Bütün bu matrisler tersinirdir ve tersleri de birer elementer satır işlemine karşılık gelir. Örneğin yukarıdaki $E_2(c)$, $E_{31}(k)$ ve $E_{12}$ matrislerinin tersleri sırasıyla $E_2(c^{-1})$, $E_{31}(-k)$ ve $E_{12}$ matrisleridir.
+</div>
+</p>
+
+<p>
+<div class="envdef" id="def:elementermatris"><h6 class="thenv">Tanım 2.6.3</h6>
+<a class="eqref" href="#rmk:lint:32">Uyarı 2.6.2</a> ile örneklenen matrislere <strong>elementer matrisler</strong> denir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:33"><h6 class="thenv">Uyarı 2.6.4</h6>
+Bir elementer işlemi temsil eden elementer matris, bu elementer işlemin birim matrise uygulanmış halidir.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:lint:25"><h6 class="thenv">Teorem 2.6.5</h6>
+Tersinir olan her matris, elementer matrislerin çarpımı olarak yazılabilir.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>İlk sütunda en az bir eleman sıfırdan farklı olmalıdır, aksi halde matris singüler olurdu (neden?). İlk önce elementer işlemlerle $a_{11}$ elemanını $1$ yapacağız. Eğer $a_{11}=0$ ise satırların uygun şekilde yerlerini değiştirerek $a_{11}\neq0$ olmasını sağlayalım. Şimdi ilk satırı $a_{11}^{-1}$ ile çarparak $a_{11}=1$ olmasını sağlayabiliriz. Bundan sonra her $i$ için bu satırın $-a_{i1}$ katını $i-$nci satıra ekleyerek ilk sütunun diğer elemanlarının $0$ olmasını sağlayalım. Elde edilen bu son matris hala tersinirdir, çünkü çarptığımız elementer matrisler tersinirdir (bk. <a class="eqref" href="../23-tersinir-matrisler/index.html#theo:lint:21">Teorem 2.3.11</a>). Bu şekilde benzer elementer işlemlerle $a_{22}=1$ ve ikinci sütunun diğer elemanları $0$ yapılabilir ve bu şekilde devam edilerek bir dizi elementer işlemle birim matris $I$ elde edilir. Elamanter işlemleri temsil eden elementer matrisler sırasıyla $E_1,\ldots,E_r$ ise bu durumda $I=E_rE_{r-1}\cdots E_2E_1A$ veya $$A=E_1^{-1}E_2^{-1}\cdots E_r^{-1}$$ elde edilir.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:34"><h6 class="thenv">Uyarı 2.6.6</h6>
+<a class="eqref" href="../25-hermite-normal-bicimi/index.html#theo:lint:23">Teorem 2.5.2</a> sonucunda bir matrisin Hermite normal biçimini elde etmek için onu soldan tersinir bir $Q^{-1}$ matrisi ile çarpmıştık, $A'=Q^{-1}A$. Şimdi ise <a class="eqref" href="#theo:lint:25">Teorem 2.6.5</a> gereği $Q^{-1}$ matrisinin elementer matrislerin çarpımı olduğunu gördük. Dolayısıyla bir matris ardışık elementer işlemler uygulanarak Hermite normal biçimine dönüştürülebilir. $Q^{-1}$ matrisini belirlemeden doğrudan elementer işlemler kullanmak, bir matrisi Hermite normal formuna getirmek için en etkin yöntemdir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:35"><h6 class="thenv">Uyarı 2.6.7</h6>
+<a class="eqref" href="#theo:lint:25">Teorem 2.6.5</a> ile singüler olmayan bir matris için Hermite normal formuna indirgeme yöntemi olarak elementer işlemler kullanıldı. Matris tersinir olduğundan her adımda her $a_{ii}$ elamanı sıfırdan farklı olarak elde edildi. Ama matris singüler ise bu mümkün olmayabilir, dolayısıyla singüler olan bir matrisi Hermite normal biçimine getirmek için elementer satır işlemler uygulanırken herhangi bir $a_{ii}$ elamanı sıfır oluyorsa bir sonraki sütuna geçilerek işlemlere devam edilir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:36"><h6 class="thenv">Uyarı 2.6.8</h6>
+Okuyucu zamanla pratik yaptıkça birden fazla elementer işlemi tek hamlede yapabilecek duruma gelecektir. Fakat bu gibi pratik işlemleri uygularken rankın azalmasını engellemek için dikkat edilmelidir. Örneğin bir satır kendisinden çıkarılırsa rankı değişecektir, bu gibi yanlış işlemlerin oluşmaması için özenli davranılmalıdır.
+</div>
+</p>
+
+<p>
+<div class="envex" id="ex:lint:5"><h6 class="thenv">Örnek 2.6.9</h6>
+Örnek olarak
+	$$
+	\left[\begin{array}{rrrrr}4&3&2&-1&4\\5&4&3&-1&4\\-1&-2&-1&2&-3\\11&6&4&1&11\end{array}\right]
+	$$
+matrisini ele alalım. Hermite normal biçime ulaşmak için önce ilk satırı $1/4$ ile çarpabiliriz, böylece $a_{11}$ elamanı $1$ olur. Bunun başka bir yolu da ilk satırı $-1$ ile çarpıp daha sonra ikinci satırı ilk satıra eklemektir. Daha sonra ilk satırın uygun katları diğer satırlara eklenerek
+	$$
+	\left[\begin{array}{rrrrr}1&1&1&0&0\\0&-1&-2&-1&4\\0&0&1&2&-3\\0&-5&-7&1&11\end{array}\right]
+	$$
+matrisi elde edilir. Daha sonra ikinci satır $-1$ ile çarpılır ve bunun uygun katları diğer satırlara eklenirse
+	$$
+	\left[\begin{array}{rrrrr}1&0&-1&-1&4\\0&1&2&1&-4\\0&0&1&2&-3\\0&0&3&6&-9\end{array}\right]
+	$$
+matrisi elde edilir. Son olarak üçüncü satırın uygun katları diğer satırlara eklenerek
+	$$
+	\left[\begin{array}{rrrrr}1&0&0&1&1\\0&1&0&-3&2\\0&0&1&2&-3\\0&0&0&0&0\end{array}\right]
+	$$
+matrisi elde edilir ki bu matris Hermite normal biçimine sahiptir. Burada $Q^{-1}$ matrisi belirlenmek istenirse, uygulanan elementer işlemler aynı sıra ile birim matrise uygulanarak bu matrise ulaşılabilir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:37"><h6 class="thenv">Uyarı 2.6.10</h6>
+$Q^{-1}$ matrisini hesaplamak için elementer işlemleri ayrıca birim matrise uygulamak yerine $A$ ile aynı anda uygulanması daha pratiktir. Bunun için $A$ ve $I$ matrislerini birleştirip bir $\left[A,I\right]$ matrisi oluşturulup elementer işlemler uygulanırsa sonuçta satır eşelon formla birlikte $Q^{-1}$ matrisi de elde edilir. <a class="eqref" href="#ex:lint:5">Örnek 2.6.9</a> ile verilen $A$ matrisi için
+	$$
+	\left[A,I\right]=
+	\left[\begin{array}{rrrrrrrrr}
+	4&3&2&-1&4&1&0&0&0\\
+	5&4&3&-1&4&0&1&0&0\\
+	-2&-2&-1&2&-3&0&0&1&0\\
+	11&6&4&1&11&0&0&0&1
+	\end{array}\right]
+	\rightarrow
+	\left[\begin{array}{rrrrrrrrr}
+	1&0&0&1&1&2&-1&1&0\\
+	0&1&1&-3&2&-1&0&-2&0\\
+	0&0&1&2&-3&-2&2&1&0\\
+	0&0&0&0&0&-8&3&-3&1
+	\end{array}\right]
+	$$
+	olur, böylece
+	$$
+	Q^{-1}=
+	\left[\begin{array}{rrrr}
+	2&-1&1&0\\
+	-1&0&-2&0\\
+	-2&2&1&0\\
+	-8&3&-3&1
+	\end{array}\right]
+	$$
+	olarak elde edilmiş olur.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:38"><h6 class="thenv">Uyarı 2.6.11</h6>
+$A$ matrisi tersinir olsaydı Hermite normal biçimi birim matris olurdu, bu durumda $Q^{-1}$ matrisi de $A$'nın tersi olur. Bu yöntemle, <a class="eqref" href="#rmk:lint:37">Uyarı 2.6.10</a> ile verilen yöntemle, bir matrisin tersi hesaplanabilir ve bu yöntem şu ana kadar öğrendiğimiz en pratik yöntemdir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:39"><h6 class="thenv">Uyarı 2.6.12</h6>
+<a class="eqref" href="../25-hermite-normal-bicimi/index.html#theo:lint:23">Teorem 2.5.2</a> gereği bir matrisin Hermite normal biçimi tek türlüdür, fakat yine aynı teorem ispatı gereği ilgili $Q^{-1}$ matrisi tek değildir. Benzer şekilde Hermite normal forma indirgemek için kullanılan elementer işlemler dizisi de tek türlü değildir. Yani farklı elementer işlemler izleyerek de aynı Hermite normal biçimine ulaşılabilir.
+</div>
+</p>
+
+
+
+
+
+<h3 class="mt-5 mb-3">Alıştırmalar</h3>
+
+
+
+
+<p>
+<ol>
+<li class="py-2">Aşağıdakileri doğrulayın.</li>
+<ol type="a">
+<li class="py-2">Sadece Tip 2 elementer işlemleri kullanarak bir matrisin herhangi iki satırı, satırın biri -1 ile çarpılmış olarak, yer değiştirilebilir. Bundan dolayı Tip 3 elementer işlemler aslında Tip 2 ve Tip 1 elementer işlemler kullanılarak elde edilebilir.</li>
+<li class="py-2">Tip 2 ve Tip 3 elementer işlemler kullanılarak herhangi bir satırın işaret değiştirilebilir.</li>
+</ol>
+<li class="py-2">Aşağıdaki matrislerin ranklarını tespit etmek için elementer işlemleri kullanın. Bunun için Hermite normal biçimi elde edinceye kadar elementer işlem yapmanıza gerek olmayabilir.
+		$$\left[\begin{array}{rrr}1&2&3\\4&5&6\\7&8&9\end{array}\right]\quad\left[\begin{array}{rrr}0&1&2\\-1&0&3\\-2&-3&0\end{array}\right]\quad\left[\begin{array}{rrr}0&1&2\\1&0&3\\2&3&0\end{array}\right]$$</li>
+<li class="py-2">Aşağıdaki elementer matrislerin hangi elementer işlemi temsil ettiklerini belirleyin.
+		$$
+		\left[\begin{array}{rrr}1&0&0\\0&1&0\\-2&0&1\end{array}\right]\quad\left[\begin{array}{rrr}0&0&1\\0&1&0\\1&0&0\end{array}\right]\quad\left[\begin{array}{rrr}1&0&0\\0&2&0\\0&0&1\end{array}\right]
+		$$</li>
+<li class="py-2">Aşağıdaki çarpımın sonucunun bir elementer matris olduğunu gösterin, bu çarpımdaki her matrisin hangi elementer işlemi temsil ettiğini belirtin. Genellikle elementer matrislerin çarpımı elementer bir matris olmaz, bu duruma bir örnek verin.
+		$$\left[\begin{array}{rr}-1&0\\0&1\end{array}\right]\cdot\left[\begin{array}{rr}1&0\\1&1\end{array}\right]\cdot\left[\begin{array}{rr}1&-1\\0&1\end{array}\right]\cdot\left[\begin{array}{rr}1&0\\1&1\end{array}\right]$$</li>
+<li class="py-2">Aşağıdaki matrislerin Hermit normal biçimlerini elde edin.
+		$$\left[\begin{array}{rrrr}2&1&3&-2\\2&-1&5&2\\1&1&1&1\end{array}\right]\qquad\left[\begin{array}{rrrrrr}1&2&3&3&10&6\\2&1&0&0&2&3\\2&2&2&1&5&5\\-1&1&3&2&5&2\end{array}\right]$$</li>
+<li class="py-2">Aşağıdaki matrislerin tersini hesaplamak için elementer işlemlerden faydalanın.
+		$$\left[\begin{array}{rr}3&-1\\-5&2\end{array}\right]\qquad\left[\begin{array}{rrr}1&2&3\\2&3&4\\3&4&6\end{array}\right]$$</li>
+</ol>
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../25-hermite-normal-bicimi/index.html">2.5. Hermite Normal Biçimi</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Lineer Cebire Giriş</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../27-lineer-problemler/index.html">2.7. Lineer Problemler</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/26-elementer-matrisler/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:04 GMT -->
+</html>

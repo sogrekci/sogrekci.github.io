@@ -1,0 +1,334 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/36-benzerlik/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:05 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 3.6. Benzerlik
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>3.6. Benzerlik</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-06-03">
+          3 Haziran 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bir lineer dönüşümle ilgilenirken genellikle onu mümkün olan en basit matrisle temsil etmemizi sağlayacak bazları araştırırız. Bunun için isteyeceğimiz en basit matrisler köşegen elemanları dışındaki tüm elemanları sıfır olan matrislerdir (köşegen matrisler). Her dönüşüm bir köşegen matrisle temsil edilemese de matrislerin önemli bir sınıfı için bu mümkündür. Bu derste bu konuyu tartışacağız.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/kosegen-matris/index.html">köşegen matris</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/matris-izi/index.html">matris izi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/trace/index.html">trace</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Bir lineer dönüşümle ilgilenirken genellikle onu mümkün olan en basit matrisle temsil etmemizi sağlayacak bazları araştırırız. Bunun için isteyeceğimiz en basit matrisler köşegen elemanları dışındaki tüm elemanları sıfır olan matrislerdir, bu tip matrislere <strong>köşegen matris</strong> denir. Her dönüşüm bir köşegen matrisle temsil edilemese de matrislerin önemli bir sınıfı için bu mümkündür.
+</p>
+
+<p>
+<div class="envtheo" id="theo:det:22"><h6 class="thenv">Teorem 3.6.1</h6>
+Bir $\sigma$ lineer döünşümünün bir köşegen matrisle temsil edilebilmesi için gerek ve yeter koşul, $\sigma$'nın özvektörlerinden oluşan bir bazın var olmasıdır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>Özvektörlerden oluşan lineer bağımsız bir küme $X:=\{\xi_1,\ldots,\xi_n \}$ ve buna karşılık özdeğerler $\lambda_1,\ldots,\lambda_n$ olsun. Bu durumda her $i=1,\ldots,n$ için $\sigma\left(\xi_i\right)=\lambda_i\xi_i$ olacağaından bu dönüşümü $X$ bazına göre temsil eden matris
+	$$\left[
+	\begin{array}{cccc}
+	\lambda_1&0&\cdots&0\\0&\lambda_2&\cdots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&\lambda
+	\end{array}
+	\right]$$
+	olur. Tersine, aynı düşünceyle, lineer dönüşüm bir köşegen matrisle temsil edilebiliyorsa özvektörler ilgili bazı oluşturur.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envcor" id="cor:det:1"><h6 class="thenv">Sonuç 3.6.2</h6>
+Bir $\sigma$ dönüşümü köşegen bir matris ile temsil edilebiliyorsa, dönüşümün özdeğerleri bu köşegen matrisin esas köşegen elemanlarıdır.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:28"><h6 class="thenv">Uyarı 3.6.3</h6>
+Genellikle bir lineer dönüşüm yerine bunu belirtilmeyen bir baza göre temsil eden $A$ matrisine sahip oluruz, bu durumda <a class="eqref" href="#theo:det:22">Teorem 3.6.1</a> sonucu şöyle ifade edilir, bir $A$ matrisinin bir köşegen matrise benzer olması için gerek ve yeter koşul $n$ tane lineer bağımsız özvektöre sahip olmasıdır. Benzerlik tanımında içerilen ve $P^{-1}AP$ matrisini köşegen matris yapacak olan $P$ matrisi hesaplanabilir. Verilen $A$ matrisi $\sigma$ dönüşümünü $A:=\{\alpha_1,\ldots,\alpha_n \}$ bazına göre temsil ediyor olsun ve özvektörler bu baza göre $\xi_i=\sum_{j=1}^{n}p_{ij}\alpha_j$ olarak temsil edilsin. Bu durumda özvektörlerden oluşan $X:=\{\xi_1,\ldots,\xi_n \}$ bazına göre $\sigma$ dönüşümünü temsil eden matris $A':=P^{-1}AP$ olacaktır (bk. <a class="eqref" href="../24-baz-degisimi/index.html#rmk:lint:29">Uyarı 2.4.9</a>) ve <a class="eqref" href="#theo:det:22">Teorem 3.6.1</a> gereği bu bir köşegen matristir.
+</div>
+</p>
+
+<p>
+<div class="envex" id="ex:det:6"><h6 class="thenv">Örnek 3.6.4</h6>
+<a class="eqref" href="../35-ozdegerler-ve-ozvektorler/index.html#ex:det:4">Örnek 3.5.7</a> ile verilen $$A:=\left[\begin{array}{rrr}-1&2&2\\2&2&2\\-3&-6&-6\end{array}\right]$$ matrisini ele alalım, bu matrisin üç tane lineer bağımsız özvektörü $\xi_1=(2,-1,0)$, $\xi_2=(1,0,-1)$ ve $\xi=(0,1,-1)$ biçimindedir. Bu durumda geçiş matrisi olan $P$ matrisinin sütunları bu özvektörlerden oluşur,
+	$$P=\left[\begin{array}{rrr}2&1&0\\-1&0&1\\0&-1&-1\end{array}\right],\qquad P^{-1}=\left[\begin{array}{rrr}1&1&1\\-1&-2&-2\\1&2&1\end{array}\right].$$ Okuyucu bu ters matrisi ve $A':=P^{-1}AP$ matrisinin köşegen matris olduğunu doğrulamalıdır.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:29"><h6 class="thenv">Uyarı 3.6.5</h6>
+<a class="eqref" href="../35-ozdegerler-ve-ozvektorler/index.html#ex:det:5">Örnek 3.5.8</a> ile verilen $A$ matrisinin üç tane lineer bağımsız özvektörü yoktur. Dolayısıyla bu matris bir köşegen matrise benzer değildir.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:det:23"><h6 class="thenv">Teorem 3.6.6</h6>
+Bir $n\times n$ boyutlu matrisin $n$ tane farklı özdeğeri varsa, bu matris bir köşegen matrise benzerdir.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>Bu sonuç, <a class="eqref" href="../35-ozdegerler-ve-ozvektorler/index.html#theo:det:21">Teorem 3.5.16</a> ve <a class="eqref" href="#theo:det:22">Teorem 3.6.1</a> sonuçlarının doğrudan bir uygulamasıdır.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:30"><h6 class="thenv">Uyarı 3.6.7</h6>
+<a class="eqref" href="#theo:det:23">Teorem 3.6.6</a> oldukça kullanışlı olmasına rağmen bazı durumlarda faydalı olmaz. Bir matrisin $n$ tane farklı özdeğerinin bulunmadığı durumlar olabilir, ya bazı özdeğerlerinin cebirsel katlılıkları vardır ya da karakteristik denklemin ilgili cisimde yeterli çözümü yoktur.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:det:24"><h6 class="thenv">Teorem 3.6.8</h6>
+Bir $A$ matrisinin bir köşegen matrise benzer olması için gerek ve yeter koşul, onun minimal polnimunun tüm çarpanlarının lineer olması ve bu çarpanların katsayılarının $F$ içinde olmasıdır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>Kabul edelim ki $A$ matrisi bir $D$ köşegen matrisine benzer olsun, bu durumda <a class="eqref" href="../35-ozdegerler-ve-ozvektorler/index.html#theo:det:19">Teorem 3.5.10</a> gereği bunlar aynı karakteristik polinoma sahiptir. <a class="eqref" href="#cor:det:1">Sonuç 3.6.2</a> gereği bu köşegen matrisin köşegen elemanları karakteristik denklemin çözümleridir, dolayısıyla karakteristik polinomu lineer çarpanlara ayrılmalıdır. <a class="eqref" href="../34-hamilton-cayley-teoremi/index.html#theo:det:16">Teorem 3.4.10</a> gereği bunlar aynı zamanda $A$ matrisinin minimum polinomunun da birer lineer çarpanıdır. Ayrıca $D$ matrisinin yapısı gereği karakteristik denkleminin katlı çarpanları yoktur.
+</p>
+	
+<p>
+Diğer yandan $A$ matrisinin minimum polinomunun $m(t)=(t-\lambda_1)(t-\lambda_2)\cdots(t-\lambda_k)$ olsun. Her bir $i$ için, $\sigma$ dömnüşümü $A$ tarafından temsil edilen dönüşüm olmak üzere, $\sigma-\lambda_i$ dönüşümünün çekirdeğini $M_i$ ile gösterelim. $M_i$ içindeki sıfırdan farklı vektörler $\sigma$ dönüşümünün $\lambda_i$ özdeğerine karşılık gelen özvektörleridir. <a class="eqref" href="../35-ozdegerler-ve-ozvektorler/index.html#theo:det:21">Teorem 3.5.16</a> gereği $M_i$ kümesindeki bir vektör $\sum_{j\neq i}M_j$ biçiminde bir toplamla ifade edilemez, dolayısıyla $M_1+\cdots+M_k$ toplamı bir direkt toplamdır. $\sigma-\lambda_i$ dönüşümünün sıfırlılığı $\nu_i$ olsun, yani $\nu_i=\dim M_i$ olsun. $M_1\bigoplus\cdots\bigoplus M_k\subset V$ olduğundan $\nu_1+\cdots+\nu_k\leq n$ olur. <a class="eqref" href="../21-lineer-donusumler/index.html#theo:lint:5">Teorem 2.1.22</a> gereği $\dim (\sigma-\lambda_i)V=n-\nu_i=\rho_i$ olur, aynı teoremi uygulayarak $\dim (\sigma-\lambda_j)\left\{(\sigma-\lambda_i)V \right\}\geq\rho_i-\nu_j=n-(\nu_i+\nu_j)$ elde edilir. Bu fikrin tekrarlanarak uygulanmasıyla $\dim m(\sigma)V\geq n-(\nu_1+\cdots+\nu_k)$ elde edilir, yani $n=\nu_1+\cdots+\nu_k$ olur ve bu da $M_1\bigoplus\cdots\bigoplus M_k=V$ anlamına gelir. $V$'deki her vektör, özvektörlerin lineer kombinasyonu olduğundan özvektörlerin bir bazı mevcuttur. Dolayısıyla <a class="eqref" href="#theo:det:22">Teorem 3.6.1</a> gereği $A$ matrisi bir köşegen matrise benzerdir.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envdef" id="def:trace"><h6 class="thenv">Tanım 3.6.9</h6>
+Herhangi bir $A:=\left[a_{ij}\right]$ kare matrisi için $\Tr(A):=\sum_{i=1}^{n}a_{ii}$ toplamı $A$ matrisinin <strong>izi</strong> olarak adlandırılır.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:31"><h6 class="thenv">Uyarı 3.6.10</h6>
+Dikkat edilmelidir ki
+$$\Tr(AB)=\sum_{i=1}^{n}\left(\sum_{j=1}^{n}a_{ij}b_{ji}\right)=\sum_{j=1}^{n}\left(\sum_{i=1}^{n}b_{ji}a_{ij}\right)=\Tr(BA)$$
+olduğundan $$\Tr\left(P^{-1}AP\right)=\Tr\left(APP^{-1}\right)=\Tr(A)$$ eşitliği sağlanır, yani benzer matrislerin izleri aynıdır. Bundan dolayı bir lineer dönüşümün temsil eden tüm matrisler aynı ize sahiptir, $\Tr(\sigma)$ ile $\sigma$ dönüşümünü temsil eden herhangi bir matrisin izini kastederiz.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:32"><h6 class="thenv">Uyarı 3.6.11</h6>
+	Aşağıdaki
+	$$
+	\left[\begin{array}{cccc}
+	a_{11}-t&a_{11}&\cdots&a_{1n}\\a_{21}&a_{22}-t&\cdots&a_{2n}\\\vdots&&&\\a_{n1}&a_{n2}&\cdots&a_{nn}-t
+	\end{array}\right]
+	$$
+	karakteristik matrisin determinant açılımını göz önüne alalım. Bu determinant açılımındaki toplamın her bir terimi, her biri farklı bir satır ve farklı bir sütundan alınan $n$ tane elemanın çarpımından oluşur. Dolayısıyla bu determinant değeri olan karakteristik polinomun $t^{n-1}$ teriminin oluşması için yukarıdaki matrisin esas köşegen üzerindeki elemanlarından $n-1$ tanesinin bulunduğu terimler çarpılmalıdır, bu durumda $n-$inci çarpan da esas köşegen üzerinden alınmalıdır çünkü diğer satır ve sütunlardan farklı bir satır ve sütundan eleman alınmalıdır. Yani $t^{n-1}$ terimi esas köşegen elemanları çarpımı şeklindeki terimlerin toplamından gelir, bu terimlerin hem $t$ hem de skaler bileşenleri var olduğuna dikkat edin. $t^{n-1}$ terimi oluşması için bunlardan $n-1$ tanesinde $t$, diğerinde ise skaler bulunması gerekir. Bu şekildeki tüm terimler determinant açılımında gözlemlenirse karakteristik polinomun $t^{n-1}$ terimi katsayısının $$(-1)^{n-1}\sum_{i=1}^{n}a_{ii}=(-1)^{n-1}\Tr(A)$$ olduğu görülür.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:33"><h6 class="thenv">Uyarı 3.6.12</h6>
+Karakteristik denklem $f(t)=\det(A-tI)$ olduğundan $f(0)=\det(A-0\cdot I)=\det A$ eşitliği sağlanır, yani karakteristik denklemin sabit terimi $\det A$ değerine eşittir. Karakteristik polinomun çarpanlara ayrılmış hali $$f(t)=(-1)^n(t-\lambda_1)^{r_1}(t-\lambda_2)^{r_2}\cdots(t-\lambda_k)^{r_k}$$ ise $$\det A=f(0)=\prod_{i=1}^k\lambda_i^{r_i}$$ olduğu görülür, yani $\det A$ değeri özdeğerlerin çarpımına (katlılıklarıyla birlikte) eşittir. Ayrıca Vieta formülleri gereği karakteristik denklemin kökleri toplamı, yani özdeğerler toplamı $\Tr(A)$ değerine eşittir.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:det:25"><h6 class="thenv">Teorem 3.6.13</h6>
+$V$ vektör uzayının $\sigma$ dönüşümünün özvektörlerinden oluşan bir bazı var olsun. Eğer $W\subset V$ alt uzayı $\sigma$ dönüşümü altında invaryant ise, $W$ uzayının da $\sigma$ dönüşümünün özvektörlerinden oluşan bir bazı vardır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>Herhangi bir $\alpha\in W$ vektörünü alalım. $V$ uzayının $\sigma$ dönüşümünün özvektörlerinden oluşan bir bazı var olduğundan $\alpha$ vektörü bu özvektörlerin lineer kombinasyonu olarak yazılabilir. Şimdi bu kombinasyonda katsayısı sıfır olan terimleri ihmal edelim, sonra aynı özdeğere karşılık gelen özvektörleri bir araya getirelim, daha sonra da kalan $a_i\xi_i$ gibi terimleri katsayısı 1 olan $\xi_i$ terimi olarak yeniden adlandıralım. Bu şekilde $\alpha$ vektörünü $\alpha=\sum_{i=1}^{r}\xi_i$ beiçiminde ifade edebiliriz ve buradaki $\xi_i$ vektörleri $\sigma$ dönüşümünün farklı özdeğerlerine karşılık gelen özvektörlerdir. Şimdi $\lambda_i$ skaleri $\xi_i$ özvektörüne karşılık gelen özvektör olsun, her bir $\xi_i$ için $\xi_i\in W$ olduğunu göstereceğiz. $W$ kümesi $\sigma$ altında invaryant olduğundan $(\sigma-\lambda_2)(\sigma-\lambda_3)\cdots(\sigma-\lambda_r)(\alpha)\in W$ olur, böylece her $\lambda$ skaleri için $\sigma-\lambda$ altında invaryant olur. Fakat bu durumda $$(\sigma-\lambda_2)(\sigma-\lambda_3)\cdots(\sigma-\lambda_r)(\alpha)=(\lambda_1-\lambda_2)(\lambda_1-\lambda_3)\cdots(\lambda_1-\lambda_r)\xi_1\in W$$ olur ve bu da $\xi_1\in W$ demektir. Benzer düşünceyle her $i$ için $\xi_i\in W$ olduğu gösterilebilir. Bu durum her $\alpha\in W$ için geçerli olduğundan $\sigma$ dönüşümü çzvektörlerinin $W$ uzayını gerdiği anlaşılmış olur.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="theo:det:26"><h6 class="thenv">Teorem 3.6.14</h6>
+$V$ kümesi $\mathbb{C}$ üzerinde bir vektör uzayı ve $\sigma$ da $V$'den $V$'ye bir lineer dönüşüm olsun. $V$'nin $\sigma$ dönüşümü özvektörlerinden oluşan bir baza sahip olması için gerek ve yeter koşul, $\sigma$ altında invaryant olan her $S\subset V$ alt uzayına karşılık $V=S\bigoplus T$ olacak şekilde $\sigma$ altında invaryant bir $T\subset V$ alt uzayının var olmasıdır.
+</div>
+</p>
+
+
+
+
+<h3 class="mt-5 mb-3">Alıştırmalar</h3>
+
+
+
+
+<p>
+<ol>
+<li class="py-2">$c\neq0$ olmak üzere $$\left[\begin{array}{cc}1&c\\0&1\end{array}\right]$$ matrisinin köşegen bir matrise benzer olmadığını gösterin.</li>
+<li class="py-2">$A$ tersinirse $AB$ ile $BA$ matrisleri benzerdir, kanıtlayın.</li>
+</ol>
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../35-ozdegerler-ve-ozvektorler/index.html">3.5. Özdeğerler ve Özvektörler</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Lineer Cebire Giriş</a>
+      </div>
+      <div class="col text-right">
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/36-benzerlik/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:05 GMT -->
+</html>

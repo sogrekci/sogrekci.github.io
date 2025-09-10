@@ -1,0 +1,749 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/latexe-giris/8-latex-ve-matematik/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:41:38 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 8. LaTeX ve Matematik
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>8. LaTeX ve Matematik</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-18">
+          18 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-29">
+          29 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>LaTeX'i en çok matematikçiler kullanır, bunun sebebi matematiksel metinleri yazmada çok pratik oluşudur. Bu derste LaTeX ile matematik formüllerinin yazılması hakkında bilmek isteyeceğiniz hemen hemen her şeyi özetleyeceğim.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/display/index.html">display</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/etiketleme/index.html">etiketleme</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/fonksiyon/index.html">fonksiyon</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/formul/index.html">formül</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/indis/index.html">indis</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/inline/index.html">inline</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/islem/index.html">İşlem</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/kanit/index.html">kanıt</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/kuvvet/index.html">kuvvet</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/latex/index.html">LaTeX</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/lemma/index.html">lemma</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/matematik/index.html">matematik</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/operator/index.html">operatör</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/parantezler/index.html">parantezler</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/referans/index.html">referans</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/referans-verme/index.html">referans verme</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/semboller/index.html">semboller</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/tanim/index.html">tanım</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/teorem/index.html">teorem</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/teorem-stilleri/index.html">teorem stilleri</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        Matematiksel yazım ile ilgili en gerekli bilgilerin tamamını bu sayfada özetleyeceğim, böyle daha kullanışlı olacağını düşünüyorum. Bu dersten itibaren <strong>gerekmedikçe</strong> örneklerde artık uzun uzun sahanlık kısmını yazmayacağız, önceki örneklerde tipik bir sahanlığın neler içermesi gerektiğini öğrendiniz.
+
+<h3 class="mt-5 mb-3">Giriş</h3>
+
+<p>
+LaTeX'te matematiksel denklemler <strong>satır içi</strong> (inline) ya da <strong>ortaya hizalı</strong> (display) olarak yazılabilir. Satır içi denklemler yeni satıra geçilmeden <strong>girildiği yerde</strong> gösterilir, ortaya hizalı denklemler girildiğinde ise satır orada bitirilip ilgili denklem yeni bir <strong>satırda</strong> ortaya hizalı biçimde gösterildikten sonra metin yeni bir satırdan devam eder.
+</p>
+
+
+
+<p>
+ Satır içi denklem girmek için denklem komutları metnin içinde <code class="language-latex">$...$</code> karakterleri arasında yazılmalıdır. Örneğin metin içinde <code class="language-latex">$y=x^2+1$</code> yazılırsa çıktısı $y=x^2+1$ şeklinde olur.
+</p>
+
+
+	
+<p>
+ Satır içi denklemler <code class="language-latex">$...$</code> karakterleri yerine alternatif olarak <code class="language-latex">\(...\)</code> veya <code class="language-latex">\begin{math}...\end{math}</code> arasında da girilebilir, <code class="language-latex">\(y=x^2+1\)</code> veya <code class="language-latex">\begin{math}y=x^2+1\end{math}</code> gibi.
+</p>
+
+
+
+<p>
+Ortaya hizalı denklemler <code class="language-latex">$$...$$</code> karakterleri arasında girilebilir. Örnek olarak <code class="language-latex">$$y=x^2+1$$</code> girilirse bunun döküman içinde çıktısı $$y=x^2+1$$ biçiminde olur. Ortaya hizalı denklemler <code class="language-latex">$$...$$</code> yerine alternatif olarak <code class="language-latex">\[...\]</code> veya <code class="language-latex">\begin{displaymath}</code> ile <code class="language-latex">\end{displaymath}</code> arasında da girilebilir.
+</p>
+
+
+
+<p>
+Ortaya hizalı denklem girmenin bir yolu da denklemleri <code class="language-latex">equation</code> ortamı içinde girmektir. Fakat bu şekilde girilen ortaya hizalı denklemler LaTeX tarafından numaralandırılır. Örneğin metin içinde
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\begin{equation}
+y=x^2+1
+\end{equation}
+</code></pre>
+
+girilirse dokümanda bunun çıktısı
+
+\begin{equation}
+y=x^2+1
+\end{equation}
+
+biçiminde olur. <code class="language-latex">equation</code> yerine <code class="language-latex">amsmath</code> paketi tarafından sağlanan <code class="language-latex">equation*</code> ortamı kullanılırsa numaralandırılma yapılmaz.
+</p>
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Alt ve Üst İndisler</h3>
+
+
+<p>
+Matematik modlarında (inline veya display) alt ve üst karakterler sırasıyla <code class="language-latex">_</code> ve <code class="language-latex">^</code> karakterleri yardımıyla girilir.
+Örneğin metin içinde <code class="language-latex">$$(a_1+a_2)^2=a_1^2+2a_1a_2+a_2^2$$</code> yazılırsa belgede $$(a_1+a_2)^2=a_1^2+2a_1a_2+a_2^2$$ çıktısı elde edilir.
+</p>
+
+
+<p>
+Dikkat edildiği gibi <code class="language-latex">_</code> ve <code class="language-latex">^</code> karakterleri, sadece kendisinden sonra gelen <strong>ilk karakteri</strong> alt veya üst metin yapar. Eğer daha fazla karakter alt veya üst metin yapılacaksa bunlar <code class="language-latex">{...}</code> parantezleri arasında yazılmalıdır.
+</p>
+
+
+<p>
+Örneğin <code class="language-latex">$x^{2n}=y_{2n}-z_{n_{k+1}}$</code> komutu $$x^{2n}=y_{2n}-z_{n_{k+1}}$$ yazdırır.
+</p>
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">İşlemler ve Fonksiyonlar</h3>
+
+
+
+<p>
+Matematik modunda <code class="language-latex">+</code>, <code class="language-latex">-</code>, <code class="language-latex">/</code> gibi işlemler doğrudan klavye ile girilir. Bunların dışında kesirler <code class="language-latex">\frac{pay}{payda}</code> komutu ile girilir.
+</p>
+
+
+<p>
+Örneğin <code class="language-latex">$$\frac{2}{3}$$</code>, <code class="language-latex">$$\frac{3n-1}{n!}$$</code> ve <code class="language-latex">$$1-\frac{1}{2-\frac{1}{3-\frac{1}{4-x}}}$$</code> komutlar sırasıyla $$\frac{2}{3},\qquad\qquad \frac{3n-1}{n!},\qquad\qquad 1-\frac{1}{2-\frac{1}{3-\frac{1}{4-x}}}$$ çıktılarını üretir.
+</p>
+
+
+<p>
+Trigonometrik, logaritmik, üstel, vb fonksiyonlar için <code class="language-latex">\sin</code>, <code class="language-latex">\cos</code>, <code class="language-latex">\tan</code>, <code class="language-latex">\cot</code>, <code class="language-latex">\arcsin</code>, <code class="language-latex">\arctan</code>, <code class="language-latex">\exp</code>, <code class="language-latex">\log</code>, <code class="language-latex">\ln</code> gibi komutlar kullanılır. Örneğin <code class="language-latex">\sin^2(x)=\frac{1-\cos(2x)}{2}</code>:
+$$\sin^2(x)=\frac{1-\cos(2x)}{2}$$
+</p>
+
+
+
+
+
+<h3 class="mt-5 mb-3">Operatörler</h3>
+
+
+
+<p>
+İntegral işareti <code class="language-latex">\int</code> komutuyla girilir, sınırlar ise alt ve üst indis olarak belirtilir. Katlı ve eğrisel integraller  <code class="language-latex">\iint</code>, <code class="language-latex">\iiint</code>, <code class="language-latex">\iiiint</code>, <code class="language-latex">\oint</code>, <code class="language-latex">\oiint</code> komutlarıyla girilir. Örneğin <code class="language-latex">$$\int_{0}^{2k}\sin(x)dx$$</code>, <code class="language-latex">$$\iint_Rf(x,y)dxdy$$</code> ve <code class="language-latex">$$\oint_Af(z)dz$$</code> komutları $$\int_{0}^{2k}\sin(x)dx,\quad\iint_Rf(x,y)dxdy,\quad\oint_Af(z)dz$$ çıktısını üretir.
+</p>
+
+
+
+<p>
+İntegral elemanı $dx$ terimi ile integrand arasında küçük bir boşluk bırakılabilir, bunun için <code class="language-latex">\,dx</code> kullanılabilir. Bu terim daha uygun biçimde <code class="language-latex">\,\mathrm{d}x</code> olarak yazılabilir:  $\,\mathrm{d}x$.
+</p>
+
+
+
+
+
+<p>
+Limit, toplam ve çarpım sembolleri sırasıyla <code class="language-latex">\lim</code>, <code class="language-latex">\sum</code> ve <code class="language-latex">\prod</code> komutlarıyla girilir. Sınırlar yine alt ve üst indis olarak belirtilir. Örnek olarak <code class="language-latex">\lim_{n\rightarrow\infty} f(x_n)</code>, <code class="language-latex">\sum_{k=1}^{n}\frac{1}{n^2}=\frac{\pi^2}{6}</code> ve <code class="language-latex">\prod_{k=1}^{\infty}\frac{k}{k+1}</code> komutları ile
+$$\lim_{n\rightarrow\infty} f(x_n),\qquad\qquad \sum_{k=1}^{n}\frac{1}{n^2}=\frac{\pi^2}{6},\qquad\qquad \prod_{k=1}^{\infty}\frac{k}{k+1}$$
+yazılır. Örnekte de görüldüğü gibi $\rightarrow$, $\infty$ ve $\pi$ sembolleri sırasıyla <code class="language-latex">\rightarrow</code>, <code class="language-latex">\infty</code> ve <code class="language-latex">\pi</code> komutlarıyla yazılır.
+</p>
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Parantezler</h3>
+
+
+<p>
+$(a+b)$, $[a+b]$ ve $|a+b|$ biçimindeki parantezler doğrudan klavye ile girilebilir, $\{a+b\}$, $\langle a+b \rangle$ ve $\|a+b\|$ biçimindeki parantezler ise <code class="language-latex">$\{a+b\}$</code>, <code class="language-latex">$\langle a+b \rangle$</code> ve <code class="language-latex">$\|a+b\|$</code> komutları kullanılır. Parantezlerin içeriğine göre otomatik olarak boyutlandırılması için önlerine <code class="language-latex">\left</code> ve <code class="language-latex">\right</code> komutları eklenmelidir. Parantezlerden birisi silinmek istenirse diğer tarafta parantez yerine nokta konulur. Örneğin <code class="language-latex">$$\lim_{n\to\infty}\left(1+\frac{1}{n}\right)^n=e$$</code> ve <code class="language-latex">$$\left.\frac{f(x)}{g(x)}\right|_{x=a}$$</code> komutları aşağıdakileri yazar. $$\lim_{n\to\infty}\left(1+\frac{1}{n}\right)^n=e,\qquad \left.\frac{f(x)}{g(x)}\right|_{x=a}$$
+</p>
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Sık Kullanılan Semboller</h3>
+
+
+
+
+<p class="pb-4">
+Aşağıdaki tabloda Yunan alfabesi harfleri için kullanabileceğiniz kontrol dizilerini bulabilirsiniz, matematikçiler bu harfleri sever.
+</p>
+
+
+		\begin{array}{ll|ll}
+
+			\mathrm{Harf} & \mathrm{Komut} & \mathrm{Harf} & \mathrm{Komut}\\
+\hline
+			\alpha & \color{green}\verb|\alpha| & \beta & \color{green}\verb|\beta|\\
+			\gamma, \Gamma & \color{green}\verb|\gamma|, \color{green}\verb|\Gamma| & \delta, \Delta & \color{green}\verb|\delta|, \color{green}\verb|\Delta|\\
+			\epsilon, \varepsilon&\color{green}\verb|\epsilon|, \color{green}\verb|\varepsilon|&\zeta&\color{green}\verb|\zeta|\\
+			\eta&\color{green}\verb|\eta|&\theta, \Theta&\color{green}\verb|\theta|, \color{green}\verb|\Theta|\\
+			\kappa&\color{green}\verb|\kappa|&\lambda,\Lambda&\color{green}\verb|\lambda|, \color{green}\verb|\Lambda|\\
+			\mu&\color{green}\verb|\mu|&\nu&\color{green}\verb|\nu|\\
+			\xi, \Xi&\color{green}\verb|\xi|, \color{green}\verb|\Xi|&\pi, \Pi&\color{green}\verb|\pi|, \color{green}\verb|\Pi|\\
+			\rho, \varrho&\color{green}\verb|\rho|, \color{green}\verb|\varrho|&\sigma, \Sigma&\color{green}\verb|\sigma|, \color{green}\verb|\Sigma|\\
+			\tau&\color{green}\verb|\tau|&\phi, \varphi, \Phi&\color{green}\verb|\phi|, \color{green}\verb|\varphi|, \color{green}\verb|\Phi|\\
+			\chi&\color{green}\verb|\chi|&\psi, \Psi&\color{green}\verb|\psi|, \color{green}\verb|\Psi|\\
+\hline
+		\end{array}
+
+
+
+<p class="py-4">
+Aşağıdaki tabloda ise sık kullanılan ok işaretleri için kontrol dizileri yer alıyor.
+</p>
+
+
+	\begin{array}{cl|cl}
+
+		\mathrm{Sembol} & \mathrm{Komut} & \mathrm{Sembol} & \mathrm{Komut}\\
+\hline
+		\leftarrow&\color{green}\verb|\leftarrow|&\Leftarrow&\color{green}\verb|\Leftarrow|\\
+		\rightarrow&\color{green}\verb|\rightarrow|&\Rightarrow&\color{green}\verb|\Rightarrow|\\
+		\leftrightarrow&\color{green}\verb|\leftrightarrow|&\Leftrightarrow&\color{green}\verb|\Leftrightarrow|\\
+		\uparrow&\color{green}\verb|\uparrow|&\Uparrow&\color{green}\verb|\Uparrow|\\
+		\downarrow&\color{green}\verb|\downarrow|&\Downarrow&\color{green}\verb|\Downarrow|\\
+		\Updownarrow&\color{green}\verb|\Updownarrow|&\mapsto&\color{green}\verb|\mapsto|\\
+\hline
+	\end{array}
+
+
+
+
+<p class="py-4">
+Aşağıdaki tabloda diğer bazı sık kullanacağınız sembolleri bulabilirsiniz, $*$ ile işaretlenmiş olanları kullanabilmek için <code class="language-latex">amssymb</code> paketini yüklemeniz gerekir.
+</p>
+
+		\begin{array}{cl|cl}
+			\mathrm{Sembol} & \mathrm{Komut} & \mathrm{Sembol} & \mathrm{Komut}\\
+\hline
+			\leq&\color{green}\verb|\leq|&\geq&\color{green}\verb|\geq|\\
+			\wedge&\color{green}\verb|\wedge|&\vee&\color{green}\verb|\vee|\\
+			\cap&\color{green}\verb|\cap|&\cup&\color{green}\verb|\cup|\\
+			\times&\color{green}\verb|\times|&\div&\color{green}\verb|\div|\\
+			\oplus&\color{green}\verb|\oplus|&\otimes&\color{green}\verb|\otimes|\\
+			\equiv&\color{green}\verb|\equiv|&\approx&\color{green}\verb|\approx|\\
+			\in&\color{green}\verb|\in|&\notin&\color{green}\verb|\notin|\\
+			\infty&\color{green}\verb|\infty|&\forall&\color{green}\verb|\forall|\\
+			\nabla&\color{green}\verb|\nabla|&\exists&\color{green}\verb|\exists|\\
+			\partial&\color{green}\verb|\partial|&\emptyset&\color{green}\verb|\emptyset|\\
+			\mathcal{A}, \mathcal{B}, \mathcal{C}&{\color{green}\verb|\mathcal{A,B,C}|}*&\mathfrak{A}, \mathfrak{B}, \mathfrak{C}&{\color{green}\verb|\mathfrak{A,B,C}|}*\\
+			\mathbb{N}, \mathbb{Z}, \mathbb{R}&{\color{green}\verb|\mathbb{N,Z,R}|}*&\mathfrak{x}, \mathfrak{y}, \mathfrak{z}&{\color{green}\verb|\mathfrak{x,y,z}|}*\\
+\hline
+		\end{array}
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Formüllerde Hizalama</h3>
+
+
+<p>
+
+Uzun bir denklem parçalara bölünmek istenirse bu parçaların hizalanma işlemi <code class="language-latex">eqnarray</code> ortamı ile yapılabilir. Bu ortamda hizalama hangi bölüme göre yapılacaksa bunlar <code class="language-latex">&...&</code> karakterleri arasına yazılır. Ayrıca her satır sonunda <code class="language-latex">\\</code> karakteri yazılmalıdır.
+
+
+Örneğin
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\begin{eqnarray}
+A &=& B + C\\
+  &=& X + Y + Z
+\end{eqnarray}
+</code></pre>
+
+komutları ile aşağıdaki elde edilir.
+\begin{eqnarray}
+A &=& B + C\\
+   &=& X + Y + Z
+\end{eqnarray}
+
+Başka bir örnek olarak aşağıdakini inceleyin:
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\lim_{n\rightarrow\infty}\left(\int_{a}^{b}f_n(x)g_n(x)\,dx\right)
+&=& \int_{a}^{b}\lim_{n\rightarrow\infty}\left[f_n(x)g_n(x)\right]\,dx\\
+&=& \int_{a}^{b}\left[\lim_{n\rightarrow\infty}f_n(x)\right]
+    \left[\lim_{n\rightarrow\infty}g_n(x)\right]\,dx\notag \\
+&=& \int_{a}^{b}f(x)g(x)\,dx
+\end{eqnarray}
+</code></pre>
+
+\begin{eqnarray}
+\lim_{n\rightarrow\infty}\left(\int_{a}^{b}f_n(x)g_n(x) \,dx\right) &=& \int_{a}^{b}\lim_{n\rightarrow\infty}\left[f_n(x) g_n(x)\right]\,dx\\
+&=& \int_{a}^{b}\left[\lim_{n\rightarrow\infty}f_n(x) \right]\left[\lim_{n\rightarrow\infty}g_n(x)\right] \,dx\notag \\
+&=& \int_{a}^{b}f(x)g(x)\,dx
+\end{eqnarray}
+
+
+<code class="language-latex">eqnarray</code> ortamında tüm denklemler ayrı ayrı numaralandırılır, bunun yerine <code class="language-latex">eqnarray*</code> ortamı kullanılırsa hiç bir denklem numaralandırılmaz. Sadece bazı denklemler numaralandırmak istenirse, numarası kaldırılmak istenen denklem içinde <code class="language-latex">\notag</code> komutu yazılır. <code class="language-latex">eqnarray</code> ile uzun denklemler parçalanabilir, bunun için boş karaktere hizalama yapılır. Yani hizalama için <code class="language-latex">&&</code> kullanılır.
+</p>
+
+
+
+<h3 class="mt-5 mb-3">Tablosal Formüller</h3>
+
+
+
+<p>
+
+
+	Tablosal denklemleri oluşturmanın bir yolu <code class="language-latex">array</code> ortamını kullanmaktır. Bu ortamda da <code class="language-latex">eqnarray</code> ortamında olduğu gibi satırlar arası <code class="language-latex">\\</code> ile, sütunlar arası da <code class="language-latex">&</code> ile geçiş yapılır.
+
+
+
+	Bu ortamda tablonun kaç sütundan oluşacağı ve bu sütunların nasıl hizalanacağı belirtilmelidir. Bunun için ortama sütun sayısı kadar <code class="language-latex">l</code>, <code class="language-latex">c</code> veya <code class="language-latex">r</code> karakterleri bitişik olarak yazılır. Bunların sol, orta ve sağ kelimelerini temsil eder.
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\begin{array}{ccc}
+A & B & C\\
+X & Y & Z\\
+\Delta & \Gamma & \Psi
+\end{array}
+</code></pre>
+
+
+	$$
+	\begin{array}{ccc}
+	A & B & C\\
+	X & Y & Z\\
+	\Delta & \Gamma & \Psi
+	\end{array}
+	$$
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+$$
+f(x):=
+\left\{
+   \begin{array}{ll}
+      x^2\sin\frac{1}{x},&\quad x\neq0\\
+      0,&\quad x=0
+   \end{array}
+\right.
+$$
+</code></pre>
+
+$$
+f(x):=
+\left\{
+\begin{array}{ll}
+x^2\sin\frac{1}{x},&\quad x\neq0\\
+0,&\quad x=0
+\end{array}
+\right.
+$$
+
+Bu örnekte bir tanesini gördüğünüz gibi <code class="language-latex">\ </code>, <code class="language-latex">\,</code>, <code class="language-latex">\:</code>, <code class="language-latex">\;</code>, <code class="language-latex">\quad</code> ve <code class="language-latex">\qquad</code> ile matematik modunda boşluk bırakılabilir.
+
+<pre class="my-4"><code class="language-latex line-numbers">
+$$
+\det A=\det
+\left[
+\begin{array}{ccc}1&2&3\\4&5&6\\7&8&9\end{array}
+\right]=
+\left|
+\begin{array}{ccc}1&2&3\\4&5&6\\7&8&9\end{array}
+\right|
+$$
+</code></pre>
+
+$$
+\det A=\det
+\left[
+\begin{array}{ccc}1&2&3\\4&5&6\\7&8&9\end{array}
+\right]=
+\left|
+\begin{array}{ccc}1&2&3\\4&5&6\\7&8&9\end{array}
+\right|
+$$
+
+</p>
+
+
+
+
+
+<h3 class="mt-5 mb-3">Etiketleme ve Referans Verme</h3>
+
+
+
+<p>
+
+
+	Bir denklem etiketlenirse daha sonra ona referans verilebilir, eğer denklem numaralandırılmış ise referans olarak numarası döner. Etiketleme için <code class="language-latex">\label{...}</code> komutu kullanılır, etiket olarak istenilen kelime kullanılabilir.
+
+
+Örneğin bir denklem
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\begin{equation}
+	\label{denklem-1}
+	L=\int_{a}^{b}\sqrt{1+[f'(x)]^2}{\rm d}x
+\end{equation}
+</code></pre>
+
+ile 
+
+\begin{equation}
+	\label{denklem-1}
+	L=\int_{a}^{b}\sqrt{1+[f'(x)]^2}{\rm d}x
+\end{equation}
+
+biçiminde etiketlensin.
+
+
+
+
+		Daha sonra bu denkleme <code class="language-latex">\ref{...}</code> ile referans verilebilir. Alternatif olarak <code class="language-latex">amsmath</code> paketinde bulunan <code class="language-latex">\eqref{...}</code> komutu kullanılırsa denklem numarası parantez içinde yazılır.
+
+
+Örneğin daha önce <code class="language-latex">denklem-1</code> etiketi ile etiketlenen denkleme atıf vermek için <code class="language-latex">\ref{denklem-1}</code> veya <code class="language-latex">\eqref{denklem-1}</code> komutları kullanılabilir. Bu durumda çıktıda $$\ref{denklem-1}\qquad\text{veya}\qquad\eqref{denklem-1}$$ oluşturur.
+</p>
+
+
+
+
+
+<h3 class="mt-5 mb-3">Teorem ve Benzeri Ortamlar</h3>
+
+
+
+
+<p>
+
+
+Teorem ortamı tanımlamak için sahanlıkta <code class="language-latex">\newtheorem{theorem}{Teorem}</code> komutu kullanılır. Buradaki ilk argüman oluşturulacak olan ortam ismi, ikinci argüman ise bu ortamın yazdıracağı başlıktır. Bundan sonra belge içinde <code class="language-latex">theorem</code> ortamı kullanılabilir. Oluşturulan bu ortamda başlıkların numaralandırılma seviyesi <code class="language-latex">\newtheorem{theorem}{Teorem}[section]</code> gibi bir komutla belirtilir. Buradaki <code class="language-latex">section</code> kısmınıda hangi seviyede numaralandırma yapılacağı yazılır, <code class="language-latex">chapter</code>, <code class="language-latex">section</code>, <code class="language-latex">subsection</code> gibi. Aynı numaralandırma sistemine sahip başka bir ortam tanımlamak için <code class="language-latex">\newtheorem{lemma}[theorem]{Lemma}</code> komutu kullanılır. Aşağıdaki örneği uygulayın, daha sonra üzerinde bazı değişiklikler yaparak ve ortam sayısını arttırarak biraz gözlem yapın.
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[turkish]{babel}
+
+\newtheorem{theorem}{Teorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\begin{document}
+\section{Giriş}
+
+Şimdi bir teorem yazalım.
+\begin{theorem}\label{teorem-1}
+Bu bir teoremdir, az sonra bunu ispatlayacağız.
+\end{theorem}
+Şimdi Teorem \ref{teorem-1} sonrasında bir lemma yazalım.
+\begin{lemma}[Zorn Lemması]
+Bu bir lemma, yani yardımcı teorem.
+\end{lemma}
+\end{document}
+</code></pre>
+
+
+
+
+
+	Teorem vb ortamların başlık ve gövde yazı tipleri değiştirilebilir, bunun için sahanlıkta <code class="language-latex">amsthm</code> paketinin <code class="language-latex">\theoremstyle{...}</code> komutu kullanılır.
+
+	Bu komuta argüman olarak stil ismi girilir, stil çeşitleri <code class="language-latex">plain</code> (varsayılan budur), <code class="language-latex">definition</code> ve <code class="language-latex">remark</code> biçimindedir.
+
+	<code class="language-latex">plain</code> teorem stilinde başlık kanlın ve gövde italiktir, daha önce verilen örnekteki ortam bu stildedir. <code class="language-latex">definition</code> stilinde başlık kalın, gövde ise düzdür. <code class="language-latex">remark</code> stilinde ise başlık italik, gövde düzdür.
+
+	Numarasız ortamlar için <code class="language-latex">\newtheorem</code> yerine <code class="language-latex">\newtheorem*</code> komutu kullanılır.
+
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[turkish]{babel}
+
+\usepackage{amsthm}
+
+\newtheorem{theorem}{Teorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Tanım}[section]
+\newtheorem{example}{Örnek}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Uyarı}
+
+\begin{document}
+
+\section{Giriş}
+
+\begin{definition}
+    Tanım gövdesi burada yazılacak
+\end{definition}
+
+\begin{theorem}
+    Bu bir teoremdir, az sonra bunu ispatlayacağız.
+\end{theorem}
+
+\begin{lemma}
+    Bu bir lemma, yani yardımcı teorem.
+\end{lemma}
+
+\begin{example}
+    Örnek metni burada yazılır.
+\end{example}
+
+\begin{remark}
+    Uyarı metni burada yazılır.
+\end{remark}
+\end{document}
+</code></pre>
+
+
+
+
+
+
+
+	Kanıtlar için <code class="language-latex">amsthm</code> paketinin sağladığı <code class="language-latex">proof</code> ortamı kullanılır.
+
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[turkish]{babel}
+\usepackage{amsthm}
+
+\newtheorem{theorem}{Teorem}
+
+\begin{document}
+\begin{theorem}
+    Bu, çok önemli bir teoremdir.
+\end{theorem}
+
+\begin{proof}
+    Burada teoremin kanıtını vereceğiz.
+\end{proof}
+\end{document}
+</code></pre>
+
+
+
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../7-tablolar/index.html">7. Tablolar</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">LaTeX'e Giriş</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../9-tikz-paketi-ile-cizim/index.html">9. Tikz Paketi İle Çizim</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/latexe-giris/8-latex-ve-matematik/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:41:38 GMT -->
+</html>

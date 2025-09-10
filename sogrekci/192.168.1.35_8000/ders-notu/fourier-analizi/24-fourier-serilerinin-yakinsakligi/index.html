@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/24-fourier-serilerinin-yakinsakligi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:13 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 2.4. Fourier Serilerinin Yakınsaklığı
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>2.4. Fourier Serilerinin Yakınsaklığı</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-07">
+          7 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu ders notunda Fourier serilerinin hangi koşullar altında yakınsak olduğu sorusuna cevap arayacağız. Fourier kendisi bu serilerin yakınsaklığını kanıtlayamamıştır, bu kanıt ilk defa <strong>Dirichlet</strong> tarafından verilmiştir fakat sadece <strong>noktasal</strong> yakınsama için. Bir aralık boyunca yakınsama problemi ancak <strong>1966</strong> yılında çözülebildi.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/dirichlet-cekirdegi/index.html">Dirichlet çekirdeği</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/fourier-serisi/index.html">Fourier serisi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/yakinsaklik/index.html">yakınsaklık</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+1829 yılında <strong>Dirichlet</strong> sonlu sayıda sıçramalı süreksizlik noktasına sahip sınırlı fonksiyonların Fourier serilerinin yakınsak olduğunu kanıtladı. 1854 yılında ise <strong>Riemann</strong> bu yakınsaklığın lokal bir koşula bağlı olduğunu gösterdi. Biz şimdi bu iki sonucu birlikte kullanarak oldukça basit bir kanıt vereceğiz.
+</p>
+
+<p>
+Hem Fourier kendi orjinal çalışmasında hem de daha sonra Dirichlet ilk adım olarak serinin kısmi toplamlar dizisi olan, $N\geq1$ olmak üzere,
+<span id="eq:fs-ktdizi">\begin{equation}
+\label{eq:fs-ktdizi}
+\tag{2.4.1}
+s_N(x)=\frac{1}{2}a_0+\sum_{n=1}^{N}(a_n\cos nx+b_n\sin nx)
+\end{equation}</span>
+
+ifadesini daha kullanışlı bir biçimde yeniden yazmaya çalıştılar. Fourier katsayıları bu denklemde yerine yazılırsa
+
+\begin{eqnarray*}
+s_N(x) &=& \frac{1}{2}a_0+\sum_{n=1}^{N}(a_n\cos nx+b_n\sin nx)\\
+&=& \frac{1}{2\pi}\int_{-\pi}^{\pi}f(t)\,dt+\frac{1}{\pi}\sum_{n=1}^{N}\left[\cos nx\int_{-\pi}^{\pi}f(t)\cos nt\,dt+\sin nx\int_{-\pi}^{\pi}f(t)\sin nt\,dt\right]\\
+&=& \frac{1}{2\pi}\int_{-\pi}^{\pi}f(t)\left[1+2\sum_{n=1}^{N}\cos n(t-x)\right]dt
+\end{eqnarray*}
+
+eşitliği elde edilir. Hem Fourier hem de Dirichlet bunu elde etmişti. Buradaki köşeli parantez içindeki ifadeyi düzenlemek için Fourier ile Dirichlet farklı trigonometrik özdeşlikler kullandılar, elbette başarıya ulaşan Dirichlet'in yöntemiyle devam edeceğiz. Şu özdeşliği kullanacağız: $$2\cos nt\sin\frac{1}{2}t=\sin\left(n+\frac{1}{2}\right)t-\sin\left(n-\frac{1}{2}\right)t.$$ Şimdi bu özdeşlikte $n=1,2,\ldots,N$ yazıp bunları taraf tarafa toplarsak $$\left(2\sin\frac{1}{2}t\right)\sum_{n=1}^{N}\cos nt=-\sin\frac{1}{2}t+\sin\left(N+\frac{1}{2}\right)t$$ eşitliğine varılır. Böylece $-\pi\leq t\leq\pi$ ve $t\neq0$ için
+
+\begin{equation}
+\label{eq:fs-1}
+\tag{2.4.2}
+1+2\sum_{n=1}^{N}\cos nt=\frac{sin\left(N+\frac{1}{2}\right)t}{\sin\frac{1}{2}t}
+\end{equation}
+
+eşitliği elde edilmiş olur. Ayrıca $\lim\limits_{t\rightarrow0}\cos t=1$ olduğundan yukarıdaki ifadenin $t\rightarrow0$ için limiti $2N+1$ olur, dolayısıyla eşitliğin sağ tarafındaki ifade parçalı sürekli olup integrallenebilirdir. Böylece
+
+\begin{equation}
+\label{eq:fs-2}
+\tag{2.4.3}
+s_N(x)=\frac{1}{2\pi}\int_{-\pi}^{\pi}f(t)\frac{sin\left(N+\frac{1}{2}\right)(t-x)}{\sin\frac{1}{2}(t-x)}dt
+\end{equation}
+
+eştliği elde edilmiş olur. Buradaki $$D_N(t):=\frac{sin\left(N+\frac{1}{2}\right)t}{\sin\frac{1}{2}t}$$ ifadesine <strong>Dirichlet çekirdeği</strong> denir. $(0,\pi)$ aralığında $\cos nt$ fonksiyonunun integrali sıfır olduğundan \eqref{eq:fs-1} eşitliği kullanılırsa bu aralıkta Dirichlet çekirdeğinin integralinin $\pi$ değeri olduğu görülür, böylece aşağıdaki sonuç ile buraya kadar elde ettiklerimizi özetleyebiliriz.
+</p>
+
+
+<p>
+<div class="envtheo" id="fs-lm1"><h6 class="thenv">Lemma 2.4.1</h6>$f$ fonksiyonu $(-\pi,\pi)$ aralığında integrallenebilir bir fonksiyon ve $N\geq1$ ise
+<span id="eq:dirichlet-kernel">\begin{equation}
+\label{eq:dirichlet-kernel}
+\tag{2.4.4}
+\int_{0}^{\pi}D_N(t)\,dt=\pi
+\end{equation}</span>
+ve
+<span id="eq:fs-ktdizi-dirichletkernel">\begin{equation}
+\label{eq:fs-ktdizi-dirichletkernel}
+\tag{2.4.5}
+s_N(x)=\frac{1}{2\pi}\int_{-\pi}^{\pi}f(t)D_N(t-x)\,dt
+\end{equation}</span>
+eşitlikleri sağlanır.</div>
+</p>
+
+<p>
+Eğer $f$ fonksiyonu $(-\pi,\pi)$ aralığında $2\pi-$periyodik olarak genişletilmiş olsaydı işlemler basitleşebilirdi. Eğer $f$ böyle genişletilmiş ise bu durumda \eqref{eq:dirichlet-kernel} eşitliğinde $u:=x-t$ değişken değişimi yapılırsa, $D_N$ çift bir fonksiyon olduğu da göz önünde bulundurulursa $$s_N(x)=-\frac{1}{2\pi}\int_{x+\pi}^{x-\pi}f(x-u)D_N(-u)\,du=\frac{1}{2\pi}\int_{x-\pi}^{x+\pi}f(x-u)D_N(u)\,du$$ eşitliği elde edilir. Şimdi integrand tamamen $2\pi-$periyodik olduğundan bu integralin değeri $2\pi$ uzunluklu her aralıkta aynıdır, yani $$s_N(x)=\frac{1}{2\pi}\int_{-\pi}^{\pi}f(x-u)D_N(u)\,du$$ olur. Benzer şekilde $u:=t-x$ değişken değişimi ile $$s_N(x)=\frac{1}{2\pi}\int_{-\pi}^{\pi}f(x+u)D_N(u)\,du$$ eşitliği elde edilir. Bu son iki eşitliği taraf tarafa toplarsak, integrand olan $\left[f(x-u)+f(x+u)\right]D_N(u)$ fonksiyonunun $u$ değişkenine göre çift olduğunu göz önünde bulundurarak,
+
+<span id="eq:fs-ktdizi1">\begin{equation}
+\label{eq:fs-ktdizi1}
+\tag{2.4.6}
+s_N(x)=\frac{1}{2\pi}\int_{0}^{\pi}\left[f(x+t)+f(x-t)\right]D_N(t)\,dt\end{equation}</span>
+
+eşitliği elde edilir.
+</p>
+
+<p>
+Şimdi artık Fourier serisinin yakınsaklığı ile ilgili kanıtı verebiliriz.
+</p>
+
+<p>
+<div class="envtheo" id="fs-yakteo"><h6 class="thenv">Teorem 2.4.1</h6> $f:\mathbb{R}\rightarrow\mathbb{R}$ fonksiyonu $(-\pi,\pi)$ aralığında integrallenebilir ve $2\pi-$periyotlu olsun. Bu durumda $f$'nin $(-\pi,\pi)$ aralığındaki Fourier serisi aşağıdaki koşulları sağlayan her $x\in\mathbb{R}$ noktasında $$\frac{1}{2}\left[f(x+)+f(x-)\right]$$ değerine yakınsar:
+<ol type="i">
+<li>$x$ noktasında $f$ fonksiyonunun sağ ve sol türevleri mevcuttur,</li>
+<li>$x$ merkezli keyfi küçüklükte bir aralıkta $f$ fonksiyonu paçalı süreklidir.</li></ol></div></p>
+
+<p>
+<strong>İspat:</strong> $f$ fonksiyonu $(x-\delta,x+\delta)$ aralığında parçalı sürekli olacak şekilde bir $\delta<\pi$ pozitif sayısı seçelim. Bu durumda \eqref{eq:dirichlet-kernel} ve \eqref{eq:fs-ktdizi1} eşitliklerini kullanarak
+\begin{eqnarray*}
+	s_N(x) &=& \frac{1}{2\pi}\int_{0}^{\pi}\left[f(x+t)+f(x-t)\right]D_N(t)\,dt\\
+	&=& \frac{1}{2\pi}\int_{0}^{\pi}\left[f(x+t)+f(x-t)-f(x+)-f(x-)\right]D_N(t)\,dt\\
+	&& \qquad\qquad\qquad\qquad\qquad\qquad+\frac{1}{2\pi
+	}\int_{0}^{\pi}\left[f(x+)+f(x-)\right]D_N(t)\,dt\\
+	&=&\frac{1}{2\pi}\int_{0}^{\pi}\left[f(x+t)+f(x-t)-f(x+)-f(x-)\right]D_N(t)\,dt+\frac{1}{2}\left[f(x+)+f(x-)\right]\\
+	&=& \frac{1}{2}\left[f(x+)+f(x-)\right]\\
+	&& \qquad+ \frac{1}{\pi}\int_{0}^{\delta}\left[\frac{f(x+t)-f(x+)}{t}+\frac{f(x-t)-f(x-)}{t}\right]\frac{\frac{1}{2}t}{\sin\frac{1}{2}t}\sin\left(N+\frac{1}{2}\right)t\,dt\\
+	&& \qquad+ \frac{1}{2\pi}\int_{\delta}^{\pi}\frac{f(x+t)+f(x-t)-f(x+)-f(x-)}{\sin\frac{1}{2}t}\sin\left(N+\frac{1}{2}\right)t\,dt
+\end{eqnarray*}
+eşitliği elde edilir. Eşitliğin sağ tarfındaki ilk integrali inceleyelim. $f$ fonksiyonunun $(x-\delta,x+\delta)$ aralığında sağ ve sol türevleri var olduğundan köşeli parantez içindeki iki ifadenin de $t\rightarrow0$ için limitleri mevcuttur, dolayısıyla bu ifadeler $(0,\delta)$ aralığında parçalı süreklidir. Ayrıca $$\lim\limits_{t\rightarrow0}\frac{\frac{1}{2}t}{\sin\frac{1}{2}t}=1$$ olduğundan bu çarpan da aynı aralıkta parçalı süreklidir (bu iki çarpan $t\neq0$ için zaten süreklidir). Dolayısıyla bu iki terimin çarpımı $(0,\delta)$ aralığında integrallenebilirdir. Böylece <a class="eqref" href="../23-riemann-lebesgue-teoremi/index.html#RL-theo">Riemann-Lebesgue teoremi</a> gereği $N\rightarrow\infty$ için ilk integralin limiti sıfır olur. İkinci integralde hiç bir singülerlik olmadığından ilk terim parçalı sürekli dolayısıyla integrallenebilirdir. Böylece bu integralin de $N\rightarrow\infty$ için limiti sıfır olur. Böylece ispat tamamlanmış oldu.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+Bu kanıtladığımız dışında günümüzde Fourier serilerinin yakınsaklığı için bir çok kritere sahibiz, bunlara değinmeyeceğiz. 
+</p>
+
+<p>
+Bu kanıtladığımız teoremde Fourier serisinin sadece bir noktada yakınsak olması için koşullar verdik, yani <strong>noktasal</strong> bir kriter elde ettik. Bir zamanlar bir fonksiyonun Fourier serisinin $-\pi,\pi$ aralığının tamamında yakınsak olması için o fonksiyonun sürekli olmasının yeterli olacağı sanılıyordu fakat 1873 yılında <strong>Paul Du Bois Reymond</strong> bunun aksine bir örnek vererek bu sanının yanlış olduğunu gösterdi. Bu problem ancak 1966 yılında <strong>Lennart Carleson</strong> tarafından çözülebildi. Carleson kanıtladı ki bir fonksiyonun karesi $(-\pi,\pi)$ aralığında Lebesgue anlamında integrallenebilirse o fonksiyonun Fourier serisi bu aralıkta en fazla ölçüsü sıfır olan bir kümede ıraksak olabilir. Karesi integrallenemeyen bir fonksiyonlar için ise durum pek iç açıcı değildir, 1926 yılında <strong>Andrei Kolmogorov</strong> integrallenebilen fakat Fourier serisi hiçbir noktada yakınsak olmayan bir fonksiyon örneği vermişti.
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../23-riemann-lebesgue-teoremi/index.html">2.3. Riemann-Lebesgue Teoremi</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Fourier Analizi</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../25-herhangi-bir-aralikta-fourier-serileri/index.html">2.5. Herhangi Bir Aralıkta Fourier Serileri</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/24-fourier-serilerinin-yakinsakligi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:13 GMT -->
+</html>

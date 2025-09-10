@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/54-ortalamada-yakinsaklik/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 5.4. Ortalamada Yakınsaklık
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>5.4. Ortalamada Yakınsaklık</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-12">
+          12 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu yazımızda Parseval özdeşliğinin tam kanıtına değineceğiz. Ayrıca Fourier serileri ile ortalamada yakınsaklık kavramı arasındaki ilişkiyi de tartışacağız.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/fourier-serisi/index.html">Fourier serisi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/ortalamada-yakinsaklik/index.html">ortalamada yakınsaklık</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/parseval-ozdesligi/index.html">Parseval özdeşliği</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Gram'ın elde ettiği sonuç sonrasında 1907 yılında <strong>Ernst Fischer</strong> (1875-1959) yeni bir çeşit yakınsaklık kavramı tanımladı.
+</p>
+
+<p>
+<div class="envdef" id="def-ortogonal-ortalamadayak"><h6 class="thenv">Tanım 5.4.1</h6>$(a,b)$ aralığında integrallenebilir $f$ fonksiyonlarının $\{f_n\}$ dizisi için $n\rightarrow\infty$ iken $\Vert f-f_n\Vert\rightarrow0$ oluyorsa bu dizi $n\rightarrow\infty$ iken $f$ fonksiyonuna <strong>ortalamada yakınsaktır</strong> denir, bu durum $$\text{l.i.m.}f_n=f$$ olarak gösterilir.
+</div>
+</p>
+
+<p>
+Bu tanımda $\text{l.i.m.}$ ifadesi "limit in the means" ifadesinin kısaltılmışıdır. Bu tanım ışığında Gram'ın sonuçlarından olan <a class="eqref" href="../52-bir-yaklasim-problemi/index.html#ortogonal-sonuc-1">Sonuç 5.2.1</a> aşağıdaki şekilde yeniden ifade edilebilir.
+</p>
+
+<p>
+<div class="envtheo" id="ortogonal-theo-4"><h6 class="thenv">Teorem 5.4.1</h6>$f$ fonksiyonu $(a,b)$ aralığında integrallenebilir ve $\{\varphi_n \}$ de bu aralıkta ortogonal bir sistem olsun. Bu durumda $f$ fonksiyonunun bu ortogonal sisteme göre Fourier serisinin kendisine ortalamada yakınsak olması için gerek ve yeter koşul $f$ fonksiyonu için Parseval özdeşliğinin sağlanmasıdır.
+</div>
+</p>
+
+<p>
+Artık çok önemli olan Parseval özdeşliğinin kanıtı meselesine geçebiliriz. Bunun özel bir durum olan trigonometrik ortogonal sistem için kanıtı birbirinden bağımsız olarak 1893 yılında <strong>Charles Jean de la Vallee Poussin</strong> (1866-1962), 1896 yılında <strong>Aleksandr Mikhailovich Liapunov</strong> (1857-1918) ve 1903 yılında <strong>Adolf Hurwitz</strong> (1859-1919) tarafından verilmiştir.
+</p>
+
+<p>
+Biz şimdi kanıtı daha genel olarak $$\begin{array}{l}
+(pX')'+(\lambda r-q)X=0\\
+a_1X(a)-b_1X'(a)=0\\
+a_2X(b)+b_2X'(b)=0
+\end{array}$$ düzgün Sturm-Liouville probleminin özfonksiyonları tarafından oluşturulan ortogonal sistemde vereceğiz. Bu kanıtı detaya girmeden verip teknik detayları okuyucuya bırakacağız, ayrıca Sturm-Liouville problemleriyle bağlantılı olmayan keyfi ortogonal sistemler için kanıt bir sonraki bölümde <strong>Riesz-Fischer teoreminin</strong> kanıtıyla verilmiş olacak.
+</p>
+
+<p>
+<div class="envtheo" id="ortogonal-theo-5"><h6 class="thenv">Teorem 5.4.2</h6>$f:[a,b]\rightarrow\mathbb{R}$ integrallenebilir bir fonksiyon ve $\{X_n\}$ de $[a,b]$ aralığında düzgün bir Sturm-Liouville probleminin özfonksiyonlarının dizisi olsun. Bu durumda $$\Vert f\Vert^2=\sum_{n=1}^{\infty}c_n^2\Vert X_n\Vert^2$$ Parseval özdeşliği sağlanır ve $f$ fonksiyonunun $\{X_n\}$ sistemine göre Fourier serisi $f$ fonksiyonuna ortalamada yakınsar.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>Aşağıdakilerin sağlandığını varsayalım:
+
+<ol>
+<li>$f$ fonksiyonuna yeterince küçük $\eta>0$ için $[a,a+\eta)\cup(b-\eta,b]$ aralığında özdeş olarak sıfır olan parçalı sürekli bir $g$ fonksiyonu ile istenilen yakınlıkta yaklaşılabilsin.</li>
+<li>Köşeleri yuvarlayarak, $g$ fonksiyonuna $C^1$ sınıfından olan  ve $h(a)=h(b)=h'(a)=h'(b)=0$ koşulunu sağlayan bir $h$ fonksiyonuna istenilen yakınlıkta yaklaşılabilsin.</li>
+<li>Yeterince büyük $N$ sayısı için, $h$ fonksiyonuna $f$'in $\{X_n\}$'e göre $N-$inci Fourier kısmi toplamı ile istenilen yakınlıkta düzgün olarak yaklaşılabilsin.</li>
+<li>$N\rightarrow\infty$ iken $\Vert f-h_N\Vert\rightarrow0$ olsun.</li>
+</ol>
+</p>
+
+<p>
+Bu kabuller sonucunda, $h_N$ terimi $\sum_{n=1}^{N}k_nX_n$ biçimine sahip olduğuna dikkat ederek, $f$'in $\{X_n\}$'e göre $N-$inci Fourier kısmi toplamını $s_N$ ile gösterirsek <a class="eqref" href="#ortogonal-theo-4">Teorem 5.4.1</a> gereği $$0\leq\Vert f-s_N\Vert^2\leq\Vert f-h_N\Vert^2$$ olduğu görülür. Böylece $\text{l.i.m.}s_N=f$ elde edilir ve $f$ fonksiyonu $\{X_n\}$'e göre Parseval özdeşliğini sağlar. Bu durumda kanıtı tamamlamak için yukarıdaki dört varsayımın sağlandığı gösterilmelidir, bunlar okuyucuya bırakılmıştır.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+Bu sonucu <a class="eqref" href="../44-genellestirilmis-fourier-serileri/index.html#slp-theo-6">Teorem 4.4.1</a> ile karşılaştırısak şunu farkederiz: integrallenebilir bir fonksiyonun Fourier serisi için ortalamada yakınsaklık her zaman sağlanır, fakat noktasal yakınsaklık için bazı ek koşullar gereklidir.
+</p>
+
+<p>
+Aşağıdaki sonuç ile <a class="eqref" href="#ortogonal-theo-5">Teorem 5.4.2</a>'nin trigonometrik ortogonal sistem için ifadesini veriyoruz, kanıtı da <a class="eqref" href="#ortogonal-theo-5">Teorem 5.4.2</a>'nin detaylı kanıtından kolaylıkla görülebilir.
+</p>
+
+<p>
+<div class="envtheo" id="ortogonal-theo-6"><h6 class="thenv">Teorem 5.4.3</h6>$f:(-\pi,\pi)\rightarrow\mathbb{R}$ integrallenebilir fonksiyonunun bu aralıktaki Fourier serisi $$\frac{1}{2}a_0+\sum_{n=1}^{\infty}(a_n\cos nx+b_n\cos nx)$$ olsun. Bu durumda $$\frac{1}{\pi}\int_{-\pi}^{\pi}f^2=\frac{1}{2}a_0^2+\sum_{n=1}^{\infty}(a_n^2+b_n^2)$$ Parseval özdeşliği sağlanır, <a class="eqref" href="../53-duzgun-yakinsaklik/index.html#eq:ortogonal-3">(5.3.1)</a> ortogonal sistemi tamdır, ve yukarıdaki Fourier serisi $f$ fonksiyonuna ortalamada yakınsaktır.
+</div>
+</p>
+
+<p>
+Elbette verilen ortogonal sistem bir Sturm-Liouville probleminden elde edilmemişse yukarıdaki ispatlar geçerli değildir, bu durumda verilen sistemin özelliklerine göre farklı ispat yöntemleri geliştiririlebilir. Örneğin Haar fonksiyonlarının oluşturduğu ortogonal sistem için aşağıdaki sonuç kanıtlanabilir.
+</p>
+
+<p>
+<div class="envtheo" id="ortogonal-theo-7"><h6 class="thenv">Teorem 5.4.4</h6>Eğer $f$ fonksiyonu $[0,1)$ aralığında integrallenebilir ise, bu durumda Haar ortogonal sistemine göre $f$ fonksiyonu için Parseval özdeşliği sağlanır.
+</div>
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../53-duzgun-yakinsaklik/index.html">5.3. Düzgün Yakınsaklık</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Fourier Analizi</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../55-riesz-fischer-teoremi/index.html">5.5. Riesz-Fischer Teoremi</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/54-ortalamada-yakinsaklik/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:46 GMT -->
+</html>

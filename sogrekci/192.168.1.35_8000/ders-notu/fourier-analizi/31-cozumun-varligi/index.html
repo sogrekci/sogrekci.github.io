@@ -1,0 +1,352 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/31-cozumun-varligi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:24 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 3.1. Çözümün Varlığı
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>3.1. Çözümün Varlığı</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-08">
+          8 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste ısı iletim denkleminin çözümünün varlığını kanıtlayacağız. Aslında önceki bölümlerde keşfettiğimiz bilgileri kullanarak istenen özelliklerde olan bir fonksiyona, yani ısı iletim denkleminin çözümü olan bir fonksiyona, yakınsak olan Fourier serilerinin varlığını kanıtlayacağız.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/cozumun-varligi/index.html">çözümün varlığı</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/fourier-serisi/index.html">Fourier serisi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/heine-borel-teoremi/index.html">Heine-Borel teoremi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/isi-denklemi/index.html">Isı denklemi</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Birinci bölümde $x-$ekseni boyunca $x=0$ ile $x=a$ noktaları arasında yerleşmiş ısıtılımış bir çubuğu ele almıştık. $$D:=\{(x,t)\in\mathbb{R}^2:\;\, 0\lt x\lt a, \,\, t>0 \}$$ ve $$\overline{D}:=\{(x,t)\in\mathbb{R}^2:\;\, 0\leq x\leq a, \,\, t\geq0 \}$$ kümelerini tanımlayıp $D$ kümesinde ısı iletim denklemini sağlayan, her $t\geq0$ için $x=0$ ve $x=a$ noktalarında sıfır değerini alan ve $f$ verilen sürekli bir fonksiyon olmak üzere $0\leq x\leq a$ için $u(x,0)=f(x)$ eşitliğini sağlayan $C^2$ sınıfından sürekli bir $u:\overline{D}\rightarrow\mathbb{R}$ fonksiyonunun varlığı sorusunu düşünmüştük.
+</p>
+
+<p>
+Fakat fiziksel problemlerde süreklilik ağır bir şarttır ve bazı durumlarda $f$ fonksiyonunun parçalı sürekli kabul edilmesi gerekir, bunun için ele aldığımız problemi biraz değiştireceğiz. Yeni durumda aradığımız $u:\overline{D}\rightarrow\mathbb{R}$ fonksiyonu $D$ kümesinde $C^2$ sınıfından, $D_0:=\left\{(x,t):\in\overline{D}:\; t>0 \right\}$ kümesinde sürekli ve verilen parçalı sürekli bir $f$ fonksiyonu için
+\begin{eqnarray}
+	u_{t}=ku_{xx} ,&& \qquad(x,t)\in D\text{ için}\label{bvp-mod-1}\tag{3.1.1}\\
+	u(0,t)=0, && \qquad t>0\text{ için} \label{bvp-mod-2}\tag{3.1.2}\\
+	u(a,t)=0, && \qquad t>0\text{ için}  \label{bvp-mod-3}\tag{3.1.3}\\
+	u(x,0)=f(x), && \qquad0\leq x\leq a \text{ için}\label{bvp-mod-4}\tag{3.1.4}\\
+	u(x,t)\rightarrow0, && \qquad t\rightarrow0\text{ ve }0\leq x\leq a\text{ için} \label{bvp-mod-5}\tag{3.1.5}
+\end{eqnarray}eşitliklerini sağlayan bir fonksiyondur. Yukarıdaki \eqref{bvp-mod-4} ve \eqref{bvp-mod-5} koşulları $f$'nin sürekli olduğu $x$ noktalarında aranmaktadır. Dikkat edilirse $f$ fonksiyonu $[0,a]$ aralığında sürekli olmayabileceğinden $u$ fonksiyonunun $\overline{D}$ kümesinde sürekli olması gerekmez, bunun yerine $D_0$ kümesinde sürekli olmasını istiyoruz. Ayrıca \eqref{bvp-mod-5} gereği sabitlenmiş $x\in(0,a)$ noktası $f$'nin bir süreklilik noktası olmak üzere $u$ fonksiyonunun $t=0$ noktasında $t$ değişkenine göre sürekli olması gerekmektedir.
+</p>
+
+<p>
+Bu bölümde önce bu yeni sınır değer problemini, daha sonra da orijinal problemimizi çözeceğiz. Daha önce ilk bölümde $c_n$ keyfi sabitleri için
+
+\begin{equation}
+\label{eq:bvp-toplam-1}
+\tag{3.1.6}
+\sum\limits_{n=1}^{\infty}c_ne^{-n^2\pi^2kt/a^2}\sin\frac{n\pi}{a}x
+\end{equation}
+
+serisinin her teriminin ısı denklemini ve uç nokta koşullarını sağladığını göstermiştik. Bu seriyi yakınsak ve toplamını da $u(x,t)$ kabul edersek başlangıç koşulu
+
+\begin{equation}
+\label{eq:bvp-initval-1}
+\tag{3.1.7}
+\sum\limits_{n=1}^{\infty}c_n\sin\frac{n\pi}{a}x=f(x)
+\end{equation}
+
+halini alır. Bir önceki bölümde eğer $c_n$'ler $f$ fonksiyonunun $(0,a)$ aralığındaki Fourier sinüs serisi katsayıları ise, yani
+
+\begin{equation}
+\label{eq:bvp-cn}
+\tag{3.1.8}
+c_n=\frac{2}{a}\int_{0}^{a}f(x)\sin\frac{n\pi}{a}x\,dx
+\end{equation}
+
+şeklinde ise ve her $x\in(0,a)$ noktasında $f$ fonksiyonunun sağ ve sol türevleri mevcutsa \eqref{eq:bvp-initval-1} eşitliğinin $f$'nin sürekli olduğu her $x\in(0,a)$ noktasında sağlandığını gördük. Bunlar bize \eqref{eq:bvp-cn} katsayılarıyla birlikte \eqref{eq:bvp-toplam-1} serisinin sınır değer problemimizin çözümü olduğunu düşündürebilir fakat \eqref{eq:bvp-toplam-1} serisi hakkında bildiklerimiz sadece her teriminin $\overline{D}$ kümesinde sürekli ve $D$ kümesinde $C^2$ sınıfından olduğu, $\overline{D}$ kümesinde $(x,0)$ biçimindeki her noktada yakınsak ve $f$ fonksiyonunun sürekli olduğu her $x$ noktasında toplamının \eqref{eq:bvp-initval-1} eşitliğini sağladığıdır. Henüz şunları bilmiyoruz:
+
+<ol><li>her $(x,t)\in\overline{D}$ için seri yakınsak mı?</li>
+<li>eğer yakınsaksa toplamı $D_0$ kümesinde sürekli ve $D$ kümesinde $C^2$ sınıfından mı?</li>
+<li>eğer yakınsaksa toplamı \eqref{bvp-mod-1}-\eqref{bvp-mod-3} ve \eqref{bvp-mod-5} koşullarını sağlıyor mu?</li></ol>
+</p>
+
+<p>
+Daha çok işimiz varmış gibi görünse de aslında öyle değil, problemin önemli ve zahmetli kısmını, yani \eqref{eq:bvp-initval-1} eşitliğini önceki bölümde kanıtladık. Yukarıda sıraladığımız diğer sorunların çözümü nispeten basit olacak, bunları çözmek için sıklıkla düzgün yakınsaklık kavramını kullanacağız. Çözümü aşağıda vereceğimiz sonuçlarla parça parça elde edeceğiz.
+</p>
+
+<p>
+<div class="envtheo" id="bvp-lm1"><h6 class="thenv">Lemma 3.1.1</h6>\eqref{eq:bvp-toplam-1} ile verilen seri $D_0$ kümesinde sürekli olan ve \eqref{bvp-mod-2}-\eqref{bvp-mod-4} koşullarını sağlayan bir fonksiyona yakınsar.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong><a class="eqref" href="../24-fourier-serilerinin-yakinsakligi/index.html#fs-yakteo"> Teorem 2.4.1</a> gereği $t=0$ için \eqref{eq:bvp-toplam-1} serisinin yakınsak olduğunu ve toplamının \eqref{bvp-mod-4} eşitliğini sağladığını biliyoruz. Ayrıca <a class="eqref" href="../23-riemann-lebesgue-teoremi/index.html#RL-theo">Riemann-Lebesgue teoremi</a> gereği $n\rightarrow\infty$ için $c_n\rightarrow0$ olduğundan her $n\in\mathbb{N}$ için $|c_n|\lt M$ olacak şekilde bir $M$ sabiti vardır. Şimdi $D_{t_0}:=\{(x,t)\in D_0:\; t\geq t_0 \}$ kümesinde $$\left|c_ne^{-n^2\pi^2kt/a^2}\sin\frac{n\pi}{a}x \right|\lt Me^{-n^2\pi^2kt_0/a^2}$$ eşitsizliği sağlanır. Cauchy kök testi gereği $$\sum\limits_{n=1}^{\infty}Me^{-n^2\pi^2kt_0/a^2}$$ serisi yakınsak olduğundan Weierstrass-M testi gereği \eqref{eq:bvp-toplam-1} serisi $D_{t_0}$ kümesinde düzgün yakınsak olur. Burada $t_0$ keyfi olduğundan seri $D_0$ kümesinde deyakınsak olur, ayrıca $t=0$ için yakınsaklık bilindiğinden \eqref{eq:bvp-toplam-1} serisinin $\overline{D}$ kümesinde yakınsaklığı elde edilmiş olur. Diğer yandan seri $D_{t_0}$ kümesinde düzgün yakınsak olduğundan toplamı bu kümede sürekli olur, $t_0$ keyfi olduğu için $D_0$ kümesinde de sürekli olacaktır. Ayrıca \eqref{eq:bvp-toplam-1} serisinin \eqref{bvp-mod-2} ve \eqref{bvp-mod-3} eşitliklerini sağladığı açıktır, çünkü $x=0$ ve $x=a$ için toplamı sıfır olur.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="bvp-lm2"><h6 class="thenv">Lemma 3.1.2</h6>\eqref{eq:bvp-toplam-1} serisinin toplamı $D$ kümesinde $C^2$ sınıfındandır ve \eqref{bvp-mod-1} eşitliğini sağlar.</div>
+</p>
+
+<p>
+<strong>İspat: </strong>\eqref{eq:bvp-toplam-1} serisinin terim terim $t$ değişkenine göre türevlenmesiyle elde edilen $$\sum\limits_{n=1}^{\infty}\left(-\frac{n^2\pi^2}{a^2}k\right)c_ne^{-n^2\pi^2kt/a^2}\sin\frac{n\pi}{a}x$$ serisinin keyfi bir $t_0>0$ sayısı için $D_{t_0}$ kümesinde düzgün yakınsak olduğu <a class="eqref" href="#bvp-lm1"> Lemma 3.1.1</a>'deki gibi Weierstrass-M testi kullanılarak gösterilebilir, ayrıca özel olarak verilen bir $x\in(0,a)$ sayısı için $[t_0,\infty)$ aralığında düzgün yakınsaktır. Böylece eğer serinin toplamı $u(x,t)$ ise yukarıdaki serinin toplamı $t\geq t_0$ için $u_t(x,t)$ olur, $t_0$ ve $x$ sayıları keyfi olduğundan yukarıdaki serinin toplamı $D$ kümesinde $u_t(x,t)$ olur.
+</p>
+
+<p>
+Benzer şekilde \eqref{eq:bvp-toplam-1} serisinin iki defa $x$ değişkenine göre terim terim türevlenmesiyle elde edilen $$\sum\limits_{n=1}^{\infty}\left(-\frac{n^2\pi^2}{a^2}\right)c_ne^{-n^2\pi^2kt/a^2}\sin\frac{n\pi}{a}x$$ serisinin de $D$ kümesinde toplamının $u_{xx}(x,t)$ olduğu gösterilebilir. Yukarıdaki iki seri karşılaştırılırsa $D$ kümesinde $$u_t=ku_{xx}$$ eşitliğinin sağlandığı görülür.
+</p>
+
+<p>
+Diğer yandan yukarıdaki seriler $D_{t_0}$ kümesinde düzgün yakınsak olduklarından bu kümede toplamları süreklidir, aynı sebeple $u_{tx}$ ve $u_{tt}$ fonksiyonları da bu kümede sürekli olacaktır. $t_0$ keyfi olduğundan bu fonksiyonlar $D$ kümesinde de sürekli olurlar yani $u$ fonksiyonu $D$ kümesinde $C^2$ sınıfından olur.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+Şimdi ele aldığımız problemin tam çözümünün varlığını verebiliriz.
+</p>
+
+<p>
+<div class="envtheo" id="bvp-teo-varlik"><h6 class="thenv">Teorem 3.1.1</h6>$f:(0,a)\rightarrow\mathbb{R}$ fonksiyonu $(0,a)$ kümesinde parçalı sürekli olsun, ayrıca bu aralıkta sağ ve sol türevleri mevcut olsun. $c_n$ sayıları da $f$ fonksiyonunun $(0,a)$ aralığındaki Fourier sinüs serisi katsayıları olsun. Bu durumda \eqref{eq:bvp-toplam-1} serisi $D$ kümesinde $C^2$ sınıfından olan, $D_0$ kümesinde sürekli olan ve \eqref{bvp-mod-1}-\eqref{bvp-mod-5} sınır değer problemini sağlayan bir $u:\overline{D}\rightarrow\mathbb{R}$ fonksiyonuna yakınsar.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>Diğer kısımları yukarıdak verdiğimiz lemmalarla kanıtladığımız için sadece \eqref{bvp-mod-5} eşitliğini kanıtlamalıyız. Bunun için $$a_n:=c_n\sin\frac{n\pi}{a}x\quad\text{ve}\quad g_n(t):=e^{-n^2\pi^2kt/a^2}$$ olarak tanımlarsak $\sum a_n$ yakınsak bir Fourier serisi, her $n\in\mathbb{N}$ ve her $t\in[0,\infty)$ için $g_{n+1}(t)\leq g_n(t)$, ve her $t\in[0,\infty)$ için $|g_n(t)|\leq1$ olur. Böylece Abel düzgün yakınsaklık testi gereği \eqref{eq:bvp-toplam-1} serisi $[0,\infty)$ aralığında düzgün yakınsaktır ve toplamı süreklidir. Dolayısıyla $t\rightarrow0$ için $u(x,t)\rightarrow u(x,0)$ olur, \eqref{bvp-mod-4} eşitliği gereği de $u(x,t)\rightarrow f(x)$ elde edilmiş olur.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envex" id="ex-3.1"><h6 class="thenv">Örnek 3.1.1</h6>Başlangıç sıcaklığı $f(x):=x$ ile verilen 10 cm uzunluğunda bir çelik çubuğu ele alalım. Her $t>0$ için çubuğun uçlarındaki sıcaklık $0^\circ C$ sabit tutulmaktadır. Bu durumda $a=10$ ve çelik için $k=0.00128\,cm^2/sn$ olup $c_n$ katsayıları \eqref{eq:bvp-cn} formülünden $$c_n=\frac{2}{10}\int_{0}^{10}x\sin\frac{n\pi}{10}x\,dx=\frac{20}{n\pi}(-1)^{n+1}$$ olur ve sınır değer probleminin çözümü $$u(x,t)=\frac{20}{\pi}\sum_{n=1}^{\infty}\frac{(-1)^{n+1}}{n}e^{-0.128n^2\pi^2t/100}\sin\frac{n\pi}{10}x$$ olarak elde edilir. Üstel ifadelerden dolayı yeterince büyük $t$ değerleri için bu toplamdaki birçok terim ihmal edilebilir. Bundan dolayı eğer $\alpha:=e^{-0.00128\pi^2}\approx0.987$ olarak tanımlarsak yeterince büyük $t$ sayıları için $$u(x,t)\approx\frac{20}{\pi}\left( \alpha^t\sin\frac{\pi}{10}x-\frac{1}{2}\alpha^{4t}\sin\frac{\pi}{5}x+\frac{1}{3}\alpha^{9t}\sin\frac{3\pi}{10}x \right)$$ yazabiliriz. Bu çözümün belirttiği yüzey ve bazı $t$ değerleri için grafiği aşağıda verilmiştir.
+</p>
+
+<p>
+<img id="fig:3d_heat-eq_1" class="envfig" src="../../../static/ders-notu/fourier-analizi/3d_heat_eq_1.png" width="40%">
+</p>
+
+<p>
+<span style="margin:auto; display:table;"><span class="figcap">Şekil 3.1:</span> Yukarıdaki örnekte (<a class="eqref" href="#ex-3.1">Örnek 3.1.1</a>) bahsedilen sınır değer probleminin çözümü olan $u$ fonksiyonu.</span>
+</p>
+
+<p>
+<div class="row py-4">
+<div class="col-3"><img id="fig:ex-3.1" class="envfig" src="../../../static/ders-notu/fourier-analizi/bvp-1.svg" width="90%"></div>
+<div class="col-3"><img class="envfig" src="../../../static/ders-notu/fourier-analizi/bvp-2.svg" width="90%"></div>
+<div class="col-3"><img class="envfig" src="../../../static/ders-notu/fourier-analizi/bvp-3.svg" width="90%"></div>
+<div class="col-3"><img class="envfig" src="../../../static/ders-notu/fourier-analizi/bvp-4.svg" width="90%"></div>
+</div>
+</p>
+
+<p>
+<span style="margin:auto; display:table;"><span class="figcap">Şekil 3.2:</span> Yukarıdaki örnekte (<a class="eqref" href="#ex-3.1">Örnek 3.1.1</a>) bahsedilen sınır değer probleminin çözümü olan $u$ fonksiyonunun sırasıyla $t=10, 60, 120\text{ ve }180$ için grafikleri</span>
+</div>
+</p>
+
+<p>
+Şimdi ele aldığımız orijinal probleme dönelim, yani başlangıç sıcaklığı fonksiyonunun sürekli olduğu duruma. Bu durumda \eqref{eq:bvp-toplam-1} serisinin toplamının $\overline{D}$ kümesinde sürekli olmasını ve başlangıç ile sınır koşullarını sağlamasını istiyoruz. Önceki araştırmalarımıza dayanarak sadece serinin toplamının $\overline{D}$ kümesinde sürekli olduğunu göstermemiz gerektiğini söyleyebiliriz, bunun için de \eqref{eq:bvp-toplam-1} serisinin $\overline{D}$ kümesinde düzgün yakınsak olduğunu göstermek yeterlidir. Bu durumda $t=0$ için de düzgün yakınsaklı gereklidir. O halde soru şudur: sürekli ve tek taraflı türevlere sahip olan bir fonksiyonun Fourier serisi düzgün yakınsak mıdır? Bu soru ilk kez Halle Üniversitesinden <strong>Heinrich Eduard Heine</strong> (1821-1881) tarafından sorulmuş ve ilk cevap da yine kendisi tarafından 1870 yılındaki bir makalesinde verilmiştir. Elbette o yıllarda literatürde düzgün yakınsaklık kavramı tanımlı değildi, Heine bu makalesinde bu kavramı ilk defa kullanmıştır, daha sonra 1872 yılındaki bir makalesinde bu kavramı daha detaylı olarak tanımlamış ve incelemiştir. Heinenin 1870 yılındaki çalışmasındaki diğer bir yenilik ise bir açık aralıklar dizisi tarafından kapsanan kapalı ve sınırlı bir aralığın, bu açık aralıkların sonlu tanesi tarafından kapsandığını gözlemlemesidir. Bu gözlem 1895 yılında <strong>Emile Borel</strong> (1871-1938) tarafından kanıtlanmıştır ve günümüzde <strong>Heine-Borel teoremi</strong> olarak bilinir.
+</p>
+
+<p>
+<div class="envtheo" id="bvp-teo-varlik-2"><h6 class="thenv">Teorem 3.1.2</h6>$a,\alpha\in\mathbb{R}$ ve $a>0$ olsun. Ayrıca  $f:[\alpha-a,\alpha+a]\rightarrow\mathbb{R}$ sürekli fonksiyonunun türevi parçalı sürekli olsun ve $f(\alpha-a)=f(\alpha+a)$ eşitliği sağlansın. Bu durumda $f$ fonksiyonunun $(\alpha-a,\alpha+a)$ aralığındaki Fourier serisi $[\alpha-a,\alpha+a]$ aralığında $f$ fonksiyonuna düzgün yakınsaktır.
+</div>
+</p>
+
+<p>
+Şimdilik elimizdeki bilgiler yetersiz olduğundan bu teoremin kanıtını daha sonra vereceğiz ama bu teoremi kullanarak aşağıdaki sonucu elde edebiliriz.
+</p>
+
+<p>
+<div class="envtheo" id="bvp-teo-varlik-3"><h6 class="thenv">Teorem 3.1.3</h6>$f:[0,a]\rightarrow\mathbb{R}$ fonksiyonu sürekli olsun, türevi parçalı sürekli olsun ve $f(0)=f(a)=0$ eşitliğini sağlasın. Ayrıca $c_n$ sayıları da $f$'nin $(0,a)$ aralığında Fourier sinüs serisinin katsayıları olsunlar. Bu durumda \eqref{eq:bvp-toplam-1} serisi
+\begin{eqnarray*}
+u_{t}=ku_{xx} ,&& \qquad(x,t)\in D\text{ için}\\
+u(0,t)=0, && \qquad t\geq0\text{ için}\\
+u(a,t)=0, && \qquad t\geq\text{ için}  \\
+u(x,0)=f(x), && \qquad0\leq x\leq a \text{ için}
+\end{eqnarray*}eşitliklerini sağlayan bir $u:\overline{D}\rightarrow\mathbb{R}$ fonskiyonuna yakınsar.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong><a class="eqref" href="#bvp-teo-varlik">Teorem 3.1.1</a> gereği sadece $u$ fonksiyonunun $\overline{D}$ kümesinde sürekli olduğunu göstermeliyiz. $f(0)=f(a)=0$ olduğundan $f$ fonksiyonunun $[-a,a]$ aralığında tek olarak genişletilmesiyle elde edilen fonksiyon sürekli olur ve $f(-a)=f(a)$  eşitliğini sağlar. Dolayısıyla <a class="eqref" href="#bvp-teo-varlik-2">Teorem 3.1.2</a> gereği Fourier serisi olan $$\sum_{n=1}^{\infty}c_n\sin\frac{n\pi}{a}x$$ serisi $[0,a]$ aralığında düzgün yakınsaktır. Bu durumda da $$f_n(x,t):=c_n\sin\frac{n\pi}{a}x\quad\text{ve}\quad g_n(x,t):=e^{-n^2\pi^2kt/a^2}$$ olarak tanımlanırsa Abel düzgün yakınsaklık teoremi gereği bu seri $\overline{D}$ kümesinde düzgün yakınsak olur ve toplamı süreklidir.$$\tag*{$\blacksquare$}$$
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../28-fourier-serilerinin-integrali/index.html">2.8. Fourier Serilerinin İntegrali</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Fourier Analizi</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../32-cozumun-tekligi-ve-kararliligi/index.html">3.2. Çözümün Tekliği ve Kararlılığı</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/31-cozumun-varligi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:30 GMT -->
+</html>

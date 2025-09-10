@@ -1,0 +1,468 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/blog/bodoslama-javascript/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:35:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - Bodoslama JavaScript
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../static/site/prism.css">
+    <script src="../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>Bodoslama JavaScript</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-08-31">
+          31 Ağustos 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-09-15">
+          15 Eylül 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu yazımda size <strong>JavaScript</strong> dilini tanıtacağım, detaya girmeden tüm özelliklerini özetlemeye çalışacağım. Daha önceden nesne yönelimli bir programlama dili biliyorsanız bu yazı ile javaScript'e iyi bir giriş yapmış olacaksınız.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../dizin/array/index.html">array</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/degisken/index.html">değişken</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/javascript/index.html">JavaScript</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/kontrol-yapilari/index.html">kontrol yapıları</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/nesne-yonelimli-programlama/index.html">nesne yönelimli programlama</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/object/index.html">object</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/sinif/index.html">sınıf</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/veri-tipleri/index.html">veri tipleri</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-5 text-justify">
+        <p>
+<strong>JavaScript</strong> dünyada en yaygın olarak kullanılan programlama dilidir çünkü web tarayıcıları sayfaları gösterirken sıklıkla bu dili kullanır. Tüm cep telefonları, tabletler, bilgisayarlar gibi internet sayfalarını görüntülediğiniz cihazlarda otomatik olarak yüklüdür ve sıklıkla JavaScript programları çalışır. Bundan dolayı bu dilin modasının hiç bir zaman geçmeyeceği gibi bir kanı vardır ve muhtemelen öyle olacak, yani bu dili öğrenmeniz size hiç bir şey kaybettirmez.
+</p>
+
+
+<p>
+Her programlama dilinde olduğu gibi JavaScript kullanırken de değişkenler tanımlayıp bunlara değerler atarız, aşağıdaki kodlarda JavaScript söz dizimi ve en sık kullanılan değişken tiplerini gözlemleyebilirsiniz.
+
+<pre class="my-4"><code class="language-js line-numbers">
+//Bu cift geri bolu isaretinden sonra gelen her sey yorum olarak kabul edilir
+
+let x; // x adinda bir degisken tanimladik
+
+//degiskenlere = operatoruyle değer atayabiliriz
+x = 1; // simdi x degiskeninin degeri 1 oldu
+x //=> 1: bu sekilde degiskenin degerini hesaplatabiliriz
+
+// Asagida JavaScript'in destekledigi yaygin veri tipleri var
+x=1; // sayilar.
+x = 0.01; // float
+x = "hello world"; // string
+x = 'JavaScript'; // bu da string
+x = true; // boolean
+x = false; // boolean
+x = null; // bu ozel bir veridir, degeri yok demektir
+x = undefined; // bu da null gibi ozel bir veri tipidir
+</code></pre>
+</p>
+
+
+<p>
+JavaScript'te en yaygın kullanılan nesneler <strong>object</strong> veri tipleridir, bunlar Python'daki <strong>dictionary</strong> veri tiplerine benzer. Yani bunlar aslında isimler ve karşılık gelen değerlerden oluşan bir çoklu veri deposudur.
+
+<pre class="my-4"><code class="language-js line-numbers">
+//object: en onemli veri tipi
+let book = { // bu nesneler tanimlanirken suslu parantez kullanilir
+    topic: "JavaScript", // "topic" ozelliginin degeri "JavaScript"
+    edition: 7 // "edition" ozelliginin degeri7
+}; // object nesnesini tanimlamayi bitirdik
+
+// . veya [] ile ozellik degerlerine ulasilabilir
+book.topic // => "JavaScript"
+book["edition"] // => 7
+book.author = "Flanagan"; // yeni ozellik ve deger olusturulabilir
+book.contents = {}; // {} ile bos bir object nesnesi yaratilir
+// ?. ile sartli ozellik ulasimi
+book.contents?.ch01?.sect1 // => undefined: cunku boyle bir ozellik yok
+</code></pre>
+</p>
+
+
+<p>
+JavaScript programlarında sık kullanılan başka bir çoklu veri tipi de <strong>array</strong> veri tipleridir, bunlar indislenmiş nümerik verilerden oluşur, Python'daki <strong>list</strong> veri tipine benzer özellikleri vardır.
+
+<pre class="my-4"><code class="language-js line-numbers">
+let primes = [2, 3, 5, 7]; // 4 elemanli bir array verisi
+primes[0] // => 2: ilk eleman, indeksi 0
+primes.length // => 4: eleman sayisi
+primes[primes.length-1] // => 7: son eleman
+primes[4] = 9; // yeni eleman ve deger ekleme
+primes[4] = 11; // var olan bir elemani degistirme
+let empty = []; // [] bos array olusturma
+empty.length // => 0
+
+//array nesneleri object veya diger veri tiplerini tasiyabilir
+let points = [
+    {x: 0, y: 0},
+    {x:1,y:1}
+];
+
+let data = {
+    trial1: [[1,2], [3,4]], // her ozelliginin degeri bir array olan bir object
+    trial2: [[2,3], [4,5]] // arraylarin degerleri de array
+};
+</code></pre>
+</p>
+
+
+<p>
+Tüm dillerde olduğu gibi JavaScript ile de <strong>operatörler</strong> yardımıyla veriler üzerinde işlemler yaparız.
+
+<pre class="my-4"><code class="language-js line-numbers">
+// Aritmetik operatorler
+3+2 // => 5
+3-2 // => 1
+3*2 // => 6
+3/2 // => 1.5
+points[1].x - points[0].x // => 1
+"3" + "2" // => "32": string toplama
+ 
+// bazi kisa yollar
+let count = 0; // tanimlama
+count++; // arttirma
+count--; // azaltma
+count += 2; // iki arttirma
+count *= 3; // 3 ile carpma
+count // => 6:
+</code></pre>
+
+<pre class="my-4"><code class="language-js line-numbers">
+// kiyaslama
+let x =2,y=3; // These = signs are assignment, not equality tests
+x === y // => false
+x !== y // => true
+x<y // => true
+x<=y // => true
+x>y // => false
+x>=y // => false
+"two" === "three" // => false
+"two" > "three" // => true: alfabetik siralama
+false === (x > y) // => true
+
+// lojik operatorler
+(x === 2) && (y === 3) // => true
+(x > 3) || (y < 3) // => false
+!(x === y) // => true
+</code></pre>
+</p>
+
+
+<p>
+JavaScript ile <strong>fonksiyon</strong> tanımlama aşağıdaki işlemlerde görüldüğü gibi yapılır.
+
+<pre class="my-4"><code class="language-js line-numbers">
+function plus1(x) { // degiskeni x olan bir fonksiyon
+    return x + 1; // degisken degerini bir artirip donduruyor
+} // susulu parantezle kapanir
+
+plus1(y) // => 4
+
+let square = function(x) { // fonksiyonlar degiskene atanabilir
+    return x * x; // hesaplama adimi
+}; // noktali virgul ile biter
+
+square(plus1(y)) // => 16
+
+// bazi kisa yollar
+const plus1 = x => x + 1; 
+const square = x => x * x;
+
+plus1(y) // => 4
+square(plus1(y)) // => 16
+</code></pre>
+</p>
+
+
+<p>
+Object nesnelerinin özellikleri üzerinde tanımlanmış fonksiyonlara <strong>metod</strong> denir.
+
+<pre class="my-4"><code class="language-js line-numbers">
+let a = []; // bos array olusturduk
+a.push(1,2,3); // push() metotu arraya eleman ekler
+a.reverse(); // bu metod sirayi ters cevirir
+
+//kendi metotlarimizi olusturabiliriz
+points.dist = function() { // iki nokta arasi mesafe hesaplayan bir metod
+    let p1 = this[0];
+    let p2 = this[1];
+    let a = p2.x-p1.x;
+    let b = p2.y-p1.y;
+    return Math.sqrt(a*a + b*b);
+};
+
+points.dist() // => Math.sqrt(2)
+</code></pre>
+</p>
+
+
+<p>
+JavaScript'in <strong>kontrol yapıları</strong> aşağıdaki örnekte özetlenmiştir.
+
+<pre class="my-4"><code class="language-js line-numbers">
+function abs(x) { // mutlak deger hesaplayan bir fonksiyon
+    if(x>=0){ // if yapisi
+        return x; // mukayese true ise calisacak kod
+    } else { // 
+        return -x; // mukayese false ise
+    } //if yapisi sonu
+} // fonksiyon sonu
+
+function sum(array) {
+    letsum=0;
+        for(let x of array) { // for dongusu
+            sum += x; 
+        } // dongu bitis
+    return sum;
+}
+
+function factorial(n) {
+    let product = 1;
+    while(n > 1) { // while dongusu
+        product *= n;
+        n--;
+    } // dongu bitis
+    return product;
+}
+
+function factorial2(n) {
+    let i, product = 1;
+    for(i=2; i <= n; i++) // 2'den n'e kadar otomatik sayac arttirimi
+        product *= i;
+    }
+    return product;
+}
+</code></pre>
+</p>
+
+
+
+
+<p>
+JavaScript bir <strong>nesne yönelimli</strong> programlama dilidir (OOP), aşağıdaki örneklerde sınıf yapısını gözlemleyebilirsiniz.
+
+<pre class="my-4"><code class="language-js line-numbers">
+class Point { // sinif isimlerini buyuk harfle baslatmak adettir
+    constructor(x, y) { // constructor ile instance olusturulur
+        this.x = x; // this kelimesi ile yeni object olusturulur
+        this.y = y; 
+    }
+
+    distance() { // metod tanimliyoruz
+        return Math.sqrt( // kare hesaplama
+            this.x * this.x + // Point nesnesinin x degeri
+            this.y * this.y // y degeri
+        );
+    } 
+}
+
+// instance alma
+let p = new Point(1, 1); // (1,1) noktasi
+
+// simdi metodumuzu kullanalim
+p.distance() // => Math.SQRT2
+</code></pre>
+</p>
+
+
+
+
+
+
+<small>
+<p class="pt-5">
+Kaynak:<br>
+<strong>D. Flanagan</strong>. <em>JavaScript The Definitive Guide, 7th Ed.</em>, O'Reilly, 2020.
+</p>
+</small>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Blog Yazısı:<br>
+        <a href="../pythonda-opencv-ile-yuz-tanima/index.html">Python'da OpenCV ile Yüz Tanıma</a>
+        
+      </div>
+      <div class="col text-center mt-auto">
+        <a href="../index.html">Blog Ana Sayfası</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Blog Yazısı:<br>
+        <a href="../raspberry-pi-ile-fiziksel-hesaplama/index.html">Raspberry Pi ile Fiziksel Hesaplama</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+
+
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../ders-notu/index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/blog/bodoslama-javascript/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:35:53 GMT -->
+</html>

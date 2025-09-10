@@ -1,0 +1,480 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/python-ve-bilimsel-hesaplama/13-matematiksel-fonksiyonlar/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 1.3. Matematiksel Fonksiyonlar
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>1.3. Matematiksel Fonksiyonlar</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-21">
+          21 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Daha karmaşık matematiksel hesaplamalar için <strong>math</strong> gibi <strong>modülleri</strong> kullanmaya ihtiyacımız olur. Üstel, trigonometrik, logaritmik ve benzeri fonksiyonlar bu gibi modüller içindedir.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/cmath/index.html">cmath</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/decimal/index.html">decimal</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/import/index.html">import</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/kompleks-fonksiyonlar/index.html">kompleks fonksiyonlar</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/kompleks-sayilar/index.html">kompleks sayılar</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/math/index.html">math</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/modul/index.html">modül</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/scipy/index.html">scipy</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/yuvarlama-hatasi/index.html">yuvarlama hatası</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Şimdi biraz daha karmaşık hesaplamalar yapalım. Varsayalım ki bir top belirli bir ilk hızla yerden fırlatılıyor ve topun verilen bir $y=y_1$ konumuna ne kadar zamanda ulaşacağını hesaplamamız isteniyor. Bu problemi çözmek için $$y_1=v_0t-\frac{1}{2}gt^2$$ formülünde $t$ değişkenini çözmemiz gerekiyor. Bunun için denklemi $$\frac{1}{2}gt^2-v_0t+y_1=0$$ biçiminde yazalım, bu denklem $t$'nin ikinci dereceden cebirsel bir denklemidir ve çözümü $$t_1=\frac{v_0-\sqrt{v_0^2-2gy_1}}{g}\quad\text{ve}\quad t_2=\frac{v_0+\sqrt{v_0^2-2gy_1}}{g}$$ biçimindedir. Bu iki çözümden birisi topun yükselirken diğeri de geri düşerken $y_1$ konumuna ulaştığı zamanı belirtir. Bu hesaplamayı Python'da yapmak için $\sqrt{x}$ işlemine ihtiyacımız olacak.
+</p>
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Math Modülü</h3>
+
+
+
+
+<p>
+Python'da özel amaçlı fonksiyonlar, adına <strong>modül</strong> denilen dosyalarda saklanır ve bu fonksiyonları kullanmak için ilgili modülü kullanacağımızı programımızın içinde belirtmemiz gerekir. Python'da $\sqrt{x}$, $\sin(x)$, $\cos(x)$, $\log(x)$ gibi matematiksel hesaplamalar <code class="language-python">math</code> modülü içinde tanımlıdır. $\sqrt{x}$ işlemi örneğin <code class="language-python">math</code> modülü içinde tanımlı olan <code class="language-python">sqrt()</code> fonksiyonu yardımıyla yapılır. Bir modül içindeki bir fonksiyonu kullanmadan önce programımızda <code class="language-python">from modul import fonksiyon</code> komutunu girmemiz gerekiyor, bu işleme modülden ilgili fonksiyonu ithal etme (<strong>import</strong> etme) denir. Dolayısıyla yukarıdaki hesaplamayı aşağıdaki program ile yapabiliriz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+from math import sqrt
+
+v0 = 5
+g = 9.81
+y1 = 0.2
+
+t1 = (v0 - sqrt(v0**2 - 2*g*y1))/g
+t2 = (v0 + sqrt(v0**2 - 2*g*y1))/g
+
+print t1, t2
+</code></pre>
+
+<p>
+Bu programın çıktısı şu şekilde olacaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python hesap12.py
+0.0417063724983 0.977661619347
+</code></pre>
+
+<p>
+Burada <code class="language-python">print</code> ifadesinden sonra iki veriyi virgülle ayırarak yazdık, bu şekilde virgülle ayrılarak sıralanmış nesneler aynı satırda yazdırılır. Ayrıca programın okunaklı olması açısından genellikle import ifadeleri programın ilk satırlarında yazılır ve gerektiğinde boş satırlar bırakılır. Programımızda aynı modülden birden fazla fonksiyon kullanılacaksa bunları virgülle ayırarak <code class="language-python">from math import sqrt, sin, log, exp</code> biçiminde belirtebiliriz. Modüldeki tüm fonksiyonlara ihtiyacımız olacaksa <code class="language-python">from math import *</code> komutu ile modüldeki tüm fonksiyonları programımızda kullanılabilir hale getirmiş oluruz. Bunun yerine sadece <code class="language-python">import math</code> komutunu girersek de modülün tüm fonksiyonlarına erişim sağlamış oluruz, fakat bu durumda o fonksiyonları kullanırken modülün ismini ön ek olarak <code class="language-python">math.sqrt()</code> biçiminde belirtmemiz gerekir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import math
+
+v0 = 5
+g = 9.81
+y1 = 0.2
+
+t1 = (v0 - math.sqrt(v0**2 - 2*g*y1))/g
+t2 = (v0 + math.sqrt(v0**2 - 2*g*y1))/g
+
+print t1, t2
+</code></pre>
+
+<p>
+Burada kullandığımız ön eki istersek değiştirebiliriz. <code class="language-python">import math as m</code> komutuyla fonksiyonları <code class="language-python">m.sqrt()</code> gibi kullanabiliriz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import math as m
+
+v0 = 5
+g = 9.81
+y1 = 0.2
+
+t1 = (v0 - m.sqrt(v0**2 - 2*g*y1))/g
+t2 = (v0 + m.sqrt(v0**2 - 2*g*y1))/g
+
+print t1, t2
+</code></pre>
+
+<p>
+<code class="language-python">math</code> modülü içinde yukarıda bahsettiğimiz gibi matematiksel fonksiyonların yanında $\pi$ ve $\text{e}$ gibi bazı matematiksel sabitler de vardır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+from math import sin, cos, log, pi
+x = 3*pi/2
+s = sin(x-1)*cos(x+1) + log(2*x)
+print s
+</code></pre>
+
+<p>
+Yukarıdaki program aşağıdaki çıktıyı üretecektir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python hesap15.py
+1.7886934611
+</code></pre>
+
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Kompleks Sayılar</h3>
+
+
+
+
+
+
+
+
+<p>
+İkinci dereceden cebirsel denklemlerin kompleks kökleri var olabilir, bu durumla hesaplamalarda sıklıkla karşılaşırız ve dolayısıyla programlarımızda kompleks sayılarla işlem yapmaya ihtiyacımız olabilir. Şimdi biraz da Python'da kompleks sayı işlemlerine değinelim. Bir kompleks sayı, $a$ ve $b$ reel sayılar olmak üzere $a + i\cdot b$ biçiminde ifade edilir. Buradaki $i$ sayısına <strong>sanal birim</strong> denir ve $i^2=-1$ yani $i=\sqrt{-1}$ eşitliği ile tanımlanır. Bu sayılar yardımıyla diskrıminantı negatif olan $x^2+2=0$ gibi denklemlerin çözümleri $x_{1,2}=\pm\sqrt{2}i$ biçiminde ifade edilebilir. Python'da sanal birim <code class="language-python">j</code> sembolü ile gösterilir, örneğin $1+2i$ kompleks sayısı <code class="language-python">1 + 2j</code> biçiminde kodlanır. <code class="language-python">2j</code> kısmını kodlarken arada <code class="language-python">*</code> çarpma işareti kullanmadığımıza dikkat edin, ayrıca Python'da pür sanal $i$ sayısını da <code class="language-python">1j</code> olarak kodlarız. <code class="language-python">j</code> sembolünün önünde mutlaka bir sayı gelmeli ve arada çarpma işareti bulunmamalıdır. Bu şekilde tanımlanmış değişkenler Python'da bir <code class="language-python">complex</code> nesnesi olarak adlandırılır, Pythonda herhangi bir <code class="language-python">x</code> nesnesinin hangi türden olduğunu anlamak için <code class="language-python">type(x)</code> komutunu kullanırız. Bunları bir Python oturumunda gözlemleyelim.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> x = 3-2j
+>>> type(x)
+<type 'complex'>
+>>> y = 2-1j
+>>> type(y)
+type 'complex'>
+</code></pre>
+
+<p>
+Kompleks sayı nesneleriyle işlem yaparken Python bunların kompleks sayı olduğunu algılar ve otomatik olarak kompleks sayı aritmetiğini kullanır. Şimdi yukarıda tanımladığımız sayılarla bazı işlemler yapalım.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> x + y
+(5-3j)
+>>> 2*y
+(4-2j)
+>>> y + 2j
+(2+1j)
+</code></pre>
+
+<p>
+Python'da kompleks sayıların girdiği işlemlerin sonucu her zaman bir <code class="language-python">complex</code> nesnesi olarak döndürülür. Ancak bir $x$ kompleks sayısının reel ve imajiner kısımları sırasıyla <code class="language-python">x.real</code> ve <code class="language-python">x.imag</code> komutlarıyla (Bir nesne üzerinde böyle çalıştırılan komutlara birer <strong>metod</strong> denir.) birer reel sayı (float) olarak elde edilebilir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> x.real
+3.0
+>>> x.imag
+-2.0
+</code></pre>
+
+<p>
+Bunların dışında sonucun her zaman bir <code class="language-python">complex</code> nesnesi olması bazı zorluklar yaratır. Örneğin bir kompleks sayı hesabının sonucunda imajiner kısım sıfır çıksa bile o sayı <code class="language-python">float</code> nesnesi yerine hala bir <code class="language-python">complex</code> nesnesi olarak döner.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> z = x - 2*y
+>>> z
+(-1+0j)
+>>> type(z)
+type 'complex'>
+</code></pre>
+
+<p>
+Hatta manuel olarak bile bu sayıyı bir <code class="language-python">float</code> nesnesine dönüştüremeyiz. Bunu denersek Python yazılımı bize <code class="language-python">complex</code> nesnelerinin <code class="language-python">float</code> nesnelerine dönüştürülemeyeceğini anlatan bir hata mesajı gösterir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> a = float(z)
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+TypeError: can't convert complex to float
+</code></pre>
+
+<p>
+Böyle bir sayıyı aşağıdaki gibi bir <code class="language-python">float</code> veya <code class="language-python">int</code> nesnesine dönüştürmek mümkündür.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> a = z.real
+>>> a
+-1.0
+>>> type(a)
+type 'float'>
+</code></pre>
+
+
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Kompleks Fonksiyonlar</h3>
+
+
+
+
+
+
+<p>
+Python'da kompleks sayıları daha önce <code class="language-python">math</code> modülünde gördüğümüz matematiksel fonksiyonlar içinde kullanamayız, o fonksiyonlar <code class="language-python">float</code> nesneleriyle çalışacak şekilde tanımlanmışlardır. Mesela yukarıda tanımladığımız <code class="language-python">x</code> kompleks sayısının sinüs değerini hesaplatmaya çalışırsak aşağıdaki gibi bir hata mesajı ile karşılaşırız.
+</p>
+
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>>import math
+>>> math.sin(x)
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+TypeError: can't convert complex to float
+</code></pre>
+
+<p>
+Kompleks değişkenler içeren matematiksel fonksiyonlar Python'un <code class="language-python">cmath</code> (complex math) modülü içinde tanımlanmıştır ve kompleks matematiksel işlemler için bu modülü kullanmalıyız.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> import cmath
+>>> cmath.sin(x)
+(0.5309210862485197+3.5905645899857794j)
+</code></pre>
+
+<p>
+Fakat <code class="language-python">cmath</code> modülündeki fonksiyonlarla işlem yaparken de sonuçta imajiner kısım sıfır çıkınca bu bir <code class="language-python">complex</code> nesnesi olarak döner. Bir hesaplama sonucunda imajiner kısım varsa bunun bir <code class="language-python">complex</code>, yoksa da bunun bir <code class="language-python">float</code> nesnesi olarak dönmesini arzularız. Bunun için <code class="language-python">cmath</code> yerine <code class="language-python">scipy</code> (<code class="language-python">SciPy</code>, Scientific Python) paketini kullanmalıyız. Burada da tüm matematiksel fonksiyonlar vardır ve hepsi sonuçta imajiner kısım varsa <code class="language-python">complex</code>, yoksa <code class="language-python">float</code> nesnesi döndürecek şekilde tanımlanmıştır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> from scipy import sin, pi
+>>> x = 3 - 2j
+>>> sin(x)
+(0.53092108624851975+3.5905645899857799j)
+>>> sin(pi)
+1.2246467991473532e-16
+</code></pre>
+
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Yuvarlama Hataları</h3>
+
+
+
+
+<p>
+Bölümü bitirmeden önce biraz da yuvarlama hatalarından bahsetmek gerekiyor, aşağıdaki gözlemi yapalım.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> a = 1.0/49
+>>> b = 49
+>>> a*b
+0.9999999999999999
+</code></pre>
+
+<p>
+Buradaki hata programlama hatası değildir, bilgisayarların çalışma prensipleri ile ilgili temel bir durumdur bu ve tüm programlama dillerinde böyle durumlarla karşılaşılır. Bir reel sayı aslında çok sayıda basamaktan oluşur (rasyonel değilse sonsuz) ve bilgisayar hafızaları sınırlı olduğundan sadece baştan bir kaç basamağı kullanılarak hafızada tutulurlar. Genellikle bilgisayarlarda 17 basamak kullanılır, dolayısıyla reel sayılarla (<code class="language-python">float</code> tipi veri) hesaplama yaparken aslında bir miktar hata payı ile çalışıyor oluyoruz, bu tür hatalara <strong>yuvarlama hatası</strong> denir. <code class="language-python">print</code> ifadesi ile bir float verisini yazdırırken kaç basamak gösterilmesi gerektiğini belirtmezsek, python az sayıda basamak kullanarak yazdırır ve yuvarlama hatalarını çoğu zaman farketmeyiz. Pythonda reel sayıları istenilen hata payı ile hesaplayabilen ve dolayısıyla sonuçta arzu edilen hata sınırları içinde kalmamızı sağlayan <code class="language-python">decimal</code> modulü, ve <code class="language-python">SciPy</code> paketi içinde bulunan <code class="language-python">mpmath</code> modülü vardır. Fakat bunlara genelde fazla ihtiyaç duymayız çünkü nümerik yöntemlerin geliştirilmesinde yapılan hatalar yuvarlama hatalarından genellikle çok daha büyüktür.
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../12-degiskenler-ve-basit-hesaplamalar/index.html">1.2. Değişkenler ve Basit Hesaplamalar</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Python ve Bilimsel Hesaplama</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../21-while-donguleri/index.html">2.1. While Döngüleri</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/python-ve-bilimsel-hesaplama/13-matematiksel-fonksiyonlar/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:46 GMT -->
+</html>

@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ornek/aritmetigin-temel-teoreminin-saglanmadigi-bir-tamlik-bolgesi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:44:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - Aritmetiğin Temel Teoreminin Sağlanmadığı Bir Tamlık Bölgesi
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../static/site/prism.css">
+    <script src="../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>Aritmetiğin Temel Teoreminin Sağlanmadığı Bir Tamlık Bölgesi</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-06-23">
+          23 Haziran 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-07-10">
+          10 Temmuz 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Aritmetiğin temel teoremi aslında göründüğü kadar aşikar bir sonuç değildir, bazı tamlık bölgelerinde bazı sayıların birden fazla farklı açılımı vardır. Bu yazıda bu duruma bazı örnekler vereceğiz.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../dizin/aritmetigin-temel-teoremi/index.html">aritmetiğin temel teoremi</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/tamlik-bolgesi/index.html">tamlık bölgesi</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/tek-carpanlama-bolgesi/index.html">tek çarpanlama bölgesi</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row py-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+<strong>Aritmetiğin temel teoremi</strong> şunu söyler: her tam sayı, çarpanların sıralamasına bakılmaksızın asalların çarpımı biçiminde <strong>tek türlü</strong> olarak yazılabilir. Örneğin $12=3\times 2^2$ gibi, çarpanların sırasını değiştirerek $2^2\times 3$ açılımını da elde edebilirsiniz fakat kullandığınız asallar ve bunların kuvvetleri hiç değişmez. Bu teorem ilk bakışta ilginizi çekmemiş olabilir çünkü aşikar bir sonuç gibi görünüyor, en azından temel teorem olarak adlandırılacak kadar ilginç görünmüyor. Aslında teoremin söylediği şey o kadar basit değil, tam sayıların dışına çıktığınızda bu özelliği sağlamayan <strong>tamlık bölgeleri</strong> (sadeleşme yapılabilen halkalar) var.
+</p>
+
+<p>
+$a,b\in\mathbb{Z}$ olmak üzere $a+b\sqrt{5}$ biçimindeki tüm reel sayıların kümesini düşünelim, bu küme tam sayılar halkasının bir genişlemesidir ve bir tamlık bölgesidir (standart toplama ve çarpma işlemlerine göre). Bu tamlık bölgesinde $1\lt |a^2-5b^2|\lt 16$ ise $a+b\sqrt{5}$ sayılarının <strong>asal</strong> olduğu gösterilebilir (buradaki asallık bu tamlık bölgesi kapsamında), özel olarak $2$, $1+\sqrt{5}$ ve $-1+\sqrt{5}$ sayıları bu tamlık bölgesinde birer asal sayıdır. Bu durumda mesela $4$ sayısının $$4=2\times 2=(1+\sqrt{5})\times (-1+\sqrt{5})$$ biçiminde <strong>iki farklı</strong> açılımı vardır.
+</p>
+
+<p>
+Benzer şekilde tam sayılar halkasını $a,b\in\mathbb{Z}$ olmak üzere $a+ib\sqrt{5}$ sayıları ile genişletirseniz yine bir tamlık bölgesi elde edersiniz ve bu tamlık bölgesi de aritmetiğin temel teoremini sağlamaz: $$6=2\times 3=(1+\sqrt{-5})\times (1-\sqrt{-5}).$$
+</p>
+
+<p>
+Diğer yandan $a,b\in\mathbb{Z}$ olmak üzere $$a+b\frac{-1+i\sqrt{3}}{2}$$ biçimindeki sayıların kümesi de bir tamlık bölgesidir ve bu tamlık bölgesinde aritmetiğin temel teoremi sağlanır.
+</p>
+
+<p>
+Artimetiğin temel teoreminin sağlandığı tamlık bölgelerine <strong>tek çarpanlama bölgesi</strong> (unique factorization domain, UFD) denir. Yukarıda sıraladığım örneklerde gördüğünüz gibi hangi tamlık bölgelerinin tek çarpanlama bölgesi olduğu çok açık değil, aritmetiğin temel teoremi klasik tam sayılar halkasının bir tek çarpanlama bölgesi olduğunu söylüyor.
+</p>
+
+<p>
+Bir tamlık bölgesinde aritmetiğin temel teoreminin sağlanmaması ilginç sonuçlar doğurur, mesela bir kesrin birden fazla sayıda farklı en sade şekli var olabilir. Örneğin ilk ele aldığımız tamlık bölgesinde $$\frac{2(1+\sqrt{5})}{4}$$ kesri $$\frac{2(1+\sqrt{5})}{4}=\frac{1+\sqrt{5}}{2}=\frac{2}{-1+\sqrt{5}}$$ olarak iki farklı en sade şekle sahiptir, burada paylar ve paydalar asaldır. Başka bir gariplik de şudur: bu örnekte ele aldığımız $4$ ve $2(1+\sqrt{5})$ sayılarının en büyük ortak bölenleri <strong>yoktur</strong>.
+</p>
+
+
+
+<small>
+<p class="pt-5">
+Kaynaklar:<br>
+<strong>B. R. Gelbaum, J. M. H. Olmsted</strong>. <em>Counterexamples in Analysis</em>, Dover Publications, Inc., New York, 1992.
+<br>
+<strong>J. D. Cook</strong>. <em>Fundamental Theorem of Arithmetic</em>, https://www.johndcook.com/blog/2020/05/28/fundamental-theorem-of-arithmetic/, E:22.06.2020.
+</p>
+</small>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left my-auto">
+        
+        Önceki Örnek:<br>
+        <a href="../yakinsak-oldugu-halde-terimlerinin-sirasi-degistirildiginde-iraksak-olan-seri/index.html">Yakınsak Olduğu Halde Terimlerinin Sırası Değiştirildiğinde Iraksak Olan Seri</a>
+        
+      </div>
+      <div class="col text-center my-auto">
+        <a href="../index.html">Örnekler Ana Sayfası</a>
+      </div>
+      <div class="col text-right my-auto">
+        
+        Sonraki Örnek:<br>
+        <a href="../siralanamayan-sonsuz-bir-cisim/index.html">Sıralanamayan Sonsuz Bir Cisim</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../ders-notu/index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ornek/aritmetigin-temel-teoreminin-saglanmadigi-bir-tamlik-bolgesi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:44:33 GMT -->
+</html>

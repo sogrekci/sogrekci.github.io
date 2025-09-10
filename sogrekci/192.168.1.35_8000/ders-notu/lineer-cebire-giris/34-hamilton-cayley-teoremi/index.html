@@ -1,0 +1,391 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/34-hamilton-cayley-teoremi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:05 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 3.4. Hamilton-Cayley Teoremi
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>3.4. Hamilton-Cayley Teoremi</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-06-02">
+          2 Haziran 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste polinomsal matrislere ilişkin çok önemli bir sonuç olan <strong>Hamilton-Cayley teoremini</strong> kanıtlayacağız. Ayrıca <strong>minimal polinom</strong> ve özellikleri konusuna da değineceğiz.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/cayley-hamilton-teoremi/index.html">Cayley-Hamilton teoremi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/es-matris/index.html">eş matris</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/karakteristik-denklem/index.html">karakteristik denklem</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/karakteristik-matris/index.html">karakteristik matris</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/karakteristik-polinom/index.html">karakteristik polinom</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/minimal-polinom/index.html">minimal polinom</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/minimum-denklem/index.html">minimum denklem</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/polinomsal-matris/index.html">polinomsal matris</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Bir $p(t)=a_mt^m+\cdots+a_1t+a_0$ polinomunu ele alalım, $n\times n$ boyutlu bir $A$ matrisi için $p(A)$ ile $a_mA^m+a_{m-1}A_{m-1}+\cdots+a_1A+a_0I$ polinomunu gösteririz. Eğer tüm sabit terimler birim matrisin ilgili sabit katı ile değiştirilirse (yukarıdaki $p(A)$ polinomunda $a_0$ sabit terimine yapıldığı gibi) her polinomsal özdeşlik matris değişkenlerle de sağlanır. Ayrıca benzer şekilde matris katsayılı polinomlar da ele alınabilir, bu durumda $t$ değişkenini skaler olarak alacağız. Bu tip polinomlar alışılmış şekilde toplanıp çarpılabilir fakat çarpmada sıra dikkate alınmalıdır. Bundan dolayı bu polinomlar üzerinde işlemler klasik polinomlara göre daha karmaşıktır. Bu tür polinomlar hakkında şunun bilinmesi yeterlidir, matris katsayılı iki polinomun eşit olması için gerek ve yeter koşul bunların katsayılarının aynı olmasıdır. Hem katsayıları hem de değişkeni matris olan polinomlar çok daha karmaşık cebirsel özelliklere sahiptir fakat bu derste bunları kullanmayacağımız.
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:16"><h6 class="thenv">Uyarı 3.4.1</h6>
+Matris katsayılı ve skaler bilinmeyenli her polinom, elemanları polinomlar olan bir matris olarak yazılabilir. Örnek olarak
+	$$
+	\left[\begin{array}{rr}1&0\\-1&2\end{array}\right]t^2+\left[\begin{array}{rr}0&2\\-2&0\end{array}\right]t+\left[\begin{array}{rr}2&-1\\1&1\end{array}\right]=\left[\begin{array}{cc}t^2+2&2t-1\\-t^2-2t+1&2t^2+1\end{array}\right]
+	$$
+işlemlerini inceleyin. Benzer şekilde elemanları polinomlar olan bir matris de skaler bilinmeyenli ve matris katsayılı bir polinom olarak yazılabilir. Bu iki tür birbirine dönüştürülebildiği için bunların ikisini de <strong>polinomsal matrisler</strong> olarak adlandıracağız.
+</div>
+</p>
+
+<p>
+<div class="envdef" id="def:karaktmatris"><h6 class="thenv">Tanım 3.4.2</h6>
+Herhangi bir $A$ kare matrisi için $C:=A-tI$ matrisine $A$'nın <strong>karakteristik matisi</strong> denir ve bu matris
+	$$
+	C=\left[\begin{array}{cccc}
+	a_{11}-t&a_{12}&\cdots&a_{1n}\\a_{21}&a_{22}-t&\cdots&a_{2n}\\\vdots&\vdots&\ddots&\vdots\\a_{n1}&a_{n2}&\cdots&a_{nn}-t
+	\end{array}\right]
+	$$
+biçimindedir. Bu matrisin determinantı olan $n-$inci dereceden $\det C:=f(t)=k_nt^n+k_{n-1}t^{n-1}+\cdots+k_1t+k_0$ polinomuna $A$'nın <strong>karakteristik polinomu</strong>, $f(t)=0$ denklemine de $A$'nın <strong>karakteristik denklemi</strong> denir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:15"><h6 class="thenv">Uyarı 3.4.3</h6>
+<ol type="i">
+<li class="py-2">Bir determinantın açılımında her biri $n$ tane elemanın çarpımı olan $n$ tane terim toplanır. Dolayısıyla karakteristik denklemde $t^n$ terimi determinant açılımındaki esas köşegen elemanlarınının çarpımı olan terimden gelir, dolayısıyla bu terimin katsayısı $k_n=(-1)^n$ olur.</li>
+<li class="py-2">Benzer şekilde $t^{n-1}$ terimi katsayısı olan $k_{n-1}$ sayısını düşünelim. Bu terimin oluşması için esas köşegen üzerinden en az $n-1$ tane çarpım alınması gerekir. Eğer $n-1$ terim alınırsa diğer terim de esas köşegen üzerinden olmalıdır, çünkü diğer tüm satır ve sütunlardan zaten birer çarpan vardır. Dolayısıyla $t^{n-1}$'in katsayısı $(a_{11}-t)(a_{22}-t)\cdots(a_{nn}-t)$ çarpımındaki $t^{n-1}$'in katsayısıdır, bu da $(-1)^{n-1}\left(a_{11}+a_{22}+\cdots+a_{nn}\right)$ sayısıdır (Vieta formülleri). Sonuç olarak $k_{n-1}=(-1)^{n-1}\sum_{i=1}^{n}a_{ii}$ olur.</li>
+<li class="py-2">$f(t)=k_nt^n+k_{n-1}t^{n-1}+\cdots+k_1t+k_0$ polinomunun sabit terimini bulmak için $t=0$ yazarız; $f(0)=k_0$.  <a class="eqref" href="#def:karaktmatris">Tanım 3.4.2</a> ile verilen $C$ determinantında $t=0$ yazılırsa $A$ matrisi elde edileceğinden $k_0=f(0)=\det A$ elde edilir.</li>
+</ol>
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:det:13"><h6 class="thenv">Teorem 3.4.4 (Ceyley-Hamilton teoremi)</h6>
+Bir $A$ kare matrisinin karakteristik polinomu $f(t)$ olsun, bu durumda $f(A)=0$ olur.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$A$ matrisi $n-$boyutlu bir kare matris ise karakteristik matrisi $C$ de $n-$boyutlu olur. Bundan dolayı ${\rm Adj}\,C$ matrisinde bulunan polinomların derecesi en fazla $n-1$ olmalıdır. Yani <a class="eqref" href="#rmk:det:16">Uyarı 3.4.1</a> ile örneklendiği gibi bu matris $n-1$'inci dereceden ve matris katsayılı bir polinoma
+
+\begin{equation}
+\label{eq:det:7}
+\tag{3.4.1}
+{\rm Adj}\,C=C_{n-1}t^{n-1}+C_{n-2}t^{n-2}+\cdots+C_1t+C_0
+\end{equation}
+
+biçiminde açılabilir, burada $C_i$ matrislerinin tüm elemanları skalerdir. $A$'nın karakteristik denklemi $f(t)=k_nt^n+\cdots+k_1t+k_0$ ile gösterilirse <a class="eqref" href="../33-kofaktorler/index.html#theo:det:12">Teorem 3.3.8</a> gereği $${\rm Adj}\,C\cdot C=\det C\cdot I=f(t)\cdot I$$ eşitliği sağlanır. Diğer yandan $${\rm Adj}\,C\cdot C={\rm Adj}\,C\cdot \left(A-tI\right)=\left( {\rm Adj}\,C \right)A-\left({\rm Adj}\,C\right)t$$ eşitliği de sağlanacağından bu son iki eşitlikle birlikte \eqref{eq:det:7} eşitliği kullanılırsa
+
+\begin{eqnarray}
+k_nIt^n+k_{n-1}It^{n-1}+\cdots+k_1It+k_0&=&-C_{n-1}t^n-C_{n-1}t^{n-1}-\cdots-C_1t^2-C_0t\notag\\ 
+&&\qquad + C_{n-1}At^{n-1}+\cdots+C_1At+C_0A\tag{3.4.2}\label{eq:det:8}
+\end{eqnarray}
+
+eşitliği elde edilir. Bu eşitliğin her iki tarafı da $n\times n$ boyutlu polinomsal matrisler olduğundan karşılıklı katsayıların eşit olması gerekir. Bundan dolayı \eqref{eq:det:8} eşitliği
+	\begin{eqnarray*}
+		k_nI &=& -C_{n-1}\\
+		k_{n-1}I&=& -C_{n-1}+C_{n-1}A\\
+		k_{n-2}&=& -C_{n-3}+C_{n-2}A\\
+		&\vdots&\\
+		k_{1}I&=&-C_0+C_1A\\
+		k_{0}I&=&\qquad\quad C_0A
+	\end{eqnarray*}
+	eşitliklerine denktir. Bu eşitlikler sırasıyla $A^n, A^{n-1},\ldots, A, I$ matrisleriyle sağdan çarpılıp taraf tarafa toplanırsa $$k_nA^n+k_{n-1}A^{n-1}+\cdots+k_1A+k_0I=0$$ eşitliği elde edilir.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envdef" id="def:minpolinom"><h6 class="thenv">Tanım 3.4.5</h6>
+Bir $A$ matrisinin sağladığı en düşük dereceli $m(t)=0$ denklemine $A$ için <strong>minimum denklem</strong> denir, bu durumda $m(t)$ polinomuna da $A$ için <strong>minimal polinom</strong> (veya minimum polinom) denir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:17"><h6 class="thenv">Uyarı 3.4.6</h6>
+<a class="eqref" href="#theo:det:13">Uyarı 3.4.4</a> gereği her $A$ matrisi karakteristik denklemini sağladığından minimal polinomunun derecesi $A$'nın boyutu olan $n$ sayısını geçemez. Diğer yandan lineer dönüşümleri herhangi bir baza göre temsil eden her matris aynı bağıntıları sağladığından bunların sağladığı polinomlar da aynıdır, özel olarak bunların minimal polinomları da aynıdır.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:det:14"><h6 class="thenv">Teorem 3.4.7</h6>
+Katsayıları $F$ cisminden olan ve $g(A)=0$ eşitliğini sağlayan her $g(t)$ polinomu $A$'nın minimal polinomu tarafından bölünür. Ayrıca minimal polinom skaler bir çarpan haricinde tektir.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>Minimal polinom ve herhangi bir $g(t)$ polinomu için bölme işlemi sonucu olarak $g(t)=m(t)q(t)+r(t)$ bağıntısı sağlanır. Burada $q(t)$ bir polinom ve $r(t)$ de kalan polinomdur, bu kalan polinom ya özdeş olarak sıfırdır ya da derecesi $m(t)$'den küçük olan bir polinomdur. Eğer $g(A)=0$ ise $g(A)=0=m(A)q(A)+r(A)=r(A)$ olur, yani kalan polinom özdeş olarak sıfırdır. Birden fazla minimal polinom varsa bunların hepsi aynı dereceden olur ve hepsi birbirin böler, dolayısıyla bunlar birbirinin sabit katı olmalıdır.
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:18"><h6 class="thenv">Uyarı 3.4.8</h6>
+${\rm Adj}\,C$ matrisinin elemanları derecesi en fazla $n-1$ olan polinomlardır (bk. <a class="eqref" href="#theo:det:13">Teorem 3.4.4</a> ispatı). Bu polinomların en büyük ortak böleni $g(t)$ olsun. Bu durumda <a class="eqref" href="../33-kofaktorler/index.html#theo:det:12">Teorem 3.3.8</a> gereği ${\rm Adj}\,C\cdot C=f(t)I$ olduğundan $g(t)$ polinomu $f(t)$ polinomunu böler.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:det:15"><h6 class="thenv">Teorem 3.4.9</h6>
+$g(t)$ polinomu <a class="eqref" href="#rmk:det:18">Uyarı 3.4.8</a> ile tanımlanan polinom olsun. Bu durumda $h(t):=f(t)/g(t)$ polinomu $A$ için minimal polinomdur.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>${\rm Adj}\,C=g(t)B$ olsun, burada $B$ matrisi elemanlarının skaler olmayan ortak çarpanları yoktur.  <a class="eqref" href="../33-kofaktorler/index.html#theo:det:12">Teorem 3.3.8</a> gereği ${\rm Adj},C\cdot C=f(t)I$ olduğundan $h(t)g(t)I=g(t)BC$, buradan da $g(t)\neq0$ olduğundan $BC=h(t)I$ eşitliği elde edilir. Şimdi <a class="eqref" href="#theo:det:13">Hamilton-Cayley teoremi</a> ispatındaki adımları ${\rm Adj}\,C$ yerine $B$ kullanarak uygulanırsa $h(A)=0$ olduğu görülür ve dolayısıyla <a class="eqref" href="#theo:det:14">Teorem 3.4.7</a> gereği $m(t)$ minimal polinomu $h(t)$ polinomunu böler.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+Diğer taraftan, $t$ ve $z$ değişkenlerinin $m(t)-m(z)$ polinomunu ele alalım, bunun terimleri $c_i(t^i-z^i)$ biçimindedir ve bunlar $(z-t)$ ile bölünür. Dolayısıyla $m(t)-m(z)$ polinomu $(z-t)$ ile bölünür ve $m(t)-m(z)=(z-t)k(t,z)$ eşitliği sağlanacak şekilde iki terimli $k(t,z)$ polinpmu vardır. Bu eşitlikte $t$ ve $z$ yerine sırasıyla $tI$ ve $A$ yazılırsa
+
+\begin{equation}
+\label{eq:det:9}
+\tag{3.4.3}
+m(tI)-m(A)=m(t)I=(A-tI)k(tI,A)=C\cdot k(tI,A)
+\end{equation}
+
+olur, bu eşitlik ${\rm Adj}\,C$ ile çarpılırsa $$m(t){\rm Adj}\,C={\rm Adj}\,C\cdot C\cdot k(tI,A)=f(t)k(tI,A)$$ elde edilir. Burada ${\rm Adj}\,C=g(t)B$ ve $h(t)=f(t)/g(t)$ olduğu kullanılırsa $m(t)g(t)B=h(t)g(t)k(tI,A)$, yani $$m(t)B=h(t)k(tI,A)$$ eşitliğine varılır, dolayısıyla $h(t)$ polinomu $m(t)$ polinomunu böler. Sonuç olarak $h(t)$ ve $m(t)$ polinomları birbirinden sabit bir çarpanla ayrılabilir.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="theo:det:16"><h6 class="thenv">Teorem 3.4.10</h6>
+$A$ matrisinin $f(t)$ karakteristik polinomunun her indirgenemez çarpanı, aynı zamanda $m(t)$ minimal polinomunun da bir indirgenemez çarpanıdır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong><a class="eqref" href="#theo:det:15">Teorem 3.4.9</a> ispatında \eqref{eq:det:9} eşitliğinde $m(t)I=C\cdot k(tI,A)$ olduğu gösterildi. Buradan hareketle $\det m(t)I=m(t)^n=\det C\cdot \det k(tI, A)=f(t)\cdot\det k(tI,A)$ elde edilir. Yani $f(t)$ polinomunun her indirgenemez çarpanı $[m(t)]^n$ polinomunu böler, dolayısıyla $m(t)$ polinomunu da böler.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:19"><h6 class="thenv">Uyarı 3.4.11</h6>
+</strong><a class="eqref" href="#theo:det:16">Teorem 3.4.10</a> sonucundan şunu anlıyoruz, katlı çarpanları olmayan karakteristik polinom aynı zamanda minimal polinomdur.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:20"><h6 class="thenv">Uyarı 3.4.12</h6>
+Şimdi tersine bir soruyu ele alalım, herhangi bir $$f(t):=(-1)^nt^n+k_{n-1}t^{n-1}+\cdots+k_1t+k_0$$ polinomu verildiğinde bunu minimal polinom olarak kabul eden bir $n\times n$ boyutlu $A$ matrisi bulunabilir mi?
+</p>
+
+<p>
+$A:=\{\alpha_1,\ldots,\alpha_n \}$ herhangi bir baz olmak üzere $\sigma$ lineer dönüşümü $$\sigma\left(\alpha_i\right)=\alpha_{i+1},\qquad i=1,2,\ldots,n-1$$ ve $$\left(-1\right)^n\sigma\left(\alpha_n\right)=-k_0\alpha_1-k_1\alpha_2-\cdots-k_{n-1}\alpha_n$$ bağıntılarıyla tanımlanmış olsun. Bu durumda $$f\left(\sigma\left(\alpha_1\right)\right)=\left(-1\right)^n\sigma\left(\alpha_n\right)+k_{n-1}\alpha_n+\cdots+k_1\alpha_2+k_0\alpha_1=0$$ olur. Diğer baz elemanları için de $$f\left(\sigma\left(\alpha_j\right)\right)=f\left(\sigma\left(\sigma^{j-1}\left(\alpha_1\right)\right)\right)=\sigma^{j-1}\left(f\left(\sigma\left(\alpha_1\right)\right)\right)=0$$ olacaktır. Böylece tüm baz elemanlarında $f(\sigma)=0$ olduğundan $\sigma$ dönüşümünü temsil eden her $A$ matrisi için $f(A)=0$ olur. Ayrıca $\sigma$ dönüşümü daha küçük dereceli bir polinomu sağlayamaz, çünkü öyle olursa $f\left(\sigma\left(\alpha_1\right)\right)$ ifadesindeki polinom sıfırdan farklı olur ve bu da baz elemanları arasında bir lineer bağıntı olduğu anlamına gelirdi. Yani $f(t)$ polinomu $\sigma$ dönüşmünü temsil eden her matris için minimal polinomdur, derecesi $n$ olduğundan aynı zamanda karakteristik polinomdur. $A$ bazına göre $\sigma$ dönüşümünü temsil eden bu matris
+	$$A:=
+	\left[\begin{array}{rrrrl}
+	0&0&\cdots&0&-\left(-1\right)^nk_0\\
+	1&0&\cdots&0&-\left(-1\right)^nk_1\\
+	0&1&\cdots&0&-\left(-1\right)^nk_2\\
+	\vdots&\vdots&\ddots&\vdots&\ldots\\
+	0&0&\cdots&1&-\left(-1\right)^nk_{n-1}
+	\end{array}\right]
+	$$
+biçimindedir $f(t)$ polinomunun <strong>eş matrisi</strong> (companion) denir. Sonuç olarak şunu da elde etmiş olduk, her $f(t)$ polinomu kendi eş matrisinin minimal polinomudur.
+</div>
+</p>
+
+
+
+
+
+<h3 class="mt-5 mb-3">Alıştırmalar</h3>
+
+
+
+
+
+<p>
+<ol>
+<li class="py-2">Aşağıdaki matrislerin karakteristik polinomlarını tespit edin.
+		$$
+		\left[\begin{array}{rrr}0&0&-70\\1&0&19\\0&1&0\end{array}\right],\quad\left[\begin{array}{rrr}2&-2&3\\1&1&1\\1&3&-1\end{array}\right]
+		$$
+</li>
+<li class="py-2">Aşağıdaki matris için minimal polinom bulun.
+		$$\left[\begin{array}{rrr}3&2&2\\1&4&1\\-2&-4&-1\end{array}\right]$$
+</li>
+<li class="py-2">Bir minimal denklemi $t^4+3t^3+2t^2-t+6=0$ olan bir matris belirleyin.</li>
+<li class="py-2">Bir $A$ matrisi $t^2+t+1=0$ denklemini sağlıyorsa tersinirdir, gösterin. Ayrıca tersini $A$ ve $I$ cinsinden belirleyin.</li>
+<li class="py-2">Elemanları reel olan ve $3\times 3$ boyutlu hiçbir matris $t^2+1=0$ denklemini sağlamaz. Reel değerli $2\times 2$ boyutlu matrisler veya kompleks değerli $3\times3$ boyutlu matrisler bu denklemi sağlayabilir. Bunların sebeplerini açıklayın.</li>
+</ol>
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../33-kofaktorler/index.html">3.3. Kofaktörler</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Lineer Cebire Giriş</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../35-ozdegerler-ve-ozvektorler/index.html">3.5. Özdeğerler ve Özvektörler</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/34-hamilton-cayley-teoremi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:05 GMT -->
+</html>

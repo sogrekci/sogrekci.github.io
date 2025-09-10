@@ -1,0 +1,278 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/23-riemann-lebesgue-teoremi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:13 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 2.3. Riemann-Lebesgue Teoremi
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>2.3. Riemann-Lebesgue Teoremi</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-07">
+          7 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-06-21">
+          21 Haziran 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu ders notunda <strong>integral</strong> kavramını kısaca hatırlayacağız, Fourier katsayılarının integrallerle hesaplandığını hatırlayın. Bu bölümde ayrıca Fourier serilerinin yakınsaklığını kanıtlamak için ihtiyacımız olan <strong>Riemann-Lebesgue teoremi</strong>ni de kanıtlayacağız.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/darboux/index.html">Darboux</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/integral/index.html">integral</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/lebesgue/index.html">Lebesgue</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/riemann/index.html">riemann</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Bir fonksiyonun Fourier katsayıları belirli integrallerle belirlendiğine göre integral kavramının iyi anlaşılması gerekir. Daha önce bahsettiğimiz gibi Fourier kendi çalışmasında integralleri birer alan olarak kullanmıştır. Günümüzde kullandığımız modern integral tanımına en yakın tanım ilk olarak 1823 yılında Cauchy tarafından verilmiştir. $f$ fonksiyonu $[a,b]$ aralığında tanımlı ve sürekli olsun, ayrıca $P:=\{a=x_0,x_1,x_2,\ldots,x_n=b\}$ de bu aralığın herhangi bi parçalanması olsun. Bu durumda $f$ fonksiyonunun bu aralıktaki belirli integralini Cauchy $$\int_{a}^{b}f:=\lim\limits_{n\rightarrow\infty}\sum\limits_{i=1}^{n}f(x_{i-1})(x_{i}-x_{i-1})$$ olarak tanımlamıştır. Cauchy sadece sürekli fonksiyonlar için bu limitin varlığını ve parçalanmadan bağımsızlığını kanıtlayabilmiştir. Bu tanımda $f$ sürekli kabul edilse de sonlu sayıda sıçramalı süreksizlik noktasına sahip süreksiz fonksiyonlar da kapsanmıştır, çünkü bu süreksizlik noktaları parçalanmanın noktaları olarak seçilirse her alt aralıkta fonksiyon sürekli olur. Sonsuz sayıda süreksizlik noktaları bulunan fonksiyonların Fourier katsayısını hesaplamak için böyle fonksiyonlar için buna benzer bir limitin varlığı gösterilmeliydi, Dirichlet çok uğraşsa da bunu başaramadı. Fakat 1847-1849 yılları arasında Dirichelt'in bir öğrencisi olan ve bu konuda araştırmaya yönlendirdiği çok yetenekli bir genç bu problemin çözümünde çok önemli bir rol oynayacaktır: <strong>Georg Friedrich Bernhard Riemann</strong> (1826-1866). Doktorasını 1851 yılında tamamlayan Riemann 1853 yılındaki bir çalışmasında sürekli olmak zorunda olmayan bir $f$ fonksiyonunun $[a,b]$ aralığındaki belirli integralini, $t_i\in(x_{i-1},x_i)$ keyfi seçilmek ve $n\rightarrow\infty$ için $$\|P\|:=\max\{|x_i-x_{i-1}|:\;i=0,1,\ldots,n\}\rightarrow0$$ olmak üzere $$\int_{a}^{b}f:=\lim\limits_{n\rightarrow\infty}\sum\limits_{i=1}^{n}f(t_i)(x_{i}-x_{i-1})$$ olarak tanımlamıştır. Daha sonra 1875 yılında <strong>Jean Gaston Darboux</strong> (1842-1917), bir $f$ fonksiyonunun bir $(a,b)$ aralığında Riemann anlamında integrallanabilmesi için gerek ve yeter koşulun $$\sum\limits_{i=1}^{n}m_i(x_{i}-x_{i-1})-\sum\limits_{i=1}^{n}M_i(x_{i}-x_{i-1})$$ farkının verileceh her sayıdan küçük bırakılacak şekilde bir parçalanmanın var olması olduğunu kanıtladı, buradaki $m_i$ ve $M_i$ sayıları $f$ fonksiyonunun ilgili alt aralıktaki sırasıyla infimum ve supremum değerleridir. Bu toplamlara günümüzde $f$ fonksiyonunun $P$ parçalanması üzerinden <strong>alt ve üst toplam</strong>ları diyoruz, integral değerinin de bu toplamlar arasında olduğunu biliyoruz. Bu tanımlar ve kriterler kullanılarak sınırlı olan sürekli, monoton veya parçalı sürekli fonksiyonların Riemann anlamında integrallenebilir olduğu kolaylıkla kanıtlanmıştır. Sonsuz sayıda süreksizlik noktası olan fonksiyonların integrallenebilirliği konusunda ise son noktayı <strong>Lebesgue</strong> koymuştur: bir $f$ fonksiyonunun bir aralıkta Riemann anlamında integrallenebilir olması için gerek ve yeter koşul onun bu aralıktaki süreksizlik noktalarının kümesinin ölçüsü sıfır olmasıdır. Burada, bir reel sayı kümesinin ölçüsünün sıfır olması demek onun, uzunlukları toplamı keyfi küçüklükte olan açık aralıkların birleşimi tarafından kapsanması demektir.
+</p>
+
+<p>
+<div class="envex" id="ex-2.4"><h6 class="thenv">Örnek 2.3.1</h6> $f(x):=\sin(1/x)$ olarak tanımlanan $f:(0,1)\rightarrow\mathbb{R}$ fonksiyonu bu aralıkta sürekli olduğundan integrallenebilirdir, ama $f(0+)$ limiti var olmadığından parçalı sürekli değildir. Diğer yandan
+$$
+g(x):=\left\{\begin{array}{ll}
+0,\quad & 0\lt x\leq1/4\text{ ise}\\
+\frac{1}{2},\quad & 1/4\lt x\leq1/2\text{ ise}\\
+1,\quad & 1/2\lt x\lt 1\text{ ise}
+\end{array}
+\right.
+$$
+
+fonksiyonu aynı aralıkta sürekli değildir fakat parçalı süreklidir. Aynı aralıkta tanımlanmış olan
+
+$$
+h(x):=\left\{\begin{array}{ll}
+\frac{1}{2^n},\quad & n\in\mathbb{N}\text{ için }\frac{1}{2^{n+1}}\lt x\leq\frac{1}{2^n}\text{ ise}\\
+1,\quad & 1/2\lt x\lt 1\text{ ise}
+\end{array}
+\right.
+$$
+
+olarak tanımlanan fonksiyon $(0,1)$ aralığında parçalı sürekli değildir, çünkü sonsuz sayıda süreksizlik noktası vardır. Fakat bu fonksiyon $(0,1)$ aralığında integrallenebilirdir. Gerçekten, $1/2$ sayısından küçük keyfi bir $\epsilon>0$ sayısı verildiğinde her $n\in\mathbb{N}$ için $1/2^n$ merkezli ve $\epsilon/2^n$ uzunluklu $I_n$ açık aralıklarını oluşturursak bu aralıkların toplam uzunluğu $$\sum\limits_{n=1}^{\infty}\frac{\epsilon}{2^n}=\epsilon\sum\limits_{n=1}^{\infty}\left(\frac{1}{2}\right)^n=\epsilon$$ sayısını geçmez, dolayısıyla bu fonksiyonun süreksizlik noktalarının kümesinin ölçüsü sıfırdır.
+</div>
+</p>
+
+<p>
+Riemann'ın çalışmasında integralin tanımı dışında önemli bir uygulaması daha vardı, bu sonuç bize Fourier katsayılarının $n\rightarrow\infty$ için sıfıra yaklaştığını söyler. Aynı sonucu 1903 yılında Lebesgue kendi tanımladığı integral kavramı için de kanıtlamış ve böylece bu teorem Riemann-Lebesgue teoremi adını almıştır.
+</p>
+
+<p>
+<div class="envtheo" id="RL-theo"><h6 class="thenv">Teorem 2.3.1 (Riemann-Lebesgue Teoremi)</h6> Eğer $f$ fonksiyonu $(a,b)$ aralığında integrallenebilir ise bu durumda $$\lim\limits_{r\rightarrow\infty}\int_{a}^{b}f(x)\sin rx\,dx=\lim\limits_{r\rightarrow\infty}\int_{a}^{b}f(x)\cos rx\,dx=0$$ olur.
+</div>
+</p>
+
+<p>
+<strong>İspat:</strong> $f$ fonksiyonunun $(x_{i-1},x_i)$ aralığındaki infimumu $m_i$ olmak üzere
+
+$$
+g(x):=\left\{\begin{array}{ll}
+f(x),\quad & i=1,2,\ldots,n\text{ için } x=x_i\text{ ise}\\
+m_i,\quad & i=1,2,\ldots,n\text{ için }x\in(x_{i-1},x_i)\text{ ise}
+\end{array}
+\right.
+$$
+
+olarak tanımlanan $g:(a,b)\rightarrow\mathbb{R}$ fonksiyonunu ele alalım. Bu aralıkta $g\leq f$ olduğu açıktır, ayrıca
+
+\begin{eqnarray*}
+\left|\int_{a}^{b}f(x)\sin rx\,dx-\int_{a}^{b}g(x)\sin rx\,dx\right| &\leq& \int_{a}^{b}\left|f(x)\sin rx-g(x)\sin rx\right|\,dx\\
+&\leq& \int_{a}^{b}\left[f(x)-g(x)\right]\,dx\\
+&=& \int_{a}^{b}f(x)\,dx-\sum\limits_{i=1}^{n}m_i(x_i-x_{i-1})
+\end{eqnarray*}
+
+eşitsizliği sağlanır. Darboux'un teoremine göre bir $\epsilon>0$ sayısı verildiğinde $$\int_{a}^{b}f(x)\,dx-\sum\limits_{i=1}^{n}m_i(x_i-x_{i-1})<\frac{\epsilon}{2}$$ olacak şekilde bir parçalanma bulunabilir. Bu durumda, her $A,B\in\mathbb{R}$ için geçerli olan $|A|\leq|B|+|A-B|$ eşitsizliğini kullanırsak $$\left|\int_{a}^{b}f(x)\sin rx\,dx\right|<\left|\int_{a}^{b}g(x)\sin rx\,dx\right|+\frac{\epsilon}{2}$$ olduğunu görürüz. Diğer yandan $r>0$ için
+
+\begin{eqnarray*}
+\left|\int_{a}^{b}g(x)\sin rx\,dx\right| &=& \left|\sum\limits_{i=1}^{n}\int_{x_{i-1}}^{x_i}m_i\sin rx\,dx\right|\\
+&=& \left|\sum\limits_{i=1}^{n}\frac{m_i}{r}\left(\cos rx_{i-1}-\cos rx_i\right)\right|\\
+&\leq& \frac{2}{r}\sum\limits_{i=1}^{n}|m_i|
+\end{eqnarray*}
+
+olur ve yeterince büyük $r$ sayıları için bu son değer $\epsilon/2$ sayısından küçük kalır. Sonuç olarak $$\left|\int_{a}^{b}f(x)\sin rx\,dx\right|<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon$$ eşitsizliğinin sağlandığı görülür ve böylece teoremin ifadesindeki ilk limit kanıtlanmış olur. Diğer limit de benzer şekilde kanıtlanır.$$\tag*{$\blacksquare$}$$
+
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../22-fourier-serileri/index.html">2.2. Fourier Serileri</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Fourier Analizi</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../24-fourier-serilerinin-yakinsakligi/index.html">2.4. Fourier Serilerinin Yakınsaklığı</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/23-riemann-lebesgue-teoremi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:13 GMT -->
+</html>

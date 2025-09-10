@@ -1,0 +1,434 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/35-ozdegerler-ve-ozvektorler/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:05 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 3.5. Özdeğerler ve Özvektörler
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>3.5. Özdeğerler ve Özvektörler</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-06-02">
+          2 Haziran 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-06-03">
+          3 Haziran 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste özdeğer problemlerine değineceğiz, bunun için önce <strong>özdeğer</strong> ve <strong>özvektör</strong> kavramlarının tanıyıp önemlerini tartışacağız. Daha sonra özdeğer ve özvektörlerin temel özelliklerini keşfedeceğiz.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/cebirsel-katlilik/index.html">cebirsel katlılık</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/fourier-analizi/index.html">Fourier analizi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/fourier-serisi/index.html">Fourier serisi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/geometrik-katlilik/index.html">geometrik katlılık</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/invaryant-alt-uzay/index.html">invaryant alt uzay</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/ozdeger/index.html">özdeğer</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/oz-uzay/index.html">öz uzay</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/ozvektor/index.html">özvektör</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+$V$'den $V$'ye tanımlı bir $\sigma$ lineer dönüşümünü ele alalım, $\sigma$ dönüşümünün yine lineer olduğu $V$'nin alt uzaylarını bulmak bazı durumlarda kolaylık sağlar. Eğer $W$ böyle bir alt uzay ise $\sigma\left(W\right)\subset W$ olur, bu özellikteki alt uzaylara $V$'nin $\sigma$ dönüşümüne göre <strong>invaryant alt uzayları</strong> denir. Çoğu zaman $\sigma$ dönüşümünün $V$ üzerindeki özelliklerini belirleme problemi, onun invaryant alt uzaylardaki özelliklerini belirleme problemine indirgenebilir.
+</p>
+
+<p>
+En basit ve en kısıtlı durum $W$ invaryant alt uzayının $1-$boyutlu olması durumudur. Böyle bir durumda varsayalım ki $\{\alpha_1\}$ bir baz olsun, bu durumda $\sigma\left(\alpha_1\right)\in W$ olduğundan $\sigma\left(\alpha_1\right)=\lambda_1\alpha_1$ olacak şekilde bir $\lambda_1$ skaleri vardır. Diğer yandan her $\alpha\in W$ vektörü için $\alpha=a_1\alpha_1$ olacak şekilde bir $a_1$ skaleri vardır, buradan hareketle $\sigma\left(\alpha\right)=\sigma\left(a_1\alpha_1\right)=a_1\sigma\left(\alpha_1\right)=a_1\lambda_1\alpha_1=\lambda_1\alpha$ elde edilir. Yani $\sigma$ dönüşümü $W$ invaryant alt uzayındaki her vektörü $\lambda_1$ skaleri ile genişletir, bu anlamda $\lambda_1$ skaleri $W$ uzayını karakterize eder.
+</p>
+
+<p>
+<div class="envdef" id="def:ozdegervektor"><h6 class="thenv">Tanım 3.5.1</h6>
+Genel olarak
+
+\begin{equation}
+\label{eq:det:10}
+\tag{3.5.1}
+\sigma\left(\xi\right)=\lambda\xi
+\end{equation}
+
+eşitliğini sağlayan $\lambda$ skaleri ve $\xi$ vektörünü bulma problemine bir <strong>özdeğer problemi</strong> denir. \eqref{eq:det:10} eşitliği sağlanacak şekilde bir $\lambda$ skaleri varsa $\xi\neq0$ vektörüne $\sigma$ dönüşümünün bir <strong>özvektörü</strong> denir. Benzer \eqref{eq:det:10} eşitliği sağlanacak şekilde bir $\xi\neq0$ vektörü varsa $\lambda$ skalerine $\sigma$ dönüşümünün bir <strong>özdeğeri</strong> denir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:21"><h6 class="thenv">Uyarı 3.5.2</h6>
+\eqref{eq:det:10} eşitliğinde biri skaler ve biri vektör olmak üzere iki tane bilinmeyen bulunduğuna dikkat edilmelidir. Ayrıca $\xi=0$ ile herhangi bir $\lambda$ skaleri birlikte bu eşitlik sağlanır, fakat bu durumda pozitif poyutlu bir $W$ alt uzayı oluşmayacağından bu çözüm dışındaki çözümlerle ilgilenmeyeceğiz. Şimdilik herhangi bir ek koşul olmaksızın \eqref{eq:det:10} probleminin bir çözümünün var olduğunu garanti edemiyoruz.
+</div>
+</p>
+
+<p>
+<div class="envex" id="ex:det:3"><h6 class="thenv">Örnek 3.5.3</h6>
+Çok önemli bir özdeğer problemi örneği olarak
+
+\begin{equation}
+\label{eq:det:11}
+\tag{3.5.2}
+\frac{\partial^2u}{\partial x^2}+\frac{\partial^2u}{\partial y^2}=0
+\end{equation}
+
+denklemi ve verilen bir $f(x)$ fonksiyonu için $$u(0,y)=u(\pi, y)=0,\quad \lim\limits_{y\rightarrow\infty}u(x,y)=0,\quad u(x,0)=f(x)$$ koşullarının oluşturduğu sınır değer problemini ele alalım. \eqref{eq:det:11} denklemine değişkenlere ayrıma yöntemini uygulayalım. Bu yönteme göre denklemin çözümünü $XY$ biçiminde fonksiyonların toplamı olarak ararız, burada $X$ ve $Y$ fonksiyonları sırasıyla $x$ ve $y$ değişkenlerinin tek değişkenli fonksiyonlarıdır. Bunu \eqref{eq:det:11} eşitliğinde yerine yazarsak $$\frac{\d{}^2X}{\d{x}^2}Y+\frac{\d{}^2Y}{\d{y}^2}X=0$$ elde ederiz, bunu $$\frac{1}{Y}\frac{\d{}^2Y}{\d{y}^2}=-\frac{1}{X}\frac{\d{}^2X}{\d{x}^2}$$ olarak yazalım. Bu eşitliğin bir tarafı sadece $x$'in, diğer tarafı sadece $y$'nin fonksiyonudur, bu ise sadece her iki tarafın da skaler olmasıyla mümkündür. Bu skaleri $\lambda^2$ ile gösterirsek $$\frac{\d{}^2X}{\d{x}^2}=-k^2X\quad\text{ve}\quad \frac{\d{}^2Y}{\d{y}^2}=k^2Y$$ denklemlerine ulaşırız ve bunların ikisi de <a class="eqref" href="#def:ozdegervektor">Tanım 3.5.1</a> ile verilen özdeğer problemi yapısına sahiptir. Bu problemde $V$ vektör uzayı iki kez türevlenebilen reel değerli fonksiyonların uzayı ve $\sigma$ lineer dönüşümü $\d{}/\d{x}^2$ türev dönüşümüdür. Bir $k>0$ verildiğinde çözümler $$\begin{array}{lcl}X&=&a_1\cos kx+a_2\sin kx\\Y&=&a_3{\rm e}^{-ky}+a_4{\rm e}^{ky}\end{array}$$ olarak bulunur. $u(0,y)=0$ ve $\lim_{y\rightarrow\infty}u(x,y)=0$ koşullarından $a_1=a_4=0$ bulunur, ayrıca $u(\pi,y)=0$ koşulu gereği $k\in\mathbb{Z}$ olması gerektiği anlaşılır. Yani bu özdeğer probleminin özdeğerleri tamsayılar ve karşılık gelen özvektörleri de $c_k{\rm e}^{-ky}\sin kx$ fonksiyonlarıdır. Diğer taraftan $u(x,0)=f(x)$ koşulu daha karmaşık bir sorun üretir, bu koşula göre verilen herhangi bir $f(x)$ fonksiyonu için $$f(x)=\sum_{n=1}^{\infty}c_k\sin kx$$ olacak şekilde $c_k$ sayılarının bulunması gerekir. <a class="eqref" href="../../fourier-analizi/index.html">Fourier Analizi</a> ders notlarımı okuduysanız anımsayacaksınız ki bu problem Fourier serileri teorisinin doğuşuna sebep olmuştur.
+</p>
+
+<p>	
+Bu problemde ele alınan vektör uzayı sonsuz boyutludur, bu metinde sonlu boyutlu uzaylarda özdeğer problemleri ile ilgileneceğiz.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:det:17"><h6 class="thenv">Teorem 3.5.4</h6>
+$\lambda$ skalerinin $\sigma$ dönüşümünün bir özdeğeri olması için gerek ve yeter koşul, $\lambda$'nın $\sigma$ dönüşümünü temsil eden bir matrisin karakteristik denklemini sağlamasıdır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong><a class="eqref" href="../21-lineer-donusumler/index.html#rmk:lint:3">Uyarı 2.1.6</a> ile verilen notasyonu hatırlayın, \eqref{eq:det:10} özdeğer problemi $\left(\sigma-\lambda\right)\xi=0$ biçiminde yazılabilir. <a class="eqref" href="../27-lineer-problemler/index.html#rmk:lint:46">Uyarı 2.7.5</a> gereği bu homojen problemin sıfırdan farklı bir çözümünün var olması için gerek ve yeter koşul $\sigma-\lambda$ dönüşümünün singüler olmasıdır. Şimdi $A:=\{\alpha_1,\ldots\alpha_n\}$ kümesi $V$'nin herhangi bir bazı ve $A:=\left[a_{ij}\right]$ de bu baza göre $\sigma$ dönüşümünü temsil eden matris olsun. Bu durumda $A-\lambda I$ matrisi $\sigma-\lambda$ dönüşümünü temsil eder ve bu dönüşümün singüler olması için gerek ve yeter koşul  <a class="eqref" href="../32-determinantlar/index.html#theo:det:10">Teorem 3.2.11</a> gereği $\det\left(A-\lambda I\right)=0$ olmasıdır.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:22"><h6 class="thenv">Uyarı 3.5.5</h6>
+<a class="eqref" href="#theo:det:17">Teorem 3.5.4</a> sonucu sadece skaler $\lambda$ değerleri için geçerlidir. Örneğin $F$ cismi $\mathbb{R}$ kümesi olarak seçilirse karakteristik denklemin kompleks kökleri özdeğer değildir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:23"><h6 class="thenv">Uyarı 3.5.6</h6>
+Özdeğer ve özvektörleri bulmak için izlenecek yol açıktır. Lineer dönüşümü bir baza göre temsil eden matris belirlenir, daha sonra $C(t)=A-tI$ karakteristik matrisi hesaplanır. Bunun determinantı yardımıyla $\det C(\lambda)=f(t)=0$ karakteristik denklemi çözülerek özdeğerlere ulaşılır. Bu aşamada bazı zorluklarla karşılaşılabilir, örneğin bulunan $\lambda$ değeri $F$ cisminin bir skaleri olmayabilir ya da $\lambda$ değerini bulmak zor olabilir. Daha sonra her bir $\lambda$ özdeğeri için $(A-\lambda I)X=C(\lambda)X=0$ homojen problemi çözülerek özvektörlere ulaşılır. Bunu çözmek için Hermite normal biçimden faydalanılabilir. Genel olarak $\sigma$ dönüşümü yerine onu temsil eden bir $A$ matrisi verilir, bu durumda $\sigma$'nın özdeğer ve özvektörlerine $A$ matrisinin özdeğer ve özvektörleri denir.
+</div>
+</p>
+
+<p>
+<div class="envex" id="ex:det:4"><h6 class="thenv">Örnek 3.5.7</h6>
+$A$ matrisi
+	$$A:=\left[\begin{array}{rrr}-1&2&2\\2&2&2\\-3&-6&-6\end{array}\right]$$
+	olarak verilsin, bu durumda karakteristik matris
+	$$C(t)=\left[\begin{array}{ccc}-1-t&2&2\\2&2-t&2\\-3&-6&-6-t\end{array}\right]$$ olur. Karakteristik polinom $$f(t)=\det C\left(t\right)=-(t+2)(t+3)t$$ olarak hesaplanır ve buradan özdeğerler $\lambda_1=-2$, $\lambda_2=-3$, $\lambda_3=0$ olarak bulunur. Özvektörleri tespit etmek için bu özdeğerlerin her birine karşılık gelen $C(\lambda_i)X=0$ homojen lineer problemlerini çözmeliyiz. $\lambda_1=-2$ özdeğeri için
+	$$C(-2)=\left[\begin{array}{rrr}1&2&2\\2&4&2\\-3&-6&-4\end{array}\right]$$ olup bunun Hermite normal formu
+	$$\left[\begin{array}{rrr}1&2&0\\0&0&1\\0&0&0\end{array}\right]$$ biçimindedir. Bu durumda $\lambda_1=-2$ özdeğerine karşılık gelen özvektörün elemanları
+	$$
+	\begin{array}{r}
+	x_1+2x_2=0\\
+	x_3=0
+	\end{array}
+	$$
+	eşitliklerini sağlamalıdır. Dolayısıyla bu özvektör $(2,-1,0)$ ile temsil edilebilir, kolaylık açısından bu vektörü $\xi_1=(2,-1,0)$ olarak yazalım. Aynı yöntemle $C(-3)$ matrisi ve bunun Hermite normal formu
+	$$
+	C(-3)=\left[\begin{array}{rrr}2&2&2\\2&5&2\\-3&-6&-3\end{array}\right]\rightarrow\left[\begin{array}{rrr}1&0&1\\0&1&0\\0&0&0\end{array}\right]
+	$$
+	olarak elde edilir, dolayısıyla ilgili özvektör $\xi_2=(1,0,-1)$ olur. Benzer şekilde $\xi_3=(0,1,-1)$ olarak hesaplanabilir.
+</div>
+</p>
+
+</p>
+<div class="envex" id="ex:det:5"><h6 class="thenv">Örnek 3.5.8</h6>
+$A$ matrisi
+	$$A:=\left[\begin{array}{rrr}1&1&-1\\-1&3&-1\\-1&2&0\end{array}\right]$$
+	olarak verilsin, bu durumda karakteristik matris
+	$$C(t)=\left[\begin{array}{ccc}1-t&1&-1\\-1&3-t&-1\\-1&2&-t\end{array}\right]$$
+	ve karakteristik polinom $$f(t)=\det C(t)=-(t-1)^2(t-2)$$ olarak bulunur. Bu durumda özdeğerler $\lambda_1=\lambda_2=1$, $\lambda_3=2$ olur. $C(\lambda_{1,2})=C(1)$ matrisi ve bunun Hermite normal biçimi
+	$$C(1)=\left[\begin{array}{rrr}0&1&-1\\-1&2&-1\\-1&2&-1\end{array}\right]\rightarrow\left[\begin{array}{rrr}1&0&-1\\0&1&-1\\0&0&0\end{array}\right]$$ olarak hesaplanıp, bu özdeğerlere karşılık gelen özvektör $\xi_1=(1,1,1)$ olarak bulunur. Benzer şekilde $\xi_3=(0,1,1)$ olduğu gösterilebilir.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:det:18"><h6 class="thenv">Teorem 3.5.9</h6>
+Benzer matrisler aynı özdeğer ve özvektörlere sahiptir.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>Bu sonuç <a class="eqref" href="../24-baz-degisimi/index.html#rmk:lint:29">Uyarı 2.4.9</a> ile verilen benzerlik tanımı gereği açıktır.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="theo:det:19"><h6 class="thenv">Teorem 3.5.10</h6>
+Benzer matrisler aynı karakteristik polinoma sahiptir.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$A$ ile $A':=P^{-1}AP$ matrisleri benzer olsun, bu durumda <a class="eqref" href="../24-baz-degisimi/index.html#rmk:lint:29">Uyarı 2.4.9</a> ve <a class="eqref" href="../32-determinantlar/index.html#theo:det:11">Teorem 3.2.12</a> gereği
+\begin{eqnarray*}
+\det\left(A'-tI\right)&=&\det\left(P^{-1}AP-tI\right)\\
+&=&\det\left(P^{-1}AP-P^{-1}tIP\right)\\
+&=&\det\left\{P^{-1}\left(A-tI\right)P \right\}\\
+&=&\det P^{-1}\cdot\det\left(A-tI\right)\cdot\det P\\
+&=&\det\left(A-tI\right)\\
+&=&f(t)
+\end{eqnarray*}
+elde edilir.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:24"><h6 class="thenv">Uyarı 3.5.11</h6>
+Bir $\sigma$ lineer dönüşümünü temsil eden herhangi bir matrisin karakteristik polinomuna bu dönüşümün karakteristik polinomu denir. <a class="eqref" href="#theo:det:19">Teorem 3.5.10</a> gereği bu polinom tek türlüdür.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:25"><h6 class="thenv">Uyarı 3.5.12</h6>
+Bir $\sigma$ dönüşümünün bir $\lambda$ özdeğerine karşılık gelen tüm özvektörlerin ve 0 vektörünün oluşturduğu küme $S(\lambda)$ ile gösterilsin. Bu durumda $\alpha,\beta\in S(\lambda)$ ise $\sigma\left(a\alpha+b\beta\right)=a\sigma\left(\alpha\right)+b\sigma\left(\beta\right)=a\lambda\alpha+b\lambda\beta=\lambda\left(a\alpha+b\beta\right)$ olur. Yani $a\alpha+b\beta\in S\left(\lambda\right)$ olur ki bu da $S(\lambda)$ kümesinin bir alt uzay olduğunu gösterir.
+</div>
+</p>
+
+<p>
+<div class="envdef" id="def:ozuzay"><h6 class="thenv">Tanım 3.5.13</h6>
+Bir $\sigma$ lineer dönüşümünün bir $\lambda$ özdeğerine karşılık tüm özvektörlerin ve $0$ vektörü kümesi olan $S(\lambda)$ kümesi, bu dönüşümün ilgili özdeğerine karşılık gelen <strong>öz uzayı</strong> olarak adlandırılır. $S(\lambda)$'nın alt uzaylarına da birer öz uzay denir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:26"><h6 class="thenv">Uyarı 3.5.14</h6>
+$A$ matrisinin karakteristik matrisi olan $C(t)$ matrisinde $t$ yerine $\lambda$ yazılarak elde edilen $C(\lambda)$ matrisininin sıfırlılık sayısı $S(\lambda)$ uzayının boyutudur, bu sayı $\lambda$ özdeğerinin <strong>geometrik katlılığı</strong> olarak adlandırılır. Diğer yandan $\lambda$ özdeğerinin $f(t)=0$ karakteristik denklemini sağladığı biliniyor (bk. <a class="eqref" href="#theo:det:17">Teorem 3.5.4</a>), yani $(t-\lambda)$ ifadesi $f(t)$ polinomunun bir çarpanıdır. $(t-\lambda)^k$ ifadesi karakteristik denklemin bir çarpanı olacak şekildeki en büyük $k$ doğal sayısına $\lambda$ özdeğerinin <strong>cebirsel katlılığı</strong> denir. <a class="eqref" href="#ex:det:5">Örnek 3.5.8</a> ile verilen matris için $C(1)$ matrisinin sıfırlılık sayısı 1 olduğundan $S(1)$ öz uzayının boyutu 1'dir, yani $\lambda_{1,2}=1$ özdeğerinin geometrik katlılığı 1'dir. Ayrıca karakteristik denkleme bakılırsa bu özdeğerin cebirsel katlılığının 2 olduğu açıktır.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:det:20"><h6 class="thenv">Teorem 3.5.15</h6>
+Bir $\lambda$ özdeğerinin geometrik katlılığı cebirsel katlılığını aşamaz.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>Bir $\sigma$ dönüşümünü temsil eden her matris için geometrik katlılık aynı olacağından özel bir matris seçimi için kanıt yapmak yeterlidir. $S(\lambda)$ uzayının boyutu $k$ olsun ve $\{\xi_1,\ldots,\xi_k\}$ kümesi bunun bir bazı olsun. Bu lineer bağımsız kümeyi $V$'nin bir $\{\xi_1,\ldots,\xi_n \}$ bazına genişletelim. $i\leq k$ için $\sigma\left(\xi_i\right)=\lambda\xi_i$ olduğundan bu bazlara göre $\sigma$ dönüşümünü temsil eden matris
+	$$A:=
+	\left[\begin{array}{ccccccc}
+		\lambda&0&\cdots&0&a_{1,k+1}&\cdots&a_{1,n}\\
+		0&\lambda&\cdots&0&a_{2,k+1}&\cdots&a_{2,n}\\
+		\vdots&\vdots&\ddots&\vdots&\vdots&\vdots&\vdots\\
+		0&0&\cdots&\lambda&a_{k,k+1}&\cdots&a_{k,n}\\
+		0&0&\cdots&0&a_{k+1,k+1}&\cdots&a_{k+1,n}\\
+		\vdots&\vdots&\ddots&\vdots&\vdots&\vdots&\vdots\\
+		0&0&\cdots&0&a_{n,k+1}&\cdots&a_{n,n}\\
+	\end{array}\right]
+	$$
+	biçiminde olur. Matrisin yapısından $\det\left(A-tI\right)=f(t)$ polinomunun $(t-\lambda)^k$ ile bölüneceği açıktır. Dolaysıyla cebirsel katlılık en az $k$ sayısı olmalıdır.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="theo:det:21"><h6 class="thenv">Teorem 3.5.16</h6>
+$\lambda_1,\ldots,\lambda_r$ özdeğerleri birbirinden farklı ise, bunlara karşılık gelen özvektörlerin $\{\xi_1,\ldots,\xi_r \}$ kümesi lineer bağımsızdır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>Bu kümenin lineer bağımlı olduğunu kabul edelim, ayrıca ilk $k$ tanesi lineer bağımsız ve kalan $r-k$ tanesi bunlarla lineer bağımlı olacak şekilde kümedeki özvektörleri yeniden sıralayalım. Bu durumda $\xi_r=\sum_{i=1}^{k}a_i\xi_i$ olacak şekilde hepsi birden sıfır olmayan tek türlü $a_i$ skalerleri vardır. Bu eşitliğin her iki tarafına $\sigma$ dönüşümü uygulanırsa $\lambda\xi_r=\sum_{i=1}^{k}a_i\lambda_i\xi_i$ eld edilir. Eğer $\lambda_r=0$ ise $i\leq k$ için hiçbir $\lambda_i$ özdeğeri sıfır olamaz, çünkü tüm özdeğerler farklıdır. Fakat bu durumda $\{\xi_1,\ldots,\xi_k \}$ kümesinin lineer bağımlı olduğu sonucu çıkar ve bu bir çelişkidir. Eğer $\lambda_r\neq 0$ ise $\xi_r=\sum_{i=1}^{k}a_i(\lambda_i/\lambda_r)\xi_i$ eşitliğini yazabiliriz. Her $i$ indisi için $a_i\neq0$ ve $\lambda_i/\lambda_r\neq1$ olduğundan $\xi_r$ vektörünün farklı bir açılımına ulaşılmış olur, bu bir çelişkidir çünkü bu açılım tek türlüdür. Sonuç olarak $\{\xi_1,\ldots,\xi_r \}$ vektörüleri lineer bağımsız olmalıdır.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:27"><h6 class="thenv">Uyarı 3.5.17</h6>
+<a class="eqref" href="#ex:det:4">Örnek 3.5.7</a> ile elde edilen sonuçta farklı özdeğerlere karşılık gelen özvektörlerin lineer bağımsız olduğu gözlemlenebilir.
+</div>
+</p>
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Alıştırmalar</h3>
+
+
+
+
+
+
+<p>
+<ol>
+<li class="py-2">$\lambda=0$ sayısının bir $A$ matrisinin bir özdeğeri olması için gerek ve yeter koşul $A$'nın singüler olmasıdır, kanıtlayın.</li>
+<li class="py-2">Bir $\xi$ vektörü hem $\sigma$ hem de $\tau$ dönüşümünün bir özvektörü ise $\sigma+\tau$ ve $a\sigma$ dönüşümünün de bir özvektörüdür, gösterin ($a\in F$).</li>
+<li class="py-2">$\lambda_1$ ve $\lambda_2$ sayıları sırasıyla $\sigma$ ve $\tau$ dönüşümlerinin aynı özvektöre karşılık gelen birer özdeğeri ise $\lambda_1+\lambda_2$ sayısı $\sigma+\tau$ dönüşümünün bir özdeğeridir, gösterin. Bunlar farklı özvektörlere karşılık ise bu durumun sağlanmayacağını gösteren bir örnek verin.</li>
+<li class="py-2">$\sigma$ tersinir bir dönüşüm ve $\lambda$ sayısı bunun bir özdeğer ise $\lambda^{-1}$ sayısı da $\sigma^{-1}$ dönüşümünün bir özdeğeridir, kanıtlayın.</li>
+<li class="py-2">Aşağıdaki matrislerin özdeğer ve özvektörlerini hesaplayın.
+		$$
+		\left[\begin{array}{rrr}4&9&0\\0&-2&8\\0&0&7\end{array}\right]\qquad\left[\begin{array}{rrr}7&4&-4\\4&-8&-1\\-4&-1&-8\end{array}\right]\qquad\left[\begin{array}{rrr}3&2&2\\1&4&1\\-2&-4&-1\end{array}\right]
+		$$</li>
+</ol>
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../34-hamilton-cayley-teoremi/index.html">3.4. Hamilton-Cayley Teoremi</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Lineer Cebire Giriş</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../36-benzerlik/index.html">3.6. Benzerlik</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/35-ozdegerler-ve-ozvektorler/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:05 GMT -->
+</html>

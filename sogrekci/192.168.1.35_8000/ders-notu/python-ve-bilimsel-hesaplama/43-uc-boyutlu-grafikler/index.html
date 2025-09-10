@@ -1,0 +1,727 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/python-ve-bilimsel-hesaplama/43-uc-boyutlu-grafikler/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:41:01 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 4.3. Üç Boyutlu Grafikler
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>4.3. Üç Boyutlu Grafikler</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-23">
+          23 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-24">
+          24 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Üç boyutlu grafikleri çizebilmek için yüksek boyutlu array nesnelerini anlamamız gerekir. Bu derste bu konuyu ve üç boyutlu grafiklerin yanı sıra iki değişkenli fonksiyonların seviye eğrileri gibi bazı diğer çeşit grafiklerini de çizmeyi öğreneceksiniz.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/axes3d/index.html">axes3d</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/colorbar/index.html">colorbar</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/color-map/index.html">color map</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/contour/index.html">contour</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/cstride/index.html">cstride</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/imshow/index.html">imshow</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/indexing/index.html">indexing</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/meshgrid/index.html">meshgrid</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/mplot3d/index.html">mplot3d</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/mpl_toolkits/index.html">mpl_toolkits</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/plot_surface/index.html">plot_surface</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/plot_wireframe/index.html">plot_wireframe</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/projection/index.html">projection</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/reshape/index.html">reshape</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/rstride/index.html">rstride</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/shape/index.html">shape</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/size/index.html">size</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/view_init/index.html">view_init</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <h3 class="mb-3">Yüksek Boyutlu Array Nesneleri</h3>
+
+
+
+
+
+
+
+<p>
+İç içe geçmiş listeler gibi iç içe array nesneleri de tanımlayabiliriz. Yani bir array nesnesinin elemanları yine array nesneleri olabilir, böyle nesneleri kullanarak çok değişkenli fonksiyonları vektörize edebiliriz. Örneğin bir $f(x,y)$ fonksiyonunu 100 tane nokta ile vektörize etmek için her bir $(x_i, y_i)$ ikilisini bir array nesnesinde saklamalıyız, bu sıralı ikililerin her biri de iki float elemanı olan array nesneleri olacaktır. Sonuçta oluşan iç içe array nesnesi 100 satır ve 2 sütundan oluşan bir tablo gibi düşünülebilir. Böyle nesnelere yüksek boyutlu array nesneleri deriz. Her yüksek boyutlu array nesnesinin bir biçim (<strong>shape</strong>) değeri vardır, bu örnektekinin shape değeri <code class="language-python">(100, 2)</code> olur. Ayrıca yüksek boyutlu array nesnelerinin <code class="language-python">size</code> değerleri ise toplam eleman sayısıdır, bu örnektekinin <code class="language-python">size</code> değeri 200 olacaktır.
+</p>
+
+<p>
+Herhangi bir iç içe listeyi NumPy paketinin <code class="language-python">array()</code> fonksiyonu yardımıyla bir <code class="language-python">numpy.ndarray</code> nesnesine dönüştürebiliriz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> x = range(-2, 3)
+>>> y = [i**2 for i in x]
+>>> tablo = [[a, b] for a, b in zip(x, y)]
+>>> import numpy as np
+>>> z = np.array(tablo)
+>>> z
+array([[-2,  4],
+       [-1,  1],
+       [ 0,  0],
+       [ 1,  1],
+       [ 2,  4]])
+>>> z.size
+10
+>>> z.shape
+(5, 2)
+</code></pre>
+
+<p>
+Yüksek boyutlu array nesnelerinde dilimleme konusunu örneklemek için daha büyük bir array verisi oluşturalım. Bunun için kullanacağımız <code class="language-python">reshape()</code> fonksiyonu, nesnenin biçimini değiştirmeye yarar.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> t = np.linspace(1, 20, 20, dtype=int).reshape(4, 5)
+>>> t
+array([[ 1,  2,  3,  4,  5],
+       [ 6,  7,  8,  9, 10],
+       [11, 12, 13, 14, 15],
+       [16, 17, 18, 19, 20]])
+</code></pre>
+
+<p>
+Böyle bir array nesnesinde iç içe listelerde olduğu gibi <code class="language-python">t[i][j]</code> biçiminde tekil elemanlarına ulaşabiliriz. Ayrıca array nesnelerinde bunun daha kompakt bir yolu vardır: <code class="language-python">t[i, j]</code>. Ayrıca <code class="language-python">s1</code> ve <code class="language-python">s2</code> iki dilim olmak üzere <code class="language-python">t[s1, s2]</code> biçiminde hızlı bir dilimleme yapabiliriz, <code class="language-python">t[0:3:2, :-2]</code> gibi.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> t[2][3]
+14
+>>> t[2, 3]
+14
+>>> t[0:, 2]
+array([ 3,  8, 13, 18])
+>>> t[:, 2]
+array([ 3,  8, 13, 18])
+>>> t[1: -1: 2, 2:]
+array([[ 8,  9, 10]])
+</code></pre>
+
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Üç Boyutlu Yüzey Grafikleri</h3>
+
+
+
+
+
+<p>
+İki değişkenli bir fonksiyonun grafiğini çizmek için, ki bu bir yüzer belirtir ve 3 boyutlu $(x, y, z)$ uzayında bulunur, öncelikle fonksiyonun $x$ ve $y$ eksenlerinin oluşturduğu bir ızgarada (<strong>grid</strong>) vektörize edilmesi gerekir. Bunu yapmak için ilk olarak bu grid nesnesi oluşturulmalıdır ve bunu yapmak için NumPy paketinin <code class="language-python">meshgrid()</code> fonksiyonundan faydalanırız.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> import numpy as np
+>>> x = np.linspace(1, 5, 5)
+>>> y = np.linspace(1, 5, 5)
+>>> X, Y = np.meshgrid(x, y, indexing='ij')
+>>> X
+array([[ 1.,  1.,  1.,  1.,  1.],
+       [ 2.,  2.,  2.,  2.,  2.],
+       [ 3.,  3.,  3.,  3.,  3.],
+       [ 4.,  4.,  4.,  4.,  4.],
+       [ 5.,  5.,  5.,  5.,  5.]])
+>>> Y
+array([[ 1.,  2.,  3.,  4.,  5.],
+       [ 1.,  2.,  3.,  4.,  5.],
+       [ 1.,  2.,  3.,  4.,  5.],
+       [ 1.,  2.,  3.,  4.,  5.],
+       [ 1.,  2.,  3.,  4.,  5.]])
+</code></pre>
+
+<p>
+Bu aşamadan sonra artık fonksiyonu vektörize edebiliriz, bunun için fonksiyona <code class="language-python">x</code> ve <code class="language-python">y</code> değişkenlerini değil, <code class="language-python">X</code> ve <code class="language-python">Y</code> değişkenlerini vermeliyiz. Burada kullandığımız <code class="language-python">indexing</code> parametresi <code class="language-python">'xy'</code> ve <code class="language-python">'ij'</code> olmak üzere iki farklı değer alabilir, eksenlerin doğru sırada görüntülenmesi için <code class="language-python">'ij'</code> seçmeliyiz.
+</p>
+
+
+<p>
+Şimdi grafik çizme işlemini bir örnekler üzerinde açıklayalım. Örnek olarak $$f(x, y):=\left(1-(x^2+y^3)\right)\text{e}^{-(x^2+y^2)/2}$$ fonksiyonunu $[-3.5, 3.5]$ aralığında ele alalım. Bu gibi iki değişkenli bir fonksiyonun farklı grafik çeşitleri vardır. Bunlardan birisi $z=f(x,y)$ eşitliğinin belirttiği $(x, y, z)$ noktalarının oluşturduğu yüzeyi çizmektir. Aşağıdaki programda bu yüzeyi renksiz olarak çiziyoruz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+x = y = np.linspace(-3.5, 3.5, 100)
+X, Y = np.meshgrid(x, y, indexing='ij')
+f = lambda x, y: (1-(x**2+y**3))*np.exp(-(x**2+y**2)/2)
+
+fig = plt.figure()
+ax = fig.gca(projection='3d')
+ax.plot_wireframe(X, Y, f(X, Y), cstride=3, rstride=3)
+plt.show()
+</code></pre>
+
+<p>
+Şimdi bu programı açıklayalım, öncelikle 5, 6 ve 7. satırlarda vektörizasyonu tamamlıyoruz. Daha sonra <code class="language-python">fig</code> değişkeniyle isimlendireceğimiz bir figure nesnesi oluşturyoruz. Bundan sonra da bu figure nesnesinin eksenlerini <code class="language-python">ax</code> isimli bir değişkene atıyoruz, burada eksenlerin <code class="language-python">gca()</code> (<strong>get current axis</strong>) fonksiyonu ile getirildiğine dikkat edelim. Ayrıca <code class="language-python">projection</code> parametresi <code class="language-python">'3d'</code> olarak belirtilmelidir, tüm üç boyutlu grafiklerde bu işlem yapılmalıdır. Bunun için <code class="language-python">mpl_toolkits.mplot3d</code> modülünde bulunan <code class="language-python">Axes3D</code> nesnesi programa ithal edilmelidir. Renksiz olarak doğrudan grid üzerindeki noktaları doğrularla birleştirerek grafik oluşturmak için <code class="language-python">plot_wireframe()</code> fonksiyonunu kullanırız. Burada <code class="language-python">cstride</code> ve <code class="language-python">rstride</code> değişkenleri grid üzerinde $x$ ve $y$ yönlerinde çizgilerin hangi sıklıkta çizileceğini belirtir. Burada bir her 3 noktada bir çizgi istedik, sıklaştırmak için bu sayıyı düşürmemiz gerekir. Bu oluşturulan grafik sonrsındaki şekilde verilen ilk grafiktir.
+</p>
+
+
+<img class="envfig" src="../../../static/ders-notu/python-bilimsel-hesaplama/plt9.svg" width="95%">
+
+
+<p>
+Yukarıdaki şekil ile verilen ikinci görselde olduğu gibi grafiği renkli bir yüzey olarak çizdirmek için <code class="language-python">plot_surface()</code> fonksiyonunu kullanırız. Fakat bu durumda renklendirmenin nasıl yapılacağını belirtmemiz gerekiyor. Bunun için renk haritaları (<strong>color map</strong>) denilen nesneleri kullanıyoruz, bunlar genelde $z=f(x,y)$ değerine göre grafiği renklendirirler. Yani grafiğin yüksekliği değiştikçe rengi de değişir. Bu nesneleri Matplotlib içinde <code class="language-python">cm</code> modülünde bulabiliriz, mümkün olan tüm seçenekler aşağıda verilmektedir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import cm
+
+x = y = np.linspace(-3.5, 3.5, 100)
+X, Y = np.meshgrid(x, y, indexing='ij')
+f = lambda x, y: (1-(x**2+y**3))*np.exp(-(x**2+y**2)/2)
+
+fig = plt.figure()
+ax = fig.gca(projection='3d')
+ax.plot_surface(X, Y, f(X, Y), cmap=cm.jet, rstride=2, cstride=2)
+plt.show()
+</code></pre>
+
+
+
+
+<div class="row">
+<div class="col"><img class="envfig" src="../../../static/ders-notu/python-bilimsel-hesaplama/cm1.svg" width="100%"></div>
+<div class="col"><img class="envfig" src="../../../static/ders-notu/python-bilimsel-hesaplama/cm2.svg" width="100%"></div>
+</div>
+<div class="row">
+<div class="col"><img class="envfig" src="../../../static/ders-notu/python-bilimsel-hesaplama/cm3.svg" width="100%"></div>
+<div class="col"><img class="envfig" src="../../../static/ders-notu/python-bilimsel-hesaplama/cm4.svg" width="100%"></div>
+</div>
+<div class="row">
+<div class="col"><img class="envfig" src="../../../static/ders-notu/python-bilimsel-hesaplama/cm5.svg" width="100%"></div>
+<div class="col"><img class="envfig" src="../../../static/ders-notu/python-bilimsel-hesaplama/cm6.svg" width="100%"></div>
+</div>
+
+
+
+
+
+
+<p>
+Üç boyutlu bir grafiği çizdirirken görüş açımızı değiştirebiliriz, bunu <code class="language-python">view_init()</code> fonksiyonu ile yaparız. Bu fonksiyona dikey ve yatay yönde ne kadarlık bir açı ile döndüreceğimizi belirtiriz. Örnek olarak verilen grafikleri inceleyin.
+</p>
+
+
+<img class="envfig" src="../../../static/ders-notu/python-bilimsel-hesaplama/plt10.svg" width="75%">
+
+
+<p>
+Sıradaki program, grafiği yatay olarak kendi ekseninde döndüren bir animasyon oluşturur. Buna benzer şekilde dikey ekseni etrafında dönen bir animasyonu da siz hazırlayın.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import cm
+import os, glob
+
+x = y = np.linspace(-3.5, 3.5, 100)
+X, Y = np.meshgrid(x, y, indexing='ij')
+f = lambda x, y: (1-(x**2+y**3))*np.exp(-(x**2+y**2)/2)
+
+fig = plt.figure(1)
+ax = fig.gca(projection='3d')
+ax.plot_surface(X, Y, f(X, Y), cmap=cm.jet, rstride=3, cstride=3)
+ax.view_init(25, 75)
+
+for aci in range(0, 360, 5):
+    ax.view_init(30, aci)
+    plt.title('Aci: (30, %d)' % aci, y=1)
+    plt.savefig('pltanimasyon%03d.png' % aci)
+
+os.system('convert -delay 10 pltanimasyon*.png pltanimasyon.gif')
+
+for dosya in glob.glob('pltanimasyon*.png'):
+    os.remove(dosya)
+</code></pre>
+
+
+
+
+
+<img class="envfig" src="../../../static/ders-notu/python-bilimsel-hesaplama/pltanimasyon.gif">
+
+
+
+<h3 class="mt-5 mb-3">Seviye Eğrileri ve Diğer Grafikler</h3>
+
+
+
+
+
+
+<p>
+Bir $f(x, y)$ fonksiyonunu görsel olarak temsil etmenin başka bir yolu da bazı seviye eğrilerini çizmektir. Bir seviye eğrisi, $C$ bir sabit olmak üzere, $f(x, y)=C$ bağınıtısı ile verilen eğridir. Farklı $C$ sayıları için bir kaç seviye eğrisi aynı grafikte gösterilince yüzeyi anlamamız kolaylaşır. Seviye eğrilerini çizmek için Matplotlib içinde bulunan <code class="language-python">contour()</code> fonksiyonunu kullanırız, verilecek olan argümanlar <code class="language-python">plot_surface()</code> fonksiyonu ile benzerdir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib import cm
+
+x = y = np.linspace(-3.5, 3.5, 100)
+X, Y = np.meshgrid(x, y, indexing='ij')
+f = lambda x, y: (1-(x**2+y**3))*np.exp(-(x**2+y**2)/2)
+
+fig = plt.figure()
+ax = fig.gca()
+ax.contour(X, Y, f(X, Y), cmap=cm.jet)
+plt.show()
+</code></pre>
+
+<p>
+Bu program aşağıdaki ile verilen ilk grafiği üretir. Bunu üç boyutlu eksenler üzerine çizdirirsek her bir $C$ sayısı için oluşan seviye eğrisini $z$ ekseninde $z=C$ yüzeyinde gösterilir. Bunu aşağıdaki gibi yaparız ve çıktısı aşağıdaki şekil ile verilen ikinci grafikteki gibidir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import cm
+
+x = y = np.linspace(-3.5, 3.5, 100)
+X, Y = np.meshgrid(x, y, indexing='ij')
+f = lambda x, y: (1-(x**2+y**3))*np.exp(-(x**2+y**2)/2)
+
+fig = plt.figure()
+ax = fig.gca(projection='3d')
+ax.contour(X, Y, f(X, Y), cmap=cm.jet)
+ax.view_init(15, 40)
+plt.show()
+</code></pre>
+
+
+
+
+<img class="envfig" src="../../../static/ders-notu/python-bilimsel-hesaplama/plt11.svg" width="100%">
+
+
+
+
+<p>
+İstersek kaç tane sevie eğrisi gösterileceğini belirtebiliriz, bunu aşağıdaki gibi yaparız ve çıktısı sıradaki şekil ile verilen ilk grafikteki gibi olur.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib import cm
+
+x = y = np.linspace(-3.5, 3.5, 100)
+X, Y = np.meshgrid(x, y, indexing='ij')
+f = lambda x, y: (1-(x**2+y**3))*np.exp(-(x**2+y**2)/2)
+
+fig = plt.figure()
+ax = fig.gca()
+ax.contour(X, Y, f(X, Y), 20, cmap=cm.jet)
+plt.axis('equal')
+plt.show()
+</code></pre>
+
+<p>
+Ayrıca istersek seviye eğrileri için kullanılan $C$ sayıları açıkça bir liste içinde belirtilebilir. Aşağıdaki programı inceleyin, sıradaki şekil ile verilen ikinci grafik üretilecektir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib import cm
+
+x = y = np.linspace(-3.5, 3.5, 100)
+X, Y = np.meshgrid(x, y, indexing='ij')
+f = lambda x, y: (1-(x**2+y**3))*np.exp(-(x**2+y**2)/2)
+
+fig = plt.figure()
+ax = fig.gca()
+L = [-0.75, -0.5, -0.25, 0.0, 0.25, 0.5, 0.75]
+ax.contour(X, Y, f(X, Y), levels=L, cmap=cm.jet)
+plt.axis('equal')
+plt.show()
+</code></pre>
+
+
+
+<img class="envfig" src="../../../static/ders-notu/python-bilimsel-hesaplama/plt12.svg" width="100%">
+
+
+
+<p>
+Arsu edersek her bir seviye eğrisinin karşılık geldiği $C$ değerini grafik üzerinde belirtebiliriz. Bunun için grafiği bir değişkene atayıp bu değişkeni <code class="language-python">clabel()</code> fonksiyonunda kullanırız. Aşağıdaki programda bunu örnekliyoruz, çıktısı olan grafik aşağıdaki şekil ile verilmektedir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib import cm
+
+x = y = np.linspace(-3.5, 3.5, 100)
+X, Y = np.meshgrid(x, y, indexing='ij')
+f = lambda x, y: (1-(x**2+y**3))*np.exp(-(x**2+y**2)/2)
+
+fig = plt.figure()
+ax = fig.gca()
+seviye = ax.contour(X, Y, f(X, Y), cmap=cm.jet)
+plt.clabel(seviye)
+plt.show()
+</code></pre>
+
+
+
+
+<img class="envfig" src="../../../static/ders-notu/python-bilimsel-hesaplama/plt13.svg" width="60%">
+
+
+
+
+<p>
+Yeteri kadar fazla sayıda seviye eğrisi ile tüm düzlem doldurulursa renkli bir harita oluşur. Bu görüntü yüzeyin kuşbakışı görünümü gibidir ve <code class="language-python">imshow()</code> fonksiyonu ile yapılabilir. Böyle bir grafikle birlikte bir yükseklik ölçeği vermek faydalı olacaktır, bunu da <code class="language-python">colorbar()</code> fonksiyonu ile yaparız. Aşağıdaki program böyle bir grafik çizer, ek olarak yukarıdaki programda yaptığımız gibi etiketlenmiş seviye eğrilerini de aynı grafikte gösterir. Bunun çıktısı aşağıda verilecektir. Bu programda ayrıca seviye eğrisi etiketlerini biçimlendirmek için bazı yöntemler de gösteriliyor.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib import cm
+
+x = y = np.linspace(-3.5, 3.5, 100)
+X, Y = np.meshgrid(x, y, indexing='ij')
+f = lambda x, y: (1-(x**2+y**3))*np.exp(-(x**2+y**2)/2)
+
+fig = plt.figure()
+ax = fig.gca()
+grafik = ax.imshow(f(X, Y), cmap=cm.jet)
+seviye = ax.contour(f(X,Y),linewidths=1, colors='k')
+ax.clabel(seviye, inline=True, fmt='%1.1f', fontsize=8)
+fig.colorbar(grafik)
+plt.show()
+</code></pre>
+
+
+
+
+
+<img class="envfig" src="../../../static/ders-notu/python-bilimsel-hesaplama/plt14.svg" width="70%">
+
+
+
+
+
+<p>
+Python'da Matplotlib ile parametrik uzay eğrilerinin grafikleri de çizilebilir. Örnek olarak $$\textbf{r}(t)=t\cos(t)\textbf{i} + t\sin(t)\textbf{j} + t\textbf{k}$$ eğrisinin grafiğini çizdirelim. Bunun için <code class="language-python">plot()</code> fonksiyonu kullanılır, aşağıdaki programda bu fonksiyonun kullanımı örnekleniyor.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+t = np.linspace(0, 10*np.pi, 1000)
+X = t*np.cos(t)
+Y = t*np.sin(t)
+Z = t
+
+fig = plt.figure()
+ax = fig.gca(projection='3d')
+ax.plot(X, Y, Z, 'r-', lw=2)
+
+plt.show()
+</code></pre>
+
+<p>
+Bu program sıradaki şekil ile verilen grafiği üretir.
+</p>
+
+
+
+
+
+<img class="envfig" src="../../../static/ders-notu/python-bilimsel-hesaplama/plt15.svg" width="70%">
+
+
+
+
+
+<p>
+Bir fonksiyonun oluşturduğu vektör alanı çizilebilir, bunun için gradiyent alanı hesaplatıp daha sonra çizim yaparız. Burada genellikle okların sayısının uygun görüntü için deneme yanılma yoluyla belirlenmesi gerekir. Aşağıdaki grafikte vektör alanı ile birlikte bazı seviye eğrileri aynı grafikte gösteriliyor. Düzgün bir görüntü elde etmek için vektör alanında farklı, seviye eğrilerinde farklı sayıda nokta ile çalışıyoruz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib import cm
+
+x = y = np.linspace(-3.5, 3.5, 20)
+X, Y = np.meshgrid(x, y, indexing='ij')
+
+x2 = y2 = np.linspace(-3.5, 3.5, 100)
+X2, Y2 = np.meshgrid(x2, y2, indexing='ij')
+
+f = lambda x, y: (1-(x**2+y**3))*np.exp(-(x**2+y**2)/2)
+dfdx, dfdy = np.gradient(f(X, Y))
+
+fig = plt.figure()
+ax = fig.gca()
+ax.quiver(X, Y, dfdx, dfdy, color='r')
+ax.contour(X2, Y2, f(X2, Y2), 10, colors='k')
+
+plt.show()
+</code></pre>
+
+<p>
+Bu programla aşağıda görülen grafik elde edilir.
+</p>
+
+
+
+
+<img class="envfig" src="../../../static/ders-notu/python-bilimsel-hesaplama/plt16.svg" width="60%">
+
+
+
+
+
+<p>
+Son olarak farklı grafikleri aynı figure nesnesi içinde çizmeye değinelim. Üç boyutlu grafiklerle bunu yapmak için <code class="language-python">add_subplot()</code> fonksiyonunu kullanırız, aşağıdaki örnekle bunu açıklıyoruz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import cm
+
+x = y = np.linspace(-3.5, 3.5, 100)
+X, Y = np.meshgrid(x, y, indexing='ij')
+f = lambda x, y: (1-(x**2+y**3))*np.exp(-(x**2+y**2)/2)
+
+fig = plt.figure(figsize=plt.figaspect(0.4))
+
+ax = fig.add_subplot(1,2,1, projection='3d')
+ax.plot_surface(X, Y, f(X, Y), cmap=cm.jet, rstride=2, cstride=2)
+
+ax = fig.add_subplot(1,2,2)
+grafik = ax.imshow(f(X, Y), cmap=cm.jet)
+seviye = ax.contour(f(X,Y),linewidths=1, colors='k')
+ax.clabel(seviye, inline=True, fmt='%1.1f', fontsize=8)
+fig.colorbar(grafik, shrink=0.92)
+
+plt.show()
+</code></pre>
+
+<p>
+Burada colorbar ögesinin boyutunu ayarlamak için <code class="language-python">shrink</code> argümanı girdik, en iyi görüntüyü elde etmek için bu sayıyı deneme yanılma yoluyla belirleyebiliriz. Bu grafik aşağıda gösterilmektedir.
+</p>
+
+
+
+
+<img class="envfig" src="../../../static/ders-notu/python-bilimsel-hesaplama/plt17.svg" width="100%">
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../42-grafik-cizimi/index.html">4.2. Grafik Çizimi</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Python ve Bilimsel Hesaplama</a>
+      </div>
+      <div class="col text-right">
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/python-ve-bilimsel-hesaplama/43-uc-boyutlu-grafikler/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:41:18 GMT -->
+</html>

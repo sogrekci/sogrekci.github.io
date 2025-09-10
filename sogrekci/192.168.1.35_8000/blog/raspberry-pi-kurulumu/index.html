@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/blog/raspberry-pi-kurulumu/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:36:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - Raspberry Pi Kurulumu
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../static/site/prism.css">
+    <script src="../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>Raspberry Pi Kurulumu</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-08-10">
+          10 Ağustos 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu yazımda Raspberry Pi cihazınızı ekran, klavye ve fare gibi çevre elemanları olmadan nasıl kurup uzaktan bağlanarak kullanabileceğinizi açıklayacağım. Bu cihazlar ucuz ve çok küçük bir bilgisayar gibi kullanılabilir, kendi web sunucunuzu, mail sunucunuzu ve bunun gibi bir çok şeyi tasarlayıp kullanabilirsiniz.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../dizin/raspberry-pi/index.html">Raspberry Pi</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/raspberry-pi-os/index.html">Raspberry Pi OS</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/raspberry-pi-zero-w/index.html">Raspberry Pi Zero W</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/ssh/index.html">ssh</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/wpa_supplicant/index.html">wpa_supplicant</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-5 text-justify">
+        <p>
+<strong>Raspberry Pi</strong> isimli mikro kontrol platformları hem kabiliyetleri hem de ekonomik fiyatları nedeniyle günümüzde oldukça popüler. Bunlar özetle küçük bir ana kart (board) üzerine yerleştirilmiş işlemci, bellek gibi temel birimlerin oluşturduğu basit bir bilgisayar olarak görülebilir. Kart üzerindeki USB, HDMI gibi girişleri kullanılarak bir Raspberry Pi kartına ekran, klavye, fare, kamera gibi çevre birimlerini bağlayarak bir bilgisayar oluşturabilirsiniz. Bunlar sabit disk olarak kart üzerindeki girişe yerleştirdiğiniz micro SD hafıza kartını kullanıyorlar, dolayısıyla işletim sistemini bir hafıza kartına yükleyip buradan boot edeceksiniz (bunu yapmak için Raspberry Pi şirketinin araçları var, yani bu aslında çok kolay). Raspberry Pi şirketinin resmi olarak geliştirdiği Debian tabanlı olan ve <strong>Raspberry Pi OS</strong> adında bir işletim sistemi var, bunun dışında istediğiniz Linux dağıtımını da kurabilirsiniz. Bunların çeşitli modelleri var ve her modelin donanım özellikleri farklı, günümüzde en son çıkan model Raspberry Pi 4 modelidir ve bunların en güçlüsü dört çekirdekli 1.5 Ghz işlemci ve 8 Gb DDR4 bellek içeriyor. Ben bu yazımda <strong>Raspberry Pi Zero W</strong> modelini kullanacağım ama anlatacaklarım diğer modeller için de geçerli, bu modelde (neredeyse tüm diğer modellerde) Wifi bağlantısı var, bu yolla Raspberry Pi'mize kablosuz bağlanacağız. Raspberry Pi kartımıza güç vermek için firmanın ürettiği adaptörleri kullanabilirsiniz, bunun dışında <a class="outref" target="_blank" href="https://www.raspberrypi.org/documentation/hardware/raspberrypi/power/README.md">şu sayfada</a> belirtilen değerlere uygun herhangi bir adaptör veya güç kaynağı da kullanılabilir. Ben Raspberry Pi Zero W kartını cep telefonumun 5V 1A adaptörü ile, bir powerbank ile, bilgisayarımın USB çıkışı ile hatta AA kalem pillerle sorunsuz şekilde çalıştırdım.
+
+<img class="envfig my-5" src="../../static/blog/rpi_powerbank.jpg" width="75%">
+</p>
+
+<p>
+Elinize Raspberry Pi Zero W kartını aldınız ve ekran, klavye  gibi hiç bir çevre birimi kullanmadan çalıştırmak istiyorsunuz, bunun için öncelikle hafıza kartınıza bir işletim sistemi yüklemelisiniz. Bunu yapmak için <a class="outref" target="_blank" href="https://www.raspberrypi.org/downloads/">şu sayfadan</a> <strong>Raspberry Pi Imager</strong> yazılımını indirin, bunu çalıştırıp hafiza kartınızı ve yüklemek istediğiniz işletim sistemini seçerseniz yazılım seçtiğiniz işletim sistemini indirip hafıza kartınıza boot olabilecek şekilde yükleyecektir. Benim kullandığım Raspberry Pi Zero W modelinde 1 Ghz işlemci ve 512 Mb Ram bulunduğundan en hafif işletim sistemi olan Raspberry Pi OS Lite kurdum, bu işletim sisteminde grafik arayüz yok.
+
+<img class="envfig my-5" src="../../static/blog/rpi_imager.jpg" width="50%">
+</p>
+
+<p>
+Hafıza kartınızı bilgisayardan çıkarmadan önce yapmamız gereken bazı ayarlar var. Öncelikle Raspberry Pi'nize kablosuz bağlanmak için Wifi ayarlarını yapmamız gerekiyor. Hafıza kartınızdaki <code class="language-python">boot</code> klasörüne girip bir <code class="language-python">wpa_supplicant.conf</code> dosyası oluşturun, bunun içine bağlanmak istediğiniz Wifi ağlarını tanımlayacaksınız. Bu dosyayı <a class="outref" target="_blank" href="https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md">şu sayfadaki</a> talimatlara uygun olarak aşağıdaki gibi hazırlamalısınız, buarda ben evdeki Wifi ağı ile cep telefonumun Hotspot Wifi ağının isimlerini ve şifrelerini girdim.
+
+<pre class="my-4"><code class="language-python line-numbers">
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=TR
+
+network={
+    ssid="ev-agi"
+    psk="123456789"
+    priority=1
+    id_str="home"
+}
+
+network={
+    ssid="iphone-suleyman"
+    psk="123456789"
+    priority=2
+    id_str="mobile"
+}
+
+</code></pre>
+</p>
+
+<p>
+Daha sonra yine <code class="language-python">boot</code> klasörü içine <code class="language-python">ssh</code> isimli uzantısız ve içi boş bir dosya oluşturup kaydedin, bu sayede Raspberry Pi'nizin komut işlemcisine (terminal) kendi bilgisayarınızdan erişebileceksiniz.
+</p>
+
+<p>
+Şimdi hafıza kartınızı Raspberry Pi'nize takıp kartınıza güç verin, üzerindeki led lamba yanıp sönmeye başlayacak ve kısa sürede Raspberry Pi cihazınız çalışıp belirttiğiniz Wifi ağına bağlanacaktır. Bir şekilde cihaza atanan ip adresini bulmanız gerekiyor, kullandığınız bilgisayar da aynı ağa bağlansın. Ben <strong>LanScan</strong> isimli bir uygulama kullanıyorum, bu uygulama bilgisayarın bağlı olduğu ağdaki tüm cihazların ip adreslerini gösteriyor.
+
+<img class="mx-auto d-block py-5" src="../../static/blog/lanscan.jpg" width="90%">
+</p>
+
+<p>
+Şimdi bilgisayarınızın terminalinden <code class="language-python">ssh pi@123.45.67.89</code> yazın (burada ip adresinizi kendi Raspberry Pi ip adresi ile değiştirin), şifre istenince <code class="language-python">raspberry</code> yazın (işletim sisteminizde varsayılan kullanıcı adı ve şifre bu şekildedir). Artık Raspberry Pi cihazınıza bağlanmış olmalısınız, istediğiniz gibi kullanabilirsiniz. Mesela ben <a class="outref" target="_blank" href="https://projects.raspberrypi.org/en/projects/lamp-web-server-with-wordpress">şu sayfadaki</a> adımları takip ederek bir web server kurup wordpress sitesi kurdum, daha sonra postfix kullanarak bir de smtp mail server kurdum.
+
+<img class="envfig my-5" src="../../static/blog/rpi_ssh.jpg" width="50%">
+</p>
+
+<p>
+Buradaki işlemleri takip ederek sadece aynı ağdayken Raspberry Pi'nize bağlanabilirsiniz, uzak ağdan bağlantı sağlamak için sabit ip adresiniz veya dynamicDNS ayarınız olmalı, ben ücretsiz olan <a class="outref" target="_blank" href="https://www.noip.com/">noip</a> servisini kullanıyorum. Ayrıca ben <a class="eqref" href="https://sogrekci.com/blog/bedava-lisansli-mathematica/">şu blog yazımda</a> anlattığım gibi ücretsiz <strong>Wolfram Mathematica</strong> yükleyip uzaktan bağlanarak hesaplamalar yapıyorum.
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Blog Yazısı:<br>
+        <a href="../bedava-lisansli-mathematica/index.html">Bedava Lisanslı Mathematica</a>
+        
+      </div>
+      <div class="col text-center mt-auto">
+        <a href="../index.html">Blog Ana Sayfası</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Blog Yazısı:<br>
+        <a href="../pythonda-opencv-ile-yuz-tanima/index.html">Python'da OpenCV ile Yüz Tanıma</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+
+
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../ders-notu/index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/blog/raspberry-pi-kurulumu/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:36:32 GMT -->
+</html>

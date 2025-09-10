@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/latexe-giris/10-xy-pic-paketi-ile-cizim/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:41:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 10. XY-pic Paketi İle Çizim
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>10. XY-pic Paketi İle Çizim</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-20">
+          20 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-06-03">
+          3 Haziran 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Sıkça ihtiyacımız olan bazı diyagramları çizmek için <strong>Tikz</strong> paketine göre daha basit bir yol daha var: <strong>XY-pic</strong> paketi. Bu derste bu paketi kullanarak kolayca diyagramları nasıl çizebileceğimizi öğreneceğiz.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/diyagram/index.html">diyagram</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/dogrular/index.html">doğrular</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/grafik/index.html">grafik</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/grafik-cizimi/index.html">grafik çizimi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/oklar/index.html">oklar</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/sekiller/index.html">şekiller</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/xy-pic/index.html">xy-pic</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Bazı diyagramlar <a class="outref" target="_blank" href="https://www.ctan.org/pkg/xypic">XY-pic</a> paketi ile <a class="eqref" href="../9-tikz-paketi-ile-cizim/index.html">Tikz</a> paketine göre daha kolay çizilebilir. Bu paket dokümana <code class="language-latex">\usepackage[all]{xy}</code> komutuyla yüklenir, daha sonra çizimler <code class="language-latex">xymatrix</code> komutu içinde çizilebilir: <code class="language-latex">\xymatrix{ ... }</code>
+</p>
+
+<p>
+Bu komut içinde çizimler matris formatında olur, yani satır ve sütunlardan oluşur. <code class="language-latex">array</code> formatı ile uyumlu olarak sütunlar arasında <code class="language-latex">&</code>, satırlar arasında da <code class="language-latex">\\</code> karakterleri yer alır. Örneğin <code class="language-latex">\xymatrix{A&B\\C&D&E}</code> komutu aşağıdaki diyagramı çizer. Diyagramı ortaya hizalamak için <code class="language-latex">\centerline{\xymatrix{...}}</code> komutu kullanılabilir.
+</p>
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/xypic1.svg" width="30%">
+
+
+
+
+
+<p>
+
+XY-pic paketi ile diyagramlarda hücreler arası <strong>oklar</strong> <code class="language-latex">\ar[...]</code> komutu ile çizilir, burada argüman olarak hedef hücrenin pozisyon bilgisi belirtilir. Bu argüman yukarı, aşağı, sağ ve sol yönler için sırasıyla <code class="language-latex">u</code>, <code class="language-latex">d</code>, <code class="language-latex">r</code> ve <code class="language-latex">l</code> karakterlerinden veya bunların bir dizisinden oluşur.
+</p>
+
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\xymatrix{
+    A & B\\
+    C & D \ar[ul] & E
+}
+</code></pre>
+
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/xypic2.svg" width="30%">
+
+
+
+
+
+<p>
+
+
+	Çizilen okların stilleri <code class="language-latex">\ar@{style}[...]</code> komutuyla belirtilebilir. Burada <code class="language-latex">{style}</code> kısmında çizilecek olan okun stili tarif edilir, klasik ok için stil bilgisi girilmesine gerek yoktur.
+
+	En sık kullanılan stiller <code class="language-latex"><-></code>, <code class="language-latex">=></code>, <code class="language-latex"><=></code>, <code class="language-latex">--></code>, <code class="language-latex">.></code>, <code class="language-latex">~></code> gibi sıralanabilir.
+
+
+</p>
+
+
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\xymatrix{
+    A \ar@{-}[drr] & B \ar@{~>}[dr] \ar@{<--}[l] \\
+    & C \ar@{<.>}[ul] & D \ar@{<=>}[l]
+}
+</code></pre>
+
+
+
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/xypic3.svg" width="30%">
+
+
+
+
+
+<p>
+Bir ok stili en genel biçimde <code class="language-latex">@{kuyruk gövde baş}</code> olarak belirtilir, <code class="language-latex">@{<->}</code> gibi. Kuyruk ve baş kısımları için bir önceki örnekte kullanılanlar haricinde en yaygın kullanılan karakterler <a class="outref" target="_blank" href="https://www.ctan.org/pkg/xypic">XY-pic</a> sayfasında bulunan kullanıcı kılavuzu belgesinde görülebilir.
+</p>
+
+
+
+
+
+
+
+<p>
+Diyagramlardaki oklar üzerine metin yerleştirilebilir, metinlerin pozisyonu matematik modunda olduğu gibi <code class="language-latex">^</code> ve <code class="language-latex">_</code> karakterleri ile belirtilebilir. Bunlara ek olarak <code class="language-latex">|</code> karakteri de kullanılabilir. Aşağıdaki örnekte bunların kullanımı gösterilmiştir.
+</p>
+
+
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\xymatrix{
+A \ar[dr]_{f;g} \ar[r] | f & B \ar[d]^g \ar[dr]^{g;h} \\
+& C \ar[r]_h & D
+}
+</code></pre>
+
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/xypic4.svg" width="30%">
+
+
+
+
+
+
+<p>
+Okların gövdeleri eğri yapılabilir, eğri oklar kabaca eğri stilleridir ve <code class="language-latex">@/.../</code> biçiminde belirtilir. En yaygın karşılaşılan eğri oklar için <code class="language-latex">@/^/</code>, <code class="language-latex">@/_/</code> ve <code class="language-latex">@/_1pc/</code> gibi stiller kullanılır.
+</p>
+
+
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\xymatrix{
+U \ar@{.>}[dr]|{(x,y)} \ar@/_/[ddr]_y \ar@/^/[drr]^x &&&\\
+& X\times _ZY \ar[r]_p \ar[d]^q & X \ar[d]_f \\
+& Y \ar[r]^g & Z
+}
+</code></pre>
+
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/xypic5.svg" width="60%">
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../9-tikz-paketi-ile-cizim/index.html">9. Tikz Paketi İle Çizim</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">LaTeX'e Giriş</a>
+      </div>
+      <div class="col text-right">
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/latexe-giris/10-xy-pic-paketi-ile-cizim/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:41:48 GMT -->
+</html>

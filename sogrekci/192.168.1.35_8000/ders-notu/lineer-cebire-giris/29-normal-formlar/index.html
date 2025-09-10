@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/29-normal-formlar/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:04 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 2.9. Normal Formlar
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>2.9. Normal Formlar</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-06-01">
+          1 Haziran 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-06-03">
+          3 Haziran 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste en genel anlamıyla <strong>normal</strong> veya <strong>kanonik</strong> form (biçim) kavramı açıklanacaktır. Özetle bir denklik bağıntısı verildiğinde bir denklik sınıfından seçilen özel bir matrise bir normal form denir.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/baginti/index.html">bağıntı</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/denklik-bagintisi/index.html">denklik bağıntısı</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/denklik-sinifi/index.html">denklik sınıfı</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/kanonik-form/index.html">kanonik form</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/normal-form/index.html">normal form</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Normal form kavramını anlayabilmek için önce <strong>denklik bağıntısı</strong> kavramını tanımlamamız gerekiyor. Bir kümenin kendisiyle kartezyen çarpımının her alt kümesi bu küme üzerinde bir <strong>bağıntı</strong> tanımlar. Bir $(a,b)$ sıralı ikilisi bu bağıntının bir elemanı ise $a$ elemanı $b$ elemanına bağıntılıdır denir ve bu durum $a\sim b$ ile gösterilir.
+</p>
+
+<p>
+<div class="envdef" id="def:denklikbagintisi"><h6 class="thenv">Tanım 2.9.1</h6>
+$S$ kümesinde üzerindeki bir bağıntı aşağıdaki özellikleri sağlarsa bu bağıntıya $S$ üzerinde bir <strong>denklik bağıntısı</strong> denir.
+<ol>
+<li class="py-2">Yansıma özelliğ; $a\sim a$,</li>
+<li class="py-2">simetri özelliği; $a\sim b$ ise $b\sim a$,</li>
+<li class="py-2">geçişme özelliği; $a\sim b$ ve $b\sim c$ ise $a\sim c$.</li>
+</ol>
+Bir denklik bağıntısında $a\sim b$ oluyorsa $a$ ile $b$ <strong>denktir</strong> denir.
+</div>
+</p>
+
+<p>
+<div class="envex" id="ex:lint:10"><h6 class="thenv">Örnek 2.9.2</h6>
+Rasyonel sayıları ele alalım, $a,b,c,d$ tam sayılar olsun. $a/b\sim c/d$ olması için gerek ve yeter koşul $ad=bc$ olacak şekilde bir denklik bağıntısı tanımlanabilir. Bu tanım rasyonel sayılarda eşitliğin klasik tanımıdır ve denklik bağıntısı şartlarını sağlar. Başka bir örnek olarak doğruları ele alalım, doğrular arasındaki paralel olma bağıntısı da bir denklik bağıntısı örneğidir. Başka bir geometrik örnek olarak üçgenlerin benzer olma bağıntısı da bir denklik bağıntısıdır.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:42"><h6 class="thenv">Uyarı 2.9.3</h6>
+Denklik aslında eşitliğin genelleştirilmiş bir halidir. Denk elemanların hepsi, denklik bağıntısında vurgulanan özelliği taşırlar.
+</div>
+</p>
+
+<p>
+<div class="envdef" id="def:denkliksinif"><h6 class="thenv">Tanım 2.9.4</h6>
+Her bir $a\in S$ için $S_a:=\{b\in S\;:\; b\sim a \}$ kümelerine ilgili denklik bağıntısının <strong>denklik sınıfları</strong> denir. Yani bu kümeler birbirine denk olan elemanlardan oluşur.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:43"><h6 class="thenv">Uyarı 2.9.5</h6>
+$S_a\cap S_b\neq\emptyset$ olsun, yani $c\sim a$ ve $c\sim b$ olacak şekilde bir $c\in S_a\cap S_b$ elemanı var olsun. Bu durumda simetri özelliği gereği $b\sim c$ ve geçişme özelliği gereği $b\sim a$ olur. Diğer yandan başka bir eleman $d\in S_b$ ise, yani $d\sim b$ ise, geçişme özelliği gereği $d\sim a$ olur. Dolayısıyla $d\in S_a$ olacağından $S_b\subset S_a$ elde edilmiş olur. Simetri özelliği kullanılarak benzer şekilde $S_a\subset S_b$ olduğu da gösterilebilir., dolayısıyla $S_a=S_b$ sonucuna varılmış olur. Sonuç olarak denklik sınıfları ya ayrıktır yada birbiriyle özdeştir, bir küme üzerindeki bir denklik bağıntısı o kümeyi denklik sınıfları ile ayrık parçalara ayırır. Ayrıca bir denklik sınıfı, o sınıftan alınan herhangi bir eleman ile tamamen elde edilebilir, alınan bu elemana o denklik sınıfının <strong>temsilcisi</strong> denir. Ayrıca bir kümenin herhangi ayrık bir parçalanması verildiğinde bunu kullanarak bir denklik bağıntısı tanımlanabilir, bu durumda herhangi iki elemanın denk olması için gerek ve yeter koşul bunların aynı alt kümede olmasıdır.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:44"><h6 class="thenv">Uyarı 2.9.6</h6>
+Şu ana kadar matrisler üzerinde bazı denklik bağıntılarıyla karşılaştık, bunları açıklayalım.
+<ol>
+<li class="py-2">$B=Q^{-1}A$ olacak şekilde tersinir bir $Q$ matrisi varsa $A$ ve $B$ matrisleri <strong>soldan bağlantılıdır</strong> denir.</li>
+<li class="py-2">$B=PA$ olacak şekilde tersinir bir $P$ matrisi varsa $A$ ve $B$ matrisleri <strong>sağdan bağlantılıdır</strong> denir.</li>
+<li class="py-2">$B=Q^{-1}AP$ olacak şekilde tersinir $Q$ ve $P$ matrisleri varsa $A$ ve $B$ matrisleri <strong>bağlantılıdır</strong> denir.</li>
+<li class="py-2">$B=P^{-1}AP$ olacak şekilde tersinir bir $P$ matrisi varsa $A$ ve $B$ matrisleri <strong>benzerdir</strong> denir.</li>
+</ol>
+	Örnek olarak soldan bağlantılı olmanın bir denklil bağıntısı olduğunu gösterelim.
+<ol>
+<li class="py-2">$IA=A$ olduğundan $A\sim A$ olur.</li>
+<li class="py-2">$A\sim B$ olsun, yani $B=QA$ eşitliği sağlanacak şekilde bir tersinir $Q$ matrisi var olsun. Bu durumda $A=Q^{-1}B$ olacağından $B\sim A$ olur.</li>
+<li class="py-2">$A\sim B$ ve $B\sim C$ olsun, yani $B=Q_1A$ ve $C=Q_2B$ olacak şekilde tersinir $Q_1$ ve $Q_2$ matrisleri var olsun. Bu durumda $Q_2Q_1A=Q_2B=C$ olacağından $A\sim C$ olur.</li>
+</ol>
+	Böylece <a class="eqref" href="#def:denklikbagintisi">Tanım 2.9.1</a> ile verilen özellikler sağlanmış olur.
+</div>
+</p>
+
+<p>
+<div class="envdef" id="def:normalform"><h6 class="thenv">Tanım 2.9.7</h6>
+Matrisler üzerinde bir denklik bağıntısı verildiğinde, her bir denklik sınıfından özel olarak seçilen bir matrise bir <strong>normal form</strong> denir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:45"><h6 class="thenv">Uyarı 2.9.8</h6>
+Matematikte <strong>normal</strong> ve <strong>kanonik</strong> terimleri birbiri ile benzer anlamlarda kullanılır. Bir normal (veya kanonik) form, aynı denklik sınıfındaki tüm elemanları temsil eden bir elemandır. Seçilecen bir normal formun şu özellikleri sağlaması gerekir: bir $A$ matrisi verildiğinde
+<ol>
+<li class="py-2">$A$ matrisini içeren denklik sınıfının normal formunu belirlemek için bir metod bilinmelidir,</li>
+<li class="py-2">bu metodla belirlenen normal form tek türlü olmalıdır.</li>
+</ol>
+Normal formların bir çok kullanımı vardır, belki de en önemlilleri elemanların matris temsilleri üzerindedir. Bunu daha önce Hermite normal formu konusunda detaylı olarak inceledik. Başka bir örnek olarak bağlantılı olma bağıntısı için normal form <a class="eqref" href="../24-baz-degisimi/index.html#theo:lint:22">Teorem 2.4.8</a> ile verilmiştir.
+</div>
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../28-bazi-uygulamalar/index.html">2.8. Bazı Uygulamalar</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Lineer Cebire Giriş</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../31-permutasyonlar/index.html">3.1. Permütasyonlar</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/29-normal-formlar/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:04 GMT -->
+</html>

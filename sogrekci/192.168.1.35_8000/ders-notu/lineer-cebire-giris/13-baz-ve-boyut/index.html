@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/13-baz-ve-boyut/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:04 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 1.3. Baz ve Boyut
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>1.3. Baz ve Boyut</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-28">
+          28 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste vektör uzayları için <strong>baz</strong> ve <strong>boyut</strong> kavramlarını tartışacağız. Göreceğiz ki bir vektör uzayı aslında onun bazı denilen bir alt kümesi ile temsil edilebilir. Bu bilgi ileride çok işimize yarayacak.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/baz/index.html">baz</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/boyut/index.html">boyut</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/kronecker-delta/index.html">Kronecker delta</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/sonlu-boyutlu-uzay/index.html">sonlu boyutlu uzay</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/taylor-polinomu/index.html">Taylor polinomu</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+<div class="envdef" id="def:base"><h6 class="thenv">Tanım 1.3.1 (Baz)</h6>
+Lineer bağımsız olan ve $V$ vektör uzayını geren bir kümeye $V$'nin bir <strong>bazı</strong> denir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:vec:6"><h6 class="thenv">Uyarı 1.3.2</h6>
+Eğer $A:=\{\alpha_1, \alpha_2,\ldots \}$ kümesi $V$'nin bir bazı ise bu durumda herhangi bir $\alpha\in V$ vektörü $\alpha=\sum_{i}a_i\alpha_i$ olarak yazılabilir. Bazların $V$'yi geren diğer kümelerden farkı bu açılımdaki $a_i$ katsayılarının tek türlü olmasıdır. Gerçekten eğer bir vektör $\alpha=\sum_{i}a_i\alpha_i=\sum_{i}b_i\alpha_i$ olarak yazılabilseydi $\sum_{i}(a_i-b_i)\alpha_i=0$ eşitliğinden ve $\{\alpha_i \}$ kümesi lineer bağımsız olduğundan her $i$ için $a_i=b_i$ olduğu görülür.
+</div>
+</p>
+
+<p>
+<div class="envex" id="ex:vec:4"><h6 class="thenv">Örnek 1.3.3</h6>
+Aşağıdaki örneklerin doğrulanması okuyucuya bırakılmıştır.
+<ol>
+<li class="py-2" id="ex:vec:4:kronecker">$\mathbb{R}^n$ vektör uzayı için $\{\alpha_i \;|\; \alpha_i:=\left( \delta_{1i},\delta_{2i},\ldots,\delta_{ni} \right) \}$ kümesi bir bazdır. Buradaki $\delta_{ij}$ sembolü <strong>Kronecker delta</strong> olarak adlandırılır ve $$\delta_{ij}:=\left\{\begin{array}{cc}0,&i\neq j\\1,&i=j\end{array}\right.$$ olarak tanımlanır.</li>
+<li class="py-2"><a class="eqref" href="../11-temel-tanimlar/index.html#ex:vec:2:P">Örnek 1.1.4-3</a> ile verilen $P$ vektör uzayı için $\{\alpha_i\;|\;\alpha_i:=t^i, i=0,1,\ldots \}$  kümesi bir bazdır.</li>
+<li class="py-2" id="ex:vec:4:3"><a class="eqref" href="../11-temel-tanimlar/index.html#ex:vec:2:Pn">Örnek 1.1.4-4</a> ile verilen $P_n$ vektör uzayı için $\{1, t, t^2, \ldots, t^{n-1} \}$ kümesi bir bazdır.</li>
+</ol>
+</p>
+
+<p>
+Görüldüğü gibi bazı vektör uzaylarının sonlu elemanlı bazı var olabilirken bazı uzaylar için bu mümkün değildir. <a class="eqref" href="../11-temel-tanimlar/index.html#ex:vec:2:P">Örnek 1.1.4-3,5,6,7,8</a> ile verilen vektör uzaylarının sonlu elemanlı bazları yoktur.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:vec:8"><h6 class="thenv">Teorem 1.3.4</h6>
+Bir vektör uzayının sonlu elemanlı bir bazı varsa diğer bütün bazları da sonlu elemanlıdır ve aynı sayıda elemanı vardır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$A$ kümesi $n$ elemanlı bir baz ve $B$ kümesi de başka herhangi bir baz olsun. $A$ kümesi $V$'yi gerdiğinden ve $B$ kümesi de lineer bağımsız olduğundan <a class="eqref" href="../12-lineer-bagimsizlik/index.html#theo:vec:7">Teorem 1.2.12</a> gereği $B$ kümesinin eleman sayısı en fazla $m\leq n$ olabilir. $A$ ile $B$ bazlarının rollerini değiştirerek $n\leq m$ olduğu da görülür, dolayısıyla $m=n$ elde edilmiş olur.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envdef" id="def:fdspace"><h6 class="thenv">Tanım 1.3.5 (Boyut)</h6>
+Bir vektör uzayının sonlu elemanlı bazı varsa bazın eleman sayısına vektör uzayının <strong>boyutu</strong>, bu uzaya da bir <strong>sonlu boyutlu</strong> vektör uzayı denir. Bir $V$ uzayının boyutu $\dim V$ ile gösterilir.
+</div>
+</p>
+
+<p>
+<div class="envex" id="ex:vec:5"><h6 class="thenv">Örnek 1.3.6</h6>
+$\{0\}$ kümesinin lineer bağımsız tek alt kümesi $\emptyset$ kümesidir (bk. <a class="eqref" href="../12-lineer-bagimsizlik/index.html#ex:vec:3:sifir">Örnek 1.2.4-7,8</a>, ayrıca boş küme $\{0\}$ kümesini gerer, bk. <a class="eqref" href="../12-lineer-bagimsizlik/index.html#def:vec:germe">Tanım 1.2.6</a>). Dolaysıyla $\emptyset$ kümesi $\{0\}$ kümesinin bazıdır ve bu küme sıfır boyutludur. <a class="eqref" href="#ex:vec:4">Örnek 1.3.3</a> gereği $\mathbb{R}^n$ ve $P_n$ vektör uzayları $n-$boyutludur, $P$ vektör uzayı ise sonsuz boyutludur. Bu derste genel olarak sonlu boyutlu vektör uzayları ile çalışacağız.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:vec:9"><h6 class="thenv">Teorem 1.3.7</h6>
+$n-$boyutlu bir vektör uzayında $n+1$ elemanlı her küme lineer bağımlıdır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>Böyle bir kümenin lineer bağımsız olması <a class="eqref" href="../12-lineer-bagimsizlik/index.html#theo:vec:7">Teorem 1.2.12</a> ile çelişirdi.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="theo:vec:10"><h6 class="thenv">Teorem 1.3.8</h6>
+$n-$boyutlu bir vektör uzayının $n-$elemanlı bir alt kümesinin bir baz olması için gerek ve yeter koşul lineer bağımsız olmasıdır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$V$ kümesi $n-$boyutlu bir vektör uzayı, $A:=\{\alpha_1,\alpha_2,\ldots,\alpha_n\}\subset V$ lineer bağımsız bir küme ve $\beta\in V$ herhangi bir vektör olsun. $\{\alpha_1,\ldots,\alpha_n,\beta \}$ kümesi $n+1$ elemanlı olduğundan <a class="eqref" href="#theo:vec:9">Teorem 1.3.7</a> gereği lineer bağımlıdır. Bu küme elemanları arasındaki aşikar olmayan her lineer bağıntıda $\beta$ vektörünün katsayısı sıfırdan farklı olmalıdır, çünkü bu katsayı sıfır olursa $A$ kümesi vektörleri arasında aşikar olmayan lineer bir bağıntı oluşur ve bu durum $A$'nın lineer bağımsızlığı ile çelişir. Böylece $\beta$ vektörü $A$ kümesi vektörlerinin bir lineer kombinasyonudur, $\beta\in V$ keyfi seçildiğinden $A$ kümesinin $V$'yi gerdiği anlaşılır. İddianın diğer yönü baz tanımı gereği açıktır.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="theo:vec:11"><h6 class="thenv">Teorem 1.3.9</h6>
+$n-$boyutlu bir vektör uzayının $n-$elemanlı bir alt kümesinin bir baz olması için gerek ve yeter koşul onun uzayı germesidir.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>İddianın ilk yönünü kanıtlamak için $n-$boyutlu bir $V$ vektör uzayında $n$ tane vektörden oluşan bir kümenin lineer bağımsız olduğunu göstereceğiz. Bu küme lineer bağımlı olsaydı elemanlarından birisi diğerlerinin lineer kombinasyonu olarak yazılabilirdi ve <a class="eqref" href="../12-lineer-bagimsizlik/index.html#theo:vec:5">Teorem 1.2.10</a> gereği $n-1$ elemanlı bir alt kümesi de $V$'yi gererdi. Diğer yandan $V$ uzayı $n-$boyutlu olduğundan $n$ elemanlı lineer bağımsız küme (baz) vardır ve bu durum <a class="eqref" href="../12-lineer-bagimsizlik/index.html#theo:vec:7">Teorem 1.2.12</a> ile çelişir. İddianın diğer yönü baz tanımı gereği açıktır.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="theo:vec:12"><h6 class="thenv">Teorem 1.3.10</h6>
+Sonlu boyutlu bir vektör uzayında uzayı geren her küme bir baz içerir.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$B$ kümesi $n-$boyutlu $V$ vektör uzayını geren bir küme olsun. Eğer $V=\{0\}$ ise $\emptyset\subset B$ uzayı gerdiği için ispat tamamlanır. Şimdi $V\neq\{0\}$ olsun, bu durumda $B$ kümesi sıfırdan farklı bir $\alpha_1$ vektörü içerir. Şimdi $B$ kümesi içerisinde $\alpha_1$ vektörünün skaler katı (yani $\{\alpha_1 \}$ kümesi vektörlerinin lineer kombinasyonu) olmayan başka bir $\alpha_2$ vektörü arayalım. Daha sonra da benzer şekilde $B$ içinde olan ve $\{\alpha_1,\alpha_2\}$ vektörlerinin lineer kombinasyonu olmayan başka bir $\alpha_3$ vektörü arayalım. Bu işlem sürekli tekrar edilirse, $V$ uzayı sonlu boyutlu olduğundan <a class="eqref" href="#theo:vec:10">Teorem 1.3.8</a> gereği $n-$den fazla vektör elde edilemez ve süreç sonlu sayıda adımda sona erer. Farzedelim ki bu yola $A:=\{\alpha_1,\alpha_2,\ldots,\alpha_m \}$ vektörleri elde edilmiş olsun, bunlar lineer bağımsızdır. Böylece $B$ içinde diğerlerinin lineer kombinasyonu olarak yazılamayan vektörler $A$ içinde toplandığından $B$ içinde kalan diğer vektörler $A$ kümesi vektörlerinin lineer kombinasyonu olarak yazılabilen vektörlerdir. Diğer taraftan $B$ kümesi $V$ uzayını gerdiğinden <a class="eqref" href="../12-lineer-bagimsizlik/index.html#theo:vec:1">Teorem 1.2.1</a> gereği $A$ kümesi de $V$'yi gerer.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="theo:vec:13"><h6 class="thenv">Teorem 1.3.11</h6>
+Sonlu boyutlu bir vektör uzayında lineer bağımsız her küme bir baza tamamlanabilir.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$A:=\{\alpha_1,\alpha_2,\ldots,\alpha_n \}$ kümesi sonlu boyutlu $V$ vektör uzayının bir bazı ve $m\leq n$ olmak üzere $B:=\{\beta_1,\beta_2,\ldots,\beta_m \}$ de lineer bağımsız bir küme olsun. Bu durumda  $\{\beta_1,\beta_2,\ldots,\beta_m,\alpha_1,\alpha_2,\ldots,\alpha_n \}$ kümesi $V$'yi gerer. Bu küme <a class="eqref" href="#theo:vec:9">Teorem 1.3.7</a> gereği lineer bağımlı olduğundan en az bir elemanı kendisinden önceki vektörlerin lineer kombinasyonu olarak yazılabilir (bk. <a class="eqref" href="../12-lineer-bagimsizlik/index.html#theo:vec:2">Teorem 1.2.5</a>), ayrıca lineer bağımsızlıkla çelişeceğinden bu vektör $\beta_i$ vektörlerinden biri olamaz. Bu $\alpha_i$ vektörü kümeden çıkarılırsa <a class="eqref" href="../12-lineer-bagimsizlik/index.html#theo:vec:5">Teorem 1.2.10</a> gereği $V$'yi geren daha küçük bir küme elde edilmiş olur. Bu işlem kalan vektörler lineer bağımsız olana dek tekrarlansın, hiç bir tekrarda $\beta_i$ vektörlerinden birinin kümeden çıkarılmadığına dikkat edilmelidir. Bu süreç sonunda $V$'yi geren ve $B$ kümesini içeren bir küme elde edilmiş olur.$$\tag*{$\blacksquare$}$$
+</p>
+
+<a class="eqref" href="#theo:vec:12">Teorem 1.3.10</a> ve <a class="eqref" href="#theo:vec:13">Teorem 1.3.11</a> ile bir vektör uzayında bazların en büyük lineer bağımsız kümeler ve uzayı geren en küçük kümeler olduğu görüldü.
+
+<p>
+<div class="envrem" id="rmk:vec:7"><h6 class="thenv">Uyarı 1.3.12</h6>
+$V$ kümesi bir $F$ cismi üzerinde $n-$boyutlu bir vektör uzayı ve $A:=\{\alpha_1,\ldots,\alpha_n \}$ de bu uzayın herhangi bir bazı olsun. $A$ kümesi $V$'yi gerdiğinden herhangi bir $\alpha\in V$ vektörü $\alpha=\sum_{i}a_i\alpha_i$ biçiminde yazılabilir ve bu açılım tek türlüdür (bk. <a class="eqref" href="#rmk:vec:6">Uyarı 1.3.2</a>). Yani $A$ bazı verildiğinde bu açılımdaki $a_i$ katsayıları tamamen $\alpha$ vektörü tarafından belirlenir. Diğer taraftan her $\left( a_1, a_2,\ldots, a_n \right)$ sıralı $n-$lisi de tek türlü olarak $\alpha=\sum_{i}a_i\alpha_i$ vektörünü belirler. Sonuç olarak $(a_1,\ldots,a_n)\in F^n$ sıralı $n-$lileri ile $\alpha\in V$ vektörleri arasında bire-bir eşleme vardır.
+</div>
+</p>
+
+<p>
+<div class="envdef" id="def:coordinate"><h6 class="thenv">Tanım 1.3.13</h6>
+Eğer $\alpha=\sum_{i}a_i\alpha_i$ bağıntısı sağlanıyorsa $a_i\in F$ skalerine ve $a_i\alpha_i$ vektörüne $\alpha\in V$ vektörünün sırasıyla $i-$<strong>nci koordinatı</strong> ve $i-$<strong>nci bileşeni</strong> denir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:vec:8"><h6 class="thenv">Uyarı 1.3.14</h6>
+$\alpha=\sum_{i}a_i\alpha_i$ vektörüne $(a_1,\ldots,a_n)$ sıralı $n-$lisi ve $\beta=\sum_{i}b_i\alpha_i$  vektörüne de $(b_1,\ldots,b_n)$ sıralı $n-$lisi karşılık gelsin. Bu durumda $\alpha+\beta=\sum_{i}(a_i+b_i)\alpha_i$ vektörüne de $\left(a_1+b_1,\ldots, a_n+b_n\right)$ sıralı $n-$lisi karşılık gelir. Ayrıca $a\alpha=\sum_{i}aa_i\alpha_i$ vektörüne de $(aa_1,\ldots,aa_n)$ sıralı $n-$lisi karşılık gelir. Yani iki vektörün toplamına karşılık gelen sıralı $n-$li, bunların tekil olarak karşılık geldiği sıralı $n-$lilerin toplamı oluyor (buradaki ilk toplam vektör toplama, ikincisi ise sıralı $n-$lilerin toplama işlemidir). Skalerle çarpma işlemi için de aynı durum oluşmaktadır. Sonuç olarak vektörler arasındaki vektörel işlemler ile onları temsil eden sıralı $n-$liler arasındaki işlemler arasında bire bir eşleme oluşmaktadır. İki küme içindeki nesneler arasında bire bir eşleme varsa ve elemanları arasındaki önemli bağıntılar korunuyorsa bu iki kümeye <strong>izomorf</strong> kümeler denir. İzomorf kümeler yapısal olarak aynı, sadece gösterimleri farklı olan kümeler olarak görülebilir. Bu yolla her $n-$boyutlu vektör uzayının $n-$boyutlu koordinat uzayı $F^n$ ile izomorf olduğu görülür. Ayrıca iki ayrı küme başka üçüncü bir kümeye izomorf ise bunlar birbirine de izomorf olacağından şunu anlarız, aynı cisim üzerindeki tüm $n-$boyutlu vektör uzayları birbirine izomorftur.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:vec:9"><h6 class="thenv">Uyarı 1.3.15</h6>
+Sıralı $n-$lilerin kümesi alışılmış işlemlerle birlikte vektör uzayı aksiyomlarını sağlar. Diğer yandan bir baz seçildiğinde <a class="eqref" href="#rmk:vec:8">Uyarı 1.3.14</a> ile tarif edildiği gibi $V$ ile $F^n$ arasında bir izomorfizm kurulabilir. Bundan dolayı vektör uzayları yerine koordinat uzayları araştırılabilir. Fakat burada vaktörlerle sıralı $n-$liler arasındaki eşleşmenin açık bilgisi seçilen baza bağlıdır. $V$'de seçilen baz değiştirilirse yine vektörler ile sıralı $n-$liler arasında bir eşleşme olur ama bu eşleşmenin kuralı öncekinden farklı olabilir. Uygulamada genellikle amacımıza göre hesaplamaları en basit hale getirecek bazları seçeriz. <strong>Baz seçimi</strong> ve bunun sonuçlarını tespit etmek lineer cebirdeki temel konulardan biridir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:vec:10"><h6 class="thenv">Uyarı 1.3.16</h6>
+$V$ vektör uzayında $\{\alpha_1,\ldots,\alpha_n \}$ bazı seçilmiş olsun. Bu durumda bir $\alpha=\sum_{i}a_i\alpha_i$ vektörü $(a_1,\ldots,\alpha_n)$ sıralı $n-$lisi ile temsil edildiğinden bu vektörü "$\{\alpha_1,\ldots,\alpha_n \}$ bazına göre $(a_1,\ldots,a_n)$ ile temsil edilen vektör" olarak belirtiriz. Metin boyunca bu vektörü kısaca "$(a_1,\ldots,a_n)$ vektörü" olarak belirteceğiz.
+</div>
+</p>
+
+<p>
+<div class="envex" id="ex:vec:6"><h6 class="thenv">Örnek 1.3.17</h6>
+<a class="eqref" href="#ex:vec:4:3">Örnek 1.3.3-3</a> gereği bir $p(t)=a_{n-1}t^{n-1}+\cdots+a_1t+a_0$ polinomunun $\{1,t,\ldots,t^{n-1} \}$ bazına göre koordinatları $(a_0,a_1,\ldots,a_{n-1})$ biçimindedir. Aynı vektör uzayında $t_0\in\mathbb{R}$ sabit olmak üzere $\{1, t-t_0, (t-t_0)^2,\ldots,(t-t_0)^{n-1} \}$ bazı seçilirse bu polinomun koordinatları $p(t)$ polinomunun Taylor açılımından faydalanarak koordinatlarını $$\left(p(t_0), p'(t_0)(t-t_0), \frac{p''(t_0)}{2!}(t-t_0)^2,\cdots,\frac{p^{(n-1)}}{(n-1)!}(t-t_0)^{n-1} \right)$$ olarak buluruz.
+</div>
+</p>
+
+
+
+<h3 class="mt-5 mb-3">Alıştırmalar</h3>
+
+
+<p>
+<ol>
+<li class="py-2">$\mathbb{R}^3$ uzayında $\alpha_1:=(1,1,0)$, $\alpha_2:=(1,0,1)$, $\alpha_3:=(0,1,1)$ vektörlerini ele alalım.</li>
+
+<ol type="a">
+<li class="py-2">Bunların lineer bağımsız olduğunu göstererek bir baz oluşturduğunu kanıtlayın.</li>
+<li class="py-2">Bunların baz oluşturduğunu kanıtlamak için $\langle \alpha_1,\alpha_2,\alpha_3\rangle$ kümesinin $(1,0,0)$, $(0,1,0)$ ve $(0,0,1)$ vektörlerini içerdiğini gösterin. (Bu neden yeterlidir?)</li>
+</ol>
+
+<li class="py-2">$A:=\{(1,1,0,0), (0,0,1,1), (1,0,1,0), (0,1,0,-1) \}$ kümesi $\mathbb{R}^4$'te bir baz olsun (bunu doğrulayın) ve $B:=\{(1, 2, -1, 1), (0,1,2,-1) \}$ kümesini bir baza tamamlayın. Bunun için <a class="eqref" href="#theo:vec:13">Teorem 1.3.11</a> ispatındaki adımları uygulayın.</li>
+<li class="py-2">$\mathbb{R}^4$'te $(1,2,3,4)$ vektörünü içeren bir baz bulun. Bunun için <a class="eqref" href="#theo:vec:13">Teorem 1.3.11</a> ispatındaki adımlarını uygulayın.</li>
+<li class="py-2">$\mathbb{R}^n$ sıralı $n-$liler uzayında herhangi bir $\beta$ vektörünün $$\begin{array}{c}
+	\alpha_1:=(1,1,1,\ldots,1)\\\alpha_2:=(0,1,1,\ldots,1)\\\alpha_3:=(0,0,1,\ldots,1)\\ \vdots\\\alpha_n:=(0,0,0,\ldots,1)\end{array}$$ olmak üzere $\{\alpha_1,\ldots,\alpha_n \}$ bazına göre koordinatlarını tespit edin.</li>
+</ol>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../12-lineer-bagimsizlik/index.html">1.2. Lineer Bağımsızlık</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Lineer Cebire Giriş</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../14-alt-uzaylar/index.html">1.4. Alt Uzaylar</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/13-baz-ve-boyut/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:04 GMT -->
+</html>

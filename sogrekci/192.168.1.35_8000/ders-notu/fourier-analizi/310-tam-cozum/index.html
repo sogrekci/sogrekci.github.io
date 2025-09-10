@@ -1,0 +1,278 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/310-tam-cozum/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 3.10. Tam Çözüm
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>3.10. Tam Çözüm</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-09">
+          9 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Önceki iki bölümde <a class="eqref" href="../37-zamandan-bagimsiz-problemler/index.html#bvp3-heat-1">(3.7.1)</a>-<a class="eqref" href="../37-zamandan-bagimsiz-problemler/index.html#bvp3-mod-3">(3.7.4)</a> probleminin denge durumu çözümünü ve geçici çözümü araştırdık. Bu bölümde de bu problemin tam çözümünün kararlılığını araştıracağız.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/kararli-cozum/index.html">kararlı çözüm</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/zamandan-bagimsiz-problem/index.html">zamandan bağımsız problem</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Hem $U$ denge durumu çözümünü hem de $v$ geçici çözümünü bulduğumuza göre artık tam çözümün kararlılığını araştırabiliriz. Daha önceden $u:=U+v$ fonksiyonunun <a class="eqref" href="../37-zamandan-bagimsiz-problemler/index.html#bvp3-heat-1">(3.7.1)</a>-<a class="eqref" href="../37-zamandan-bagimsiz-problemler/index.html#bvp3-mod-3">(3.7.4)</a> problemini sağladığını biliyoruz. Şimdi bu çözümün negatif olmadığını ve başlangıç ile sınır koşullarına sürekli bağımlı olduğunu göstermeliyiz.
+</p>
+
+<p>
+Daha önce ele aldığımız sınır değer problemlerinde kararlılığı maksimum prensibini kullanarak kanıtlamıştık fakat çubuk içinde ısı üretimi olduğu zaman maksimum prensibi sağlanmak zorunda değildir. Bunun yerine aşağıda vereceğimiz iki sonucu kullanacağız.
+</p>
+
+<p>
+<div class="envtheo" id="bvp3-lm1"><h6 class="thenv">Lemma 3.10.1</h6>$T$ keyfi bir pozitif sayı olmak üzere $D$, $\overline{D}$, $D_T$, $\overline{D}_T$ ve $\Gamma_T$ kümeleri önceden tanımladığımız gibi olsun. Bu durumda eğer $u:\overline{D}_T\rightarrow\mathbb{R}$ fonksiyonu $D_T$ kümesinde <a class="eqref" href="../37-zamandan-bagimsiz-problemler/index.html#bvp3-heat-1">(3.7.1)</a> eşitliğini sağlıyorsa minimum değerini $\Gamma_T$ kümesinde alır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong><a class="eqref" href="../32-cozumun-tekligi-ve-kararliligi/index.html#bvp-teo-maksimumprensibi">Teorem 3.2.1</a> kanıtında yapılan işlemleri bire bir tekrarlayarak $v$ fonksiyonunun $(x_1,t_1)\in D_T$ noktasında minimum değerini aldığını görebiliriz. Fakat bu durumda $v_t(x_1,t_1)\leq0$, $v_x(x_a,t_1)=0$ ve $v_{xx}(x_1,t_1)\geq0$ olur ki buradan $cv_t-(\kappa v_x)_x=cv_t-\kappa'v-\kappa V_{xx}\leq0$ eşitsizliği elde edilir. Bu ise $$cv_t-(\kappa v_x)_x=cu_t-(\kappa u_x)_x+c\frac{M-m}{2T}>0$$ olmasıyla çelişir. O halde $u$ fonksiyonu minimum değerini $\Gamma_T$ kümesinde almalıdır.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+Sıradaki Lemmayı ispatsız olarak veriyoruz.
+</p>
+
+<p>
+<div class="envtheo" id="bvp3-lm2"><h6 class="thenv">Lemma 3.10.2</h6>$T$ keyfi bir pozitif sayı olmak üzere $D$, $\overline{D}$, $D_T$, $\overline{D}_T$ ve $\Gamma_T$ kümeleri önceden tanımladığımız gibi olsun, ayrıca $$\Gamma_0:=\left\{(x,t)\in D:\;x=0,\;t>0 \right\}\quad\text{ ve }\quad\Gamma_a:=\left\{(x,t)\in D:\;x=a,\;t>0 \right\}$$ kümelerini tanımlayalım. $u$ fonksiyonunun $\overline{D}$ kümesinde negatif bir minimum değeri olsun, bu durumda
+<ol type="i">
+<li>eğer $u$ fonksiyonu <a class="eqref" href="../37-zamandan-bagimsiz-problemler/index.html#bvp3-mod-3">(3.7.2)</a> eşitliğini sağlıyorsa minimum değerini $\Gamma_T-\Gamma_0$ kümesinde alır,</li>
+<li>eğer $u$ fonksiyonu <a class="eqref" href="../37-zamandan-bagimsiz-problemler/index.html#bvp3-mod-3">(3.7.3)</a> eşitliğini sağlıyorsa minimum değerini $\Gamma_T-\Gamma_a$ kümesinde alır.</li></ol></div>
+</p>
+
+<p>
+Bu lemmalar geçici çözümü belirleyen <a class="eqref" href="../39-gecici-cozum/index.html#bvp3-mod3-1">(3.9.1)</a>-<a class="eqref" href="../39-gecici-cozum/index.html#bvp3-mod3-1">(3.9.3)</a> sınır değer problemine uygulanabilir, şimdi bunları kısaca ele alalım.
+</p>
+
+<p>
+<div class="envcor" id="bvp3-cor1"><h6 class="thenv">Sonuç 3.10.1</h6>$D_T$ kümesinde <a class="eqref" href="../39-gecici-cozum/index.html#bvp3-mod3-1">(3.9.1)</a> eşitliğini sağlayan sürekli bir $u:\overline{D}_T\rightarrow\mathbb{R}$ fonksiyonu maksimum değerini $\Gamma_T$ kümesinde alır. Bu maksimum değeri pozitif olsun, bu durumda
+<ol type="i">
+<li>eğer $u$ fonksiyonu <a class="eqref" href="../39-gecici-cozum/index.html#bvp3-mod3-1">(3.9.2)</a> eşitliğini sağlıyorsa maksimum değerini $\Gamma_T-\Gamma_0$ kümesinde alır,</li>
+<li>eğer $u$ fonksiyonu <a class="eqref" href="../39-gecici-cozum/index.html#bvp3-mod3-1">(3.9.3)</a> eşitliğini sağlıyorsa maksimum değerini $\Gamma_T-\Gamma_a$ kümesinde alır.</li></ol></div>
+</p>
+
+<p>
+<strong>İspat: </strong>$u$ fonksiyonu <a class="eqref" href="../39-gecici-cozum/index.html#bvp3-mod3-1">(3.9.1)</a>-<a class="eqref" href="../39-gecici-cozum/index.html#bvp3-mod3-1">(3.9.3)</a> eşitliklerini sağlıyorsa $-u$ fonksiyonu da sağlar, dolayısıyla $-u$ fonksiyonu, $q\equiv0$ ve $c_1=c_2=0$ olarak, <a class="eqref" href="#bvp3-lm1">Lemma 3.10.1</a> ve <a class="eqref" href="#bvp3-lm2">Lemma 3.10.2</a> koşullarını sağlar. Dolayısıyla bu sonuçlardaki minimum ifadesi $-u$ fonskiyonu için maksimum halini alır.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envcor" id="bvp3-cor2"><h6 class="thenv">Sonuç 3.10.2</h6>$u:\overline{D}\rightarrow\mathbb{R}$ fonksiyonu <a class="eqref" href="../39-gecici-cozum/index.html#bvp3-mod3-1">(3.9.1)</a>-<a class="eqref" href="../39-gecici-cozum/index.html#bvp3-mod3-1">(3.9.3)</a> eşitliklerini sağlasın. $u(x,0)$ fonksiyonunun maksimum ve minimum değerlerini sırasıyla $M_0$ ve $m_0$ ile gösterirsek, her $(x,t)\in\overline{D}$ için $$\min\left\{0,m_0\right\}\leq u(x,t)\leq\max\{0,M_0\}$$ eşitsizliği sağlanır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$T>0$ keyfi bir sayı olsun. <a class="eqref" href="#bvp3-cor1">Sonuç 3.10.1</a> gereği $u$ fonksiyonunun $\overline{D}_T$ kümesine kısıtlanmışı $M$ maksimum değerini $\Gamma_T$ kümesinde alır. $M\leq0$ (bu durumda $u(x,t)\leq0$ olur), veya $M\geq0$ olabilir. İkinci durumu ele alırsak, yine <a class="eqref" href="#bvp3-cor1">Sonuç 3.10.1</a> gereği $u$ fonksiyonunun $\overline{D}_T$ kümesine kısıtlanmışı $t=0$ için maksimum değerini alır ve böylece $t\leq T$ için $u(x,t)\leq M=M_0$ eşitsizliği sağlanır. Burada $T$ sayısı keyfi olduğundan ikinci eşitsizlik kanıtlanmış olur. Birinci eşitsizlik ise aynı düşünüşle, fakat <a class="eqref" href="#bvp3-cor1">Sonuç 3.10.1</a> yerine yukarıda verdiğimiz teoremleri kullanarak elde edilir.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+Şimdi artık tam çözümün kararlılığını elde edebiliriz.
+</p>
+
+<p>
+<div class="envtheo" id="bvp3-teo-stability"><h6 class="thenv">Teorem 3.10.1</h6>Eğer <a class="eqref" href="../37-zamandan-bagimsiz-problemler/index.html#bvp3-heat-1">(3.7.1)</a>-<a class="eqref" href="../37-zamandan-bagimsiz-problemler/index.html#bvp3-mod-3">(3.7.4)</a> probleminin sürekli bir $u:\overline{D}\rightarrow\mathbb{R}$ çözümü varsa, bu çözüm Hadamard anlamında kararlıdır. Ayrıca $f\geq0$ ise $u\geq0$ olur.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$u_1$ ve $u_2$ fonksiyonları sırasıyla başlangıç ısı dağılımları $f$ ve $g$  ile verilen <a class="eqref" href="../37-zamandan-bagimsiz-problemler/index.html#bvp3-heat-1">(3.7.1)</a>-<a class="eqref" href="../37-zamandan-bagimsiz-problemler/index.html#bvp3-mod-3">(3.7.4)</a> probleminin çözümleri olsunlar. Bu durumda $u_1-u_2$ fonksiyonu da $(u_1-u_2)(x,0)=f-g$ başlangıç koşullu <a class="eqref" href="../39-gecici-cozum/index.html#bvp3-mod3-1">(3.9.1)</a>-<a class="eqref" href="../39-gecici-cozum/index.html#bvp3-mod3-1">(3.9.3)</a> probleminin çözümü olur. $f-g$ fonksiyonunun maksimum ve minimum değerlerini sırasıyla $M_0$ ve $m_0$ ile gösterirsek, <a class="eqref" href="#bvp3-cor2">Sonuç 3.10.2</a> gereği her $(x,t)\in D$ için $$\min\left\{0,m_0\right\}\leq (u_1-u_2)(x,t)\leq\max\{0,M_0\}$$ eşitsizliği sağlanır. Bu da çözümün başlangıç koşuluna sürekli bağımlılığını gösterir. Ayrıca bu eşitsizlikle $f\equiv g$ alırsak çözümün tekliği de elde edilmiş olur.
+</p>
+
+<p>
+Bir $u$ çözümünün uç nokta koşullarına sürekli bağımlılığını gösterelim. $U$ denge durumu çözümünü veren formülü hatırlarsak, $U$ çözümünün $c_1$, $c_2$ ve $f$'ye sürekli bağımlı olduğu bu formüllerden açıktır. Bu durumda eğer $v:=u-U$ fonksiyonunu tanımlarsak bu fonksiyon $v(x,0)=f(x)-U(x)$ başlangıç koşuluyla <a class="eqref" href="../39-gecici-cozum/index.html#bvp3-mod3-1">(3.9.1)</a>-<a class="eqref" href="../39-gecici-cozum/index.html#bvp3-mod3-1">(3.9.3)</a> probleminin bir çözümü olur. Yukarıda $u_1-u_2$ fonksiyonu için yaptığımız gibi $v$ fonksiyonun da $f-U$ başlangıç koşuluna sürekli bağımlılığı gösterilebilir. Böylece, $U$'dan dolayı $v$ fonksiyonu $c_1$, $c_2$ ve $f$'ye sürekli bağımlı olur, dolayısıyla $u=U+v$'de bu özelliktedir.
+</p>
+
+<p>
+Son olarak $f\geq0$ ise $u\geq0$ olduğunu gösterelim. Eğer $u$ fonksiyonu negatif değerler alsaydı bir $T$ sayısı için $\overline{D}_T$ kümesinde negatif bir minimumu olurdu. Buradan da <a class="eqref" href="#bvp3-lm1">Lemma 3.10.1</a> gereği bu minimumu $t=0$ için alacağı sonucunu elde ederiz, bu da $f\geq0$ olmasıyla çelişir.$$\tag*{$\blacksquare$}$$
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../39-gecici-cozum/index.html">3.9. Geçici Çözüm</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Fourier Analizi</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../311-zamana-bagimli-problemler/index.html">3.11. Zamana Bağımlı Problemler</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/310-tam-cozum/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:35 GMT -->
+</html>

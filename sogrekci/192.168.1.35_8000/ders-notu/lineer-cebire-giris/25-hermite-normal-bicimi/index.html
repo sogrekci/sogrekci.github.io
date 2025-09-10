@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/25-hermite-normal-bicimi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:04 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 2.5. Hermite Normal Biçimi
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>2.5. Hermite Normal Biçimi</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-06-01">
+          1 Haziran 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bir önceki bölümde seçilen bazlar değiştirildiğinde bir lineer dönüşümü temsil eden matrisin nasıl değiştiğini anladık. Bu bölümde şu soruya cevap arayacağız: nasıl bir baz seçelim ki dönüşümü temsil eden matris en basit yapıda olsun?</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/hermite-normal-bicim/index.html">Hermite normal biçim</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/satir-eselon-form/index.html">satır eşelon form</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/transpoz/index.html">transpoz</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Bu bölümde sadece $V$'deki bazı değiştirerek $U$'dan $V$'ye tanımlı bir $\sigma$ dönüşümünü temsil eden matrisin ne kadar basitleştirilebileceğini araştıracağız.
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:30"><h6 class="thenv">Uyarı 2.5.1</h6>
+$A:=\{\alpha_1,\ldots,\alpha_n \}$ kümesi $U$'da verilmiş bir baz olsun ve $U_k:=\langle \alpha_1,\ldots\alpha_k \rangle$ olarak tanımlansın. $V$'nin $\sigma\left(U_k\right)$ alt uzayları $\sigma\left(U_{k-1}\right)\subset\sigma\left(U_k\right)$ ve $\sigma\left(U_n\right)=\sigma\left(U\right)$ özelliklerine sahiptir, dolayısıyla bunlar $V$'nin azalmayan bir bir alt uzayı zincirini oluşturur. $\sigma\left(U_k\right)=\sigma\left(U_{k-1}\right)+\langle \sigma(\alpha_k) \rangle$ olduğundan <a class="eqref" href="../14-alt-uzaylar/index.html#theo:vec:21">Teorem 1.4.12</a> gereği $\dim\sigma\left(U_k\right)\leq\dim\sigma\left(U_{k-1}\right)+1$ olur, yani $k$ indisi bir arttığında $\sigma\left(U_k\right)$ alt uzayının boyutu $1$'den fazla artmaz. $\dim\sigma\left(U_n\right)=\rho$ olduğundan $\sigma$ dönüşümünün rankındaki $1$ birimlik artışlar $\rho$ defa gerçekleşmiş olmalıdır. Artış gerçekleşmediği zamanlarda (varsa) $\dim\sigma\left(U_k\right)=\dim\sigma\left(U_{k-1}\right)$ ve dolayısıyla $\sigma\left(U_k\right)=\sigma\left(U_{k-1}\right)$ olmalıdır. $\sigma(\alpha_k)\not\in\sigma\left(U_{k-1}\right)$ ise 1 birim artış olur, $\sigma(\alpha_k)\in\sigma\left(U_{k-1}\right)$ ise artış olmaz.
+</p>
+
+<p>	
+Şimdi farz edelim ki bu $\sigma\left(\alpha_{k_i}\right)\not\in\sigma\left(U_{k_i-1}\right)$ olan indisler $k_1,\ldots,k_\rho$ olsun, ayrıca $\beta_i':=\sigma\left(\alpha_{k_i}\right)$ olarak tanımlayalım. $\beta_i'\not\in \sigma\left(U_{k_i-1}\right)=\langle\beta_1',\ldots, \beta_{i-1}'\rangle$ olduğundan <a class="eqref" href="../12-lineer-bagimsizlik/index.html#theo:vec:3">Teorem 1.2.8</a> gereği $\{\beta_1',\ldots,\beta_\rho' \}$ kümesi lineer bağımsızdır. Ayrıca $\{\beta_1',\ldots,\beta_\rho' \}\subset U$ ve $\dim\sigma(U)=\rho$ olduğundan bu küme $\sigma(U)$ kümesinin bir bazıdır. Bu küme $V$ uzayının bir $B'$ bazına tamamlanabilir, şimdi $\sigma$ dönüşümünü $A$ ve $B'$ bazlarına göre temsil eden $A'$ matrisinin yapısını belirleyelim. $\sigma\left(\alpha_{k_i}\right)=\beta_i'$ olduğundan $k_i-$nci sütunun $i-$nci satırında $1$ elemanı vardır ve bu sütunda diğer elemanlar $0$'dır. Ayrıca $k_i\lt j\lt k_{i+1}$ için $\sigma\left(\alpha_j\right)\in\sigma\left(U_{k_i}\right)$ olduğundan $j-$nci sütunun $i-$nci satırından aşağısındaki elemanları $0$ olur. Genel olarak $j-$nci sütunun ilk $i$ satırındaki elemanlar üzerinde bir kısıtlama yoktur. Sonuç olarak $A'$ matrisi
+	$$
+	\left[
+	\begin{array}{rrrrr}
+	\begin{array}{ccc}0&\cdots&0\\0&\cdots&0\\0&\cdots&0\\ \vdots&\vdots&\vdots\\0&\cdots&0\end{array}
+	&
+	\boxed{\begin{array}{c}1\\0\\0\\ \vdots\\0\end{array}}
+	&
+	\begin{array}{cc}a_{1,k_1+1}'&\cdots\\0&\cdots\\0&\cdots\\ \vdots&\vdots\\0&\cdots\end{array}
+	&
+	\boxed{\begin{array}{c}0\\1\\0\\ \vdots\\0\end{array}}
+	&
+	\begin{array}{cc}a_{1,k_2+1}'&\cdots\\a_{2,k_2+1}'&\cdots\\0&\cdots\\\vdots&\vdots\\\cdots&\cdots\end{array}
+	\end{array}
+	\right]
+	$$
+	biçiminde olur, burada dikdörtgen içine alınmış sütunlar sırasıyla $k_1$ ve $k_2$ numaralı sütunlardır. $\sigma$ dönüşümü ve $A$ bazı verildiğinde $k_i$ sayısı ve $\{\beta_1',\ldots,\beta_\rho' \}$ kümesi tek türlü olarak belirlenebilir. Bu bazı $B'$ bazına tamamlamanın bir çok yolu var olabilir fakat $\sigma(U)$ kümesi elemanları $\{\beta_1',\ldots,\beta_\rho' \}$ bazı tarafından tek türlü olarak ifade edilebildiği için bu durum $A'$ matrisini değiştirmez. Dolayısıyla $A'$ matrisi $\sigma$ dönüşümü ve $A$ matrisi tarafından tek türlü olarak belirlenmektedir.
+</div></p>
+
+<p>
+<div class="envtheo" id="theo:lint:23"><h6 class="thenv">Teorem 2.5.2</h6>
+Rankı $\rho$ olan $m\times n$ boyutlu bir $A$ matrisi verildiğinde, $A':=Q^{-1}A$ matrisi aşağıdaki özellikleri sağlayacak şekilde $m\times m$ boyutlu tersinir bir $Q$ matrisi vardır:
+<ol type="i">
+<li class="py-2">İlk $\rho$ tane satırın her birinde en az bir tane sıfırdan farklı eleman vardır ve diğer satırların tüm elemanları $0$'dır.</li>
+<li class="py-2">$i\leq\rho$ ve $k_1\lt k_2\lt \cdots\lt k_\rho$ olmak üzere $i-$nci satırda sıfırdan farklı ilk eleman $1$'dir ve bu eleman $k_i$ sütununda yer alır.</li>
+<li class="py-2">$k_i-$nci sütunda sıfırdan farklı olan tek eleman $1$'dir ve $i-$nci satırda yer alır.</li>
+</ol>
+Ayrıca $A'$ matrisinin bu yapısı $A$ bazı tarafından tek türlü olarak belirlenir.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>Sırasıyla $m$ ve $n$ boyutlu herhangi iki $U$ ve $V$ vektör uzayını, bunlar arasında tanımlanmış herhangi bir $\sigma$ lineer dönüşümünü ve bunların herhangi birer $A$ ve $B$ bazını ele alalım. $A$ matrisi $\sigma$ dönüşümünü bu bazlara göre temsil eden matris olsun, bu durumda <a class="eqref" href="#rmk:lint:30">Uyarı 2.5.1</a> gereği istenilen özelliklerde en az bir $A':=Q^{-1}A$ matrisi vardır. Şimdi farz edelim öyle iki tane $Q_1$ ve $Q_2$ matrisi var olsun ki $A_1':=Q_1^{-1}A$ ve $A_2':=Q_2^{-1}A$ matrisi istenilen özellikleri sağlasın. <a class="eqref" href="../24-baz-degisimi/index.html#rmk:lint:28">Uyarı 2.4.7</a> gereği $Q_1$ ve $Q_2$ matrisleri $V$'deki baz değişimleri için geçiş matrisleri olur, yani $A_1'$ matrisi $\sigma$ dönüşümünü $A$ ve $B_1'$ bazlarına göre ve $A_2'$ matrisi de $A$ ve $B_2'$ bazlarına göre temsil eder. Diğer yandan (iii) koşuluna göre $i\leq\rho$ için hem $B_1'$ hem de $B_2'$ bazının $i-$nci elemanı $\sigma\left(\alpha_{k_i}\right)$'dir, dolayısıyla her iki bazın da ilk $\rho$ tane elemanı aynıdır. Ayrıca (i) koşuluna göre bu bazların diğer elemanlarının $A_1'$ ve $A_2'$ matrislerinin elemanlarının belirlenmesinde bir etkisi yoktur. Sonuç olarak $A_1'=A_2'$ elde edilmiş olur.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envdef" id="def:hermitenormalf"><h6 class="thenv">Tanım 2.5.3</h6>
+<a class="eqref" href="#theo:lint:23">Teorem 2.5.2</a> ile verilen özellikleri sağlayan bir matrise <strong>Hermite normal biçimine</strong> sahip bir matris denir. Bu form bazen <strong>satır eşelon form</strong> olarak da adlandırılır.
+</div>
+</p>
+
+<p>
+<div class="envdef" id="def:transpoz"><h6 class="thenv">Tanım 2.5.4</h6>
+Bir $A$ matrisinin satırlarının sütünları ile değiştirilmesi sonucu elde edilen ve $A^T$ ile gösterilen matrise $A$'nın <strong>transpozu</strong> denir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:31"><h6 class="thenv">Uyarı 2.5.5</h6>
+$A^T:=\left[a_{ij}'\right]$ matrisinin $i-$nci satırı ve $j-$inci sütununda yer alan $a'_{ij}$ elemanı, $A$ matrisinin $j-$inci satırı ve $i-$nci sütununda bulunan $a_{ji}$ elemanıdır. Bunu kullanarak 
+<ol>
+<li class="py-2">$(A+B)^T=A^T+B^T$</li>
+<li class="py-2">$(AB)^T=B^TA^T$</li>
+<li class="py-2">$\left(A^{-1}\right)^T=\left(A^T\right)^{-1}$</li>
+</ol>
+özelliklerinin kanıtlanması okuyucuya bırakılmıştır.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:lint:24"><h6 class="thenv">Teorem 2.5.6</h6>
+Bir matrisin lineer bağımsız sütunlarının sayısı, lineer bağımsız satırlarının sayısına eşittir.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>Bir $A$ matrisinin lineer bağımsız sütunlarının sayısı bu matrisin rankı olan $\rho$ sayısıdır (bk. <a class="eqref" href="../22-matrisler/index.html#rmk:lint:19">Uyarı 2.2.12</a>), ayrıca bu matrise karşılık gelen Hermite normal formu olan $A':=Q^{-1}A$ matrisinin rankı da $\rho$' olur (bk. <a class="eqref" href="../23-tersinir-matrisler/index.html#theo:lint:21">Teorem 2.3.11</a>). $A'$ matrisinin yapısı gereği lineer bağımsız satırlarının sayısı $\rho$'ur, yani $\left(A'\right)^T$ matrisinin rankı $\rho$ olur. $Q^T$ matrisi tersinir olduğundan (bk. <a class="eqref" href="#rmk:lint:31">Uyarı 2.5.5</a>), $A^T=\left(QA'\right)^T=\left(A'\right)^TQ^T$ matrisinin rankı da $\rho$ olmalıdır (bk. <a class="eqref" href="../23-tersinir-matrisler/index.html#theo:lint:21">Teorem 2.3.11</a>).$$\tag*{$\blacksquare$}$$
+</p>
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Alıştırmalar</h3>
+
+
+
+
+<ol>
+<li class="py-2">Aşağıdaki matrislerin Hermite normal formunda olup olmadığını belirleyin. Ayrıca her birinin rankını tespit edin.
+		$$ \left[\begin{array}{ccccc}0&1&0&0&1\\0&0&1&0&1\\0&0&0&1&0\\0&0&0&0&0\end{array}\right],
+		\quad
+		\left[\begin{array}{ccccc}0&0&2&0&4\\0&1&1&0&3\\0&0&0&1&2\\0&0&0&0&0\end{array}\right],
+		\quad
+		\left[\begin{array}{ccccc}1&0&0&0&1\\0&1&0&0&1\\0&0&0&1&1\\0&0&0&0&0\end{array}\right],
+		$$
+		
+		$$ \left[\begin{array}{ccccc}1&0&1&0&1\\0&1&1&0&0\\0&0&0&1&0\\0&0&0&0&1\end{array}\right],
+		\quad
+		\left[\begin{array}{ccccccc}0&1&0&1&0&0&1\\0&0&1&0&0&1&0\\0&0&0&0&1&0&0\\0&0&0&0&0&0&0\end{array}\right].
+		$$</li>
+<li class="py-2">$\mathbb{R}^3$ uzayında $\mathbb{R}^2$ uzayına tanımlı $\sigma$ ve $\tau$ lineer dönüşümleri bu uzaylardan seçilen iki sabit $A$ ve $B$ bazına göre sırasıyla
+		$$
+		A:=\left[\begin{array}{ccc}1&1&0\\0&0&1\end{array}\right]\qquad B:=\left[\begin{array}{ccc}1&0&1\\0&1&0\end{array}\right]
+		$$
+		matrisleriyle temsil edilsin. Bu durumda $A$ ve $B'$ bazlarına göre $\sigma$ dönüşümü $B$ matrisi ile temsil edilebilecek şekilde $\mathbb{R}^2$ uzayında bir $B'$ bazı bulunamaz, gösterin.</li>
+</ol>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../24-baz-degisimi/index.html">2.4. Baz Değişimi</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Lineer Cebire Giriş</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../26-elementer-matrisler/index.html">2.6. Elementer Matrisler</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/25-hermite-normal-bicimi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:04 GMT -->
+</html>

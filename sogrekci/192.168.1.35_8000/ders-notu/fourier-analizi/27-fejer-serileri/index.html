@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/27-fejer-serileri/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 2.7. Fejer Serileri
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>2.7. Fejer Serileri</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-07">
+          7 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Fourier serilerinin yakınsaklıkları konusunda bazı sıkıntılar olduğunu önceki bölümlerde gördük. Mesela sürekli fonksiyonların bile Fourier serileri sonsuz sayıda noktada ıraksak olabilir, başka bir sıkıntı da Gibbs olgusu. Fourier serileri yerine bunların kısmi toplamlar dizilerinin <strong>Cesaro ortalamaları</strong> alınarak oluşturulan serilerde bu sıkıntıların oluşmadığı <strong>Lipot Fejer</strong> tarafından keşfedilmiş.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/cesaro-ortalamasi/index.html">Cesaro ortalaması</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/fejer-serisi/index.html">fejer serisi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/fourier-serisi/index.html">Fourier serisi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/gibbs-olgusu/index.html">Gibbs olgusu</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/yakinsaklik/index.html">yakınsaklık</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Bir fonksiyonun Fourier serisinin yakınsaklığı konusunda önemli iki mesele var, birincisi fonksiyon sürekli olsa bile Fourier serisi sonsuz noktada ıraksak olabilir, ikincisi de <a class="eqref" href="../26-gibbs-olgusu/index.html">Gibbs olgusu</a>. Her iki sorun da 1904 yılında <strong>Lipot Fejer</strong> (1880-1959) tarafından geliştirilen bir yöntemle giderilmiştir, Bu bölümde Fejer'in yöntemini inceleyeceğiz.
+</p>
+
+<p>
+Şimdi $s_0:=a_0/2$ olarak tanımlayalım ve <a class="eqref" href="../24-fourier-serilerinin-yakinsakligi/index.html#eq:fs-ktdizi">(2.4.1)</a> ile tanımlanan $s_n(x)$ dizisi için $f$ fonksiyonunun <strong>Fejer toplamı</strong> $$\sigma_N(x):=\frac{1}{N+1}\sum_{n=0}^{N}s_n(x)$$ olarak tanımlansın. Bu durumda verilen bir fonksiyona yaklaşmak için $\left(s_n(x)\right)$ dizisi yerine $\left(\sigma_n(x)\right)$ dizisini kullanacağız.
+</p>
+
+<p>
+Öncelikle $D_0:=1$ olarak tanımlarsak <a class="eqref" href="../24-fourier-serilerinin-yakinsakligi/index.html#fs-lm1"> Lemma  2.4.1</a> ile verilen <a class="eqref" href="../24-fourier-serilerinin-yakinsakligi/index.html#eq:fs-ktdizi-dirichletkernel">(2.4.5)</a> eşitliğinin $n=0$ için de geçerli olduğunu gözlemlersek ve
+
+\begin{equation}
+\label{eq:fejer-kernel}
+\tag{2.7.1}
+F_N(t):=\frac{1}{N+1}\sum_{n=0}^{N}D_n(t)
+\end{equation}
+
+<strong>Fejer çekirdeğini</strong> tanımlarsak $$\sigma_N(x)=\frac{1}{N+1}\sum_{n=0}^{N}\frac{1}{2\pi}\int_{-\pi}^{\pi}f(t)D_N(t-x)\,dt=\frac{1}{2\pi}\int_{-\pi}^{\pi}f(t)F_N(t-x)\,dt$$ eşitliğinin sağlandığını görürüz. Sıradaki lemma ile Fejer çekirdeğinin bazı özelliklerini elde edeceğiz.
+</p>
+
+<p>
+<div class="envtheo" id="fs-lm2"><h6 class="thenv">Lemma 2.7.1</h6>$F_N(t)$ Fejer çekirdeği için aşağıdakiler sağlanır.
+<ol type="i"><li>Eğer $t\neq0$ ise
+\begin{equation}
+\label{eq:fejer-kernel-2}
+\tag{2.7.2}
+F_N(t)=\frac{1}{N+1}\frac{\sin^2\frac{1}{2}(N+1)t}{\sin^2\frac{1}{2}t}
+\end{equation}
+eşitliği sağlanır.</li>
+<li>
+\begin{equation}
+\label{eq:fejer-kernel-1}
+\tag{2.7.3}
+\int_{0}^{\pi}F_N(t)\,dt=\pi.
+\end{equation}</li>
+<li>$0<\delta<\pi$ koşulunu sağlayan her $\delta$ sayısı için
+\begin{equation}
+\label{eq:fejer-kernel-3}
+\tag{2.7.4}
+\lim\limits_{N\rightarrow\infty}\int_{\delta}^{\pi}F_N(t)\,dt=0
+\end{equation}
+eşitliği sağlanır.</li></ol></div>
+</p>
+
+<p>
+<strong>İspat: </strong>Dirichlet çekirdeğinin tanımı gereği $$F_N(t)=\frac{1}{(N+1)\sin\frac{1}{2}t}\sum\limits_{n=0}^{N}\sin\left(n+\frac{1}{2}\right)t$$ yazılabilir. Sağ taraftaki toplamı düzenlemek için $$2\sin\frac{1}{2}nt\sin\frac{1}{2}t=\cos\frac{1}{2}(n-1)t-\cos\frac{1}{2}(n+1)t$$ özdeşliğinde $n=1,3,\ldots,2N+1$ yazarak elde edilen eşitlikleri taraf tarafa toplarsak $$\left(2\sin\frac{1}{2}t\right)\left[\sin\frac{1}{2}t+\sin\frac{3}{2}t+\cdots+\sin\left(N+\frac{1}{2}\right)t\right]=1-\cos(N+1)t=2\sin^2\frac{1}{2}(N+1)t$$ eşitliği elde edilir. Böylece $t\neq0$ için $$\sum\limits_{n=0}^{N}\sin\left(n+\frac{1}{2}\right)t=\frac{\sin^2\frac{1}{2}(N+1)t}{\sin\frac{1}{2}t}$$ elde edilir ve \eqref{eq:fejer-kernel-2} eşitliği kanıtlanmış olur. Eğer <a class="eqref" href="../24-fourier-serilerinin-yakinsakligi/index.html#fs-lm1"> Lemma  2.4.1</a> ile verilen ve $D_0$ için de geçerli olan <a class="eqref" href="../24-fourier-serilerinin-yakinsakligi/index.html#eq:dirichlet-kernel">(2.4.4)</a> eşitliğini kullanırsak $$\frac{1}{2\pi}\int_{0}^{\pi}F_N(t)\,dt=\frac{1}{N+1}\sum\limits_{n=0}^{N}\frac{1}{2\pi}\int_{0}^{\pi}D_N(t)\,dt=\frac{1}{N+1}\sum\limits_{n=0}^{N}\frac{1}{2}=\frac{1}{2}$$ olduğunu görürüz ve böylece \eqref{eq:fejer-kernel-1} eşitliği da kanıtlanmış olur. Son olarak, $0<\delta<\pi$ için $\sin^2\frac{1}{2}t$ fonksiyonunun $[\delta,\pi]$ aralığındaki minimum değeri $\sin^2\frac{1}{2}\delta$ olur ve \eqref{eq:fejer-kernel-2} eşitliği kullanılarak $$\left|\int_{\delta}^{\pi}F_N(t)\,dt\right|<\int_{\delta}^{\pi}\frac{1}{(N+1)\sin^2\frac{1}{2}\delta}dt=\frac{\pi-\delta}{(N+1)\sin^2\frac{1}{2}\delta}$$ olduğu görülür ve böylece \eqref{eq:fejer-kernel-3} eşitliğinin sağlandığı görülmüş olur.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+Şimdi artık sürekli bir fonksiyonun Fejer toplamının o fonksiyona yakınsak olduğunu kanıtlayabiliriz.
+</p>
+
+<p>
+<div class="envtheo" id="fejer-yakteo"><h6 class="thenv">Teorem 2.7.1</h6> $f:\mathbb{R}\rightarrow\mathbb{R}$ fonksiyonu $2\pi-$periyodik ve $(-\pi,\pi)$ aralığında integrallenebilir olsun. Bu durumda $f(x-)$ ve $f(x+)$ limitlerinin mevcut olduğu her $x\in\mathbb{R}$ noktasında $\left(\sigma_n(x)\right)$ Fejer toplamları dizisi $$\frac{1}{2}\left[f(x+)+f(x-)\right]$$ değerine yakınsar. Özel olarak eğer $f$ fonksiyonu $x$ noktasında yakınsak ise $\sigma_n(x)\rightarrow f(x)$ olur, ayrıca $f$ fonksiyonu $[-\pi,\pi]$ aralığında sürekli ise bu aralıkta $\sigma_n(x)\rightrightarrows f(x)$ olur.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$f(x+)$ ve $f(x-)$ limitleri mevcut olsun. <a class="eqref" href="../24-fourier-serilerinin-yakinsakligi/index.html#eq:fs-ktdizi1">(2.4.6)</a> eşitliği gereği
+\begin{eqnarray*}
+\sigma_N(x) &=& \frac{1}{N+1}\sum\limits_{n=0}^{N}\frac{1}{2\pi}\int_{0}^{\pi}\left[f(x+t)+f(x-t)\right]D_N(t-x)\,dt\\
+&=& \frac{1}{2\pi}\int_{0}^{\pi}\left[f(x+t)+f(x-t)\right]F_N(t-x)\,dt
+\end{eqnarray*}
+yazılabilir. Buradan da \eqref{eq:fejer-kernel-1} eşitliğini kullanarak $$\sigma_N(x)-\frac{1}{2}\left[f(x+)+f(x-)\right]=\frac{1}{2\pi}\int_{0}^{\pi}\left[f(x+t)+f(x-t)-f(x+)-f(x-)\right]F_N(t-x)\,dt$$ elde edilir. Şimdi $$g_x(t):=f(x+t)+f(x-t)-f(x+)-f(x-)$$ olarak tanımlayalım. $f(x+)$ ve $f(x-)$ limitleri mevcut olduğundan, keyfi bir $\epsilon>0$ sayısı verildiğinde $0<t<\delta_x$ koşulunu sağlayan her $t$ sayısı için $$\left|f(x+t)-f(x+)\right|<\frac{\epsilon}{2}\qquad\text{ve}\qquad \left|f(x-t)-f(x-)\right|<\frac{\epsilon}{2}$$ eşitsizlikleri sağlanacak şekilde bir $0<\delta_x<\pi$ sayısı bulunabilir. Yani $0<t<\delta_x$ için $\left|g_x(t)\right|<\epsilon$ olur. $f$ fonksiyonu sınırlı olduğundan $g_x$ fonksiyonu da öyle olur, buradan da $\delta_x<t<\pi$ için $\left|g_x(t)\right|<M$ olacak şekilde bir $M$ sabitinin var olduğu elde edilir.  Böylece bunları ve \eqref{eq:fejer-kernel-1} ile \eqref{eq:fejer-kernel-1} eşitliklerini kullanarak yeterince büyük $N$ sayıları için
+\begin{eqnarray*}
+\left|\sigma_N(x)-\frac{1}{2}\left[f(x+)+f(x-)\right]\right| &=& \left|\frac{1}{2\pi}\int_{0}^{\pi}g_xF_N\right|\\
+&\leq& \frac{1}{2\pi}\int_{0}^{\pi}|g_x|F_N\\
+&<& \frac{\epsilon}{2\pi}\int_{0}^{\delta_x}F_N+\frac{M}{2\pi}\int_{\delta_x}^{\pi}F_N\\
+&<& \frac{\epsilon}{2\pi}\int_{0}^{\pi}F_N+\frac{M}{2\pi}\int_{\delta_x}^{\pi}F_N\\
+&<& \epsilon
+\end{eqnarray*}
+olduğu sonucunu elde ederiz ki istenendir.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+Fejer'in bu teoreminin çok sayıda önemli sonuçları vardır, aşağıda bunlardan bazılarını vereceğiz.
+</p>
+
+<p>
+<div class="envcor" id="fejer-cor1"><h6 class="thenv">Sonuç 2.7.1</h6> $f:(-\pi,\pi)\rightarrow\mathbb{R}$ integrallenebilir bir fonksiyon olsun. Eğer $f$'nin $(-\pi,\pi)$ aralığındaki Fourier serisi $f$'nin sürekli olduğu bir $x$ noktasında bir sayıya yankınsıyor ise bu sayı $f(x)$ sayısıdır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$s_N$ ve $\sigma_N$ ile $f$ fonksiyonunun sırasıyla Fourier ve Fejer serilerinin kısmi toplamlar dizilerinin $N-$inci terimlerini gösterelim. $f$ fonksiyonu $x$ noktasında sürekli olsun ve $s_N(x)\rightarrow s$ olsun, bu durumda $\sigma_n(x)\rightarrow s$ olduğunu göstereceğiz. $s_N(x)\rightarrow s$ olduğundan, keyfi bir $\epsilon>0$ verildiğinde $n\geq K(\epsilon)$ için $|s_n(x)-s|<\epsilon$ olacak şekilde bir $K(\epsilon)\in\mathbb{N}$ vardır. Bundan dolayı eğer $N\geq K(\epsilon)$ ise
+\begin{eqnarray*}
+	\left|\sigma_N(x)-s\right| &=& \left|\frac{s_0(x)+s_1(x)+\cdots+s_N(x)}{N+1}\right|\\
+	&=& \left|\frac{[s_0(x)-s]+[s_1(x)-s]+\cdots+[s_N(x)-s]}{N+1}\right|\\
+	&\leq& \frac{\left|s_0(x)-s\right|+\cdots+\left|s_N(x)-s\right|}{N+1}\\
+	&<& \epsilon
+\end{eqnarray*}
+elde edilir ki böylece ispat tamamlanır.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envcor" id="fejer-cor2"><h6 class="thenv">Sonuç 2.7.2</h6> $f,g:(-\pi,\pi)\rightarrow\mathbb{R}$ integrallenebilir ve sürekli iki fonksiyonun $(-\pi,\pi)$ aralığındaki Fourier serileri aynı ise bu durumda $f\equiv g$ olur.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong> <a class="eqref" href="#fejer-yakteo">Teorem  2.7.1</a> ve <a class="eqref" href="#fejer-cor1">Sonuç 2.7.1</a> gereği eğer $\sigma_N(x)\rightarrow f$ ve $\sigma_N(x)\rightarrow g$ ise $f\equiv g$ olacağı açıktır.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+Şimdi de Fejer serilerinde <a class="eqref" href="../26-gibbs-olgusu/index.html">Gibbs olgusunun</a> neden oluşmadığını açıklayalım. Öncelikle $D_N$ Dirichlet çekirdeğinin tanımı ve \eqref{eq:fejer-kernel-2} eşitliğinin doğrudan bir sonucu olan $$(2N+1)F_{2N}=D_N^2$$ eşitliğini gözlemleyelim. Bu eşitlikten de anlaşılacağı gibi $F_{2N}$ fonksiyonunun yaprakları $D_N$ fonksiyonundakinin aksine pozitiftir ve $x-$ekseninin üzerindedir, dolayısıyla altında kalan alan monoton artarak yakınsar. Halbuki Dirichlet çekirdeği negatif ve pozitif değerler arasında salındığı için yakınsamada monotonluk yoktu ve Gibbs olgusunun temel nedeni buydu.
+</p>
+
+<p>
+<img id="fig:fejer-gibbs-1" class="envfig" src="../../../static/ders-notu/fourier-analizi/fejer-gibbs-1.svg" width="55%">
+<span style="margin:auto; display:table;"><span class="figcap">Şekil 2.9:</span> Dirichlet ve Fejer çekirdekleri</span>
+</p>
+
+<p>
+Gerçekten bir önceki bölümdeki düşünüşle $$\sigma_N(x)=\int_{0}^{x}F_N+\pi+\int_{\pi-x}^{\pi}F_N$$ eşitliği elde edilebilir. Sıfıra yakın $x$ değerleri için yukarıdaki son integralin integrasyon aralığı orijini içermediğinden $\delta:=\pi-x$ tanımı yapılırsa <a class="eqref" href="#fs-lm2">Lemma 2.7.1</a> ile verilen \eqref{eq:fejer-kernel-3} eşitliği gereği $$\sigma_N(x)\approx\int_{0}^{x}F_N+\pi$$ sonucuna varılır. Yıkarıdaki ifadenin sağ tarafını $\psi$ olarak tanımlarsak şunları söyleyebiliriz. Fejer çekirdeği \eqref{eq:fejer-kernel-2} eşitliği (veya doğrudan $(2N+1)F_{2N}=D_N^2$ eşitliği) gereği negatif olmadığından $\psi(x)$ fonksiyonu artandır. Ayrıca $N$ sayısı büyüdükçe $\psi(x)$ değerleri $x<0$ için sıfıra, $x>0$ için de $2\pi$ sayısına yaklaşır.
+</p>
+
+<p>
+<img id="fig:fejer-gibbs-2" class="envfig" src="../../../static/ders-notu/fourier-analizi/fejer-gibbs-2.svg" width="50%">
+<span style="margin:auto; display:table;"><span class="figcap">Şekil 2.10:</span> Yukarıda tanımladığımız $\psi$ fonksiyonu</span>
+</p>
+
+<p>
+Ayrıca dikkat edilirse $\psi$ fonksiyonunun orijindeki eğimi $$\psi'(0)=F_N(0)=N+1$$ olur, oysa Fourier toplamı için $s_N\approx\phi$ fonksiyonunun orijindeki eğimi $2N+1$ olarak hesaplanmıştı. Yani Fejer serilerinde Gibbs olgusu oluşmaz fakat bu seriler de <strong>süreksizlik noktalarında yakınsama iki kat daha yavaştır</strong>. Süreksizlik noktalarında Fourier serisi ile $N$ tane terimle elde edilen yaklaşık değere Fejer serisinde $2N$ tane terimle ulaşılabilir.
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../26-gibbs-olgusu/index.html">2.6. Gibbs Olgusu</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Fourier Analizi</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../28-fourier-serilerinin-integrali/index.html">2.8. Fourier Serilerinin İntegrali</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/27-fejer-serileri/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:24 GMT -->
+</html>

@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/52-bir-yaklasim-problemi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 5.2. Bir Yaklaşım Problemi
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>5.2. Bir Yaklaşım Problemi</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-11">
+          11 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste şu ilginç ve önemli bilgiyi keşfedeceğiz: integrallenebilir bir fonksiyona yaklaşmanın <strong>en iyi</strong> yolu onun Fourier serisidir. Ayrıca <strong>Parseval özdeşliğinin</strong> kısmi ispatı ve <strong>Bessel özdeşliğini</strong> de vereceğiz.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/bessel-esitsizligi/index.html">Bessel eşitsizliği</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/parseval-ozdesligi/index.html">Parseval özdeşliği</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Verilen bir $\{\varphi_n\}$ ortogonal sistemi ve bir $N$ doğal sayısı için <strong>Gram</strong> şu problemi ele aldı: ilk $N$ tane ortogonal fonksiyonu kullanarak verilen integrallenebilir bir $f$ fonksiyonuna $$\sum_{n=1}^{N}k_n\varphi_n$$ lineer kombinasyonuyla en iyi yaklaşımı sağlayan $k_n$ katsayıları nelerdir? (Aslında Gram bu çalışmasında ortogonal değil lineer bağımsız bir sistem ele almıştı ve bu lineer bağımsız sistemi ortogonal bir sisteme çevirmek için bir method bulmuştu, bu method daha sonra 1907 yılında <strong>Schmidt</strong> tarafından da keşfedildi.) Burada Gram bu problemi ele alırken yaklaşımdaki hatayı $$E_N:=\bigg\Vert f-\sum_{n=1}^{N}k_n\varphi_n \bigg\Vert^2$$  olarak tanımlamıştı, yani aradığı $k_n$ katsayıları bu $E_N$ ifadesini minimize edecek sayılardı. Sıradaki teoremle Gram'ın elde ettiği sonucu veriyoruz.
+</p>
+
+<p>
+<div class="envtheo" id="ortogonal-theo-2"><h6 class="thenv">Teorem 5.2.1</h6>$f$ fonksiyonu $(a,b)$ aralığında integrallenebilir olsun, ayrıca $\{\varphi_n \}$ de bu aralıkta ortogonal bir sistem olsun. Bu durumda verilen bir $N$ doğal sayısı için yukarıda tanımlanan $E_N$ ifadesinin minimum değeri
+\begin{equation}
+\label{eq:ortogonal-2}
+\tag{5.2.1}
+\Vert f\Vert^2-\sum_{n=1}^{N}c_n^2\Vert\varphi_n\Vert^2
+\end{equation}olur. Ayrıca bu minimum değere her $n$ için $k_n=c_n$ olduğunda, yani her bir $k_n$ katsayısı $f$ fonksiyonunun $(a,b)$ aralığında $\{\varphi_n \}$ ortogonal sistemine göre Fourier katsayısına eşit olduğunda ulaşılır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>Sabit $k_n$ sayıları için $\sigma_N:=\sum_{n=1}^{N}k_n\varphi_n$ tanımlayalım, $m\neq n$ için $\langle f,\varphi_n\rangle=0$ olduğunu kullanarak
+
+\begin{eqnarray*}
+	E_N=\Vert f-\sigma_N\Vert &=& \langle f-\sigma_N,f-\sigma_N\rangle\\
+	&=& \langle f,f\rangle - \langle\sigma_N,f \rangle -\langle f,\sigma_N\rangle + \langle\sigma_N,\sigma_N \rangle\\
+	&=& \Vert f\Vert^2-2\langle f,\sigma_N\rangle+\langle\sigma_N,\sigma_N \rangle\\
+	&=& \Vert f\Vert^2-2\sum_{n=1}^{N}k_n\langle f,\varphi_n\rangle+\sum_{n=1}^{N}k_n^2\langle \varphi_n,\varphi_n\rangle
+\end{eqnarray*}
+
+olduğu görülür. <a class="eqref" href="../51-parseval-ozdesligi/index.html#def-fs-ortogonal">Tanım 5.1.2</a> gereği $\langle f,\varphi_n\rangle=c_n\Vert\varphi_n\Vert^2$ olduğundan bu eşitliğin sağ tarafı $$\Vert f\Vert^2+\sum_{n=1}^{N}\left[k_n^2\Vert\varphi_n\Vert^2-2k_nc_n\Vert\varphi_n\Vert^2\right]=\Vert f\Vert^2+\sum_{n=1}^{N}\left[k_n\Vert\varphi_n\Vert-c_n\Vert\varphi_n\Vert \right]^2-\sum_{n=1}^{N}c_n^2\Vert\varphi_n\Vert^2$$ halini alır. Bu son ifadenin minimum değerini $k_n=c_n$ için alacağı açıktır, bu değer de \eqref{eq:ortogonal-2} ile verildiği gibidir.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+Bu sonuç bize integrallenebilir bir fonksiyona yaklaşmanın en iyi yolununun onun Fourier serisini kullanmak olduğunu söyler ki bu da oldukça ilginç ve beklenmedik bir sonuçtur.
+</p>
+
+<p>
+Bu teoremin sonucu olarak artık integrallenebilir keyfi bir fonksiyona $N-$inci Fourier kısmi toplamı olan $s_N$ ile yaklaşırken oluşan hata payının $N\rightarrow\infty$ için sıfır olmasını umabiliriz. Gerçekten <a class="eqref" href="#ortogonal-theo-2">Teorem 5.2.1</a> gereği $$\Vert f-s_N\Vert^2=\Vert f\Vert^2-\sum_{n=1}^{N}c_n^2\Vert\varphi_n\Vert^2$$ olduğunu gördük, eşitliğin sağ tarafının $N\rightarrow\infty$ iken sıfır olması için gerek ve yeter koşulun Parseval özdeşliğinin sağlanması olduğu açıkça görünüyor.
+</p>
+
+<p>
+<div class="envcor" id="ortogonal-sonuc-1"><h6 class="thenv">Sonuç 5.2.1</h6>$f$ fonksiyonu $(a,b)$ aralığında integrallenebilir, $\{\varphi_n \}$ bu aralıkta ortogonal bir sistem ve $s_N$ de $f$ fonksiyonunun $\{\varphi_n \}$ sistemine göre $N-$inci Fourier serisi kısmi toplamı olsun. Bu durumda $N\rightarrow\infty$ iken $\Vert f-s_N\Vert\rightarrow0$ olması için gerek ve yeter koşul $f$ için Parseval özdeşliğinin sağlanmasıdır.
+</div>
+</p>
+
+<p>
+Bu sonuç Parseval özdeşliğinin önemini açık bir şekilde gösteriyor. Buraya kadar gördüğümüz gibi bu özdeşlik hem ortogonal sistemlerin tamlığı hem de Fourier serilerinin yakınsaklığı konularında kilit öneme sahip. Bunun dışında bizim değinmeyeceğimiz, Fourier serilerinin terim terim integrallenmesi, bazı değişik serilerin toplamlarının hesaplanması gibi, başka problemlerin de çözümünde Parseval özdeşliğinden faydalanılır.
+</p>
+
+<p>
+Daha sonra Parseval özdeşliğine döneceğiz, şimdi daha basit bir sonuç elde edelim. Her $N$ doğal sayısı için \eqref{eq:ortogonal-2} ile verilen ifade negatif olmadığından $E_N$'in minimum değeri de negatif olamaz. Ayrıca burada $N$ keyfi olduğundan aşağıdaki sonuç elde edilmiş olur. Bu sonuç ilk defa 1828 yılında <strong>Friedrich Wilhelm Bessel</strong> (1784-1846) tarafından trigonometrik ortogonal sistem için kanıtlanmıştır. <strong>Bessel eşitsizliği</strong> denilen bu sonuç Parseval özdeşliğinin kolay olan kısmıdır, bir sonraki bölümde bu sonucu kullanarak üçüncü bölümde bıraktığımız bir eksikliği gidereceğiz.
+</p>
+
+<p>
+<div class="envcor" id="ortogonal-sonuc-2"><h6 class="thenv">Sonuç 5.2.2 (Bessel Eşitsizliği)</h6>$f$ fonksiyonu $(a,b)$ aralığında integrallenebilir ve $\{\varphi_n \}$ de bu aralıkta ortogonal bir sistem ise bu durumda
+\begin{equation}
+\label{eq:ortogonal-bessel}
+\tag{5.2.2}
+\sum_{n=1}^{\infty}c_n^2\Vert \varphi_n\Vert^2\leq\Vert f\Vert^2
+\end{equation}eşitsizliği sağlanır.</div>
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../51-parseval-ozdesligi/index.html">5.1. Parseval Özdeşliği</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Fourier Analizi</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../53-duzgun-yakinsaklik/index.html">5.3. Düzgün Yakınsaklık</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/52-bir-yaklasim-problemi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:46 GMT -->
+</html>

@@ -1,0 +1,403 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/python-ve-bilimsel-hesaplama/33-pythonda-moduller/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 3.3. Python&#x27;da Modüller
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>3.3. Python'da Modüller</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-23">
+          23 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Önceki derslerde kendi fonksiyonlarınızı nasıl tanımlayabileceğinizi öğrendiniz, bu derste de fonksiyonlarınızdan <strong>modül</strong> oluşturmayı öğreneceksiniz. Böylece fonksiyonlarınıza başka programlar içinden de ulaşabilirsiniz.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/dir/index.html">dir</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/import/index.html">import</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/__main__/index.html">__main__</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/modul/index.html">modül</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/__name__/index.html">__name__</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Bazen bir programımızda tanımladığımız bir fonksiyonu başka bir programda tekrar kullanmak isteyebiliriz. Bunun en basit yolu fonksiyonun kodlarını kopyalayıp yeni programımıza yapıştırmak gibi gelebilir size ama bu kötü bir fikirdir. Bu fonksiyonu bir çok programda kullandığınızı varsayın, daha sonra bu fonksiyonu geliştirmek ya da fonksiyonun bir hatasını gidermek istediğimiz zaman her yerde fonksiyonun kodlarını değiştirmeniz gerekir. Programcılığın en temel kurallarından birine göre bir kodun elimizde tek bir versiyonu bulunmalıdır. Bunun için kullanacağımız fonksiyonları adına <strong>modül</strong> denilen dosyalarda saklayıp daha sonra ihtiyaç duyduğumuz programlar içinde bu fonksiyonu <code class="language-python">import</code> etmeliyiz. Örneğin <code class="language-python">math</code> modülü içindeki <code class="language-python">factorial()</code> fonksiyonuna ne zaman ihtiyaç duysak <code class="language-python">from math import factorial</code> biçiminde erişebiliriz.
+</p>
+
+
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Kullanıcı Tanımlı Modüller</h3>
+
+
+
+
+
+<p>
+Pythonda modül oluşturmak oldukça kolaydır, fonksiyonları <code class="language-python">modul.py</code> gibi <code class="language-python">.py</code> uzantılı bir dosyaya kaydederiz ve o dosya artık bir modüldür. Bundan sonra o dosyadaki fonksiyonlara istediğimiz zaman <code class="language-python">from modul import fonksiyon</code> şeklinde erişebiliriz. Dikkat etmemiz gereken tek bir şey var aslında, kaydettiğimiz modül dosyasyı çalıştığımız programla aynı klasörde olmalıdır.
+</p>
+
+<p>
+Örnek olarak Celsius, Kelvin ve Fahrenheit sıcaklık birimleri arasında dönüşüm yapan altı adet <code class="language-python">C2F</code>, <code class="language-python">F2C</code>, <code class="language-python">C2K</code>, <code class="language-python">K2C</code>, <code class="language-python">F2K</code> ve <code class="language-python">K2F</code> fonksiyonlarını tanımlayalım. Bu dönüşüm formülleri aşağıdaki kodlarda verildiği gibidir.
+
+<pre class="my-4"><code class="language-python line-numbers">
+def C2F(C):
+    return (9.0/5)*C + 32
+
+def F2C(F):
+    return (5.0/9)*(F - 32)
+
+def K2C(K):
+    return K - 273
+
+def C2K(C):
+    return C + 273
+
+def F2K(F):
+    return (5.0/9)*(F - 32) + 273
+
+def K2F(K):
+    return (9.0/5)*(K - 273) + 32
+</code></pre>
+
+<p>
+Bu kodları <code class="language-python">donusum1.py</code> olarak kaydederek bir modul oluşturalım. Daha sonra bir interaktif Python oturumunda buradaki fonksiyonlara erişim sağlayalım. Eğer modülden bir veya bir kaç fonksiyona erişmek istiyorsak bunu aşağıdaki gibi yaparız.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python
+Python 2.7.13 (default, Apr  4 2017, 08:46:44)
+[GCC 4.2.1 Compatible Apple LLVM 8.0.0 (clang-800.0.42.1)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+>>> from donusum1 import C2F, F2K
+>>> C2F(35)
+95.0
+>>> F2K(10)
+260.77777777777777
+</code></pre>
+
+<p>
+Bir program içinde kullanılabilir olan fonksiyon ve değişkenlerin listesini <code class="language-python">dir()</code> komutu ile görebiliriz. Modül içindeki tim fonksiyonları programımıza alıp bunu deneyelim.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> from donusum1 import *
+>>> dir()
+['C2F', 'C2K', 'F2C', 'F2K', 'K2C', 'K2F', '__builtins__', '__doc__',
+'__name__', '__package__']
+</code></pre>
+
+<p>
+Dikkat edilirse tanımladığımız altı fonksiyon dışında bizim oluştumadığımız değişkenler de var programımızda. Bunlar her programda standart olan değişkenlerdir, karşılaştıkça bunları açıklayacağız.
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Ana Program Olarak Modüller</h3>
+
+
+
+
+
+<p>
+Modül içerisinde tanımladığımız fonksiyonları sadece başka programlarda kullanmak yerine, doğrudan bu dosyayı da bir program olarak kullanmak isteyebiliriz. Aşağıdaki örneği dikkatlice inceleyip çalışma mantığını anlayın.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+def C2F(C):
+    return (9.0/5)*C + 32
+
+def F2C(F):
+    return (5.0/9)*(F - 32)
+
+def K2C(K):
+    return K - 273
+
+def C2K(C):
+    return C + 273
+
+def F2K(F):
+    return (5.0/9)*(F - 32) + 273
+
+def K2F(K):
+    return (9.0/5)*(K - 273) + 32
+
+import sys
+bilgi = "Kullanim ornek: python %s C 21 F" % sys.argv[0]
+
+if len(sys.argv) == 1:
+    print bilgi
+elif len(sys.argv) == 4:
+    s = "%s2%s(%s)" % (sys.argv[1], sys.argv[3], sys.argv[2])
+    exec("y = %s" % s)
+    print "%s%s=%g%s" % (sys.argv[2], sys.argv[1], y, sys.argv[3])
+else:
+    print "Hatali giris.."
+</code></pre>
+
+<p>
+Bu programın çıktısı aşağıdaki gibi olacaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python donusum2.py
+Kullanim ornek: python donusum2.py C 21 F
+
+Terminal >  python donusum2.py C 21 F
+21C=69.8F
+</code></pre>
+
+<p>
+Bu dosyayı bir program olarak çalıştırınca bir sıkıntı yok ama bunu başka program içinde <code class="language-python">import</code> edersek dikkat etmemiz gereken bir husus var. Bir modülü programımıza bütünüyle import ettiğimizde modül dosyası baştan sona kadar çalıştırılır. Ama biz sadece modülün içinde tanımlanan fonksiyonlar gerekli, onun dışındaki kodları (ekrana yazdırma yapan veya hesaplama yapan) çalıştırmak istemeyiz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> import donusum2
+Kullanim ornek: python  C 21 F
+>>> 
+>>> dir(donusum2)
+['C2F', 'C2K', 'F2C', 'F2K', 'K2C', 'K2F', '__builtins__', '__doc__',
+'__file__', '__name__', '__package__', 'bilgi', 'sys']
+</code></pre>
+
+<p>
+Gördüğünüz gibi modülü import eder etmez ana fonksiyon gibi çalışıp ekrana bazı çıktılar gösterdi. Ayrıca <code class="language-python">bilgi</code> ve <code class="language-python">sys</code> gibi programımıza import etmek istemediğimiz fazladan değişkenler geldi. Bunların yerine sadece fonksiyon tanımlarının programımıza aktarılmasını, diğer kalan kodların ihmal edilmesini sağlayabiliriz. Bunun için modülümüzde fonksiyon tanımları dışında kalan, sadece ana program olarak çalışınca kullanılacak olan kısmı <strong>test bloğu</strong> denilen bir blok içinde yazarız. Bu blok içindeki kodlar sadece dosya ana program olarak çalıştırıldığında dikkate alınır. Test bloğunu oluşturmak için programda standart olarak tanımlı olan <code class="language-python">__name__</code> değişkenini kullanırız. Dosya ana program olarak çalıştırılırsa bu değişkenin değeri <code class="language-python">__main__</code>'dir. Dolayısıyla fonksiyon tanımı dışındaki kodları <code class="language-python">__name__=="__main__"</code> koşulu altında verebiliriz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+def C2F(C):
+    return (9.0/5)*C + 32
+
+def F2C(F):
+    return (5.0/9)*(F - 32)
+
+def K2C(K):
+    return K - 273
+
+def C2K(C):
+    return C + 273
+
+def F2K(F):
+    return (5.0/9)*(F - 32) + 273
+
+def K2F(K):
+    return (9.0/5)*(K - 273) + 32
+
+if __name__ == "__main__":
+    import sys
+    bilgi = "Kullanim ornek: python %s C 21 F" % sys.argv[0]
+    if len(sys.argv) == 1:
+        print bilgi
+    elif len(sys.argv) == 4:
+        s = "%s2%s(%s)" % (sys.argv[1], sys.argv[3], sys.argv[2])
+        exec("y = %s" % s)
+        print "%s%s=%g%s" % (sys.argv[2], sys.argv[1], y, sys.argv[3])
+    else:
+        print "Hatali giris.."
+</code></pre>
+
+<p>
+Bu modülü kullanırsak aşağıdaki gibi bir sonuç alırız. Fark edeceğiniz gibi fonksiyon tanımları dışında hiç bir şeyi programımıza almamış oluyoruz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> import donusum3
+>>> dir(donusum3)
+['C2F', 'C2K', 'F2C', 'F2K', 'K2C', 'K2F', '__builtins__', '__doc__',
+'__file__', '__name__', '__package__']
+</code></pre>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../32-kullanicidan-veri-alma/index.html">3.2. Kullanıcıdan Veri Alma</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Python ve Bilimsel Hesaplama</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../41-array-nesneleri-ve-vektorizasyon/index.html">4.1. Array Nesneleri ve Vektörizasyon</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/python-ve-bilimsel-hesaplama/33-pythonda-moduller/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:48 GMT -->
+</html>

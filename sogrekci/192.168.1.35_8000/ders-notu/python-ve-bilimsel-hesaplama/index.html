@@ -1,0 +1,815 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/python-ve-bilimsel-hesaplama/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:33:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - Python Ve Bilimsel Hesaplama
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../static/site/prism.css">
+    <script src="../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<div class="container px-5 my-5 pb-5 shadow bg-light rounded-lg">
+
+  <div class="row pt-4">
+    <div class="col text-center">
+      <h1 style="font-family: 'Rajdhani', sans-serif;">Python ve Bilimsel Hesaplama</h1>
+    </div>
+  </div>
+ 
+  
+  <div class="row text-justify mb-5">
+    <p><p>Bu derslerde Python programlama diline sıfırdan başlıyoruz, en temel konuları tartışırken vereceğimiz örneklerin bilimsel hesaplama yöntemlerini içermesine özen gösterdim. Bu derste verilen örnekleri anlayabilmek için ileri seviye matematik bilmeye gerek yoktur, temel kalkülüs konu başlıklarını bilmek yeterlidir.</p>
+
+<p>Aşağıda listelenenler dışında bu derse zamanla yeni ders notları da ekleyeceğim, yani bu dersin notları henüz tamamlanmamıştır. Öncelikle en temel Pythpn veri tiplerinden <strong>dict</strong> (sözlük) tipi verileri henüz anlatmadım, bunlara ilişkin bir ders notu eklemeyi planlıyorum. Ayrıca ders içinde sıklıkla kullandığımız <strong>string</strong> veri tipleri hakkında detaylı bir ders notu hazırlamayı da düşünüyorum. Bunlardan sonra sembolik hesaplama ve <strong>SciPy</strong> paketi, veri analizi ve <strong>Pandas</strong> paketi, <strong>sınıflar</strong>, hiyerarşi ve nesne yönelimli programlama (<strong>OOP</strong>) konularında da ders notları eklemeyi planlıyorum.</p></p>
+  </div>
+  
+ 
+ 
+  
+
+
+  
+  
+  <div class="row mt-3">
+    <h3 style="font-family: 'Rajdhani', sans-serif;">
+      1. Giriş
+      <a data-toggle="collapse" href="#ozet-1-giris" role="button" aria-expanded="false" aria-controls="ozet-1-giris">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h3>
+  </div>
+ 
+  <div class="row">
+    <div class="collapse" id="ozet-1-giris">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu bölümde Python ile genel programlama ve bilimsel hesaplamanın temellerini öğreneceğiz. Python yazılımının kurulması, ilk programın yazılması, <strong>değişkenlerin</strong> ve bazı temel nesnelerin tanıtılması, <strong>modüllerin</strong> ve <strong>fonksiyonların</strong> kullanılması, özellikle <strong>math</strong> modülünün tanıtılması, <strong>kompleks sayı</strong> hesaplarının yapılması ve <strong>yuvarlama hatalarının</strong> açıklanması gibi konulara değineceğiz.
+      </div>
+    </div>
+  </div>
+
+
+  
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="11-baslarken/index.html">1.1. Başlarken</a>
+      <a data-toggle="collapse" href="#ozet-11-baslarken" role="button" aria-expanded="false" aria-controls="ozet-11-baslarken">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-11-baslarken">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste <strong>Python</strong> ile programlama yapmaya başlamak için gerekli yazılımı yüklüyoruz. Daha sonra bu derste ilk programımızı yazıp çalıştıracağız.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/interpreter/index.html">Interpreter</a> &middot; 
+        
+        <a href="../../dizin/powershell/index.html">Powershell</a> &middot; 
+        
+        <a href="../../dizin/print/index.html">Print</a> &middot; 
+        
+        <a href="../../dizin/python/index.html">Python</a> &middot; 
+        
+        <a href="../../dizin/terminal/index.html">Terminal</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="12-degiskenler-ve-basit-hesaplamalar/index.html">1.2. Değişkenler ve Basit Hesaplamalar</a>
+      <a data-toggle="collapse" href="#ozet-12-degiskenler-ve-basit-hesaplamalar" role="button" aria-expanded="false" aria-controls="ozet-12-degiskenler-ve-basit-hesaplamalar">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-12-degiskenler-ve-basit-hesaplamalar">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste Python ile program yazarken değişkenleri kullanmaya başlıyoruz, bu sayede karmaşık hesaplamaları daha basit kod parçaları ile yapabiliriz.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/bicimleyiciler/index.html">Biçimleyiciler</a> &middot; 
+        
+        <a href="../../dizin/degiskenler/index.html">Değişkenler</a> &middot; 
+        
+        <a href="../../dizin/printf/index.html">Printf</a> &middot; 
+        
+        <a href="../../dizin/qnew/index.html">Qnew</a> &middot; 
+        
+        <a href="../../dizin/tam-sayi-bolmesi/index.html">Tam Sayı Bölmesi</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="13-matematiksel-fonksiyonlar/index.html">1.3. Matematiksel Fonksiyonlar</a>
+      <a data-toggle="collapse" href="#ozet-13-matematiksel-fonksiyonlar" role="button" aria-expanded="false" aria-controls="ozet-13-matematiksel-fonksiyonlar">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-13-matematiksel-fonksiyonlar">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Daha karmaşık matematiksel hesaplamalar için <strong>math</strong> gibi <strong>modülleri</strong> kullanmaya ihtiyacımız olur. Üstel, trigonometrik, logaritmik ve benzeri fonksiyonlar bu gibi modüller içindedir.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/cmath/index.html">Cmath</a> &middot; 
+        
+        <a href="../../dizin/decimal/index.html">Decimal</a> &middot; 
+        
+        <a href="../../dizin/import/index.html">Import</a> &middot; 
+        
+        <a href="../../dizin/kompleks-fonksiyonlar/index.html">Kompleks Fonksiyonlar</a> &middot; 
+        
+        <a href="../../dizin/kompleks-sayilar/index.html">Kompleks Sayılar</a> &middot; 
+        
+        <a href="../../dizin/math/index.html">Math</a> &middot; 
+        
+        <a href="../../dizin/modul/index.html">Modül</a> &middot; 
+        
+        <a href="../../dizin/scipy/index.html">Scipy</a> &middot; 
+        
+        <a href="../../dizin/yuvarlama-hatasi/index.html">Yuvarlama Hatası</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  
+
+
+  
+  
+  
+  
+  <div class="row mt-3">
+    <h3 style="font-family: 'Rajdhani', sans-serif;">
+      2. Döngüler ve Koşullu Yapı
+      <a data-toggle="collapse" href="#ozet-2-donguler-ve-kosullu-yapi" role="button" aria-expanded="false" aria-controls="ozet-2-donguler-ve-kosullu-yapi">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h3>
+  </div>
+ 
+  <div class="row">
+    <div class="collapse" id="ozet-2-donguler-ve-kosullu-yapi">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bilgisayarın ana fikri tekrarlanan işlemlerin otomasyonuna dayanır. Bu bölümde, aynı işlemi farklı durumlara uygulamak için <strong>döngülerin</strong> nasıl kullanılacağını öğreneceğiz. Python'da iki temel döngü çeşidi vardır, bunlar <code class="language-python">while</code> ve <code class="language-python">for</code> döngüleri olarak adlandırılırlar. Bu döngüleri çalışabilmek için önce iki yeni veri tipini öğrenmemiz gerekecek, <code class="language-python">bool</code> ve <code class="language-python">list</code> veri tipleri. Bu veri tiplerini sadece bu bölümde döngüler için değil, metnin geri kalanında bir çok konu başlığında kullanacağız. Bu bölümde ayrıca <code class="language-python">if-else</code> <strong>koşullu yapısıyla</strong> programlarımız içinde karar alma stratejileri geliştirmeyi öğreneceğiz. Bu sayede programlarımız farklı stratejiler üzerinden çalışabilecek.
+      </div>
+    </div>
+  </div>
+
+
+  
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="21-while-donguleri/index.html">2.1. While Döngüleri</a>
+      <a data-toggle="collapse" href="#ozet-21-while-donguleri" role="button" aria-expanded="false" aria-controls="ozet-21-while-donguleri">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-21-while-donguleri">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> İlk öğreneceğimiz döngü çeşidi <strong>while</strong> döngüleridir. Bu döngüleri kullanabilmek için <strong>bool</strong> verilerine ihtiyacımız var. Matematik derslerindeki sembolik mantık konusundan aşina olduğunuz bu konuyu açıkladıktan sonra Fourier serileri ve Gauss dağılımı ile ilgili döngü örnekleri vereceğiz.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/and/index.html">And</a> &middot; 
+        
+        <a href="../../dizin/bool-verisi/index.html">Bool Verisi</a> &middot; 
+        
+        <a href="../../dizin/fourier-serisi/index.html">Fourier Serisi</a> &middot; 
+        
+        <a href="../../dizin/gibbs-olgusu/index.html">Gibbs Olgusu</a> &middot; 
+        
+        <a href="../../dizin/or/index.html">Or</a> &middot; 
+        
+        <a href="../../dizin/sonlu-toplam/index.html">Sonlu Toplam</a> &middot; 
+        
+        <a href="../../dizin/while-dongusu/index.html">While Döngüsü</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="22-donguleri/index.html">2.2. For Döngüleri</a>
+      <a data-toggle="collapse" href="#ozet-22-donguleri" role="button" aria-expanded="false" aria-controls="ozet-22-donguleri">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-22-donguleri">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste <strong>for</strong> döngülerini açıklayacağız, bu döngüleri öğrenmek için önce <strong>list</strong> ve </tuple> tipi verileri anlamamız gerekiyor. Bu tür veriler üzerinde yapılabilen temel işlemleri açıkladıktan sonra bazı döngü örnekleri vereceğiz.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/binom-dagilimi/index.html">Binom Dağılımı</a> &middot; 
+        
+        <a href="../../dizin/dilimleme/index.html">Dilimleme</a> &middot; 
+        
+        <a href="../../dizin/dongsu/index.html">For Döngsü</a> &middot; 
+        
+        <a href="../../dizin/index/index.html">Index</a> &middot; 
+        
+        <a href="../../dizin/indis/index.html">Indis</a> &middot; 
+        
+        <a href="../../dizin/list/index.html">List</a> &middot; 
+        
+        <a href="../../dizin/list-comprehension/index.html">List Comprehension</a> &middot; 
+        
+        <a href="../../dizin/slice/index.html">Slice</a> &middot; 
+        
+        <a href="../../dizin/tuple/index.html">Tuple</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="23-if-else-kosullu-yapisi/index.html">2.3. If-Else Koşullu Yapısı</a>
+      <a data-toggle="collapse" href="#ozet-23-if-else-kosullu-yapisi" role="button" aria-expanded="false" aria-controls="ozet-23-if-else-kosullu-yapisi">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-23-if-else-kosullu-yapisi">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste programlarımızın farklı senaryolara göre farklı şekilde çalışmasına olanak sağlayan dallanma (<strong>branching</strong>) konusunda değineceğiz. Bir çok programlama dilinde olduğu gibi bunu Python'da da <code class="language-python">if-else</code> blokları ile yaparız.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/dallanma/index.html">Dallanma</a> &middot; 
+        
+        <a href="../../dizin/elif/index.html">Elif</a> &middot; 
+        
+        <a href="../../dizin/else/index.html">Else</a> &middot; 
+        
+        <a href="../../dizin/heaviside-fonksiyonu/index.html">Heaviside Fonksiyonu</a> &middot; 
+        
+        <a href="../../dizin/if/index.html">If</a> &middot; 
+        
+        <a href="../../dizin/if-else/index.html">If-Else</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  
+
+
+  
+  
+  
+  
+  <div class="row mt-3">
+    <h3 style="font-family: 'Rajdhani', sans-serif;">
+      3. Fonksiyonlar ve Modüller
+      <a data-toggle="collapse" href="#ozet-3-fonksiyonlar-ve-moduller" role="button" aria-expanded="false" aria-controls="ozet-3-fonksiyonlar-ve-moduller">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h3>
+  </div>
+ 
+  <div class="row">
+    <div class="collapse" id="ozet-3-fonksiyonlar-ve-moduller">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu bölüme gelene kadar bir çok hazır fonksiyon ile çalıştık, <code class="language-python">math</code> modülünde tanımlanmış olan <code class="language-python">sin</code>, <code class="language-python">cos</code>, <code class="language-python">sqrt</code> ve <code class="language-python">exp</code> gibi.  Bu bölümde, <strong>kendi fonksiyonlarımızı</strong> tanımlamayı ve bunları programlarımızda kullanmayı öğreneceğiz. Daha sonra bu fonksiyonlara çeşitli yöntemlerle <strong>argüman</strong> sağlamayı ve kullanıcı tarafından sağlanan argümanlar üzerinde <strong>hata kontrolü</strong> konularına değineceğiz. Ayrıca bu bölümde kendi tanımladığımız fonksiyonlar ile <strong>kendi modüllerimizi</strong> nasıl oluşturabileceğimizi de öğreneceğiz.
+      </div>
+    </div>
+  </div>
+
+
+  
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="31-python-fonksiyonlari/index.html">3.1. Python Fonksiyonları</a>
+      <a data-toggle="collapse" href="#ozet-31-python-fonksiyonlari" role="button" aria-expanded="false" aria-controls="ozet-31-python-fonksiyonlari">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-31-python-fonksiyonlari">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste kendi fonksiyonlarımızı tanımlamanın ve kullanmanın yollarını öğreneceğiz. Fonksiyon tanımlama işlemi programlama dilleri için kritik öneme sahiptir ve Python'da bu işlem son derece basittir.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/doc-string/index.html">Doc String</a> &middot; 
+        
+        <a href="../../dizin/global-degisken/index.html">Global Değişken</a> &middot; 
+        
+        <a href="../../dizin/hata-fonksiyonu/index.html">Hata Fonksiyonu</a> &middot; 
+        
+        <a href="../../dizin/lambda/index.html">Lambda</a> &middot; 
+        
+        <a href="../../dizin/lokal-degisken/index.html">Lokal Değişken</a> &middot; 
+        
+        <a href="../../dizin/none/index.html">None</a> &middot; 
+        
+        <a href="../../dizin/python-fonksiyonu/index.html">Python Fonksiyonu</a> &middot; 
+        
+        <a href="../../dizin/return/index.html">Return</a> &middot; 
+        
+        <a href="../../dizin/simpson-kurali/index.html">Simpson Kuralı</a> &middot; 
+        
+        <a href="../../dizin/test-fonksiyonu/index.html">Test Fonksiyonu</a> &middot; 
+        
+        <a href="../../dizin/yaklasik-turev/index.html">Yaklaşık Türev</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="32-kullanicidan-veri-alma/index.html">3.2. Kullanıcıdan Veri Alma</a>
+      <a data-toggle="collapse" href="#ozet-32-kullanicidan-veri-alma" role="button" aria-expanded="false" aria-controls="ozet-32-kullanicidan-veri-alma">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-32-kullanicidan-veri-alma">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu ders biraz uzun olacak, programın kullanıcı ile iletişim kurabilmesinin tüm yollarını tek bir derste açıklamak istedim. Bu yollar şunlar: programın kullanıcıya <strong>sorular sorarak</strong> veri alması, kullanıcının programı çalıştırırken <strong>komut satırından</strong> programa veri iletmesi, programın kullanıcının oluşturduğu bir <strong>dosyadan</strong> veriler alması ve programın bir dosyaya yazarak kullanıcıya veri iletmesi. Ayrıca bu derste kullanıcının <strong>hatalı veri</strong> iletmesi sonucu oluşabilecek hataları kontrol etmenin de yollarını öğreneceksiniz.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/argparse/index.html">Argparse</a> &middot; 
+        
+        <a href="../../dizin/close/index.html">Close</a> &middot; 
+        
+        <a href="../../dizin/dosya-okuma-yazma/index.html">Dosya Okuma Yazma</a> &middot; 
+        
+        <a href="../../dizin/eval/index.html">Eval</a> &middot; 
+        
+        <a href="../../dizin/exception/index.html">Exception</a> &middot; 
+        
+        <a href="../../dizin/exec/index.html">Exec</a> &middot; 
+        
+        <a href="../../dizin/file/index.html">File</a> &middot; 
+        
+        <a href="../../dizin/hata-kontrolu/index.html">Hata Kontrolü</a> &middot; 
+        
+        <a href="../../dizin/indexerror/index.html">Indexerror</a> &middot; 
+        
+        <a href="../../dizin/nameerror/index.html">Nameerror</a> &middot; 
+        
+        <a href="../../dizin/open/index.html">Open</a> &middot; 
+        
+        <a href="../../dizin/raise/index.html">Raise</a> &middot; 
+        
+        <a href="../../dizin/raw_input/index.html">Raw_Input</a> &middot; 
+        
+        <a href="../../dizin/read/index.html">Read</a> &middot; 
+        
+        <a href="../../dizin/readlines/index.html">Readlines</a> &middot; 
+        
+        <a href="../../dizin/simpson-kurali/index.html">Simpson Kuralı</a> &middot; 
+        
+        <a href="../../dizin/split/index.html">Split</a> &middot; 
+        
+        <a href="../../dizin/sysargv/index.html">Sys.Argv</a> &middot; 
+        
+        <a href="../../dizin/terminal/index.html">Terminal</a> &middot; 
+        
+        <a href="../../dizin/try-except/index.html">Try-Except</a> &middot; 
+        
+        <a href="../../dizin/typeerror/index.html">Typeerror</a> &middot; 
+        
+        <a href="../../dizin/valueerror/index.html">Valueerror</a> &middot; 
+        
+        <a href="../../dizin/with/index.html">With</a> &middot; 
+        
+        <a href="../../dizin/zerodivisionerror/index.html">Zerodivisionerror</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="33-pythonda-moduller/index.html">3.3. Python'da Modüller</a>
+      <a data-toggle="collapse" href="#ozet-33-pythonda-moduller" role="button" aria-expanded="false" aria-controls="ozet-33-pythonda-moduller">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-33-pythonda-moduller">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Önceki derslerde kendi fonksiyonlarınızı nasıl tanımlayabileceğinizi öğrendiniz, bu derste de fonksiyonlarınızdan <strong>modül</strong> oluşturmayı öğreneceksiniz. Böylece fonksiyonlarınıza başka programlar içinden de ulaşabilirsiniz.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/dir/index.html">Dir</a> &middot; 
+        
+        <a href="../../dizin/import/index.html">Import</a> &middot; 
+        
+        <a href="../../dizin/__main__/index.html">__Main__</a> &middot; 
+        
+        <a href="../../dizin/modul/index.html">Modül</a> &middot; 
+        
+        <a href="../../dizin/__name__/index.html">__Name__</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  
+
+
+  
+  
+  
+  
+  <div class="row mt-3">
+    <h3 style="font-family: 'Rajdhani', sans-serif;">
+      4. Vektörizasyon ve Grafik Çizimi
+      <a data-toggle="collapse" href="#ozet-4-vektorizasyon-ve-grafik-cizimi" role="button" aria-expanded="false" aria-controls="ozet-4-vektorizasyon-ve-grafik-cizimi">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h3>
+  </div>
+ 
+  <div class="row">
+    <div class="collapse" id="ozet-4-vektorizasyon-ve-grafik-cizimi">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Grafik çizimi bilimsel hesaplamalar içinde önemli bir konudur, programlarımızda bazen hesaplamaların sonucunu grafiksel olarak sunarız. Python'da grafik çizmek oldukça basittir ama bunun için <strong>NumPy</strong> paketi içinde sunulan <strong>array</strong> nesnelerini anlamamız gerekir, bu nesneler şu ana kadar öğrendiğimiz hesaplama yöntemlerine bakışınızı değiştirecektir. Daha önce öğrendiğiniz <strong>list</strong> nesnelerine çok benzer olmasına karşın array nesneleri çok daha verimli çalışır. Ayrıca bu nesneler grafik çizimi dışında da sıklıkla kullanılır, bunlara bazı örnekler vereceğiz.
+      </div>
+    </div>
+  </div>
+
+
+  
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="41-array-nesneleri-ve-vektorizasyon/index.html">4.1. Array Nesneleri ve Vektörizasyon</a>
+      <a data-toggle="collapse" href="#ozet-41-array-nesneleri-ve-vektorizasyon" role="button" aria-expanded="false" aria-controls="ozet-41-array-nesneleri-ve-vektorizasyon">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-41-array-nesneleri-ve-vektorizasyon">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste <strong>NumPy</strong> paketini ve <strong>array</strong> nesnelerini tanıyacaksınız. Bir fonksiyonu <strong>vektörize</strong> etmenin çeşitli yollarını da göreceksiniz, vektörizasyon işlemi bir sonraki bölümde ele alacağımız grafik çizme işlemi için bir gerekliliktir.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/array/index.html">Array</a> &middot; 
+        
+        <a href="../../dizin/clock/index.html">Clock</a> &middot; 
+        
+        <a href="../../dizin/linspace/index.html">Linspace</a> &middot; 
+        
+        <a href="../../dizin/logical_and/index.html">Logical_And</a> &middot; 
+        
+        <a href="../../dizin/ndarray/index.html">Ndarray</a> &middot; 
+        
+        <a href="../../dizin/numpy/index.html">Numpy</a> &middot; 
+        
+        <a href="../../dizin/ones/index.html">Ones</a> &middot; 
+        
+        <a href="../../dizin/ones_like/index.html">Ones_Like</a> &middot; 
+        
+        <a href="../../dizin/time/index.html">Time</a> &middot; 
+        
+        <a href="../../dizin/vectorize/index.html">Vectorize</a> &middot; 
+        
+        <a href="../../dizin/vektorizasyon/index.html">Vektörizasyon</a> &middot; 
+        
+        <a href="../../dizin/where/index.html">Where</a> &middot; 
+        
+        <a href="../../dizin/zeros/index.html">Zeros</a> &middot; 
+        
+        <a href="../../dizin/zeros_like/index.html">Zeros_Like</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="42-grafik-cizimi/index.html">4.2. Grafik Çizimi</a>
+      <a data-toggle="collapse" href="#ozet-42-grafik-cizimi" role="button" aria-expanded="false" aria-controls="ozet-42-grafik-cizimi">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-42-grafik-cizimi">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste iki boyutlu grafikleri çizmeyi öğreneceğiz, bu yöntemleri genelde bir $y=f(x)$ fonksiyonunun grafiğini çizdirmek için kullansak da bunların dışında istatiksel grafikler için de kullanılır.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/animasyon/index.html">Animasyon</a> &middot; 
+        
+        <a href="../../dizin/convert/index.html">Convert</a> &middot; 
+        
+        <a href="../../dizin/figaspect/index.html">Figaspect</a> &middot; 
+        
+        <a href="../../dizin/figsize/index.html">Figsize</a> &middot; 
+        
+        <a href="../../dizin/figure/index.html">Figure</a> &middot; 
+        
+        <a href="../../dizin/grafik/index.html">Grafik</a> &middot; 
+        
+        <a href="../../dizin/grafik-cizme/index.html">Grafik Çizme</a> &middot; 
+        
+        <a href="../../dizin/imagemagick/index.html">Imagemagick</a> &middot; 
+        
+        <a href="../../dizin/matplotlib/index.html">Matplotlib</a> &middot; 
+        
+        <a href="../../dizin/plot/index.html">Plot</a> &middot; 
+        
+        <a href="../../dizin/pyplot/index.html">Pyplot</a> &middot; 
+        
+        <a href="../../dizin/subplot/index.html">Subplot</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="43-uc-boyutlu-grafikler/index.html">4.3. Üç Boyutlu Grafikler</a>
+      <a data-toggle="collapse" href="#ozet-43-uc-boyutlu-grafikler" role="button" aria-expanded="false" aria-controls="ozet-43-uc-boyutlu-grafikler">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-43-uc-boyutlu-grafikler">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Üç boyutlu grafikleri çizebilmek için yüksek boyutlu array nesnelerini anlamamız gerekir. Bu derste bu konuyu ve üç boyutlu grafiklerin yanı sıra iki değişkenli fonksiyonların seviye eğrileri gibi bazı diğer çeşit grafiklerini de çizmeyi öğreneceksiniz.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/axes3d/index.html">Axes3d</a> &middot; 
+        
+        <a href="../../dizin/colorbar/index.html">Colorbar</a> &middot; 
+        
+        <a href="../../dizin/color-map/index.html">Color Map</a> &middot; 
+        
+        <a href="../../dizin/contour/index.html">Contour</a> &middot; 
+        
+        <a href="../../dizin/cstride/index.html">Cstride</a> &middot; 
+        
+        <a href="../../dizin/imshow/index.html">Imshow</a> &middot; 
+        
+        <a href="../../dizin/indexing/index.html">Indexing</a> &middot; 
+        
+        <a href="../../dizin/meshgrid/index.html">Meshgrid</a> &middot; 
+        
+        <a href="../../dizin/mplot3d/index.html">Mplot3d</a> &middot; 
+        
+        <a href="../../dizin/mpl_toolkits/index.html">Mpl_Toolkits</a> &middot; 
+        
+        <a href="../../dizin/plot_surface/index.html">Plot_Surface</a> &middot; 
+        
+        <a href="../../dizin/plot_wireframe/index.html">Plot_Wireframe</a> &middot; 
+        
+        <a href="../../dizin/projection/index.html">Projection</a> &middot; 
+        
+        <a href="../../dizin/reshape/index.html">Reshape</a> &middot; 
+        
+        <a href="../../dizin/rstride/index.html">Rstride</a> &middot; 
+        
+        <a href="../../dizin/shape/index.html">Shape</a> &middot; 
+        
+        <a href="../../dizin/size/index.html">Size</a> &middot; 
+        
+        <a href="../../dizin/view_init/index.html">View_Init</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  
+
+
+  
+  
+  
+  
+  
+
+
+  
+</div>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/python-ve-bilimsel-hesaplama/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:33:48 GMT -->
+</html>

@@ -1,0 +1,604 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/21-lineer-donusumler/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:04 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 2.1. Lineer Dönüşümler
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>2.1. Lineer Dönüşümler</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-28">
+          28 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-29">
+          29 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu bölümde lineer cebir dersinin temel konusu olan <strong>lineer dönüşüm</strong> kavramı anlatılacak. Ayrıca bununla bağlantılı diğer kavramlar da açıklanacak olup detaylı teorik araştırma yapılacaktır.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/birim-donusum/index.html">birim dönüşüm</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/cekirdek/index.html">çekirdek</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/degismeli-cebir/index.html">değişmeli cebir</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/epimorfizm/index.html">epimorfizm</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/goruntu/index.html">görüntü</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/homomorfizm/index.html">homomorfizm</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/izdusum/index.html">izdüşüm</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/izomorfizm/index.html">izomorfizm</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/lineer-donusum/index.html">lineer dönüşüm</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/monomorfizm/index.html">monomorfizm</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/nullity/index.html">nullity</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/projeksiyon/index.html">projeksiyon</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/rank/index.html">rank</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/sadelesme/index.html">sadeleşme</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/sifirlik-sayisi/index.html">sıfırlık sayısı</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/skaler-donusum/index.html">skaler dönüşüm</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/tam-ters-goruntu/index.html">tam ters görüntü</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+$U$ ve $V$, aynı $F$ cismi üzerinde iki vektör uzayı olsun.
+</p>
+
+<p>
+<div class="envdef" id="def:lintrans"><h6 class="thenv">Tanım 2.1.1 (Lineer Dönüşüm)</h6>
+Her $\alpha\in U$ vektörünü tek bir $\sigma(\alpha)\in V$ vektörü ile eşleştiren, ayrıca her $a,b\in F$ ve her $\alpha,\beta\in V$ için
+
+\begin{equation}
+\label{eq:lint:1}
+\tag{2.1.1}
+\sigma(a\alpha+b\beta)=a\sigma(\alpha)+b\sigma(\beta)
+\end{equation}
+
+koşulunu sağlayan tek değerli bir $\sigma$ dönüşümüne $U$'dan $V$'ye bir <strong>lineer dönüşüm</strong> denir. Buradaki $U$ ve $V$ vektör uzayları sırasıyla $\sigma$ dönüşümünün tanım ve değer kümesi olarak adlandırılır. $\sigma(\alpha)\in V$ vektörüne $\alpha$ vektörünün $\sigma$ lineer dönüşümü altındaki <strong>görüntüsü</strong> denir. Bir $A\subset U$ alt kümesindeki tüm vektörlerin görüntülerinin kümesine, yani $\sigma(A):=\{\overline{\alpha}\;|\; \text{bazı }\alpha\in U\text{ için }\overline{\alpha}=\sigma(\alpha)\}$ kümesine $A$'nın görüntüsü denir. $\sigma(U)$ kümesine $\sigma$ dönüşümünün görüntüsü denir ve genellikle $\im(\sigma)$ ile gösterilir. Bir $\overline{\alpha}\in V$ vektörü için $\sigma(\alpha)=\overline{\alpha}$ koşulunu sağlayan her $\alpha\in U$ vektörü $\overline{\alpha}$ vektörünün <strong>ters görüntüsü</strong>, tüm ters görüntülerinin kümesi de <strong>tam ters görüntüsü</strong> olarak adlandırılır ve $\sigma^{-1}(\alpha)$ ile gösterilir. Genellikle $\sigma^{-1}(\alpha)$ tek bir eleman değildir çünkü $\sigma(\alpha)=\overline{\alpha}$ eşitliğini sağlayan birden fazla $\alpha\in U$ vektörü var olabilir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:1"><h6 class="thenv">Uyarı 2.1.2</h6>
+\eqref{eq:lint:1} eşitliğinde $a$ ve $b$ skalerlerinin bazı özel seçimleriyle bir $\sigma$ lineer dönüşümünün $\sigma(\alpha+\beta)=\sigma(\alpha)+\sigma(\beta)$ ve $\sigma(a\alpha)=a\sigma(\alpha)$ eşitliklerini sağladığı görülür, bu eşitlikler önemli bilgiler içerir. Öncelikle ilk eşitlikte eşitliğin sol ve sağ tarafındaki toplama işlemleri farklı vektör uzaylarında tanımlanmışlardır ve farklı anlamlar taşıyabilir. İkinci eşitlikle birlikte düşünüldüğünde lineer dönüşümlerin vektör uzayları arasında yapısal işlemleri koruyan dönüşümler olduğu anlaşılır. Lineer dönüşümleri dışında da bu özelliğe sahip dönüşümler tanımlanabilir, cebirsel olarak bu özelliğe sahip dönüşümlere <strong>homomorfizm</strong> denir. Buradaki $\sigma$ lineer dönüşümü $F$ üzerinde bir homomorfizmdir, vektör uzaylarının hangi cisim üzerinde tanımlı olduğu bu şekilde belirtilir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:2"><h6 class="thenv">Uyarı 2.1.3</h6>
+Bir $\sigma$ homomorfizmi için $\alpha\neq\beta$ ise $\sigma(\alpha)\neq\sigma(\beta)$ oluyorsa bu dönüşüm <strong>bire-birdir</strong> ve bir <strong>monomorfizm</strong> olarak adlandırılır. Eğer $\sigma$ homomorfizmi için $\im(\sigma)=V$ oluyorsa bu dönüşüm <strong>örten</strong> bir dönüşümdür ve bir <strong>epimorfizm</strong> olarak adlandırılır. Hem epimorfizm hem de monomorfizm olan bir $\sigma$ homomorfizmi bir <strong>izomorfizm</strong> olarak adlandırılır. Eğer $\sigma$ bir izormorfizm ve $\overline{\alpha}\in V$ ise dönüşümün epimorfizm olmasından dolayı $\sigma(\alpha)=\overline{\alpha}$ olacak şekilde bir $\alpha\in U$ vektörü vardır. Ayrıca dönüşüm bir monomorfizm olduğundan bu $\alpha$ vektörü tektir. Sonuç olarak bir $\sigma$ izomorfizmi için $\sigma^{-1}$ ters dönüşümü tanımlanabilir, buradaki durumda $\sigma^{-1}(\overline{\alpha})=\alpha$ olur.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:lint:1"><h6 class="thenv">Teorem 2.1.4</h6>
+Bir $\sigma$ izomorfizminin tersi $\sigma^{-1}$ de bir izomorfizmdir.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$\sigma^{-1}$ dönüşümünün bire bir ve örten olduğu açıktır, lineer olduğunu göstereceğiz. Eğer $\overline{\alpha}:=\sigma(\alpha)$ ve $\overline{\beta}:=\sigma(\beta)$ ise $\sigma\left( a\alpha+b\beta \right)=a\overline{\alpha}+b\overline{\beta}$ olacağından $\sigma^{-1}(a\overline{\alpha}+b\overline{\beta})=a\alpha+b\beta=a\sigma^{-1}(\overline{\alpha})+b\sigma^{-1}(\overline{\beta})$ olur.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envex" id="ex:lint:1"><h6 class="thenv">Örnek 2.1.5</h6>
+Aşağıdaki örneklerin doğrulanması okuyucuya bırakılmıştır.
+<ol>
+<li class="py-2" id="ex:lint:1-1">$U=V:=P$ reel katsayılı polinomlar uzayı ve $\alpha=\sum_{i=0}^{n}a_it^i$ polinomu için $\sigma(\alpha):=\frac{\d{\alpha}}{\d{t}}=\sum_{i=0}^{n}ia_it^{i-1}$ dönüşümü tanımlansın. Türev operatörünün lineerliği kolayca gösterilebilir, dolayısıyla bu dönüşüm bir lineer dönüşümdür. Benzer şekilde $\tau(\alpha):=\sum_{i=0}^{n}\frac{a_i}{i+1}t^{i+1}$ dönüşümü de lineerdir, bu dönüşümün belirsiz integrali tanımlamadığına dikkat edilmelidir çünkü integrasyon sabiti bu durumda özel olarak sıfır seçilmiştir. $\sigma$ dönüşümünün örten olup bire bir olmadığı, $\tau$ dönüşümünün ise bire bir olup örten olmadığı açıktır.</li>
+<li class="py-2">$m\leq n$ olmak üzere $U:=\mathbb{R}^n$ ve $V:=\mathbb{R}^m$ olsun. Her $\alpha=(a_1,\ldots,a_n)\in U$ için $\sigma(\alpha):=(\alpha_1,\ldots,\alpha_m) \in V$ olarak tanımlanan lineer dönüşüm örtendir fakat $m=n$ olmadıkça bire bir değildir. Diğer yandan her $\beta:=(b_1,\ldots,b_m)\in V$ için $\tau(\beta):=(b_1,\ldots,b_m,0,\ldots,0)\in U$ olarak tanımlanan $\tau$ lineer dönüşümü bire birdir fakat $m=n$ olmadıkça örten değildir.</li>
+</ol>
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:3"><h6 class="thenv">Uyarı 2.1.6</h6>
+$U=V$ olmak üzere sabit bir $a\in F$ skaleri için $\sigma(\alpha):=a\alpha$ olarak tanımlanan dönüşüm lineer bir dönüşümdür çünkü $\sigma(\alpha+\beta)=a(\alpha+\beta)=a\alpha+a\beta=\sigma(\alpha)+\sigma(\beta)$ ve $\sigma(b\alpha)a(b\alpha)=(ab)\alpha=(ba)\alpha=b\sigma(\alpha)$ eşitlikleri sağlanır. Bu tip dönüşümlere <strong>skaler dönüşüm</strong> denir ve böyle bir dönüşümü $\sigma$ yerine $a$ ile gösteririz, $a(\alpha):=a\cdot\alpha$ yazarız. Skalerlerin alındığı $F$ cismi ile bu skalerlerle tanımlanan tüm skaler dönüşümler arasında bire bir eşleme yapılabilir. Özel olarak $a=1$ için bu skaler dönüşüm $1(\alpha):=\alpha$ biçiminde tanımlanır ve <strong>birim dönüşüm</strong> olarak adlandırılır. Birden fazla vektör uzay ile çalışılırken dönüşümlerin karışmaması için tanımlandıkları vektör uzaylarını belirten notasyonlar kullanılacaktır, örneğin $1_U$ ile $U$ uzayında tanımlı birim dönüşümü göstereceğiz.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:4"><h6 class="thenv">Uyarı 2.1.7</h6>
+Bir bazı seçildiğinde $V$ vektör uzayı ile $F^n$ kümesi arasında bir izomorfizm kurulabileceği <a class="eqref" href="../13-baz-ve-boyut/index.html#rmk:vec:8">Uyarı 1.3.14</a> ile gösterilmiştir. Dolayısıyla $V$ içindeki vektörlerin özellikleri teorik olarak sadece $F^n$ içindeki sıralı $n-$liler inclenerek keşfedilebilir. Fakat burada seçilen baz değiştiğinde vektörler ve sıralı $n-$liler arasındaki eşleşme değişir, bunun için lineer cebirde bazdan bağımsız olan kavram ve özelliklere daha büyük önem verilir. Bir homomorfizm ya da izomorfizm seçilen bazdan bağımsız olarak kurulabiliyorsa bu <strong>kanonik</strong> veya doğal bir dönüşüm olarak adlandırlır. Özel olarak <a class="eqref" href="../13-baz-ve-boyut/index.html#rmk:vec:8">Uyarı 1.3.14</a> ile tarif edilen ve herhangi $n-$boyutlu iki vektör uzayı arasındaki izomorfizm seçilen baza bağımlı olduğundan kanonik bir dönüşüm değildir.
+</div>
+</p>
+
+<p>
+Şimdi lineer dönüşümler arasında bazı işlemler tanımlayacağız.
+</p>
+
+<p>
+<div class="envdef" id="def:lintopcarp"><h6 class="thenv">Tanım 2.1.8</h6>
+$U$'dan $V$'ye tanımlı her $\sigma, \tau$ lineer dönüşüm çifti için bunların <strong>toplamı</strong> denilen $\sigma+\tau$ dönüşümü her $\alpha\in U$ için $\left(\sigma+\tau \right)(\alpha):=\sigma(\alpha)+\tau(\alpha)$ olarak tanımlanır. Ayrıca herhangi bir $a\in F$ skaleri ve $\sigma$ lineer dönüşümü için $a\sigma$ ile gösterilen dönüşüm her $\alpha\in U$ için $(a\sigma)(\alpha):=a\left(\sigma(\alpha)\right)$ olarak tanımlanır ve bu işleme skaler çarpma işlemi denir, buradaki $a$ dönüşümü <a class="eqref" href="#rmk:lint:3">Uyarı 2.1.6</a> ile tanımlanan skaler dönüşümdür.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:5"><h6 class="thenv">Uyarı 2.1.9</h6>
+Her $a,b\in F$ ve her $\alpha,\beta\in U$ için
+	\begin{eqnarray*}
+		(\sigma+\tau)(a\alpha+b\beta) &=& \sigma(a\alpha+b\beta)+\tau(a\alpha+b\beta)\\
+		&=& a\sigma(\alpha)+b\sigma(\beta)+a\tau(\alpha)+b\tau(\beta)\\
+		&=& a\left[\sigma(\alpha)+\tau(\alpha) \right] + b\left[ \sigma(\beta)+\tau(\beta) \right]\\
+		&=& a(\sigma+\tau)(\alpha)+b(\sigma+\tau)(\beta)
+	\end{eqnarray*}
+	olduğundan bu dönüşüm lineerdir. Bu dönüşümün değişmeli olduğu, yani $\sigma+\tau=\tau +\sigma$ olduğu açıktır. Benzer şekilde $a\sigma$ dönüşümünün lineer olduğu da göstrilebilir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:6"><h6 class="thenv">Uyarı 2.1.10</h6>
+$U$'dan $V$'ye tanımlı tüm lineer dönüşümlerin kümesi ${\rm Hom}(U,V)$ ile gösterilir ve bunun <a class="eqref" href="#def:lintopcarp">Tanım 2.1.8</a> ile verilen işlemlerle birlikte aynı $F$ cismi üzerinde bir vekör uzayı olduğu kolayca gösterilebilir. Bu durumun sadece tanım ve değer kümeleri aynı olan dönüşümler için doğru olduğuna dikkat edilmelidir.
+</div>
+</p>
+
+<p>
+<div class="envdef" id="def:lintcarpim"><h6 class="thenv">Tanım 2.1.11</h6>
+$U$, $V$ ve $W$ kümeleri bir $F$ cismi üzerinde vektör uzayları olsun. $\sigma$ $U$'dan $V$'ye ve $\tau$ da $V$'den $W$'ye lineer dönüşümler olsunlar. Bu durumda $U$'dan $W$'ye her $\alpha\in U$ için $(\tau\sigma)(\alpha):=\tau\left(\sigma(\alpha)\right)$ biçiminde tanımlanan lineer dönüşüme $\tau$ ve $\sigma$ dönüşümlerinin <strong>çarpımı</strong> denir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:7"><h6 class="thenv">Uyarı 2.1.12</h6>
+<a class="eqref" href="#def:lintcarpim">Tanım 2.1.11</a> ile verilen çarpma işleminin aşağıdaki özelliklerinin doğrulanması okuyucuya bırakılmıştır.
+<ol>
+<li class="py-2">Çarpma işlemi birleşmelidir; $\pi(\tau\sigma)=(\pi\tau)\sigma$. Burada $X$ kümesi $F$ cismi üzerinde bir vektör uzayı olmak üzere $\pi$ lineer dönüşümü $W$'den $X$'e tanımlıdır.</li>
+<li class="py-2">Çarpmanın toplama üzerine dağılma özelliği vardır; $(\tau_1+\tau_2)\sigma=\tau_1\sigma+\tau_2\sigma$ ve $\tau(\sigma_1+\sigma_2)=\tau\sigma_1+\tau\sigma_2$.</li>
+<li class="py-2">Skaler çarpma işlemi ile çarpma işlemi değişmelidir; $a(\tau\sigma)=\sigma(a\tau)$.</li>
+</ol>
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:8"><h6 class="thenv">Uyarı 2.1.13</h6>
+Eğer $W\neq U$ ise $\tau\sigma$ çarpımı tanımlıdır fakat $\sigma\tau$ çarpımı tanımlı değildir. Eğer tüm lineer dönüşümler aynı $U$ vektör uzayı üzerinde tanımlı ise bunların her türlü çarpımları tanımlı olur. Yani bu durumda hem $\tau\sigma$ hem de $\sigma\tau$ çarpımı tanımlıdır fakat bu durum $\tau\sigma=\sigma\tau$ olacağı anlamına gelmez.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:9"><h6 class="thenv">Uyarı 2.1.14</h6>
+${\rm Hom}(U,U)$ kümesi <a class="eqref" href="#rmk:lint:7">Uyarı 2.1.12</a> ile verilen üç özelliği sağlayan bir vektör uzayıdır. Bu koşulları sağlayan bir uzaya bir <strong>değişmeli cebir</strong> denir, bu durumda uzayın elemanları lineer dönüşümler olduğundan bu uzaya <strong>lineer cebir</strong> denir. Matematikte lineer cebir terimi, bir çalışma alanı adı olarak, lineer dönüşümlerin rol aldığı her türlü kavramın araştırılması alanı olarak kullanılır.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:lint:2"><h6 class="thenv">Teorem 2.1.15</h6>
+$\im(\sigma)$ kümesi $V$'nin bir alt uzayıdır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$\overline{\alpha},\overline{\beta}\in\im(\sigma)$ olsun, bu durumda $\sigma(\alpha)=\overline{\alpha}$ ve $\sigma(\beta)=\overline{\beta}$ olacak şekilde $\alpha,\beta\in U$ vektörleri vardır. Her $a,b\in F$ için $\sigma(a\alpha+b\beta)=a\sigma(\alpha)+b\sigma(\beta)=a\overline{\alpha}+b\overline{\beta}\in \im(\sigma)$ olduğundan $\im(\sigma)$ bir alt uzaydır.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envcor" id="cor:lint:1"><h6 class="thenv">Sonuç 2.1.16</h6>
+Eğer $U_1$ kümesi $U$ vektör uzayının bir alt uzayı ise $\sigma(U_1)$ kümesi de $V$'nin bir alt uzayıdır.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:10"><h6 class="thenv">Uyarı 2.1.17</h6>
+<a class="eqref" href="#cor:lint:1">Sonuç 2.1.16</a> gereği $\sigma(0)=0$ olduğu anlaşılır, buradaki $0$'lar sırasıyla $U$ ve $V$ vektör uzaylarının sıfırlarıdır. Bunu doğrudan da gösterebiliriz; $\sigma(0)=\sigma(0+0)=\sigma(0)+\sigma(0)$.
+</div>
+</p>
+
+<p>
+Bu dersin geri kalanında sadece sonlu boyutlu uzayları ele alacağız ve $\dim U=n$, $\dim V=m$ kabul edeceğiz.
+</p>
+
+<p>
+<div class="envdef" id="def:rank"><h6 class="thenv">Tanım 2.1.18</h6>
+$\im(\sigma)$ alt uzayının boyutu $\sigma$ lineer dönüşümünün <strong>rankı</strong> olarak adlandırılır ve $\rho(\sigma)$ ile gösterilir.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:lint:3"><h6 class="thenv">Teorem 2.1.19</h6>
+$\rho(\sigma)\leq\min\{m, n\}$.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$\{\alpha_1,\ldots,\alpha_k \}\subset U$ lineer bağımlı olsun, bu durumda aşikar olmayan bir $\sum_{i}a_i\alpha_i=0$ lineer bağıntısı sağlanır. Bu ise $\sum_{i}a_i\sigma(\alpha_i)=\sum_{i}\sigma(a_i\alpha_i)=\sigma(0)=0$ olacağından (bk, <a class="eqref" href="#rmk:lint:10">Uyarı 2.1.17</a>) $\{ \sigma(\alpha_1),\ldots,\sigma(\alpha_k) \}\subset V$ kümesinin lineer bağımlı olmasını gerektirir. Yani bir lineer dönüşüm, lineer bağımlı bir kümeyi yine lineer bağımlı bir kümeye dönüştürür. Bundan dolayı $\im(\sigma)$ kümesinde $n$'den fazla lineer bağımsız vektör var olamaz. Diğer yandan <a class="eqref" href="#theo:lint:2">Teorem 2.1.15</a> gereği $\im(\sigma)$ kümesi $V$'nin bir alt uzayı olduğundan $\dim V\leq m$ olur.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="theo:lint:4"><h6 class="thenv">Teorem 2.1.20</h6>
+$W$ kümesi $V$'nin bir alt uzayı ise $\sigma^{-1}(W)$ kümesi de $U$'nun bir alt uzayı olur.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>Eğer $\alpha,\beta\in\sigma^{-1}(W)$ ise $\sigma(a\alpha+b\beta)=a\sigma(\alpha)+b\sigma(\beta)\in W$ olur. Buradan da $a\alpha+b\beta\in\sigma^{-1}(W)$ elde edilir.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envdef" id="def:nullity"><h6 class="thenv">Tanım 2.1.21</h6>
+$K(\sigma):=\sigma^{-1}(0)$ alt uzayına $\sigma$ lineer dönüşümünün <strong>çekirdeği</strong> denir. $K(\sigma)$'nın boyutu da $\sigma$ dönüşümünün <strong>sıfırlığı</strong> (sıfırlık sayısı, nullity) olarak adlandırılır ve $\nu(\sigma)$ ile gösterilir.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:lint:5"><h6 class="thenv">Teorem 2.1.22</h6>
+$\rho(\sigma)+\nu(\sigma)=n$.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$\{\alpha_1,\ldots,\alpha_\nu \}$ kümesi $K(\sigma)$ uzayının, $\{\alpha_1,\ldots,\alpha_\nu,\beta_1,\ldots,\beta_k \}$ kümesi de $U$ uzayının bir bazı olsun (bk. <a class="eqref" href="../14-alt-uzaylar/index.html#theo:vec:19">Teorem 1.4.10</a>). Bir $\alpha:=\sum_{i}a_i\alpha_i+\sum_{j}b_j\beta_j\in U$ vektörü için $\sigma(\alpha)=\sum_{i}a_i\sigma(\alpha_i)+\sum_{j}b_j\sigma(\beta_j)=\sum_{j}b_j\sigma(\beta_j)$ olacağından $\{\sigma(\beta_1),\ldots, \sigma(\beta_k) \}$ kümesi $\im(\sigma)$ kümesini gerer. Şimdi bu kümenin lineer bağımsız olduğunu da gösterelim. Eğer $\sum_{j}c_j\sigma(\beta_j)=0$ olsaydı $\sum_{j}c_j\sigma(\beta_j)=\sigma\left(\sum_{j}c_j\beta_j\right)=0$, yani $\sum_{j}c_j\beta_j\in K(\sigma)$ olurdu ve bu durumda bu vektör $K(\sigma)$ bazı cinsinden $\sum_{j}c_j\sigma(\beta_j)=\sum_{i}d_i\alpha_i$ olarak ifade edilebilirdi. Buradan da $\sum_{i}d_i\alpha_i-\sum_{j}c_i\beta_j=0$ lineer bağıntısına ulaşılır ve $\{\alpha_1,\ldots,\alpha_\nu,\beta_1,\ldots,\beta_k \}$ kümesi lineer bağımsız olduğundan her $d_i$ ve $c_j$ katsayısı sıfır olmalıdır.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="theo:lint:6"><h6 class="thenv">Teorem 2.1.23</h6>
+$U$'dan $V$'ye bir lineer $\sigma$ dönüşümünün bir monomorfizm olması için gerek ve yeter koşul $\nu(\sigma)=0$, bir epimorfizm olması için gerek ve yeter koşul $\rho(\sigma)=\dim V$ olmasıdır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$K(\sigma)=\{0\}$ olması için gerek ve yeter koşulun $\nu(\sigma)=0$ olduğu açıktır. Eğer $\sigma$ bir monomorfizm ise bu durumda açıkça $K(\sigma)=\{0\}$, yani $\nu(\sigma)=0$ olur. Diğer taraftan eğer $\nu(\sigma)=0$ ve $\sigma(\alpha)=\sigma(\beta)$ ise $\sigma(\alpha-\beta)=0$, yani $\alpha-\beta\in K(\sigma)=\{0\}$ olur. Dolayısıyla $\alpha=\beta$ ve $\sigma$ dönüşümü bir monomorfizm olur. Teoremin diğer iddiasının doğruluğu epimorfizmin <a class="eqref" href="#rmk:lint:2">Uyarı 2.1.3</a> ile verilen tanımından açıktır.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:11"><h6 class="thenv">Uyarı 2.1.24</h6>
+Eğer $\dim U=n\lt m=\dim V$ ise <a class="eqref" href="#theo:lint:5">Teorem 2.1.22</a> gereği $\rho(\sigma)=n-\nu(\sigma)\leq n\lt m$ olacağından $\sigma$ dönüşümü <a class="eqref" href="#theo:lint:6">Teorem 2.1.23</a> gereği bir epimorfizm olamaz. Diğer yandan eğer $n>m$ ise $\nu(\sigma)=n-\rho(\sigma)\geq n-m>0$ olacağından $\sigma$ dönüşümü bir monomorfizm olamaz. Sonuç olarak farklı boyutlu uzaylar arasında tanımlı bir lineer dönüşüm izomorfizm olamaz.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:lint:7"><h6 class="thenv">Teorem 2.1.25</h6>
+$\dim U=\dim V=n$ olsun, bu durumda $U$'dan $V$'ye tanımlı bir $\sigma$ lineer dönüşümünün bir izomorfizm olması için gerek ve yeter koşul onun bir epimorfizm ya da monomorfizm olmasıdır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>İzomorfizm tanımı gereği iddianın bir yönü açıktır. Şimdi kabul edelim ki $\sigma$ bir epimorfizm olsun, bu durumda <a class="eqref" href="#theo:lint:6">Teorem 2.1.23</a> gereği $\rho(\sigma)=n$ olur. Bu durumda <a class="eqref" href="#theo:lint:5">Teorem 2.1.22</a> gereği $\nu(\sigma)=0$ olur ki bu da <a class="eqref" href="#theo:lint:6">Teorem 2.1.23</a> gereği onun bir monomorfizm olduğunu gösterir. Benzer şekilde eğer $\sigma$ dönüşümü bir monomorfizm ise <a class="eqref" href="#theo:lint:6">Teorem 2.1.23</a> gereği $\nu(\sigma)=0$ ve <a class="eqref" href="#theo:lint:5">Teorem 2.1.22</a> gereği $\rho(\sigma)=n$ olur, yani <a class="eqref" href="#theo:lint:6">Teorem 2.1.23</a> gereği $\sigma$ bir epimorfizm olur.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:12"><h6 class="thenv">Uyarı 2.1.26</h6>
+$U$'dan $V$'ye tanımlı bir $\sigma$ lineer dönüşümünün bir epimorfizm olması için aşağıdakilerden herhangi ikisinin sağlanması gerekir.
+<ol>
+<li class="py-2">$\dim U=\dim V$,</li>
+<li class="py-2">$\sigma$ bir epimorfizmdir,</li>
+<li class="py-2">$\sigma$ bir monomorfizmdir.</li></ol></div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:lint:8"><h6 class="thenv">Teorem 2.1.27</h6>
+$\rho(\tau)=\rho(\tau\sigma)+\dim\{\im(\sigma)\cap K(\tau) \}$
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$\tau'$ ile $\im(\sigma)$ kümesinden $W$ kümesine tanımlı olan ve her $\alpha\in\im(\sigma)$ için $\tau'(\alpha)=\tau(\alpha)$ eşitliğini sağlayan üçüncü bir lineer dönüşümü gösterelim. Bu durumda $K(\tau')=\im(\sigma)\cap K(\tau)$ ve $\rho(\tau')=\dim\tau[\im(\sigma)]=\dim\tau\sigma(U)=\rho(\tau\sigma)$ olur. Böylece <a class="eqref" href="#theo:lint:5">Teorem 2.1.22</a> gereği $\rho(\tau')+\nu(\tau')=\dim \im(\sigma)$ olacağından $\rho(\tau\sigma)+\dim\{\im(\sigma\cap K(\tau))=\rho(\sigma) \}$ elde edilir ki istenendir.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envcor" id="cor:lint:2"><h6 class="thenv">Sonuç 2.1.28</h6>
+$\rho(\tau\sigma)=\dim\{\im(\sigma)+K(\tau) \}-\nu(\tau)$
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong><a class="eqref" href="../14-alt-uzaylar/index.html#theo:vec:21">Teorem 1.4.12</a> sonucunda $W_1:=\im(\sigma)$ ve $W_2:=K(\tau)$ seçilip $\dim W_1=\dim\im(\sigma)=\rho(\sigma)$ ve $\dim W_2=\dim K(\tau)=\nu(\tau)$ oldukları <a class="eqref" href="#theo:lint:8">Teorem 2.1.27</a> sonucunda kullanılırsa istenilen elde edilir.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envcor" id="cor:lint:3"><h6 class="thenv">Sonuç 2.1.29</h6>
+Eğer $K(\tau)\subset \im(\sigma)$ ise $\rho(\sigma)=\rho(\tau\sigma)+\nu(\tau)$ olur.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:lint:9"><h6 class="thenv">Teorem 2.1.30</h6>
+$\rho(\tau\sigma)\leq\min\{\rho(\sigma), \rho(\tau) \}$
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$\tau\sigma$ dönüşümün rankı $\tau\left[\sigma(U)\right]\subset \tau(V)$ kümesinin boyutudur. $\dim \sigma(U)=n$ ve $\dim \tau(V)=m$ olsun, <a class="eqref" href="#theo:lint:3">Teorem 2.1.19</a> gereği $\dim \tau\sigma(U)=\rho(\tau\sigma)\leq\min\{\dim \sigma(U), \dim \tau(V) \}=\min\{\rho(\sigma), \rho(\tau) \}$ olur.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="theo:lint:10"><h6 class="thenv">Teorem 2.1.31</h6>
+$\sigma$ bir epimorfizm ise $\rho(\tau\sigma)=\rho(\tau)$, eğer $\tau$ bir monomorfizm ise $\rho(\tau\sigma)=\rho(\sigma)$ olur.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>Eğer $\sigma$ bir epimorfizm ise $K(\tau)\subset \im(\sigma)=V$ olup <a class="eqref" href="#cor:lint:3">Sonuç 2.1.29</a> gereği $\rho(\tau\sigma)=\rho(\sigma)-\nu(\tau)=m-\nu(t)=\rho(\tau)$ olur (bk. <a class="eqref" href="#theo:lint:5">Teorem 2.1.22</a>). Eğer $\tau$ bir monomorfizm ise $K(\tau)=\{0\}\subset\im(\sigma)$ olup <a class="eqref" href="#cor:lint:3">Sonuç 2.1.29</a> gereği $\rho(\tau\sigma)=\rho(\sigma)-\nu(\tau)=\rho(\sigma)$ elde edilir.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envcor" id="cor:lint:4"><h6 class="thenv">Sonuç 2.1.32</h6>
+Bir lineer dönüşüm bir izomorfizm ile çarpıldığında (sağdan veya soldan) rankı değişmez.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:lint:11"><h6 class="thenv">Teorem 2.1.33</h6>
+$\sigma$ lineer dönüşümünün bir epimorfizm olması için gerek ve yeter koşul $\tau\sigma=0$ olmasının $\tau=0$ olmasını gerektirmesidir. Benzer şekilde $\tau$ lineer dönüşümünün bir monomorfizm olması için gerek ve yeter koşul $\tau\sigma=0$ olmasının $\sigma=0$ olmasını gerektirmesidir.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>Kabul edelim ki $\sigma$ bir epimorfizm ve $\tau\sigma=0$ olsun. Eğer $\tau\neq0$ ise $\tau(\beta)\neq0$ olacak şekilde bir $\beta\in V$ vardır. $\sigma$ bir epimorfizm olduğundan $\sigma(\alpha)=\beta$ olacak şekilde bir $\alpha\in U$ vektörü vardır. Bu durumda $\tau\sigma(\alpha)=\tau(\beta)\neq0$ olur fakat bu bir çelişkidir, dolayısıyla $\tau=0$ olmalıdır. Şimdi varsayalım ki $\tau\sigma=0$ olması $\tau=0$ olmasını gerektirsin. Eğer $\sigma$ bir epimorfizm değilse $\im(\sigma)\subset V$ fakat $\im(\sigma)\neq V$ olur. $\{\beta_1,\ldots,\beta_r \}$ kümesi $\im(\sigma)$ için bir baz olsun be bu baz $\{\beta_1,\ldots,\beta_r,\ldots,\beta_m \}$ olarak $V$'nin bir bazına tamamlansın. $\tau$ lineer dönüşümünü $$\tau(\beta):=\left\{\begin{array}{ll}0,&\quad i\leq r\\ \beta_i,&\quad i>r\end{array} \right.$$
+olarak tanımlayalım. Bu durumda $\tau\sigma=0$ ve $\tau\neq0$ olur ki bu bir çelişkidir, dolayısıyla $\sigma$ dönüşümü epimorfizm olmalıdır.
+</p>
+	
+<p>
+Şimdi teoremin diğer iddiasını kanıtlayalım, $\tau\sigma=0$ ve $\tau$ bir monomorfizm olsun. Eğer $\sigma\neq0$ ise $\sigma(\alpha)\neq0$ olacak şekilde bir $\alpha\in U$ vardır. $\tau$ bir monomorfizm olduğundan $\tau\sigma(\alpha)\neq0$ olur fakat bu bir çelişkidir, dolayısıyla $\sigma=0$ olmalıdır. Şimdi $\tau\sigma=0$ olması $\sigma=0$ olmasını gerektirsin. $\tau$ bir monomorfizm değilse $\alpha\neq0$ ve $\tau(\alpha)=0$ olacak şekilde bir $\alpha\in V$ vardır. $\sigma(\alpha)=\alpha$ olarak tanımlanırsa $\tau\sigma(\alpha)=\tau(\alpha)=0$ olur. Bu durumda kabulümüz gereği $\sigma=0$ olur ki bu bir çelişkdir, dolayısıyla $\tau$ bir monomorfizm olmalıdır.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envcor" id="cor:lint:5"><h6 class="thenv">Sonuç 2.1.34</h6>
+$\sigma$ lineer dönüşümünün bir epimorfizm olması için gerek ve yeter koşul $$\tau_1\sigma=\tau_2\sigma\Rightarrow\tau_1=\tau2$$ olmasıdır. $\tau$ lineer dönüşümünün bir monomorfizm olması için gerek ve yeter koşul $$\tau\sigma_1=\tau\sigma_2\Rightarrow\sigma_1=\sigma_2$$ olmasıdır.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:13"><h6 class="thenv">Uyarı 2.1.35</h6>
+<a class="eqref" href="#cor:lint:5">Sonuç 2.1.34</a> ile verilen özelliklere <strong>sadeleşme</strong> özellikleri denir ve bu sonuçtan şu anlaşılır: epimorfizmler sağdan, monomorfizmler ise soldan sadeleşebilir.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:lint:12"><h6 class="thenv">Teorem 2.1.36</h6>
+$A:=\{\alpha_1,\ldots,\alpha_n\}$ kümesi $U$'nun bir bazı ve $B:=\{\beta_1,\ldots,\beta_n \}$ de $V$'de herhangi $n-$tane vektör olsun (lineer bağımlı da olabilir). Bu durumda her $i=1,2,\ldots,n$ için $\sigma(\alpha_i)=\beta_i$ olacak şekilde $U$'dan $V$'ye tanımlı tek bir $\sigma$ lineer dönüşümü vardır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$A$ bir baz olduğundan her $\alpha\in U$ vektörü $\alpha=\sum_{i}a_i\alpha_i$ biçiminde tek türlü olarak ifade edilebilir. İstenen özelliklerde bir $\sigma$ dönüşümü için $\sigma\left(\alpha\right)=\sigma\left(\sum_{i}a_i\alpha_i \right)=\sum_{i}a_i\sigma(\alpha_i)=\sum_{i}a_i\beta_i\in V$ olmalıdır, buradaki $a_i$ katsayıları tek türlü olduğun bu dönüşüm de tek türlüdür.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envcor" id="cor:lint:6"><h6 class="thenv">Sonuç 2.1.37</h6>
+$U$ sonlu boyutlu bir vektör uzayı olmak üzere $C:=\{\gamma_1,\ldots,\gamma_r \}\subset U$ herhangi bir lineer bağımsız küme ve $D:=\{\delta_1,\ldots,\delta_r \}\subset V$ de herhangi bir küme olsun. Bu durumda $i=1,2,\ldots,r$ için $\sigma(\gamma_i)=\delta_i$ olacak şekilde $U$'dan $V$'ye tanımlı bir $\sigma$ lineer dönüşümü vardır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$C$ kümesi $U$'nun bir bazına tamamlansın, bu durumda $i=1,\ldots,r$ için $\sigma(\gamma_i)=\delta_i$ ve diğer değerleri keyfi olarak seçilen bir $\sigma$ dönüşümü istenilen özellikleri sağlar.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:14"><h6 class="thenv">Uyarı 2.1.38</h6>
+Açıktır ki <a class="eqref" href="#cor:lint:6">Sonuç 2.1.37</a> ile verilen $C$ kümesi bir baz değilse istenilen özelliklerdeki $\sigma$ lineer dönüşümünü tanımlanın birden çok yolu vardır. Ayrıca dikkat edilmelidir ki bu sonucun ispatında $C$'nin lineer bağımsız olması kritik öneme sahiptir. Eğer $C$ lineer bağımlı olsaydı bunun vektörleri arasındaki bir lineer bağıntı $D$'nin vektörleri arasında bir lineer bağıntı oluştururdu ve bu da $D$'nin keyfi seçilemeyeceği anlamına gelirdi. Son olarak, <a class="eqref" href="#theo:lint:12">Teorem 2.1.36</a> ve <a class="eqref" href="#cor:lint:6">Sonuç 2.1.37</a> ile istenilen özelliklerde bir lineer dönüşüm tanımlamanın, tanım kümesi lineer bağımsız seçildiğinde, her zaman mümkün olduğunu anlıyoruz.
+</div>
+</p>
+
+<p>
+<div class="envdef" id="def:projection"><h6 class="thenv">Tanım 2.1.39</h6>
+$V$'den $V$'ye tanımlı bir $\pi$ lineer dönüşümü için $\pi^2=\pi$ oluyorsa buna bir <strong>izdüşüm</strong> (projeksiyon) denir.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:lint:13"><h6 class="thenv">Teorem 2.1.40</h6>
+$\pi$ lineer dönüşümü $V$'den $V$'ye bir izdüşüm ise $V=\im(\pi)\bigoplus K(\pi)$ olur, ayrıca $\pi$ dönüşümü $\im(\pi)$ kümesinde birim dönüşüm gibi davranır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>Bir $\alpha\in V $ için $\alpha_1:=\pi(\alpha)$ olarak tanımlayalım. Bu durumda $\pi(\alpha_1)=\pi\left(\pi(\alpha) \right)=\pi^2(\alpha)=\pi(\alpha)=\alpha_1$ olur, yani $\pi$ izdüşümü $\im(\pi)$ üzerinde birim dönüşüm gibi davranır. Şimdi $\alpha_2:=\alpha-\alpha_1$ olsun, bu durumda $\pi(\alpha_2)=\pi(\alpha-\alpha_1)=\pi(\alpha)-\pi(\alpha_1)=\alpha_1-\alpha_1=0$ olur. Böylece $\alpha_1\in\im (\pi)$ ve $\alpha_2\in K(\pi)$ olmak üzere $\alpha=\alpha_1+\alpha_2$ olduğu anlaşılmış olur, $\im(\pi)$ içinde $\pi$ birim olduğundan $\im(\pi)\cap K(\pi)=\{0\}$ olduğu açıktır.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:15"><h6 class="thenv">Uyarı 2.1.41</h6>
+$S:=\im(\pi)$ ve $T:=K(\pi)$ olarak tanımlanırsa $\pi$ izdüşümüne $V$'den $S$'ye $T$ boyunca bir izdüşüm denir.
+</div>
+</p>
+
+
+
+
+
+
+<p>
+<h3 class="mt-5 mb-3" id="exe:vec:altuzay">Alıştırmalar</h3>
+
+
+
+
+<ol>
+<li class="py-2">$\mathbb{R}^2$'den $\mathbb{R}^2$'ye tanımlı olan $\sigma_1\left((x_1,x_2)\right):=\left((x_2,-x_1)\right)$ ve $\sigma_2\left((x_1,x_2)\right):=\left((x_1,-x_2)\right)$ lineer dönüşümleri için $\sigma_1+\sigma_2$, $\sigma_1\sigma_2$ ve $\sigma_2\sigma_1$ dönüşümlerini belirleyin.</li>
+<li class="py-2">$U=V$ olmak üzere bu kümeler arasında tanımlanmış $\sigma$ ve $\tau$ lineer dönüşümleri için $\sigma\tau\neq\tau\sigma$ olacak şekilde bir örnek verin.</li>
+<li class="py-2"><a class="eqref" href="#ex:lint:1-1">Örnek 2.1.5-1</a> ile tanımlanan $\sigma$ ve $\tau$ lineer dönüşümleri için $\sigma\tau=1$ fakat $\tau\sigma\neq1$ olduğunu gösterin.</li>
+<li class="py-2">$\pi$ lineer dönüşümü bir izdüşüm ise $1-\pi$ dönüşümü de bir izdüşümdür, kanıtlayın. Ayrıca $1-\pi$ izdüşümünün çekirdeğini tespit edin.</li>
+</ol>
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../14-alt-uzaylar/index.html">1.4. Alt Uzaylar</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Lineer Cebire Giriş</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../22-matrisler/index.html">2.2. Matrisler</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/21-lineer-donusumler/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:04 GMT -->
+</html>

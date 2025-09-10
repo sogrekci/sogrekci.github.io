@@ -1,0 +1,481 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/blog/pythonda-opencv-ile-yuz-tanima/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:36:01 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - Python&#x27;da OpenCV ile Yüz Tanıma
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../static/site/prism.css">
+    <script src="../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>Python'da OpenCV ile Yüz Tanıma</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-08-23">
+          23 Ağustos 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu yazımda yapay zeka uygulamalarında sıkça karşılaştığımız <strong>yüz tanıma</strong> işlemine basit bir örnek vereceğim. Bu yazıda Python ile meşhur <strong>OpenCV</strong> (Open Source Computer Vision) kütüphanesi kullanımına giriş yapmış olacaksınız. Bu kütüphanenin içerdiği hazır makine öğrenmesi modellerini kullanarak resim ve videolardaki yüz ve gözlerin nasıl tespit edildiğini öğreneceksiniz.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../dizin/eye-detection/index.html">eye detection</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/face-detection/index.html">face detection</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/face-recognition/index.html">face recognition</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/goz-tespiti/index.html">göz tespiti</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/haar-cascade-classifier/index.html">Haar cascade classifier</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/lbph/index.html">LBPH</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/makine-ogrenmesi/index.html">makine öğrenmesi</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/numpy/index.html">numpy</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/opencv/index.html">OpenCV</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/python/index.html">python</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/yapay-zeka/index.html">yapay zeka</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/yuz-tanima/index.html">yüz tanıma</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/yuz-tespiti/index.html">yüz tespiti</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-5 text-justify">
+        <p>
+Bu yazımda size Python ile bir makine öğrenmesi modeli örneği vereceğim. Günümüz teknolojisinde resim işleme ve analiz etme problemi oldukça önemli bir yere sahiptir, bilgisayarlar verilen resimleri analiz ederek bazı sorulara cevap verebiliyor. Mesela araç resimlerinden plaka numaralarını okuyabiliyor, resimlerdeki insan yüzlerini tespit edebiliyor hatta kime ait olduklarını bile tahmin edebiliyor. Yazılımların bunları nasıl yapabildiğini açıklamak çok uzun sürer ama mantığını kısaca özetleyeyim.
+</p
+
+
+
+<p>
+Klasik yazılım yapısı şöyledir; siz bir algoritma tasarlarsınız ve bunu bir programlama dilinde kodlarsınız, daha sonra programınıza girdi olarak bir veri girersiniz ve program algoritmanızı takip ederek size istediğiniz cevabı verir. Yapay zeka uygulamalarında ise mantık şöyledir; programa bol miktarda veri ve bunlara ait cevapları girersiniz, program da bu eşleşmeleri analiz ederek algoritmayı kestirmeye çalışır. Bu kestirimden sonra artık girdiğiniz yeni verilere ilişkin cevapları tahmin eder. Yani makine sorun çözmeyi <strong>öğrenmiş</strong> olur, bu öğrenme işi oldukça tekniktir (<strong>training</strong> aşaması denir) ve çeşitli yöntemleri vardır. Şimdi bu konuya örnek olarak <strong>yüz tespit etme ve tanıma</strong> olayını açıklayayım.
+</p>
+
+
+
+<p>
+<img class="envfig my-5" src="https://upload.wikimedia.org/wikipedia/commons/3/32/OpenCV_Logo_with_text_svg_version.svg" width="25%">
+
+İlk olarak Intel firması tarafından başlatılan, daha sonra başka firmaların katılımıyla geliştirilen ve hala aktif olarak geliştirilmeye devam eden <a class="outref" target="_blank" href="https://opencv.org/">OpenCV</a> (Open Source Computer Vision) kütüphanesi günümüzde bilgisayar grafikleri üzerinde gerçek zamanlı analiz yapmak için yaygın olarak kullanılan bir kütüphanedir ve Python da dahil olmak üzere çeşitli dillerde çalışmaktadır. Bu kütüphane ile Python programlarımızın resimler üzerindeki nesneleri tespit etmesini ve tanımasını sağlayabiliriz, örneğin insan resimlerindeki <strong>yüzleri</strong> ve <strong>gözleri</strong>. Bu yazımı hazırlarken OpenCV'nin 4.1.2 versiyonunu kullandım, başka versiyonlarda söz dizimi farklı olabilir.
+</p>
+
+
+
+
+<p>
+P. Viola ve M. Jones adındaki araştırmacılar 2001 yılında yayınladıkları bir araştırmalarında resimlerdeki yüzleri tespit etmek için oldukça verimli bir yöntem bildirmişler, bu yöntem günümüzde de yoğun olarak kullanılıyor. <strong>Haar cascade classifier</strong> olarak bilinen bu yöntem ile ilgili detaylı bilgi <a class="outref" target="_blank" href="https://docs.opencv.org/4.1.2/db/d28/tutorial_cascade_classifier.html">şu sayfada</a> bulunabilir, aşağıda vereceğim örnekte kullandığım her komutu detaylı olarak açıklamayacağım. Kodlar üzerine yeterli açıklama düşeceğim ama teknik detaylar için OpenCV dokümantasyonlarını araştırabilirsiniz. OpenCV kütüphanesinde bu modele ilişkin önceden eğitilmiş (pretrained) veriler geliyor ve kendiniz training yapmadan doğrudan bunları kullanarak yüz tespiti yapabiliyorsunuz.
+</p>
+
+
+
+
+<p>
+Örneğe başlamadan önce yapacağımız hazırlıklar var, Python 3 ile çalışacağız ve <code class="language-python">python3</code> komutu Python3 konsolunu çalıştıracak şekilde anlatıyorum. Öncelikle sisteminizden izole bir Python ortamınızın olması faydalı olacaktır, bunun için terminalde çalışacağınız klasöre gidip <code class="language-python">python3 -m venv faceproject</code> yazıp bir Python3 virtual environment oluşturun (virtualenv kütüphanesinin yüklü olduğunu var sayıyroum, yoksa <code class="language-python">pip3 install virtualenv</code>.) Sonra bu izole ortamı aktifleştirmek için <code class="language-python">source faceproject/bin/activate</code> komutunu girin, terminalde satırların başında parantez içinde ortam isminin görünüyor olması gerekiyor. Daha sonra <code class="language-python">pip install --upgrade pip</code> yazarak pip yazılımını güncelleyin. Şimdi ihtiyacımız olan kütüphaneleri yükleyin, OpenCV yüklemek için <code class="language-python">pip install opencv-contrib-python</code> komutunu girin, sisteminizde yüklü değilse NumPy paketini de yükleyin (<code class="language-python">pip install numpy</code>).
+</p>
+
+
+<p>
+Şimdi bir resim verildiğinde bu resimdeki yüzleri ve gözleri (varsa) tespit edip işaretleyen bir program yazalım. Aşağıdaki kodları inceleyin, üzerinde bazı açıklamalar var.
+
+<pre class="my-4"><code class="language-python line-numbers">
+import cv2, sys
+
+#Haar cascade classifier yukle
+face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+eye_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_eye.xml')
+
+img_path = sys.argv[1] #dosya yolunu al
+img = cv2.imread(img_path) #dosyayi oku
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) #siyah-beyaz yap
+
+#yuzleri bul
+faces = face_cascade.detectMultiScale(gray, 1.3, 5, minSize = (130,130))
+
+#yuzleri isaretle
+for (x,y,w,h) in faces:
+    img = cv2.rectangle(img, (x,y), (x+w,y+h), (0,255,0), 2)
+    roi_gray = gray[y:y+h, x:x+w]
+    roi_color = img[y:y+h, x:x+w]
+    #gozleri bul
+    eyes = eye_cascade.detectMultiScale(roi_gray, minSize=(50,50))
+    #gozleri isaretle
+    for (x1,y1,w1,h1) in eyes:
+        cv2.rectangle(roi_color, (x1,y1), (x1+w1,y1+h1), (255,0,0),2)
+
+cv2.imshow('img',img) #ekranda
+cv2.imwrite("output_detected.jpg", img) #kaydet
+cv2.waitKey(0) #tusa basinca cik
+cv2.destroyAllWindows()
+</code></pre>
+</p>
+
+
+
+
+<p>
+Burada önce gerekli kütüphaneleri import ettikten sonra Haar cascade classifier dosyalarının yerini belirtiyoruz. Sonra programa verilen resim dosyasını OpenCV ile okuyup siyah-beyaz yapıyoruz, yüz tanıma işlemi renkli grafiklerle değil siyah-beyaz grafiklerle çalışır. Daha sonra da <code class="language-python">detectMultiscale</code> fonksiyonu ile resimdeki yüzlerin yerlerini tespit ediyoruz, <code class="language-python">minSize</code> parametresi ile yüze benzeyen çok küçük bölgeleri görmezden geliyoruz. Bu fonksiyon yüzlerin bulunduğu koordinatları içeren bir <strong>array</strong> nesnesi döndürür. Sonra bir döngü içinde bulunan yüzler işaretleniyor ve her bir yüz içinde gözler de tespit edilip işaretleniyor, dikdörtgen çizme işlemi OpenCV modülünün <code class="language-python">rectangle</code> fonksiyonu ile yapılır. Son olarak çıktı resmi ekranda gösteriliyor ve programın sonlanması için kullanıcının herhangi bir tuşa basması bekleniyor. Bu programı <code class="language-python">face_detect_img.py</code> olarak kaydedin, daha sonra argüman olarak aynı klasördeki bir resim dosyasının ismini vererek çalıştırın. Mesela ben <code class="language-python">python3 face_detect_img.py hababam.jpg</code> olarak çalıştırdım ve aşağıdaki sonucu aldım (resim göründükten sonra klavyeden herhangi bir tuşa basarak programdan çıkabilirsiniz).
+
+<img class="envfig my-5" src="https://sogrekci.com/static/blog/hababam_detected.jpg" width="75%">
+</p>
+
+
+
+
+
+<p>
+Benzer işlemi video dosyalarında da yapabilirsiniz, bu durumda videodaki her bir frame için yukarıdaki işlem tekrarlanır ve sonuçta video üzerindeki işlemlerle geri döndürülür. Aşağıdaki kodlarda bu işlem açıklanıyor.
+
+<pre class="my-4"><code class="language-python line-numbers">
+import cv2, sys
+
+#Haar cascade classifier yukle
+faceCascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+vid_path = sys.argv[1] #dosya yolunu al
+video_capture = cv2.VideoCapture(vid_path) #dosyayi okumak icin
+
+while True:
+    ret,frame = video_capture.read() #video frameleri oku
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) #frameleri siyah-beyaz yap
+    faces = faceCascade.detectMultiScale(gray, 1.1, 5, minSize=(100,100)) #yuzleri bul
+    for (x,y,w,h) in faces: #yuzleri isaretle
+        cv2.rectangle(frame, (x,y), (x+w,y+h), (0,255,0) ,2)
+
+    #esc basinca cik
+    cv2.imshow('Video', frame)
+    k = cv2.waitKey(1) & 0xFF
+    if k == 27:
+        break
+	
+video_capture.release()
+cv2.destroyAllWindows()
+</code></pre>
+</p>
+
+
+
+
+
+<p>
+Bunu da <code class="language-python">face_detect_vid.py</code> olarak kaydedin ve aynı klasörde yer alan bir video ile deneyin, aşağıdaki gibi bir sonuç alırsnız. Video oynatıldıktan sonra ESC tuşuna basarak programdan çıkabilirsiniz.
+
+<img class="envfig my-5" src="https://sogrekci.com/static/blog/dikistutmaz_sabri_detected.gif" width="75%">
+</p>
+
+
+
+<p>
+Aynı işlem kayıtlı bir video yerine kameranızdan gelen anlık görüntü üzerinde de yapılabilir, aşağıdaki kodları inceleyin.
+
+<pre class="my-4"><code class="language-python line-numbers">
+import cv2
+
+#Haar cascade classifier yukle
+faceCascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+
+#kamera okumak icin
+video_capture = cv2.VideoCapture(0)
+
+while True:
+	ret,frame = video_capture.read() #frame oku
+	gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) #siyah-beyaz yap
+	faces = faceCascade.detectMultiScale(gray, 1.1, 5, minSize=(100,100)) #yuzleri bul
+	for (x,y,w,h) in faces: #yuzleri isaretle
+		cv2.rectangle(frame, (x,y), (x+w,y+h), (0,255,0) ,2)
+		cv2.putText(frame, "insan", (x,y+h+20), cv2.FONT_HERSHEY_DUPLEX, .5, (0,255,0))
+	
+	#esc ile cik
+	cv2.imshow('Video', frame)
+	k = cv2.waitKey(1) & 0xFF
+	if k == 27:
+		break
+	
+video_capture.release()
+cv2.destroyAllWindows()
+</code></pre>
+
+Bunu <code class="language-python">face_detect_cam.py</code> olarak kaydedin ve argümansız olarak çalıştırın. Ekrana kamera görüntünüz üzerinde yüzünüz işaretli olarak görünecektir. Dikkat ederseniz bu örnekte <code class="language-python">putText</code> fonksiyonu ile ekrana dikdörtgen dışında yazı da yazdık.
+</p>
+
+
+
+
+<p>
+Bu işlemi geliştirmek sizin elinizde; örneğin dikdörtgenlerin boyutlarını kıyaslama aracı olarak kullanıp kişilerin kameraya olan uzaklıklarını veya gözler arasındaki mesafeyi kullanarak kişilerin boylarını tahmin etmeye çalışabilirsiniz. Daha önemli bir geliştirme yüzlerin kime ait olduklarını tahmin etmek olabilir. Bu işlem oldukça karmaşık gelebilir ama OpenCV içinde bunun çin de basit fonksiyonlar var, sadece training işlemini kendimiz yapacağız. OpenCV içinde bunu yapan farklı fonksiyonlar var, biz <code class="language-python"> LBPHFaceRecognizer_create</code> fonksiyonunu kullanacağız.  Bunu yapmak için bir yüz veritabanı oluşturalım, aynı klasöre yeni bir <code class="language-python">face_db</code> klasörü açıp içine her kişi için birer klasör oluşturun. Mesela ben Dikiştutmaz Sabri ve Arnavut için birer klasör oluşturdum, klasör isimleri kişi isimleri olmalı. Sonra da her birinin için ilgili kişilerin bazı resimlerini koyun.
+
+<img class="envfig my-5" src="https://sogrekci.com/static/blog/face_db.jpg" width="75%">
+</p>
+
+
+
+
+
+<p>
+Buradaki resimleri programa train ettireceğiz ve girdideki yüzler ile bunlarda bulunan yüzlerin karşılaştırılmasını isteyeceğiz, sonuç olarak tahminler ekrana yazdırılacak. Aşağıdaki kodları inceleyin.
+
+<pre class="my-4"><code class="language-python line-numbers">
+import cv2, sys, os
+import numpy as np
+from math import ceil
+
+#Haar cascade classifier yukle
+faceCascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+vid_path = sys.argv[1] #dosya yolunu al
+video_capture = cv2.VideoCapture(vid_path) #dosyayi okumak icin
+recognizer = cv2.face.LBPHFaceRecognizer_create()
+min_confidence = 10
+
+#yuz veri setini oku
+def get_data():
+    images = []
+    image_label = []
+    names = []
+    cd = os.getcwd()
+    dataset_dir = os.path.join(cd, 'face_db')
+    folders = os.listdir(dataset_dir)
+	
+    for i in range(len(folders)):
+        names.append(folders[i])
+        wd = os.path.join(dataset_dir,folders[i])
+        folder_imgs = os.listdir(wd)
+        for j in folder_imgs:
+            im = cv2.imread(os.path.join(wd,j), 0)
+            faces = faceCascade.detectMultiScale(im, 1.1, 5, minSize=(50,50))
+            for (x,y,w,h) in faces:
+                im_arr = np.array(im[x:x+w,y:y+h],'uint8')
+                images.append(im_arr)
+                image_label.append(i)
+	
+    cv2.destroyAllWindows()
+    return images, image_label, names
+
+#training
+image_data, labels, names = get_data()
+recognizer.train(image_data, np.array(labels))
+
+while True:
+    ret,frame = video_capture.read() #video frameleri oku
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) #frameleri siyah-beyaz yap
+    faces = faceCascade.detectMultiScale(gray, 1.1, 5, minSize=(100,100)) #yuzleri bul
+    for (x,y,w,h) in faces: #yuzleri isaretle
+        cv2.rectangle(frame, (x,y), (x+w,y+h), (0,255,0) ,2)
+        test = gray[x:x+w,y:y+h]
+        test_img = np.array(test,'uint8')
+        if(test_img.any()):#frame icinde yuz varsa tahmin et
+            index, confidence = recognizer.predict(test_img)
+        if(confidence>=min_confidence):#tahmini yaz
+            cv2.putText(frame,names[index],(x,y+h+20),cv2.FONT_HERSHEY_DUPLEX,.5,(0,255,0))
+            cv2.putText(frame,str(ceil(confidence))+"%",(x,y-20),cv2.FONT_HERSHEY_DUPLEX,.5,(0,255,0))
+
+    #esc basinca cik
+    cv2.imshow('Video', frame)
+    k = cv2.waitKey(1) & 0xFF
+    if k == 27:
+        break
+	
+video_capture.release()
+cv2.destroyAllWindows()
+</code></pre>
+
+Açıklamalardan da anlaşılacağı gibi önce basit bir fonksiyon tanımlayarak klasördeki resimleri ve karşılık gelen isimleri (label) alıyorum. Daha sonra training aşamasını OpenCV içinde gelen ilgili fonksiyonla yapıyoruz. Daha sonra döngü içinde her bir yüz için <code class="language-python">predict</code> fonksiyonunu kullanarak tahminde bulunup ekrana yazdırıyoruz. Bunu <code class="language-python">face_recog_vid.py</code> olarak kaydedip video yolu argümanıyla çalıştırıp çıktısını görebilirsiniz.
+
+<img class="envfig my-5" src="https://sogrekci.com/static/blog/dikistutmaz_recognition_1.jpg" width="75%">
+</p>
+
+
+
+
+
+<p>
+Burada kullandığımız <code class="language-python">LBPH</code> modeli çok basit bir model ve çoğu zaman yeterince keskin sonuç vermez, örneğin aşağıdaki resimleri inceleyin.
+
+<img class="envfig my-5" src="https://sogrekci.com/static/blog/dikistutmaz_recognition_2.jpg" width="75%">
+
+<img class="envfig my-5" src="https://sogrekci.com/static/blog/dikistutmaz_recognition_3.jpg" width="75%">
+</p>
+
+
+
+
+<p>
+Veri tabanımızı geliştirmek biraz daha iyi sonuçlar almamızı sağlayacaktır elbette. Ama daha keskin sonuçlar için başka modeller kullanmanız gerekebilir, bunlar OpenCV dışında modeller olabilir. Elbette yüksek performanslı modeller biraz daha fazla kaynak isteyecektir, üst düzey işlemci donanımınız yoksa özellikle gerçek zamanlı analizler için biraz yavaş kalabilir. Yüz tanıma konusunda daha başarılı bulduğum modeller hakkında daha sonra ayrı bir yazı yazmayı planlıyorum.
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Blog Yazısı:<br>
+        <a href="../raspberry-pi-kurulumu/index.html">Raspberry Pi Kurulumu</a>
+        
+      </div>
+      <div class="col text-center mt-auto">
+        <a href="../index.html">Blog Ana Sayfası</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Blog Yazısı:<br>
+        <a href="../bodoslama-javascript/index.html">Bodoslama JavaScript</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+
+
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../ders-notu/index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/blog/pythonda-opencv-ile-yuz-tanima/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:36:01 GMT -->
+</html>

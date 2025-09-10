@@ -1,0 +1,429 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/14-alt-uzaylar/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:04 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 1.4. Alt Uzaylar
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>1.4. Alt Uzaylar</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-28">
+          28 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-06-17">
+          17 Haziran 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bir vektör uzayının bir alt kümesi aynı işlemlere göre yine bir vektör uzayı oluyorsa buna bir <strong>alt uzay</strong> denir. Vektör uzaylarının temel özelliklerinin alt uzaylarıyla yakından ilişkisi vardır, bu derste bu konulara değineceğiz.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/alt-uzay/index.html">alt uzay</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/direkt-toplam/index.html">direkt toplam</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/en-kucuk-alt-uzay/index.html">en küçük alt uzay</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/kume-toplami/index.html">küme toplamı</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/tumleyen/index.html">tümleyen</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+<div class="envdef" id="def:altuzay"><h6 class="thenv">Tanım 1.4.1 (Alt Uzay)</h6>
+$V$ vektör uzayının boştan farklı bir $W$ alt kümesi $V$'deki vektör toplama ve skalerle çarpma işlemlerine göre vektör uzayı aksiyomlarını sağlıyorsa bu $W$ kümesine $V$'nin bir <strong>alt uzayı</strong> denir.
+</div>
+</p>
+
+Her $V$ vektör uzayı için $\{0\}$ ve $V$ kümeleri birer alt uzay olur. Bunlar dışındaki alt uzaylara <strong>öz</strong> al uzaylar denir, bu derste genellikle öz alt uzaylarla ilgili araştırma yapılacaktır.
+
+<p>
+<div class="envrem" id="rmk:vec:11"><h6 class="thenv">Uyarı 1.4.2</h6>
+<a class="eqref" href="../11-temel-tanimlar/index.html#def:vecspace">Tanım 1.1.3</a> ile verilen A2, A5, B2, B3, B4 ve B5 vektör uzayı aksiyomlarının $V$'nin her alt kümesi için sağlanacağı açıktır. Ayrıca eğer boştan farklı bir $W\subset V$ alt kümesi için B1 aksiyomu sağlanıyorsa bir $\alpha\in W$ için $0\alpha=0\in W$ olur, benzer şekilde her bir $\alpha\in W$ için $(-1)\alpha=-\alpha\in W$ olur (bk. <a class="eqref" href="../11-temel-tanimlar/index.html#rmk:vec:2">Uyarı 1.1.6</a>). Yani $B1$ aksiyomu sağlanırsa A3 ve A4 aksiyomları da sağlanır. Sonuç olarak bir alt kümenin alt uzay olup olmadığını anlamak için <strong>sadece A1 ve B1</strong> aksiyomlarını kontrol etmek yeterlidir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:vec:12"><h6 class="thenv">Uyarı 1.4.3</h6>
+<a class="eqref" href="#rmk:vec:11">Uyarı 1.4.2</a> gereği alt uzay için A1 ve B1 koşulları kontrol edilmelidir, bu iki koşul tek bir ifadede birleştirilebilir: Boştan farklı bir $W\subset V$ alt kümesinin $V$'nin bir alt uzayı olması için gerek ve yeter koşul her $\alpha,\beta\in W$ ve her $a,b\in F$ için $a\alpha+b\beta\in W$ olmasıdır. Başka bir ifadeyle $W$'nin vektörlerinin tüm lineer kombinasyonları $W$'de olmalıdır, yani $\langle W\rangle=W$ olmalıdır. Bu ifadenin doğrudan sonucu olarak herhangi bi $A\subset V$ alt kümesi için $\langle A\rangle$ kümesi bir alt uzaydır (bk. <a class="eqref" href="../12-lineer-bagimsizlik/index.html#theo:vec:6">Teorem 1.2.11</a>), yani vektör uzayının herhangi bir alt kümesi tarafından gerilen küme bir alt uzay olur.
+</div>
+</p>
+
+<p>
+<div class="envex" id="ex:vec:7"><h6 class="thenv">Örnek 1.4.4</h6>
+<ol>
+<li class="py-2"><a class="eqref" href="../11-temel-tanimlar/index.html#ex:vec:2:P">Örnek 1.1.4-3</a> ile verilen $P$ vektör uzayını ele alalım. Sabit bir $\{t_1,t_2,\ldots,t_m\}\subset F$ skaler kümesi seçip $W:=\{p\in V\;|\;p(t_1)=\cdots=p(t_m)=0 \}$ kümesini tanımlayalım. Bu kümenin bir alt uzay olduğunu göstermek için $t_i$ noktalarında sıfır olan polinomların toplamlarının ve sabitle çarpımlarının da bu noktalarda sıfır olduğunu göstermek yeterlidir. Benzer alt uzay örnekleri <a class="eqref" href="../11-temel-tanimlar/index.html#ex:vec:2:f1">Örnek 1.1.4-5,6,7,8</a> ile verilen vektör uzayları için de tanımlanabilir.</li>
+<li class="py-2"><a class="eqref" href="../11-temel-tanimlar/index.html#ex:vec:2:Pn">Örnek 1.1.4-4</a> vektör uzayını ele alalım, $m\leq n$ olmak üzere $P_m$ alt kümesinin $P_n$'in bir alt uzayı olduğu gösterilebilir.</li>
+<li class="py-2">$\mathbb{R}^n$ vektör uzayında $0\leq m\leq n$ için $W:=\{\alpha=(a_1,\ldots,a_n)\;|\; a_1=\cdots=a_m=0 \}$ kümesi bir alt uzay olur.</li>
+<li class="py-2">Rasyonel sayıların tüm sıralı $n-$lilerinin kümesi $\mathbb{R}^n$ vektör uzayının bir alt kümesidir fakat alt uzayı değildir (neden?).</li>
+</ol>
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:vec:14"><h6 class="thenv">Teorem 1.4.5</h6>
+Bir vektör uzayının herhangi alt uzaylarının kesişimleri de bir alt uzaydır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$W_i$ kümeleri $V$'nin birer alt uzayı olsun. $\bigcap_i W_i$ kümesi $0$ vektörünü içerdiğinden boş değildir. Şimdi $\alpha,\beta\in\bigcap_i W_i$ ve $a,b\in F$ olsun, bu durumda her $i$ için $\alpha,\beta\in W_i$ olur. Her bir $W_i$ kümesi bir alt uzay olduğundan her $i$ için $a\alpha+b\beta\in W_i$ olur, bu da $a\alpha+b\beta\in\bigcap_i W_i$ demektir.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+Alt uzay olması gerekmeyen herhangi bir $A\subset V$ alt kümesini kapsayan alt uzaylar vardır, bunlardan biri si de $V$'nin kendisidir. $A$'yı kapsayan en küçük alt uzay, $A$'yı kapsayan tüm alt uzayların kesişimidir.
+</p>
+
+<p>
+<div class="envtheo" id="theo:vec:15"><h6 class="thenv">Teorem 1.4.6</h6>
+Herhangi bir $A\subset V$ için $\bigcap_{A\subset W_i}W_i=\langle A\rangle$ olur. Yani herhangi bir $A$ alt kümesini kapsayan en küçük alt uzay $A$ tarafından gerilen kümedir.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>
+	$\bigcap_{A\subset W_i}W_i$ kümesi $A$'yı da içeren bir alt uzay olduğundan $A$ kümesinin elemanlarının lineer kombinasyonları da bu kesişim içinde bulunur, yani $\langle A\rangle\subset\bigcap_{A\subset W_i}W_i$ olur. Diğer yandan $\langle A\rangle$ kümesi $A$'yı içerir ve $V$'nin alt uzaylarından biridir (bk, <a class="eqref" href="#rmk:vec:12">Uyarı 1.4.3</a>), yani $\langle A\rangle$ kümesi $W_i$ kümelerinden birisidir, böylece $\bigcap_{A\subset W_i}W_i\subset \langle A\rangle$ sonucuna varılır.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+Sıradaki teoremde ele alacağımız $W_1+W_2$ kümesi $\alpha_1\in W_1$ ve $\alpha_2\in W_2$ olmak üzere $\alpha_1+\alpha_2$ vektörlerinin oluşturduğu küme olarak tanımlanır.
+</p>
+
+<p>
+<div class="envtheo" id="theo:vec:16"><h6 class="thenv">Teorem 1.4.7</h6>
+$W_1$ ile $W_2$ birer alt uzay ise $W_1+W_2$ de bir alt uzaydır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$\alpha:=\alpha_1+\alpha_2\in W_1+W_2$, $\beta:=\beta_1+\beta_2\in W_1+W_2$ ve $a,b\in F$ olsun. Bu durumda $$a\alpha+b\beta=a(\alpha_1+\alpha_2)+b(\beta_1+\beta_2)=(a\alpha_1+b\beta_1)+(a\alpha_2+b\beta_2)\in W_1+W_2$$ olur.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="theo:vec:17"><h6 class="thenv">Teorem 1.4.8</h6>
+$W_1+W_2$ kümesi hem $W_1$'i hem de $W_2$'yi içeren en küçük alt uzaydır, yani $W_1+W_2=\langle W_1\cup W_2\rangle$'dir. Ayrıca eğer $A_1$ kümesi $W_1$'i, $A_2$ kümesi de $W_2$'yi geriyorsa $A_1\cup A_2$ kümesi de $W_1+W_2$ kümesini gerer.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$0\in W_1$ olduğundan $W_2\subset W_1+W_2$ olur, benzer şekilde $W_1\subset W_1+W_2$ olacağı açıktır. Böylece $W_1\cup W_2\subset W_1+W_2$ olur, ayrıca <a class="eqref" href="#theo:vec:16">Teorem 1.4.7</a> gereği $W_1+W_2$ bir alt uzaydır. <a class="eqref" href="#theo:vec:15">Teorem 1.4.6</a> gereği bunlardan $\langle W_1\cup W_2\rangle\subset W_1+W_2$ elde edilir. Diğer yandan her $\alpha\in W_1+W_2$ vektörü $\alpha_1\in W_1$ ve $\alpha_2\in W_2$ olmak üzere $\alpha=\alpha_1+\alpha_2$ olarak yazılabilir. Buradan da $\alpha_1\in W_1\subset \langle W_1\cup W_2\rangle$ ve $\alpha_2\in W_2\subset \langle W_1\cup W_2\rangle$ olduğundan ve $\langle W_1+W_2\rangle$ bir alt uzay olduğundan $\alpha_1+\alpha_2\in \langle W_1\cup W_2\rangle$ olur, yani $W_1+W_2\subset\langle W_1\cup W_2\rangle$ olur. Teoremin ikinci kısmını kanıtlayalım. $W_1=\langle A_1\rangle\subset \langle A_1\cup A_2\rangle$ ve $W_2=\langle A_2\rangle\subset \langle A_1\cup A_2\rangle$ ise $W_1\cup W_2\subset \langle A_1\cup A_2\rangle\subset \langle W_1\cup W_2\rangle$ (bunun ikinci kısmı için bk. <a class="eqref" href="../12-lineer-bagimsizlik/index.html#rmk:vec:5:2">Uyarı 1.2.7-2</a>) olacağından $\langle W_1\cup W_2\rangle=\langle A_1\cup A_2\rangle$ olur (bk. <a class="eqref" href="#rmk:vec:12">Uyarı 1.4.3</a>, <a class="eqref" href="#theo:vec:15">Teorem 1.4.6</a>), teoremin kanıtlanan ilk kısmı kullanılırsa elde edilir.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="theo:vec:18"><h6 class="thenv">Teorem 1.4.9</h6>
+$n-$boyutlu bir $V$ vektör uzayının bir $W$ alt uzayı, boyutu $m\leq n$ olan sonlu boyutlu bir uzaydır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>Eğer $W=\{0\}$ ise $W$ alt uzayı 0-boyutludur, eğer öyle değilse sıfırdan farklı bir $\alpha_1\in W$ vektörü vardır. Bu durumda $\langle \alpha_1\rangle=W$ ise $W$ alt uzayı 1-boyutludur, eğer öyle değilse bir $\alpha_2\not\in\langle \alpha_1\rangle$ vektörü vardır. Bu şekilde mümkün olduğu kadar devam edildiğinde lineer bağımsız olan $\{\alpha_1,\ldots,\alpha_k\}$ vektörleri elde edilsin ve bunlar $W$ uzayını germesin. Bu durumda bir $\alpha_{k+1}\in W$ vektörü vardır ve $\alpha_{k+1}\not\in \langle \alpha_1,\ldots,\alpha_k\rangle$ olur. Bundan dolayı bir $\sum_{i=1}^{k+1}a_i\alpha_i=0$ lineer bağıntısı vardır ve burada $a_{k+1}= 0$ olmalıdır, çünkü $a_{k+1}\neq 0$ olsaydı $\alpha_{k+1}\in \langle \alpha_1,\ldots,\alpha_k\rangle$ olurdu. Böylece lineer bağıntı $0\alpha_{k+1}+\sum_{i=1}^{k}a_i\alpha_i=0$ halini alır ve $\{\alpha_1,\ldots,\alpha_k \}$ vektörleri lineer bağımsız olduğundan her $i$ için $a_i=0$ olmalıdır. Böylece, $\sum_{i=1}^{k+1}a_i\alpha_i=0$ lineer bağıntısı sadece her $a_i=0$ için sağlandığından, $\{\alpha_1,\ldots,\alpha_k, \alpha_{k+1} \}$ vektörleri lineer bağımsızdır. Bu işlemi genelleştirirsek $W$ alt uzayında lineer bağımsız olan ve $W$'yi germeyen her kümenin daha büyük ve lineer bağımsız bir kümeye genişletilebilir olduğunu görürüz. $V$ uzayında $n$'den fazla lineer bağımsız vektör bulunamayacağından bu işlem $m\leq n$ defadan fazla tekrarlanamaz ve $\langle \alpha_1,\ldots,\alpha_m\rangle=W$ olur.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="theo:vec:19"><h6 class="thenv">Teorem 1.4.10</h6>
+$V$ vektör uzayının $m-$boyutlu bir $W$ alt uzayının bir bazı $\{\alpha_1,\ldots,\alpha_m\}$ olsun. Bu durumda $V$'nin $\{\alpha_1,\ldots, \alpha_m, \alpha_{m+1},\ldots,\alpha_n \}$ biçiminde bazı vardır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong><a class="eqref" href="#theo:vec:18">Teorem 1.4.9</a> gereği $W$ alt uzayının bir $\{\alpha_1,\ldots,\alpha_m \}$ bazı vardır, ayrıca bu vektörler $V$ içinde de lineer bağımsızdır. <a class="eqref" href="../13-baz-ve-boyut/index.html#theo:vec:13">Teorem 1.3.11</a> gereği bu kime $V$'nin bir bazına tamamlanabilir.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="theo:vec:20"><h6 class="thenv">Teorem 1.4.11</h6>
+$V$ uzayının aynı sonlu boyuta sahip iki alt uzayı $W_1$ ve $W_2$ için $W_1\subset W_2$ oluyorsa $W_1=W_2$'dir.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong><a class="eqref" href="#theo:vec:19">Teorem 1.4.10</a> gereği $W_1$'in bir bazı $W_2$'nin bir bazına genişletilebilir. Diğer yandan $\dim W_1=\dim W_2$ olduğundan $W_2$'nin bazında $W_1$'in bazındakinden daha fazla vektör var olamaz, dolayısıyla $W_1$'in bir bazı aynı zamanda $W_2$'nin de bir bazıdır. Bu ise $W_1=W_2$ demektir.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="theo:vec:21"><h6 class="thenv">Teorem 1.4.12</h6>
+$W_1$ ve $W_2$ kümeleri sonlu boyutlu bir $V$ vektör uzayının herhangi ik alt uzayı olsun. Bu durumda $$\dim (W_1+W_2)=\dim W_1 +\dim W_2-\dim(W_1\cap W_2)$$ olur.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$\{\alpha_1,\ldots,\alpha_m \}$ vektörleri $W_1\cap W_2$ alt uzayının bir bazı olsun (bk. <a class="eqref" href="#theo:vec:14">Teorem 1.4.5</a>). <a class="eqref" href="#theo:vec:19">Teorem 1.4.10</a> gereği bu vektörler $W_1$'in bir $\{\alpha_1,\ldots,\alpha_m,\beta_1,\ldots,\beta_k \}$ bazına, aynı zamanda $W_2$'nin bir $\{\alpha_1, \ldots, \alpha_m, \gamma_1, \ldots, \gamma_p \}$ bazına genişletilebilir. <a class="eqref" href="#theo:vec:17">Teorem 1.4.8</a> gereği $\{\alpha_1,\ldots,\alpha_m,\beta_1,\ldots,\beta_k,\gamma_1,\ldots\gamma_p \}$ kümesi $W_1+W_2$ kümesini gerer, şimdi bu kümenin lineer bağımsız olduğunu göstereceğiz. Varsayalım ki $\sum_ia_i\alpha_i+\sum_jb_j\beta_j+\sum_kc_k\gamma_k=0$ lineer bağıntısı sağlansın, bu durumda $\sum_ia_i\alpha_i+\sum_jb_j\beta_j=-\sum_kc_k\gamma_k$ bağıntısı sağlanır. Bu bağıntının sol tarafı $W_1$ içinde, sağ tarafı ise $W_2$ içinde kalır. Dolayısıyla her iki tarafı ortak olarak $W_1\cap W_2$ içinde kalır ve her iki taraf ta sadece $\{\alpha_i\}$ vektörlerinin lineer kombinasyonu olarak yazılabilir. Herhangi bir vektörün $\{\alpha_1,\ldots,\alpha_m,\beta_1,\ldots,\beta_k \}$ vektörlerinin lineer kombinasyonu olarak tek türlü yazılabileceğinden bağıntının sol tarafı düşünüldüğünde her $b_i=0$ olmalıdır. Benzer düşünceyle her $c_i=0$ olduğu da gösterilebilir, sonuç olarak $\sum_ia_i\alpha_i=0$ bağıntısına ulaşılır ve lineer bağımsızlıktan dolayı her $a_i=0$ olur. Böylece $\{\alpha_1,\ldots,\alpha_m,\beta_1,\ldots,\beta_k,\gamma_1,\ldots\gamma_p \}$ kümesinin lineer bağımsız olduğu anlaşılır, yani bu küme $W_1+W_2$ kümesinin bir bazıdır. Buradan da $\dim (W_1+W_2)=m+k+p=(m+k)+(m+p)-m$ elde edilir ki istenendir.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envex" id="ex:vec:8"><h6 class="thenv">Örnek 1.4.13</h6>
+$\mathbb{R}^3$ uzayının her biri $2-$boyutlu olan $W_1:=\langle(1,0,2), (1,2,2) \rangle$ ve $W_2:=\langle(1,1,0), (0,1,1)\rangle$ alt uzaylarını ele alalım. $W_1\subset W_1+W_2\subset \mathbb{R}^3$ olduğundan $2\leq\dim(W_1+W_2)\leq 3$, buradan da <a class="eqref" href="#theo:vec:21">Teorem 1.4.12</a> gereği $1\leq\dim(W_1\cap W_2)\leq2$ olduğu anlaşılır. Şimdi $W_1\cap W_2$ kümesi için bir baz bulalım. Her $\alpha\in W_1\cap W_2$ vektörü $\alpha=a(1,0,2)+b(1,2,2)=c(1,1,0)+d(0,1,1)$ olarak yazılabilir, bunlardan da
+	$$
+	\begin{array}{rl}
+	a+b&=c\\2b&=c+d\\2a+2b&=d
+	\end{array}
+	$$
+	denklemlerine varılır. Bunlar çözülürse $b=-3a$, $c=-2a$ ve $d=-4a$ elde edilir, buradan da $\alpha=a(1,0,2)-3a(1,2,2)=a(-2,-6,-4)$ elde ederiz. Diğer açılımı da kontrol edersek $\alpha=-2a(1,1,0)-4a(0,1,1)=a(-2,-6,-4)$ olduğunu görürüz, dolayısıyla $\{(1,3,2) \}$ kümesi $W_1\cap W_2$ alt uzayı için bir bazdır. <a class="eqref" href="../13-baz-ve-boyut/index.html#theo:vec:13">Teorem 1.3.11</a> sonucu olarak $\{(1,3,2), (1,0,2) \}$ ve $\{(1,3,2), (1,1,0) \}$ kümelerinin sırasıyla $W_1$ ve $W_2$ alt uzayları için birer baz olduğu söylenebilir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:vec:13"><h6 class="thenv">Uyarı 1.4.14</h6>
+<a class="eqref" href="#ex:vec:8">Örnek 1.4.13</a> ile elde edilen durum Öklid geometrisinden aşina olduğumuz bir durumdur. Uzayda $W_1$ ve $W_2$ kümeleri düzlemleri göstersin, her ikiside orijini içerdiğinden bunlar kesişir. Uzayda farklı düzlemlerin kesişiminin bir doğru olduğunu biliyoruz. Yani üç boyutlu uzayda iki boyutlu alt uzayların kesişimleri bir boyutlu bir alt uzay olur. Fakat boyutu üçten büyük olan uzaylarda alt uzayların kesişimleri sıfır boyutlu olabilir. Örneğin $\mathbb{R}^4$ uzayında $W_1=\langle(1,0,0,0), (0,1,0,0)\rangle$ ve $W_2=\langle(,0,1,0), (0,0,0,1)\rangle$ alt uzayları için $W_1\cap W_2=\{0\}$ ve $W_1+W_2=\mathbb{R}^4$ olur.
+</div>
+</p>
+
+<p>
+<div class="envdef" id="def:directsum"><h6 class="thenv">Tanım 1.4.15</h6>
+$\dim (W_1\cap W_2)=0$ olması, yani $W_1\cap W_2=\{0\}$ olması durumunda $W_1+W_2$ toplamına bu kümelerin <strong>direkt toplamı</strong> denir ve bu toplamı ayırd etmek için $W_1\bigoplus W_2$ biçiminde yazarız. Eğer $V=W_1\bigoplus W_2$ ise $W_1$ ile $W_2$ kümelerine birbirinin <strong>tümleyen</strong> (ek, tamamyalan) alt uzayları denir. Direkt toplam kavramı sonlu sayıdaki kümelere de genişletilebilir ve böyle bir toplam $W_1\bigoplus\cdots\bigoplus W_k$ ile gösterilir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:vec:14"><h6 class="thenv">Uyarı 1.4.16</h6>
+Eğer $\alpha\in W_1\bigoplus W_2$ ise $\alpha=\alpha_1+\alpha_2$ olacak şekilde $\alpha_1\in W_1$ ve $\alpha_2\in W_2$ vektörleri vardır. Toplam direkt olmasa da bu sağlanır fakat direkt olması durumunda $\alpha_1$ ve $\alpha_2$ vektörler $\alpha$ vektörü tarafından tek türlü olarak belirlenir. Eğer $\alpha=\alpha_1+\alpha_2=\alpha_1'+\alpha_2'$ olsaydı $\alpha_1-\alpha_1'=\alpha_2-\alpha_2'$ eşitliğinde sol taraf $W_1$ sağ tarafsa $W_2$ içinde kaldığından her iki taraf da $W_1\cap W_2$ içinde kalır. Diğer yandan $W_1\cap W_2=\{0\}$ olduğundan buradan $\alpha_1=\alpha_1'$ ve $\alpha_2=\alpha_2'$ elde edilmiş olur.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:vec:22"><h6 class="thenv">Teorem 1.4.17</h6>
+$V$ vektör uzayının her $W$ alt uzayı için $V=W\bigoplus W'$ olacak şekilde başka bir $W'$ alt uzayı vardır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$W$ alt uzayının bir bazı $\{\alpha_1,\ldots,\alpha_m \}$ olsun. Bu vektörler $\{\alpha_1,\ldots,\alpha_m,\alpha_{m+1},\ldots,\alpha_n\}$ olarak $V$'nin bir bazına tamamlansın ve $\{\alpha_{m+1},\ldots,\alpha_n \}$ tarafından gerilen alt uzay $W'$ olsun (bk, <a class="eqref" href="#theo:vec:17">Teorem 1.4.8</a>). Bu durumda $W\cap W'=\{0\}$ olduğu açıktır.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="theo:vec:23"><h6 class="thenv">Teorem 1.4.18</h6>
+$W_1,\ldots,W_k$ uzayları toplamının direkt olması için gerek ve yeter koşul $$\dim(W_1+\cdots+W_k)=\dim W_1+\cdots+\dim W_k$$ olmasıdır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>Bu sonuç <a class="eqref" href="#theo:vec:21">Teorem 1.4.12</a>'nin doğrudan bir sonucudur.$$\tag*{$\blacksquare$}$$
+</p>
+
+
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3" id="exe:vec:altuzay">Alıştırmalar</h3>
+
+
+
+
+<p>
+
+<ol>
+<li class="py-2">$P$ ile reel katsayılı polinomların oluşturduğu vektör uzayı gösterilsin. Aşağıdakilerden hangilerinin bunun bir alt uzayı olduğunu tespit edin.</li>
+<ol type="a">
+<li class="py-2">$\{p(t)\;|\; p(1)=0 \}$</li>
+<li class="py-2">$\{p(t)\;|\; p\text{'nin sabit terimi }0\text{'dır} \}$</li>
+<li class="py-2">$\{p(t)\;|\; p\text{'nin derecesi 3'tür} \}$</li>
+<li class="py-2">$\{p(t)\;|\; p\text{'nin derecesi 3 veya daha küçüktür} \}$ (Sıfır polinomunun da bu kümede içerildiğinin varsayın, bundan soraki benzer uzaylar için de böyle kabul edin.)</li>
+<li class="py-2">$\{p(t)\;|\; p\text{'nin derecesi çifttir} \}\cup\{0\}$</li>
+</ol>
+<li class="py-2">Aşağıdakilerden hangilerinin $\mathbb{R}^n$'in bir alt uzayı olduğunu belirleyin.</li>
+<ol type="a">
+<li class="py-2">$\{(x_1,\ldots,x_)\;|\;x_1=0 \}$</li>
+<li class="py-2">$\{(x_1,\ldots,x_)\;|\;x_1\geq 0 \}$</li>
+<li class="py-2">$\{(x_1,\ldots,x_)\;|\;x_1+2x_2=0 \}$</li>
+<li class="py-2">$\{(x_1,\ldots,x_)\;|\;x_1+2x_2=1 \}$</li>
+<li class="py-2">$\{(x_1,\ldots,x_)\;|\;x_1+2x_2\geq0 \}$</li>
+<li class="py-2">$\{(x_1,\ldots,x_)\;|\;x_1=x_2=\cdots=x_n=0 \}$</li>
+</ol type="a">
+<li class="py-2" id="exe:vec:altuzay:3">$\{(1,1,0,0), (1,0,1,1)\}$ ve $\{(2,-1,3,3),(0,1,-1,-1)\}$ kümelerinin $\mathbb{R}^4$'ün aynı alt uzayını gerdiklerini gösterin.</li>
+<li class="py-2" id="exe:vec:altuzay:4">$\{(1,-1,2,-3), (1,1,2,0), (3,-1,6,-6)\}$ ve $\{(1,0,1,0),(0,2,0,3)\}$ kümelerinin $\mathbb{R}^4$'ün farklı alt uzaylarını gerdiklerini gösterin.</li>
+<li class="py-2" id="exe:vec:altuzay:5">$\mathbb{R}^5$ uzayının $$\{(1,1,1,1,1), (1,0,1,0,1), (0,1,1,1,0), (2,0,0,1,1), (2,1,1,2,1), (1,-1,-1,-2,2), (1,2,3,4,-1)\}$$ kümesi tarafından gerilen alt uzayını belirleyin.</li>
+<li class="py-2">$\mathbb{R}^4$ uzayının $W_1:=\langle(1,2,3,6), (4,-1,3,6), (5,1,6,12)\rangle$ ve $W_2:=\langle(1,-1, 1,1), (2,-1,4,5)\rangle$ alt uzayları için</li>
+<ol type="a">
+<li class="py-2">$W_1\cap W_2$ ve $W_1+W_2$ uzayları için birer baz belirleyin</li>
+<li class="py-2" id="exe:vec:altuzay:8">$W_1\cap W_2$ alt uzayının bazını sırasıyla $W_1$'in ve $W_2$'nin bir bazına genişletin. Bunları kullanarak $W_1+W_2$ alt uzayının bir bazını elde edin.</li>
+</ol>
+<li class="py-2">$P$ ile reel katsayılı tüm polinomların vektör uzayı gösterilsin. Bu durumda $W_1:=\{p(t)\;|\; p(1)=0 \}$  $W_2:=\{p(t)\;|\; p(2)=0 \}$ alt uzayları için $W_1\cap W_2$ ve $W_1+W_2$ alt uzaylarını belirleyin.</li>
+<li class="py-2">$W_1$ ve $W_2$ birer alt uzay olmak üzere bunlardan biri diğerini kapsamadıkça $W_1\cup W_2$ kümesinin bir alt uzay olmadığını gösterin.</li>
+<li class="py-2">$W, W_1$ ve $W_2$ alt uzayları için $V=W_1\bigoplus W_2$ ve $W_1\subset W$ koşulları sağlansın. Bu durumda $W=(W\cap W_1)\bigoplus(W\cap W_2)$ olur, kanıtlayın.</li>
+</ol>
+
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../13-baz-ve-boyut/index.html">1.3. Baz ve Boyut</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Lineer Cebire Giriş</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../21-lineer-donusumler/index.html">2.1. Lineer Dönüşümler</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/14-alt-uzaylar/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:04 GMT -->
+</html>

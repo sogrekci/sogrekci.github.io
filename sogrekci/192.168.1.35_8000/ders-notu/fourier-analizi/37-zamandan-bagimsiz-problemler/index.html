@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/37-zamandan-bagimsiz-problemler/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 3.7. Zamandan Bağımsız Problemler
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>3.7. Zamandan Bağımsız Problemler</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-09">
+          9 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste ısı iletim problemini daha da genelleştireceğiz, bu genel durumda daha önce sabit kabul ettiğimiz bazı parametreleri değişken olarak değerlendireceğiz. Bu derste problemi tanımlayıp yapılacakları listeleyeceğiz.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/isi-denklemi/index.html">Isı denklemi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/sinir-deger-problemi/index.html">sınır değer problemi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/zamandan-bagimsiz-problem/index.html">zamandan bağımsız problem</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Önceki bölümlerde ısı denklemine ilişkin birkaç sınır değer problemini inceledik. Benzer şekilde gerek ısı yayılım denklemini genelleştirerek gerekse sınır koşullarını genelleştirerek çeşitli sınır değer problemleri elde edilebilir. Örneğin ısı iletim denklemindeki öz ısı katsayısı $c$, yoğunluk $\rho$ veya iletkenlik katsayısı $\kappa$ gibi parametreler sabit yerine $x$'e göre değişken olabilir, ayrıca çubuk içinde yine $x$'e bağlı bir $q$ fonksiyonu ile ısı üretiliyor olabilir. Böyle bir durumda, sadelik açısından $c\rho$ yerine $c$ yazarsak, $D$ kümesindeki ısı yayılımı
+
+<span id="bvp3-heat-1">\begin{equation}
+\label{bvp3-heat-1}
+\tag{3.7.1}
+cu_t=(\kappa u_x)_x+q
+\end{equation}
+</span>
+
+denklemi ile verilir. Burada $c,\kappa$ ve $q$ fonksiyonlarının $[0,a]$ aralığında sürekli, $c$ ve $\kappa$'nın pozitif ayrıca $\kappa$'nın türevinin sürekli olduğunu varsayıyoruz.
+</p>
+
+<p>
+Yine sıcaklığın mutlak sıfırdan itibaren ölçüldüğünü varsayacağız. Ele alacağımız problem \eqref{bvp3-heat-1} denkleminin
+
+<span id="bvp3-mod-3">\begin{eqnarray}
+	a_1u(0,t)-b_1u_x(0,t)=c_1, && \quad t\geq0\text{ için}\label{bvp3-mod-1}\tag{3.7.2}\\
+	a_2u(a,t)+b_2u_x(a,t)=c_2, && \quad t\geq0\text{ için}\label{bvp3-mod-2}\tag{3.7.3} \\
+	u(x,0)=f(x), && \quad0\leq x\leq a \text{ için}\label{bvp3-mod-3}\tag{3.7.4}
+\end{eqnarray}</span>
+
+koşullarını sağlayan, sürekli, negatif olmayan ve sınırlı bir çözümünün bulunması problemidir. Bu problemi araştırıken aşağıdaki koşullar altında çalışacağız:
+<ol><li>$a_1,a_2,b_1,b_2,c_1$ ve $c_2$ negatif olmayan sabitlerdir,</li>
+<li>$a_1+b_1>0$ ve $a_2+b_2>0$'dır,</li>
+<li>eğer $a_1=a_2=0$ ise bu durumda $c_1=c_2=0$ ve $q\equiv0$'dır,</li>
+<li>$f$ fonksiyonu negatif olmayan, sürekli, türevi parçalı sürekli ve $a_1f(0)-b_1f'(0)=c_1$ ile $a_2f(a)+b_2f'(a)=c_2$ eşitliklerini sağlar.</li></ol>
+</p>
+
+<p>
+Bu koşullar ilk bakışta fazla kısıtlayıcı veya anlamsız görünse de problemin doğasına aykırı olan bazı olasılıkların oluşmasını engellemek için gereklidir, bunları kısaca açıklayalım.
+</p>
+
+<p>
+İlk koşula bakacak olursak, $a_1\geq0$ olabildiğini, veya diğer durumda \eqref{bvp3-mod-1} uç nokta koşulunu $-1$ ile çarparak bu hale getirebileceğimizi görürüz. Fakat mesela ilk hipoteze aykırı bir şekilde $a_1>0$, $b_1=0$ ve $c_1<0$ ise $u(0,t)<0$ olurdu, bu ise mutlak sıfırdan ölçülen sıcaklığın negatif olamayacağı gerçeğiyle çelişir. Benzer şekilde eğer $a_1>0$, $b_1<0$, $c_1>0$ ve $u(0,t)>c_1/a_1$ ise bu durumda da $u_x(0,t)<0$ olur ki bu da sıcaklığı $u(0,t)$ olan, yani ortam sıcaklığı olan $c_1/a_1$'dan daha sıcak olan sol uç noktadan çubuğa ısı geçişinin olduğu anlamına gelir ki bu mümkün değildir. Malesef ilk koşul bazı olası durumları da engeller, örneğin eğer $a_1=0$, $b_1<0$ ve $c_1>0$ ise ısı çubuğu $x=0$ noktasında sabit bir oranla terk ediyor demektir. Bu durum fiziksel olarak olanaklıdır fakat dikkatli incelenmelidir, örneğin bu durumda ek olarak $a_2=c_2=0$ ise çubuğun $x=a$ uç noktası ortamdan izole demektir ve bu durumda sol uçtan ortama ısı akması için çubuğun içinde yeterli miktarda ısı üretimi mevcut olmalıdır. İkinci hipoteze bakacak olursak, bu hipotez bize uç nokta koşullarının eksik verilmemesini garanti eder. Örneğin eğer $a_1\geq0$ ve $b_1\geq0$ ise $a_1+b_1>0$ koşulu bu iki sabitin aynı anda sıfır olamayacağını belirtir. Eğer bunlardan ikisi de sıfır olsaydı $c_1=0$ olurdu ve $x=0$ noktasında bir koşul verilmemiş olurdu. Üçüncü koşula bakalım, $a_1=a_2=0$ durumu özel bir durumdur, çubuğun her iki uç noktasının da ortamdan izole olduğu duruma karşılık gelir. Böyle bir durumda eğer $q\equiv0$ değilse çubuk sınırsızca ısınır. Ayrıca bu durumda $q\equiv0$ olsa bile eğer $c_1>0$ veya $c_2>0$ ise, ikici koşula göre $b_1>0$ ve $b_2>0$ olduğundan uç noktalardan çubuğa sabit hızda ısı girer ve çubuk yine sınırsızca ısınır. Gerçekten bu durumda
+<span id="bvp3-eq-1">\begin{eqnarray}\label{bvp3-eq-1}
+	\frac{d}{dt}\int_{0}^{a}aAu(s,t)\,ds &=& A\int_{0}^{a}cu_t(s,t)\,ds\tag{3.7.5}\\
+	&=& A\int_{0}^{a}\left[(\kappa u_x)_x(s,t)+q(s)\right]\,ds\notag\\
+	&=& A\left[(\kappa u_x)(a,t)-(\kappa u_x(0,t))+\int_{0}^{a}q(s)\,ds \right]\notag\\
+	&=& A\left[ \kappa(a)\frac{c_2}{b_2}+\kappa(0)\frac{c_1}{b_1}+\int_{0}^{a}q(s)\,ds \right]\notag
+\end{eqnarray}</span>
+olduğundan, ve $A$, $\kappa$, $b_1$, $b_2$ pozitif olduğundan $q\equiv0$ ve $c_1=c_2=0$ olmadıkça bu türev pozitiftir ve dolayısıyla ısı sürekli artar.
+</p>
+
+<p>
+Dikkat edilirse ele aldığımız bu problemin daha önce çalıştığımız tüm sınır değer problemlerini kapsayan oldukça genel bir problem olduğunu görürüz. Daha önce çalıştığımız bu özel durumlarda izlediğimiz adımları bu problem için de izleyeceğiz, yani bu denklem için aşağıdakileri uygulayacağız.
+</p>
+
+<p>
+<strong>1. Denge durumu çözümünün tespiti:</strong> Bu $U$ çözümü zamandan bağımsızdır, \eqref{bvp3-heat-1} ve \eqref{bvp3-mod-2} koşullarını sağlar, \eqref{bvp3-mod-3} koşulunu sağlamak zorunda değildir. Tam çözümün $t\rightarrow\infty$ için $U$ denge durumu çözümüne yakınsaması beklenir.
+</p>
+<p>
+<strong>2. Geçici çözümün tespiti:</strong> Bu $v$ çözümü $q\equiv0$, $c_1=c_2=0$ ve $v(x,0)=f(x)-U(x)$ başlangıç koşuluna karşılık gelen çözümdür. Bu koşullarda ısı denklemi  ve uç nokta koşulları lineerdir, değişkenlere ayırma yöntemi ve süperpozisyon ilkesi ile $v$ çözümü elde edilebilir.
+</p>
+<p>
+<strong>3. Tam çözümün elde edimesi:</strong> Hem denge durumu çözümü $U$ hem de geçici çözüm $v$ bulunmuşsa $u:=U+v$ fonksiyonunun orijinal problemin bir çözümü olduğu açıktır, fakat bu fonksiyonun negatif olmadığı gösterilmelidir.
+</p>
+<p>
+<strong>4. Çözümün tekliğinin ve kararlılığının tespiti:</strong> Bir çözüm bulunduktan sonra onun tek çözüm olduğu ve başlangıç ile sınır verilerine sürekli bağımlı olduğu gösterilmelidir.
+</p>
+
+<p>
+Yukarıdaki dört adım önümüzdeki bölümlerde sırasıyla ele alınacaktır.
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../36-bir-ucta-isi-konveksiyonu/index.html">3.6. Bir Uçta Isı Konveksiyonu</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Fourier Analizi</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../38-denge-durumu-cozumu/index.html">3.8. Denge Durumu Çözümü</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/37-zamandan-bagimsiz-problemler/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:35 GMT -->
+</html>

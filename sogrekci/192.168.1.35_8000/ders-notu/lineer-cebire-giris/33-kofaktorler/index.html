@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/33-kofaktorler/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:05 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 3.3. Kofaktörler
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>3.3. Kofaktörler</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-06-02">
+          2 Haziran 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste <strong>kofaktör</strong> ve <strong>adjoint</strong> (adjunct, eşlenik, ilave) matris kavramınlarını tartışacağız. Bunlar yardımıyla determinantları ve matris terslerini hesaplama yöntemleri ve lineer denklem sistemlerini çözmek için kullanılan bir yöntem olan <strong>Cramer</strong> kuralını keşfedeceğiz.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/adjoint-matris/index.html">adjoint matris</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/adjunct/index.html">adjunct</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/cramer-kurali/index.html">Cramer kuralı</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/ilave-matris/index.html">ilave matris</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/kofaktor/index.html">kofaktör</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+<div class="envdef" id="def:kofaktor"><h6 class="thenv">Tanım 3.3.1</h6>
+Verilen $i, j$ indisleri için, $\det A$ açılımında bulunan ve $a_{ij}$ çarpanını içeren terimleri ele alalım. $$\det A=a_{ij}A_{ij}+\left(a_{ij}\text{ çarpanını içermeyen terimler}\right)$$ eşitliğindeki $A_{ij}$ skalerine $a_{ij}$ elemanının <strong>kofaktörü</strong> denir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:9"><h6 class="thenv">Uyarı 3.3.2</h6>
+<a class="eqref" href="#def:kofaktor">Tanım 3.3.1</a> gereği
+
+\begin{equation}
+\label{eq:det:2}
+\tag{3.3.1}
+A_{11}=\sum_{\pi}\left({\rm sgn}\,\pi \right)a_{2\pi(2)}\cdots a_{n\pi(n)}
+\end{equation}
+
+olur ve burada toplam, $1$ elemanını sabit bırakan tüm $\pi$ permütasyonları üzerinden alınmıştır. Bu şekildeki her permütasyon, $S':=\{2,\ldots,n \}$ kümesi üzerince bir $\pi'$ permütasyonu tanımlar ve bunlar $S$ üzerinde $\pi$ ile çakışır. Ayrıca $\pi$ permütasyonunun hiçbir evirtimi $1$'i içermediğinden ${\rm sgn}\,\pi={\rm sgn}\,\pi'$ olur. Bundan dolayı \eqref{eq:det:2} eşitliğ bir determinant tanımlar, bu determinant $A$ matrisinin ilk satırı ve ilk sütunu silindikten sonra kalan elemanların oluşturduğu matrisin determinantıdır.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:10"><h6 class="thenv">Uyarı 3.3.3</h6>
+Şimdi bir $A_{ij}$ kofaktörünü belirleyelim. Öncelikle için $i-1$ tane Tip 3 elementer satır işlemi ve $j-1$ tane Tip 3 elementer sütun işlemi uygulayarak $a_{ij}$ elamanının ilk satırda ve ilk sütunda yer almasını sağlayalım. <a class="eqref" href="#rmk:det:9">Uyarı 3.3.2</a> gereği bu şekilde ulaşılan kofaktör bir determinant belirler, bu determinantın değeri mutlak değerce $A$ matrisinin $i-$nci satır ve $j-$nci sütunu silinmiş haline eşittir. Ayrıca uygulanan elementer işlemler ve <a class="eqref" href="../32-determinantlar/index.html#rmk:det:8">Uyarı 3.2.9</a> gereği determinantın işareti $\left(-1\right)^{i-1+j-1}=\left(-1\right)^{i+j}$ olur.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:11"><h6 class="thenv">Uyarı 3.3.4</h6>
+Bir determinant açılımında her satırdan ve her sütundan tam olarak bir tane çarpan bulunur. Dolayısıyla $A$ matrisinin bir satırı belirlendiğinde, $\det A$ açılımındaki her bir terimde bu satırdan tam olarak bir eleman çarpan olarak yer alır. Bundan dolayı, bir $i$ verildiğinde $$\det A=\sum_{j}a_{ij}A_{ij}$$ eşitliği sağlanır. Benzer şekilde, bir sütun verildiğinde determinant açılımındaki her bir terimde bu sütunun tek bir elemanı çarpan olarak yer alır. Dolayısıyla verilen bir $k$ için $$\det A=\sum_{j}a_{jk}A_{jk}$$ eşitliği sağlanır. Bu eşitliklerdeki kofaktörler <a class="eqref" href="#rmk:det:10">Uyarı 3.3.3</a> gereği $n-1$ boyutlu birer determinanttır, dolayısıyla her boyuttan determinant hesabı bu şekilde mertebe düşürülerek ve <a class="eqref" href="../32-determinantlar/index.html#rmk:det:6">Uyarı 3.2.2</a> sonucu kullanılarak hesaplanabilir. Eğer bir satırda veya sütunda bir çok eleman sıfır ise determinant hesaplamak için bu satır veya sütuna göre kofaktör açılımı yapılırsa yapılması gereken toplama işlemi sayısı ciddi şekilde azalır. Eğer böyle bir satır veya sütun yoksa bir dizi elementer işlem yapılarak bu sağlanabilir.
+</div>
+</p>
+
+<p>
+<div class="envex" id="ex:det:1"><h6 class="thenv">Örnek 3.3.5</h6>
+Aşağıdaki hesaplamanın adımları okuyucu tarafından doğrulanmalıdır.
+
+	\begin{eqnarray*}
+		\det A&=&\left|\begin{array}{rrrr}3&2&-2&10\\3&1&1&2\\-2&2&3&4\\1&1&5&2\end{array}\right|
+		=\left|\begin{array}{rrrr}0&-1&-17&4\\0&-2&-14&-4\\0&4&13&8\\1&1&5&2\end{array}\right|
+		=-\left|\begin{array}{rrr}-1&-17&4\\-2&-14&-4\\4&13&8\end{array}\right|\\
+		&=&4\cdot\left|\begin{array}{rrr}-1&-17&1\\2&14&1\\4&13&2\end{array}\right|
+		=4\cdot\left|\begin{array}{rrr}-1&-17&1\\3&31&0\\6&47&0\end{array}\right|\\
+		&=&4\cdot\left|\begin{array}{rr}3&31\\6&47\end{array}\right|\\
+		&=&-180.
+	\end{eqnarray*}
+
+Unutulmamalıdır ki burada tercih edilen yol tek türlü değildir. Örneğin 3 boyutlu bir determinanta ulaşıldıktan sonra tekrar kofaktör açılımı uygulamak yerine doğrudan determinant değeri hesaplanabilirdi. Ayrıca tarcih edilen elementer işlemler de değiştirilebilir. Bunların sonucunda aynı determinant değerine ulaşılır.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:12"><h6 class="thenv">Uyarı 3.3.6</h6>
+<a class="eqref" href="#rmk:det:11">Uyarı 3.3.4</a> ile yapılan işleme benzer olarak, $i-$nci satırın elemanları $k\neq i$ olmak üzere bir $k-$inci satırın elemanlarının kofaktörleriyle çarpılsın. Bu işlemin sonucu, $k-$inci satır ne olursa olsun aynı olur, çünkü kofaktörler hesaplanırken $k-$inci satır ve sütun siliniyor. Özel olarak $k-$inci satır $i-$nci satırın aynısı olsun, <a class="eqref" href="../32-determinantlar/index.html#theo:det:7">Teorem 3.2.7</a> gereği bu matrisin determinantı sıfır olacağından
+
+\begin{equation*}
+\label{eq:det:3}
+\sum_{j}a_{ij}A_{kj}=0,\qquad i\neq k
+\end{equation*}
+
+ve
+
+\begin{equation*}
+\label{eq:det:4}
+\sum_{i}a_{ij}A_{ik}=0,\qquad j\neq k
+\end{equation*}
+
+eşitlikleri elde edilmiş olur. Buradan hareketle
+
+\begin{equation}
+\label{eq:det:5}
+\tag{3.3.2}
+\sum_{j}a_{ij}A_{kj}=\delta_{ik}\det A\quad \text{ve}\quad\sum_{i}a_{ij}A_{ik}=\delta_{jk}\det A.
+\end{equation}
+
+eşitliklerinin sağlandığı görülür.
+</div>
+</p>
+
+<p>
+<div class="envdef" id="def:adjoint"><h6 class="thenv">Tanım 3.3.7</h6>
+$A:=\left[a_{ij}\right]$ bir kare matris ve $A_{ij}$ terimleri de $a_{ij}$ elemanlarının kofaktörleri olsun. Bu durumda $\left[A_{ij}\right]^T$ matrisine $A$ matrisinin <strong>ilave (adjunct)</strong> veya <strong>eşlenik (adjoint)</strong> matrisi denir, bu matris ${\rm Adj}\,A$ ile gösterilir.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:det:12"><h6 class="thenv">Teorem 3.3.8</h6>
+$A\cdot {\rm Adj}\,A=\left({\rm Adj}\,A\right)\cdot A=\left(\det A\right)\cdot I$.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong><a class="eqref" href="#rmk:det:12">Uyarı 3.3.6</a> gereği
+	$$A\cdot {\rm Adj}\,A=\left[a_{ij}\right]\cdot\left[A_{ki}\right]^T=\left[ \sum_{j}a_{ij}A_{kj} \right]=\det A\cdot I$$ ve $$\left( {\rm Adj}\,A \right)\cdot A=\left[A_{ki}\right]^T\cdot\left[a_{ij}\right]=\left[ \sum_{i}A_{ik}a_{ij} \right]=\det A\cdot I$$
+	eşitlikleri elde edilir ki istenendir.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:13"><h6 class="thenv">Uyarı 3.3.9</h6>
+<a class="eqref" href="#theo:det:12">Teorem 3.3.8</a> sonucu şu önemli bilgi elde edilmiş olur. Bir $A$ matrisin tersinir olması için gerek ve yeter koşul $\det A\neq 0$ olmasıdır ve bu durumda
+
+\begin{equation}
+\label{eq:det:6}
+\tag{3.3.3}
+A^{-1}=\frac{1}{\det A}{\rm Adj}\,A
+\end{equation}
+
+eşitliği sağlanır.
+</div>
+</p>
+
+<p>
+<div class="envex" id="ex:det:2"><h6 class="thenv">Örnek 3.3.10</h6>
+Aşağıda verilen $A$ matrisi için <a class="eqref" href="#rmk:det:13">Uyarı 3.3.9</a> ile tarif edilen işlemler okuyucu tarafından doğrulanmalıdır.
+	$$
+	A:=\left[\begin{array}{rrr}1&2&3\\2&1&2\\-2&1&-1\end{array}\right],\quad
+	{\rm Adj}\,A=\left[\begin{array}{rrr}-3&5&1\\-2&5&4\\4&-5&-3\end{array}\right],\quad
+	A^{-1}=\frac{1}{5}\left[\begin{array}{rrr}-3&5&1\\-2&5&4\\4&-5&-3\end{array}\right]
+	$$
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:14"><h6 class="thenv">Uyarı 3.3.11</h6>
+<a class="eqref" href="#rmk:det:12">Uyarı 3.3.6</a> ile verilen bağıntılar yardımıyla denklemleri bağımsız olan lineer denklem sistemleri için bir çözüm yöntemi geliştirilebilir. $$\sum_{j=1}^{n}a_{ij}x_j=b_i,\qquad i=1,2,\ldots,n$$ lineer sistemini ele alalım, denklemlerin bağımsız olması demek $A:=\left[a_{ij}\right]$ olmak üzere $\det A\neq0$ olması demektir. $A_{ij}$ ile $a_{ij}$ elamanının kofaktörü gösterilsin, bu durumda <a class="eqref" href="#rmk:det:12">Uyarı 3.3.6</a> ile verilen bağıntılar kullanılarak $$\sum_{i=1}^{n}A_{ik}b_i=\sum_{i=1}^{n}A_{ik}\left( \sum_{j=1}^{n}a_{ij}x_j \right)=\sum_{j=1}^{n}\left(\sum_{i=1}^{n}A_{ik}a_{ij}\right)x_j=\sum_{j=1}^{n}\det A\cdot\delta_{kj}\cdot x_j=\det A\cdot x_k$$ eşitliği elde edilir. $\det A\neq0$ olduğunundan buradan $$x_k=\frac{\sum_{i=1}^{n}A_{ik}b_i}{\det A}$$ eşitliğine varılır. Bu kesrin payındaki toplam, $A$ matrisinin $k-$inci sütununun $b$ ile değiştirilmesiyle elde edilen matris determinantının kofaktör açılımıdır. Bu yöntem literatürde <strong>Cramer kuralı</strong> olarak bilinir.
+</div>
+</p>
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Alıştırmalar</h3>
+
+
+
+
+<p>
+<ol>
+<li class="py-2">Aşağıdaki determinantın bazı kofaktörlerini hesaplayın.
+		$$
+		\left|\begin{array}{rrrr}
+		2&3&5&-1\\7&-2&1&6\\1&1&-1&3\\6&3&-5&-2
+		\end{array}\right|
+		$$
+</li>
+<li class="py-2">Aşağıdaki determinantı hesaplamak için elementer işlemler ve kofaktör açılımından faydalanın.
+		$$
+		\left|\begin{array}{rrrr}
+		1&3&4&-1\\2&2&0&1\\0&-1&1&3\\-3&0&1&2
+		\end{array}\right|
+		$$
+</li>
+<li class="py-2">$\det\left({\rm Adj}\,A\right)=\left(\det A\right)^{n-1}$ olduğunu gösterin.</li>
+<li class="py-2">Bir $A$ matrisinin tersinir olması için gerek ve yeter koşul ${\rm Adj}\,A$ matrisinin tersinir olmasıdır, kanıtlayın.</li>
+</ol>
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../32-determinantlar/index.html">3.2. Determinantlar</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Lineer Cebire Giriş</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../34-hamilton-cayley-teoremi/index.html">3.4. Hamilton-Cayley Teoremi</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/33-kofaktorler/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:05 GMT -->
+</html>

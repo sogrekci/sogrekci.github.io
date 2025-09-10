@@ -1,0 +1,628 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/latexe-giris/9-tikz-paketi-ile-cizim/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:41:38 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 9. Tikz Paketi İle Çizim
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>9. Tikz Paketi İle Çizim</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-19">
+          19 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-29">
+          29 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste LaTeX ile fonksiyon grafikleri, geometrik şekiller ve bunlar gibi çeşitli çizimleri nasıl yapabileceğimizi göreceğiz. Başka programlarda çizimler yapıp LaTeX'te bunları kullanmak yerine doğrudan <strong>Tikz</strong> paketi ile LaTeX içinde çizim yapabiliriz.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/dogrular/index.html">doğrular</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/egriler/index.html">eğriler</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/grafik/index.html">grafik</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/grafik-boyama/index.html">grafik boyama</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/grafik-cizimi/index.html">grafik çizimi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/pgf/index.html">pgf</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/sekiller/index.html">şekiller</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/tikz/index.html">tikz</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+
+<a class="outref" target="_blank" href="https://www.ctan.org/pkg/pgf">TikZ</a> paketini kullanabilmek için öncelikle sahanlıkta <code class="language-latex">\usepackage{tikz}</code>
+komutu girilmelidir. Daha sonra doküman içinde bu paket tarafından sağlanan <code class="language-latex">tikzpicture</code> ortamında çizim yapılabilir. Kayar nesne olarak <code class="language-latex">figure</code> ortamında çizim yapılabilir.
+</p>
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\begin{figure}
+	\begin{tikzpicture}
+	komutlar
+	\end{tikzpicture}
+\caption{Çizim Başlığı...}
+\end{figure}
+</code></pre>
+
+
+<p>
+Tikz paketinde çizim yapılan ortam, orijini sol alt köşesinde bulunan dik koordinat düzlemi biçimindedir ve çizim yapılırken koordinatlar buna göre girilmelidir, uzunluklar varsayılan olarak <code class="language-latex">cm</code> cinsindendir (Bu sayfada gösterilen grafikler web tarayıcıları için optimize edilmiştir ve bire bir ölçekli değildir, ölçekli grafikleri gözlemlemek için kodları kendi sisteminizde çalıştırın). Bir doğru parçası çizmek için <code class="language-latex">draw</code> komutundan faydalanılır.
+</p>
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\begin{tikzpicture}
+\draw (0,0) -- (3,2);
+\end{tikzpicture}
+</code></pre>
+
+<p>
+Bu komutların çizdirdiği doğru parçası aşağıdaki gibidir.
+</p>
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tikz1.svg" width="25%">
+
+
+<p>
+Daha anlaşılır olması için bu doğru parçasını grid ile birlikte gösterelim. Bunun için <code class="language-latex">\draw[help lines] (0,0) -- (3,2)</code> komutunu kullanırız. Birden fazla doğru parçası aynı ortam içinde tanımlanabilir. Bu örneklerde görüldüğü gibi <code class="language-latex">\draw</code> komutlarının sonunda noktalı virgül konulmalıdır.
+</p>
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\begin{tikzpicture}
+\draw[help lines] (0,0) grid (3,2);
+\draw (0,0) -- (3,2);
+\draw (1,2) -- (3,0);
+\end{tikzpicture}
+</code></pre>
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tikz2.svg" width="25%">
+
+
+
+
+
+
+<p>
+Ayrıca uç uca eklenmiş doğru parçalarını tek bir <code class="language-latex">\draw</code> komutu içinde belirtebiliriz.
+</p>
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\begin{tikzpicture}
+\draw[help lines] (0,0) grid (3,2);
+\draw (0,0) --  (1,1) -- (3,2) -- (0,1);
+\end{tikzpicture}
+</code></pre>
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tikz3.svg" width="25%">
+
+
+
+
+<p>
+Yapılan çizimler <code class="language-latex">scale</code>, <code class="language-latex">xscale</code> ve <code class="language-latex">yscale</code> opsiyonel argümanlarıyla ölçeklenebilir. <code class="language-latex">\begin{tikzpicture}[scale=0.5]</code> gibi. Aşağıdaki çizimlerde sırasıyla <code class="language-latex">scale=1</code>, <code class="language-latex">scale=0.5</code> ve <code class="language-latex">xscale=0.25, yscale=0.75</code> Aşağıdaki çizimlerde boyutları istenilen oranlarda büyültülebilir ve küçültülebilir. Bu parametrenin varsayılan değer 1'dir.
+</p>
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tikz4-5-6.svg" width="60%">
+
+
+
+
+<p>
+Çizilen doğru parçalarına çeşitli dekarosyanlar eklenebilir, örneğin onlara ok şekli verilebilir. Bunun için <code class="language-latex">\draw</code> komutuna <code class="language-latex">[->]</code> gibi komutlar eklenmelidir. Uç uca eklenmiş doğru parçalarında çakışan uçlar dekore edilmez, bu özellikle koordinat eksenlerini çizerken kullanışlıdır, aşağıdaki şekildeki son grafiği <code class="language-latex">\draw [<->] (0,1) -- (0,0) -- (1,0);</code> komutuyla elde edebilirsiniz.
+</p>
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\begin{tikzpicture}
+\draw [->] (0,0) -- (1,1);
+\draw [<-] (1,0) -- (2,1);
+\draw [|->] (2,0) -- (3,1);
+\end{tikzpicture}
+</code></pre>
+
+
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tikz7-8.svg" width="60%">
+
+
+
+
+
+
+
+
+
+<p>
+Çizilen doğruların kalınlıkları aşağıdaki örnekte görüldüğü gibi değiştirilebilir. Kalınlık belirtmek için şunlar kullanılabilir: <code class="language-latex">ultra thin</code>, <code class="language-latex">very thin</code>, <code class="language-latex">thin</code>, <code class="language-latex">semi thick</code>, <code class="language-latex">thick</code>, <code class="language-latex">very thick</code>, <code class="language-latex">ultra thick</code>, <code class="language-latex">line width=xcm</code>.
+</p>
+
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\begin{tikzpicture}
+\draw [ultra thick] (0,2) -- (2,2);
+\draw [thin] (0,1) -- (2,1);
+\draw [ultra thin] (0,0) -- (2,0);
+\end{tikzpicture}
+</code></pre>
+
+
+
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tikz9.svg" width="25%">
+
+
+
+
+
+
+
+
+
+<p>
+Doğruları renkli, kesikli ve noktalı olarak çizdirmek için aşağıdaki komutlar kullanılır. Doğru stillerinin en sık kullanılanları örnekte gösteriliyor, renkler için de <code class="language-latex">red</code>, <code class="language-latex">green</code>, <code class="language-latex">blue</code>, <code class="language-latex">yellow</code>, <code class="language-latex">black</code>, <code class="language-latex">gray</code>, <code class="language-latex">pink</code>, <code class="language-latex">white</code> gibi standart renkler veya kendi renk tanımlarınız kullanılabilir.
+</p>
+
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\begin{tikzpicture}
+\draw [dashed, ultra thick, red] (0,1.5) -- (5,1.5);
+\draw [dashed] (0,1) -- (5,1);
+\draw [dotted] (0, 0.5) -- (5,0.5);
+\draw [dotted, ultra thick] (0,0) -- (5,0);
+\end{tikzpicture}
+</code></pre>
+
+
+
+
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tikz10.svg" width="40%">
+
+
+
+
+
+
+
+<p>
+TikZ paketi ile çeşitli eğriler çizilebilir. Ayrıca uç uca eklenmiş doğru parçalarının köşeleri yuvarlanarak da eğriler oluşturulabilir.
+</p>
+
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\begin{tikzpicture}
+\draw [red, thick] (0,0) rectangle (2,2);
+\draw [blue, thick] (4,1) circle [radius=1];
+\draw [thick, purple] (7.5,1.5) arc [radius=1, start angle=45, end angle=230];
+\draw [thick, cyan, <->, rounded corners] (10.5,0) -- (8.5,0) -- (8.5,2); 
+\end{tikzpicture}
+</code></pre>
+
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tikz11.svg" width="80%">
+
+
+
+
+
+
+<p>
+İki noktayı birleştiren bir eğri çizmek için <code class="language-latex">\draw</code> komutundaki <code class="language-latex">--</code> terimi <code class="language-latex">to</code> ifadesiyle değiştirilir ve giriş çıkış açıları belirtilir. Ayrıca birden çok eğri uç uca tek komut içinde birleştirilebilir.
+</p>
+
+
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\begin{tikzpicture}
+\draw [help lines] (-1,0) grid (9,2);
+\draw [ultra thick, red] (0,0) to [out=150, in=330] (3,2);
+\draw [ultra thick, blue] (4,1) to [out=45, in=180] (6.5,0) to [out=0, in=-135] (8,2);
+\end{tikzpicture}
+</code></pre>
+
+
+
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tikz12.svg" width="80%">
+
+
+
+
+
+
+
+
+<p>
+Fonksiyonların grafiklerine bir çok noktası belirtilerek bunlar arasında çizilen doğru parçaları ile yaklaşılabilir fakat bu işlem pratik değildir. Bunu Tikz paketinde otomatik olarak yapan <code class="language-latex">plot</code> komutu vardır.
+</p>
+
+
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\begin{tikzpicture}
+\draw [help lines, <->] (0,0) -- (7,0);
+\draw [help lines, <->] (0,-1.25) -- (0,1.25);
+\draw [magenta, thick, domain=0:2*pi, samples=100] plot (\x, {sin(\x r)});
+\end{tikzpicture}
+</code></pre>
+
+
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tikz13.svg" width="60%">
+
+
+
+
+
+
+
+
+<p>
+Bu örnekte yapılanları özetleyelim:
+<ul>
+<li class="py-2">Bu kodlarda 4. satırda $f(x):=\sin x$ fonksiyonu grafiği çizildi.</li>
+<li class="py-2"><code class="language-latex">domain=0:2*pi</code> ifadesi ile fonksiyon tanım kümesi belirtilir, <code class="language-latex">pi</code> ifadesinin nasıl yazıldığı önemlidir.</li>
+<li class="py-2"><code class="language-latex">samples=100</code> ifadesi ile kaç doğru parçası ile yaklaşılacağı belirtilir.</li>
+<li class="py-2"><code class="language-latex">plot</code> ifadesinden sonra grafiği oluşturacak olan $\left(x, f(x)\right)$ noktaları <code class="language-latex">(\x, {f(\x)})</code> olarak belirtiliyor.
+<li class="py-2">Burada kullanılan $\sin x$ fonksiyonu argümanı derece cinsindendir, radyan yapmak için örnekteki gibi <code class="language-latex">sin(\x r)</code> yazılır.</li>
+</ul>
+
+Kullanılabilecek bazı fonksiyonlar şöyledir: <code class="language-latex">factorial(\x)</code>, <code class="language-latex">sqrt(\x)</code>, <code class="language-latex">pow(\x, y)</code>, <code class="language-latex">exp(\x)</code>, <code class="language-latex">ln(\x)</code>, <code class="language-latex">log10(\x)</code>, <code class="language-latex">sin(\x)</code>, <code class="language-latex">cos(\x)</code>, <code class="language-latex">tan(\x)</code>.
+</p>
+
+
+
+
+
+<p>
+Başka bir örnek olarak $f(x)=x\sin x$ fonksiyonu grafiğini ele alalım. Ayrıca bu grafiği $y=x$ ve $y=-x$ doğruları ile birlikte çizelim. Aşağıda kodlarını gördüğünüz bu örnekte $f(x):=x$ ve $f(x):=-x$ fonksiyonları, <code class="language-latex">plot</code> fonksiyonu kullanılmadan doğru parçaları olarak da çizilebilir.
+</p>
+
+
+
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\begin{tikzpicture}[scale=0.125]
+\draw [help lines, <->] (-35,0) -- (35,0);
+\draw [help lines, <->] (0,-30) -- (0,30);
+\draw [blue, ultra thick, domain=-10*pi:10*pi, samples=1000] plot (\x, {sin(\x r)*\x});
+\draw [domain=-30:30, dashed, red, thick] plot (\x, \x);
+\draw [domain=-30:30, dashed, red, thick] plot (\x, -\x);
+\end{tikzpicture}
+</code></pre>
+
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tikz14.svg" width="60%">
+
+
+
+
+
+
+
+
+
+
+
+<p>
+Çizilen şekiller <code class="language-latex">fill</code> opsiyonel argümanı ile boyanabilir. Aşağıdaki örnekleri inceleyin.
+</p>
+
+
+
+
+
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\begin{tikzpicture}
+\draw [thick] (0,0) rectangle (1,1);
+\draw [fill=red, thick] (1.5,0) rectangle (2.5,1);
+\draw [fill=red, thick, red] (3,0) rectangle (4,1);
+\draw [fill=cyan, cyan] (4.5,0) -- (5.5,0) -- (5,1) -- (4.5,0);
+\draw [fill=blue, blue] (6,0) rectangle (7,1);
+\draw [fill=green, green] (6.5,0.5) circle [radius=0.5];
+\draw [fill=magenta] (7.5,0) to [out=-30, in=-120] (8.5,1) -- (7.5,0);
+\end{tikzpicture}
+</code></pre>
+
+
+
+
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tikz15.svg" width="90%">
+
+
+
+
+
+
+<p>
+Çizim üzerine metin eklemek için <code class="language-latex">\node</code> komutu kullanılır. Örnek kullanım: <code class="language-latex">\node [opsiyonlar] at (1,1) {Metin};</code>. Opsiyon olarak renk parametresi kullanılabilir. Bir noktanın altında, üstünde, sağında, solunda, vs yerleştirme yapılabilir. <code class="language-latex">\node [below, red] at (1,1);</code> gibi. Metin olarak matematiksel ifadeler kullanılabilir. Kullanılabilecek pozisyon argümanları şunlardır: <code class="language-latex">above</code>, <code class="language-latex">below</code>, <code class="language-latex">left</code>, <code class="language-latex">right</code>, <code class="language-latex">above left</code>, <code class="language-latex">above right</code>, <code class="language-latex">below left</code>, <code class="language-latex">below right</code>.
+</p>
+
+
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\begin{tikzpicture}
+\draw [help lines] (0,0) grid (9,3);
+\node at (1,1) {Etiket};
+\node [purple] at (3,2) {$\sum_{i=1}^{k}\sin(kx)$};
+\draw [fill=red, red] (7,1) circle [radius=0.1];
+\node [below] at (7,1) {Alt};\node [above] at (7,1) {Üst};
+\node [left] at (7,1) {Sol}; \node [right] at (7,1) {Sağ};
+\draw [fill=red, red] (4,1) circle [radius=0.1];
+\node [below right, blue] at (4,1) {Sağ-alt};
+\node [above left, cyan] at (4,1) {Sol-üst};
+\end{tikzpicture}
+</code></pre>
+
+
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tikz16.svg" width="80%">
+
+
+
+
+
+
+
+<p>
+Şimdi tüm öğrendiklerimizi kullanarak son bir örnek yapalım.
+</p>
+
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\begin{tikzpicture}[scale=0.75]
+\draw [fill=yellow, yellow!30] (0,0) rectangle (1.75,1.5);
+\draw [fill=yellow, yellow!30] (0,0) rectangle (-1.75,-1.5);
+\draw [fill=green, green!40] (1.75,0) rectangle (5,1.5);
+\draw [fill=green, green!40] (-1.75,0) rectangle (-5,-1.5);
+\draw [thick, <->] (-5,0) -- (5,0); 
+\draw [thick, <->] (0,-5) -- (0,5);
+\draw [cyan, ultra thick] (0.2,5) to [out=-90,in=180] (5,0.2);
+\draw [cyan, ultra thick] (-5,-0.2) to [out=0,in=90] (-0.2,-5);
+\draw [magenta, thick] (0,1.5) -- (5,1.5);
+\draw [magenta, thick] (0,-1.5) -- (-5,-1.5);
+\draw [magenta, dashed, thick] (1.75,0) -- (1.75,1.5);
+\draw [magenta, dashed, thick] (-1.75,0) -- (-1.75,-1.5);
+\node [left] at (0,1.5) {$\varepsilon$};
+\node [right] at (0,-1.5) {$-\varepsilon$};
+\node [above] at (-1.75,0) {$N=-\frac{1}{\varepsilon}$};
+\node [below] at (1.75,0) {$M=\frac{1}{\varepsilon}$};
+\node [above right] at (3,1.5) {$y=\varepsilon$};
+\node [below left] at (-3,-1.5) {$y=-\varepsilon$};
+\draw [->,thick] (3,2.5) -- (3,1.5);
+\draw [->,thick] (3,-1) -- (3,0);
+\draw [->,thick] (-3,-2.5) -- (-3,-1.5);
+\draw [->,thick] (-3,1) -- (-3,0);
+\end{tikzpicture}
+</code></pre>
+
+
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tikz17.svg" width="60%">
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../8-latex-ve-matematik/index.html">8. LaTeX ve Matematik</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">LaTeX'e Giriş</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../10-xy-pic-paketi-ile-cizim/index.html">10. XY-pic Paketi İle Çizim</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/latexe-giris/9-tikz-paketi-ile-cizim/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:41:46 GMT -->
+</html>

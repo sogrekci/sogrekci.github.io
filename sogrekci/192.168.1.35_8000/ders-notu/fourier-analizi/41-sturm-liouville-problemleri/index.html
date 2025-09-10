@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/41-sturm-liouville-problemleri/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 4.1. Sturm-Liouville Problemleri
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>4.1. Sturm-Liouville Problemleri</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-10">
+          10 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu bölümde genelleştirilmiş Fourier serilerine ilk adımı atmak için Sturm-Liouville teorisine giriş yapıyoruz. Önce <strong>Sturm-Liouville problemlerini</strong> tanımlayıp bazı örnekler vereceğiz.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/euler-denklemi/index.html">Euler denklemi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/ozdeger/index.html">özdeğer</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/ozfonksiyon/index.html">özfonksiyon</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/sturm-liouville-problemi/index.html">sturm-liouville problemi</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Daha önce ilk kez Bölüm <a class="eqref" href="../36-bir-ucta-isi-konveksiyonu/index.html">Bölüm 3.6</a>'da değişkenlere ayırma yöntemiyle elde edilen çözümleri $\sin rx$ ve $\cos rx$ olan, fakat buradaki $r$ sayısının tamsayı olmadığı bir sınır değer problemiyle karşılaşmıştık. Bu durumda da ikinci bölümde geliştirdiğimiz Fourier serileri teorisini kullanamamıştık. Böyle bir problemle Fourier de karşılaşmış, ele aldığı ısı yayılımı problemi için trigonometrik fonksiyonların yeterli olamayacağını görmüş ve başka tür fonksiyonlar kullanmıştır, bu fonksiyonlara günümüzde <strong>Bessel fonksiyonları</strong> diyoruz. Benzer bir sorunla Ecole Polytecnique'den <strong>Simeon Denis Poisson</strong> (1781-1840) da karşılaşmış ve Fourier'in kullandığı Bessel fonksiyonlarını da içeren daha genel bir fonksiyon türü kullanmıştır.
+</p>
+
+<p>
+1820'li yıllarda Fourier'in etrafında bulunmuş olan, Dirichlet ve Liouville'nin de içindiğe bulunduğu bir grup genç matematikçiden biri olan <strong>Jacques Charles François Sturm</strong> (1803-1855) Fourier'in ısı iletimi konusundaki çalışmalarından etkilenmiş ve bu alanda çalışmaya başlamıştır. Sturm'un başlattığı ve <strong>Liouville</strong>'nin de katkıda bulunduğu bu çalışmaların sonuçlarına bugün <strong>Sturm-Liouville teorisi</strong> diyoruz. Bu teori yukarıdaki paragrafta bahsedilen sorunu çözen, aynı zamanda hem Fourier'in hem de Poisson'un çözümlerini kapsayan genel bir teoridir. Biz bu bölümde bu teoriyi kullanarak, daha önceki bölümlerde karşılaştığımız ve Fourier serilerinin yetersiz kaldığı ısı iletim problemlerinin çözümlerini elde edeceğiz. Bu çözümler, terimleri özel durumlarda trigonometrik fonksiyonlar olan ama genelde öyle olması gerekmeyen sonsuz seriler olacaklar, bunlara <strong>genelleştirilmiş Fourier serileri</strong> diyoruz.
+</p>
+
+<p>
+Şimdi $P$, $Q$ ve $R$ sürekli, $R$ sıfır olmayan fonksiyonlar olmak üzere $$u_t=Pu_{xx}Ru_x+Qu$$ denklemini ele alalım, dikkat edilirse bu denklem üçüncü bölümde ele aldığımız tüm denklemleri içerir. Eğer bu denklemin $u(x,t)=X(x)T(t)$ biçiminde bir çözümünün var olduğunu varsayarsak $$XT'=PX''T+RX'T+QXT$$ denklemine, buradan da $\lambda$ bir sabit olmak üzere $$\frac{T'}{T}=\frac{PX''+RX'}{X}+Q=-\lambda$$ eşitliğine varırız. Bundan elde edilecek iki denklemden biri olan $$PX''+RX'+(\lambda+Q)X=0$$ denklemi üzerinde yoğunlaşacağız. Bu denklemde $P>0$ kabul edeceğiz, aksi durumda denklemi $-1$ ile çarparak $P>0$ olmasını sağlayabiliriz. Bu denklemi daha kolay araştırmak için önce denklemi $P$ ile bölüp $$p:=e^{\int R/P}$$ fonksiyonuyla çarparsak $$pX''+p\frac{R}{P}X'+\frac{p}{P}(\lambda+Q)X=0$$ denklemini elde ederiz. Diğer yandan $p'=p(R/P)$ olduğunu gözlemlersek ve $$q:=-\frac{pQ}{P}\quad\text{ve}\quad r:=\frac{p}{P}$$ olarak tanımlarsak, $p>0$ ve $r>0$ olmak üzere
+
+<span id="eq:slp-1">\begin{equation}
+\label{eq:slp-1}
+\tag{4.1.1}
+(pX')'+(\lambda r-q)X=0
+\end{equation}</span>
+
+denklemine varmış oluruz. Bu bölümde aşağıdaki problemi araştıracağız.
+</p>
+
+<p>
+$[a,b]$ aralığında $p$ ve $r$ fonksiyonları sürekli olsun. Ayrıca $(a,b)$ aralığında $p$ fonksiyonu sürekli türevlenebilir ve $p$ ile $r$ fonksiyonları pozitif değerli olsun. $\lambda$ bir sabit olmak üzere \eqref{eq:slp-1} denkleminin aşağıdaki iki koşulu sağlayan $X:[a,b]\rightarrow\mathbb{R}$ çözümlerinin bulunması problemine <strong>Sturm-Liouville problemi</strong> denir:
+<ol><li>Eğer $p(a)>0$ ise,
+
+<span id="eq:slp-bvp-1">\begin{equation}
+\label{eq:slp-bvp-1}
+\tag{4.1.2}
+a_1X(a)-b_1X'(a)=0
+\end{equation}</span>
+
+eşitliği sağlanacak şekilde, ikisi birden sıfır olmayan $a_1$ ve $b_1$ sabitleri vardır.</li>
+<li>Eğer $p(b)>0$ ise,
+
+<span id="eq:slp-bvp-2">\begin{equation}
+\label{eq:slp-bvp-2}
+\tag{4.1.3}
+a_2X(b)+b_2X'(b)=0
+\end{equation}</span>
+
+eşitliği sağlanacak şekilde, ikisi birden sıfır olmayan $a_2$ ve $b_2$ sabitleri vardır.</li></ol>
+</p>
+
+<p>
+Bu şartlarla birlikte problem oldukça genel bir hal alır, tek uç noktada sınır koşullarına sahip problemler dahi içerilmektedir ve sabitler üzerinde çok az varsayım vardır. İleride vereceğimiz teoremlerde gerekli ilave koşulları kullanacağız.
+</p>
+
+<p>
+<div class="envdef" id="def-ozdegerozvektor"><h6 class="thenv">Tanım 4.1.1</h6>İlgili Sturm-Liouville probleminin $[a,b]$ aralığında $X\not\equiv0$ çözümünü üreten her $\lambda$ değerine problemin bir <strong>özdeğeri</strong> denir. İlgili $X$ çözümüne de bir <strong>özfonksiyon</strong> denir.
+</div>
+</p>
+
+<p>
+<div class="envex" id="ex-4.1"><h6 class="thenv">Örnek 4.1.1</h6>$$x^2X''+xX'+\lambda X=0$$ denklemi ile $$X'(1)=0\quad\text{ve}\quad X(b)=0,\;b>1$$ uç nokta koşullarını ele alalım. Bu durumda $P=x^2$, $R=x$ ve $Q\equiv0$ olduğundan $$p=e^{\int \frac{dx}{x}}=x,\quad r=\frac{1}{x}\quad\text{ve}\quad q\equiv0$$ olup problem \eqref{eq:slp-1} biçiminde $$\begin{array}{l}
+	(xX')'+\frac{\lambda}{x}X=0\\
+	X'(1)=0\\
+	X(b)=0
+	\end{array}$$ olarak yazılabilir. Bu denklem bir <strong>Euler diferansiyel denklemi</strong> olduğundan çözümünü elde etmek için $x:=e^s$ dönüşümü yapmalıyız. $Y(s):=X(e^s)$ olarak tanımlarsak $$Y'(s)=X'(e^s)e^s\quad\text{ve}\quad Y''(s)=X''(e^s)(e^s)^2+X'(e^s)e^s$$ olacağından elimizdeki problem (yukarıdaki ikinci eşitliğin sağ tarafı $x^2X''+xX'$ ifadesidir) $$\begin{array}{l}
+	Y''+\lambda Y=0\\
+	Y'(0)=0\\
+	Y(\ln b)=0
+	\end{array}$$ haline gelir.
+	
+	$\lambda<0$ ise genel çözüm, $A$ ve $B$ keyfi sabitler olmak üzere  $$Y(s)=Ae^{\sqrt{-\lambda}\,s}+Be^{-\sqrt{-\lambda}\,s}$$ biçimindedir. Sınır koşulları uygulanırsa $$\begin{array}{l}
+	A-B=0\\
+	Ae^{\sqrt{-\lambda}\ln b}+Be^{-\sqrt{-\lambda}\ln b}=0
+	\end{array}$$ denklem sistemi elde edilir ki bu sistemin $A$ ve $B$ için reel çözümü olmadığı açıktır. $\lambda=0$ durumunda ise sadece $Y\equiv0$ çözümü vardır ve bu da bir özfonksiyon değildir.
+</p>
+	
+<p>
+Eğer $\lambda>0$ ise genel çözüm $$Y(s)=A\sin\sqrt{\lambda}\,s+B\cos\sqrt{\lambda}\,s$$ biçimindedir. İlk sınır koşulu uygulanırsa $A=0$ olduğu görülür dolayısıyla $Y(s)=B\cos\sqrt{\lambda}\,s$ olur. Şimdi de bunda ikinci sınır koşulu uygulanırsa, özfonksiyon elde edebilmek için $B\neq0$ olması gerektiğinden $$\cos(\sqrt{\lambda}\,\ln b)=0$$ eşitliğine varılır. Buradan aradığımız $\lambda$ değerleri bulunur ve sonuç olarak $n\in\mathbb{N}$ için problemin özdeğerleri $$\lambda_n=\frac{(2n-1)^2\pi^2}{4\ln ^2b}$$ olarak, ve bunlara karşılık gelen özfonksiyonlar da $$X_n(x)=Y_n(\ln x)=\cos\left(\frac{2n-1}{2\ln b}\pi\ln x\right)$$ olarak bulunmuş olur.
+</div>
+</p>
+
+<p>
+<div class="envex" id="ex-4.2"><h6 class="thenv">Örnek 4.1.2</h6>$a,h>0$ olmak üzere $(0,a)$ aralığında $$\begin{array}{l}
+	X''+\lambda X=0\\
+	hX(0)-X'(0)=0\\
+	X'(a)=0
+	\end{array}$$ Sturm-Liouville problemini ele alalım. Bir önceki örnekte olduğu gibi aşikar olmayan çözümlerin sadece $\lambda>0$ durumunda, $A$ ve $B$ keyfi sabitler olmak üzere $$X(x)=A\sin\sqrt{\lambda}\,x+B\cos\sqrt{\lambda}\,x$$ biçiminde olduğu kolaylıkla görülür. Bu durumda sınır koşulları gereği $$\begin{array}{l}
+	hB-A\sqrt{\lambda}=0\\
+	A\cos\sqrt{\lambda}\,a-B\sin\sqrt{\lambda}\,a=0
+	\end{array}$$ olur. Bu ilk eşitlikten hem $A$'nın hem de $B$'nin sıfır olamayacağı anlaşılır, çünkü biri sıfır olursa diğeri de sıfır olacak ve aşikar çözüme ulaşılacaktır. Bundan ve ikinci eşitlikten de $\cos\sqrt{\lambda}\,a\neq0$ olduğu anlaşılır (çünkü sinüs ve kosinüsün ortak sıfırları yoktur). Böylece özdeğerler $$\tan\sqrt{\lambda}\,a=\frac{h}{\sqrt{\lambda}}$$ denkleminin çözümü olan $\lambda$ sayılarıdır. Her bir $\lambda_n$ özdeğerine karşılık gelen özfonksiyon da, $B=A(\sqrt{\lambda_n}/h)$ olduğunu kullanarak $$X_n(x)=\sin\sqrt{\lambda_n}\,x+\frac{\sqrt{\lambda_n}}{h}\cos\sqrt{\lambda_n}\,x=\frac{\cos\sqrt{\lambda_n}(a-x)}{\sin\sqrt{\lambda_n}\,a}$$ olarak elde edilir.
+</div>
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../311-zamana-bagimli-problemler/index.html">3.11. Zamana Bağımlı Problemler</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Fourier Analizi</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../42-ozdegerler-ve-ozfonksiyonlar/index.html">4.2. Özdeğerler ve Özfonksiyonlar</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/41-sturm-liouville-problemleri/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:35 GMT -->
+</html>

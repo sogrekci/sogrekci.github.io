@@ -1,0 +1,338 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/11-temel-tanimlar/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:04 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 1.1. Temel Tanımlar
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>1.1. Temel Tanımlar</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-26">
+          26 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-28">
+          28 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Lineer cebir dersinin konusu lineer dönüşümler ve lineer problemlerdir, bunun için önce lineer uzay (<strong>vektör uzayı</strong>) kavramını tanımalısınız. Vektör uzaylarının elemanlarına <strong>vektör</strong> deriz, bu derste <strong>skaler</strong>-vektör ayrımını yapacağız (<strong>cisim</strong>-vektör uzayı).</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/birim-eleman/index.html">birim eleman</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/carpma/index.html">çarpma</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/cisim/index.html">cisim</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/koordinat-uzayi/index.html">koordinat uzayı</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/skaler/index.html">skaler</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/ters-eleman/index.html">ters eleman</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/toplama/index.html">toplama</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/vektor/index.html">vektör</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/vektor-uzayi/index.html">vektör uzayı</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Birinci bölümde öncelikle vektör uzayı kavramını tanımlayıp bunların elemanları olan vektörlerden belirli özelliklere sahip olan bazılarının, bunlara baz diyeceğiz, tüm vektör uzayını temsil etmekte nasıl kullanılabileceğini göreceğiz. Bu vektörler yardımıyla bir uzayın boyutu kavramını tanımlayıp boyutları aynı olan tüm vektör uzaylarının yapısal olarak benzer olduklarını göstereceğiz. Daha sonra bir vektör uzayının alt uzayı kavramını tanıtıp bunların bazlarının vektör uzayının bazına tamamlanabileceğini göstereceğiz.
+</p>
+
+<p>
+Bu metin boyunca kümeleri $A, B, C,\ldots$ gibi italik büyük harflerle göstereceğiz. Bir $x$ nesnesi bir $A$ kümesinin elemanı ise bu durumu $x\in A$ olarak ifade ederiz, aksine bir $y$ nesnesi $A$ kümesinin elemanı değilse $y\not\in A$ yazarız. $A$ ile $B$ kümelerinin bileşimi, kesişimini ve farkını sırasıyla $A\cup B$, $A\cap B$ ve $A-B$ ile göstereceğiz. $A\subset B$ ile $A$ kümesinin $B$'nin bir alt kümesi olduğunu belirtiriz, her kümenin kendisinin bir alt kümesi olduğu unutulmamalıdır. Bir $A$ kümesinin elemanları $x_1,x_2,\ldots$ biçiminde ise bu durum $A=\{x_1,x_2,\ldots\}$ veya $A=\{a_i \; :\;i\in\mathbb{N}\}$ biçiminde ifade edilir, metin boyunca bu durumu kısaca $\{x_i\}$ olarak ifade edeceğiz.
+</p>
+
+
+<p>
+<div class="envdef" id="def:field"><h6 class="thenv">Tanım 1.1.1 (Cisim)</h6> Üzerinde, toplama ve çarpma işlemi olarak adlandırdığımız ve aşağıdaki özellikleri sağlayan iki işlem tanımlı olan boştan farklı bir ${F}$ kümesine bir cisim denir.
+<ul style="list-style: none;">
+<li class="py-2"><strong>[F1]</strong> Her $a,b\in F$ eleman çiftine karşılık $F$ kümesinde bunların toplamı olarak adlandırılan ve $a+b$ ile gösterilen tek bir eleman vardır.</li>
+<li class="py-2"><strong>[F2]</strong> Toplama işlemi birleşmelidir; her $a,b,c\in F$ için $(a+b)+c=a+(b+c)$.</li>
+<li class="py-2"><strong>[F3]</strong> $F$'nin $0$ ile gösterdiğimiz ve her $a\in F$ için $a+0=a$ eşitliğini sağlayan bir elemanı vardır.</li>
+<li class="py-2"><strong>[F4]</strong> Her $a\in F$ elemanına karşılık $-a$ ile gösterdiğimiz ve $a+(-a)=0$ olacak şekilde bir eleman vardır. Pratikte kısaca $b+(-a)=b-a$ olarak yazarız.</li>
+<li class="py-2"><strong>[F5]</strong> Toplama işlemi değişmelidir; her $a,b\in F$ için $a+b=b+a$.</li>
+<li class="py-2"><strong>[F6]</strong> Her $a,b\in F$ eleman çiftine karşılık $F$ kümesinde bunların çarpımı olarak adlandırılan ve $a\cdot b$ veya kısaca $ab$ ile gösterilen tek bir eleman vardır.</li>
+<li class="py-2"><strong>[F7]</strong> Çarpma işlemi birleşmelidir; her $a,b,c\in F$ için $(ab)c=a(bc)$.</li>
+<li class="py-2"><strong>[F8]</strong> $F$'nin $0$'dan farklı olan,$1$ ile gösterdiğimiz ve her $a\in F$ için $a\cdot 1=a$ eşitliğini sağlayan bir elemanı vardır.</li>
+<li class="py-2"><strong>[F9]</strong> Her $a\in F$, $a\neq0$ elamanına karşılık $a^{-1}$ ile gösterdiğimiz ve $a\cdot a^{-1}=1$ olacak şekilde bir eleman vardır.</li>
+<li class="py-2"><strong>[F10]</strong> Çarpma işlemi değişmelidir; her $a,b\in F$ için $ab=ba$.</li>
+<li class="py-2"><strong>[F11]</strong> Toplama işleminin çarpma işlemi üzerine dağılma özelliği vardır; $(a+b)c=ac+bc$.</li></ul>
+$F$ cisminin elemanlarına birer <strong>skaler</strong> deriz ve bu metinde bunları italik küçük latin harfleriyle göstereceğiz.
+</div>
+</p>
+
+<p>
+Cisimlerin en bilinen örnekleri, klasik toplama ve çarpma işlemleriyle birlikte, $\mathbb{R}$, $\mathbb{Q}$ ve $\mathbb{C}$ kümeleridir. Cisimler sonlu elemanlı kümeler de olabilir, aşağıdaki bu duruma bir örnek veriyoruz.
+</p>
+
+<p>
+<div class="envex" id="ex:vec:1"><h6 class="thenv">Örnek 1.1.2</h6>
+$F:=\{0,1\}$ kümesi üzerinde toplama ve çarpma işlemleri $$0+0=1+1=0,\quad 0+1=1$$ ve $$0\cdot0=0\cdot1=0,\quad 1\cdot1=1$$ eşitlikleriyle tanımlansın. Bu kümenin <a class="eqref" href="#def:field">Tanım 1.1.1</a> ile verilen cisim aksiyomlarını sağladığı doğrulanabilir. Bu cismin sadece iki elemanı vardır.
+</div>
+</p>
+
+<p>
+Bu metinde sadece birkaç sonucu elde ederken kendimizi $\mathbb{R}$ veya $\mathbb{C}$ cisimleri ile kısıtlayacağız. Bunun dışında elde edeceğimiz sonuçlar sadece yukarıda sayılan iyi bilinen cisimler için değil her cisim için geçerli olacaktır. Metnin tamamında cisimler için tek bir kısıtlamamız olacak, bu da $1+1\neq0$ koşuludur. Bu koşul <a class="eqref" href="#ex:vec:1">Örnek 1.1.2</a> ile verilen cisimde sağlanmaz. Sadece reel veya kompleks elemanlı matrislerle ilgilenen okuyucu bu koşulu yok sayabilir.
+</p>
+
+
+<p>
+<div class="envdef" id="def:vecspace"><h6 class="thenv">Tanım 1.1.3 (Vektör Uzayı)</h6>$F$ bir cisim ve ${V}$ boştan farklı bir küme olsun. $V$ üzerinde, adına <strong>vektör toplama</strong> (kısaca toplama) ve <strong>skalerle çarpma</strong> diyeceğimiz ve aşağıdaki özellikleri sağlayan iki işlem tanımlanabiliyorsa ${V}$ kümesine $F$ cismi üzerinde bir <strong>vektör uzayı</strong>, ${V}$'nin elemanlarına birer <strong>vektör</strong> denir.
+<ul style="list-style: none;">
+<li class="py-1"><strong>[A1]</strong> Her $\alpha, \beta\in{V}$ vektör çiftine karşılık ${V}$ içinde bunların toplamı olarak adlandırılan ve $\alpha+\beta$ ile gösterilen tek bir vektör vardır.</li>
+<li class="py-2"><strong>[A2]</strong> Toplama işlemi birleşmelidir; her $\alpha,\beta,\gamma\in{V}$ için $(\alpha+\beta)+\gamma=\alpha+(\beta+\gamma)$.</li>
+<li class="py-2"><strong>[A3]</strong> Her $\alpha\in{V}$ için $\alpha+\boldsymbol{0}=\alpha$ olacak şekilde bir $\boldsymbol{0}\in{V}$ vektörü vardır.</li>
+<li class="py-2"><strong>[A4]</strong> Her $\alpha\in{V}$ vektörüne karşılık $-\alpha$ ile göstereceğimiz ve $\alpha+(-\alpha)={0}$ eşitliğini sağlayacak bir vektör vardır.</li>
+<li class="py-2"><strong>[A5]</strong> Toplama işlemi değişmelidir; her $\alpha,\beta\in{V}$ için $\alpha+\beta=\beta+\alpha$.</li>
+<li class="py-2"><strong>[B1]</strong> Her $a\in F$ skaleri ve her $\alpha\in{V}$ vektörüne karşılık, $a$ ile $\alpha$'nın çarpımı olarak adlandıracağımız ve $a\alpha$ ile göstereceğimiz ${V}$ içinde tek bir vektör vardır.</li>
+<li class="py-2"><strong>[B2]</strong> Skaler çarpımı birleşmelidir; her $a,b\in F$ ve her $\alpha\in{V}$ için $a(b\alpha)=(ab)\alpha$.</li>
+<li class="py-2"><strong>[B3]</strong> Skaler çarpımının vektör toplama üzerine dağılma özelliği vardır; her $a\in F$ ve her $\alpha,\beta\in{V}$ için $a(\alpha+\beta)=a\alpha+a\beta$.</li>
+<li class="py-2"><strong>[B4]</strong> Skaler çarpımının skaler toplama üzerine dağılma özelliği vardır; her $a,b\in F$ ve her $\alpha\in{V}$ için $(a+b)\alpha=a\alpha+b\alpha$.</li>
+<li class="py-2"><strong>[B5]</strong> $1\in F$ skaleri ve her $\alpha\in{V}$ vektörü için $1\cdot\alpha=\alpha$.</li></ul></div>
+</p>
+
+<p>
+Bu metinde vektörleri italik küçük Yunan harfleriyle göstereceğiz. Yukarıdaki tanımda geçen $\boldsymbol{0}$ vektörü bu gösterim için istisnai bir durumdur. $0$ skaleri ile karıştırılmaması için tanımda bu vektör koyu yazı tipi ile yazılmış olup bundan sonra karıştırma ihtimali olmadıkça normal yazı tipi ile yazılacaktır fakat okuyucu $0$ skaleri ile $0$ vektörünü ayırt etmelidir.
+</p>
+
+<p>
+Dikkat edilirse vektör uzayı tanımındaki toplama işlemi ile ilgili aksiyomlar cisim aksiyomları içinde de geçmektedir. Bu dört aksiyomu (A1-A4) sağlayan kümelere <strong>grup</strong> denir, ek olarak A5 aksiyomunu da sağlayan kümelere de <strong>değişmeli grup</strong> yada <strong>Abel grubu</strong> denir. Yani cisimler ve vektör uzayları ilgili toplama işlemlerine göre birer değişmeli gruptur. Grupların teorisi detaylı olarak bilinmektedir ve vektör uzaylarının incelemesi bu teori yardımıyla büyük oranda kolaylaşır. Bu metinde okuyucunun detaylı grup teorisi bilgisine sahip olmadığı varsayılmıştır, dolayısıyla elde edilecek sonuçlar metin içinde sunulacak olan araçlarla elde edilecektir. Şimdi bazı vektör uzayı örnekleri vereceğiz.
+</p>
+
+</p>
+<div class="envex" id="ex:vec:2"><h6 class="thenv">Örnek 1.1.4</h6>Aşağıda tanımlanan kümelerin vektör uzayı aksiyomlarını sağladığının gösterilmesi okuyucuya bırakılmıştır.
+<ol>
+<li class="py-2">$F$ herhangi bir cisim ve ${V}=\mathbb{R}^n$ olsun. Sıralı $n-$liler üzerinde alışılmış toplama ve skalerle çarpma işlemi ile birlikte ${V}$ kümesi $F$ üzerinde bir vektör uzayıdır. Bu uzaya $n-$ <strong>boyutlu koordinat uzayı</strong> denir.</li>
+<li class="py-2">$F=\mathbb{R}$ ve ${V}=\mathbb{R}^n$ olsun. Sıralı $n-$liler üzerinde alışılmış toplama ve skalerle çarpma işlemi ile birlikte ${V}$ kümesi $F$ cismi üzerinde bir vektör uzayıdır. Bu vektör uzayına $n-$ <strong>boyutlu reel koordinat uzayı</strong> denir.</li>
+<li class="py-2" id="ex:vec:2:P">$F$ herhangi bir cisim ve ${V}={P}$ de katsayıları $F$ cisminden olan bir $t$ değişkeninin tüm polinomlarının kümesi olsun. Toplama ve skalerle çarpma işlemleri polinomlarda alışılmış olan işlemler olarak tanımlanırsa ${P}$ kümesi $F$ cismi üzerinde bir vektör uzayı olur.</li>
+<li class="py-2" id="ex:vec:2:Pn">Sabit bir $n\in\mathbb{N}$ için ${V}={P_n}$ ile bir $t$ değişkeninin katsayısı herhangi bi $F$ cisminden alınan ve derecesi $n$'den küçük olan tüm polinomlarının kümesini gösterelim. Polinomlarda alışılmş olan toplama ve sabitle çarpma işlemlerine göre bu küme $F$ üzerinde bir vektör uzayıdır. Derecesi tam olarak $n$ olan tüm polinomların kümesi bir vektör uzayı olmaz, böyle bir küme için A1 koşulunun sağlanmadığına dikkat edilmelidir.</li>
+<li class="py-2" id="ex:vec:2:f1">$F=\mathbb{R}$ ve ${V}$ de tek reel değişkenli ve reel değerli tüm fonksiyonların kümesi olsun. Bu durumda ${V}$ kümesi fonksiyonlarda alışılmış olan toplama ve skalerle çarpma işlemine göre $F$ üzerinde bir vektör uzayı olur.</li>
+<li class="py-2" id="ex:vec:2:f2">$F=\mathbb{R}$ ve ${V}$ de tek reel değişkenli, reel değerli ve <strong>sürekli</strong> tüm fonksiyonların kümesi olsun. Alışılmış fonksiyon toplama ve skalerle çarpma işlemine ile birlikte ${V}$ kümesi $F$ cismi üzerinde bir vektör uzayı olur.</li>
+<li class="py-2" id="ex:vec:2:f3">$F=\mathbb{R}$ ve ${V}$ de bir $I:=[a,b]$ aralığında tanımlı ve bu aralıkta integrallenebilir tek değişkenli reel değerli tüm fonksiyonların kümesi olsun. Bu küme fonksiyonlarda alışılmış olan toplama ve skalerle çarpma işlemleri ile birlikte $F$ cismi üzerinde bir vektör uzayıdır.</li>
+<li class="py-2" id="ex:vec:2:f4">$F=\mathbb{R}$ ve ${V}$ de en az iki defa türevlenebilen ve $y''+2y=0$ diferansiyel denklemini sağlayan tüm reel değerli fonksiyonların kümesi olsun. Bu durumda alışılmış fonksiyon toplama ve skalerle çarpma işlemi ile birlikte ${V}$ kümesi $F$ cismi üzerinde bir vektör uzayı olur.</li>
+</ol>
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:vec:1"><h6 class="thenv">Uyarı 1.1.5</h6><a class="eqref" href="#def:vecspace">Tanım 1.1.3</a>'ün A3 ve A4 aksiyomlarıyla vektör uzaylarında varlığı bildirilen $0$ ve $-\alpha$ vektörleri tektir ve bu doğrudan bu aksiyomların bir sonucudur, doğrudan A5 aksiyomu yardımıyla kanıtlanabilir. Farz edelim ki A3 aksiyomunu sağlayan iki tane $0,\overline{0}\in{V}$ vektörü var olsun, yani her $\alpha\in{V}$ için $\alpha+0=\alpha+\overline{0}=\alpha$ olsun. Bu durumda $$\overline{0} = \overline{0}+0=\overline{0}+\left(\alpha+(-\alpha)\right)=\left(\overline{0}+\alpha\right)+(-\alpha)=\left(\alpha+\overline{0}\right)+(-\alpha)=\alpha+(-\alpha)=0$$ olur. Benzer şekilde A4 aksiyomunu sağlayan iki tane $-\alpha,-\overline{\alpha}\in{V}$ vektörü var olsun. Bu durumda $$-\overline{\alpha}=-\overline{\alpha}+0=-\overline{\alpha}+\alpha+(-\alpha)=(-\alpha)+\alpha+(-\overline{\alpha})=-\alpha+0=-\alpha$$ olur.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:vec:2"><h6 class="thenv">Uyarı 1.1.6</h6>
+Sıfır vektörünün tekliğini kullanarak $0\alpha=\boldsymbol{0}$ eşitliğini kanıtlayabiliriz. Her $\alpha\in{V}$ için $$\alpha=1\cdot\alpha=(1+0)\alpha=1\cdot\alpha+0\cdot\alpha=\alpha+0\cdot\alpha$$ olur, yani $0\alpha=\boldsymbol{0}$ elde edilmiş olur. Benzer şekilde negatif vektörün tekliği kullanılarak $(-1)\alpha=-\alpha$ olduğu da kanıtlanabilir; $$0=0\cdot\alpha=(1-1)\alpha=\alpha+(-1)\alpha.$$</div></p>
+
+<p>
+<div class="envrem" id="rmk:vec:3"><h6 class="thenv">Uyarı 1.1.7</h6>
+Birleşme özelliği (A2) gereği $(a_1\alpha_1+a_2\alpha_2)+a_3\alpha_3=a_1\alpha_1+(a_2\alpha_2+a_3\alpha_3)$ olduğundan bu gibi ifadelerde parantezin önemi yoktur ve genellikle $a_1\alpha_1+a_2\alpha_2+a_3\alpha_3=\sum_{i=1}^{3}a_i\alpha_i$ yazarız. Bu durumun sadece üç toplam için değil her sonlu toplam için geçerli olduğu açıktır ve böyle toplamları kısaca $\sum_{i}a_i\alpha_i$ biçiminde yazacağız.
+</div>
+</p>
+
+
+
+<h3 class="mt-5 mb-3">Alıştırmalar</h3>
+
+
+<p>
+<ol>
+<li class="py-2">Aşağıdakileri doğrulayın.</li>
+
+<ol type="a">
+<li class="py-2"> Her cisim kendi üzerinde bir vektör uzayıdır.</li>
+<li class="py-2"> $\mathbb{R}$ kümesi $\mathbb{Q}$ cismi üzerinde bir vektör uzayıdır.</li>
+<li class="py-2"> $\mathbb{C}$ kümesi $\mathbb{R}$ cismi üzerinde bir vektör uzayıdır.</li>
+</ol>
+	
+<li class="py-2"> <a class="eqref" href="#rmk:vec:1">Uyarı 1.1.5</a> ile elde edilen sıfır ve negatif vektörün tekliği sonucunu değişme özelliğini (A5) kullanmadan kanıtlayın.</li>
+	
+<li class="py-2">${V}$ kümesi $F$ cismi üzerinde vektör uzayı olsun. Bu durumda $a\in F$ ve $\alpha\in{V}$ için aşağıdakileri kanıtlayın.</li>
+
+<ol type="a">
+<li class="py-2"> $a\alpha=\boldsymbol{0}$ ve $a\neq0$ ise $\alpha=\boldsymbol{0}$ olur.</li>
+<li class="py-2"> $a\alpha=\boldsymbol{0}$ ve $\alpha\neq\boldsymbol{0}$ ise $a=0$ olur.</li>
+</ol>
+
+</ol>
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Lineer Cebire Giriş</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../12-lineer-bagimsizlik/index.html">1.2. Lineer Bağımsızlık</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/11-temel-tanimlar/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:04 GMT -->
+</html>

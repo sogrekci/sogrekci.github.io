@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ornek/sureksizlik-noktlarinin-kumesi-yogun-olan-integrallenebilir-bir-fonksiyon/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:44:30 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - Süreksizlik Noktlarının Kümesi Yoğun Olan İntegrallenebilir Bir Fonksiyon
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../static/site/prism.css">
+    <script src="../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>Süreksizlik Noktlarının Kümesi Yoğun Olan İntegrallenebilir Bir Fonksiyon</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-06-28">
+          28 Haziran 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Sürekli fonksiyonlar integrallenebilir fakat bir fonksiyonun integrallenebilir olması için sürekli olması gerekli değildir, hatta çok süreksiz bir fonksiyon bile integrallenebilir. Bu yazıda bu duruma bir örnek vereceğim.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../dizin/integral/index.html">integral</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row py-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+$1\leq x \leq 2$ için $$f(x)=\left\{\begin{array}{ll}
+	0, & \quad x \not \in \mathbb{Q}\\ 
+	\frac{1}{q}, & \quad x=\frac{p}{q} \textrm{  ve  }(p,q)=1.
+	\end{array}
+	\right.$$ olarak tanımlanan $f$ fonksiyonunu ele alalım. Bu fonksiyonun irrasyonel sayılar kümesinde süreksiz olduğunu <a class="eqref" href="../rasyonel-sayilar-kumesinde-surekli-olup-irrasyonel-sayilar-kumesinde-sureksiz-olan-fonksiyon/index.html">şu örnekte</a> açıklamıştım. $[1,2]$ aralığının herhangi bir parçalanması $P=\left\{1=x_0, x_1, \ldots, x_n=2\right\}$ ise $1\leq j \leq n$ için her bir alt aralıkta fonksiyonun minimum değerleri $m_j=0$ olduğundan bu aralıklarda alt toplamların $L(f,P)=0$ olduğu açıktır. Böylece alt integral $$\underline{\int_1^2}f(x)dx=0$$ elde edilir. Ayrıca $[1,2]$ aralığının her $P$ parçalanması için üst toplamlar $U(f,P)>0$ olduğundan
+	\begin{equation}\label{ex9-1}
+	\overline{\int_a^b}f(x)dx\geq 0
+	\end{equation}
+	olduğu açıktır. Diğer yandan bir $\epsilon\in(0,2)$ sayısı için $f(x)\geq\frac{\epsilon}{2}$ eşitsizliği sadece sonlu sayıda $x\in[1,2]$ değeri için sağlanır. Bu noktaların sayısına $k$ diyelim. Ayrıca $P_0$ ile de $[1,2]$ aralığının
+	\begin{equation}\label{ex9-2}
+	||P_0||\leq\frac{\epsilon}{2k}
+	\end{equation}
+	özelliğine sahip bir parçalanmasını gösterelim. Bu durumda $U(f,P_0)$ üst toplamının en fazla $k$ tane terimi için fonksiyonun maksimum değerlerde $M_j\geq\frac{\epsilon}{2}$ eşitsizliği sağlanır ve bu terimler de dahil tüm terimler için $M_j\leq1$ eşitsizliği geçerlidir. \eqref{ex9-2} eşitsizliğinden dolayı bu $k$ tane terimin toplamı en fazla $k\frac{\epsilon}{2k}=\frac{\epsilon}{2}$ olur. Diğer terimler için $M_j<\frac{\epsilon}{2}$ olduğundan bu terimlerin toplamı için de $$\frac{\epsilon}{2}\sum\limits_{j=1}^{n}(x_j-x_{j-1})=\frac{\epsilon}{2}(2-1)=\frac{\epsilon}{2}$$ eşitsizliği sağlanır. Böylece $U(f,P_0)<\epsilon$ olur ki bu da
+	\begin{equation}\label{ex9-3}
+	\overline{\int_1^2}f(x)dx\leq 0
+	\end{equation}
+	anlamına gelir. Sonuç olarak \eqref{ex9-1} ve \eqref{ex9-3} eşitsizliklerinden $$\overline{\int_1^2}f(x)dx=0$$ elde edilmiş olur.
+</p>
+
+<p>
+Sonuç olarak $f$ fonksiyonunun integrallenebilir olduğu ve $$\int_1^2f(x)dx=0$$ olduğu anlaşılmış olur.
+</p>
+
+
+
+<small>
+<p class="pt-5">
+Kaynak:<br>
+<strong>S. Öğrekçi</strong>. <em>Temel Matematik Analiz</em>, Nobel Akademik Yayıncılık, Ankara, 2018.
+</p>
+</small>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left my-auto">
+        
+        Önceki Örnek:<br>
+        <a href="../surekli-fonksiyonlarin-surekli-olmayan-limite-sahip-bir-dizisi/index.html">Sürekli Fonksiyonların Sürekli Olmayan Limite Sahip Bir Dizisi</a>
+        
+      </div>
+      <div class="col text-center my-auto">
+        <a href="../index.html">Örnekler Ana Sayfası</a>
+      </div>
+      <div class="col text-right my-auto">
+        
+        Sonraki Örnek:<br>
+        <a href="../tanim-kumesinin-tamaminda-turevi-pozitif-olan-fakat-artan-olmayan-fonksiyon/index.html">Tanım Kümesinin Tamamında Türevi Pozitif Olan Fakat Artan Olmayan Fonksiyon</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../ders-notu/index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ornek/sureksizlik-noktlarinin-kumesi-yogun-olan-integrallenebilir-bir-fonksiyon/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:44:30 GMT -->
+</html>

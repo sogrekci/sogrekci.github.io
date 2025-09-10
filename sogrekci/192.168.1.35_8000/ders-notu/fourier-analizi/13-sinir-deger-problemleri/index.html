@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/13-sinir-deger-problemleri/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:05 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 1.3. Sınır Değer Problemleri
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>1.3. Sınır Değer Problemleri</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-06">
+          6 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste çeşitli sınır değer problemi örnekleri vereceğiz ve bunların çözümlerini karşılaştıracağız. Ayrıca bir sınır değer probleminin <strong>iyi tanımlı</strong> (well-posed) ve <strong>kararlı</strong> olması kavramlarını tanıtacağız.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/iyi-tanimli-problem/index.html">iyi tanımlı problem</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/jacques-hadamard/index.html">Jacques Hadamard</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/kararli-cozum/index.html">kararlı çözüm</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/sinir-deger-problemi/index.html">sınır değer problemi</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Bir önceki bölümün sonunda elde ettiğimiz iki denklem örneğinde olduğu gibi, çok değişkenli bir fonksiyon ve onun bazı kısmi türevlerini içeren bir eşitliğe bir <strong>kısmi diferensiyel denklem</strong> denir. Böye bir denklemi sağlayan fonksiyonlara da bu denklemin birer <strong>çözümü</strong> denir. Isı denklemini ele alacak olursak, $u\equiv0$ aşikar çözümü dışında
+\begin{eqnarray*}
+	u_1(x,t) &=& x,\\
+	u_2(x,t) &=& x^3+6kxt,\\
+	u_3(x,t) &=& e^{-kt}\cos x,\\
+	u_4(x,t) &=& \frac{1}{\sqrt{t}}e^{-x^2/4kt}
+\end{eqnarray*} fonksiyonlarının da birer çözüm olduğunu görmek kolaydır. Ayrıca bunların (aslında herhangi bazı çözümlerin) lineer kombinasyonlarının da bir çözüm olduğu kolaylıkla gösterilebilir. O zaman bu sonsuz sayıdaki çözümlerden hangisi çubuktaki ısı dağılımını göstermektedir? Bu soruya cevap verebilmek için problemi daha iyi tanımlamamız gerekir. Herhangi bir zamanda çubuğun herhangi bir noktasındaki sıcaklığı bir çok koşuldan etkilenir. Örneğin başlangıçta ($t=0$'da) çubuğun sıcaklığı, herhangi bir zamandaki sıcaklığı etkileyecektir. Ek olarak, çubuğun dış yüzeyinden ısı akışı olmasa da kenarlarından (uç noktalarından) ısı girişi veya çıkışı olabilir. Kısacası çubuktaki ısı dağılımı hem <strong>başlangıç</strong> hem de <strong>sınır</strong> koşullarından etkilenir. Bu ek koşullar çeşitli biçimlerde belirtilebilir, örneğin $t=0$ zamanındaki başlangıç sıcaklığı $$u(x,0)=f(x)$$ şeklinde $x$'in bir fonksiyonu olarak belirtilebilir. Benzer şekilde sınır koşulları da $u(0,t)$ ve $u(a,t)$ biçiminde belirtilebilir. Bir kısmi diferensiyel denklemin belirli başlangıç ve sınır koşullarını sağlayan bir çözümünü bulma problemine bir <strong>sınır değer problemi</strong> denir.
+</p>
+
+<p>
+Sırada vereceğimiz tanımları ileride sıklıkla kullanacağız. Çubuk $x=0$ ve $x=a$ noktaları arasında yerleşmiş olsun ve $\mathbb{R}^2$ Öklid uzayında $$D:=\{(x,t)\in\mathbb{R}^2:\;\, 0\lt x\lt a, \,\, t>0 \}$$ ve $$\overline{D}:=\{(x,t)\in\mathbb{R}^2:\;\, 0\leq x\leq a, \,\, t\geq0 \}$$ kümelerini tanımlayalım (ikincisinde D harfi üzerinde çizgi var, D-bar). $D$ kümesinde tanımlı olan ve bu kümede sürekli ikinci mertebeden kısmi türevleri var olan bir $f$ fonksiyonuna $D$ kümesinde $C^2$ sınıfındandır denir ve bu durum $f\in C^2(D)$ ile gösterilir.
+</p>
+
+<div class="envex" id="ex-1.1">
+<h6 class="thenv">Örnek 1.3.1</h6><p>Mesela
+\begin{eqnarray*}
+u_t(x,t) &=& ku_{xx}(x,t),\qquad  (x,t)\in D\\
+u(0,t) &=& 0,\qquad t\geq0\text{ için}\\
+u(a,t) &=& 0,\qquad t\geq0\text{ için}
+\end{eqnarray*} eşitliklerini sağlayan ve $D$ kümesinde $C^2$ sınıfından bir $u:\overline{D}\rightarrow\mathbb{R}$ fonksiyonu bulma problemi bir sınır değer problemidir ve $$u(x,t)=e^{-\pi^2kt/a^2}\sin\frac{\pi}{a}x$$ fonksiyonunun bu problemin bir çözümü olduğu kolayca gösterilebilir.
+</p>
+</div>
+
+<div class="envex" id="ex-1.2">
+<h6 class="thenv">Örnek 1.3.2</h6><p>Bazen başlangıç veya sınır koşulları limit formunda verilebilir, örneğin
+\begin{eqnarray*}
+u_t(x,t) &=& ku_{xx}(x,t),\qquad  (x,t)\in D\\
+u(0,t) &\rightarrow0,& \qquad  x\rightarrow0\;\text{ ve }\;t>0\text{ için}\\
+u(x,t) &\rightarrow0,& \qquad t\rightarrow0\;\text{ ve }\;0\lt x\lt a\text{ için}
+\end{eqnarray*}eşitliklerini sağlayan $C^2$ sınıfından bir $u:D\rightarrow\mathbb{R}$ fonksiyonu bulma problemi bir sınır değer problemidir ve $$u(x,t)=\frac{x}{t\sqrt{t}}e^{-x^2/4kt}$$ fonksiyonunun bu problemin bir çözümüdür. Dikkat edilirse $u$ fonksiyonu $t=0$ için tanımlı değildir fakat gerekli limit değerine sahiptir.</p>
+</div>
+
+<div class="envex" id="ex-1.3">
+<h6 class="thenv">Örnek 1.3.3</h6><p>Çubuğun uzunluğu belirsiz de olabilir, örneğin
+\begin{eqnarray*}
+u_t(x,t) &=& ku_{xx}(x,t),\qquad -\infty\lt x\lt\infty,\;\;\; t>0\\
+u(x,1) &=& c\sin\frac{x}{c\sqrt{k}}\qquad  -\infty\lt x\lt\infty
+\end{eqnarray*}bir sınır değer problemidir ve bir çözümü $$u(x,t)=ce^{(1-t)/c^2}\sin\frac{x}{c\sqrt{k}}$$ biçimindedir.</p>
+</div>
+
+<p>
+Verdiğimiz örnekler dikkatlice incelenirse bir problemin başlangıç ve sınır koşullarının kritik öneme sahip olduğu anlaşılır. Örneğin daha sonra göreceğiz ki, $n\in\mathbb{N}$ olmak üzere $$u(x,t)=e^{-n^2\pi^2kt/a^2}\sin\frac{n\pi}{a}x$$ fonksiyonları da <a class="eqref" href="#ex-1.1">Örnek 1.3.1</a> ile verilen sınır değer probleminin birer çözümüdür. Yani verilen başlangıç ve sınır koşulları çözümü tek türlü belirlemek için yeterli olmayabilir. Söz konusu örnekte herhangi bir başlangıç koşulu belirtilmemiştir, eğer $t=0$'daki sıcaklık $$u(x,0)=\sin\frac{\pi}{a}x$$ başlangıç koşulu ile belirtilseydi örnekte belirtilen fonksiyonun bu problemin <strong>tek</strong> çözümü olduğu gösterilebilirdi. Diğer yandan <a class="eqref" href="#ex-1.2">Örnek 1.3.2</a> ile verilen probleme bakacak olursak $x=a$ için yani sağ sınır nokta için bir sınır koşulu belirtilmemiştir. Eğer $$x\rightarrow a\;\;\text{ için }\;\;u(x,t)\rightarrow0$$ koşulu verilseydi örnekte verilen fonksiyon bu koşulu sağlamaz dolayısıyla bir çözüm olmazdı.
+</p>
+
+<p>
+İyi tanımlanmış bir problemden çözümün varlığı ve tekliği dışında bir beklentimiz daha var; <strong>kararlılık</strong>. Bir problemin başlangıç ve sınır değerlerini fiziksel ölçüm ve gözlemlerle belirlediğimiz için her zaman küçük bir hata payı ile çalışırız. Dolayısıyla elde ettiğimiz çözüm de bir hata payı ile hesaplanmış olacaktır. Şu halde bir problemin çözümünün başlangıç ve sınır değerlerindeki küçük değişikliklerden küçük oranlarda etkilenmesini isteriz, bu özelliğe sahip çözümlere <strong>kararlı</strong> çözüm denir. Örneğin <a class="eqref" href="#ex-1.3">Örnek 1.3.3</a> ile verdiğimiz problemin çözümü kararlı değildir, çünkü sınır değer koşulundaki $c$ sayısındaki küçük bir değişiklik bu koşulda çok küçük bir değişime sebep olmasına rağmen çözümde çok büyük bir değişime sebep olur ($0\lt t\lt 1$ için). 
+</p>
+
+<p>
+Sonuç olarak bir sınır değer problemini çözmek için aşağıdakilerin sağlandığını görmemiz gerekir
+<ol><li>Bir çözüm vardır,</li>
+<li>Çözüm tektir,</li>
+<li>Çözüm kararlıdır.</li></ol>Bu koşulları sağlayan bir probleme Hadamard anlamında <strong>iyi tanımlanmış</strong> (well posed) bir problem denir. Kararlılık özelliğinin önemini vurgulayan ilk kişi Ecole Polytechnique'den <strong>Jacques Hadamard</strong> (1865-1963) dır.
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../12-isi-iletim-denklemi/index.html">1.2. Isı İletim Denklemi</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Fourier Analizi</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../14-degiskenlere-ayirma-yontemi/index.html">1.4. Değişkenlere Ayırma Yöntemi</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/13-sinir-deger-problemleri/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:05 GMT -->
+</html>

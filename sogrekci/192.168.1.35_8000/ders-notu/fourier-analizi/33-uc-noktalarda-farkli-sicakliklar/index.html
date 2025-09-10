@@ -1,0 +1,267 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/33-uc-noktalarda-farkli-sicakliklar/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:32 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 3.3. Uç Noktalarda Farklı Sıcaklıklar
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>3.3. Uç Noktalarda Farklı Sıcaklıklar</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-09">
+          9 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste ele aldığımız ısı iletim problemini az miktar zorlaştırıyoruz, uç noktalardaki sıcaklıkların farklı olduğu durumu ele alıyoruz. Bu durumda önceki derslerde klasik ısı iletim problemi için elde ettiğimiz sonuçları kullanarak çözümlerin varlığına ve iyi tanımlılığına ulaşacağız.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/denge-durumu-sicakligi/index.html">denge durumu sıcaklığı</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/gecici-cozum/index.html">geçici çözüm</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/isi-denklemi/index.html">Isı denklemi</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+$T_1$ ve $T_2$ negatif olmayan sabitler olsun. Ayrıca $f$ fonksiyonu da $f(0)=T_1$ ve $f(a)=T_2$ eşitliklerini sağlayan, sürekli, negatif olmayan, ve türevi parçalı sürekli olan bir fonksiyon olsun. Bu bölümde
+
+\begin{eqnarray}
+u_{t}=ku_{xx} ,&& \qquad(x,t)\in D\text{ için}\label{bvp2-mod-1}\tag{3.3.1}\\
+u(0,t)=T_1, && \qquad t\geq0\text{ için}\label{bvp2-mod-2}\tag{3.3.2}\\
+u(a,t)=T_2, && \qquad t\geq\text{ için}\label{bvp2-mod-3} \tag{3.3.3} \\
+u(x,0)=f(x), && \qquad0\leq x\leq a \text{ için}\label{bvp2-mod-4}\tag{3.3.4}
+\end{eqnarray}
+</p>
+
+<p>
+sınır değer problemini ele alacağız. \eqref{bvp2-mod-2} ve \eqref{bvp2-mod-3} eşitlikleri sağlayan fonksiyonların toplamları bu koşulları sağlamayacağından bu durumda sınır koşullarımız lineer değildir, dolayısıyla süperpozisyon ilkesini kullanarak bir çözüm elde edemeyiz.
+</p>
+
+<p>
+Fakat biraz fiziksel gözlem işimizi kolaylaştırabilir. Yeterince uzun zaman sonra başlangıç sıcaklığı dağılımının çubuğun genel sıcaklık dağılımına etkisinin kaybolduğunu ve çubuğun genel sıcaklık dağılımının zamandan bağımsız olduğunu bekleyebiliriz. eğer yeterince büyük $t$ sayıları için bu sıcaklık dağılımı $U$ fonksiyonu ile gösterilirse, bu fonksiyona <strong>denge durumu sıcaklığı</strong> fonksiyonu denir, $U$ fonksiyonu sadece $x$ değişkenine bağlıdır ve \eqref{bvp2-mod-4} koşulunu sağlaması gerekmez. Yani problemimiz 
+
+$$\begin{array}{l}
+0=kU''\\
+U(0)=T_1\\
+U(a)=T_2
+\end{array}$$
+
+halini alır ve buradan denge durumu çözümünün $$U(x)=\frac{T_2-T_1}{a}x+T_1$$ olduğu kolayca gösterilebilir.
+</p>
+
+<p>
+Şimdi, eğer $u$ fonksiyonu \eqref{bvp2-mod-1}-\eqref{bvp2-mod-4} probleminin bir çözümü ise bu durumda $v:=u-U$ fonksiyonu da $$\begin{array}{ll}
+v_{t}=kv_{xx} ,& \quad(x,t)\in D\text{ için}\\
+v(0,t)=0, & \quad t\geq0\text{ için}\\
+v(a,t)=0, & \quad t\geq0\text{ için}  \\
+v(x,0)=f(x)-U(x), & \quad0\leq x\leq a \text{ için}
+\end{array}
+$$ probleminin bir çözümü olur. $U$ fonksiyonu sürekli türevlere sahip olduğundan bu problemin bir çözümü <a class="eqref" href="../31-cozumun-varligi/index.html#bvp-teo-varlik-3">Teorem 3.1.3</a> ile verilmiştir. Böylece ele aldığımız \eqref{bvp2-mod-1}-\eqref{bvp2-mod-4} sınır değer probleminin bir çözümü olan $u=U+v$ kolaylıkla elde edilmiş olur.
+</p>
+
+<p>
+Şimdi $u_1$ ve $u_2$ ile \eqref{bvp2-mod-1}-\eqref{bvp2-mod-4} probleminin sırasıyla başlangıç sıcaklık dağılımları $f$ ve $g$, ve uç nokta sıcaklıkları $T_{1,f}$, $T_{2,f}$ ile $T_{1,g}$, $T_{1,g}$ olan çözümleri olsunlar. Eğer $|f-g|$ fonksiyonunun $[0,a]$ aralığındaki maksümum değerini $M_{f-g}$ ile gösterirsek, maksimum prensibi gereği $$|u_1(x,t)-u_2(x,t)|\leq\max\left\{ M_{f-g},\;|T_{1,f}-T_{1,g}|,\;|T_{2,f}-T_{2-g}| \right\}$$ olduğu görülür. Yukarıdaki eşitsizlik de bize \eqref{bvp2-mod-1}-\eqref{bvp2-mod-4} probleminin bulduğumuz çözümünün Hadamard anlamında kararlı olduğunu ve <a class="eqref" href="../32-cozumun-tekligi-ve-kararliligi/index.html#bvp-teo-stability">Teorem 3.2.2</a> ile verildiği gibi $f\geq0$ ise $u\geq0$ olduğunu gösterir.
+</p>
+
+<p>
+Elde ettiğimiz bu çözümün $v$ parçasının $t\rightarrow\infty$ için $v(x,t)\rightarrow0$ özelliğinde olduğu bir önceki bölümün sonunda gösterilmişti. Bundan dolayı çözümün bu parçasına <strong>geçici çözüm</strong> denir. Sonuç olarak ele aldığımız \eqref{bvp2-mod-1}-\eqref{bvp2-mod-4} probleminin tam çözümü, denge durumu çözümü ile geçici çözümün toplamından oluşmaktadır.
+</p>
+
+<p>
+<div class="envex" id="ex-3.2"><h6 class="thenv">Örnek 3.3.1</h6> 20 cm uzunluğunda sabit $400^\circ K$ başlangıç sıcaklıklı bir çubuğu ele alalım. Çubuğun uç noktalarında sıcaklığı sırasıyla $300^\circ K$ ve $500^\circ K$'de sabit tutulmaktadır. Bu durumda $a=20$, $T_1=300$, $T_2=500$ ve denge durumu çözümü $$U(x)=\frac{500-300}{20}x+300=10x+300$$ olur. Geçici çözümün sağlaması gereken başlangıç sıcaklığı da $$v(x,0)=f(x)-U(x)=400-10x-300=100-10x$$ olur. Ayrıca
+$$c_n=\frac{2}{20}\int_{0}^{20}(100-10x)\sin\frac{n\pi}{20}x\,dx=\left\{\begin{array}{ll}0,\quad & n\text{ tek ise}\\\frac{400}{n\pi},\quad & n\text{ çift ise}\end{array}\right.$$
+olduğu kolaylıkla gösterilebilir. Böylece tam çözüm $$u(x,t)=U(x)+v(x,t)=10x+300+\frac{200}{\pi}\sum\limits_{n=1}^{\infty}\frac{1}{n}e^{-n^2\pi^2kt/100}\sin\frac{n\pi}{10}x$$ olarak elde edilmiş olur. Eğer çubuk örneğin aluminyum ise bu durumda $k=0.84\,cm^2/sn$ olur, ayrıca $e^{-\pi^2k/100}\approx0.92$ olup yeterince büyük $t$ sayıları için $$u(x,t)\approx 10x+300+\frac{200}{\pi}0.92^t\sin\frac{\pi}{10}x$$ yazabiliriz.
+</p>
+
+<p>
+<img id="fig:bvp2-1" class="envfig" src="../../../static/ders-notu/fourier-analizi/3d_heat_eq_2.png" width="40%">
+<img class="envfig" src="../../../static/ders-notu/fourier-analizi/bvp2-1.svg" width="40%">
+</p>
+<p>
+<span style="margin:auto; display:table;"><span class="figcap">Şekil 3.4:</span> Yukarıdaki örnekte verilen sınır değer probleminin çözümü ve $t=5$ için grafiği.</span>
+</p>
+</div>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../32-cozumun-tekligi-ve-kararliligi/index.html">3.2. Çözümün Tekliği ve Kararlılığı</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Fourier Analizi</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../34-uclari-yalitimli-cubuk/index.html">3.4. Uçları Yalıtımlı Çubuk</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/33-uc-noktalarda-farkli-sicakliklar/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:33 GMT -->
+</html>

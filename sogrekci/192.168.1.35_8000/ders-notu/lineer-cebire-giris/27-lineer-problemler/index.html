@@ -1,0 +1,425 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/27-lineer-problemler/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:04 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 2.7. Lineer Problemler
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>2.7. Lineer Problemler</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-06-01">
+          1 Haziran 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste <strong>lineer problemleri</strong> tanıtacağız, bunların çözümlerinin bir alt uzay oluşturduğunu ve bazı önemli özelliklerini öğreneceğiz. <strong>özel çözüm</strong> ve <strong>genel çözüm</strong> kavramları size bu teorinin bazı uygulamalarını hatırlatacaktır.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/genel-cozum/index.html">genel çözüm</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/genisletilmis-matris/index.html">genişletilmiş matris</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/homojen-lineer-problem/index.html">homojen lineer problem</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/homojen-sistem/index.html">homojen sistem</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/lineer-denklem-sistemi/index.html">lineer denklem sistemi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/lineer-problem/index.html">lineer problem</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/ozel-cozum/index.html">özel çözüm</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+<div class="envdef" id="def:lineerproblem"><h6 class="thenv">Tanım 2.7.1</h6>
+$U$'dan $V$'ye tanımlı bir $\sigma$ dönüşümü ve bir $\beta\in V$ vektörü verildiğinde
+
+\begin{equation}
+\label{eq:lint:16}
+\tag{2.7.1}
+\sigma\left(\xi\right)=\beta
+\end{equation}
+
+eşitliğini sağlayan $\xi\in U$ vektörlerini bulma problemine bir <strong>lineer problem</strong> denir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:40"><h6 class="thenv">Uyarı 2.7.2</h6>
+Eğer $\beta\not\in\sigma\left(U \right)$ ise \eqref{eq:lint:16} lineer probleminin hiç bir çözümü yok demektir, $\beta\in\sigma\left(U \right)$ ise $\sigma(\xi)=\beta$ ise en az bir çözüm vardır. $\xi_0\in U$ bir çözüm olsun, böyle her bir çözüme bir <strong>özel çözüm</strong> denir. $\xi\in U$ vektörü bu lineer problemin başka bir çözümü olsun, bu durumda $\sigma\left(\xi-\xi_0\right)=\sigma(\xi)-\sigma(\xi_0)=\beta-\beta=0$ olacağından $\xi-\xi_0\in K(\sigma)$ olduğu anlaşılır. Tersine, eğer $\xi-\xi_0\in K(\sigma)$ ise, $\sigma(\xi)=\sigma(\xi_0+\xi-\xi_0)=\sigma(\xi_0)+\sigma(\xi-\xi_0)=\beta+0=\beta$ olacağından $\xi$ vektörünün bir çözüm olduğu anlaşılır. Sonuç olarak \eqref{eq:lint:16} probleminin tüm çözümlerinin kümesi $$\{\xi_0\}+K(\sigma)$$ biçimindedir. $\{\xi_0\}$ kümesi tek elemanlı olduğu için $K(\sigma)$ ile $\{\xi_0\}+K(\sigma)$ kümeleri arasında bire bir eşleme vardır. Dolayısıyla çözümler kümesinin boyutu $K(\sigma)$ uzayının boyutu yardımıyla tasvir edilebilir. $\beta=0$ olmadıkça \eqref{eq:lint:16} probleminin çözümleri kümesi bir alt uzay olmaz (bu durumda çözüm uzayı $K(\sigma)$ alt uzayıdır) fakat bazen bu küme için de boyut kavramını kullanırız, mesela bu kümenin boyutunun $\sigma$ dönüşümünün sıfırlılığı olan $\nu(\sigma)$ sayısı olduğunu söyleriz.
+</div>
+</p>
+
+<p>
+<div class="envdef" id="def:homojendenklem"><h6 class="thenv">Tanım 2.7.3</h6>
+$\sigma(\xi)=0$ lineer problemine, \eqref{eq:lint:16} problemine karşılık gelen <strong>homojen lineer problem</strong> denir.
+</div>
+</p>
+
+<p>
+<div class="envdef" id="def:genelcozum"><h6 class="thenv">Tanım 2.7.4</h6>
+\eqref{eq:lint:16} probleminin bir özel çözümü ile buna karşılık gelen homojen problemin çözümü toplamına \eqref{eq:lint:16} probleminin <strong>genel çözümü</strong> denir. Homojen problemin çözümü ise $\sigma$ dönüşümünün çekirdeğidir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:46"><h6 class="thenv">Uyarı 2.7.5</h6>
+Dikkat edilirse homojen problemin sıfırdan farklı bir çözümünün olması demek <a class="eqref" href="../21-lineer-donusumler/index.html#theo:lint:5">Teorem 2.1.22</a> gereği $\rho(\sigma)\lt n$ olması, yani $\sigma$ dönüşümünün singüler olması demektir (bk. <a class="eqref" href="../23-tersinir-matrisler/index.html#theo:lint:16">Teorem 2.3.3</a>, <a class="eqref" href="../23-tersinir-matrisler/index.html#theo:lint:17">Teorem 2.3.4</a>).
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:41"><h6 class="thenv">Uyarı 2.7.6</h6>
+$\sigma$ lineer dönüşümü $A:=\left[a_{ij}\right]$ matrisi ile, $\xi\in U$ ve $\beta\in V$ vektörleri de sırasıyla $X:=\left(x_1,\ldots,x_n\right)$ ve $B:=\left(b_1,\ldots,b_m\right)$ ile temsil edilsin. Bu durumda \eqref{eq:lint:16} lineer problemi
+
+\begin{equation}
+\label{eq:lint:17}
+\tag{2.7.2}
+AX=B
+\end{equation}
+
+olarak matris biçiminde, ya da
+
+\begin{equation}
+\label{eq:lint:18}
+\tag{2.7.3}
+\sum_{i=1}^{n}a_{ij}x_j=b_i,\qquad i=1,\ldots,m
+\end{equation}
+
+olarak lineer denklem sistemi biçiminde yazılabilir.
+</div>
+</p>
+
+<p>
+<div class="envdef" id="def:gnisletilmismatris"><h6 class="thenv">Tanım 2.7.7</h6>
+$A$ ve $B$ matrisleri verilsin, bu durumda
+	$$\left[A,B\right]:=
+	\left[\begin{array}{cccc}
+	a_{11}&\cdots&a_{1n}&b_1\\
+	\vdots&\ddots&\vdots&\vdots\\
+	a_{m1}&\cdots&a_{mn}&b_m
+	\end{array}\right]
+	$$
+	matrisine \eqref{eq:lint:17} lineer probleminin <strong>genişletilmiş matrisi</strong> denir.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:lint:26"><h6 class="thenv">Teorem 2.7.8</h6>
+\eqref{eq:lint:17} lineer denkleminin bir çözümünün var olması için gerek ve yeter koşul; $A$ matrisinin rankının ($\rho$), $[A,B]$ genişletilmiş matrisinin rankına eşit olmasıdır. Bu durumda tüm çözümler $\nu=n-\rho$ bağımsız parametreye bağlı olarak ifade edilebilir.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong><a class="eqref" href="#rmk:lint:40">Uyarı 2.7.2</a> ile verildiği üzere \eqref{eq:lint:16} probleminin bir çözümünün var olması için gerek ve yeter koşul $\beta\in\sigma\left(U\right)$ olmasıdır. Bu da ancak ve ancak $\beta$ vektörünün $\{\sigma(\alpha_1),\ldots,\sigma(\alpha_n) \}$ vektörlerinün bir lineer kombinasyonu olmasıyla mümkündür. Bu koşul da $B$'nin $A$ matrisi sütunları ile lineer bağımlı olmasına denktir, yani genişletilmiş matrisi elde etmek için $A$ matrisine $b_i$ elemanlarının sütununu eklemek rankı arttırmaz. Ayrıca bu sütunu $A$ matrisine eklemek rankı düşüremeyeceğinden bir çözümün var olması için gerek ve yeter koşulun bu rankların eşit olması gerektiği anlaşılmış olur.
+</p>
+
+<p>
+Şimdi öyle bir tersinir $Q$ matrisi alalım ki $A':=Q^{-1}A$ matrisi Hermite normal biçime sahip olsun (bk. <a class="eqref" href="../25-hermite-normal-bicimi/index.html#theo:lint:23">Teorem 2.5.2</a>), bu durumda $A'X=Q^{-1}AX=Q^{-1}B:=B'$ olduğundan \eqref{eq:lint:17} probleminin her çözümü $A'X=B'$ probleminin de bir çözümü olur. Ayrıca $A'X=B'$ probleminin her çözümü, $AX=QA'X=QB'=B$ olduğundan, $AX=B$ probleminin de bir çözümüdür. Yani bu iki problem birbirine denktir. Şimdi $A'X=B'$ sistemini çözmek görece kolaylaşmış oldu, çünkü $x_{k_i}$ elemanı sadece $i-$nci eşitlikte yer alır ve ilk $\rho$ tane satırdan sonra tüm elemanlar 0 olur. Ayrıca $B'$ sütunu $A'$ matrisi sütunlarının lineer kombinasyonu olduğundan $B'$ sütununun $\rho$ satırından altta kalan elemanları 0 olacaktır. Sonuç olarak $A'X=B'$ sistemi
+	$$
+	\begin{array}{rrrrrrrrrrr}
+	x_k&+&a_{1,k_1+1}'x_{k_1+1}&+&\cdots 0&+&a_{1,k_2+1}'x_{k_2+1}&+&\cdots&=&b_1'\\
+	&&&&x_{k_2}&+&a_{2,k_2+1}'x_{k_2+1}&&&=&b_2'\\
+	&&&&&&&&&\vdots&
+	\end{array}
+	$$
+	biçimine sahip olacaktır. Burada $x_{k_i}$ bilinmeyenleri ($\rho$ tane) ilk $\rho$ tane satırda bulunduğu için diğer $n-\rho$ tane bilinmeyenler keyfi olarak seçilebilir, bunlar teoremin ifadesinde bahsedilen keyfi parametrelerdir.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envex" id="ex:lint:6"><h6 class="thenv">Örnek 2.7.9</h6>
+Örnek olarak
+	$$
+	\begin{array}{rcr}
+	4x_1+3x_2+2x_3-x_4&=&4\\
+	5x_1+4x_2+3x_3-x_4&=&4\\
+	-2x_1-2x_2-x_3+2x_4&=&-3\\
+	11x_1+6x_2+4x_3+x_4&=&11
+	\end{array}
+	$$
+	sistemini ele alalım. Bu durumda genişletilmiş matris
+	$$
+	\left[A,B\right]=
+	\left[\begin{array}{rrrrr}
+	4&3&2&-1&4\\
+	5&4&3&-1&4\\
+	-2&-2&-1&2&-3\\
+	11&6&4&1&11
+	\end{array}\right]
+	$$
+	olacaktır. <a class="eqref" href="../26-elementer-matrisler/index.html#ex:lint:5">Örnek 2.6.9</a> gereği bu matrisin Hermite normal formu
+	$$
+	\left[\begin{array}{rrrrr}1&0&0&1&1\\0&1&0&-3&2\\0&0&1&2&-3\\0&0&0&0&0\end{array}\right]
+	$$
+	matrisidir. Dolayısıyla $A'X=B'$ denklem sistemi $$\begin{array}{rcr}x_1+x_4&=&1\\x_2-3x_4&=&2\\x_3+2x_4&=&-3\end{array}$$ halini alır. Bu denklemler $x_4$ bilinmeyenine keyfi bir değer verilerek çözülebilir. Örneğin $x_4=0$ seçilerek bir $X_0=(1,2,-3,0)$ özel çözümü elde edilebilir. Denklem sistemini
+	$$
+	\begin{array}{rcr}
+		x_1&=&1-x_4\\
+		x_2&=&2+3x_4\\
+		x_3&=&-3-2x_4\\
+		x_4&=&x_4
+	\end{array}
+	$$
+	biçiminde yazarsak, vektör notasyonunda
+
+\begin{equation}
+\label{eq:lint:19}
+\tag{2.7.4}
+\left(x_1,x_2,x_3,x_4\right)=\left(1,2,-3,0\right)+x_4\left(-1,3,-2,1\right)
+\end{equation}
+
+olduğunu görürüz. Yani $x_4$ parametresine keyfi değerler vererek keyfi çoklukta çözüm elde edilebilir. Diğer yandan karşılık gelen homojen problemin çözümünün $\left(-1,3,-2,1\right)$ olduğu doğrulanabilir, aslında bu vektör çekirdeğin bir bazıdır ve her $x_4$ değeri için $x_4\left(-1,3,-1,1\right)$ vektörü çekirdeğin bir elemanı olur. Sonuç olarak \eqref{eq:lint:19} ile verilen lineer problemin genel çözümünü bir özel çözüm ile dönüşüm çekirdeğinin toplamı olarak ifade etmiş olduk.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:lint:27"><h6 class="thenv">Teorem 2.7.10</h6>
+\eqref{eq:lint:17} lineer probleminin bir çözümünün var olmaması için gerek ve yeter koşul
+
+\begin{equation}
+\label{eq:lint:20}
+\tag{2.7.5}
+CA=0\quad\text{ve}\quad CB=1
+\end{equation}
+
+olacak şekilde tek satırdan oluşan bir $C$ matrisinin var olmasıdır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>\eqref{eq:lint:17} probleminin bir çözümü var olsun ve \eqref{eq:lint:20} eşitliklerini sağlayan bir $C$ matrisi var olsun. Bu durumda $0=\left(CA\right)X=C\left(AX\right)=CB=1$ olurdu ki bu bir çelişkidir. Şimdi varsayalım ki \eqref{eq:lint:17} probleminin çözümü var olmasın, bu durumda <a class="eqref" href="#theo:lint:26">Teorem 2.7.8</a> gereği $\left[A,B\right]$ genişletilmiş matrisinin rankı $A$ matrisinin rankından ($\rho$) daha büyük olur. $Q$ matrisini öyle seçelim ki $Q^{-1}\left[A,B\right]$ matrisi Hermite normal biçimine sahip olsun (bk. <a class="eqref" href="../25-hermite-normal-bicimi/index.html#theo:lint:23">Teorem 2.5.2</a>). Bu durumda $Q^{-1}\left[A,B\right]$ matrisinin $(\rho+1)-$inci satırında son sütunda 1 elemanı yer alır ve diğer tüm elemanlar 0'dır. Eğer $Q^{-1}$ matrisinin $(\rho+1)-$inci satırını $C$ matrisi olarak tanımlarsak $C\left[A,B\right]=\left[0,0,\ldots,1\right]$ olduğunu görürüz ki bu da \eqref{eq:lint:20} eşitliklerine denktir.$$\tag*{$\blacksquare$}$$
+</p>
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Alıştırmalar</h3>
+
+
+
+
+
+<p>
+<ol>
+<li class="py-2">Aşağıdaki lineer problemin tüm çözümlerinin oluşturduğu alt uzayı tespit edin.
+		$$
+		\begin{array}{rcr}
+		x_1+2x_2-3x_3+x_4&=&0\\
+		3x_1-x_2+5x_3-x_4&=&0\\
+		2x_1+x_2+x_4&=&0
+		\end{array}
+		$$</li>
+<li class="py-2">Aşağıdaki lineer problemlerin tüm çözümlerini tespit edin.</li>
+<ol type="a">
+<li class="py-2">$$
+			\begin{array}{rcr}
+			x_1+3x_2+5x_3-2x_4&=&11\\
+			3x_1-2x_2-7x_3+5x_4&=&0\\
+			2x_1+x_2+x_4&=&7
+			\end{array}
+			$$</li>
+<li class="py-2">$$
+			\begin{array}{rcr}
+			x_1+3x_2+2x_3+5x_4&=&10\\
+			3x_1-2x_2-5x_3+4x_4&=&-5\\
+			2x_1+x_2-x_3+5x_4&=&5
+			\end{array}
+			$$</li>
+<li class="py-2">$$
+			\begin{array}{rcr}
+			2x_1-x_2+3x_3&=&1\\
+			x_1-x_2+2x_3&=&-2\\
+			4x_1-3x_2+x_3&=&-3\\
+			x_1-5x_3&=&3
+			\end{array}
+			$$</li>
+<li class="py-2">$$
+			\begin{array}{rcr}
+			7x_1+3x_2+21x_3-13x_4+x_5&=&-14\\
+			10x_1+3x_2+30x_3-16x_4+x_5&=&-23\\
+			7x_1+2x_2+21x_3-11x_4+x_5&=&-16\\
+			4x_1+3x_2+27x_3-15x_4+x_5&=&-20
+			\end{array}
+			$$</li>
+</ol>
+</ol>
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../26-elementer-matrisler/index.html">2.6. Elementer Matrisler</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Lineer Cebire Giriş</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../28-bazi-uygulamalar/index.html">2.8. Bazı Uygulamalar</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/27-lineer-problemler/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:04 GMT -->
+</html>

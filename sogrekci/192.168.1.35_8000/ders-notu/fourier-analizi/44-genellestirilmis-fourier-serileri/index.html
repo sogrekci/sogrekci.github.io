@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/44-genellestirilmis-fourier-serileri/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:38 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 4.4. Genelleştirilmiş Fourier Serileri
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>4.4. Genelleştirilmiş Fourier Serileri</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-11">
+          11 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Öğrendiklerimizi kullanarak bu bölümde artık <strong>genelleştirilmiş Fourier serisi</strong> kavramını tanımlayabileceğiz. Ayrıca bu bölümde daha önce <a class="eqref" href="../39-gecici-cozum/index.html">Bölüm 3.9</a> ile ortaya attığımız sorulardan son kalanları da cevaplayacağız.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/genellestirilmis-fourier-serisi/index.html">genelleştirilmiş fourier serisi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/sturm-liouville-problemi/index.html">sturm-liouville problemi</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Sturm-Liouville problemi üzerine buraya kadar elde ettiğimiz sonuçlara dayanarak Liouville, keyfi bir $f:[a,b]\rightarrow\mathbb{R}$ fonksiyonunu düzgün bir Sturm-Liouville probleminin $X_n$ özfonksiyonlarının serisi olarak yazma problemini ele aldı. Yani problem $$f=\sum_{n=1}^{\infty}c_nX_n$$ eşitliği sağlanacak şekilde $c_n$ sabitlerinin bulunması problemidir. Daha önce Fourier katsayılarını belirlerken yaptığımız gibi yukarıdaki eşitliğin geçerli olduğunu ve serinin hem kendisinin hem de $rX_m$ ile çarpılmış halinin terim terim integrallenebildiğini varsayarsak $$\int_{a}^{b}rfX_m=\sum_{n=1}^{\infty}c_n\int_{a}^{b}rX_nX_m$$ eşitliğini elde edebiliriz. <a class="eqref" href="../42-ozdegerler-ve-ozfonksiyonlar/index.html#slp-theo-1">Teorem 4.2.1</a> gereği buradan da $$c_n=\frac{\int_{a}^{b}rfX_n}{\int_{a}^{b}X^2_n}$$ olduğu sonucuna varırız.
+</p>
+
+<p>
+<div class="envdef" id="def-genelfourier"><h6 class="thenv">Tanım 4.4.1</h6>$f:[a,b]\rightarrow\mathbb{R}$ integrallenebilir bir fonksiyon ve $X_n$ de <a class="eqref" href="../41-sturm-liouville-problemleri/index.html#eq:slp-1">(4.1.1)</a>-<a class="eqref" href="../41-sturm-liouville-problemleri/index.html#eq:slp-bvp-2">(4.1.3)</a> düzgün Sturm-Liouville probleminin $n-$inci özfonksiyonu olsun. Bu durumda yukarıdaki eşitlikle tanımlanan $c_n$ sabitlerine $f$ fonksiyonunun $X_n$<strong>'e göre Fourier katsayıları</strong> denir, $\sum_{n=1}^{\infty}c_nX_n$ serisine de $f$ fonksiyonunun $X_n$<strong>'e göre Fourier serisi</strong> denir.
+</div>
+</p>
+
+<p>
+Yukarıda tanımlanan katsayı ve seriye literatürde <strong>Genelleştirilmiş Fourier katsayıları ve serileri</strong> de denilmektedir.
+</p>
+
+<p>
+$f$ fonksiyonunun genelleştirilmiş Fourier katsayılarının $X_n$ özfonksiyonuna bağlı olduğu unutulmamalıdır. Fakat dikkat edilirse $C_n$ sabitleri keyfi olmak üzere $X_n$ özfonksiyonları yerine $C_nX_n$ yazılırsa ilgili Fourier katsayıları değişse de Fourier serisi değişmeyecektir. Bu nedenle aşağıda açıklayacağımız <strong>normalleştirme</strong> işlemi çok kullanışlıdır.
+</p>
+
+<p>
+$c_n$ katsayısının tanımında paydada bulunan ifadenin kare kökünü $\Vert X_n\Vert_r$ ile ($r=1$ ise kısaca $\Vert X\Vert$ ile) gösteririz. Bu durumda $$Y_n:=\frac{X_n}{\Vert X_n\Vert_r}$$ olarak tanımlanan fonksiyonlara <strong>normalleştirilmiş özfonksiyonlar</strong> denir, bu fonksiyonlar için $\Vert Y_n\Vert_r=1$ olacağından ilgili Fourier katsayıları $$c_n=\int_{a}^{b}rfY_n$$ biçiminde olur.
+</p>
+
+<p>
+Yukarıda tanımlanan genelleştirilmiş Fourier serisinin ilgili fonksiyona yakınsak olduğunun eksik bir ispatını <strong>Liouville</strong> vermişti, iki kez türevlenebilen ve ilgili sınır koşullarını sağlayan fonksiyonlar için yakınsaklığın doğru ve eksiksiz bir ispatını 1898 yılında <strong>Vladimir Andreevich Steklov</strong> (1864-1926) vermiştir. Bundan bağımsız olarak ve tamamen farklı bir yöntemle, bazı kısıtlamalar altında yakınsaklığı 1904 yılında <strong>Davit Hilbert</strong> (1862-1942) de kanıtlamıştır, fakat bundan bir yıl sonra Hilbert'in bir öğrencisi olan <strong>Erhardt Schimdt</strong> (1876-1959) bu kısıtlamaların gereksiz olduğunu göstermiştir. Bu kısıtlamalar kaldırılarak, parçalı sürekli bir fonksiyonun genelleştirilmiş Fourier serisinin yakınsaklığı ilk kez tam ve doğru olarak 1904 yılunda <strong>Julius Carl Chr. Adolph Kneser</strong> (1862-1930) tarafından verilmiştir. Bu sonucu Heine'nin düzgün yakınsaklık sonucu ile birleştirerek aşağıda ispatsız olarak veriyoruz.
+</p>
+
+<p>
+<div class="envtheo" id="slp-theo-6"><h6 class="thenv">Teorem 4.4.1</h6>$f$ ve $f'$ fonksiyonları $[a,b]$ aralığında parçalı sürekli olsunlar. Bu durumda $f$ fonksiyonunun <a class="eqref" href="../41-sturm-liouville-problemleri/index.html#eq:slp-1">(4.1.1)</a>-<a class="eqref" href="../41-sturm-liouville-problemleri/index.html#eq:slp-bvp-2">(4.1.3)</a> düzgün Sturm-Liouville probleminin özfonksiyonlarına göre Fourier serisi her $x\in(a,b)$ için $$\frac{1}{2}\left[f(x+)+f(x-)\right]$$ değerine yakınsar. Ayrıca ek olarak $f$ fonksiyonu sürekli ve
+\begin{eqnarray*}
+a_1f(a)-b_1f'(a) &=& 0\\
+a_2f(b)+b_2f'(b) &=& 0
+\end{eqnarray*}sınır koşullarını sağlarsa, bu durumda seri $[a,b]$ aralığında $f$ fonksiyonuna mutlak ve düzgün olarak yakınsar.</div>
+</p>
+
+<p>
+<div class="envex" id="ex-4.11"><h6 class="thenv">Örnek 4.4.1</h6>$K$ bir sabit olmak üzere $f(x):=Kx$ fonksiyonunun <a class="eqref" href="../43-ozdegerlerin-varligi/index.html#ex-4.9">Örnek 4.3.6</a> ile verilen $$\begin{array}{l}
+	X''+\lambda X=0\\
+	hX(0)-X'(0)=0\\
+	X'(a)=0
+	\end{array}$$ Sturm-Liouville probleminin özfonksiyonlarına göre Fourier serisini bulalım. Özdeğerlerin $\tan\sqrt{\lambda_n}\,a=h/\sqrt{\lambda_n}$ eşitliğini sağladığını ve özfonksiyonların da $$X_n(x)=\frac{\cos\sqrt{\lambda_n}(a-x)}{\sin\sqrt{\lambda_n}\,a}$$ biçiminde olduğunu göstermiştik. Bu durumda $f$ fonksiyonunun $X_n$ özfonksiyonlarına göre Fourier katsayıları $$c_n=\frac{\int_{0}^{a}KxX_n(x)\,dx}{\int_{0}^{a}X^2_n(x)\,dx}$$ ile bulunur. Doğrudan hesaplamalarla
+	\begin{eqnarray*}
+		\int_{0}^{a}xX_n(x)\,dx &=& \frac{1}{\sin\sqrt{\lambda_n}\,a}\int_{0}^{a}x\cos\sqrt{\lambda_n}(x-a)\,dx\\
+		&=& \frac{1}{\sin\sqrt{\lambda_n}\,a}\left[ \frac{x\sin\sqrt{\lambda_n}(a-x)}{\sqrt{\lambda_n}}\bigg\vert_0^a-\int_{0}^{a}\frac{\sin\sqrt{\lambda_n}(a-x)}{\sqrt{\lambda_n}}dx \right]\\
+		&=& \frac{1}{\sin\sqrt{\lambda_n}\,a}\frac{\cos\sqrt{\lambda_n}(a-x)}{\lambda_n}\bigg\vert_0^a\\
+		&=& \frac{1-\cos\sqrt{\lambda_n}\,a}{\lambda_n\sin\sqrt{\lambda_n}\,a}
+	\end{eqnarray*}
+	ve
+	\begin{eqnarray*}
+		\int_{0}^{a}X^2_n(x)\,dx &=& \frac{1}{\sin^2\sqrt{\lambda_n}\,a}\int_{0}^{a}\cos^2\sqrt{\lambda_n}(a-x)\,dx\\
+		&=& \frac{1}{\sin^2\sqrt{\lambda_n}\,a}\int_{0}^{a}\frac{1+\cos2\sqrt{\lambda_n}(a-x)}{2}dx\\
+		&=& \frac{1}{2\sin^2\sqrt{\lambda_n}\,a}\left[a+\frac{\sin2\sqrt{\lambda_n}(a-x)}{2\sqrt{\lambda_n}}\bigg\vert_0^a\right]\\
+		&=& \frac{2a\sqrt{\lambda_n}+\sin2\sqrt{\lambda_n}\,a}{4\sqrt{\lambda_n}\sin^ 2\sqrt{\lambda_n}\,a}
+	\end{eqnarray*}
+	elde edilir. Böylece $$c_n=\frac{4K\sin\sqrt{\lambda_n}\,a(1-\cos\sqrt{\lambda_n}\,a)}{2a\lambda_n+\sqrt{\lambda_n}\sin2\sqrt{\lambda_n}\,a}$$ olup $$f(x)\sim 4k\sum_{n=1}^{\infty}\frac{1-\cos\sqrt{\lambda_n}\,a}{2a\lambda_n+\sqrt{\lambda_n}\sin2\sqrt{\lambda_n}\,a}\cos\sqrt{\lambda_n}(a-x)$$ sonucuna varılır.
+</div>
+</p>
+
+<p>
+<a class="eqref" href="#slp-theo-6">Teorem 4.4.1</a> ile,  <a class="eqref" href="../37-zamandan-bagimsiz-problemler/index.html">Bölüm 3.7</a>'de ele aldığımız genel bir sınır değer problemi için <a class="eqref" href="../39-gecici-cozum/index.html">Bölüm 3.9</a>'da ortaya koyduğumuz dokuz sorudan (vi) sorusunu olumlu olarak cevaplamış olduk. Son olarak, eğer $\lambda_1=0$ ise <a class="eqref" href="../42-ozdegerler-ve-ozfonksiyonlar/index.html#slp-theo-3">Teorem 4.2.3</a> gereği $a_1=a_2=0$ ve $X_1$ özfonksiyonu sabit olur. Fakat bu durumda, $r\equiv c$ olmak üzere $$c_1=\frac{\int_{0}^{a}c(f-U)X_1}{\int_{0}^{a}cX_1^2}=\frac{X_1}{\Vert X_1\Vert_c^2}\left(\int_{0}^{a}cf-\int_{0}^{a}cU \right)$$ olur ve bu da, $a_1=a_2=0$ olduğu zaman denge durumu çözümünün inşa edilmesindeki koşullar gereği, sıfıra eşittir. Böylece (ix) sorusu da olumlu olarak cevaplanmış oldu, dolayısıyla aşağıdaki teorem elde edildi.
+</p>
+
+<p>
+<div class="envtheo" id="slp-theo-7"><h6 class="thenv">Teorem 4.4.2</h6>$D$ kümesi; $c$, $\kappa$, $q$, $f$ fonksiyonları ve $a$, $a_1$, $b_1$, $c_1$, $a_2$, $b_2$, $c_2$ sabitleri <a class="eqref" href="../37-zamandan-bagimsiz-problemler/index.html">Bölüm 3.7</a> ile tanımlandığı gibi olsun. Bu durumda
+
+\begin{eqnarray*}
+		cu_t=(\kappa u_x)_x+q&& (x,t)\in D\text{ için}\\
+		a_1u(0,t)-b_1u_x(0,t)=c_1, && \quad t\geq0\text{ için}\\
+		a_2u(a,t)+b_2u_x(a,t)=c_2, && \quad t\geq0\text{ için}\\
+		u(x,0)=f(x), && \quad0\leq x\leq a \text{ için}
+\end{eqnarray*}
+
+sınır değer problemi Hadamard anlamında iyi tanımlıdır. Ayrıca eğer $U$ fonksiyonu bu problemin denge durumu çözümüyse; $\lambda_n$ ile $X_n$
+
+$$\begin{array}{l}
+	(\kappa X')'+\lambda cX=0\\
+	a_1X(0)-b_1X'(0)=0\\
+	a_2X(a)+b_2X'(a)=0
+\end{array}$$
+
+düzgün Sturm-Liouville probleminin özdeğerleri ve karşılık gelen özfonksiyonlarıysa; ve $c_n$ de $f-U$ fonksiyonunun $X_n$'e göre  $n-$inci Fourier katsayısıysa, bu durumda $$\sum_{n=1}^{\infty}c_ne^{-\lambda_nt}X_n(x)$$ serisi $t\rightarrow\infty$ için $v(x,t)\rightarrow0$ ve $u=U+v$ koşullarını sağlayan bir $v:\overline{D}\rightarrow\mathbb{R}$ fonksiyonuna yakınsar (buradaki $u$ fonksiyonu yukarıdaki sınır değer probleminin çözümüdür).
+</div>
+</p>
+
+<p>
+Bu bölümde düzgün Sturm-Liouville problemleri için özdeğerlerin ve özfonksiyonların varlığını kanıtladık. Fakat bu özdeğer ve özfonksiyonların nasıl hesaplanacağı da ayrı bir problemdir, çünkü <a class="eqref" href="../41-sturm-liouville-problemleri/index.html#eq:slp-1">(4.1.1)</a> diferensiyel denklemini çok özel durumlar haricinde (Euler tipi bir denklem olması veya sabit katsayılı olması gibi) çözemiyoruz. Yine de özdeğerlerin yaklaşık olarak belirlenmesi için bazı yöntemler mevcut, bunlardan bir tanesini ispatsız olarak vererek bu bölümü kapatıyoruz.
+</p>
+
+<p>
+<div class="envtheo" id="slp-theo-8"><h6 class="thenv">Teorem 4.4.3</h6>$D_f$ ile kendisi sürekli ve ikinci mertebeden türevi parçalı sürekli olan, ayrıca $a_1f(a)-b_1f'(a)=0$ ile $a_2f(b)+b_2f'(b)=0$ eşitliklerini sağlayan tüm $f$ fonksiyonlarının kümesini gösterelim. Bu durumda <a class="eqref" href="../41-sturm-liouville-problemleri/index.html#eq:slp-1">(4.1.1)</a>-<a class="eqref" href="../41-sturm-liouville-problemleri/index.html#eq:slp-bvp-2">(4.1.3)</a> düzgün Sturm-Liouville probleminin ilk özdeğeri olan $\lambda_1$ sayısı $$R(f):=\frac{\int_{a}^{b}[qf-(pf')']f}{\Vert f\Vert_r^2}$$ ile tanımlanan $R(f)$ ifadesinin $D_f$ kümesi üzerindeki minimum değeridir, ve bu minimum değer $f=X_1$'de oluşur. 
+</div>
+</p>
+
+<p>
+<div class="envex" id="ex-4.12"><h6 class="thenv">Örnek 4.4.2</h6><a class="eqref" href="#slp-theo-8">Teorem 4.4.3</a> sonucunu kullanmak için $R(f)$ ifadesinin minimumunun hesaplanması gerekir, bunun için matematikte bazı yöntemler mevcuttur fakat bunlar konumuzun dışındadır. Şimdi biz sadece verilen koşulları sağlayan bir $f$ fonksiyonu için $R(f)$ ifadesini hesaplayacağız, elde edeceğimiz değer $\lambda_1$ için bir üst sınır olacaktır. Ayrıca, ilgili minimum değer $f=X_1$ için oluşacağından ve <a class="eqref" href="../43-ozdegerlerin-varligi/index.html#slp-theo-4">Teorem 4.3.1</a> gereği $(a,b)$ aralığında $X_1$ özfonksiyonunun hiç sıfırı olmadığından, gerekli minimum değerine yaklaşık bir değer elde etmek için bu aralıkta sıfırı olmayan bir $f$ fonksiyonu seçmek mantıklı görünüyor.
+</p>
+
+<p>
+	Şimdi $$\begin{array}{l}
+	X''+\lambda X=0\\
+	X(0)=0\\
+	X(10)=0
+	\end{array}$$ probleminin ilk özdeğerinin $\lambda=\pi^2/100$ olduğunu biliyoruz. Bunu yukarıdaki teoremle doğrulamak için $f(x):=x(10-x)$ seçelim, bu fonksiyon ilgili sınır koşullarını sağlar ve $(0,10)$ aralığında sıfırı yoktur. Bu durumda $$R(f)=\frac{-\int_{0}^{10}f''f}{\int_{0}^{10}f^2}=\frac{\int_{0}^{10}(20x-2x^2)dx}{\int_{0}^{10}(10x-x^2)^2dx}=0.1$$ elde edilir, bu da $\pi^2/100$ değerine oldukça yakın bir değerdir.
+</div>
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../43-ozdegerlerin-varligi/index.html">4.3. Özdeğerlerin Varlığı</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Fourier Analizi</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../51-parseval-ozdesligi/index.html">5.1. Parseval Özdeşliği</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/44-genellestirilmis-fourier-serileri/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:38 GMT -->
+</html>

@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/53-duzgun-yakinsaklik/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 5.3. Düzgün Yakınsaklık
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>5.3. Düzgün Yakınsaklık</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-12">
+          12 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu kısa derste daha önce ispatsız olarak verdiğimiz Fourier serilerinin düzgün yakınsaklığına ilişkin temel bir teoremi (<a class="eqref" href="../31-cozumun-varligi/index.html#bvp-teo-varlik-2">Teorem 3.1.2</a>) ispatlayacağız.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/duzgun-yakinsaklik/index.html">düzgün yakınsaklık</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/fourier-serisi/index.html">Fourier serisi</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>Çalıştığımız probleme bu bölümde kısa bir ara verip Fourier serilerinin düzgün yakınsaklığını (<a class="eqref" href="../31-cozumun-varligi/index.html#bvp-teo-varlik-2">Teorem 3.1.2</a>) kanıtlayacağız. Uygun bir değişken dönüşümü ile genel duruma geçilebileceğinden bir $f:(-\pi,\pi)\rightarrow\mathbb{R}$ fonksiyonu için kanıt yeterli olacaktır. Bu durumda
+
+<span id="eq:ortogonal-3">\begin{equation}
+\label{eq:ortogonal-3}
+\tag{5.3.1}
+\frac{1}{2},\;\cos x,\; \sin x,\; \ldots,\;\cos nx,\;\sin nx,\;\ldots
+\end{equation}</span>
+
+ortogonal sisteminde çalışacağız.
+</p>
+
+<p>
+<div class="envtheo" id="ortogonal-theo-3"><h6 class="thenv">Teorem 5.3.1 (Heine, 1870)</h6>Kendisi sürekli ve türevi parçalı sürekli olan bir $f:[-\pi,\pi]\rightarrow\mathbb{R}$ fonksiyonu $f(-\pi)=f(\pi)$ eşitliğini sağlasın. Bu durumda $f$ fonksiyonunun $(-\pi,\pi)$ aralığında $\eqref{eq:ortogonal-3}$ ortogonal sistemine göre Fourier serisi kendisine düzgün yakınsaktır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>Eğer her bir $n\geq1$ için $|a_n\sin nx+b_n\cos nx|\leq M_n$ ve $\sum_{n=1}^{\infty}M_n<\infty$ olacak şekilde $M_n$ sayıları bulabilirsek, Weierstrass-M testi gereği $$\frac{1}{2}a_0+\sum_{n=1}^{\infty}\left(a_n\cos nx+b_n\sin nx\right)$$ serisinin düzgün yakınsaklığını elde etmiş oluruz.
+</p>
+
+<p>
+Şimdi, keyfi $r$ ve $s$ reel sayıları için $0\leq(r-s)^2=r^2-2rs+s^2$ olduğundan hareketle
+
+\begin{equation}
+\label{eq:ortogonal-4}
+\tag{5.3.2}
+2rs\leq r^2+s^2
+\end{equation}
+
+ve buradan da $$(r+s)^2=r^2+2rs+s^2\leq2(r^2+s^2)$$ eşitsizliklerini gözlemleyelim. Bu son eşitsizlik gereği $$(a_n\cos nx+b_n\sin nx)^2\leq2(a_n^2\cos^2nx+b_n^2\sin^2nx)\leq2(a_n^2+b_n^2)$$ olduğu görülür. Ayrıca bu son eşitsizlik ve \eqref{eq:ortogonal-4} eşitsizliği gereği $n\geq1$ için $$|a_n\cos nx+b_n\sin nx|\leq\sqrt{2(a_n^2+b_n^2)}<\frac{2}{n}\sqrt{n^2(a_n^2+b_n^2)}\leq\frac{1}{n^2}+n^2(a_n^2+b_n^2)$$ eşitsizliği elde edilir. $M_n$ sayılarını yukarıdaki eşitsizliğin sağ tarafındaki ifade olarak tanımlayalım, $\sum\frac{1}{n^2}$ serisi yakınsak olduğundan $$\sum_{n=1}^{\infty}n^2(a_n^2+b_n^2)$$ serisinin yakınsak olduğunu göstermek yeterlidir.
+</p>
+
+<p>
+Şimdi, $n\geq1$ için $f'$ fonksiyonunun $(-\pi,\pi)$ aralığında Fourier katsayıları $nb_n$ ve $-na_n$ olur, gerçekten kısmi integrasyonla
+\begin{eqnarray*}
+	\frac{1}{\pi}\int_{-\pi}^{\pi}f'(x)\cos nx\,dx &=& \frac{1}{\pi}\left[f(x)\cos nx\bigg\vert_{-\pi}^{\pi}+\int_{-\pi}^{\pi}nf(x)\sin nx\,dx\right]\\
+	&=& \frac{1}{\pi}\left[f(\pi)\cos n\pi-f(-\pi)\cos(-n\pi)+\int_{-\pi}^{\pi}nf(x)\sin nx\,dx\right]\\
+	&=& \frac{n}{\pi}\int_{-\pi}^{\pi}f(x)\sin nx\,dx\\
+	&=& nb_n
+\end{eqnarray*}
+ve benzer şekilde $$\frac{1}{\pi}\int_{-\pi}^{\pi}f'(x)\sin nx\,dx=-na_n$$ olduğu görülür. Bu durumda, \eqref{eq:ortogonal-4} trigonometrik ortogonal sisteminin normu $\sqrt{\pi}$ olduğundan, $f'$ fonksiyonu için Bessel eşitsizliği kullanılırsa $$\sum_{n=1}^{\infty}n^2(a_n^2+b_n^2)\leq\frac{1}{\pi}\int_{-\pi}^{\pi}(f')^2$$ elde edilir ki bu da eşitliğin solundaki serinin yakınsak olduğunu gösterir.$$\tag*{$\blacksquare$}$$
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../52-bir-yaklasim-problemi/index.html">5.2. Bir Yaklaşım Problemi</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Fourier Analizi</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../54-ortalamada-yakinsaklik/index.html">5.4. Ortalamada Yakınsaklık</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/53-duzgun-yakinsaklik/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:46 GMT -->
+</html>

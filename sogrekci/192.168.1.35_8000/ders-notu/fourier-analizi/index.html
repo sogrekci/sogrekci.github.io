@@ -1,0 +1,1340 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:33:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - Fourier Analizi
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../static/site/prism.css">
+    <script src="../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<div class="container px-5 my-5 pb-5 shadow bg-light rounded-lg">
+
+  <div class="row pt-4">
+    <div class="col text-center">
+      <h1 style="font-family: 'Rajdhani', sans-serif;">Fourier Analizi</h1>
+    </div>
+  </div>
+ 
+  
+  <div class="row text-justify mb-5">
+    <p><p><div class="row pb-5"><br><div class="col text-right" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;"><em>Isı, yerçekimi gibi, evrenin her maddesine nüfuz eder, onun ışınları uzayın her kısmını işgal eder. Amacım bu öğelerin uyduğu matematiksel kanunları ortaya çıkarmaktır. Isının teorisi bundan sonra genel fiziğin en önemli branşlarından biri olacaktır.</em><br><br><strong>J. B. Joseph Fourier</strong>, <em>The Analytical Theory of Heat</em>, 1878.<br></div><br></div></p>
+
+<p>Bu dersin içeriği genel olarak <strong>ısı denklemi</strong> olarak bilinen kısmi türevli diferensiyel denklemi içeren bazı sınır değer problemleri ile <strong>Fourier serileri</strong> üzerinedir. Dersi boyunca sınır değer problemlerinden yola çıkıp ısı iletim problemini, <strong>ısı denklemini</strong> ve <strong>Fourier serilerini</strong> keşfedeceğiz.</p>
+
+<p>Bu serilerin temel teorik altyapısını eksiksiz olarak işleyeceğiz, ayrıca bazı ısı iletim problemlerinin klasik Fourier serileri ile çözülemeyeceğini keşfedeceğiz ve bu serilerin bazı önemli genelleştirmeleri ile karşılaşacağız. Bu genelleştirmeler bizi dördüncü bölümde <strong>Sturm-Liouville teorisi</strong> ile tanıştıracak, bu teorinin temel sonuçlarını ispatlayacağız. Beşinci bölümde daha ileri genelleştirmeleri de tartışacağız, bu tartışmalar ile bu bölüm <strong>fonksiyonel analize giriş</strong> niteliğinde olacak.</p></p>
+  </div>
+  
+ 
+ 
+  
+
+
+  
+  
+  <div class="row mt-3">
+    <h3 style="font-family: 'Rajdhani', sans-serif;">
+      1. Isı İletim Problemi
+      <a data-toggle="collapse" href="#ozet-1-isi-iletim-problemi" role="button" aria-expanded="false" aria-controls="ozet-1-isi-iletim-problemi">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h3>
+  </div>
+ 
+  <div class="row">
+    <div class="collapse" id="ozet-1-isi-iletim-problemi">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu bölümde bizi <strong>Fourier serisi</strong> kavramına götürecek olan problemi tanıyacağız: <strong>ısı iletim problemi</strong>. Bu problemi temsil eden <strong>sınır değer problemi</strong>ni tanıyıp bazı temel özelliklerini inceleyeceğiz. Her bir özellik bizi adım adım Fourier serisi kavramına yaklaştıracak.
+      </div>
+    </div>
+  </div>
+
+
+  
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="11-tarihsel-bir-onsoz/index.html">1.1. Tarihsel Bir Önsöz</a>
+      <a data-toggle="collapse" href="#ozet-11-tarihsel-bir-onsoz" role="button" aria-expanded="false" aria-controls="ozet-11-tarihsel-bir-onsoz">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-11-tarihsel-bir-onsoz">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu yazımda Jean Joseph Fourier'in (1768-1830) ilginç yaşam öyküsüne bakacağız. Fourier akademik başarısının dışında tanınan bir idareciydi, Napoleon Bonaparte'ın güvendiği bir isimdi ve Mısır seferinde yer almıştır.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/ecole-polytechnique/index.html">Ecole Polytechnique</a> &middot; 
+        
+        <a href="../../dizin/institut-degypt/index.html">Institut D'Egypt</a> &middot; 
+        
+        <a href="../../dizin/jean-joseph-fourier/index.html">Jean Joseph Fourier</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="12-isi-iletim-denklemi/index.html">1.2. Isı İletim Denklemi</a>
+      <a data-toggle="collapse" href="#ozet-12-isi-iletim-denklemi" role="button" aria-expanded="false" aria-controls="ozet-12-isi-iletim-denklemi">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-12-isi-iletim-denklemi">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu ders notunda <strong>ısı denklemi</strong> olarak bildiğimiz çok önemli bir kısmi türevli diferansiyel denklemi elde edeceğiz. Fiziksel bir problemin modellenmesiyle ulaşılan bu bu denklemi türetirken kullandığımız kurallara bugün <strong>Fourier yasaları</strong> diyoruz.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/difuzyon-denklemi/index.html">Difüzyon Denklemi</a> &middot; 
+        
+        <a href="../../dizin/fourier-yasalari/index.html">Fourier Yasaları</a> &middot; 
+        
+        <a href="../../dizin/isi-denklemi/index.html">Isı Denklemi</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="13-sinir-deger-problemleri/index.html">1.3. Sınır Değer Problemleri</a>
+      <a data-toggle="collapse" href="#ozet-13-sinir-deger-problemleri" role="button" aria-expanded="false" aria-controls="ozet-13-sinir-deger-problemleri">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-13-sinir-deger-problemleri">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste çeşitli sınır değer problemi örnekleri vereceğiz ve bunların çözümlerini karşılaştıracağız. Ayrıca bir sınır değer probleminin <strong>iyi tanımlı</strong> (well-posed) ve <strong>kararlı</strong> olması kavramlarını tanıtacağız.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/iyi-tanimli-problem/index.html">Iyi Tanımlı Problem</a> &middot; 
+        
+        <a href="../../dizin/jacques-hadamard/index.html">Jacques Hadamard</a> &middot; 
+        
+        <a href="../../dizin/kararli-cozum/index.html">Kararlı Çözüm</a> &middot; 
+        
+        <a href="../../dizin/sinir-deger-problemi/index.html">Sınır Değer Problemi</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="14-degiskenlere-ayirma-yontemi/index.html">1.4. Değişkenlere Ayırma Yöntemi</a>
+      <a data-toggle="collapse" href="#ozet-14-degiskenlere-ayirma-yontemi" role="button" aria-expanded="false" aria-controls="ozet-14-degiskenlere-ayirma-yontemi">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-14-degiskenlere-ayirma-yontemi">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste ısı denklemini çözmeye çalışacağız, bunun için değişkenelere ayırma denilen yöntemi kullanacağız. Bu yöntemle ulaştığımız çözümün yapısı sonraki derslerde bizi <strong>Fourier serisi</strong> kavramına götürecek.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/degiskenlere-ayirma/index.html">Değişkenlere Ayırma</a> &middot; 
+        
+        <a href="../../dizin/isi-denklemi/index.html">Isı Denklemi</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="15-lineerlik-ve-superpozisyon/index.html">1.5. Lineerlik ve Süperpozisyon</a>
+      <a data-toggle="collapse" href="#ozet-15-lineerlik-ve-superpozisyon" role="button" aria-expanded="false" aria-controls="ozet-15-lineerlik-ve-superpozisyon">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-15-lineerlik-ve-superpozisyon">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste ısı denkleminin <strong>lineerlik</strong> özelliğini vurgulayacağız. Bunun sonucu olan <strong>süperpozisyon</strong> ilkesine de değineceğiz. Bu iki özellik bizi Fourier serisi kavramına bir adım daha yaklaştıracak.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/lineerlik/index.html">Lineerlik</a> &middot; 
+        
+        <a href="../../dizin/superpozisyon/index.html">Süperpozisyon</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  
+
+
+  
+  
+  
+  
+  <div class="row mt-3">
+    <h3 style="font-family: 'Rajdhani', sans-serif;">
+      2. Fourier Serileri
+      <a data-toggle="collapse" href="#ozet-2-fourier-serileri" role="button" aria-expanded="false" aria-controls="ozet-2-fourier-serileri">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h3>
+  </div>
+ 
+  <div class="row">
+    <div class="collapse" id="ozet-2-fourier-serileri">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu bölümde Fourier serilerini <strong>enine boyuna</strong> inceleyeceğiz. Fourier serileri nasıl tanımlanır, nasıl hesaplanır, hangi koşullar altında yakınsaklıkları garanti edilebilir, hangi koşullar altında integrallenebilir gibi sorulara cevap arayacağız.
+      </div>
+    </div>
+  </div>
+
+
+  
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="21-giris/index.html">2.1. Giriş</a>
+      <a data-toggle="collapse" href="#ozet-21-giris" role="button" aria-expanded="false" aria-controls="ozet-21-giris">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-21-giris">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu kısa ders notunda tekrar Fourier'in çalışmasının tarihine döneceğiz. Fourier bu çalışmalarıyla meşhur olmuş olsa da ömrü boyunca bunların kanıtlarını verememiştir, bu sonuçlara ilişkin ilk kanıtlar <strong>Dirichlet</strong> tarafından verilecektir.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/cauchy-yakinsaklik-teoremi/index.html">Cauchy Yakınsaklık Teoremi</a> &middot; 
+        
+        <a href="../../dizin/dirichlet/index.html">Dirichlet</a> &middot; 
+        
+        <a href="../../dizin/kok-testi/index.html">Kök Testi</a> &middot; 
+        
+        <a href="../../dizin/oran-testi/index.html">Oran Testi</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="22-fourier-serileri/index.html">2.2. Fourier Serileri</a>
+      <a data-toggle="collapse" href="#ozet-22-fourier-serileri" role="button" aria-expanded="false" aria-controls="ozet-22-fourier-serileri">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-22-fourier-serileri">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Birinci bölümde nasıl bir seriye ihtiyaç duyduğumuzu keşfettik, bu bölümde bu serileri tanımlayacağız; <strong>Fourier serileri</strong>. Ayrıca bazı örnekler üzerinde bir fonsiyonun kendi Fourier serisine nasıl benzediğini gözlemleyeceğiz.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/fourier-katsayilari/index.html">Fourier Katsayıları</a> &middot; 
+        
+        <a href="../../dizin/fourier-serisi/index.html">Fourier Serisi</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="23-riemann-lebesgue-teoremi/index.html">2.3. Riemann-Lebesgue Teoremi</a>
+      <a data-toggle="collapse" href="#ozet-23-riemann-lebesgue-teoremi" role="button" aria-expanded="false" aria-controls="ozet-23-riemann-lebesgue-teoremi">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-23-riemann-lebesgue-teoremi">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu ders notunda <strong>integral</strong> kavramını kısaca hatırlayacağız, Fourier katsayılarının integrallerle hesaplandığını hatırlayın. Bu bölümde ayrıca Fourier serilerinin yakınsaklığını kanıtlamak için ihtiyacımız olan <strong>Riemann-Lebesgue teoremi</strong>ni de kanıtlayacağız.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/darboux/index.html">Darboux</a> &middot; 
+        
+        <a href="../../dizin/integral/index.html">Integral</a> &middot; 
+        
+        <a href="../../dizin/lebesgue/index.html">Lebesgue</a> &middot; 
+        
+        <a href="../../dizin/riemann/index.html">Riemann</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="24-fourier-serilerinin-yakinsakligi/index.html">2.4. Fourier Serilerinin Yakınsaklığı</a>
+      <a data-toggle="collapse" href="#ozet-24-fourier-serilerinin-yakinsakligi" role="button" aria-expanded="false" aria-controls="ozet-24-fourier-serilerinin-yakinsakligi">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-24-fourier-serilerinin-yakinsakligi">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu ders notunda Fourier serilerinin hangi koşullar altında yakınsak olduğu sorusuna cevap arayacağız. Fourier kendisi bu serilerin yakınsaklığını kanıtlayamamıştır, bu kanıt ilk defa <strong>Dirichlet</strong> tarafından verilmiştir fakat sadece <strong>noktasal</strong> yakınsama için. Bir aralık boyunca yakınsama problemi ancak <strong>1966</strong> yılında çözülebildi.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/dirichlet-cekirdegi/index.html">Dirichlet Çekirdeği</a> &middot; 
+        
+        <a href="../../dizin/fourier-serisi/index.html">Fourier Serisi</a> &middot; 
+        
+        <a href="../../dizin/yakinsaklik/index.html">Yakınsaklık</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="25-herhangi-bir-aralikta-fourier-serileri/index.html">2.5. Herhangi Bir Aralıkta Fourier Serileri</a>
+      <a data-toggle="collapse" href="#ozet-25-herhangi-bir-aralikta-fourier-serileri" role="button" aria-expanded="false" aria-controls="ozet-25-herhangi-bir-aralikta-fourier-serileri">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-25-herhangi-bir-aralikta-fourier-serileri">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu bölümde şu ana kadar standart olarak ele aldığımız aralığın dışında <strong>keyfi</strong> aralıklarda Fourier serilerini ele alacağız. Ayrıca özel Fourier serileri olan <strong>Fourier-sinüs</strong> ve <strong>Fourier-kosinüs</strong> serileri de tanıtılacaktır.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/fourier-cosinus-serisi/index.html">Fourier-Cosinüs Serisi</a> &middot; 
+        
+        <a href="../../dizin/fourier-sinus-serisi/index.html">Fourier-Sinüs Serisi</a> &middot; 
+        
+        <a href="../../dizin/periyodik-fonksiyon/index.html">Periyodik Fonksiyon</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="26-gibbs-olgusu/index.html">2.6. Gibbs Olgusu</a>
+      <a data-toggle="collapse" href="#ozet-26-gibbs-olgusu" role="button" aria-expanded="false" aria-controls="ozet-26-gibbs-olgusu">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-26-gibbs-olgusu">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste Fourier serilerinin yakınsaklığı ile ilgili ilginç bir detaya dikkat çekeceğiz. <strong>Gibbs olgusu</strong> dediğimiz bu durum bize Fourier serisinin kaç adımı hesaplanırsa hesaplansın, bazı noktalarda fonksiyona %91'den fazla yaklaşılamayacağını söyler. Üstelik bu %9'luk hata payı her fonksiyon ve her aralıkta her Fourier serisi için aynıdır.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/fourier-serisi/index.html">Fourier Serisi</a> &middot; 
+        
+        <a href="../../dizin/gibbs-olgusu/index.html">Gibbs Olgusu</a> &middot; 
+        
+        <a href="../../dizin/yakinsaklik/index.html">Yakınsaklık</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="27-fejer-serileri/index.html">2.7. Fejer Serileri</a>
+      <a data-toggle="collapse" href="#ozet-27-fejer-serileri" role="button" aria-expanded="false" aria-controls="ozet-27-fejer-serileri">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-27-fejer-serileri">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Fourier serilerinin yakınsaklıkları konusunda bazı sıkıntılar olduğunu önceki bölümlerde gördük. Mesela sürekli fonksiyonların bile Fourier serileri sonsuz sayıda noktada ıraksak olabilir, başka bir sıkıntı da Gibbs olgusu. Fourier serileri yerine bunların kısmi toplamlar dizilerinin <strong>Cesaro ortalamaları</strong> alınarak oluşturulan serilerde bu sıkıntıların oluşmadığı <strong>Lipot Fejer</strong> tarafından keşfedilmiş.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/cesaro-ortalamasi/index.html">Cesaro Ortalaması</a> &middot; 
+        
+        <a href="../../dizin/fejer-serisi/index.html">Fejer Serisi</a> &middot; 
+        
+        <a href="../../dizin/fourier-serisi/index.html">Fourier Serisi</a> &middot; 
+        
+        <a href="../../dizin/gibbs-olgusu/index.html">Gibbs Olgusu</a> &middot; 
+        
+        <a href="../../dizin/yakinsaklik/index.html">Yakınsaklık</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="28-fourier-serilerinin-integrali/index.html">2.8. Fourier Serilerinin İntegrali</a>
+      <a data-toggle="collapse" href="#ozet-28-fourier-serilerinin-integrali" role="button" aria-expanded="false" aria-controls="ozet-28-fourier-serilerinin-integrali">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-28-fourier-serilerinin-integrali">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bildiğiniz gibi bir seri düzgün yakınsak ise terim terim integrallenebilir, bu derste göreceğiz ki Fourier serilerinin integrallenebilmesi için düzgün yakınsaklığa <strong>gerek yoktur</strong>. Ayrıca bu derste şu soruya da cevap arayacağız; verilen bir trigonometrik serinin bir <strong>Fourier serisi olup olmadığını</strong> nasıl tespit edebiliriz?
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/duzgun-yakinsaklik/index.html">Düzgün Yakınsaklık</a> &middot; 
+        
+        <a href="../../dizin/fourier-serisi/index.html">Fourier Serisi</a> &middot; 
+        
+        <a href="../../dizin/integral/index.html">Integral</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  
+
+
+  
+  
+  
+  
+  <div class="row mt-3">
+    <h3 style="font-family: 'Rajdhani', sans-serif;">
+      3. Isı İletim Problemine Dönüş
+      <a data-toggle="collapse" href="#ozet-3-isi-iletim-problemine-donus" role="button" aria-expanded="false" aria-controls="ozet-3-isi-iletim-problemine-donus">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h3>
+  </div>
+ 
+  <div class="row">
+    <div class="collapse" id="ozet-3-isi-iletim-problemine-donus">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Birinci bölümde ısı iletim problemini elde ettik, ikinci bölümde Fourier serilerini tanıttık. Bu bölümde artık öğrendiklerimizi kullanarak ısı iletim probleminin <strong>çözümünü</strong> tartışacağız. Öncelikle çözümün <strong>varlığını ve kararlılığını</strong> elde edeceğiz. Daha sonra da Isı iletim probleminin bazı <strong>genellemelerini</strong> ele alacağız, bu genellemeler bizi sonraki bölümlerde çok önemli kavramlara götürecek.
+      </div>
+    </div>
+  </div>
+
+
+  
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="31-cozumun-varligi/index.html">3.1. Çözümün Varlığı</a>
+      <a data-toggle="collapse" href="#ozet-301-cozumun-varligi" role="button" aria-expanded="false" aria-controls="ozet-301-cozumun-varligi">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-301-cozumun-varligi">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste ısı iletim denkleminin çözümünün varlığını kanıtlayacağız. Aslında önceki bölümlerde keşfettiğimiz bilgileri kullanarak istenen özelliklerde olan bir fonksiyona, yani ısı iletim denkleminin çözümü olan bir fonksiyona, yakınsak olan Fourier serilerinin varlığını kanıtlayacağız.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/cozumun-varligi/index.html">Çözümün Varlığı</a> &middot; 
+        
+        <a href="../../dizin/fourier-serisi/index.html">Fourier Serisi</a> &middot; 
+        
+        <a href="../../dizin/heine-borel-teoremi/index.html">Heine-Borel Teoremi</a> &middot; 
+        
+        <a href="../../dizin/isi-denklemi/index.html">Isı Denklemi</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="32-cozumun-tekligi-ve-kararliligi/index.html">3.2. Çözümün Tekliği ve Kararlılığı</a>
+      <a data-toggle="collapse" href="#ozet-302-cozumun-tekligi-ve-kararliligi" role="button" aria-expanded="false" aria-controls="ozet-302-cozumun-tekligi-ve-kararliligi">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-302-cozumun-tekligi-ve-kararliligi">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bir önceki bölümde ısı denkleminin çözümünün varlığını elde etmiştik. Fakat çözümlerin Hadamard anlamında iyi tanımlı olmasını da istiyoruz. Yani çözümlerin tekliği ve kararlılığına ihtiyacımız var, bu bölümde bunları kanıtlayacağız.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/cozumun-tekligi/index.html">Çözümün Tekliği</a> &middot; 
+        
+        <a href="../../dizin/kararli-cozum/index.html">Kararlı Çözüm</a> &middot; 
+        
+        <a href="../../dizin/maksimum-prensibi/index.html">Maksimum Prensibi</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="33-uc-noktalarda-farkli-sicakliklar/index.html">3.3. Uç Noktalarda Farklı Sıcaklıklar</a>
+      <a data-toggle="collapse" href="#ozet-303-uc-noktalarda-farkli-sicakliklar" role="button" aria-expanded="false" aria-controls="ozet-303-uc-noktalarda-farkli-sicakliklar">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-303-uc-noktalarda-farkli-sicakliklar">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste ele aldığımız ısı iletim problemini az miktar zorlaştırıyoruz, uç noktalardaki sıcaklıkların farklı olduğu durumu ele alıyoruz. Bu durumda önceki derslerde klasik ısı iletim problemi için elde ettiğimiz sonuçları kullanarak çözümlerin varlığına ve iyi tanımlılığına ulaşacağız.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/denge-durumu-sicakligi/index.html">Denge Durumu Sıcaklığı</a> &middot; 
+        
+        <a href="../../dizin/gecici-cozum/index.html">Geçici Çözüm</a> &middot; 
+        
+        <a href="../../dizin/isi-denklemi/index.html">Isı Denklemi</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="34-uclari-yalitimli-cubuk/index.html">3.4. Uçları Yalıtımlı Çubuk</a>
+      <a data-toggle="collapse" href="#ozet-304-uclari-yalitimli-cubuk" role="button" aria-expanded="false" aria-controls="ozet-304-uclari-yalitimli-cubuk">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-304-uclari-yalitimli-cubuk">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste ortamdan tamamen izole edilmiş bir çubuktaki ısı iletim problemini ele alacağız, Fourier yasalarını kullanarak yeni bir sınır değer problemi türeteceğiz. Daha sonra bunun çözümlerinin varlığı ve kararlılığı üzerinde konuşacağız.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/degiskenlere-ayirma/index.html">Değişkenlere Ayırma</a> &middot; 
+        
+        <a href="../../dizin/isi-denklemi/index.html">Isı Denklemi</a> &middot; 
+        
+        <a href="../../dizin/sinir-deger-problemi/index.html">Sınır Değer Problemi</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="35-farkli-uc-nokta-kosullari/index.html">3.5. Farklı Uç Nokta Koşulları</a>
+      <a data-toggle="collapse" href="#ozet-305-farkli-uc-nokta-kosullari" role="button" aria-expanded="false" aria-controls="ozet-305-farkli-uc-nokta-kosullari">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-305-farkli-uc-nokta-kosullari">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Son iki bölümde farklı uç nokta sıcaklıkları ve izole uç noktalar olması durumlarını inceledik. Bu derste bunların bir karışımını, yani bir uç noktanın ortamdan izole olması ve diğer uç noktanın böyle olmaması durumunu inceleyeceğiz.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/degiskenlere-ayirma/index.html">Değişkenlere Ayırma</a> &middot; 
+        
+        <a href="../../dizin/isi-denklemi/index.html">Isı Denklemi</a> &middot; 
+        
+        <a href="../../dizin/sinir-deger-problemi/index.html">Sınır Değer Problemi</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="36-bir-ucta-isi-konveksiyonu/index.html">3.6. Bir Uçta Isı Konveksiyonu</a>
+      <a data-toggle="collapse" href="#ozet-306-bir-ucta-isi-konveksiyonu" role="button" aria-expanded="false" aria-controls="ozet-306-bir-ucta-isi-konveksiyonu">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-306-bir-ucta-isi-konveksiyonu">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Çubuğun bir uç noktası bir şekilde sabit sıcaklıkta tutuluyor ve diğer uç noktasından ortam ile ısı alışverişine izin veriliyor olsun, böyle bir ısı iletimine ısı <strong>konveksiyonu</strong> denir. Bu derste ısı konveksiyonu problemini tartışacağız.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/degiskenlere-ayirma/index.html">Değişkenlere Ayırma</a> &middot; 
+        
+        <a href="../../dizin/isi-denklemi/index.html">Isı Denklemi</a> &middot; 
+        
+        <a href="../../dizin/isi-konveksiyonu/index.html">Isı Konveksiyonu</a> &middot; 
+        
+        <a href="../../dizin/sinir-deger-problemi/index.html">Sınır Değer Problemi</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="37-zamandan-bagimsiz-problemler/index.html">3.7. Zamandan Bağımsız Problemler</a>
+      <a data-toggle="collapse" href="#ozet-307-zamandan-bagimsiz-problemler" role="button" aria-expanded="false" aria-controls="ozet-307-zamandan-bagimsiz-problemler">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-307-zamandan-bagimsiz-problemler">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste ısı iletim problemini daha da genelleştireceğiz, bu genel durumda daha önce sabit kabul ettiğimiz bazı parametreleri değişken olarak değerlendireceğiz. Bu derste problemi tanımlayıp yapılacakları listeleyeceğiz.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/isi-denklemi/index.html">Isı Denklemi</a> &middot; 
+        
+        <a href="../../dizin/sinir-deger-problemi/index.html">Sınır Değer Problemi</a> &middot; 
+        
+        <a href="../../dizin/zamandan-bagimsiz-problem/index.html">Zamandan Bağımsız Problem</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="38-denge-durumu-cozumu/index.html">3.8. Denge Durumu Çözümü</a>
+      <a data-toggle="collapse" href="#ozet-308-denge-durumu-cozumu" role="button" aria-expanded="false" aria-controls="ozet-308-denge-durumu-cozumu">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-308-denge-durumu-cozumu">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste zamandan bağımsız <a class="eqref" href="37-zamandan-bagimsiz-problemler/index.html#bvp3-heat-1">(3.7.1)</a>-<a class="eqref" href="37-zamandan-bagimsiz-problemler/index.html#bvp3-mod-3">(3.7.4)</a> probleminin denge durumu çözümünü araştıracağız. Ayrıca bazı örnekler vereceğiz.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/denge-durumu-sicakligi/index.html">Denge Durumu Sıcaklığı</a> &middot; 
+        
+        <a href="../../dizin/zamandan-bagimsiz-problem/index.html">Zamandan Bağımsız Problem</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="39-gecici-cozum/index.html">3.9. Geçici Çözüm</a>
+      <a data-toggle="collapse" href="#ozet-309-gecici-cozum" role="button" aria-expanded="false" aria-controls="ozet-309-gecici-cozum">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-309-gecici-cozum">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste Eğer $u$ fonksiyonu <a class="eqref" href="37-zamandan-bagimsiz-problemler/index.html#bvp3-heat-1">(3.7.1)</a>-<a class="eqref" href="37-zamandan-bagimsiz-problemler/index.html#bvp3-mod-3">(3.7.4)</a> probleminin denge çözümünü araştırmaya başlayacağız. Bu araştırmamızda dokuz önemli soruya cevap vermemiz gerektiğini göreceğiz, bu sorular sonraki bölümlerde bizi önemli kavramlara götürecek.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/degiskenlere-ayirma/index.html">Değişkenlere Ayırma</a> &middot; 
+        
+        <a href="../../dizin/gecici-cozum/index.html">Geçici Çözüm</a> &middot; 
+        
+        <a href="../../dizin/zamandan-bagimsiz-problem/index.html">Zamandan Bağımsız Problem</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="310-tam-cozum/index.html">3.10. Tam Çözüm</a>
+      <a data-toggle="collapse" href="#ozet-310-tam-cozum" role="button" aria-expanded="false" aria-controls="ozet-310-tam-cozum">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-310-tam-cozum">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Önceki iki bölümde <a class="eqref" href="37-zamandan-bagimsiz-problemler/index.html#bvp3-heat-1">(3.7.1)</a>-<a class="eqref" href="37-zamandan-bagimsiz-problemler/index.html#bvp3-mod-3">(3.7.4)</a> probleminin denge durumu çözümünü ve geçici çözümü araştırdık. Bu bölümde de bu problemin tam çözümünün kararlılığını araştıracağız.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/kararli-cozum/index.html">Kararlı Çözüm</a> &middot; 
+        
+        <a href="../../dizin/zamandan-bagimsiz-problem/index.html">Zamandan Bağımsız Problem</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="311-zamana-bagimli-problemler/index.html">3.11. Zamana Bağımlı Problemler</a>
+      <a data-toggle="collapse" href="#ozet-311-zamana-bagimli-problemler" role="button" aria-expanded="false" aria-controls="ozet-311-zamana-bagimli-problemler">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-311-zamana-bagimli-problemler">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu kısa ders notunda son birkaç derste tartıştığımız zamandan bağımsız problemlerin tersine, zamana bağlı problemlere değinilecektir. Bu konuda kısa bir bilgi verilip çok detaylı araştırma yapılmayacaktır.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/isi-denklemi/index.html">Isı Denklemi</a> &middot; 
+        
+        <a href="../../dizin/sinir-deger-problemi/index.html">Sınır Değer Problemi</a> &middot; 
+        
+        <a href="../../dizin/zamana-bagimli-problemler/index.html">Zamana Bağımlı Problemler</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  
+
+
+  
+  
+  
+  
+  <div class="row mt-3">
+    <h3 style="font-family: 'Rajdhani', sans-serif;">
+      4. Genelleştirilmiş Fourier Serileri
+      <a data-toggle="collapse" href="#ozet-4-genellestirilmis-fourier-serileri" role="button" aria-expanded="false" aria-controls="ozet-4-genellestirilmis-fourier-serileri">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h3>
+  </div>
+ 
+  <div class="row">
+    <div class="collapse" id="ozet-4-genellestirilmis-fourier-serileri">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu bölümde <strong>Sturm-Liouville</strong> teorisini kullanarak, daha önceki bölümlerde karşılaştığımız ve Fourier serilerinin yetersiz kaldığı ısı iletim problemlerinin çözümlerini elde edeceğiz. Bu çözümler, terimleri özel durumlarda trigonometrik fonksiyonlar olan ama genelde öyle olması gerekmeyen sonsuz seriler olacaklar.
+      </div>
+    </div>
+  </div>
+
+
+  
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="41-sturm-liouville-problemleri/index.html">4.1. Sturm-Liouville Problemleri</a>
+      <a data-toggle="collapse" href="#ozet-41-sturm-liouville-problemi" role="button" aria-expanded="false" aria-controls="ozet-41-sturm-liouville-problemi">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-41-sturm-liouville-problemi">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu bölümde genelleştirilmiş Fourier serilerine ilk adımı atmak için Sturm-Liouville teorisine giriş yapıyoruz. Önce <strong>Sturm-Liouville problemlerini</strong> tanımlayıp bazı örnekler vereceğiz.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/euler-denklemi/index.html">Euler Denklemi</a> &middot; 
+        
+        <a href="../../dizin/ozdeger/index.html">Özdeğer</a> &middot; 
+        
+        <a href="../../dizin/ozfonksiyon/index.html">Özfonksiyon</a> &middot; 
+        
+        <a href="../../dizin/sturm-liouville-problemi/index.html">Sturm-Liouville Problemi</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="42-ozdegerler-ve-ozfonksiyonlar/index.html">4.2. Özdeğerler ve Özfonksiyonlar</a>
+      <a data-toggle="collapse" href="#ozet-42-ozdegerler-ve-ozfonksiyonlar" role="button" aria-expanded="false" aria-controls="ozet-42-ozdegerler-ve-ozfonksiyonlar">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-42-ozdegerler-ve-ozfonksiyonlar">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste daha önce <a class="eqref" href="39-gecici-cozum/index.html">Bölüm 3.9</a> ile ortaya koyduğumuz dokuz önemli sorudan bazılarına cevap vereceğiz. Bu cevapları özdeğer ve özvektörlerin özelliklerini araştırırken bulacağız.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/ozdeger/index.html">Özdeğer</a> &middot; 
+        
+        <a href="../../dizin/ozfonksiyon/index.html">Özfonksiyon</a> &middot; 
+        
+        <a href="../../dizin/sturm-liouville-problemi/index.html">Sturm-Liouville Problemi</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="43-ozdegerlerin-varligi/index.html">4.3. Özdeğerlerin Varlığı</a>
+      <a data-toggle="collapse" href="#ozet-43-ozdegerlerin-varligi" role="button" aria-expanded="false" aria-controls="ozet-43-ozdegerlerin-varligi">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-43-ozdegerlerin-varligi">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu bölüm biraz uzun, Sturm-Liouville teorisinin en önemli sonuçlarını kanıtlayacağız. Elde edeceğimiz bu sonuçlar <a class="eqref" href="39-gecici-cozum/index.html">Bölüm 3.9</a> ile ortaya koyduğumuz bazı sorulara cevap verecek.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/hill-denklemi/index.html">Hill Denklemi</a> &middot; 
+        
+        <a href="../../dizin/ozdeger/index.html">Özdeğer</a> &middot; 
+        
+        <a href="../../dizin/periyodik-slp/index.html">Periyodik Slp</a> &middot; 
+        
+        <a href="../../dizin/prufer-donusumu/index.html">Prüfer Dönüşümü</a> &middot; 
+        
+        <a href="../../dizin/sturm-liouville-problemi/index.html">Sturm-Liouville Problemi</a> &middot; 
+        
+        <a href="../../dizin/sturm-mukayese-teoremi/index.html">Sturm Mukayese Teoremi</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="44-genellestirilmis-fourier-serileri/index.html">4.4. Genelleştirilmiş Fourier Serileri</a>
+      <a data-toggle="collapse" href="#ozet-44-genellestirilmis-fourier-serileri" role="button" aria-expanded="false" aria-controls="ozet-44-genellestirilmis-fourier-serileri">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-44-genellestirilmis-fourier-serileri">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Öğrendiklerimizi kullanarak bu bölümde artık <strong>genelleştirilmiş Fourier serisi</strong> kavramını tanımlayabileceğiz. Ayrıca bu bölümde daha önce <a class="eqref" href="39-gecici-cozum/index.html">Bölüm 3.9</a> ile ortaya attığımız sorulardan son kalanları da cevaplayacağız.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/genellestirilmis-fourier-serisi/index.html">Genelleştirilmiş Fourier Serisi</a> &middot; 
+        
+        <a href="../../dizin/sturm-liouville-problemi/index.html">Sturm-Liouville Problemi</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  
+
+
+  
+  
+  
+  
+  <div class="row mt-3">
+    <h3 style="font-family: 'Rajdhani', sans-serif;">
+      5. Ortogonal Sistemler
+      <a data-toggle="collapse" href="#ozet-5-ortogonal-sistemler" role="button" aria-expanded="false" aria-controls="ozet-5-ortogonal-sistemler">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h3>
+  </div>
+ 
+  <div class="row">
+    <div class="collapse" id="ozet-5-ortogonal-sistemler">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu bölümde Fourier serilerini trigonometrik fonksiyonlardan ve  Sturm-Liouville probleminin özfonksiyonlarından daha genel olan fonksiyon sınıfları için tanımlayacağız.
+      </div>
+    </div>
+  </div>
+
+
+  
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="51-parseval-ozdesligi/index.html">5.1. Parseval Özdeşliği</a>
+      <a data-toggle="collapse" href="#ozet-51-parseval-ozdesligi" role="button" aria-expanded="false" aria-controls="ozet-51-parseval-ozdesligi">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-51-parseval-ozdesligi">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu bölümde <strong>ortogonal sistem</strong> kavramını tanımlayıp bazı önemli örneklerini vereceğiz. Ayrıca ortogonal sistemler ve tamlık ilişkisi için çok önemli olan <strong>Parseval özdeşliğine</strong> de ulaşacağız.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/chebyshev-polinomlari/index.html">Chebyshev Polinomları</a> &middot; 
+        
+        <a href="../../dizin/haar-fonksiyonlari/index.html">Haar Fonksiyonları</a> &middot; 
+        
+        <a href="../../dizin/ic-carpim/index.html">İç Çarpım</a> &middot; 
+        
+        <a href="../../dizin/norm/index.html">Norm</a> &middot; 
+        
+        <a href="../../dizin/ortogonal-sistem/index.html">Ortogonal Sistem</a> &middot; 
+        
+        <a href="../../dizin/parseval-ozdesligi/index.html">Parseval Özdeşliği</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="52-bir-yaklasim-problemi/index.html">5.2. Bir Yaklaşım Problemi</a>
+      <a data-toggle="collapse" href="#ozet-52-bir-yaklasim-problemi" role="button" aria-expanded="false" aria-controls="ozet-52-bir-yaklasim-problemi">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-52-bir-yaklasim-problemi">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste şu ilginç ve önemli bilgiyi keşfedeceğiz: integrallenebilir bir fonksiyona yaklaşmanın <strong>en iyi</strong> yolu onun Fourier serisidir. Ayrıca <strong>Parseval özdeşliğinin</strong> kısmi ispatı ve <strong>Bessel özdeşliğini</strong> de vereceğiz.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/bessel-esitsizligi/index.html">Bessel Eşitsizliği</a> &middot; 
+        
+        <a href="../../dizin/parseval-ozdesligi/index.html">Parseval Özdeşliği</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="53-duzgun-yakinsaklik/index.html">5.3. Düzgün Yakınsaklık</a>
+      <a data-toggle="collapse" href="#ozet-53-duzgun-yakinsaklik" role="button" aria-expanded="false" aria-controls="ozet-53-duzgun-yakinsaklik">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-53-duzgun-yakinsaklik">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu kısa derste daha önce ispatsız olarak verdiğimiz Fourier serilerinin düzgün yakınsaklığına ilişkin temel bir teoremi (<a class="eqref" href="31-cozumun-varligi/index.html#bvp-teo-varlik-2">Teorem 3.1.2</a>) ispatlayacağız.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/duzgun-yakinsaklik/index.html">Düzgün Yakınsaklık</a> &middot; 
+        
+        <a href="../../dizin/fourier-serisi/index.html">Fourier Serisi</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="54-ortalamada-yakinsaklik/index.html">5.4. Ortalamada Yakınsaklık</a>
+      <a data-toggle="collapse" href="#ozet-54-ortalamada-yakinsaklik" role="button" aria-expanded="false" aria-controls="ozet-54-ortalamada-yakinsaklik">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-54-ortalamada-yakinsaklik">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu yazımızda Parseval özdeşliğinin tam kanıtına değineceğiz. Ayrıca Fourier serileri ile ortalamada yakınsaklık kavramı arasındaki ilişkiyi de tartışacağız.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/fourier-serisi/index.html">Fourier Serisi</a> &middot; 
+        
+        <a href="../../dizin/ortalamada-yakinsaklik/index.html">Ortalamada Yakınsaklık</a> &middot; 
+        
+        <a href="../../dizin/parseval-ozdesligi/index.html">Parseval Özdeşliği</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="55-riesz-fischer-teoremi/index.html">5.5. Riesz-Fischer Teoremi</a>
+      <a data-toggle="collapse" href="#ozet-55-riesz-fischer-teoremi" role="button" aria-expanded="false" aria-controls="ozet-55-riesz-fischer-teoremi">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-55-riesz-fischer-teoremi">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste Fourier serilerinin herhangi bir ortogonal sisteme göre tamlığını tartışacağız. Riesz-Fischer teoremi olarak bilinen bu önemli sonuç bugün <strong>fonksiyonel analiz</strong> olarak adlandırdığımız matematik branşının doğmasına sebep olan bir dizi önemli çalışmadan biridir.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/fonksiyonel-analiz/index.html">Fonksiyonel Analiz</a> &middot; 
+        
+        <a href="../../dizin/fourier-serisi/index.html">Fourier Serisi</a> &middot; 
+        
+        <a href="../../dizin/hilbert-uzaylari/index.html">Hilbert Uzayları</a> &middot; 
+        
+        <a href="../../dizin/ortogonal-sistem/index.html">Ortogonal Sistem</a> &middot; 
+        
+        <a href="../../dizin/riesz-fischer-teoremi/index.html">Riesz-Fischer Teoremi</a> &middot; 
+        
+        <a href="../../dizin/yakinsaklik/index.html">Yakınsaklık</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  
+
+
+  
+  
+  
+  
+  
+
+
+  
+  <div class="row mt-5">
+    <h3 style="font-family: 'Rajdhani', sans-serif;">
+      KAYNAKÇA
+      <a data-toggle="collapse" href="#kaynakca-fourier-analizi" role="button" aria-expanded="false" aria-controls="kaynakca-fourier-analizi">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h3>
+  </div>
+
+  <div class="row">
+    <div class="collapse" id="kaynakca-fourier-analizi">
+      <div class="col p-1 mb-3 bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <ol>
+<li><strong>E. A. Gonzalez-Velasco</strong>, <em>Fourier Analysis and Boundary Value Problems</em>, Elseiver Science & Technology Books, Massachusetts, 1996.</li>
+<li><strong>R. Haberman</strong>, <em>Applied Partial Differential Equations, 5th Ed.</em>, Pearson Education, New Jersey, 2013.</li>
+<li><strong>G. B. Folland</strong>, <em>Fourier Analysis and Its Applications</em>, Brooks/Coole Publishing Company, California, 1992.</li>
+<li><strong>G. B. Tolstov</strong>, <em>Fourier Series</em>, Dover Publications, New Jersey, 1962.</li>
+</ol>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:33:47 GMT -->
+</html>

@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/55-riesz-fischer-teoremi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 5.5. Riesz-Fischer Teoremi
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>5.5. Riesz-Fischer Teoremi</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-13">
+          13 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste Fourier serilerinin herhangi bir ortogonal sisteme göre tamlığını tartışacağız. Riesz-Fischer teoremi olarak bilinen bu önemli sonuç bugün <strong>fonksiyonel analiz</strong> olarak adlandırdığımız matematik branşının doğmasına sebep olan bir dizi önemli çalışmadan biridir.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/fonksiyonel-analiz/index.html">fonksiyonel analiz</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/fourier-serisi/index.html">Fourier serisi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/hilbert-uzaylari/index.html">Hilbert uzayları</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/ortogonal-sistem/index.html">ortogonal sistem</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/riesz-fischer-teoremi/index.html">Riesz-Fischer teoremi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/yakinsaklik/index.html">yakınsaklık</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Daha önce <a class="eqref" href="../54-ortalamada-yakinsaklik/index.html#ortogonal-theo-5">Teorem 5.4.2</a> ile integrallenebilir bir fonksiyonun Fourier serisinin yakınsaklığını düzgün bir Sturm-Liouville probleminin özfonksiyonlarına göre kanıtlamıştık. Bu bölümde bu yakınsaklığı keyfi bir $\{\varphi_n \}$ ortogonal sistemine göre kanıtlayacağız.
+</p>
+
+<p>
+Bir fonksiyonun bir ortogonal sisteme göre Fourier serisinin yakınsak olabilmesi için en azından bu sistemde yeteri kadar fonksiyon bulunması, yani sistemin tam olması gerekiyordu. Fakat doğal olarak akla gelen diğer bir soru da, integrallenebilir fonksiyonlar uzayının bu yakınsama için yeterince geniş olup olmadığıdır, yani keyfi verilen $c_n$ sayılarını Fourier serisi katsayıları olarak kabul eden integrallenebilir bir fonksiyon her zaman var mıdır? Bu soruyu ilk soran ve çözen <strong>Frigyes Riesz</strong> (1880-1956) oldu. Riezs gösterdi ki Riemann anlamında integrallenebilen fonksiyonların uzayı bu anlamda yeterli değil, fakat $[a,b]$ aralığında Lebesgue anlamında karesi integrallenebilir fonksiyonların uzayı yeterlidir. Bu uzayı $L_2(a,b)$ ile gösteririz, fonksiyonunun karesinin integrallenebilmesi normunun tanımlı olması için gereklidir ve kendisinin integrallenebilmesi yetmez. Gerçekten $f(x)=1/\sqrt{x}$ fonksiyonu $(0,1)$ aralığında Lebesgue anlamında integrallenebilirdir fakat karesi öyle değildir, genel durumdu Lebesgue anlamında integrallenebilen fonksiyonların çarpımının da integrallenebilmesi gerekmez.
+</p>
+
+<p>
+Bu sonucun kanıtı önce 1907 yılında ölçü teorisi argümanlarıyla Riesz tarafından verildi, bundan bir kaç ay sonra <strong>Fischer</strong> ise $L_2$ uzayının tam olduğunu kanıtladı. Bu durumda Riesz'in teoremi Fischerin teoreminin bir sonucu oluyordu, bundan dolayı bu sonuç <strong>Riesz-Fischer teoremi</strong> olarak bilinir. Biz burada sadece bu teoremin nasıl Fischer'in teoreminin bir sonucu olduğunu göstereceğiz, okuyucunun $L_2(a,b)$ uzayının yarımetrik yapısını bildiğini varsayıyoruz.
+</p>
+
+<p>
+<div class="envtheo" id="ortogonal-theo-8"><h6 class="thenv">Teorem 5.5.1 (Riesz-Fischer Teoremi</h6>$\{\varphi_n\}$ sistemi $L_2(a,b)$ uzayında ortogonal olsun, ayrıca $\{c_n\}$ dizisi de $\sum_{n=1}^{\infty}c_n^2\Vert \varphi_n\Vert^2$ serisi yakınsak olacak şekilde olsun. Bu durumda $L_2(a,b)$ uzayında Fourier katsayıları $c_n$ sayıları olan bir $f$ fonksiyonu vardır ve $$\Vert f\Vert^2=\sum_{n=1}^{\infty}c_n^2\Vert \varphi_n\Vert^2$$ Parseval özdeşliği sağlanır. Ayrıca eğer $\{\varphi_n\}$ tam ise $L_2(a,b)$ uzayında böyle tek bir $f$ fonksiyonu vardır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong> Şimdi $$s_N:=\sum_{n=1}^{N}c_n\varphi_n$$ olarak tanımlayalım, bu durumda $c_n=\langle f,\varphi_n\rangle$ olmak üzere $N\rightarrow\infty$ için $\Vert s_N-f\Vert=\infty$ olacak şekilde $L_2(a,b)$ uzayında bir $f$ fonksiyonunun var olduğunu göstermek yeterlidir. Eğer $m>n$ keyfi doğal sayılar ise $$\Vert s_m-s_n\Vert^2=\sum_{k=n+1}^{m}\sum_{r=n+1}^{m}c_k\langle \varphi_m,\varphi_n\rangle=\sum_{k=n+1}^{m}|c_k|^2$$ olduğu görülür, <a class="eqref" href="../52-bir-yaklasim-problemi/index.html#ortogonal-sonuc-2">Bessel eşitsizliği</a> gereği bu ifadenin sağ tarafı yeterince büyük $m$ ve $n$ sayıları için keyfi bir $\epsilon>0$ sayısından küçük kalır. Bu da $\{s_n\}$ dizisinin bir Cauchy dizisi olduğu anlamına gelir, dolayısıyla $L_2(a,b)$ uzayının tamlığı gereği $N\rightarrow\infty$ için $\Vert s_N-f\Vert=\infty$ olacak şekilde $L_2(a,b)$ uzayında bir $f$ fonksiyonu vardır. Şimdi $c_n=\langle f,\varphi_n\rangle$ olduğunu gösterelim. $N>n$ için $\langle s_N,\varphi_n\rangle=c_n$ olduğundan hareketle, Cauchy-Schwarz eşitsizliğini kullanırsak $$\left|c_N-\langle f,\varphi_n\rangle\right|=\left|\langle s_N,\varphi_n\rangle-\langle f,\varphi_n\rangle \right|=\left|\langle s_N-f,\varphi_n\rangle\right|\leq\Vert s_n-f\Vert$$ olduğu görülür, $N\rightarrow\infty$ iken $\Vert s_N-f\Vert=0$ olduğundan istenen elde edilmiş olur.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+Yukarıda tanımladığımız norm kavramını bir nevi fonksiyonların sıfıra olan uzaklıkları gibi yorumladık. 1906 yılında <strong>Maurice Frechet</strong> (1878-1973) tarafından genel bir uzaklık kavramı tanımladı ve Frechet bu şekilde uzaklık fonksiyonu tanımlanabilen uzayları <strong>metrik uzaylar</strong> olarak adlandırdı. Bu tanıma göre $L_2$ uzayı bir metrik uzay oluyordu, o zamanlarda gündemde olan diğer bir metrik uzay ise $\sum_{n=0}^{\infty}k_n^2<\infty$ olan $\{k_n\}$ dizilerinin uzayı olan $\ell_2$ uzayı idi. Bu metrik uzayı 1908 yılında Schmidt tanıtmıştır fakat bu uzay üzerinde ilk çalışmalar Hilbert'e aittir. Hem Schmidt hem de Frechet $L_2$ ve $\ell_2$ uaylarının geometrik olarak birbiriyle uyumlu olduğunu farkettiler ve bu durum Riesz-Ficher teoreminin kanıtıyla açıklığa kavuştu. Gerçekten bir tam ortogonal sistem verildiğinde $L_2$ uzayındaki her $f$ fonksiyonu ile $\{c_n\Vert \varphi_n\Vert\}$ dizisi eşlenirse, Riesz-Fischer teoremine gereği $L_2$ ve $\ell_2$ uzayları arasında bire bir bir eşleme yapılmış olur.
+</p>
+
+<p>
+Riesz 1913 yılında kendi yayımladığı kitabnda $L_2$ ve $\ell_2$ uzaylarını <strong>Hilbert uzayları</strong> olarak adlandırmıştı. Bu uzaylar, daha sonra 1920'li yıllarda <strong>John von Neumann</strong> (1903-1957) tarafından tanımlanıp aksiyomatik olarak teorisi geliştirilecek ve Hilbert uzayı olarak adlandırılacak olan daha geniş bir sonsuz boyutlu uzay kavramının özel birer örnekleri olacaklardır. Fakat teorinin sonu burada gelmemiştir, daha sonra Riesz $p>1$ olmak üzere $L_p$ uzayı kavramını tanımlayarak önemli bir genişletme yapmıştır. Bu konudaki en etkileyici çalışmalar <strong>Stefan Banach</strong> (1892-1945) tarafından yapılmıştır ve bunların bazıları kendisinin 1932 yılında yayınladığı bir kitapta verilmiştir.
+</p>
+
+<p>
+Riesz, Frechet, Schmidt, Hilbert ve Banach'ın bu çalışmaları Lebesgue integrasyonunun önemini açık bir şekilde göstermiştir. İlk örneği Riesz-Fischer teoremiyle açığa çıkan metrik uzaylar arasındaki bağlantıların araştırılması o yıllarda yeni bir matematik branşının doğmasına sebep olmuştur. Bu branşı, ilk kez <strong>Paul P. Levy</strong> (1886-1971) tarafından adlandırıldığı şekliyle, <strong>fonksiyonel analiz</strong> olarak adlandırıyoruz.
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../54-ortalamada-yakinsaklik/index.html">5.4. Ortalamada Yakınsaklık</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Fourier Analizi</a>
+      </div>
+      <div class="col text-right">
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/55-riesz-fischer-teoremi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:46 GMT -->
+</html>

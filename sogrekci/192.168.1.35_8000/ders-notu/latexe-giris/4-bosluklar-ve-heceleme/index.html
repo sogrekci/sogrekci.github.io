@@ -1,0 +1,348 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/latexe-giris/4-bosluklar-ve-heceleme/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:41:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 4. Boşluklar ve Heceleme
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>4. Boşluklar ve Heceleme</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-17">
+          17 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-29">
+          29 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>LaTeX sistemi boşlukları kendisi otomatik olarak ayarlar, kullanıcıya bırakmaz. Eğer LaTeX'in boşluklama sisteminden memnun kalmazsanız bazı küçük müdaheleler ile değişikliğe gidebilirsiniz.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/bosluklar/index.html">boşluklar</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/heceleme/index.html">heceleme</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/latex/index.html">LaTeX</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+LaTeX sistemi belgenizin biçimini etkileyen bir çok öğeyi <strong>otomatik</strong> olarak ayarlar, size bırakmaz, mesela belgenizdeki <strong>boşlukların boyutu</strong> ve kelimelerinizin <strong>hecelenişi</strong> gibi. Arka arkaya kaç tane boşluk bırakırsanız bırakın belgenizde bunun çıktısı her zaman <strong>tek</strong> bir boşluk karakteri olacaktır, kaç satır atlarsanız atlayın (birden fazla olmak kaydıyla) belgenizde hep <strong>tek satır</strong> boşluk görürsünüz. LaTeX sistemi <strong>paragrafları ve sayfaları</strong> otomatik olarak oluşturur, satırın nerede bölüneceğine ve paragrafın nasıl oluşacağına ve bu gibi bir çok şeye karar vermek için bazı algoritmaları vardır. Tabi ki LaTeX'in bu ayarlamaları yaparken uyduğu kuralları değiştirebilirsiniz ama bunlar <strong>yalın TeX</strong> bilgisi gerektirir, başka bir derste bu konuyu tartışmayı planlıyorum. Bunun dışında bazı basit yöntemlerle bu hesaplamalara küçük müdahalelerde bulunabilirsiniz, bu derste bunlara değineceğim.
+</p>
+
+
+
+<h3 class="mt-5 mb-3">Boşluklar</h3>
+
+<p>
+Öncelikle <strong>boşluklardan</strong> bahsedelim, LaTeX sisteminin boşluklarla ilgili en önemli kuralları şöyle sıralanabilir. Sonrasında bir örnek vereceğiz, örneği kodlarda göründüğü şekliyle bire bir aynı olarak yazın. Böylece çıktısında paragrafların ve boşlukların nasıl hesaplandığını gözlemleyebilirsiniz.
+<ul>
+<li class="py-2">Hem <code class="language-latex">space</code> hem de <code class="language-latex">tab</code> tuşu ile yapılan boşluklar LaTeX tarafından <strong>bir karakter boşluk</strong> olarak algılanır,</li>
+<li class="py-2">Arka arkaya bırakılan <strong>çok sayıda boşluk</strong> LaTeX tarafından tarafından <strong>tek bir boşluk</strong> olarak algılanır,</li>
+<li class="py-2"><strong>Satır başlarındaki</strong> boşluklar LaTeX tarafından <strong>dikkate alınmaz</strong>,</li>
+<li class="py-2"><strong>Komutlardan sonra</strong> gelen boşluklar LaTeX tarafından <strong>dikkate alınmaz</strong>,</li>
+<li class="py-2"><strong>Bütün bir satırın</strong> boş bırakılması LaTeX tarafından <strong>paragraf başı</strong> olarak algılanır,</li>
+<li class="py-2">Arka arkaya boş bırakılan <strong>çok sayıda boş satır</strong> LaTeX tarafından <strong>tek bir boş satır</strong> (paragraf başı) olarak algılanır.</li>
+</ul>
+</p>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 7}
+\maketitle 
+Uzaklık    ve yakınlık üstüne düşünebiliriz ve yakınımızdaki    kişilerin      uzaktan bizlere
+    seslendiğini ama    uzağımızdaki    kişilerin ise   ne kadar da     yakınımızda olduğunu görürüz.
+Aynı şekilde, iç dünyamızın bize ne kadar uzak olduğunu ve dışarıya yansıyan görüngümüzün ise
+aslında bize ne kadar da uzak kaldığına tanık oluruz.
+
+Bazen, tıpkı burada olması gibi içinde doğup büyüdüğümüz ve geliştiğimiz toplum, 
+kültür ve kimlik kodlarımıza ne kadar da uzak kalmışızdır aslında!
+\end{document}
+</code></pre>
+
+<p>
+LaTeX programı tüm satırların <strong>aynı</strong> uzunlukta olmasını (iki yana yaslama) sağlamak için her satırda kelimeler arası boşluk uzunluklarını otomatik olarak ayarlar. Bunun için LaTeX siz istemedikçe bir satırı yarım bırakıp yeni bir satıra atlamaz. Siz bunu isterseniz <code class="language-latex">\\</code> veya <code class="language-latex">\newline</code> komutlarıyla yapabilirsiniz. Benzer işlemi <code class="language-latex">\linebreak</code> komutu da yapar. Fakat bu komut ile satır kesilirse LaTeX bu yarım satırı da iki yana yaslar. Yeni sayfaya atlama işlemi de <code class="language-latex">\pagebreak</code> komutu ile yapılır. <code class="language-latex">\nolinebreak</code> ve <code class="language-latex">\nopagebreak</code> komutları ise sırasıyla satır ve sayfa kesilmesini engeller.
+</p>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 8}
+\maketitle 
+Benim için futbolda önemli olan centilmenlik\\
+ve dostluktur. Hedefim illa ki kazanmak\\
+falan değildir. Ben sadece kendi reklamını düşünen\\
+kişiliğe sahip olsam başka olurdu. Ben net\\
+birisiyim arkadaş. Takımım kazanırsa mal-\\
+zemecisine kadar mutlu oluruz. Ben de sporcu\\
+varlığımı geliştiririm. Hakemlere baskı uygulamak\\
+sportmenliğe yakışmaz. Fair-play için mücadele\\
+gerekirse onu da yaparım. Medyayı da bağ-\\
+rıma basmışım, spor uğruna gülmüşüm ve ağ-\\
+lamışım, kafam rahat!
+\end{document}
+</code></pre>
+
+<p>
+LaTeX programı metnin rahat okunabilmesi için <strong>cümle sonundaki</strong> noktadan sonra ekstra boşluk bırakır. Bu ekstra boşlukları engellemek için <code class="language-latex">\frenchspacing</code> komutu kullanılır. Daha sonra tekrar ekstra boşluklu cümle sonları kullanmak için <code class="language-latex">\nonfrenchspacing</code> komutu kullanılır. <strong>Büyük harflerden sonra</strong> gelen noktayı LaTeX programı cümle sonu olarak kabul etmez çünkü kısaltmalarda da büyük harften sonra nokta kullanılabilir. Büyük harften sonra cümlenin bittiğini belirten nokta koymak için <code class="language-latex">\@</code> komutundan sonra nokta koyulur. Bazı tekrarlayan harf gruplarında LaTeX programı farklı semboller kullanır (bunlara <strong>ligatür</strong> denir), tekrarlayan f harflerinde (<code class="language-latex">fi</code>, <code class="language-latex">fl</code>, <code class="language-latex">ff</code> gibi gruplarda) sıklıkla karşılaşılan bir durumdur. Bunu engellemek için <code class="language-latex">\mbox</code> veya <code class="language-latex">\/</code> komutu kullanılabilir.
+</p>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 9}
+\maketitle 
+\frenchspacing Keşke yaşamda her şey matematik problemleri kadar çözüme muhtaç kalabilseydi!
+Oysa yaşam çözümlendikçe sorunlarını üretmeye koşulludur! İşte felsefe bu temel çatışmanın ya da
+nosyonun peşine takılıdır. \nonfrenchspacing Matematik felsefe için bir doğa yasasıdır,
+onun sorunu kendini doğada çözümlemeye kalkmasıdır. Oysa asil sorun zihindedir ve orada çözülemeyen
+doğada da sorunlu kalmaya devam eder\ldots 
+\end{document}
+</code></pre>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 10}
+\maketitle 
+"Guard dog KIA." cümlesindeki K.I.A. (killed in action) kısaltması Amerikan ordusunda
+çatışmada ölen askerler (Tanrı günahlarını af\mbox{}fetsin) için kullanılan durum tanımlamasının
+kısaltmasıdır. Teknik olarak Türkçedeki "şehit" kelimesine yakın bir anlamı vardır. Çatışma esnasında
+kaybolan askerler (missed in action) için de benzer bir kısaltma kullanılır: MIA\@.
+Savaş esirleri (prisoner of war) için de kullanılan kısaltma PAW dır.
+\end{document}
+</code></pre>
+
+
+
+<h3 class="mt-5 mb-3">Heceleme</h3>
+
+<p>
+Heceleme konusuna değinecek olursak, LaTeX programı kelimeleri <strong>otomatik</strong> olarak heceler. Özel bir heceleme kullanmak istiyorsanız <code class="language-latex">\-</code> komutu ile kelimenin bölünebileceği yerleri işaretleyebilirsiniz.
+</p>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 11}
+\maketitle 
+Dilimizde Muvaffakiyetsizleştiricileştiriveremeyebileceklerimiz\-den\-miş\-si\-niz\-ce\-si\-ne kelimesi
+popüler olarak en uzun kelime olarak kabul edilse de, başında 15 harften oluşan "muvaffakiyetsiz" kısmını,
+anlamı bozulmadan 20 harflik bir sözcükle değiştirmek mümkündür, çünkü Türkçe sözlüklerde geçen
+en uzun kelimeler 20 harflidir: kuyruksallayangiller, ademimerkeziyetçilik, egzistansiyalizm
+veya elektroansefalografi.
+\end{document}
+</code></pre>
+
+<p>
+Bazen iki kelime arasındaki boşlukta satır bölünmesini engellemek isteriz, bunun farklı yolları vardır. Birden çok kelimeyi aynı satırda tutmak için <code class="language-latex">\mbox{metin}</code> komutu veya <code class="language-latex">~</code> karakteri kullanılabilir.
+</p>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 12}
+\maketitle 
+Her türlü soru, sorun ve önerileriniz için irtibat numaramız \mbox{0212 444 00 44}
+kanalıyla bizimle iletişime geçebileceğinizi hatırlatırız.
+\end{document}
+</code></pre>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../3-kontrol-dizileri/index.html">3. Kontrol Dizileri</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">LaTeX'e Giriş</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../5-duz-metin-bicimleme/index.html">5. Düz Metin Biçimleme</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/latexe-giris/4-bosluklar-ve-heceleme/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:41:18 GMT -->
+</html>

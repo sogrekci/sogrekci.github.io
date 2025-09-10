@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/28-fourier-serilerinin-integrali/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:24 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 2.8. Fourier Serilerinin İntegrali
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>2.8. Fourier Serilerinin İntegrali</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-08">
+          8 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bildiğiniz gibi bir seri düzgün yakınsak ise terim terim integrallenebilir, bu derste göreceğiz ki Fourier serilerinin integrallenebilmesi için düzgün yakınsaklığa <strong>gerek yoktur</strong>. Ayrıca bu derste şu soruya da cevap arayacağız; verilen bir trigonometrik serinin bir <strong>Fourier serisi olup olmadığını</strong> nasıl tespit edebiliriz?</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/duzgun-yakinsaklik/index.html">düzgün yakınsaklık</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/fourier-serisi/index.html">Fourier serisi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/integral/index.html">integral</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Daha önce Fourier katsayılarını elde ederken <a class="eqref" href="../22-fourier-serileri/index.html#eq:fourierseri1">(2.2.1)</a> eşitliğinin terim terim integrallenebilir olduğunu varsaymıştık. Fakat daha sonra gördük ki bir fonksiyonun Fourier serisinin kendisine yakınsak olabilmesi için buna gerek yok, yakınsaklık için başka koşular gerekli. Bildiğimiz gibi bir seri düzgün yakınsak ise terim terim integrallenebilir, aşağıdaki sonuçla Fourier serilerin integrallenebilmesi için düzgün yakınsaklığın gerekli olmadığını göstereceğiz.
+</p>
+
+<p>
+<div class="envtheo" id="fs-intteo"><h6 class="thenv">Teorem 2.8.1</h6>$f:(-\pi,\pi)\rightarrow\mathbb{R}$ parçalı sürekli fonksiyonunun$(-\pi,\pi)$ aralığındaki Fourier serisi <a class="eqref" href="../22-fourier-serileri/index.html#eq:fourierseri1">(2.2.1)</a> eşitliğinin sağ tarafındaki ifade olsun. Bu durumda eğer $a,x\in[-\pi,\pi]$ ise $f$'nin Fourier serisi yakınsak da olsa ıraksak da olsa $$\int_{a}^{x}f(t)\,dt=\frac{1}{2}a_0(x-a)+\sum\limits_{n=1}^{\infty}\int_{a}^{x}(a_n\cos nt+b_n\sin nt)\,dt$$ eşitliği sağlanır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>Sadece $a=0$ için kanıtlamak yeterlidir, çünkü yakınsak serilerin terim terim toplanabilmesi ve $$\int_a^xf=\int_0^xf-\int_0^a$$ eşitliği gereği bu durumdan genel durum elde edilebilir.
+</p>
+
+<p>
+İddia edilen eşitliği elde etmek için $$F(x):=\int_{0}^{x}f(t)\,dt-\frac{1}{2}a_0x$$ olarak tanımlanan $F:[-\pi,\pi]\rightarrow\mathbb{R}$ fonksiyonunun $(-\pi,\pi)$ aralığındaki yakınsak Fourier serisinin $$\sum\limits_{n=1}^{\infty}\int_{0}^{x}(a_n\cos nt+b_n\sin nt)\,dt$$ olduğunu göstereceğiz. Öncelikle $F$ fonksiyonu $[-\pi,\pi]$ aralığında sürekli olduğundan ve $$F(\pi)=\int_{0}^{\pi}f(t)\,dt-\frac{1}{2}a_0\pi=a_0\pi-\int_{-\pi}^{0}f(t)\,dt-\frac{1}{2}a_0\pi=\int_{0}^{-\pi}f(t)\,dt+\frac{1}{2}a_0\pi=F(-\pi)$$ olduğundan $F$ fonksiyonunun $\mathbb{R}$ kümesine $2\pi-$periyodik genişlemesi sürekli bir fonksiyon olur. Ayrıca $f$'nin sürekli olduğu her $x$ noktasında $$F'(x)=f(x)-\frac{1}{2}a_0$$ olur, yani $F'$ fonksiyonu $(-\pi,\pi)$ aralığında parçalı sürekli olur. Böylece $F$ fonksiyonu <a class="eqref" href="../24-fourier-serilerinin-yakinsakligi/index.html#fs-yakteo"> Teorem 2.4.1</a> ile verilen tüm koşulları saağlar ve $(-\pi,\pi)$ aralığındaki Fourier serisi kendisine eşittir, yani her $x\in\mathbb{R}$ için $$F(x)=\frac{1}{2}A_0+\sum\limits_{n=1}^{\infty}(A_n\cos nx+B_n\sin nx)$$ eşitliği geçerlidir.
+</p>
+
+<p>
+Buradaki Fourier katsayıları kısmi integrasyonla $n>0$ için
+\begin{eqnarray*}
+	A_n &=& \frac{1}{\pi}\int_{-\pi}^{\pi}F(x)\cos nx\,dx\\
+	&=& \frac{1}{\pi}\left[\frac{F(x)\sin nx}{n}\bigg|_{-\pi}^\pi-\frac{1}{n}\int_{-\pi}^{\pi}F'(x)\sin nx\,dx\right]\\
+	&=& -\frac{1}{n\pi}\int_{-\pi}^{\pi}\left[f(x)-\frac{1}{2}a_0\right]\sin nx\,dx\\
+	&=& -\frac{1}{n\pi}\int_{-\pi}^{\pi}f(x)\sin nx\,dx\\
+	&=& -\frac{b_n}{n}
+\end{eqnarray*}
+ve benzer şekilde $$B_n=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)\sin nx\,dx=\frac{a_n}{n}$$ olarak hesaplanır ve
+\begin{equation}
+\label{eq:fs-int1}
+\tag{2.8.1}
+F(x)=\frac{1}{2}A_0+\sum\limits_{n=1}^{\infty}\frac{1}{n}\left(a_n\sin nx-b_n\cos nx\right)
+\end{equation}
+eşitliğine varılır. Diğer yandan $F$ fonksiyonunun tanımı gereği $F(0)=0$ olduğundan yukarıdaki eşitlikte $x=0$ yazarsak
+\begin{equation}
+\label{eq:fs-int2}
+\tag{2.8.2}
+0=F(0)=\frac{1}{2}A_0-\sum\limits_{n=1}^{\infty}\frac{b_n}{n}
+\end{equation}
+elde edilir. Bunu da yerine yazarsak $$F(x)=\sum\limits_{n=1}^{\infty}\frac{1}{n}\left[a_n\sin nx+b_n(1-\cos nx)\right]=\sum\limits_{n=1}^{\infty}\int_{0}^{x}(a_n\cos nt+b_n\sin nt)\,dt$$ elde edilir ki istenendir.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+Yukarıda \eqref{eq:fs-int2} ile verilen eşitlik bize $$\sum\limits_{n=1}^{\infty}\frac{b_n}{n}$$ serisinin yakınsak olduğunu gösterir. Bunun yardımıyla bazı trigonometrik serilerin herhangi bir aralıkta bir fonksiyonun Fourier serisi olamayacağı tespit edilebilir. Örneğin $$\sum\limits_{n=2}^{\infty}\frac{1}{n\ln n}$$ serisi ıraksak olduğundan $$\sum\limits_{n=2}^{\infty}\frac{1}{\ln n}\sin nx$$ serisi hiçbir fonksiyonun Fourier serisi olamaz.
+</p>
+
+<p>
+Ayrıca yukarıdaki ispatta \eqref{eq:fs-int1} eşitliğinde $A_0$ teriminin <a class="eqref" href="../22-fourier-serileri/index.html#def-fourierseri">Tanım 2.2.1</a> ile verilen tanımını kullanırsak hesaplamalar için daha pratik olan aşağıdaki sonucu elde ederiz.
+</p>
+
+<p>
+<div class="envcor" id="fs-int-cor1"><h6 class="thenv">Sonuç 2.8.1</h6>$f$ fonksiyonu <a class="eqref" href="#fs-intteo">Teorem  2.8.1</a> ile verilen koşulları sağlasın. Bu durumda her $x\in[-\pi,\pi]$ için $$\int_{0}^{x}f(t)\,dt-\frac{1}{2}a_0x=\frac{1}{2\pi}\int_{-Pi}^{\pi}\left(\int_{0}^{x}f(t)\,dt\right)\,dx+\sum\limits_{n=1}^{\infty}\frac{1}{n}(a_n\sin nx-b_n\cos nx)$$ eşitliği sağlanır. Eşitliğin sağ tarafındaki toplam, sağ taraftki fonksiyonun $(-\pi,\pi)$ aralığındaki Fourier serisidir.
+</div>
+</p>
+
+<p>
+<div class="envex" id="ex-2.7"><h6 class="thenv">Örnek 2.8.1</h6> <a class="eqref" href="../22-fourier-serileri/index.html#ex-2.2"> Örnek 2.2.2</a> gereği her $x\in(-\pi,\pi)$ için $$x=\sum\limits_{n=1}^{\infty}2\frac{(-1)^{n+1}}{n}\sin nx$$ eşitliği sağlanır, yani bu durumda $n\geq0$ için $a_n=0$ ve $n\geq1$ için $b_n=2(-1)^{n+1}/n$ biçimindedir. Ayrıca $$\frac{1}{2\pi}\int_{-\pi}^{\pi}\left(\int_{0}^{x}t\,dt\right)dx=\frac{\pi^2}{6}$$ olduğundan <a class="eqref" href="#fs-int-cor1">Sonuç  2.8.1</a> gereği $$\frac{x^2}{2}=\frac{\pi^2}{6}+\sum\limits_{n=1}^{\infty}2\frac{(-1)^{n}}{n^2}\cos nx$$ eşitliği sağlanır. Bu son eşitlik de bize $x^2/2$ fonksiyonunun $(-\pi,\pi)$ aralığında Fourier sersini verir ve <a class="eqref" href="#fs-int-cor1">Sonuç  2.8.1</a> gereği aynı işlemi tekrarlayarak $$\frac{x^3}{6}-\frac{\pi^2x}{6}=\sum\limits_{n=1}^{\infty}2\frac{(-1)^n}{n^3}\sin nx$$ eşitliği elde edilir. Bu işlem istenildiği kadar tekrarlanarak $f$ fonksiyonlarının antitürevlerinin aynı aralıktaki Fourier serileri elde edilebilir.
+</div>
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../27-fejer-serileri/index.html">2.7. Fejer Serileri</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Fourier Analizi</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../31-cozumun-varligi/index.html">3.1. Çözümün Varlığı</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/28-fourier-serilerinin-integrali/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:24 GMT -->
+</html>

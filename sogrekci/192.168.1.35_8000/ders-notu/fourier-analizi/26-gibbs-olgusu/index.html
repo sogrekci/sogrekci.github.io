@@ -1,0 +1,278 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/26-gibbs-olgusu/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:16 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 2.6. Gibbs Olgusu
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>2.6. Gibbs Olgusu</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-07">
+          7 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste Fourier serilerinin yakınsaklığı ile ilgili ilginç bir detaya dikkat çekeceğiz. <strong>Gibbs olgusu</strong> dediğimiz bu durum bize Fourier serisinin kaç adımı hesaplanırsa hesaplansın, bazı noktalarda fonksiyona %91'den fazla yaklaşılamayacağını söyler. Üstelik bu %9'luk hata payı her fonksiyon ve her aralıkta her Fourier serisi için aynıdır.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/fourier-serisi/index.html">Fourier serisi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/gibbs-olgusu/index.html">Gibbs olgusu</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/yakinsaklik/index.html">yakınsaklık</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Uygulamada bir fonksiyona onun Fourier serisi yardımıyla yaklaşımda bulunurken onun sadece sonlu sayıda terimini hesaplarız ve ne kadar fazla terimi hesaba katarsak o kadar iyi bir yaklaşımda bulunmayı umarız. Ne yazık ki Fourier serilerinde durum böyle değil, bu seriler genel durumda düzgün yakınsak değildir. Ayrıca bu seriler için daha da ilginç bir durum söz konusu, şimdi bu durumu inceleyeceğiz.
+</p>
+
+<p>
+1898 yılında Chicago Üniversitesinden <strong>A. A. Michelson</strong> ve <strong>S. W. Stratton</strong> isimli araştırmacılar Nature dergisine gönderdikleri bir çalışmalarında, $(-\pi,\pi)$ aralığında $f(x):=x$ fonksiyonunun Fourier serisi üzerine <a class="blogref" href="../../../blog/harmonik-analiz-makinesi/index.html"><strong>Harmonic Analyzer</strong></a> isimli makineleriyle yaptıkları ölçümler sonucunda $160$ terim bile hesaplasalar kısmi toplamlar dizisinin toplamının sıçrama noktalarına yakın noktalarda gerçek değere yeterince yakın olmadıklarını bildirdiler. Bir yıl sonra Yale Üniversitesinden <strong>Josiah Willard Gibbs</strong> aynı dergiye bu konuda bir açıklama gönderdi. Gibbs bu açıklamasında aynı fonksiyonu ele aldı ve süreksizlik noktaları olan $x_0=(2k+1)\pi$ ($k\in\mathbb{Z}$) noktalarının bir komşuluğunda yeterince büyük bir $N$ sayısı için $$s_N(x_1)\approx1.18\pi=f(x+)+0.18\pi\quad\text{ve}\quad s_N(x_2)\approx-1.18\pi=f(x-)-0.18\pi$$ olacak şekilde $x_1\lt x_0$ ve $x_2\gt x_0$ sayıları mevcut olduğunu gösterdi. Yani $x_1$ ve $x_2$ noktalarında serinin toplamı $x_0$ noktasında fonksiyonun gerçek değerinden $0.18\pi$ kadar farklıdır, yani $x_0$ noktasındaki sıçrama boyunun $\%9$'u kadar. İşin ilginç kısmı ise Gibbs bu $\%9$ oranının her Fourier serisinde her süreksizlik noktasında aynı sabit  oran olduğunu, ayrıca $N$ sayısını ne kadar büyük seçersek seçelim bu oranın yine sabit kaldığını gösterdi. Sonradan Gibbs'in gösterdiği bu gerçeğin daha önce 1848 yılında <strong>Henry Wilbraham</strong> tarafından yayınlandığı anlaşıldı fakat Gibbs'in açıklamasına kadar bu çalışma hiç farkedilmemişti, bundan dolayı günümüzde bu gerçeğe <strong>Gibbs olgusu</strong> diyoruz.
+</p>
+
+<p>
+<img id="fig:gibbs" class="envfig" src="../../../static/ders-notu/fourier-analizi/gibbs1.svg" width="50%">
+<span style="margin:auto; display:table;"><span class="figcap">Şekil 2.6:</span> $f(x):=x$ fonksiyonu üzerinde Gibbs olgusu</span>
+</p>
+
+<p>
+Şimdi üzerinde Gibbs olgusunu gözlemlemek üzere $$f(x):=\left\{
+\begin{array}{ll}
+0, \quad & -\pi\lt x\lt 0\text{ ise}\\
+2\pi, \quad & \;\;\;0\leq x\lt\pi\text{ ise}
+\end{array}
+\right.$$ fonksiyonunu ele alalım. <a class="eqref" href="../24-fourier-serilerinin-yakinsakligi/index.html#fs-yakteo"> Teorem 2.4.1</a> gereği bu fonksiyonun Fourier serisi$$f(x):=\left\{
+\begin{array}{ll}
+f(x), \quad & x\in(-\pi,\pi)\backslash\{0\}\text{ ise}\\
+\pi, \quad & x=0\text{ ise}
+\end{array}
+\right.$$ fonksiyonuna yakınsar. Şimdi <a class="eqref" href="../24-fourier-serilerinin-yakinsakligi/index.html#fs-lm1"> Lemma 2.4.1</a> ile verilen eşitlikleri kullanarak
+\begin{eqnarray*}
+	s_N(x) &=& \frac{1}{2\pi}\int_{-\pi}^{\pi}f(t)D_N(t-x)\,dt\\
+	&=& \int_{0}^{\pi}D_N(t-x)\,dt\\
+	&=& \int_{-x}^{\pi-x}D_N(u)\,du\\
+	&=& \int_{-x}^{0}D_N(u)\,du+\int_{0}^{\pi}D_N(u)\,du+\int_{\pi}^{\pi-x}D_N(u)\,du\\
+	&=& \int_{0}^{x}D_N(u)\,du\;+\;\pi\;+\;\int_{\pi}^{\pi-x}D_N(u)\,du
+\end{eqnarray*}
+olduğunu gözlemleyelim. Yukarıdaki eşitlikteki son integrale dikkat edersek, integrasyon aralığında $D_N(u)$ fonksiyonu integrallenebilir olduğundan <a class="eqref" href="../23-riemann-lebesgue-teoremi/index.html#RL-theo">Riemann-Lebesgue teoremi</a> gereği $N\rightarrow\infty$ için bu integral sıfıra yakınsar. $S_N(x)$ toplamının süreksizlik noktası olan sıfır noktası yakınlarındaki davranışı ile ilgilendiğimizden yeterince küçük $x$ ve yeterince büyük $N$ sayıları için $$s_N(x)\approx\int_0^xD_N(t)\,dt+\pi$$ yazabiliriz.
+</p>
+
+
+<p><img id="fig:gibbs-gozlem" class="envfig" src="../../../static/ders-notu/fourier-analizi/gibbs2.svg" width="45%"></p>
+<p><img id="fig:gibbs-gozlem-1" class="envfig" src="../../../static/ders-notu/fourier-analizi/gibbs3.svg" width="55%"></p>
+<p><span style="margin:auto; display:table;"><span class="figcap">Şekil 2.7:</span> Yukarıda tanımladığımız $f$ fonksiyonu için Dirichlet çekirdeği ve onun integrali</span></p>
+
+<p>
+Yukarıdaki grafiklere dikkat edersek pozitif yarı düzlemde $D_N(t)$ eğrisinin altında kalan alanın $x=\frac{2\pi}{2N+1}$ noktasına kadar arttığını ve bu noktadan sonra bir noktaya kadar azalıp tekrar artmaya başladığı ve bu şekilde salındığı anlaşılır. Dirichlet çekirdeği çift bir fonksiyon olduğundan negatif yarı eksendeki davranışı da buradan kestirilebilir. Bundan dolayı $\int_0^xD_N$ fonksiyonunun ilk maksimum değerini kestirmeliyiz, çünkü bu maksimum değeri en büyük olanıdır.
+</p>
+
+<p>
+Şimdi önce $$\int_{0}^{x}\frac{\sin\left(N+\frac{1}{2}\right)t}{\sin\frac{1}{2}t}dt=2\int_{0}^{x}\frac{\sin\left(N+\frac{1}{2}\right)t}{t}dt+\int_{0}^{x}\frac{t-2\sin\frac{1}{2}t}{t\sin\frac{1}{2}t}\sin\left(N+\frac{1}{2}\right)t\,dt$$ eşitliğini gözlemleyelim. Buradaki $$\frac{t-2\sin\frac{1}{2}t}{t\sin\frac{1}{2}t}$$ terimi yeterince küçük $x$ sayıları için $(0,x)$ aralığında süreklidir ve $t\rightarrow0$ olduğu açıktır, dolayısıyla <a class="eqref" href="../23-riemann-lebesgue-teoremi/index.html#RL-theo">Riemann-Lebesgue teoremi</a> gereği $N\rightarrow\infty$ için yukarıdaki son integral sıfıra yakınsar. Böylece yeterince küçük $x$ ve yeterince büyük $N$ sayıları için $$s_N(x)\approx2\int_{0}^{x}\frac{\sin\left(N+\frac{1}{2}\right)t}{t}dt+\pi=2\int_{0}^{\left(N+\frac{1}{2}\right)x}\frac{\sin u}{u}\,du$$ olduğu elde edilir.
+</p>
+
+<p>
+Eğer $$\phi(x):=2\int_{0}^{\left(N+\frac{1}{2}\right)x}\frac{\sin u}{u}\,du\;+\;\pi$$ olarak tanımlarsak $$\phi'(x)=\left\{
+\begin{array}{ll}
+2\frac{\sin\left(N+\frac{1}{2}\right)x}{x}, \quad & x\neq0\text{ ise}\\
+2N+1, \quad & x=0\text{ ise}
+\end{array}
+\right.$$
+olduğu gösterilebilir. Ayrıca bu fonksiyon birinci türevinin sıfır olduğu $$x=\frac{k\pi}{N+1/2}$$ noktalarında yerel extremum değerlere sahiptir, ikinci türev testi kullanılarak $k=\ldots,-6,-4,-2,1,3,5,\ldots$ noktalarında yerel maksimum ve $k=\ldots, -5,-3,-1,2,4,6,\ldots$ noktalarında yerel minimum değerlerine sahip olduğu gösterilebilir. $k=1$ için $x=\pi/(N+1/2)$ noktasındaki yerel maksimum değeri $$\phi\left(\frac{\pi}{N+1/2}\right)=2\int_{0}^{\pi}\frac{\sin u}{u}du+\pi\approx1.18\pi+\pi=1.09(2\pi)$$ olarak hesaplanır, integral değeri yaklaşık değerdir, bir integral tablosu veya bir sayısal yöntem kullanılabilir.
+</p>
+
+<p>
+<img id="fig:gibbs-phi" class="envfig" src="../../../static/ders-notu/fourier-analizi/gibbs4.svg" width="55%">
+<span style="margin:auto; display:table;"><span class="figcap">Şekil 2.8:</span> Yukarıda tanımladığımız $\phi$ fonksiyonu</span>
+</p>
+
+<p>
+Dikkat edilirse yukarıdaki değer $N$ sayısından bağımsızdır, $N\rightarrow\infty$ için de yaklaşık olarak $2.18\pi$ değeri elde edilir.
+</p>
+
+<p>
+Elbette bir kaç fonksiyonun Fourier derisinde Gibbs olgusunun görülmesi bu olgunun her fonksiyonda karşımıza çıkacağı anlamına gelmez. Fakat 1906 yılında Harvard Üniversitesinden <strong>Maxime Bocher</strong> (1867-1918) bu olgunun her fonksiyonda oluştuğunu kanıtladı.
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../25-herhangi-bir-aralikta-fourier-serileri/index.html">2.5. Herhangi Bir Aralıkta Fourier Serileri</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Fourier Analizi</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../27-fejer-serileri/index.html">2.7. Fejer Serileri</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/26-gibbs-olgusu/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:21 GMT -->
+</html>

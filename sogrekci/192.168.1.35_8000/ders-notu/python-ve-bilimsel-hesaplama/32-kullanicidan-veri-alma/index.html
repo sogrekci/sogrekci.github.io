@@ -1,0 +1,1163 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/python-ve-bilimsel-hesaplama/32-kullanicidan-veri-alma/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 3.2. Kullanıcıdan Veri Alma
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>3.2. Kullanıcıdan Veri Alma</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-22">
+          22 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-23">
+          23 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu ders biraz uzun olacak, programın kullanıcı ile iletişim kurabilmesinin tüm yollarını tek bir derste açıklamak istedim. Bu yollar şunlar: programın kullanıcıya <strong>sorular sorarak</strong> veri alması, kullanıcının programı çalıştırırken <strong>komut satırından</strong> programa veri iletmesi, programın kullanıcının oluşturduğu bir <strong>dosyadan</strong> veriler alması ve programın bir dosyaya yazarak kullanıcıya veri iletmesi. Ayrıca bu derste kullanıcının <strong>hatalı veri</strong> iletmesi sonucu oluşabilecek hataları kontrol etmenin de yollarını öğreneceksiniz.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/argparse/index.html">argparse</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/close/index.html">close</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/dosya-okuma-yazma/index.html">dosya okuma yazma</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/eval/index.html">eval</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/exception/index.html">exception</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/exec/index.html">exec</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/file/index.html">file</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/hata-kontrolu/index.html">hata kontrolü</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/indexerror/index.html">indexerror</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/nameerror/index.html">nameerror</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/open/index.html">open</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/raise/index.html">raise</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/raw_input/index.html">raw_input</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/read/index.html">read</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/readlines/index.html">readlines</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/simpson-kurali/index.html">Simpson kuralı</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/split/index.html">split</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/sysargv/index.html">sys.argv</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/terminal/index.html">terminal</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/try-except/index.html">try-except</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/typeerror/index.html">typeerror</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/valueerror/index.html">valueerror</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/with/index.html">with</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/zerodivisionerror/index.html">zerodivisionerror</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Yazdığımız programlarda değişkenlere yapılacak değer atamalarını kullanıcıdan almak isteyebiliriz. Bu durumda program ile kullanıcı etkileşim kurarak veri akışı sağlanmalıdır. Programın kullanıcıdan veri almasının üç temel yolu vardır. Program çalışırken gerekli olan durumlarda kullanıcıya soru sorup aldığı cevabı veri olarak işleyebilir, ya da kullanıcı Terminalden programı çalıştırırken komut satırında bazı verilerin programa aktarılmasını sağlayabilir. Diğer yöntem ise kullanıcının programa iletmek istediği verileri bir dosyada kaydetmesi ve programın bu dosyayı okumasıdır. Bu bölümde bu yöntemleri ele alacağız. Kullanıcıdan veri almanın bazı riskleri vardır, kullanıcı programın beklemediği tipte veya formatta veriler ileterek programın hata üretmesini sağlayabilir. Böyle durumları kontrol etmek için programımızda hata kontrölü yapmalıyız, bölüm içinde bu konuya da değineceğiz.
+</p>
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Kullanıcıya Soru Sorma</h3>
+
+
+
+
+
+<p>
+Programa kullanıcının ilettiği verilere kullanıcı girişi (<strong>user input</strong>) deriz, bir programa kullanıcı girişi sağlamanın en basit yolu programın kullanıcıya soru sormasını sağlamaktır. Python'da bu işi <code class="language-python">raw_input()</code> fonksiyonu ile yaparız, bu fonksiyon aldığı <code class="language-python">string</code> tipi argümanı ekrana yazdırarak kullanıcının klavye ile bir veri girip enter tuşuna basmasını bekler.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+from math import pi
+
+r = raw_input("Yaricap Girin: ")
+r = float(r)
+A = pi*r**2
+print "Yaricapi %g olan daire alani: %g" % (r, A)
+</code></pre>
+
+<p>
+Bu örnekte de <code class="language-python">raw_input()</code> fonksiyonunun kullanımını gözlemleyin. Bu fonksiyonu çalıştırınca aşağıdaki çıktıda görüleceği gibi ekrana <code class="language-python">Yaricap Girin: </code>  mesajı yazdırılır ve program bekler. Kullanıcı bir sayı girip enter tuşuna basınca diğer komutlar kaldığı yerden çalıştırılmaya devam eder. Burada dikkat edilmesi gereken husus şudur, <code class="language-python">raw_input()</code> komutu ile kullanıcıdan alınan veriler <strong>her zaman</strong> bir <strong>string</strong> nesnesi olarak alınır. Dolayısıyla bu veriyle işlem yapmadan önce bunu uygun nesnelere dönüştürmemiz gerekir, burada bunu bir <code class="language-python">float</code> nesnesine dönüştürdük.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python raw1.py
+Yaricap Girin: 2.75
+Yaricapi 2.75 olan daire alani: 23.7583
+</code></pre>
+
+<p>
+Başka bir örnek olarak daha önce ele aldığımız $y(t)=v0t-0.5gt^2$ foksiyonunu hesaplatalım.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+v0 = float(raw_input("ilk hiz= "))
+t = float(raw_input("zaman= "))
+g = raw_input("yer cekimi ivmesi= ")
+g = float(g) if g else 9.81
+y = lambda v0, t, g: v0*t - 0.5*g*t**2
+print y(v0, t, g)
+</code></pre>
+
+<p>
+Bu programın çıktısı aşağıdaki gibi olur. Satır içi <code class="language-python">if</code> testini nasıl kurduğumuza dikkat edin. Burada dallanmayı parantez içinde yapmak zorunda olmadığımızı anlıyoruz. Ayrıca <code class="language-python">if g</code> ifadesinde <code class="language-python">g</code> nesnesini nasıl <code class="language-python">bool</code> nesnesi olarak kullandığımıza da dikkat edin. Hatırlayın, boş stringler <code class="language-python">False</code> bool değerine sahiptir. Program ilk çalıştırıldığında kullanıcı <code class="language-python">yercekimi ivmesi= </code> sorusuna cevap vermeden enter tuşuna basıyor, burada program cevabı boş bir string nesnesi olarak algılıyor.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python raw2.py
+ilk hiz= 2
+zaman= 0.1
+yer cekimi ivmesi=
+0.15095
+Terminal > python raw2.py
+ilk hiz= 2
+zaman= 0.1
+yer cekimi ivmesi= 1.62
+0.1919
+</code></pre>
+
+
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Terminal Parametreleri</h3>
+
+
+
+
+
+
+<p>
+Terminal uygulamasından programlarımızı nasıl çalıştırdığımızı hatırlayalım, komut satırına <code class="language-python">python program.py</code> komutunu giriyorduk. Bu komutla aslında işletim sistemi komut istemcisine, <code class="language-python">python</code> isimli yazılımı <code class="language-python">program.py</code> parametresi ile çalıştırması emrini veriyoruz. Python yazılımının görevi, kendisine verilen ilk parametrede yolu belirtilen dosya içindeki komutları çalıştırıp ekranda çıktıları göstermektir. Python yazılımı birden fazla parametre ile çalıştırılıp, program isminden sonraki parametre değerlerini çalıştırdığımız programa iletebilir. Böylece kullanıcı bazı verileri, programı komut satırından çalıştırırken girerek programa iletebilir.
+</p>
+
+<p>
+Python'da <code class="language-python">sys</code> modülü içinde <code class="language-python">argv</code> isimli bir list nesnesi tanımlıdır, bu listede tüm komut satırı parametreleri saklanır. <code class="language-python">sys.argv[0]</code> elemanı her zaman programın ismidir, sonrasında gelen elemanlar da sırasıyla diğer komut satırı parametreleridir. Yine bu parametreler de birer <code class="language-python">string</code> nesnesi olarak alınır, dolayısıyla uygun dönüşümler yapılarak kullanılmalıdır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import sys
+
+t = sys.argv[1]
+t = float(t); v0 = 2; g = 9.81
+y = v0*t - 0.5*g*t**2
+print y
+</code></pre>
+
+<p>
+Bu örnekte de görüldüğü gibi <code class="language-python">argv</code> listesine erişmek için <code class="language-python">import sys</code> komutu ile <code class="language-python">sys</code> modülüne erişim sağlamalıyız. Daha sonra komut satırında program isminden sonra girilen ilk argümanı <code class="language-python">t</code> değişkenine atıyoruz, bu bir string verisi olacağından sonrasında bunu <code class="language-python">float</code> nesnesine çevirerek programa devam ediyoruz. Kullanıcı bu programı çalıştırırken program isminin arkasından bir boşluk bırakıp bir sayı yazıp enter tuşuna basmalıdır. Kullanıcı program isminden sonra bir <code class="language-python">float</code> nesnesine çevrilebilecek bir argüman girmezse hata oluşacaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python sysargv1.py 0.1
+0.15095
+</code></pre>
+
+<p>
+Komut satırında birdan fazla arügman ile programa parametreler aktarılabilir. Kullanıcının aralarında <strong>boşluk</strong> bırakarak girdiği her veri yeni bir argüman olarak <code class="language-python">sys.argv</code> listesinde yerini alacaktır. Dolayısıya tüm parametrelere <code class="language-python">sys.argv[1]</code>, <code class="language-python">sys.argv[2]</code>, ve benzer şekilde erişilebilir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import sys
+
+g = 9.81
+v0 = float(sys.argv[1])
+t = float(sys.argv[2])
+y = v0*t - 0.5*g*t**2
+print y
+</code></pre>
+
+<p>
+Bu programı çalıştırırken kullanıcı program isminden sonra aralarında boşluk bırakarak iki sayı girmelidir. Daha az parametre girerse veya <code class="language-python">float</code> nesnesine çevrilemeyecek bir veri girerse program hata verecektir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python sysargv2.py 2 0.1
+0.15095
+</code></pre>
+
+<p>
+Komut satırı argümanları girerken dikkat etmemiz gereken bir nokta var. Sistem boşluk ile ayrılmış her veriyi ayrı bir parametre olarak kaydettiğinden, boşluklar da içeren bir <code class="language-python">string</code> nesnesini parametre olarak girerken dikkatli olunmalıdır. Böyle bir veriyi kullanıcı tırnak işaretleri arasında girmelidir, aksi taktirde girilen metnin her bir kelimesi ayrı bir parametre olarak algılanır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import sys
+
+metin = sys.argv[1:]
+
+print "girilen parametrelerin listesi:"
+print metin
+</code></pre>
+
+<p>
+Bu programı çalıştırırken üç kelimeden oluşan bir <code class="language-python">string</code> nesnesi girelim. Bunu tırnak içinde yazmazsak her bir kelimesi ayrı bir argüman olarak değerlendirelecektir. Tek bir argüman olarak algılanmasını sağlamak için tırnak işaretleri kullanmalıyız.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python sysargv3.py bu bir metin
+girilen parametrelerin listesi:
+['bu', 'bir', 'metin']
+Terminal > python sysargv3.py "bu bir metin"
+girilen parametrelerin listesi:
+['bu bir metin']
+</code></pre>
+
+<p>
+Komut satırından varsayılan değerli argümanlar da alınabilir, bu işlem için Python'da <code class="language-python">argparse</code> modülü kullanılır. Bu modülün kullanımını aşağıdaki örnek üzerinde açıklayacağız.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import argparse
+parser = argparse.ArgumentParser()
+
+parser.add_argument('--v0', type=float, default=2.0, help='ilk hiz')
+parser.add_argument('--g', type=float, default=9.81, help='yer cekimi')
+parser.add_argument('--t', type=float, default=0.1, help='zaman')
+
+args = parser.parse_args()
+
+v0 = args.v0
+g = args.g
+t = args.t
+s = v0*t - 0.5*g*t**2
+print s
+</code></pre>
+
+<p>
+Öncelikle <code class="language-python">argparse</code> modülüne erişip <code class="language-python">ArgumentParser()</code> komutuyla bir <code class="language-python">parser</code> nesnesi oluşturuyoruz, bu nesne ile tanımlanacak argümanları komut satırından okuyacağız. Daha sonra bu nesnenin üzerinde tanımlı <code class="language-python">add_argument()</code> komutuyla programda kullanacağımız tüm komut satrı argümanlarını tanımlıyoruz. Değişkenlerin isimlerini, tiplerini, varsayılan değerlerini ve yardım metnini örnekteki gibi gireriz. Bundan sonra bu nesnenin <code class="language-python">parse.args()</code> komutunu kullanarak programımızın argümanları komut satırından okuyarak <code class="language-python">args</code> isimli yeni bir nesne içinde saklamasını sağlıyoruz. Artık komut satırından girilen varsayılan değerli argümanlar program içinde <code class="language-python">args.v0</code> biçiminde erişilebilir durumdadır. Kullanıcı komut satırından bir argüman girmek isterse bunu <code class="language-python">--v0 2.0 --t 0.1 --g 9.81</code> biçiminde girebilir. Ayrıca <code class="language-python">argparse</code> modülü hazırladığımız programlarımız için bir de yardım metni oluşturur, bu metni görüntülemek için programı <code class="language-python">-h</code> parametresiyle çalıştırmak yeterlidir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python sysargv4.py
+0.15095
+Terminal > python sysargv4.py --g 1.62
+0.1919
+Terminal > python sysargv4.py --g 1.62 --t 2
+0.76
+Terminal > python sysargv4.py --g 1.62 --t 1 --v0 15
+14.19
+Terminal > python sysargv4.py -h
+usage: sysargv4.py [-h] [--v0 V0] [--g G] [--t T]
+
+optional arguments:
+-h, --help  show this help message and exit
+--v0 V0     ilk hiz
+--g G       yer cekimi
+--t T       zaman
+</code></pre>
+
+
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Eval ve Exec Fonksiyonları</h3>
+
+
+
+
+
+
+<p>
+Kullanıcı <code class="language-python">raw_input()</code> veya komut satırı argümanları aracılığıyla alınan veriler <code class="language-python">string</code> nesnesi olarak alınır ve daha programda hesaplamalara dahil edilmeden önce uygun nesnelere dönüştürülür. Fakat bu yolla kullanıcı örneğin <code class="language-python">pi</code> verisini programa aktaramaz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> from math import pi
+>>> s = "pi"
+>>> type(s)
+type 'str'>
+>>> float(s)
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+ValueError: could not convert string to float: pi
+</code></pre>
+
+<p>
+Böyle durumlarda <code class="language-python">eval()</code> (<strong>evaluate</strong>) fonksiyonundan faydalanırız. <code class="language-python">s</code> bir string nesnesi olmak üzere <code class="language-python">x = eval(s)</code> komutu Python'da <code class="language-python">x = s</code> kodunu çalıştırı. Dolayısıyla eğer <code class="language-python">s</code> string nesnesi geçerli bir Python ifadesi biçiminde bir string nesnesi ise, hatasız bir atama gerçekleşecektir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> from math import pi, sqrt
+>>> s1 = "pi"
+>>> s2 = "sqrt(2)"
+>>> x = eval(s1)
+>>> x
+3.141592653589793
+>>> y = eval(s2)
+>>> y
+1.4142135623730951
+</code></pre>
+
+<p>
+<code class="language-python">eval()</code> fonksiyonu aldığı string argümanı önce bir Python ifadesi olarak çalıştırıp bir veriye dönüştürdükten sonra döndürür. Yukarıdaki örnekte bunu gözlemleyebiliyoruz. Benzer şekilde <code class="language-python">x = eval("1 + 2")</code> komutu arka planda doğrudan <code class="language-python">x = 3</code> komutunu çalıştırır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+from math import *              # > program.py "sin(x) + sqrt(2*x)" pi
+import sys                       
+
+f = sys.argv[1]                 # f = "sin(x) + sqrt(2*x)"
+x = eval(sys.argv[2])           # x = pi
+y = eval(f)                     # y = sin(x) + sqrt(2*x)
+print "y=f(x)=%s, x=%s -> y=%g" % (f, x, y)
+</code></pre>
+
+<p>
+Yukarıdaki örnekte <code class="language-python">eval()</code> fonksiyonunun ne kadar kullanışlı olduğunu gözlemleyebiliriz. $y=f(x)$ biçiminde bir fonksiyonun hem formülünü hem de değişken değerini kullanıcı fonksiyona sağlayabilir. Burada kullanıcı fonksiyonu komut satırında tırnak işareti içinde girmelidir çünkü parantez sembolleri komut satırı için anlamlı sembollerdir ve düz string olarak algılanmaz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python sysargv5.py "sin(x) + sqrt(2*x)" pi
+y=f(x)=sin(x) + sqrt(2*x), x=3.14159265359 -> y=2.50663
+</code></pre>
+
+<p>
+Python'da <code class="language-python">eval()</code> fonksiyonuna benzer olan bir de <code class="language-python">exec()</code> (<strong>execute</strong>) fonksiyonu vardır. Bu fonksiyon da argüman olarak aldığı string nesnesini Python koduna çevirir fakat bu fonksiyon çok satırdan oluşan string nesnelerini de alabilir. Örneğin aşağıdaki program da yukarıda yazdığımız programla aynı çıktıyı üretir. Fakat bu program kullanıcının verdiği formülü kullanarak bir fonksiyon tanımlar.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+from math import *
+import sys
+
+formul = sys.argv[1]
+
+s = """
+def f(x):
+        return %s
+""" % formul
+
+exec(s)
+x = eval(sys.argv[2])
+y = f(x)
+
+print "y=f(x)=%s, x=%s -> y=%g" % (formul, x, y)
+</code></pre>
+
+<p>
+Başka bir örnek olarak daha önce ele aldığımız Simpson kuralı ile yaklaşık integrasyon yapan programımızı tekrar ele alalım. <code class="language-python">exec()</code> fonksiyonu yardımıyla kullanıcıdan verileri alabiliriz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+from math import *
+import sys
+
+def Simpson(f, a, b, n=100):
+    h = (b-a)/float(n); toplam1 = 0; toplam2 = 0
+    
+    for i in range(1, n/2 + 1):
+        toplam1 += f(a + (2*i-1)*h)
+    
+    for i in range(1, n/2):
+        toplam2 += f(a + 2*i*h)
+    
+    integral = (h/3)*(f(a) + f(b) + 4*toplam1 + 2*toplam2)
+    return integral
+
+formul , a, b = sys.argv[1:]
+a = eval(a); b = eval(b)
+
+s = """
+def f(x):
+    return %s
+""" % formul
+
+exec(s)
+
+print "f(x)=%s, a=%s, b=%s" % (formul, a, b)
+for n in 2, 5, 10, 50, 100, 500, 1000:
+    hesap = Simpson(f, a, b, n)
+    kesin = 4.0/3
+    hata = abs(hesap - kesin)
+    print "n = %4d, Hesaplanan=%.12f, Hata=%g" % (n, hesap, hata)
+</code></pre>
+
+<p>
+Bu durumda kullanıcı komut satırından fonksiyonu ve integrasyon sınırlarını programa verir. Bu program da gerekli hesaplamaları yapıp aşağıdaki gibi bir çıktı üretir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python simpson4.py "sin(x)**3" 0 pi
+f(x)=sin(x)**3, a=0, b=3.14159265359
+n =    2, Hesaplanan=2.094395102393, Hata=0.761062
+n =    5, Hesaplanan=1.251135387587, Hata=0.0821979
+n =   10, Hesaplanan=1.332599724263, Hata=0.000733609
+n =   50, Hesaplanan=1.333332289401, Hata=1.04393e-06
+n =  100, Hesaplanan=1.333333268318, Hata=6.50158e-08
+n =  500, Hesaplanan=1.333333333229, Hata=1.03907e-10
+n = 1000, Hesaplanan=1.333333333327, Hata=6.49392e-12
+</code></pre>
+
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Dosya Okuma ve Yazma</h3>
+
+
+
+
+
+
+
+
+<p>
+Programlarımızda tanımladığımız fonksiyonların argümanlarını kullanıcıdan <code class="language-python">raw_input()</code> metoduyla soru sorarak veya komut satırından parametre olarak almak küçük boyutlu veriler için kullanışlıdır. Fakat büyük boyutlarda veri almak için genelde verileri bir dosyada saklayıp program içinden bu dosyanın içeriğini okuruz. Benzer şekilde program çıktıları büyük verilerden oluşuyorsa <code class="language-python">print</code> yoluyla ekrana yazdırmak kullanışsızdır, bunun yerine çıktıyı yine bir dosyaya yazdırmak isteriz. Python'da dosya okuma ve yazma işlemlerini örnekler üzerinde açıklayacağız. 
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+12.0
+20.3
+5.1
+198.5
+66.9
+0.7
+53.6
+18.7
+81.5
+170.0
+</code></pre>
+
+<p>
+Yukarıdaki içeriğe sahip bir <code class="language-python">data1.txt</code> dosyamız olsun. Görüldüğü gibi dosya içeriği on satırdan oluşmakta, her satır içeriği de bir ondalıklı sayı biçimindedir. Bu gibi veri içeren dosyaları salt metin editörlerinde oluşturmalıyız, MS Word gibi metin işleyicileriyle oluşturulan dosyalar fazladan veriler içerir.
+</p>
+
+<p>
+Pythonda bir dosyanın içeriğini okumanın birden fazla yöntemi vardır, bunlardan birisi dosyanın içeriğini <strong>satır satır</strong> okumaktır. Dosya okuma işlemine başlamak için bir <code class="language-python">file</code> (dosya) nesnesi oluşturmalıyız. Bunu <code class="language-python">dosya = open("data1.txt", "r")</code> komutuyla yapabiliriz. Burada ilk argüman açılacak olan dosyanın diskteki yolunu, diğer argüman ise dosyanın hangi amaçla açılacağını belirtir. Burada kullandığımız <code class="language-python">r</code> argümanı dosyayı okumak için (<strong>read</strong>) açtığımızı belirtiyoruz. Bu aşamadan sonra oluşturduğumuz dosya nesnesi üzerinde tanımlı olan <code class="language-python">dosya.readline()</code> fonksiyonu ilk kez çağırıldığında dosyanın ilk satırının tamamı bir string verisi olarak okunur, bu fonksiyon bir kez daha çağırılınca sıradaki satır okunur. Dosya okuma işlemlerimiz bittikten sonra dosya nesnesini <code class="language-python">dosya.close()</code> komutu ile kapatmalıyız.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+dosya = open("data1.txt", "r")
+s = dosya.readline()
+print "satir 1: %s" % s
+s = dosya.readline()
+print "satir 2: %s" % s
+dosya.close()
+</code></pre>
+
+<p>
+Yukarıdaki program dosyanın ilk iki satırını okuyup ekrana yazdırır, çıktısı aşağıdaki gibi olacaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python file1.py
+satir 1: 12.0
+satir 2: 20.3
+</code></pre>
+
+<p>
+Bu satırlarda bulunan sayılarla işlem yapmak için bunları <code class="language-python">float</code> nesnelerine dönüştürmemiz gerekiyor.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+dosya = open("data1.txt", "r")
+s1 = float(dosya.readline())
+print "satir 1: %s" % s1
+s2 = float(dosya.readline())
+print "satir 2: %s" % s2
+dosya.close()
+
+print "Toplam: %f" % (s1 + s2)
+</code></pre>
+
+<p>
+Bu programın çıktısı da aşağıdaki gibi olacaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python file2.py
+satir 1: 12.0
+satir 2: 20.3
+Toplam: 32.300000
+</code></pre>
+
+<p>
+Dosya içindeki tüm sayıları toplamak için özel bir döngü kullanabiliriz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+dosya = open("data1.txt", "r")
+
+toplam = 0
+for s in dosya:
+    toplam += float(s)
+
+dosya.close()
+
+print "toplam: %f" % toplam
+</code></pre>
+
+<p>
+Burada <code class="language-python">for</code> döngüsünün kullanımına dikkat edelim. Döngü içinde <code class="language-python">dosya</code> isimli nesne satırlardan oluşan bir <code class="language-python">list</code> nesnesi olarak kabul edilir. Bu programın çıktısı aşağıdaki gibi olacaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python file3.py
+toplam: 627.300000
+</code></pre>
+
+<p>
+Başka bir örnek olarak aşağıdaki programı inceleyin.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+dosya = open("data1.txt", "r")
+
+def y(t):
+    return v0*t - 0.5*g*t**2
+
+v0 = 1000; g = 9.81
+
+for t in dosya:
+    t = float(t)
+    print "t=%5.1f, y(t)=%f" % (t, y(t))
+
+dosya.close()
+</code></pre>
+
+<p>
+Bu program aşağıdaki çıktıyı verecektir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python file4.py
+t= 12.0, y(t)=11293.680000
+t= 20.3, y(t)=18278.698550
+t=  5.1, y(t)=4972.420950
+t=198.5, y(t)=5231.963750
+t= 66.9, y(t)=44947.132950
+t=  0.7, y(t)=697.596550
+t= 53.6, y(t)=39508.131200
+t= 18.7, y(t)=16984.770550
+t= 81.5, y(t)=48919.763750
+t=170.0, y(t)=28245.500000
+</code></pre>
+
+<p>
+Python'da dosya okumak için kullanılan başka bir komut da <code class="language-python">dosya.readlines()</code> komutudur. Bu komut <strong>tüm dosyayı</strong> tek seferde okuyup her satırı bir <code class="language-python">string</code> nesnesi olarak bir <code class="language-python">list</code> nesnesine kaydeder.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> dosya = open("data1.txt", "r")
+>>> s = dosya.readlines()
+>>> print s
+['12.0\n', '20.3\n', '5.1\n', '198.5\n', '66.9\n', '0.7\n', '53.6\n',
+'18.7\n', '81.5\n', '170.0']
+>>> x = float(s[3])
+>>> print x
+198.5
+>>> dosya.close()
+</code></pre>
+
+<p>
+Yukarıdaki interaktif Python oturumunu incelerseniz her bir satır gizli olarak dosyada <code class="language-python">\n</code> karakterini içeriyor, bu bir kaçış karakteridir ve nesneyi bir <code class="language-python">float</code> nesnesine dönüştürmemizi engellemez. Dosya okumak için kullandığımız başka bir komut ise <code class="language-python">dosya.read()</code> komutudur, bu komutla dosya içeriğinin tamamı tek seferde okunup <strong>tek bir</strong> <code class="language-python">string</code> nesnesi olarak kaydedilir. Büyük boyutlu dosyalarda bu yöntem pek önerilmez. Daha sonra istersek bu <code class="language-python">string</code> nesnesinin her satırını bir eleman olarak bir <code class="language-python">list</code> nesnesine kaydedebiliriz, bunu yapmak için <code class="language-python">string</code> nesneleri üzerinde tanımlanmış olan <code class="language-python">split()</code> fonksiyonunu kullanırız.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> dosya = open("data1.txt", "r")
+>>> s = dosya.read()
+>>> type(s)
+type 'str'>
+>>> print s
+12.0
+20.3
+5.1
+198.5
+66.9
+0.7
+53.6
+18.7
+81.5
+170.0
+>>> print s.split()
+['12.0', '20.3', '5.1', '198.5', '66.9', '0.7', '53.6', '18.7',
+'81.5', '170.0']
+>>> dosya.close()
+</code></pre>
+
+<p>
+Python'da dosya açma ve kapama işlemini daha kompakt bir kod parçası ile yapabiliriz, bunun için <code class="language-python">with</code> ifadesini kullanırız. Bir örnek üzerinde inceleyelim.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+with open("data1.txt", "r") as dosya:
+    toplam = 0
+    for s in dosya:
+        toplam += float(s)
+
+print "toplam: %f" % toplam
+</code></pre>
+
+<p>
+Burada ilk satırdaki kodlar belirtilen isimdeki dosya nesnesini oluşturur, alt satırlardaki hizalı kodlar çalıştıktan sonra da dosya nesnesi otomatik olarak kapanır. Yukarıdaki örnekteki program ile aşağıdaki program bire bir aynı işi yapar, yani birbirine denktir. Python'da dosya işlemleri yapmanın önerilen yolu <code class="language-python">with</code> ifadesini kullanmaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+dosya = open("data1.txt", "r")
+
+toplam = 0
+for s in dosya:
+    toplam += float(s)
+
+dosya.close()
+print "toplam: %f" % toplam
+</code></pre>
+
+<p>
+Başka bir örnek olarak aşağıdaki dosyayı ele alalım.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Weather station ANKARA/CENTRAL is at about 40.00N 32.90E.
+Height about 894m above sea level.
+Jan  0.0
+Feb  1.2
+Mar  5.3
+Apr  11.1
+May  15.8
+Jun  19.8
+Jul  23.0
+Aug  22.9
+Sep  18.3
+Oct  12.7
+Nov  7.2
+Dec  2.2
+Year 11.6
+</code></pre>
+
+<p>
+Dikkat edilirse bu dosyanın satırlarında hem sayılar hem de metinler bulunmaktadır. Dosyanın içeriğine değinelim, bu dosya <a class="outref" target="_blank" href="http://www.worldclimate.com/cgi-bin/data.pl?ref=N40E032+1202+0020945G2">WorldClimate</a> internet sitesindeki verilerden derlenmiştir. Ankara şehrinin 1926 ile 1991 yılları arasındaki 784 ay boyunca günlük ortalama hava sıcaklığı ölçülmüş ve aylara göre ortalama sıcaklık değerleri hesaplanmıştır. Bu dosyada her ayın ortamala sıcaklık değeri içerilmektedir. İlk iki satırda şehir ile ilgili kısa bir bilgi sunulmuş, dosyanın son satırında ise ölçümler sonucunda şehrin yıllık ortalama sıcaklık değeri sunulmuştur. Amacımız bu dosyadaki aylara ait sıcaklık verilerini bir listeye kaydetmek, liste ile daha sonra iletişim kurarak gerekli durumlarda erişebiliriz. Aşağıdaki programla bu işlemi gerçekleştirebiliriz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+with open("data2.txt", "r") as dosya:
+    data = [x for x in dosya][2:-1] #gereksiz satirlari alma
+
+aylar = []; sicakliklar = []
+for satir in data:
+    ay = satir.split()[0]           #satiri ayristir, ilk parca
+    sicaklik = satir.split()[1]     #satiri ayristir, ikinci parca
+    aylar.append(ay)
+    sicakliklar.append(sicaklik)
+
+for ay, sicaklik in zip(aylar, sicakliklar):
+    print ay, sicaklik
+</code></pre>
+
+<p>
+Bu programın stratejisi söyledir. Önce dosyanın satırlarından bir liste oluşturuyoruz fakat ilk iki ve son satırı listede kaydetmiyoruz. Bu listenin her bir elemanı bir ay ve o aya ait sıcaklık bilgisinden oluşuyor. Daha sonra iki boş liste oluşturup bu listenin elemanlarını <code class="language-python">split()</code> yöntemi ile parçalayıp olacak şekilde <code class="language-python">append()</code> metodunu kullanan bir döngü kullanıyoruz. Son olarak bu listeleri bir tablo olarak yazdırıyoruz. Programın çıktısı aşağıdaki gibi olacaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python file7.py
+Jan 0.0
+Feb 1.2
+Mar 5.3
+Apr 11.1
+May 15.8
+Jun 19.8
+Jul 23.0
+Aug 22.9
+Sep 18.3
+Oct 12.7
+Nov 7.2
+Dec 2.2
+</code></pre>
+
+<p>
+Şimdi biraz da dosyaya veri yazma konusuna değineceğiz. Python'da dosyaya veri yazmak oldukça basittir, kullanılan fonksiyon <code class="language-python">dosya.write(s)</code> komutudur. Bu komut dosya nesnesine <code class="language-python">s</code> string nesnesini yazar. Dikkat edilmesi gereken kısım bu komutla yazılan string verisinin sonunda satır atlanmaz, dolayısıyla yeni satıra geçmek için yeni satır karakteri de eklenmelidir: <code class="language-python">dosya.write(s + '\n')</code>. Ayrıca bu yöntemle bir dosyaya yeni baştan yazmak için dosya nesnesi <code class="language-python">dosya = open("data.txt", "w")</code> biçiminde açılmalıdır, eğer dosyanın sonuna ekleme yapılmak isteniyorsa <code class="language-python">dosya = open("data.txt", "a")</code> olarak açılmalıdır. Buradaki <code class="language-python">w</code> ve <code class="language-python">a</code> harfleri <strong>write</strong> ve <strong>append</strong> kelimelerini baş harfleridir. Burada bahsettiğimiz tüm yazma işlemleri için <code class="language-python">with</code> ifadesi de kullanabilir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+y = lambda t: v0*t - 0.5*g*t**2
+v0 = 5; g = 9.81
+tlist = [i*0.15 for i in range(5)]
+
+with open("data3.txt", "w") as dosya:
+    for t in tlist:
+        dosya.write("y(%4.2f)=%f\n" % (t, y(t)))
+</code></pre>
+
+<p>
+Bu programın çalıştırılması sonucunda oluşan <code class="language-python">data3.txt</code> dosyasının içeriği aşağıdaki gibi olacaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+y(0.00)=0.000000
+y(0.15)=0.639637
+y(0.30)=1.058550
+y(0.45)=1.256738
+y(0.60)=1.234200
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Hata Kontrolü</h3>
+
+
+
+
+
+
+<p>
+Daha önce yazdığımız aşağıdaki programı ele alalım.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import sys
+
+t = sys.argv[1]
+t = float(t); v0 = 2; g = 9.81
+y = v0*t - 0.5*g*t**2
+print y
+</code></pre>
+
+<p>
+Kullanıcı bu programı çalıştırırken bir sayıyı komut satırı argümanı olarak vermelidir. Eğer kullanıcı programı hiç bir argüman vermeden çalıştırırsa Python kullanıcıya bir hata mesajı gösterip programın çalışmasını durdurur.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python sysargv1.py
+Traceback (most recent call last):
+File "sysargv1.py", line 3, in <module>
+t = sys.argv[1]
+IndexError: list index out of range
+</code></pre>
+
+<p>
+Hata mesajını incelersek <code class="language-python">sysargv1.py</code> dosyasının 3. satırında <code class="language-python">t = sys.argv[1]</code> kodlarında bir hata ile karşılaşıldığı belirtiliyor. Bu hatanın tipi <code class="language-python">IndexError</code>, açıklaması da liste indisinin kapsam dışı olması olarak veriliyor. Python da program içinde oluşan kodlama hatalarına <strong>Exception</strong> denir. Gerçekten kodları inceleyecek olursak kullanıcı argüman girmediği için <code class="language-python">sys.argv</code> listesinin tek bir elemanı var o da programın ismi, bunun da indisi 0 olacağından bu liste içinde 1 indisli hiç bir eleman yoktur. Programcı açısından bu açıklama yeterli olabilir ama kullanıcı için olası hataların programın içinde tespit edilip daha uygun bir açıklama ile uyarılması daha uygun olacaktır. Bu bölümde program içinde hataların tespit edilmesi konusu işlenecektir.
+</p>
+
+<p>
+Örneğin yukarıdaki gibi <code class="language-python">IndexError</code> hatalarını tespit etmek ve kullanıcıyı bilgilendirmek için aşağıdaki gibi bir yol izlenebilir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import sys
+
+if len(sys.argv) < 2:
+    print "Bir arguman mutlaka girilmeli.."
+    sys.exit(1)
+
+t = float(sys.argv[1])
+v0 = 2; g = 9.81
+y = v0*t - 0.5*g*t**2
+print y
+</code></pre>
+
+<p>
+Burada kullandığımız <code class="language-python">sys.exit()</code> fonksiyonu programın o anda durdurulmasını sağlar. Argüman olarak <code class="language-python">1</code> girerek karşılaşılan bir hata sonucu programın sonlandırıldığını belirtiyoruz, bunu <code class="language-python">0</code> girersek hata ile karşılaşılmadan da programı sonlandırdığımızı belirtiriz. Bu programın çıktısı aşağıdaki gibi olacaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python except1.py 0.1
+0.15095
+Terminal > python except1.py
+Bir arguman mutlaka girilmeli..
+</code></pre>
+
+<p>
+Python'da bu hata tespit ve kontrol yönteminin daha modern ve kompakt bir yolu vardır, bu işlemler için <strong>try-except</strong> bloklarını kullanırız. Bunu bir örnek üzerinde açıklayalım.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import sys
+
+try:
+    t = float(sys.argv[1])
+except:
+    print "Komut satirindan arguman alinamadi.."
+    sys.exit(1)
+
+v0 = 2; g = 9.81
+y = v0*t - 0.5*g*t**2
+print y
+</code></pre>
+
+<p>
+Görüldüğü gibi hata kontrolü için kullandığımız <code class="language-python">try-except</code> yapısı, dallanma için kullandığımız <code class="language-python">if-else</code> yapısına benzerdir. Burada program önce <code class="language-python">try</code> bloğu içindeki kodları çalıştırmayı dener, eğer sorunsuz bir şekilde bu kodlar çalışırsa program <code class="language-python">except</code> blokunu atlar ve 9 numaralı satırdan çalışmaya devam eder. Ama eğer <code class="language-python">try</code> bloğu içinde verilen kodlar çalıştırılırken bir sorun ile karşılaşılırsa program <code class="language-python">except</code> blokunda bulunan kodları çalıştırır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python except2.py 0.1
+0.15095
+Terminal > python except2.py
+Komut satirindan arguman alinamadi..
+Terminal > python except2.py 0.1saniye
+Komut satirindan arguman alinamadi..
+</code></pre>
+
+<p>
+Yukarıda görülen program çıktısından da anlaşılacağı gibi sadece komut satırından argüman girilmemesi durumu söz konusu değildir. Kullanıcı komut satırından bir argüman girmiştir fakat bu veri <code class="language-python">float</code> nesnesine çevrilemeyen bir veridir. Böyle durumlarda <code class="language-python">ValueError</code> exception tipi oluşur.
+<p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python sysargv1.py 0.1sn
+Traceback (most recent call last):
+File "sysargv1.py", line 4, in <module>
+t = float(t); v0 = 2; g = 9.81
+ValueError: invalid literal for float(): 0.1sn
+</code></pre>
+
+<p>
+Bunların dışında sık karşılaşılan exception tipleri şöyle sıralanabilir. <code class="language-python">NameError</code>: tanımlanmamış bir değişken ismi ile karşılaşıldığında oluşur, <code class="language-python">ZeroDivisionError</code>: sıfır ile bölme işlemi ile karşılaşılınca oluşur, <code class="language-python">TypeError</code>: beraber işleme giremeyecek nesneler aynı işlemde bulunduğu zaman oluşur (örneğin <code class="language-python">string</code> ile <code class="language-python">float</code> çarpması yapmaya kalkışılırsa).
+</p>
+
+<p>
+Yukarıdaki örnekte olduğu gibi tüm hata tipleri için tek bir genel durum oluşturmak çok iyi bir fikir değildir. Bunun yerine kullanıcıya nasıl bir hata yaptığını açıklayan bir mesaj iletebiliriz. Bunu yapmak için programda karşılaşılan hata tipini tespit edip buna göre mesaj yazdırmalıyız. Bunu <code class="language-python">except</code> bloğunda hata çeşidini belirterek yapabiliriz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import sys
+
+try:
+    t = float(sys.argv[1])
+except IndexError:
+    print "Komut satirindan bir arguman girilmeli.."
+    sys.exit(1)
+except ValueError:
+    print "t=%s bir sayi degil.." % sys.argv[1]
+    sys.exit(1)
+
+v0 = 2; g = 9.81
+y = v0*t - 0.5*g*t**2
+print y
+</code></pre>
+
+<p>
+Yukarıdaki programın çıktısı aşağıdaki gibi olacaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python except3.py
+Komut satirindan bir arguman girilmeli..
+Terminal > python except3.py 0.1sn
+t=0.1sn bir sayi degil..
+Terminal > python except3.py 0.1
+0.15095
+</code></pre>
+
+<p>
+Programda bir hata ile karşılaştığımızda ya bir hata mesajı yazdırıp <code class="language-python">sys.exit()</code> ile programı sonlandırırız ya da bir exception üretiriz. İkinci işlem oldukça kolaydır ve <code class="language-python">raise E(mesaj)</code> komutuyla yapılır. Burada <code class="language-python">E</code> ile bir bilinen exception türü, mesaj ile de yazdırılacak mesajı belirtiriz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import sys
+
+try:
+    t = float(sys.argv[1])
+except IndexError:
+    raise IndexError("Komut satirindan bir arguman girilmeli..")
+except ValueError:
+    raise ValueError("t=%s bir sayi degil.." % sys.argv[1])
+
+v0 = 2; g = 9.81
+y = v0*t - 0.5*g*t**2
+print y
+</code></pre>
+
+<p>
+Bu yöntemle Python'da anlamlı olan fakat yapılan işlem içinde istemedğimiz sonuç üretecek durumlar için de kontrol sağlanabilir. Örneğin yukarıdaki örnekte $t$ aralığı $[0, 2v_0/g]$ biçiminde olmalıdır, aksi halde konum fiziksel olarak anlamsız olan negatif değerler olarak hesaplanır. Bu aralık dışında değerleri girilince <code class="language-python">raise</code> ifadesi yardımıyla bir exception üretip programı durdurabiliriz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import sys
+
+try:
+    t = float(sys.argv[1])
+except IndexError:
+    raise IndexError("Komut satirindan bir arguman girilmeli..")
+except ValueError:
+    raise ValueError("t=%s bir sayi degil.." % sys.argv[1])
+
+v0 = 2; g = 9.81
+
+if not 0 <= t <= 2*v0/g:
+    raise ValueError("t=%g degeri [%g, %g] araliginda degil.." \
+        % (t, 0, 2*v0/g))
+
+y = v0*t - 0.5*g*t**2
+print y
+</code></pre>
+
+<p>
+Bu programın çıktısı aşağıdaki gibi olacaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python except5.py 0.1sn
+Traceback (most recent call last):
+File "except5.py", line 8, in <module>
+raise ValueError("t=%s bir sayi degil.." % sys.argv[1])
+ValueError: t=0.1sn bir sayi degil..
+
+Traceback (most recent call last):
+File "except5.py", line 14, in <module>
+% (t, 0, 2*v0/g))
+ValueError: t=1 degeri [0, 0.407747] araliginda degil..
+</code></pre>
+
+<p>
+Burada hata kontrolü uygun biçimde yapılmış oldu ama tek bir sıkıntı var, hata mesajları kullanıcı açısından biraz karmaşık görünüyor. Kullanıcı kaynak kodları ve teknik bilgileri görmeden sadece uygun bir hata mesaji gösterilerek bilgilendirilebilir. Bunu yapmak için sadece kullanıcı girişini okuyan ve hata kontrolü yapan bir fonksiyon tanımlarız, daha sonra bunu ana programda tekrar <code class="language-python">try-except</code> bloğundan geçiririz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import sys
+v0 = 2; g = 9.81
+
+def veri_al():
+    try:
+        t = float(sys.argv[1])
+    except IndexError:
+        raise IndexError("Komut satirindan bir arguman girilmeli..")
+    except ValueError:
+        raise ValueError("t=%s bir sayi degil.." % sys.argv[1])
+    if not 0 <= t <= 2*v0/g:
+        raise ValueError("t=%g degeri [%g, %g] araliginda degil.." \
+        % (t, 0, 2*v0/g))
+    return t
+
+try:
+    t = veri_al()
+except Exception as E:
+    print E
+    sys.exit(1)
+
+y = v0*t - 0.5*g*t**2
+print y
+</code></pre>
+
+<p>
+Python'da hata (exception) kontrolünün önerilen yöntemi bu son yazdığımız programda yaptığımız gibidir. Programın çıktısı aşağıdaki gibi olacaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python except6.py 1
+t=1 degeri [0, 0.407747] araliginda degil..
+
+Terminal > python except6.py 1sn
+t=1sn bir sayi degil..
+
+Terminal > python except6.py
+Komut satirindan bir arguman girilmeli..
+
+Terminal > python except6.py 0.1
+0.15095
+</code></pre>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../31-python-fonksiyonlari/index.html">3.1. Python Fonksiyonları</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Python ve Bilimsel Hesaplama</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../33-pythonda-moduller/index.html">3.3. Python'da Modüller</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/python-ve-bilimsel-hesaplama/32-kullanicidan-veri-alma/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:48 GMT -->
+</html>

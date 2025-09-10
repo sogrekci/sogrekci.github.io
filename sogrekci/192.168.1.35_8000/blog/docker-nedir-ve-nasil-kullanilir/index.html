@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/blog/docker-nedir-ve-nasil-kullanilir/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:33:58 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - Docker Nedir ve Nasıl Kullanılır?
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../static/site/prism.css">
+    <script src="../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>Docker Nedir ve Nasıl Kullanılır?</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2021-05-21">
+          21 Mayıs 2021
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu yazımda son zamanlarda sık sözü edilen <strong>konteynerleştirme</strong> mantığı ve <strong>Docker</strong> yazılımı hakkında giriş seviyesinde bazı bilgiler vereceğim, yazılım alanında çalışacaksanız muhtemelen bunları sıklıkla kullanacaksınız.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../dizin/busybox/index.html">BusyBox</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/container/index.html">Container</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/containerization/index.html">Containerization</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/django/index.html">Django</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/docker/index.html">Docker</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/docker-compose/index.html">Docker-Compose</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/image/index.html">image</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/imaj/index.html">imaj</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/konteyner/index.html">Konteyner</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/konteynerlestirme/index.html">Konteynerleştirme</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/python/index.html">python</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/sanal-makine/index.html">Sanal Makine</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/virtual-machine/index.html">Virtual Machine</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/vps/index.html">VPS</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-5 text-justify">
+        <p>
+Bir uygulama geliştirirken uygulamanızın kullanacağı harici kaynakları (dependicies) sunucuya yüklersiniz, özellikle birden fazla uygulama geliştiriyorsanız zamanla sunucunuz bir çöplüğe dönüşür. Hatta bazen bir paketin veya frameworkun farklı versiyonlarına ihtiyaç duyan uygulamaları aynı sunucuda barındırmak zorunda kalabilirsiniz. Böyle zorlukların üstesinden gelmek için bir <strong>izolasyon</strong> stratejisi geliştirmeniz gerekir, mesela Python uygulamaları geliştirirken <strong>virtual environment</strong> (venv) denilen uygulamadan faydalanırız. Genel bir uygulama geliştirirken buna benzer işletim sistemi seviyesinde soyutlama yapacak bir araca (OS-level-venv) ihtiyaç duyarız.
+</p>
+
+<p>
+İşletim sistemi seviyesinde soyutlama için <strong>sanal makineler</strong> (virtual machines) kullanılabilir; bu çözümde sunucunuz kendi içinde belirli sayıda sanal sunuculara bölünür ve bunların her birinin belirlenen kadar donanım erişimi vardır (bellek, cpu, disk, vs..), her bir sanal makineye ihtiyacınız olan işletim sistemini kurup her bir makinede bir uygulamayı rahatça geliştirirsiniz. Bu yaklaşımda sorun sanal makinelerin hantallığıdır; her bir sanal makine kendine ait sanal bir bios aracılığıyla boot olup açılacak işletim sistemi çalışacak vesaire, bir sürü tantana! Eğer uygulamalarınız aynı sınıf işletim sistemlerinde çalışacaksa ve her bir uygulama için ayrılmış donanıma (dedicated) ihtiyacınız yoksa bu strateji sizin için tankla sinek öldürmeye benzer.
+</p>
+
+<p>
+Alternatif çözüm ise <strong>konteynerleştirme</strong> denilen tekniktir; bu çözümde sunucunuzda adına <strong>konteyner</strong> (container) denilen yapılar kurarsınız, bu yapılar aslında sunucu işletim sistemi çekirdeğinin birer klonudur ve hepsi aynı donanımı paylaşır. Bu konteynerlerin her biri içerisinde bir uygulamayı diğerlerinden izole bir biçimde geliştirebilirsiniz, ayrıca bunların başlaması ve durması da son derece hızlıdır. Konteynerlerin dezavantajları da aynı işletim sistemi içinde çalışacak uygulamalara sınırlanmasıdır, bir Linux sunucusu için oluşturduğunuz konteyneri bir Windows sunucusunda çalıştıramazsınız; bir de konteynerlerin oluşturulması aşaması sanal makinelerin kurulması aşamasına göre biraz daha detaylı işçilik gerektirir. Konteynerlerin sağladığı en büyük kolaylıklardan biri de uygulamanın dağıtımını (deployment) ciddi ölçüde kolaylaştırmasıdır, yazımın sonunda buna bir örnek vereceğim.
+
+<img class="envfig my-5" src="../../static/blog/container_vs_virtual_machine.svg" width="65%">
+</p>
+
+
+
+<p>
+Konteynerleştirme işini yapmaya yarayan en popüler yazılım <a target="_blank" class="outref" href="https://www.docker.com/"><strong>Docker</strong></a> yazılımıdır, açık kaynak kodlu (open source) ve ücretsizdir (ücretli planları da mevcut). Şimdi bunun nasıl kullanılacağı ve nasıl konteynerler oluşturabileceğinizi açıklayacağım. Docker yazılımının kurulması işletim sisteminize göre değişiklik gösterir <a target="_blank" class="outref" href="https://docs.docker.com/engine/install/">şu sayfadan</a> size uygun bölüme geçip talimatları uygulayarak Docker Engine yazılımını kurun. Kurulumun başarılı olduğunu anlamak için <code class="language-python">docker run hello-world</code> komutunu çalıştırın (root yetkileriyle çalıştırmanız gerekebilir, farklı bir kullanıcıdaysanız, linux için, başına <code class="language-python">sudo</code> ekleyin),  Docker motoru birşeyler indirip size bir çıktı gösterecektir; hata alırsanız kurulum aşamasını yapamadınız demektir.
+
+<img class="envfig my-5" src="../../static/blog/vertical-logo-monochromatic.png" width="35%">
+</p>
+
+
+<p>
+Şimdi Docker ile bir konteyner oluşturalım, terminolojiyi biraz anlamamız gerekiyor. Öncelikle konteyner oluşturmak için bir <strong>imaj</strong>a (image) ihtiyacımız var, bunlar bir konteynerin paketlenmiş halidir ve Docker motoru bir imajı kullanarak ondan konteyner oluşturur (işletim sistemi imajları gibi düşünün). Docker sunucularında bir imaj deposu vardır; bu depoda Docker tarafından dağıtılan resmi (official) imajların yanı sıra kullanıcıların yükledikleri imajlar da erişime açıktır, komut satırından bu imajları indirebiliriz. Official imajlar genelde tek elimeden oluşan isimlere sahiptir, mesela az önce çalıştırdığımız komutta geçen  <code class="language-python">hello-world</code> ifadesi bir resmi Docker imajı ismidir. Kullanıcıların yüklediği imajlar genelde  <code class="language-python">kullanici-adi/imaj-adi</code> biçimindedir. Bir imaj indirmek için Docker motorunda  <code class="language-python">pull</code> komutunu kullanırız. Örneğin şimdi  <code class="language-python">docker pull busybox</code> komutunu çalıştırarak Docker'in <a target="_blank" class="outref" href="https://en.wikipedia.org/wiki/BusyBox"><strong>BusyBox</strong></a> imajını indirelim, bu imaj minimal bir linux çekirdeği imajıdır. Sisteminize yüklediğiniz imajların listesini görmek için <code class="language-python">docker images</code> komutunu kullanabilirsiniz.
+</p>
+
+<p>
+İmajı indirdiğimize göre şimdi konteyneri çalıştırabiliriz: <code class="language-python">docker run busybox echo "Merhaba Dunya!"</code> komutunu çalıştırın, ekrana bu mesaj yazdırılacaktır. Bu komutla şunlar yapıldı: BusyBox imajı kullanılarak bir konteyner oluşturuldu ve bu konteyner içinde <code class="language-python">echo "Mehaba Dunya!"</code> komutu çalıştırıldı ve sonuç getirildi, sonra da konteyner kapatıldı. Bu işlemlerin ne kadar kısa bir sürede gerçekleştiğine dikkat edin. Alternatif olarak <code class="language-python">docker run -it busybox sh</code> komutunu çalıştırırsanız interaktif shell uygulaması konteynerde çalışır ve siz sonlandırıncaya kadar konteyner kapatılmaz, sonlandırmak için CTRL+D yapın.
+</p>
+
+<p>
+Bu şekilde istediğiniz imajı kullanarak konteynerler oluşturup sisteminizden izole olarak komutlar çalıştırabilirsiniz. Ama Dcoker kullanımı asıl bundan sonra başlıyor, uygulamanızı geliştirebilmek için kendi imajlarınızı oluşturmanız gerekiyor. Bunun için imajın tarifini veren bir Dockerfile dosyası oluşturursunuz ve uygulama dosyalarınızla bunu bir klasöre alıp Docker motorunda <code class="language-python">build</code> komutunu kullanırsınız. Ayrıca bir çok uygulama geliştirilirken birden fazla konteyner aynı anda çalıştırılır ve bunların iletişim halinde olması gerekir, yani konteynerler için bir ağ kurulması lazım. Bu tür işlemleri yapmak için <a target="_blank" class="outref" href="https://docs.docker.com/compose/install/"><strong>Docker-Compose</strong></a> adında yardımcı bir araç vardır. Bu yazımda temel konulara ve Docker mantığına değindiğim için bu gibi konulara girmeyeceğim, internetten araştırıp kolayca öğrenebilirsiniz.
+</p>
+
+<p>
+Docker kullanımı deployment aşamasını dramatik ölçüde kolaylaştırır, buna bir örnek olarak <a target="_blank" class="outref" href="https://github.com/sogrekci/dockerized-django-app-template">şu sayfada</a> bulunan şablona bakabilirsiniz. Django ile web sitesi geliştirdiyseniz bu şablon size uygulamanızı hızlı bir şekilde yayına almanızı sağlayacaktır.
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Blog Yazısı:<br>
+        <a href="../jupyter-notebook-ile-uzak-sunucuda-program-gelistirme/index.html">Jupyter Notebook İle Uzak Sunucuda Program Geliştirme</a>
+        
+      </div>
+      <div class="col text-center mt-auto">
+        <a href="../index.html">Blog Ana Sayfası</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Blog Yazısı:<br>
+        <a href="../latex-belgesini-word-belgesine-donusturmek/index.html">LaTeX Belgesini Word Belgesine Dönüştürmek</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+
+
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../ders-notu/index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/blog/docker-nedir-ve-nasil-kullanilir/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:33:58 GMT -->
+</html>

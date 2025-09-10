@@ -1,0 +1,131 @@
+
+
+body {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    line-height: 1.50;
+    font-size: 1.1rem;
+    background-color: #faf4f400;
+}
+
+h1 { font-family: 'Merriweather', serif;
+    font-size: 3.75rem;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 2.25rem;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: .05rem;
+}
+
+
+
+
+
+
+
+/* non-Mathjax eqref links */
+
+/*a.eqref:link { color: maroon; }*/
+/*a.eqref:visited { color: maroon; }*/
+a.eqref:hover { color: maroon; text-decoration: none; }
+/*a.eqref:active { color: #0275d8; text-decoration: none; }*/
+
+L
+
+/* target=_blank links*/
+a.outref:hover { color: red; text-decoration: none; }
+
+/* to blog links*/
+a.blogref:hover { color: #5cb85c; text-decoration: none; }
+
+
+/* Theorem-like environments HEADINGS: theorem, definition, etc.. */
+h6.thenv {
+    color: maroon;
+    font-weight: 700;
+}
+
+.figcap {
+    font-weight: 700;
+}
+
+
+
+/* Theorem-like environments, except heading */
+.envdef {
+    background-color: #00000002;
+    padding: 5pt;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 3pt;
+}
+
+.envcor {
+    background-color: #00000002;
+    padding: 5pt;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 3pt;
+}
+
+.envtheo {
+    background-color: #ff000005;
+    padding: 5pt;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 3pt;
+}
+
+.envrem {
+    padding: 5pt;
+ /*   border-style: solid;
+    border-width: thin;
+    border-radius: 3pt;
+*/
+}
+
+.envex {
+    background-color: ;
+}
+
+.envfig {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+
+/* prismjs overrides */
+code[class*="language"] {
+	max-height: 720px;
+}
+
+
+
+/* 3column div */
+.twocolumnspaper{
+    -webkit-column-gap: 20px;
+       -moz-column-gap: 20px;
+            column-gap: 20px;
+    -webkit-column-count: 3;
+       -moz-column-count: 3;
+            column-count: 3;
+}
+
+
+
+
+
+
+/* Carousel override for black arrows */
+.carousel-control-next,
+.carousel-control-prev {
+    filter: invert(100%);
+}
+
+

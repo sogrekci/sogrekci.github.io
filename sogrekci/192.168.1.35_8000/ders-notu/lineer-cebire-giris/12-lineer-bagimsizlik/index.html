@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/12-lineer-bagimsizlik/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:04 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 1.2. Lineer Bağımsızlık
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>1.2. Lineer Bağımsızlık</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-28">
+          28 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste lineer cebir için çok önemli bir kavram olan <strong>lineer bağımsızlık</strong> kavramını açıklayacağız. Bunun dışında bir kümeyi <strong>germe</strong> kavramını ve uzayı geren vektörlerin bazı temel özelliklerini de keşfedeceğiz.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/asikar-lineer-baginti/index.html">aşikar lineer bağıntı</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/asikar-olmayan-lineer-baginti/index.html">aşikar olmayan lineer bağıntı</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/geren-kume/index.html">geren küme</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/gerilen-kume/index.html">gerilen küme</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/germe/index.html">germe</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/lineer-bagimlilik/index.html">lineer bağımlılık</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/lineer-bagimsizlik/index.html">lineer bağımsızlık</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/lineer-baginti/index.html">lineer bağıntı</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/lineer-kombinasyon/index.html">lineer kombinasyon</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/lineerlik/index.html">lineerlik</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Eğer $\beta=\sum_{i}a_i\alpha_i$ oluyorsa $\beta$ vektörü $\{\alpha_i\}$ vektörlerinin bir <strong>lineer kombinasyonudur</strong> denir. Ayrıca $\sum_{i}a_i\alpha_i=0$ biçiminde bir eşitliğe $\{\alpha_i\}$ vektörleri arasında bir <strong>lineer bağıntı</strong> denir. Bu eşitlik her $a_i=0$ için otomatik olarak sağlanır ve buna <strong>aşikar lineer bağıntı</strong> denir, en az bir $a_i$ skaleri sıfırdan farklı iken sağlanıyorsa bu eşitlik bir <strong>aşikar olmayan lineer bağıntı</strong> olarak adlandırılır.
+</p>
+
+<p>
+<div class="envtheo" id="theo:vec:1"><h6 class="thenv">Teorem 1.2.1</h6>
+$\alpha$ vektörü $\{\beta_i\}$ vektörlerinin bir lineer kombinasyonu ve her bir $\beta_i$ vektörü de $\{\gamma_i\}$ vektörlerinin bir lineer kombinasyonu ise bu durumda $\alpha$ vektörü $\{\gamma_i\}$ vektörlerinin bir lineer kombinasyonudur.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong> $\alpha=\sum_{i}b_i\beta_i$ ve $\beta_i=\sum_{j}c_{ij}\gamma_j$ olsun. Bu durumda $\alpha=\sum_{i}b_i\left(\sum_{j}c_{ij}\gamma_j\right)=\sum_{j}\left(\sum_{i}b_ic_{ij}\right)\gamma_j$ elde edilir ki istenendir.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envdef" id="def:linbgmsz"><h6 class="thenv">Tanım 1.2.2 (Lineer bağımsızlık)</h6>
+Bir vektör kümesi elemanları arasında aşikar olmayan bir lineer bağıntı varsa bu kümedeki vektörler <strong>lineer bağımlıdır</strong> denir. Aksi taktirde bu vektörler <strong>lineer bağımsızdır</strong> denir.
+</div>
+</p>
+
+<p>
+Bu tanımdan aşağıdaki sonuçlar çıkar:
+<ol>
+<li class="py-2">$\{\alpha_i\}$ vektörleri lineer bağımlı ise aşikar olmayan bir $\sum_{i}a_i\alpha_i=0$ lineer bağıntısı vardır ve en az bir skaler sıfırdan farklıdır, $a_k\neq0$ olsun. Bu durumda $\alpha_k=\sum_{i\neq k}\left(a_k^{-1}a_i\right)\alpha_i$ olur, yani bu kümedeki bir vektör diğerlerinin lineer kombinasyonudur.</li>
+<li class="py-2">$\{\alpha_i\}$ vektörleri lineer bağımsız ise $\sum_{i}a_i\alpha_i=0$ lineer bağıntısının sağlanması sadece her katsayı için $a_i=0$ olmasıyla mümkündür.</li>
+</ol>
+</p>
+
+<p>
+<div class="envrem" id="rmk:vec:4"><h6 class="thenv">Uyarı 1.2.3</h6>
+Bir $\{\alpha_i\}$ kümesi içindeki vektörler lineer bağımlı ise bunlardan bazıları birbirine eşit olabilir. Örneğin lineer bağımlı bir $\{\alpha_1,\alpha_2\}$ kümesi için $\alpha_1=\alpha_2$ olabilir, bu durumda ise bu küme $\{\alpha_1\}$ biçiminde tek elemanlı bir küme olur. Bu ders boyunca $\alpha_i, \beta_i, \gamma_i$ gibi ifadeleri vektörlere referans veren değişkenler gibi düşüneceğiz, yani $\{\alpha_i\}$ kümesi elemanlarından bazıları aynı vektöre referans verse bile bunları farklı elemanlar olarak göreceğiz. Aksi taktirde lineer bağımlılık tanımımız doğru olmaz. Bu bahsettiğimiz durum lineer bağımsız vektör kümelerinde gerçekleşmez.
+</div>
+</p>
+
+<p>
+<div class="envex" id="ex:vec:3"><h6 class="thenv">Örnek 1.2.4</h6>
+Aşağıdaki örneklerden bazılarının doğrulanması okuyucuya bırakılmıştır.
+<ol>
+<li class="py-2">$\mathbb{R}^3$ kümesinde $\{\alpha_1,\alpha_2,\alpha_3,\alpha_4\}=\{ (1,1,0), (1,0,1), (0,1,1), (1,1,1) \}$ vektörleri lineer bağımlıdır, çünkü bunlar arasında aşikar olmayan $$\alpha_1+\alpha_2+\alpha_3-2\alpha_4=0$$ bağıntısı vardır.</li>
+<li class="py-2">$\mathbb{R}^3$ kümesinde $\{ (1,0,0), (0,1,0), (0,0,1) \}$ vektörleri lineer bağımsızdır.</li>
+<li class="py-2">$\{1, t, t^2, t^3,\ldots\}$ polinomlar kümesi lineer bağımsızdır.</li>
+<li class="py-2">$\{\alpha_1,\alpha_2,\alpha_3,\alpha_4\}=\{1,t,t^2,t^2+2t+1\}$ kümesi lineer bağımlıdır,çünkü elemanları arasında aşikar olmayan $\alpha_1+2\alpha_2+\alpha_3-\alpha_4=0$ bağıntısı vardır.</li>
+<li class="py-2"><a class="eqref" href="../11-temel-tanimlar/index.html#ex:vec:2:Pn">Örnek 1.1.4-4</a> ile tanımlanan ${P_n}$ kümesinde herhangi $n+1$ tane polinom lineer bağımlı olur.</li>
+<li class="py-2">İçinde sıfır vektörünü bulunduran her küme lineer bağımlıdır.</li>
+<li class="py-2" id="ex:vec:3:sifir">İçinde tam olarak bir tane ve sıfırdan farklı vektör olan küme lineer bağımsızdır.</li>
+<li class="py-2" id="ex:vec:3:bos">Boş küme lineer bağımsızdır.</li>
+</ol>
+</div>
+</p>
+
+
+<p>
+<div class="envtheo" id="theo:vec:2"><h6 class="thenv">Teorem 1.2.5</h6>
+Sıfırdan farklı vektörlerin bir $\{\alpha_1,\alpha_2,\ldots\}$ kümesinin lineer bağımlı olması için gerek ve yeter koşul, bir $\alpha_k$ vektörünün $j\lt k$ olmak üzere $\alpha_j$ vektörlerinin bir lineer kombinasyonu olmasıdır.
+</div>
+</p>
+
+
+
+<p>
+<strong>İspat: </strong> Varsayalım ki $\{\alpha_1,\alpha_2,\ldots\}$ kümesi lineer bağımlı olsun, bu durumda bu vektörler arasında aşikar olmayan bir $\sum_{i}a_i\alpha_i=0$ lineer bağıntısı vardır. Burada sıfır olmayan pozitif sonlu sayıda $a_i$ katsayısı vardır, bu katsayılardan sonuncusu $a_k$ olsun. $k\geq 2$ olmalıdır, çünkü eğer $k=1$ olursa $\alpha_1\neq0$ olduğundan yukarıdaki lineer bağıntı sağlanmaz. Bundan dolayı $\alpha_k=-a_k^{-1}\sum_{i=1}^{k-1}a_i\alpha_i=\sum_{i=1}^{k-1}(-a_k^{-1}a_i)\alpha_i$ elde edilir. Kanıtın diğer yönü <a class="eqref" href="#def:linbgmsz">Tanım 1.2.2</a> gereği açıktır.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envdef" id="def:vec:germe"><h6 class="thenv">Tanım 1.2.6</h6>
+Bir ${V}$ vektör uzayının bir $A$ alt kümesinin elemanlarının tüm lineer kombinasyonlarının oluşturduğu küme $\langle A \rangle$ ile gösterilir ve $A$ tarafından <strong>gerilen</strong> küme olarak adlandırılır. Bu durumu bazen $A$ <strong>kümesi</strong> $\left\langle A\right\rangle$ <strong>kümesini gerer</strong> biçiminde ifade ederiz. $\langle\emptyset\rangle=\{0\}$ kabul ederiz.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:vec:5"><h6 class="thenv">Uyarı 1.2.7</h6>
+Aşağıdakiler doğrudan <a class="eqref" href="#def:vec:germe">Tanım 1.2.6</a> sonucudur.
+<ol>
+<li class="py-2">$A\subset \langle A\rangle$</li>
+<li class="py-2" id="rmk:vec:5:2">$A\subset B$ ise $\langle A\rangle\subset\langle B\rangle$ olur.</li>
+<li class="py-2"><a class="eqref" href="#theo:vec:1">Teorem 1.2.1</a> sonucu şu şekilde yeniden ifade edilebilir: $A\subset \langle B\rangle$ ve $B\subset \langle C\rangle$ ise bu durumda $A\subset \langle C\rangle$ olur.</li>
+</ol>
+Ayrıca bundan sonra bu metinde $\langle \{\alpha_1,\alpha_2,\ldots\}\rangle$ kümesini kısaca $\langle\alpha_1,\alpha_2,\ldots \rangle$ olarak göstereceğiz.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:vec:3"><h6 class="thenv">Teorem 1.2.8</h6>
+Sıfırdan farklı vektörlerin $\{\alpha_i \}$ kümesinin lineer bağımsız olması için gerek ve yeter koşul, her bir $k$ için $\alpha_k\not\in\langle \alpha_1,\alpha_2,\ldots,\alpha_{k-1}\rangle$ olmasıdır.
+</div>
+</p>
+
+<strong>İspat: </strong>Bu sonuç, <a class="eqref" href="#theo:vec:2">Teorem 1.2.5</a>'in yeniden ifadesidir.$$\tag*{$\blacksquare$}$$
+
+<p>
+<div class="envtheo" id="theo:vec:4"><h6 class="thenv">Teorem 1.2.9</h6>
+$B$ ve $C$ kümeleri bir vektör uzayının $B\subset\langle C\rangle$ koşulunu sağlayan herhangi iki alt kümesi olsun, bu durumda $\langle B\rangle\subset\langle C\rangle$ olur.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$A:=\{\alpha_i\}$, $B:=\{\beta_i \}$ ve $C:=\{\gamma_i \}$ olsun. Bu durumda <a class="eqref" href="#theo:vec:1">Teorem 1.2.1</a> notasyonuyla $A=\langle B\rangle$ olur ve bu teorem gereği $B\subset\langle C\rangle$ ise $\langle B\rangle=A\subset\langle C\rangle$ olur.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="theo:vec:5"><h6 class="thenv">Teorem 1.2.10</h6>$\alpha_k\in A$ vektörü $A$ kümesindeki diğer vektörlerinin bir lineer kombinasyonu ise $\langle A\rangle=\langle A-\{\alpha_k \}\rangle$ olur.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$\alpha_k$ vektörünün $A-\{\alpha_k \}$ kümesi elemanlarının bir lineer kombinasyonu olması demek $A\subset\langle A-\{\alpha_k \}\rangle$ demektir. Buradan da <a class="eqref" href="#theo:vec:4">Teorem 1.2.9</a> gereği $\langle A\rangle\subset\langle A-\{\alpha_k \}\rangle$ elde edilir. Diğer taraftan $\langle\{A-\alpha_k \}\rangle\subset\langle A\rangle$ olduğu açıktır (bk. <a class="eqref" href="#rmk:vec:5:2">Uyarı 1.2.7-2</a>).$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="theo:vec:6"><h6 class="thenv">Teorem 1.2.11</h6> Herhangi bir $A$ kümesi için $\langle \langle A\rangle\rangle=\langle A\rangle$ olur.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$\langle A\rangle\subset\langle A\rangle$ olduğundan <a class="eqref" href="#theo:vec:4">Teorem 1.2.9</a> gereği $\langle \langle A\rangle\rangle\subset\langle A\rangle$ olur. Diğer taraftan $\langle A\rangle\subset\langle \langle A\rangle\rangle$ olduğu açıktır (bk. <a class="eqref" href="#rmk:vec:5:2">Uyarı 1.2.7-2</a>).$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="theo:vec:7"><h6 class="thenv">Teorem 1.2.12</h6>Sonlu bir $A:=\{\alpha_1,\alpha_2,\ldots,\alpha_n\}$ kümesi $V$'yi gersin, yani $\langle\alpha_1,\alpha_2,\ldots,\alpha_n \rangle={V}$ olsun. Bu durumda ${V}$'deki lineer bağımsız her kümenin en fazla $n$ tane elemanı vardır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$B:=\{\beta_1,\beta_2,\ldots \}$ lineer bağımsız bir küme olsun. Öncelikle $A$ kümesinin $\alpha_i$ vektörlerini teker teker $\beta_j$ vektörleriyle değiştirerek her adımda $V$'yi geren $n$ elemanlı yeni bir küme elde edilebileceğini göstereceğiz. Bunun için $n$ elemanlı $A_k:=\{\beta_1,\beta_2,\ldots,\beta_k,\alpha_{k+1},\alpha_{k+2},\ldots,\alpha_n \}$ kümesinin $V$'yi gerdiğini varsayalım, hipotez gereği $A_0$ için bu doğrudur. $A_k$ kümesi $V$'yi gerdiği için $\beta_{k+1}$ vektörü $A_k$ kümesi vektörlerinin bir lineer kombinasyonu olarak yazılabilir, dolayısıyla $n+1$ elemanlı $\{\beta_1,\ldots,\beta_k,\beta_{k+1},\alpha_{k+1},\ldots,\alpha_n \}$ kümesi lineer bağımlıdır. Yani bu kümenin vektörleri arasında aşikar olmayan bir $$\sum_{j=1}^{k+1}a_j\beta_j+\sum_{i=k+1}^{n}a_i\alpha_i=0$$ lineer bağıntısı vardır, buradaki $a_i$ katsayılarının hepsi birden sıfır değildir. Ayrıca sıfırdan farklı olan katsayıların hepsi $\beta_j$ vektörlerinin katsayısı olamaz, bunlardan bazıları $\alpha_i$ vektörleri katsayıları olmalıdır. Çünkü tüm $\alpha_i$ vektörlerinin katsayıları sıfır olsaydı en az bir $\beta_j$ vektörünün katsayısı sıfırdan farklı olurdu ve bunlar lineer bağımsız olduğundan ilk toplam sıfır olmazdı, dolayısıyla yukarıdaki lineer bağıntı sağlanamazdı. Sonuç olarak en az bir $a_i$ ($i>k$) katsayısı sıfırdan farklıdır ve bundan dolayı $\alpha_i$ vektörü bu kümedeki diğer vektörlerin bir lineer kombinasyonu olarak yazılabilir. Bu vektör $\alpha_{k+1}$ olsun (öyle değilse bile buna göre yeniden sıralanabilir), bu durumda <a class="eqref" href="#theo:vec:5">Teorem 1.2.10</a> gereği $n$ elamanlı $A_{k+1}:=\{\beta_1,\ldots,\beta_k,\beta_{k+1},\alpha_{k+2},\ldots,\alpha_n \}$ kümesi de $V$'yi gerer. Böylece tümevarımla her $A_k$ kümesinin $V$'yi gerdiği gösterilmiş olur, özel olarak $A_n:=\{\beta_1,\beta_2,\ldots,\beta_n \}$ kümesi de $V$'yi gerer. Şimdi bunu kullanarak $B$ kümesinin elaman sayısının $n$'den fazla olamayacağını gösterelim. Eğer $B$ kümesinde $n$'den fazla vektör olsaydı $A_n$ kümesi $V$'yi gerdiğinden $\beta_{n+1}$ vektörü $A_n$ vektörlerinin bir lineer kombinasyonu olarak yazılırdı, bu ise $B$ kümesinin lineer bağımsızlığı ile çelişir.$$\tag*{$\blacksquare$}$$
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Alıştırmalar</h3>
+
+
+
+<p>
+<ol>
+<li class="py-2"><a class="eqref" href="../11-temel-tanimlar/index.html#ex:vec:2:P">Örnek 1.1.4-3</a> ile tanımlanan $P$ vektör uzayında $p_1:=t^2+t+1$, $p_2:=t^2-t-2$, $p_3:=t^2+t-1$ ve $p_4:=t-1$ vektörleri lineer bağımsız mıdır? Öyle değil ise aralarında bir lineer bağıntı bulun.</li>
+<li class="py-2">Bir önceki alıştırmadaki $p_i$ vektörleri için $\langle p_1,p_2,p_3,p_4 \rangle$ kümesini tespit edin.</li>
+<li class="py-2">$n=4$ alarak <a class="eqref" href="../11-temel-tanimlar/index.html#ex:vec:2:Pn">Örnek 1.1.4-4</a> ile verilen $P_4$ vektör uzayını geren minimal bir küme bulun. Daha sonra <a class="eqref" href="#theo:vec:7">Teorem 1.2.12</a> sonucunu kullanarak daha az eleman sayısı olan bir kümenin bu uzayı geremeyeceğini gösterin.</li>
+<li class="py-2">$P$ veya $P_n$ vektör uzayında $\{1, 1+t, 1+t+t^2, 1+t+t^2+t^3, 1+t+t^2+t^3+t^4 \}$ lineer bağımsızdır, gösterin.</li>
+<li class="py-2">Bir küme lineer bağımsız ise her alt kümesi de lineer bağımsızdır, kanıtlayın.</li>
+<li class="py-2">Bir kümenin lineer bağımlı bir alt kümesi varsa kendisi de lineer bağımlıdır, kanıtlayın.</li>
+</ol>
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../11-temel-tanimlar/index.html">1.1. Temel Tanımlar</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Lineer Cebire Giriş</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../13-baz-ve-boyut/index.html">1.3. Baz ve Boyut</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/12-lineer-bagimsizlik/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:04 GMT -->
+</html>

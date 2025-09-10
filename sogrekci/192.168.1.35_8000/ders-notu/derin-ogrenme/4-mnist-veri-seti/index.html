@@ -1,0 +1,429 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/derin-ogrenme/4-mnist-veri-seti/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:42:32 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 4. MNIST Veri Seti
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>4. MNIST Veri Seti</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-10-25">
+          25 Ekim 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-10-28">
+          28 Ekim 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Makine öğrenmesinin hello world uygulamaları MNIST veri seti ile yapılır. Bu veri setinde farklı insanlar tarafından el yazısı ile yazılmış rakamların resimleri yer alır, bir sonraki derste resimlere bakarak hangi rakama ait olduğunu tahmin eden bir sinir ağı tasarlayacağız. Bu derste bu veri setini tanıyacağız.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/flatten/index.html">flatten</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/keras/index.html">keras</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/label/index.html">label</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/mnist/index.html">MNIST</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/tensorflow/index.html">tensorflow</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/x_train/index.html">x_train</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/y_train/index.html">y_train</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Buraya kadar basit bir sinir ağının yapısını öğrendik, bir sonraki derste ilk defa gerçek bir problemle uğraşacağız. Bunun için şimdi bir sonraki derste ele alacağımız problemi ve kullanacağımız veri setini tanıtacağım.
+</p>
+
+<p>
+Problemimiz şöyle; elimizde farklı insanların rakam el yazmalarından kesilmiş resimler var ve bunların hangi rakamın el yazması olduğunu biliyoruz. Her el yazması resmini input olarak alıp karşılık gelen outputlarla birlikte sinir ağımızı train edip sinir ağımızın verilen bir resmin hangi rakam olduğunu tespit etmesini sağlayacağız.
+</p>
+
+<p>
+Bu şekilde bir veri seti Python içinde vektörize edilmiş bir biçimde, yani resimlerin piksel değerleriyle sayısallaştırılmış hali, hazır bulunuyor. Bu kullanacağımız veri seti <strong>MNIST</strong> (Modified National Institue of Standarts) veri setidir. Bu veri setinde çok miktarda sihay-beyaz el yazması ve bunlara karşılık gelen label (output) değerleri mevcut; her bir resim $28\times 28$ piksel boyutunda standarttır. Bu veri setine erişmek için <strong>tensorflow</strong> modülüne ihtiyacımız olacak, <code class="language-python">pip install tensorflow</code> ile yükleyebilirsiniz.
+</p>
+
+<p>
+Bu veri setine aşağıdaki gibi erişebiliriz; input resimleri <code class="language-python">x_train</code>, bunlara karşılık gelen output değerlerini de <code class="language-python">y_train</code> olarak adlandıracağız.
+
+<pre class="my-4"><code class="language-python line-numbers">
+import tensorflow as tf
+
+x_train, y_train = tf.keras.datasets.mnist.load_data()[0]
+print(x_train.shape)
+print(y_train.shape)
+</code></pre>
+
+<pre class="my-4"><code class="language-">
+>>>
+(60000, 28, 28)
+(60000,)
+</code></pre>
+</p>
+
+
+<p>
+Gördüğünüz gibi aldığımız veri setinde input olarak 60000 tane $28\times 28$ matris (yani 60000 resim) ve bunlara karşılık gelen 60000 tane sayı (skaler) var. Şimdi bunlardan bir tanesine (mesela 1000 indisli resime) bakalım.
+
+<pre class="my-4"><code class="language-python line-numbers">
+print(x_train[1000])
+</code></pre>
+
+<pre class="my-4"><code class="language-">
+>>>
+[[  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+    0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+    0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+    0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+    0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+    0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0   0   0   0   0  36 146 254 255
+  251  95   6   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0   0   0   3  97 234 254 254 232
+  254 254  35   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0   0  89 140 254 254 174  67  33
+  200 254 190   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0 108 253 254 235  51   1   0   0
+   12 254 253  56   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0  12 216 254 244  55   0   0   0   0
+    6 213 254  57   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0  25 254 254 132   0   0   0   0   0
+    0 168 254  57   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0  45 254 243  34   0   0   0   0   0
+    0 168 254  57   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0 128 254 157   0   0   0   0   0   0
+    0 168 254  57   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0  19 228 254 105   0   0   0   0   0   0
+    7 228 254  57   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0  58 254 254  87   0   0   0   0   0   0
+   10 254 246  47   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0  58 254 254   9   0   0   0   0   0   0
+   10 254 210   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0  58 254 254   9   0   0   0   0   0   0
+  105 254  91   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   5 219 254   9   0   0   0   0   0  24
+  230 254  24   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0 216 254   9   0   0   0   0   0  84
+  254 251  23   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0 216 254  36   0   0   0   0  22 208
+  251  94   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0 129 254 120   0   0   0   3 140 254
+  229   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0  83 254 222  17   0   0  91 254 236
+   53   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0  18 235 254 134  21 119 237 254 124
+    0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0  53 249 254 234 252 254 172   3
+    0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0   0 116 237 254 254 133  20   0
+    0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+    0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+    0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+    0   0   0   0   0   0   0   0   0   0]]
+</code></pre>
+</p>
+
+
+<p>
+Oldukça karmaşık ve anlamsız görünüyo olabilir, burada $28\times 28$ bir matris var ve her bir elemanı bir piksel değerini gösteriyor.
+
+<pre class="my-4"><code class="language-python line-numbers">
+print(x_train[1000].shape)
+</code></pre>
+
+<pre class="my-4"><code class="language-">
+>>>
+(28, 28)
+</code></pre>
+</p>
+
+<p>
+Burada 0 olan pikseller beyaz noktalar, diğer pikseller değerine göre koyu noktalar. Şimdi bu input değerinin hangi rakamın el yazması olduğuna bakalım.
+
+<pre class="my-4"><code class="language-python line-numbers">
+print(y_train[1000])
+</code></pre>
+
+<pre class="my-4"><code class="language-">
+>>>
+0
+</code></pre>
+</p>
+
+<p>
+Bu input <code class="language-python">0</code> rakamının bir el yazmasının sayısallaştırılmış haliymiş. Gelin şimdi bu veriyi biraz daha okunaklı biçimde yazdıralım, her piksel değerini kendi yerinde yazdıralım ki bunun nasıl 0'a karşılık geldiğini canlandırabilelim.
+
+<pre class="my-4"><code class="language-python line-numbers">
+for row in x_train[1000]:
+    for i in row:
+        print("%3s "%i, end='')
+    print()
+</code></pre>
+
+<img class="envfig my-5" src="../../../static/ders-notu/derin-ogrenme/deep_learning_27.jpg" width="100%">
+</p>
+
+
+<p>
+Sanırım şimdi anlaşılmıştır, yukarıdaki $28\times 28$ matris aslında daha önce yazdırdığımızın aynısı; sadece daha düzgün bir formatta yazdırdık. Şimdi de bunun nasıl bir resme karşılık geldiğine bakalım, aşağıda bu piksel değerlerinin hangi resmi oluşturduğunu görebilirsiniz.
+
+<pre class="my-4"><code class="language-python line-numbers">
+import matplotlib.pyplot as plt
+plt.imshow(x_train[1000], cmap='gray_r')
+plt.show()
+</code></pre>
+
+<img class="envfig my-5" src="../../../static/ders-notu/derin-ogrenme/deep_learning_28.jpg" width="30%">
+</p>
+
+
+<p>
+Bu oluşturduğumuz dataset içinde buna benzer şekilde 60000 tane el yazması ve karşılık gelen rakam var, aşağıda bunlardan bazıları rastgele seçilip görüntüleniyor.
+
+<pre class="my-4"><code class="language-python line-numbers">
+import numpy as np
+
+n, k, figsize = 10, 10, (10, 10)
+fig, ax = plt.subplots(n, k, figsize=figsize)
+for i in range(n):
+    for j in range(k):
+        ax[i,j].imshow(x_train[np.random.randint(x_train.shape[0])], cmap='gray_r')
+        ax[i,j].axis('off')
+
+plt.show()
+</code></pre>
+
+<img class="envfig my-5" src="../../../static/ders-notu/derin-ogrenme/deep_learning_29.jpg" width="50%">
+</p>
+
+
+<p>
+Biz bu resimleri input olarak kullanabilmek için boyutlarını değiştereceğiz, böylece her bir piksel değeri ayrı bir input olarak sinir ağımıza girilebilir. Bir $28\times 28$ matrisi $28\times 28 = 784$ elemanlı bir vektöre dönüştüreceğiz. Mesela yukarıda ele aldığımız resmi bu şekilde yeniden boyutlandıralım.
+
+<pre class="my-4"><code class="language-python line-numbers">
+img1000 = x_train[1000].reshape(28*28,)
+
+for px in img1000:
+    print("%s "%px, end='')
+</code></pre>
+
+<pre class="my-4"><code class="language-">
+>>>
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 36 146
+ 254 255 251 95 6 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 97 234 254 254 232 254 254 35 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 89 140 254 254 174 67 33 200 254 190 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 108 
+253 254 235 51 1 0 0 12 254 253 56 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 12 216 254 244 55 0 0 0 0 6 213 254
+ 57 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 25 254 254 132 0 0 0 0 0 0 168 254 57 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 45 254 
+243 34 0 0 0 0 0 0 168 254 57 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 128 254 157 0 0 0 0 0 0 0 168 254 57 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 19 228 254 105 0 0 0 0 0 0 7 228 254 57 0 0 0 0 0 0 0 0 0 0 0 0 0 0 58 254 254 87
+ 0 0 0 0 0 0 10 254 246 47 0 0 0 0 0 0 0 0 0 0 0 0 0 0 58 254 254 9 0 0 0 0 0 0 10 254 210 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 58 254 254 9 0 0 0 0 0 0 105 254 91 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5 219 254 9 0 0 0 0 0 
+24 230 254 24 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 216 254 9 0 0 0 0 0 84 254 251 23 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 216 254 36 0 0 0 0 22 208 251 94 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 129 254 120 0 0 0 3 140 254 229
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 83 254 222 17 0 0 91 254 236 53 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 18
+ 235 254 134 21 119 237 254 124 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 53 249 254 234 252 254 172 
+3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 116 237 254 254 133 20 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+</code></pre>
+</p>
+
+<p>
+Bu resmi artık aşağıdaki grafikte görüldüğü gibi sinir ağımıza input olarak verebiliriz.
+
+<img class="envfig my-5" src="../../../static/ders-notu/derin-ogrenme/deep_learning_20.jpg" width="90%">
+
+Veri setindeki tüm resimleri bu şekilde yeniden boyutlandıracağız (flatten) ve ondan sonra input olarak gireceğiz.
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../3-derin-sinir-aglari-back-propagation/index.html">3. Derin Sinir Ağları, Back Propagation</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Derin Öğrenme</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../5-ezbere-kacma-overfitting/index.html">5. Ezbere Kaçma, Overfitting</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/derin-ogrenme/4-mnist-veri-seti/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:42:56 GMT -->
+</html>

@@ -1,0 +1,502 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/python-ve-bilimsel-hesaplama/23-if-else-kosullu-yapisi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 2.3. If-Else Koşullu Yapısı
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>2.3. If-Else Koşullu Yapısı</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-22">
+          22 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-06-03">
+          3 Haziran 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste programlarımızın farklı senaryolara göre farklı şekilde çalışmasına olanak sağlayan dallanma (<strong>branching</strong>) konusunda değineceğiz. Bir çok programlama dilinde olduğu gibi bunu Python'da da <code class="language-python">if-else</code> blokları ile yaparız.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/dallanma/index.html">dallanma</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/elif/index.html">elif</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/else/index.html">else</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/heaviside-fonksiyonu/index.html">Heaviside fonksiyonu</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/if/index.html">if</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/if-else/index.html">if-else</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Bilgisayar programlamada sıklıkla programnın dallanması gerekir. Yani bir koşul sağlanırsa bir iş, başka bir koşul sağlanırsa başka bir iş yapılır. Matematiksel olarak <strong>Heaviside</strong> fonksiyonu olarak adlandırılan ve aşağıdaki gibi tanımlanam fonksiyonu bu duruma örnek gösterebiliriz.
+</p>
+
+$$
+H(x)=
+\left\{
+\begin{array}{ll}
+0, & \quad  x < 0\\
+1, & \quad x\geq 0
+\end{array}
+\right.
+$$
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Basit Dallanmalar</h3>
+
+
+
+
+<p>
+Python programlarında dallanmalar <code class="language-python">if-else</code> blokları yardımıyla kodlanır. Aşağıdaki programda basit bir <code class="language-python">if-else</code> yapısının kullanımı örnekleniyor.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+x = 1E-15
+
+if x < 0:
+    H = 0
+else:
+    H = 1
+
+print "x = %g\tH(x)=%g" % (x, H)
+</code></pre>
+
+<p>
+Şimdi yukarıdaki programda kullandığımız kodları açıklayalım. Programda dallanma 5-7 numaralı satırlarda oluşmaktadır. Bir <code class="language-python">if-else</code> yapısı <code class="language-python">if</code> kelimesini takip eden bir <code class="language-python">bool</code> nesnesinden oluşan bir satırla başlar. Bunun altında bulunan ve daha sağdan hizalanmış satırlarda bulunan kodlar, eğer belirtilen bool nesnesi <code class="language-python">True</code> değerine sahip ise çalıştırılır. Eğer bool nesnesi <code class="language-python">False</code> ise bu blokta aynı hizada bulunan kodlar çalıştırılmaz. Bu bloktan sonra <code class="language-python">if</code> kısmı ile aynı şekilde hizalanmış ilk satırda <code class="language-python">else:</code> ifadesi ile karşılaşılırsa, belirtilen bool nesnesi değeri <code class="language-python">False</code> olması durumunda bu satırın altındaki farklı hizalı satırlardaki kodlar çalıştırılır. <code class="language-python">else</code> kısmı zorunlu değildir, eğer bu kısım yoksa bool nesnesi <code class="language-python">True</code> ise <code class="language-python">if</code> kısmında belirtilen kodlar çalıştırılır fakat bool nesnesi değeri <code class="language-python">False</code> ise hiç bir şey yapılmaz. Örneğin aşağıdaki program da yukarıdaki ile aynı çıktıyı üretir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+x = 1E-15
+H = 1
+
+if x < 0:
+    H = 0
+
+print "x = %g\tH(x)=%g" % (x, H)
+</code></pre>
+
+<p>
+Yukarıdaki programda <code class="language-python">print</code> ifadesinde kullandığımız <code class="language-python">\t</code> komutu Python'da özel bir karakterdir ve bir tab uzunluğunda boşluk vermek için kullanılır. Bu tür karakterlere kaçış (<strong>escape</strong>) karakterleri denir, diğer bir sık kullanılan kaçış karakteri <code class="language-python">\n</code>'dir ve yeni bir satıra atlamayı sağlar. Yukarıdaki programlar aşağıdaki gibi bir sonuç üretir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python ifelse1.py
+x = 1e-15       f(x)=1
+</code></pre>
+
+<p>
+Bu fonksiyonun değerlerini farklı $x$ değerleri için yazdıran bir program yazalım, bunu bir <code class="language-python">for</code> döngüsü ile yapabiliriz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+xlist = [-1 + k*0.2 for k in range(10)]
+
+for x in xlist:
+    if x < 0:
+        H = 0
+    else:
+        H = 1
+
+    print "x = %4.1f\tH(x)=%g" % (x, H)
+</code></pre>
+
+<p>
+Bu programın çıktısı aşağıdaki gibi olacaktır. Burada <code class="language-python">print</code> ifadesinin bulunduğu satırı <code class="language-python">for</code> döngüsü içinde yazdık, bundan dolayı her bir tekrarda yazdırma işlemi yapılıyor.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > ifelse3.py
+x = -1.0        H(x)=0 
+x = -0.8        H(x)=0
+x = -0.6        H(x)=0
+x = -0.4        H(x)=0
+x = -0.2        H(x)=0
+x =  0.0        H(x)=1
+x =  0.2        H(x)=1
+x =  0.4        H(x)=1
+x =  0.6        H(x)=1
+x =  0.8        H(x)=1
+</code></pre>
+
+<p>
+Yukarıda ele aldığımız Heaviside fonksiyonu matematikte yaygın olarak kullanılmasına rağmen bazı dezavantajları vardır, örneğin bu fonksiyon $x=0$ noktasında süreksizdir. Bazı uygulamalarda bu fonksiyon yerine
+$$
+H_\epsilon(x)=
+\left\{
+\begin{array}{ll}
+0, & \quad x<-\epsilon\\
+\frac{1}{2}+\frac{x}{2\epsilon}+\frac{1}{2\pi}\sin\left( \frac{\pi x}{\epsilon} \right), & \quad -\epsilon\leq x\leq\epsilon\\
+1, & \quad x>\epsilon
+\end{array}
+\right.
+$$
+olarak tanımlanan $H_\epsilon$ fonksiyonu kullanılabilir. Bu fonksiyon yeterince küçük $\epsilon$ değerleri için Heaviside fonksiyonuna yakın davranır hem kendisi hem de türevi tüm reel eksende süreklidir. Böyle bir dallanmayı Python'da yapmak için iki koşullu yapı kullanabiliriz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+from math import sin, pi
+
+x = 0.5
+epsilon = 1E-12
+
+if x < -epsilon:
+    H = 0
+else:
+    if x <= epsilon:
+        H = 0.5 + x/(2*epsilon) + 1.0/(2*pi)*sin(pi*x/epsilon)
+    else:
+        H = 1
+
+print "x = %4.1f\tH(x)=%g" % (x, H)
+</code></pre>
+
+
+<p>
+Aşağıda Heaviside fonksiyonunun farklı epsilon değerleri için grafiklerini görebilirsiniz.
+</p>
+
+
+<img class="envfig" src="../../../static/ders-notu/python-bilimsel-hesaplama/heaviside.svg" width="75%">
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Çoklu Dallanmalar</h3>
+
+
+
+
+
+
+<p>
+Böyle çoklu dallanmalarla sık karşılaşıldığı için Pythpn'da bunlar için kısa bir yol vardır, bu da <code class="language-python">elif</code> (<strong>else if</strong>) yapısıdır. Kullanımını aşağıdaki örnek üzerinde gözlemleyelim, bu örnek ile yukarıdaki program aynı şekilde çalışır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+from math import sin, pi
+
+x = 0.5
+epsilon = 1E-12
+
+if x < -epsilon:
+    H = 0
+elif -epsilon <= x <= epsilon:
+        H = 0.5 + x/(2*epsilon) + 1.0/(2*pi)*sin(pi*x/epsilon)
+else:
+    H = 1
+
+print "x = %4.1f\tH(x)=%g" % (x, H)
+
+
+</code></pre>
+
+<p>
+Yukarıdaki program için de bir döngü kullanarak bir tablo yazdıarbiliriz, bunu aşağıdaki kodlarla sağlarız.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+from math import sin, pi
+
+epsilon = 1E-12
+xlist = [-.1 + k*0.02 for k in range(10)]
+
+for x in xlist:
+    if x < -epsilon:
+        H = 0
+    elif -epsilon <= x <= epsilon:
+        H = 0.5 + x/(2*epsilon) + 1.0/(2*pi)*sin(pi*x/epsilon)
+    else:
+        H = 1
+    print "x = %4.1f\tH(x)=%g" % (x, H)
+</code></pre>
+
+<p>
+Bu kodlar aşağıdaki çıktıyı üretecektir. Görüleceği gibi $H_\epsilon$ fonksiyonu bire bir $H$ ile aynı değerler vermiyor, ama oldukça yakın bir davranıştadır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > heaviside_eps3.py
+x = -0.1        H(x)=0
+x = -0.1        H(x)=0
+x = -0.1        H(x)=0
+x = -0.0        H(x)=0
+x = -0.0        H(x)=0
+x =  0.0        H(x)=0.5
+x =  0.0        H(x)=1
+x =  0.0        H(x)=1
+x =  0.1        H(x)=1
+x =  0.1        H(x)=1
+</code></pre>
+
+<p>
+Başka bir örnek olarak
+$$
+N(x)=
+\left\{
+\begin{array}{ll}
+0, & \quad x<0\\
+x^2\sin(x), & \quad 0\leq x<1\\
+3-x, & \quad 1\leq x<2\\
+0, & \quad x\geq 2
+\end{array}
+\right.
+$$
+fonksiyonu işlemini aşağıdaki dallanma örneği ile elde edebiliriz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+from math import sin, pi
+
+x = pi/2
+
+if x < 0:
+    N = 0
+elif 0 <= x < 1:
+    N = x**2*sin(x)
+elif 1 <= x <2:
+    N = 3 - x
+else:
+    N = 0
+
+print "x = %4.3f\tH(x)=%g" % (x, N)
+</code></pre>
+
+<p>
+Burada $(0,2]$ aralığı dışında fonksiyonun 0 değer aldığını kullanarak bu kodları biraz kısaltabiliriz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+from math import sin, pi
+
+x = pi/2
+N = 0
+
+if 0 <= x < 1:
+    N = x**2*sin(x)
+elif 1 <= x <2:
+    N = 3 - x
+
+print "x = %4.3f\tH(x)=%g" % (x, N)
+</code></pre>
+
+<p>
+Bu iki programın da çıktısı aşağıdaki gibi olacaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python ifelse5.py
+x = 1.571       H(x)=1.4292
+</code></pre>
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Satır İçi Dallanma</h3>
+
+
+
+
+
+Programlarda <code class="language-python">if-else</code> bloklarını çok sık kullandığımıdan Python'da bunun tek satırlık bir kısa yolu vardır. <code class="language-python">H = (0 if x < 0 else 1)</code> komutu <code class="language-python">H</code> değişkenine Heaviside fonksiyonunun sonucu olan sayıyı atar.
+
+<pre class="my-4"><code class="language-python line-numbers">
+xlist = [-1 + k*0.2 for k in range(10)]
+for x in xlist:
+    H = (0 if x < 0 else 1)
+    print "x = %4.1f\tH(x)=%g" % (x, H)
+</code></pre>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../22-donguleri/index.html">2.2. For Döngüleri</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Python ve Bilimsel Hesaplama</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../31-python-fonksiyonlari/index.html">3.1. Python Fonksiyonları</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/python-ve-bilimsel-hesaplama/23-if-else-kosullu-yapisi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:48 GMT -->
+</html>

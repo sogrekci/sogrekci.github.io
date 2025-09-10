@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/22-fourier-serileri/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:08 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 2.2. Fourier Serileri
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>2.2. Fourier Serileri</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-06">
+          6 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Birinci bölümde nasıl bir seriye ihtiyaç duyduğumuzu keşfettik, bu bölümde bu serileri tanımlayacağız; <strong>Fourier serileri</strong>. Ayrıca bazı örnekler üzerinde bir fonsiyonun kendi Fourier serisine nasıl benzediğini gözlemleyeceğiz.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/fourier-katsayilari/index.html">Fourier katsayıları</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/fourier-serisi/index.html">Fourier serisi</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>Temel sorumuz, $a>0$ olmak üzere keyfi bir $(\alpha-a,\alpha+a)$ aralığında verilen bir $f$ fonksiyonunun trigonometrik fonksiyonların yakınsak bir serisi olarak yazılıp yazılamayacağıdır. Bundan daha basit olan şu soruyu düşünelim; bir $f:(-\pi,\pi)\rightarrow\mathbb{R}$ fonksiyonu verildiğinde her $x\in(-\pi,\pi)$ için
+<span id="eq:fourierseri1">\begin{equation}
+\label{eq:fourierseri1}
+\tag{2.2.1}
+f(x)=\frac{1}{2}a_0+\sum\limits_{n=1}^{\infty}\left(a_n\cos nx+b_n\sin nx\right)
+\end{equation}</span>eşitliği sağlanacak şekilde $a_n$ ve $b_n$ katsayıları bulunabilir mi? (Burada $a_0$'ın katsayısının neden $1/2$ olması gerektiğini az sonra göreceğiz.) Çalıştığımız aralığın bu şekilde kısıtlanması çok önemli değil, daha sonra göreceğiz ki bir değişken değişimi ile $(-\pi,\pi)$ aralığında elde edilen sonuçları kolaycak keyfi bir aralığa taşıyabiliriz.</p>
+
+<p>Bazı varsayımlar altında bu katsayıların belirlenmesi kolay bir probleme dönüştürülebilir. Farzedelim ki \eqref{eq:fourierseri1} denklemindeki seri yakınsak olsun ve eşitlik sağlansın. Ayrıca bu seri $ (-\pi,\pi) $ aralığında terim terim integrallenebilsin, bu işlem $m\in\{0,1,2,\ldots\}$ olmak üzere \eqref{eq:fourierseri1} eşitliğinin $\sin mx$ veya $\cos mx$ ile çarpılmış hali için de yapılabilabilsin. Bu varsayımlar altında \eqref{eq:fourierseri1} eşitliğini $\cos mx$ ile çarpıp integre edersek
+\begin{eqnarray}
+\int_{-\pi}^{\pi}f(x)\cos mx \,dx &=& \frac{1}{2}a_0\int_{\pi}^{\pi}\cos mx \,dx\notag\\
+&+& \sum\limits_{n=1}^{\infty}\left[a_n\int_{-\pi}^{\pi}\cos nx\cos mx\,dx\right.\notag\\
+&& \qquad\qquad\left.+b_n\int_{-\pi}^{\pi}\sin nx\cos mx\,dx\right]
+\tag{2.2.2}
+\label{eq:fourierseri2}
+\end{eqnarray}
+eşitliğini elde ederiz. Diğer yandan
+$$
+\int_{-\pi}^{\pi}\cos mx\,dx=\left\{\begin{array}{ll}
+2\pi,\quad & m=0\text{ ise}\\
+0,\quad & m\neq0\text{ ise}
+\end{array}\right.,
+$$
+$$
+\int_{-\pi}^{\pi}\cos nx\cos mx\,dx=\left\{\begin{array}{ll}
+\pi,\quad & m=n\text{ ise}\\
+0,\quad & m\neq n\text{ ise}
+\end{array}\right.
+$$
+$$
+\int_{-\pi}^{\pi}\sin nx\cos m\,dx=0
+$$
+eşitlikleri göz önüne alınırsa \eqref{eq:fourierseri2} eşitliğinde $m=0$ yazarsak ikinci terim olan toplam tamamen sıfır olur, $m\neq 0$ yazarsak ise ilk terimdeki integral ve ikinci terim olan toplamdaki $m-$inci terim haricindeki integraller sıfır olur. Böylece $$a_m=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\cos mx\,dx,\qquad m=0,1,2,\ldots$$ eşitliği elde edilir. Benzer şekilde \eqref{eq:fourierseri1} eşitliğini $\sin mx$ ile çarpıp integre ederek de $$b_m=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\sin mx\,dx\qquad m=1,2,3,\ldots$$ eşitliği elde edilebilir.</p>
+
+<p>Hatırlamak gerekir ki bu eşitlikler varsayımlarımız doğru ise geçerlidir, fakat şu anda bu varsayımların sağlandığını gösteren hiç bir sebep yok. Bunların gerçekten sağlandığını daha sonra ayrıca göstereceğiz.</p>
+
+<p>
+<div class="envdef" id="def-fourierseri"><h6 class="thenv">Tanım 2.2.1 (Fourier Serisi)</h6>Eğer ilgili integraller mevcut ise
+\begin{equation}
+\label{eq:fskatsayi1}
+\tag{2.2.3}
+a_n=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\cos nx\,dx,\qquad n=0,1,2,\ldots
+\end{equation}
+ve
+\begin{equation}
+\label{eq:fskatsayi2}
+\tag{2.2.4}
+b_n=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\sin nx\,dx,\qquad n=1,2,3,\ldots
+\end{equation}
+sayılarına $f$ fonksiyonunun $(-\pi,\pi)$ aralığındaki <strong>Fourier katsayıları</strong> denir. Ayrıca bu katsayılar için $$\frac{1}{2}a_0+\sum\limits_{n=1}^{\infty}\left(a_n\cos nx+b_n\sin nx\right)$$ serisine de $f$ fonksiyonunun $(-\pi,\pi)$ aralığındaki <strong>Fourier serisi</strong> denir.
+</div>
+</p>
+
+<p>Şimdilik yakınsaklığı göstermediğimiz için $=$ sembolu yerine $\sim$ sembolünü kullanacağız, yani bu durumu $$f(x)\sim\frac{1}{2}a_0+\sum\limits_{n=1}^{\infty}\left(a_n\cos nx+b_n\sin nx\right)$$ olarak ifade edeceğiz.</p>
+
+<p>
+<div class="envex" id="ex-2.1"><h6 class="thenv">Örnek 2.2.1</h6> $(-\pi,\pi)$ aralığında
+$$
+f(x):=
+\left\{
+\begin{array}{ll}
+0, & \quad -\pi\lt x\lt -\frac{\pi}{2}\text{ ise}\\
+1, & \quad -\frac{\pi}{2}\lt x\lt\pi\text{ ise}
+\end{array}
+\right.
+$$
+olarak tanımlanan $f$ fonksiyonunu ele alalım.
+	
+<img id="fig:fsornek1" class="envfig" src="../../../static/ders-notu/fourier-analizi/ex-2-2-1_1.svg" width="75%">
+<span style="margin:auto; display:table;"><span class="figcap">Şekil 2.1:</span> Yukarıdaki örnekte bahsedilen fonksiyonun grafiği</span>
+
+\eqref{eq:fskatsayi1} ve \eqref{eq:fskatsayi2} eşitliklerini kullanarak Fourier katsayılarını aşağıdaki gibi elde ederiz.  Öncelikle \eqref{eq:fskatsayi1} denkleminde $n=0$ yazarsak
+$$a_0=\frac{1}{\pi}\int_{-\pi/2}^{\pi}dx=\frac{3}{2}$$ elde ederiz. Diğer $a_n$ katsayıları da $n>0$ için
+
+\begin{eqnarray*}
+a_n=\frac{1}{\pi}\int_{-\pi/2}^{\pi}\cos nx\,dx &=& \frac{1}{n\pi}\sin\frac{nx}{2}\bigg|_{-\pi/2}^\pi\\
+&=& \left\{ \begin{array}{ll}
+\frac{1}{n\pi}(-1)^{\frac{n-1}{2}}, & \quad n\text{ tek ise}\\
+0, &\quad n\text{ çift ise}
+\end{array} \right.
+\end{eqnarray*}
+
+olarak bulunur. Benzer şekilde $b_n$ katsayıları da
+
+\begin{eqnarray*}
+b_n=\frac{1}{\pi}\int_{-\pi/2}^{\pi}\sin nx\,dx &=& -\frac{\cos nx}{\pi n}\bigg|_{-\pi/2}^{\pi}\\
+&=& \frac{1}{n\pi}\left(-\cos nx+\cos\frac{n\pi}{2}\right)\\
+&=& \left\{ \begin{array}{ll}
+\frac{1}{n\pi}, & \quad n\text{ tek ise}\\
+-\frac{1}{n\pi}\left[1-(-1)^{n/2}\right], &\quad n\text{ çift ise}
+\end{array} \right.
+\end{eqnarray*}
+
+olarak bulunur. Böylece $f$ fonksiyonunun $(-\pi,\pi)$ aralığında Fourier serisi
+
+\begin{eqnarray*}
+f(x) &\sim& \frac{3}{4}+\frac{1}{\pi}\left(\cos x+\sin x-\sin 2x-\frac{1}{3}\cos3x+\frac{1}{3}\sin3x\right.\\
+&&\qquad\qquad\qquad\qquad\left.+\frac{1}{5}\cos 5x+\frac{1}{5}\sin 5x-\frac{1}{3}\sin 6x-\cdots\right)\\
+&=& \frac{3}{4}+\frac{1}{\pi}\sum\limits_{n=1}^{\infty}\frac{1}{2n-1}\left[(-1)^{n-1}\cos(2n-1)x+\sin(2n-1)x-\sin(4n-2)x\right]
+\end{eqnarray*}
+
+olarak bulunur.
+
+<img id="fig:fsornek1" class="envfig" src="../../../static/ders-notu/fourier-analizi/ex-2-2-1_2.svg" width="75%">
+<span style="margin:auto; display:table;"><span class="figcap">Şekil 2.2:</span> Yukarıdaki örnekte bahsedilen fonksiyon ve onun Fourier serisi</span>
+</div>
+</p>
+
+<p>Verilen $f$ fonksiyonunun $(-\pi,\pi)$ aralığında tek veya çift bir fonksiyon olması onun Fourier serisinin hesaplanmasını çok daha kolay bir hale getirir. Sinüs tek, kosinüs ise çift fonksiyon olduğundan aşağıdaki önermenin ispatı açıktır.</p>
+
+<p>
+<div class="envcor"><h6 class="thenv">Sonuç 2.2.1</h6>$f:(-\pi,\pi)\rightarrow\mathbb{R}$ fonksiyonu için Fourier katsayıları tanımlı olsun, bu durumda
+<ol type="i"><li>Eğer $f$ fonksiyonu tek ise Fourier serisi $$f(x)\sim\sum\limits_{n=1}^{\infty}b_n\sin nx$$ biçimindedir ve buradaki Fourier katsayıları $$b_n:=\frac{2}{\pi}\int_{0}^{\pi}f(x)\sin nx\,dx,\qquad n=1,2,3,\ldots$$ biçimindedir.</li>
+<li>Eğer $f$ fonksiyonu çift ise Fourier serisi $$f(x)\sim\frac{1}{2}a_0+\sum\limits_{n=1}^{\infty}a_n\cos nx$$ biçimindedir ve buradaki Fourier katsayıları $$a_n:=\frac{2}{\pi}\int_{0}^{\pi}f(x)\cos  nx\,dx,\qquad n=0,1,2,\ldots$$ biçimindedir.</li></ol></div>
+</p>
+
+<p>
+<div class="envex" id="ex-2.2"><h6 class="thenv">Örnek 2.2.2</h6>$f:(-\pi,\pi)\rightarrow\mathbb{R}$ fonksiyonu $f(x):=x$ olarak tanımlansın. Bu fonksiyon tek olduğundan yukarıdaki sonuca göre Fourier serisinde sadece sinüs terimleri bulunur, yani $a_n$ katsayıları sıfırdır. Böylece
+
+\begin{eqnarray*}
+b_n &=& \frac{2}{\pi}\int_{0}^{\pi}x\sin x\,dx\\
+&=& \frac{2}{\pi}\left[-x\frac{\cos nx}{n}\bigg|_0^\pi+\frac{1}{n}\int_{0}^{\pi}\cos nx\,dx\right]\\
+&=& -2\frac{\cos n\pi}{n}\\
+&=& 2\frac{(-1)^{n+1}}{n}
+\end{eqnarray*}
+
+olduğundan hareketle <a class="eqref" href="../15-lineerlik-ve-superpozisyon/index.html#ex-1.6">Örnek 1.5.3</a> ile gördüğümüz gibi $$f(x)\sim\sum\limits_{n=1}^{\infty}2\frac{(-1)^{n+1}}{n}\sin nx$$ elde edilir.
+</div>
+</p>
+
+<p>
+<div class="envex" id="ex-2.3"><h6 class="thenv">Örnek 2.2.3</h6>$f(x):=e^{|x|}$ olarak tanımlan $f:(-\pi,\pi)\rightarrow\mathbb{R}$ fonksiyonu çift olduğundan Fourier serisinde $b_n$ katsayıları sıfır olacaktır. $a_n$ katsayılarını da $$a_0=\frac{2}{\pi}\int_{0}^{\pi}e^x\,dx=\frac{2}{\pi}(e^\pi-1)$$ ve
+
+\begin{eqnarray*}
+a_n &=& \frac{2}{\pi}\int_{0}^{\pi}e^x\cos nx\,dx\\
+&=& \frac{2}{\pi}\frac{e^x}{1+n^2}(n\sin nx+\cos nx)\bigg|_0^\pi\\
+&=& \frac{2}{\pi}\frac{e^\pi\cos n\pi-1}{1+n^2}
+\end{eqnarray*}
+
+olarak hesaplarız. Böylece $(-\pi,\pi)$ aralığında $$f(x)\sim\frac{1}{\pi}(e^\pi-1)+\sum\limits_{n=1}^{\infty}\frac{(-1)^ne^\pi-1}{1+n^2}\cos nx$$ olarak elde ederiz.
+
+<img id="fig:fsornek3" class="envfig" src="../../../static/ders-notu/fourier-analizi/ex-2-2-3.svg" width="50%">
+<span style="margin:auto; display:table;"><span class="figcap">Şekil 2.3:</span> Yukarıdaki örnekte bahsedilen fonksiyon ve onun Fourier serisi</span>	
+</div>
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../21-giris/index.html">2.1. Giriş</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Fourier Analizi</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../23-riemann-lebesgue-teoremi/index.html">2.3. Riemann-Lebesgue Teoremi</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/22-fourier-serileri/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:13 GMT -->
+</html>

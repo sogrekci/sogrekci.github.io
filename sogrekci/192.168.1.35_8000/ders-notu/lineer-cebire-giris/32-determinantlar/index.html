@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/32-determinantlar/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:05 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 3.2. Determinantlar
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>3.2. Determinantlar</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-06-02">
+          2 Haziran 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste <strong>determinant</strong> kavramını tanıyacağız ve temel özelliklerini keşfedeceğiz. Bu kavram bize matrislerin singülerliğini test etmek için pratik bir yöntem sağlar.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/determinant/index.html">determinant</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/permutasyon/index.html">permütasyon</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Bu bölümde $n\times n$ boyutlu bir $A:=\left[a_{ij}\right]$ kare matrisi bir skaler ile eşleştireceğiz. Bu skaleri kullanarak matrisler hakkında daha detaylı bilgiler edineceğiz.
+</p>
+
+<p>
+<div class="envdef" id="def:determinant"><h6 class="thenv">Tanım 3.2.1</h6>
+$A:=\left[a_{ij}\right]$ kare matrisinin <strong>determinantı</strong>
+
+\begin{equation}
+\label{eq:det:1}
+\tag{3.2.1}
+\det A:=\left|a_{ij}\right|:=\sum_{\pi}\left({\rm sgn}\,\pi\right)a_{1\pi(1)}a_{2\pi(2)}\cdots a_{n\pi(n)}
+\end{equation}
+
+olarak tanımlanır. Burada $A$ matrisinin boyutu $n$'dir ve toplama işlemi $S:=\{1,2,\ldots,n\}$ kümesinin tüm permütasyonları üzerinden yapılmaktadır.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:6"><h6 class="thenv">Uyarı 3.2.2</h6>
+\eqref{eq:det:1} eşitliğindeki toplamda bulunan $n$ teriminin her biri $A$'nın farklı bir satırından alınan bir eleman, farklı bir sütunundan alınan eleman ve permütasyonun işareti ile çarpımından oluşur. Buradaki $n$ sayısı determinantın mertebesi olarak adlandırılır. <a class="eqref" href="#def:determinant">Tanım 3.2.1</a> gereği
+	$$
+	\left|\begin{array}{rr}
+	a_{11}&a_{12}\\a_{21}&a_{22}
+	\end{array}\right|=a_{11}a_{22}-a_{12}a_{21}
+	$$
+	ve
+	$$
+	\left|\begin{array}{rrr}
+	a_{11}&a_{12}&a_{13}\\a_{21}&a_{22}&a_{23}\\a_{31}&a_{32}&a_{33}
+	\end{array}\right|\begin{array}{ll}
+	&=a_{11}a_{22}a_{33}+a_{12}a_{23}a_{31}+a_{13}a_{21}a_{32}\\ &\qquad-a_{12}a_{21}a_{33}-a_{13}a_{22}a_{31}-a_{11}a_{23}a_{32}
+	\end{array}
+	$$
+	olduğu kolayca görülür. $n$ mertebeli bir determinant hesabında $n!$ tane toplama işlemi yapılır, dolayısıyla bu tanım dışında etkili hesap yöntemleri bulmak önemlidir.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:det:4"><h6 class="thenv">Teorem 3.2.3</h6>
+$\det A^T=\det A$.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$\det A$ hesabındaki toplamın terimleri $$\left({\rm sgn}\,\pi \right)a_{1\pi(1)}a_{2\pi(2)}\cdots a_{n\pi(n)}$$ biçimindedir. Bu çarpımdaki terimlerin satır indisleri doğal sırasında olup sütun indisleri permütasyon değerlerine göre sıralıdır. Benzer şekilde $\det A^T$ açılımında da aynı terimler yer alır fakat $A^T$ matrisi satır indislerine göre sıralanır, yani $A$ matrisinin sütun indislerine göre. Dolayısıyla yukaridaki terim bu toplamda $$\left( {\rm sgn}\,\pi^{-1} \right)a_{\pi^{-1}(1)\,1}a_{\pi^{-1}(2)\,2}\cdots a_{\pi^{-1}(n)\,n}$$ biçiminde yer alır. <a class="eqref" href="../31-permutasyonlar/index.html#theo:det:1">Teorem 3.1.9</a> gereği ${\rm sgn}\,\pi={\rm sgn}\,\pi^{-1}$ olduğundan bu terim ile yukarıdaki aynı değere eşittiri böylece ispat tamamlanır.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:7"><h6 class="thenv">Uyarı 3.2.4</h6>
+<a class="eqref" href="#theo:det:4">Teorem 3.2.3</a> sonucu olarak şunu söyleyebiliriz. Determinant kavramının satırlar için sağlanan özellikleri sütunlar için de sağlanır, bunun tersi de doğrudur.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:det:5"><h6 class="thenv">Teorem 3.2.5</h6>
+$A$ matrisinin bir satırı (veya sütunu) bir $c$ skaleri ile çarpılarak $A'$ matrisi elde edilsin. Bu durumda $\det A'=c\det A$ olur.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$\det A$ açılımındaki her terimde her bir satırdan sadece bir tane çarpan bulunur. Dolayısıyla bir satır $c$ ile çarpılırsa toplamdaki her terim de $c$ ile çarpılmış olur. Benzer durum sütunlar için de geçerlidir.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="theo:det:6"><h6 class="thenv">Teorem 3.2.6</h6>
+$A$ matrisinin herhangi iki satırı (veya sütunu) yer değiştirilerek $A'$ matrisi elde edilsin. Bu durumda $\det A'=-\det A$ olur.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>İki satırın yer değiştirmesi determinant açılımındaki terimlerde bulunan çarpanların karşılık gelen satır indislerinin yer değiştirmesine neden olur. Bu iki indisi yer değiştiren ve diğerlerini sabit bırakan permütasyon $\sigma$ ile gösterilsin. Bu durumda bu yer değiştirmenin etkisi ile terimlerdeki tüm $\pi$ permütasyonlarını $\pi\sigma$ ile değiştirmenin etkisi aynı olur. $\sigma$ permütasyonu tek olduğundan bu değişim her bir terimin işaretinin değişmesine neden olur.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="theo:det:7"><h6 class="thenv">Teorem 3.2.7</h6>
+$A$ matrisi iki eşit satıra sahip ise $\det A=0$ olur.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$A$ matrisinin eşit olan satırlarının yerleri değiştirilirse <a class="eqref" href="#theo:det:6">Teorem 3.2.6</a> gereği determinantın işareti değişmelidir. Diğer yandan matris değişmediğinden $\det A=-\det A$ olur, bu da $\det A=0$ demektir.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="theo:det:8"><h6 class="thenv">Teorem 3.2.8</h6>
+$A$ matrisinin bir satırı (veya sütunu) bir skaler ile çarpılıp başka bir satırına (sütununa) eklenerek $A'$ matrisi elde edilsin. Bu durumda $\det A'=\det A$ olur.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$A$ matrisinin $k-$inci satırının $c$ katı $j-$inci satırına eklenerek $A'$ matrisi elde edilsin. Bu durumda
+	\begin{eqnarray*}
+	\det A' &=& \sum_{\pi}\left({\rm sgn}\,\pi \right)a_{1\pi(1)}\cdots \left(a_{j\pi(j)}+ca_{k\pi(k)}\right)\cdots a_{n\pi(n)}\\
+	&=& \sum_{\pi}\left({\rm sgn}\,\pi \right)a_{1\pi(1)}\cdots a_{j\pi(j)}\cdots a_{k\pi(k)}\cdots a_{n\pi(n)}\\
+	&&\qquad+c\sum_{\pi}\left({\rm sgn}\,\pi \right)a_{1\pi(1)}\cdots a_{k\pi(j)}\cdots a_{k\pi(k)}\cdots a_{n\pi(n)}
+	\end{eqnarray*}
+	olur. Dikkat edilirse buradaki son toplam, $j-$inci ve $k-$inci satırları aynı olan bir matrisin determinantıdır, dolayısıyla toplamın değeri sıfırdır. Son eşitlikteki ilk toplam da $\det A$ değerine eşit olduğundan ispat tamamlanmış olur.$$\tag*{$\blacksquare$}$$
+</p>
+
+<div class="envrem" id="rmk:det:8"><h6 class="thenv">Uyarı 3.2.9</h6>
+<ol>
+<li class="py-2"><a class="eqref" href="#def:determinant">Tanım 3.2.1</a> gereği $\det I=1$ olduğu açıktır.</li>
+<li class="py-2">$E$ matrisi bir $c$ skaleri ile Tip 1 elementer matris olsun (bk. <a class="eqref" href="../26-elementer-matrisler/index.html#rmk:lint:32">Uyarı 2.6.2</a>), bu durumda $\det E=c$ olur. Bunu elde etmek için birim matrise <a class="eqref" href="#theo:det:5">Teorem 3.2.5</a> sonucu uygulanır.</li>
+<li class="py-2">$E$ matrisi bit Tip 2 elementer matris ise $\det E=1$ olur. Bunu elde etmek için birim matrise <a class="eqref" href="#theo:det:8">Teorem 3.2.8</a> sonucu uygulanır.</li>
+<li class="py-2">$E$ bir Tip 3 elementer matris ise $\det E=-1$ olur. Bunu elde etmek için birim matrise <a class="eqref" href="#theo:det:6">Teorem 3.2.6</a> sonucu uygulanır.</li>
+</ol>
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:det:9"><h6 class="thenv">Teorem 3.2.10</h6>
+$E$ bir elementer matris ve $A$ herhangi bir matris ise $\det EA=\det E\det A=\det AE$ olur.
+</div>
+</p>
+
+
+<p>
+<strong>İspat: </strong>$E$ elementer matrisinin hangi tip olduğuna göre karşılık gelen elementer işlem temsil edecek <a class="eqref" href="#theo:det:5">Teorem 3.2.5</a>, <a class="eqref" href="#theo:det:6">Teorem 3.2.6</a> veya <a class="eqref" href="#theo:det:8">Teorem 3.2.8</a> sonuçlarından uygun olanı ve <a class="eqref" href="#rmk:det:8">Uyarı 3.2.9</a> ile verilen uygun determinant değeri seçilirse iddia edilen eşitliğin sağlandığı görülür.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="theo:det:10"><h6 class="thenv">Teorem 3.2.11</h6>
+$\det A=0$ olması için gerek ve yeter koşul $A$ matrisinin singüler olmasıdır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$A$ matrisi tersinir ise <a class="eqref" href="../26-elementer-matrisler/index.html#theo:lint:25">Teorem 2.6.5</a> gereği elementer matrislerin çarpımı olarak yazılabilir. <a class="eqref" href="#theo:det:9">Teorem 3.2.10</a> sonucunun tekrarlı uygulanmasıyla $\det A$ değerinin ilgili elementer matrislerin determinantlarının çarpımına eşit olduğu anlaşılır, bu çarpım da sıfırdan farklıdır. Tersine, $A$ singüler ise satırları lineer bağımlıdır ve elementer işlemler uygulayarak bir satırın tamamı sıfır yapılabilir. Böylece <a class="eqref" href="#theo:det:7">Teorem 3.2.7</a> gereği $\det A=0$ olur.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="theo:det:11"><h6 class="thenv">Teorem 3.2.12</h6>
+Herhangi iki $n-$boyutlu kare $A$ ve $B$ matrisi için $\det A\cdot\det B=\det BA$ olur.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$A$ ve $B$ tersinir ise <a class="eqref" href="#theo:det:9">Teorem 3.2.10</a> sonucunun tekrarlı uygulanmasıyla istenen eşitlik elde edilir. İkisinden en az biri singüler ise bunların çarpımı da singüler olur ve <a class="eqref" href="#theo:det:10">Teorem 3.2.11</a> gereği her ikisinin de determinantı sıfır olup istenen eşitlik sağlanır.$$\tag*{$\blacksquare$}$$
+</p>
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Alıştırmalar</h3>
+
+
+
+<p>
+<ol>
+<li class="py-2" id="exe:det:det:1">Bir $A:=\left[a_{ij}\right]$ matrisinin esas köşegen altındaki (her $i$ için $a_{ii}$ elemanlarına esas köşegen elemanları denir)  tüm elemanları sıfır ise, yani $i>j$ için $a_{ij}=0$ ise, $\det A=\prod_{i=1}^{n}a_{ii}$ olduğunu gösterin.</li>
+<li class="py-2"><a class="eqref" href="#theo:det:9">Teorem 3.2.10</a> sonucunu uygulayarak aşağıdaki eşitlikleri doğrulayın. Daha sonra da bir önceki alıştırma ile verilen sonucu kullanarak determinantı hesaplayın.
+		$$
+		\left|\begin{array}{rrr}3&2&2\\1&4&1\\-2&-4&-1\end{array}\right|=-\left|\begin{array}{rrr}1&4&1\\3&2&2\\-2&-4&-1\end{array}\right|=-\left|\begin{array}{rrr}1&4&1\\0&-10&-1\\0&4&1\end{array}\right|=-\left|\begin{array}{rrr}1&4&1\\0&-2&1\\0&4&1\end{array}\right|=-\left|\begin{array}{rrr}1&4&1\\0&-2&1\\0&0&3\end{array}\right|
+		$$</li>
+<li class="py-2">Aşağıdaki determinatları hesaplayın.
+		$$\left|\begin{array}{rrr}1&-2&2\\-1&3&1\\2&5&-1\end{array}\right| \qquad \left|\begin{array}{rrrr}1&2&0&1\\1&3&4&0\\0&1&5&6\\1&2&3&4\end{array}\right|$$</li>
+</ol>
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../31-permutasyonlar/index.html">3.1. Permütasyonlar</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Lineer Cebire Giriş</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../33-kofaktorler/index.html">3.3. Kofaktörler</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/32-determinantlar/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:05 GMT -->
+</html>

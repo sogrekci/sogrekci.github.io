@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/blog/harmonik-analiz-makinesi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:44:30 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - Harmonik Analiz Makinesi
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../static/site/prism.css">
+    <script src="../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>Harmonik Analiz Makinesi</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-13">
+          13 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-06-13">
+          13 Haziran 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu yazımda size 1898 yılında <strong>Albert Michelson</strong> tarafından tasarlanan <strong>Harmonic Analyzer</strong> isimli makineyi tanıtacağım. Tamamen mekanik olan, dişli ve çarklardan oluşan bu ilginç makine ile verilen bir fonksiyonun <strong>Fourier serisi</strong> ve daha fazlası hesaplanabiliyordu ve hatta <strong>grafiği</strong> çizdirilebiliyordu. Yazının sonundaki dört videoda bu makinenin çalışan bir replikası üzerinde makinenin neler yaptığı ve nasıl çalıştığı detaylı olarak açıklanıyor.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../dizin/antikitera-duzenegi/index.html">Antikitera düzeneği</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/fourier-analizi/index.html">Fourier analizi</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/fourier-serisi/index.html">Fourier serisi</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/harmonik-analiz-makinesi/index.html">harmonik analiz makinesi</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-5 text-justify">
+        Bugün matematiksel hesap anlamında kullandığımız <strong>kalkülüs</strong> (<strong>calculus</strong>) kelimesi Latin kökenli bir kelimedir ve <strong>çakıl taşı</strong> (abaküslerde kullanılan) anlamına <a class="outref" href="https://en.wiktionary.org/wiki/calculus" target="_blank">sahiptir</a>, kireç taşı (kalker) anlamındaki <strong>calx</strong> kökünden türemiştir. Çünkü ilk abaküsler (MÖ 2700-2300 arası görülmüş) fırınlanmış kum ve çamur üzerinde kazılan oyuklar üzerinde hareket ettirilen çakıl taşları olarak <a class="outref" href="https://en.wikipedia.org/wiki/Abacus" target="_blank">tasarlanmış</a>. Daha sonra ihtiyaç olunca daha karmaşık hesap makineleri icat edilmiş, bunlar günümüzdekiler gibi silikondan değil pirinçten parçalara sahipti; <strong>dişliler</strong> ve <strong>çarklar</strong>.
+
+<img class="mx-auto d-block py-5" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/NAMA_Machine_d%27Anticythère_1.jpg/269px-NAMA_Machine_d%27Anticythère_1.jpg">
+
+1900 yılında bir süngerci Yunanistan'ın <strong>Antikitera</strong> adası yakınlarında bir batık keşfetti, bu batık MÖ 87 yılından kalma o zamanın insanlarına lüks tüketim malları taşıyan bir gemiydi. Batıkta mücevherler ve çömlekler gibi kıymetli eşyaların dışında çok ilginç bir şey daha bulundu; içinde dişliler ve çarklardan oluşan bir düzenek bulunan bir ahşap kutu. Yukarıda aslına ait bir resim gördüğünüz ve <strong>Antikitera Düzeneği</strong> dediğimiz bu düzenek; dişlileri ve çarkları kullanan bilinen en eski <a class="outref" href="https://tr.wikipedia.org/wiki/Antikythera_düzeneği" target="_blank">makinedir</a>, günümüzde Atina'da Ulusal Arkeoloji Müzesi'nde sergileniyor. Yaygın görüşe göre bu düzenek gök cisimlerinin konumlarını hesaplamaya yarayan bir hesap makinesiydi ve günümüzde bazı çalışan modelleri üretilmiştir, aşağıdaki videoda bu konuda bazı bilgiler veriliyor.
+
+<div class="embed-responsive embed-responsive-16by9 my-5">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UpLcnAIpVRA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+Son bir kaç on yıla kadar, silikon devrimine kadar, dişlilerin ve çarkların hükümdarlığı devam etti. Bu yazımda size dişliler ve çarklar ile çalışan oldukça ilginç bir makineden bahsedeceğim; <strong>Albert Michelson</strong>'un <strong>harmonik analiz makinesi</strong>. Michelson'un 1898 yılında <strong>American Journal of Science</strong> dergisine gönderdiği bir <a class="outref" target="_blank" href="https://upload.wikimedia.org/wikipedia/commons/8/8a/A_new_harmonic_analyzer.pdf">makaleyle</a> tanıttığı bu makine; daha önce <a class="eqref" href="../../ders-notu/fourier-analizi/index.html">Fourier analizi</a> ders notlarında detaylı şekilde anlattığım hesaplamaları yapabilen, grafikleri çizen (hatta bu derste anlatılmayan başka bazı hesaplamaları da yapabilen) bir makinedir, bunun sayesinde el ile yapılan hesaplamalar otomatize edilerek oldukça hızlandırılmış oldu.
+
+<img class="mx-auto d-block py-5" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/4-Michelson_harmonic_analyzers-larger_version.png/388px-4-Michelson_harmonic_analyzers-larger_version.png">
+
+Michelson'un bu makinesinin iki farklı boyuttaki versiyonu <strong>William Gaertner & Co.</strong> firması tarafından ticari olarak üretilmiştir ve en az dört tane satıldığı bilinmektedir (aşağıda göreceğiniz videoda kimlerin satın aldığı ve bilinen fiyatlar belirtiliyor). Yukarıdaki resim bu firmanın 1904 yılında basılmış kataloğundan alınmıştır (büyük olan versiyona aittir), bu makine <a class="outref" href="https://www.bie-paris.org/site/en/1933-chicago" target="_blank">Expo 1933</a> fuarında sergilenerek halka tanıtılmıştır. Bu makinelerden (küçük olan versiyondan) orijinal olarak günümüze ulaşan bir tanesi (aşağıdaki resimde gösterilmektedir) <strong>Illinois Üniversitesi</strong>'nde cam bir vitrin içinde sergilenmektedir (Altgeld Hall, Room <a class="outref" target="_blank" href="https://math.illinois.edu/resources/department-history">241</a>), daha fazla resmi <a class="outref" target="_blank" href="http://www.mathmodels.illinois.edu/cgi-bin/cview?SITEID=4&amp;ID=344">şu sayfada</a> görülebilir.
+
+<img class="mx-auto d-block py-5" src="http://www.mathmodels.illinois.edu/MathModelsGallery/59056_p.jpg" height="600px">
+
+Illinois Üniversitesinden üç araştırmacı bu makine hakkında çok detaylı bir kitap yazmışlar, bu kitap <a class="outref" target="_blank" href="http://www.engineerguy.com/fourier/">bu sayfadan</a> ücretsiz olarak indirilebilir veya basılı versiyonları sipariş edilebilir. Bu araştırmacılar ayrıca dört videodan oluşan bir seri video ile bu makinenin çalışan bir replikası üzerinde detaylı bilgiler vermektedir, aşağıda bu serinin ilk videosunu bulabilirsiniz.
+
+<div class="embed-responsive embed-responsive-16by9 my-5">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NAsM30MAHLg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<a class="eqref" href="../../ders-notu/fourier-analizi/index.html">Fourier analizi</a> ders notlarını takip ettiyseniz şunu fark etmişsinizdir; <a class="eqref" href="../../ders-notu/fourier-analizi/26-gibbs-olgusu/index.html">Gibbs olgusu</a> bu makine yardımıyla keşfedilmiştir.
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+      </div>
+      <div class="col text-center mt-auto">
+        <a href="../index.html">Blog Ana Sayfası</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Blog Yazısı:<br>
+        <a href="../tikz-ciziminden-svg-olusturmak/index.html">Tikz Çiziminden SVG Oluşturmak</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+
+
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../ders-notu/index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/blog/harmonik-analiz-makinesi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:44:30 GMT -->
+</html>

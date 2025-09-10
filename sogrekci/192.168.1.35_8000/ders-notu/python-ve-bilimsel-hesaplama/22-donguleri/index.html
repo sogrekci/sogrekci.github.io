@@ -1,0 +1,591 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/python-ve-bilimsel-hesaplama/22-donguleri/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 2.2. For Döngüleri
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>2.2. For Döngüleri</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-22">
+          22 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-29">
+          29 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste <strong>for</strong> döngülerini açıklayacağız, bu döngüleri öğrenmek için önce <strong>list</strong> ve </tuple> tipi verileri anlamamız gerekiyor. Bu tür veriler üzerinde yapılabilen temel işlemleri açıkladıktan sonra bazı döngü örnekleri vereceğiz.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/binom-dagilimi/index.html">Binom dağılımı</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/dilimleme/index.html">dilimleme</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/dongsu/index.html">for döngsü</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/index/index.html">index</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/indis/index.html">indis</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/list/index.html">list</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/list-comprehension/index.html">list comprehension</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/slice/index.html">slice</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/tuple/index.html">tuple</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <h3 class="mb-3">List Verileri</h3>
+
+
+
+
+
+<p>
+Programlarımızda sıklıkla tek bir nesne ile çalışmak yerine birden fazla nesneyi bir grup haline getirerek bütün bir grup ile işlemler yaparız. Python'da böyle nesne grupları oluşturmanın bir yolu <code class="language-python">list</code> (<strong>liste</strong>) verileri oluşturmaktır. Python'da <code class="language-python">list</code> verisi oluşturmanın bir yolu bazı nesneleri köşeli parantez içinde belirli bir <strong>sıra</strong> dahilinde virgülle ayırarak yazmaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> L = [0, 2, 4, 6, 8, 10]
+>>> print L
+[0, 2, 4, 6, 8, 100]
+>>> type(L)
+type 'list'>
+</code></pre>
+
+<p>
+Bu tanımladığımız list nesnesinin tüm elemanları birer <code class="language-python">int</code> nesnesidir ama genelde böyle bir kural yoktur, elemanlar farklı tipten veriler de olabilir. Yukarıda tanımladığımız <code class="language-python">L</code> değişkeni, altı tane veriden oluşan list tipi veriyi temsil ediyor.
+</p>
+
+<p>
+Bir listenin her bir öğesinin bir indisi (<strong>index</strong>) vardır, ilk öğenin indisi 0, sonrakinin 1, ve böyle devam eder. Bir listenin tekil bir elemanına ulaşmak için o öğenin indisini kullanarak <code class="language-python">liste[indis]</code> komutunu gireriz. Python'da alternatif olarak farklı bir indisleme sistemi daha vardır. Bu sisteme göre listenin son elemanının indisi -1, bir öncekinin indisi -2, ve diğerleri de böyle devam eder. İstenilirse baştan istenilirse sondan indisleme sistemi kullanılarak işlem yapılabilir. Bu şekilde indisleme yöntemiyle bir <code class="language-python">list</code> nesnesinin elemanları üzerinde manipülasyon yapabiliriz, elemanları veya sıralarını değiştirebiliriz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> L
+>>> [0, 2, 4, 6, 8, 10]
+>>> L[0]
+0
+>>> L[1]
+2
+>>> L[4]
+8
+>>> L[-1]
+10
+>>> L[-5]
+2
+>>> L[-1] = 100
+>>> L
+[0, 2, 4, 6, 8, 100]
+</code></pre>
+
+<p>
+Bu <code class="language-python">L</code> nesnesinin <strong>sonuna</strong> yeni bir eleman eklemek için <code class="language-python">L.append(nesne)</code> komutunu gireriz. Herhangi bir <code class="language-python">i</code> indisli konuma veni bir nesne eklemek için se <code class="language-python">L.insert(i, nesne)</code> komutunu kullanırız, bu durumda daha sonraki elemanların indislerin değişeceğine dikkat edin. Bu <code class="language-python">L</code> nesnesinin bir elemanının indis numarasını öğrenmek için <code class="language-python">L.index(nesne)</code> komutundan faydalanırız, herhangi bir <code class="language-python">i</code> indisli elemanı silmek için <code class="language-python">del L[i]</code> komutunu kullanırız. Ayrıca bir listenin eleman sayısı bilgisi <code class="language-python">len(L)</code> komutu ile getirilebilir. <code class="language-python">x in L</code> ifadesi bir bool verisidir ve <code class="language-python">x</code> nesnesi <code class="language-python">L</code> listesinin bir elemanı ise <code class="language-python">True</code>, aksi taktirde <code class="language-python">False</code> değerini döndürür.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> L
+[0, 2, 4, 6, 8, 100]
+>>> len(L)
+6
+>>> L.append("python")
+>>> L
+[0, 2, 4, 6, 8, 100, 'python']
+>>> L.index("python")
+6
+>>> "python" in L
+True
+>>> del L[-1]
+>>> "python" in L
+False
+>>> L
+[0, 2, 4, 6, 8, 100]
+L.insert(1, "python")
+>>> L
+[0, 'python', 2, 4, 6, 8, 100]
+</code></pre>
+
+<p>
+Python <code class="language-python">list</code> nesneleri üzerinde toplama, çıkarma ve çarpma gibi bazı aritmetik işlemler de tanımlanmıştır, aşağıdaki örneklerde bunların nasıl davrandığını gözlemleyebilirsiniz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> L
+[0, 'python', 2, 4, 6, 8, 100]
+>>> L1 = [0]
+>>> L2 = 5*L1
+>>> L2
+[0, 0, 0, 0, 0]
+>>> L3 = L + L2
+>>> L3
+[0, 'python', 2, 4, 6, 8, 100, 0, 0, 0, 0, 0]
+</code></pre>
+
+<p>
+Sıklıkla elemanları belirli bir düzene göre sıralanmış sayı listelerine ihtiyacımız olacak, böyle listeleri yukarıdaki örneklerde yaptığımız gibi açıkça tanımlamak yerine bir döngü yardımıyla kolayca oluşturabiliriz. Bunun için önce boş bir liste oluşturup döngü içinde her bir elemanı hesaplayıp listenin sonuna ekleriz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+L = [] #bos bir list
+
+a = 0
+b = 30
+
+while a <= b:
+    L.append(a)
+    a += 3
+
+print L
+</code></pre>
+
+<p>
+Bu program 0 ile 30 arasında (0 ve 30 dahil) 3'ün katı olan tamsayıların bir listesini oluşturup yazdırır. Programın çıktısı aşağıdaki gibi olacaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> python list1.py
+[0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30]
+</code></pre>
+
+<p>
+Bu işlemin çok sık yapıldığı için Python'da bu işlem için hazır bir <code class="language-python">range(a, b, s)</code> fonksiyonu vardır. Bu fonksiyon <code class="language-python">a</code> ile <code class="language-python">b</code> sayıları arasında (<code class="language-python">b</code> dahil <strong>değil</strong>) <code class="language-python">s</code> aralıklı sayıların bir listesini oluşturur. Bu komutun bir kaç farklı kullanım yöntemi daha vardır.
+</p>
+
+<ul>
+<li class="py-2"><code class="language-python">range(n)</code> = <code class="language-python">range(0, n, 1)</code> = <code class="language-python">[0, 1, 2, .., n-1]</code></li>
+<li class="py-2"><code class="language-python">range(n, k)</code> = <code class="language-python">range(n, k, 1)</code> = <code class="language-python">[n, n+1, n+2, .., k-1]</code></li>
+</ul>
+
+<p>
+Bunları aşağıdaki örnekleri uygulayarak gözlemleyebilirsiniz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> range(10)
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> range(3, 8)
+[3, 4, 5, 6, 7]
+>>> range(-5, 12, 3)
+[-5, -2, 1, 4, 7, 10]
+</code></pre>
+
+
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Tuple Verileri</h3>
+
+
+
+
+<p>
+Python'da listelere çok benzeyen bir de <code class="language-python">tuple</code> verileri vardır. Bu veri tipi <code class="language-python">list</code> veri tipine çok benzerdir, bunlar da birden fazla elemanı olan sıralı verilerdir. Köşeli parantez yerine normal parantez içinde yazılırlar ve tanımlandıktan sonra elemanları <strong>değiştirilemez</strong>. Bu veriler de list verileri gibi kullanılırlar, indisleme ve döngü içinde kullanımları tamamen aynıdır. <code class="language-python">tuple</code> verileri üzerinde işlemler genelde <code class="language-python">list</code> verilerine çok daha hızlıdır, dolayısıyla elemanların sonradan güncellenmesi gerekmiyorsa bu verileri kullanmak program verimliliği açısından önemlidir. Ayrıca daha sonra değişmemesi gereken verileri korumak için <code class="language-python">list</code> yerine <code class="language-python">tuple</code> verileri kullanılabilir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> T = (1, 3, 5, 7, 9)
+>>> type(T)
+type 'tuple'>
+>>> T[2]
+5
+>>> T[-2]
+7
+>>> 3 in T
+True
+>>> T.append(11)
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+AttributeError: 'tuple' object has no attribute 'append'
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Dilimleme ve Birleştirme</h3>
+
+
+
+
+<p>
+Listenin bir kısmının seçilmesiyle oluşan yeni listelere bir alt liste (<strong>sublist</strong>) veya dilim (<strong>slice</strong>) denir. Bir listeden bir parçayı seçerek bu yeni listeleri oluşturma yöntemine dilimleme (<strong>slicing</strong>) denir.
+
+<ul>
+<li class="py-2"><code class="language-python">A[i:]</code> komutu <code class="language-python">A</code> listesinin <code class="language-python">i</code> indisli elemanından başlayıp listenin sonuna kadar tüm elemanların listesini oluşturur.</li>
+<li class="py-2"><code class="language-python">A[:j]</code> komutu <code class="language-python">A</code> listesinin başından başlayıp <code class="language-python">j</code> indisli elemana kadar (j dahil <strong>değil</strong>) tüm elemanların listesini oluşturur.</li>
+<li class="py-2"><code class="language-python">A[:]</code> komutu <code class="language-python">A</code> listesinin tüm elemanlarından oluşan bir liste oluşturur.</l>
+<li class="py-2"><code class="language-python">A[1:-1]</code> komutu <code class="language-python">A</code> listesnin ilk ve son elemanı hariç diğer tüm elemanlarından oluşan bir liste oluşturur.</li>
+<li class="py-2"><code class="language-python">A[i:j:s]</code> komutu <code class="language-python">A</code> listesnin <code class="language-python">i</code> ve <code class="language-python">j</code> indisli elemanları arasında (<code class="language-python">j</code> dahil <strong>değil</strong>) <code class="language-python">s</code> adım aralıklı olarak bir liste oluşturur.</li>
+</ul>
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> A = range(15)
+>>> A
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+>>> A[:7]
+[0, 1, 2, 3, 4, 5, 6]
+>>> A[8:]
+[8, 9, 10, 11, 12, 13, 14]
+>>> A[:]
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+>>> A[2: 9: 2]
+[2, 4, 6, 8]
+>>> A[2: 9: 2][:2]
+[2, 4]
+</code></pre>
+
+<p>
+Python'da bazen birden fazla listenin elemanlarıyla senkronize bir biçimde çalışmamız gerekebilir, böyle durumlarda <code class="language-python">zip(list1, list2)</code> komutunu kullanırız. Bu komut her bir elemanı <code class="language-python">(x1, y1)</code> <code class="language-python">tuple</code> nesneleri olan bir list üretir, bu <code class="language-python">tuple</code> nesnelerinin ilk elemanı <code class="language-python">list1</code> ve diğer elemanı da <code class="language-python">list2</code> listesinin elemanıdır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+from math import sin, pi
+
+L1 = [5, 10, 15, 20]
+L2 = [pi, 2*pi, 3*pi, 4*pi]
+L3 = zip(L1, L2)
+
+k = 0
+while k < len(L1):
+    A = L3[k][0]
+    B = L3[k][1]
+    print "A=%2d, B=%7.4f, A*sin(B)=%9.2e" % (A, B, A*sin(B))
+    k += 1
+</code></pre>
+
+<p>
+Bu programın çıktısı aşağıdaki gibi olacaktır. Burada <code class="language-python">zip()</code> komutunu kullanmadan daha basit şekilde de bu çıktıyı alabilirdik. Bunun için 5. satırı silip 8 ve 9 numaralı satırları sırasıyla <code class="language-python">A = L1[k]</code> ve <code class="language-python">B = L2[k]</code> olarak değiştiririz, böylece <code class="language-python">zip()</code> komutunu kullanamdan da ayı işi yapmış oluruz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python list2.py
+A= 5, B= 3.1416, A*sin(B)= 6.12e-16
+A=10, B= 6.2832, A*sin(B)=-2.45e-15
+A=15, B= 9.4248, A*sin(B)= 5.51e-15
+A=20, B=12.5664, A*sin(B)=-9.80e-15
+</code></pre>
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Döngü Yapısı</h3>
+
+
+
+
+<p>
+Bir <code class="language-python">list</code> veya <code class="language-python">tuple</code> nesnesinin tüm elemanlarına aynı işlemi uygulayamak için <code class="language-python">for</code> döngülerinden faydalanırız. Bu döngü çeşidini bir örnek üzerinde çalışalım. Farz edelim ki başarı olasılığı $p$ (dolayısıyla başarısızlık olasılığı $1-p$) olsun. Bu durumda $n$ deneme yapalım ve her bir denemenin sonucu önceki denemelerden bağımsız olsun. Bu $n$ deneme sonucunda $x$ tane başarı (dolayısıyla $n-x$ tane başarısızlık) elde etme olasılığımız $$ B(x,n,p)=\frac{n!}{x!(n-x)!}p^x (1-p)^{n-x}$$ formülü ile verilir, bu formüle Binom dağılımı denir. Bir madeni parayı art arda fırlattığımızı düşünelim, tura gelmesi olayını başarı kabul edersek bu durumda bu olayın gerçekleşme olasılığı $p=1/2$ olacaktır. Örneğin beş denemede iki defa tura gelme olasılığı $B(2, 5, 0.5)$ değerine eşittir. Amacımız $n = 10, 20, 30, 40, 50$ deneme sonucunda başarı olasılıklarını hesaplayıp yazdıran bir program yazmaktır. Burada $n!$ ifadesi $n$ doğal sayısının <strong>faktöriyel</strong> değeridir ve bu hesaplamayı <code class="language-python">math</code> modülü içinde tanımlanmış <code class="language-python">math.factorial()</code> fonksiyonu yardımıyla yapabiliriz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+from math import factorial as fact
+
+nlist = range(10, 51, 10) #[10, 20, 30, 40, 50]
+p = 0.5
+x = 2.0
+
+for n in nlist:
+    B = fact(n)/(fact(x)*fact(n-x))*p**x*(1-p)**(n-x)
+    print "%d deneme -> %5.3e ihtimal" % (n, B)
+</code></pre>
+
+<p>
+Programda kullandığımız <code class="language-python">for</code> döngüsü adımlarını açıklayalım. Döngüyü <code class="language-python">for a in L</code> biçiminde başlatıyoruz, bunun anlamı aşağıda farklı paragraf hizasından başlayan tüm satırlar <code class="language-python">L</code> listesinin her bir elemanı için ayrı ayrı çalıştırılacak demektir. Daha sonra iki nokta üst üste koyup altında hizalanmış biçimde hesaplamaları ve komutları yerleştiriyoruz. Bu programın çıktısı aşağıdaki gibi olacaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > for1.py
+10 deneme -> 4.395e-02 ihtimal
+20 deneme -> 1.812e-04 ihtimal
+30 deneme -> 4.051e-07 ihtimal
+40 deneme -> 7.094e-10 ihtimal
+50 deneme -> 1.088e-12 ihtimal
+</code></pre>
+
+<p>
+Bu programı daha kompakt ve verimli bir biçimde aşağıdaki gibi de kodlayabiliriz, bu da aynı çıktıyı üretecektir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+from math import factorial as fact
+
+p = 0.5; x = 2.0
+
+for n in xrange(10, 51, 10):
+    B = fact(n)/(fact(x)*fact(n-x))*p**x*(1-p)**(n-x)
+    print "%d deneme -> %5.3e ihtimal" % (n, B)
+</code></pre>
+
+<p>
+Burada kullandığımız <code class="language-python">xrange()</code> fonksiyonu bu örnekte aynı işi yapmasına rağmen aslında <code class="language-python">range</code> fonksiyonundan oldukça farklıdır. <code class="language-python">range()</code> fonksiyonu istenilen değerleri içeren bir liste oluşturup bellekte tutarken <code class="language-python">xrange()</code> fonksiyonu açıkça bir liste oluşturup bellekte yer kaplamaz, döngünün her bir adımında sıradaki elemanını çıktı olarak döndürür. Dolayısıyla döngülerde bu fonksiyonun kullanımı çok daha verimlidir, eğer oluşturulan listeyi daha sonra başka işlemlerimizde kullanmayacaksak <code class="language-python">xrange()</code> fonksiyonunu tercih etmeliyiz. Python 3 versiyonunda bulunan <code class="language-python">xrange()</code> adında bir fonksiyon yoktur çünkü orada <code class="language-python">range()</code> fonksiyonu Python 2'deki <code class="language-python">xrange()</code> gibi davranır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> a = range(10, 51, 10)
+>>> a
+[10, 20, 30, 40, 50]
+>>> type(a)
+type 'list'>
+>>> b = xrange(10, 51, 10)
+>>> b
+xrange(10, 60, 10)
+>>> type(b)
+type 'xrange'>
+</code></pre>
+
+<p>
+Her <code class="language-python">for</code> döngüsünü bir <code class="language-python">while</code> döngüsü olarak yeniden kodlayabiliriz. Bunun için önce <code class="language-python">n = 0</code> biçiminde bir sayaç değişkeni tanımlarız, daha sonra <code class="language-python">for a in L</code> ifadesini <code class="language-python">while n < len(L)</code> ifadesiyle değiştiririz. Döngü komutlarında ise üzerinde işlem yapacağımız elemanı <code class="language-python">x = L[n]</code> komutuyla alıp üzerinde gerekli işlemleri yaparız. Son olarak döngü içinde sayaç değerini arttırırız. Örneğin yukarıdaki program bir <code class="language-python">while</code> döngüsü kullanılarak aşağıdaki gibi yazılabilir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+from math import factorial as fact
+
+nlist = range(10, 51, 10) #[10, 20, 30, 40, 50]
+p = 0.5
+x = 2.0
+
+i = 0
+while i < len(nlist):
+    n = nlist[i]
+    B = fact(n)/(fact(x)*fact(n-x))*p**x*(1-p)**(n-x)
+    print "%d deneme -> %5.3e ihtimal" % (n, B)
+    i += 1
+</code></pre>
+
+<p>
+Python'da sıklıkla bir listenin öğelerini sayaç olarak kullanarak başka bir liste oluşturma işlemi  yapılır ve dolayısıyla bunun için bir kısa yol vardır. Bu işlemi birkaç örnek üzerinde görelim, aşağıda görüleceği gibi bu işlemi köşeli parantezler içinde tek satırda yazılmış bir for döngüsü gibi değerlendirebiliriz. Bu işleme  liste kapsama (<strong>list comprehension</strong>) denir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> from math import factorial
+>>> N = [1, 3, 5, 7, 9]
+>>> L = [factorial(n) for n in N]
+>>> L
+[1, 6, 120, 5040, 362880]
+</code></pre>
+
+<p>
+Bazen tablosal bir veriyi saklayıp yazdırmamız gerekebilir, bunu <strong>iç içe</strong> listeler kullanarak yapabiliriz. Yani elemanları yine birer liste olan bir liste oluşturabiliriz. Genelde bir tabloyu bellekte tutmak için tablonun her satırını ayrı birer liste olarak kaydedip daha sonra bu satırları eleman olarak kabul eden bir ana liste oluştururuz. Dolayısıyla bu son liste tüm tablo verisini içerecektir. Örnek olarak Celsius ve Fahrenheit derece arası dönüşüm formülü olan $$F = \frac{9}{5}C + 32$$ formülünü ele alalım. Bir sütunu Celsius, diğer sütunu da bunlara karşılık gelen Fahrenheit büyüklüklerini içeren bir tablo yazdıralım. Bunu aşağıdaki program ile sağlayabiliriz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Clist = range(10, 36, 5)                      #[10, 15, 20, ... , 35]
+Flist = [9.0/5*C + 32 for C in Clist]         #F degerleri
+L = [[C, F] for C, F in zip(Clist, Flist)]    #ana tablo
+
+for C, F in L:
+    print C, F
+</code></pre>
+
+<p>
+Burada yazdırma aşamasında <code class="language-python">C</code> ve <code class="language-python">F</code> değerlerini aynı anda <code class="language-python">L</code> listesinden nasıl aldığımıza dikkat edin. <code class="language-python">L</code> listesinin her bir elemanı bir <code class="language-python">[C, F]</code> ikilisi biçiminde, dolayısıyla döngünün her bir adımı böyle bir ikiliyi ziyaret ediyor ve iki değişkeni birden alıp yazdırıyor. Programın çıktısı aşağıdaki gibi olacaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > for4.py
+10 50.0
+15 59.0
+20 68.0
+25 77.0
+30 86.0
+35 95.0
+</code></pre>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../21-while-donguleri/index.html">2.1. While Döngüleri</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Python ve Bilimsel Hesaplama</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../23-if-else-kosullu-yapisi/index.html">2.3. If-Else Koşullu Yapısı</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/python-ve-bilimsel-hesaplama/22-donguleri/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:47 GMT -->
+</html>

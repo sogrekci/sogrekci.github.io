@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/latexe-giris/1-giris/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:41:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 1. Giriş
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>1. Giriş</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-14">
+          14 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-29">
+          29 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu ilk dertse <strong>TeX</strong> ve <strong>LaTeX</strong> sistemlerini tanıyacağız; kısaca bunların ne işe yaradığından, tarihçesinden, avantajlarından ve bilgisayara nasıl kurulacağından bahsedeceğiz.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/latex/index.html">LaTeX</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/mactex/index.html">mactex</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/miktex/index.html">miktex</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/tex/index.html">TeX</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/tex-live/index.html">TeX live</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/wysiwyg/index.html">wysiwyg</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/wysiwym/index.html">wysiwym</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>Öncelikle <strong>TeX</strong>  kelimesi “<strong>Technology</strong>” kelimesindeki “<strong>tech</strong>” hecesi gibi telaffuz edilir. Yani <strong>teks</strong> yerine “<strong>tek</strong>”, lateks yerine “<strong>la-tek</strong>” (veya ley-tek) olarak telaffuz ederiz. Bu kelime yazılırken $\TeX$ biçiminde ortadaki E harfi biraz aşağıda hizalanmış olarak yazılır, bu mümkün değilse <strong>TeX</strong> biçiminde e harfi küçük ve diğer harfler büyük olarak yazılır.</p>
+
+
+<h3 class="mt-5 mb-3">Nedir Ne Değildir?</h3>
+
+<p>TeX, <a class="outref" target="_blank" href="https://www-cs-faculty.stanford.edu/~knuth/">Donald Knuth</a> tarafından geliştirilen ve belge hazırlamak için kullanılan düşük seviyeli bir <strong>programlama dili</strong>dir. İlk olarak 1977 de geliştirilmeye başlanmıştır. TeX 3.0 sürümü ile yaygınlaşmaya başlamıştır. Bu sürümden sonra TeX sürümleri Pi sayısını oluşturan rakamlar kullanılarak numaralandırılmaktadır, TeX 3.14159265 gibi.</p>
+
+<p><strong>LaTeX</strong> ise TeX sistemi üzerine kurulmuş ve TeX'i kullanmayı kolaylaştıran bir yazılımdır. <a class="outref" target="_blank" href="http://www.lamport.org/">Leslie Lamport</a> tarafından geliştirilmiştir. Yani aslında LaTeX yazılımı TeX için bir araçtır, bir TeX <strong>formatıdır</strong>, bu derste TeX'in detayları ve format kavramını tartışmayacağız.</p>
+
+<p>LaTeX'in diğer metin işlemcilerinden bazı belirgin farklılıkları vardır, biraz bunlardan bahsedelim. LaTeX, alışık olduğumuz <strong>MS Word</strong> gibi bir <a class="outref" target="_blank" href="https://tr.wikipedia.org/wiki/WYSIWYG">WYSIWYG</a> (what you see is what you get) türü kelime işlemcisi değildir. <strong>WYSIWYG</strong> tarzı yazılımlar biz dokümana kelimeleri girerken <strong>eş zamanlı</strong> olarak biçimlendirirler, yani belgenin son halini hazırlarken görebilir ve gerekli değişikliklere karar verebiliriz. LaTeX’te ise dokümanı herhangi bir metin editöründe <code>kaynak kodu</code> olarak hazırlarız, daha sonra LaTeX yazılımını kullanarak biçimlendirilmiş doküman haline getiririz (C++, Php gibi). Dolayısıyla doküman hazırlamak için bazı LaTeX <strong>komutlarını</strong> bilmemiz gerekir. LaTeX ile doküman hazırlarken belgenin biçimini <strong>ilk baştan</strong> belirleriz, daha sonra sadece metni gireriz, LaTeX yazılımı biçimi <strong>tüm belgeye uygular</strong>. (Gerekli yerlerde tekrar biçimlendirme yapılabilir.)</p>
+
+
+<h3 class="mt-5 mb-3">Neden?</h3>
+
+
+<p>Peki alışmış olduğumuz WYSIWYG programlarımız varken neden farklı bir deneyim olan LaTeX'e geçmeliyiz? Bir çok avantajı var aslında, konforuna alıştıktan sonra LaTeX'i bırakamazsınız. Başlangıç için motivasyon olması açısından bazı temel avantajlarını listeledim:</p>
+
+<ul>
+<li class="py-2">Dokümanın kaynak kodunu <strong>herhangi</strong> bir metin editörü ile oluşturabilir veya düzenleyebilirsiniz,</li>
+<li class="py-2">Biçimleme otomatik olarak LaTeX tarafından yapılır, biçim yerine <strong>tamamen gireceğiniz metine odaklanırsınız</strong>,</li>
+<li class="py-2">Bir belgedeki biçim veya metin diğer bir belgeye kolaylıkla <strong>kopyalanabilir</strong>,</li>
+<li class="py-2"><strong>İndeks, kaynakça, içindekiler listesi, dipnotlar, atıflar</strong> gibi öğeler çok kolay bir şekilde oluşturulur,</li>
+<li class="py-2">Tüm işletim sistemlerinde çok <strong>düşük donanım gereksinimiyle</strong> çalışır,</li>
+<li class="py-2"><strong>Matematiksel formülleri</strong> içeren dokümanları oluşturmak için en uygun yazılımdır,</li>
+<li class="py-2">Çok <strong>yaygındır</strong>, birçok yayınevi yazarlardan dokümanlarını LaTeX formatında talep eder,</li>
+<li class="py-2"><strong>Ücretsiz</strong> bir yazılımdır, <strong>açık kaynak kodludur</strong>.</li>
+</ul>
+
+<p>LaTeX ile yazmaya başlamadan önce LaTeX yazılımını (<strong>LaTeX dağıtımı</strong>/distribution denir) indirip bilgisayarınıza kurmanız gerekir, baştan söyleyeyim büyükce bir dosyadır. Birçok ücretsiz LaTeX dağıtımı mevcuttur, <a class="outref" target="_blank" href="https://miktex.org/"><strong>MiKTeX</strong></a> (Windows), <a class="outref" target="_blank" href="https://www.tug.org/texlive/"><strong>TeX Live</strong></a> (aracı program, genel) ve <a class="outref" target="_blank" href="https://tug.org/mactex/"><strong>MacTeX</strong></a> (Mac) en yaygın olanlarıdır. İşletim sisteminize göre bunlardan birini bilgisayarınıza kurmanız gerekmektedir, bazı dağıtımlar içinde kaynak kodları yazarken kullanabileceğiniz birer metin editörü de içerir. Örneğin MiKTeX dağıtımı <strong>TeXworks</strong>, MacTeX dağıtımı ise <strong>TeXShop</strong> adında bütünleşik metin editörlerini içermektedir; fakat LaTeX için kullanışlı olan başka editörler de mevcuttur. Kendinize uygun güzel bir editör seçmenizi tavsiye ederim, ben <a class="outref" target="_blank" href="http://texstudio.sourceforge.net/"><strong>TeXstudio</strong></a> kullanıyorum, seçim yaparken <a class="outref" target="_blank" href="https://en.wikipedia.org/wiki/Comparison_of_TeX_editors">şu sayfadan</a> faydalanabilirsiniz. Önermesem de LaTeX için bazı <a class="outref" target="_blank" href="https://en.wikipedia.org/wiki/WYSIWYM">WYSIWYM</a> (what you see is what you mean) türü editörler de vardır (Ör: <a class="outref" target="_blank" href="https://www.mackichan.com/index.html">Scientific Workplace</a>), bu derste bu tür yazılımları tartışmayacağız.</p>
+
+<p>Bir sonraki derse geçmeden önce size uygun LaTeX dağıtımını ve seçtiğiniz metin editörünü bilgisayarınıza kurun, sonraki derste bunlara ihtiyacımız olacak.</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">LaTeX'e Giriş</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../2-latex-belgesinin-yapisi/index.html">2. LaTeX Belgesinin Yapısı</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/latexe-giris/1-giris/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:41:18 GMT -->
+</html>

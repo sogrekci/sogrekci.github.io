@@ -1,0 +1,278 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/38-denge-durumu-cozumu/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 3.8. Denge Durumu Çözümü
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>3.8. Denge Durumu Çözümü</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-09">
+          9 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste zamandan bağımsız <a class="eqref" href="../37-zamandan-bagimsiz-problemler/index.html#bvp3-heat-1">(3.7.1)</a>-<a class="eqref" href="../37-zamandan-bagimsiz-problemler/index.html#bvp3-mod-3">(3.7.4)</a> probleminin denge durumu çözümünü araştıracağız. Ayrıca bazı örnekler vereceğiz.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/denge-durumu-sicakligi/index.html">denge durumu sıcaklığı</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/zamandan-bagimsiz-problem/index.html">zamandan bağımsız problem</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Uygulamalarda geçici çözümün kısa bir süre sonra ihmal edilebilir olması beklenir, dolayısıyla birçok durumda çözümün önemli kısmı denge durumu çözümüdür ve bu çözüm aşağıda gösterilecek olduğu gibi kolaylıkla bulunur.
+</p>
+
+<p>
+Aradığımız fonksiyon <a class="eqref" href="../37-zamandan-bagimsiz-problemler/index.html#bvp3-heat-1">(3.7.1)</a>-<a class="eqref" href="../37-zamandan-bagimsiz-problemler/index.html#bvp3-mod-3">(3.7.4)</a> probleminin zamandan bağımsız bir çözümüdür, yani
+<span id="bvp3-mod2-1">\begin{eqnarray}
+	&& 0=(\kappa U')'+q\label{bvp3-mod2-1}\tag{3.8.1}\\
+	&& a_1U(0)-b_1U'(0)=c_1\label{bvp3-mod2-2}\tag{3.8.2}\\
+	&& a_2U(a)-b_2U'(a)=c_2\label{bvp3-mod2-3}\tag{3.8.3}
+\end{eqnarray}</span>
+probleminin bir çözümü olan $U$ fonksiyonunu arıyoruz.
+</p>
+
+<p>
+Eğer $a_1+a_2>0$ ise genellikle \eqref{bvp3-mod2-1} eşitliği iki defa integrallenerek ve diğer koşullar uygulanarak çözüm kolayca elde edilir. Fakat $a_1=a_2=0$ özel durumuna ayrıca değinmemiz gerekiyor, bu durumda önceki bölümde belirttiğimiz üçüncü hipotez gereği $c_1=c_2=0$ ve $q\equiv0$ olmalıdır. Buradan da \eqref{bvp3-mod2-1} eşitliği gereği $\kappa U'$ ifadesinin sabit olduğu elde edilir ve \eqref{bvp3-mod2-2} veya \eqref{bvp3-mod2-3} eşitliği kullanılırsa bu sabitin de sıfır olduğu görülür. Diğer yandan $\kappa>0$ olduğundan $U'$ ifadesi sabit olamlıdır, fakat bu sabit değeri  \eqref{bvp3-mod2-2} ve  \eqref{bvp3-mod2-3} eşitliklerini kullanarak tespit edemeyiz. Yine de bu sabiti şöyle bulabiliriz, eğer denge durumu sıcaklığı $t\rightarrow\infty$ için ısıyı gösteren $u(x,t)$ fonksiyonuna yakınsayacaksa ve <a class="eqref" href="../37-zamandan-bagimsiz-problemler/index.html#bvp3-eq-1">(3.7.5)</a> eşitliğine göre (bu durumda eşitliğin sağ tarafı sıfır olur) çubuktaki toplam ısı sabit kalacaksa bu sabit başlangıçtaki orijinal değeri olmalıdır. Yani $$\int_{0}^{a}cU=\int_{0}^{a}cf$$ olmalıdır, $U$ sabit olduğundan $$U\equiv\frac{\int_0^acf}{\int_0^ac}$$ olarak bulunur. Dikkat edilirse eğer $c$ de sabit ise $$U\equiv\frac{1}{a}\int_0^af$$ olur, yani başlangıç sıcaklığının ortalama değeri.
+</p>
+
+<p>
+<div class="envex" id="ex-3.3"><h6 class="thenv">Örnek 3.8.1</h6>Aşağıdaki problemin denge durumu çözümünü bulalım. $$\begin{array}{ll}
+u_{t}=u_{xx}+\sin x ,& \quad0\lt x\lt \pi\text{ ve }t>0\text{ için}\\
+u(0,t)=1, & \quad t\geq0\text{ için}\\
+u_x(\pi,t)=2, & \quad t\geq0\text{ için}  \\
+u(x,0)=1+\sin2x, & \quad0\leq x\leq \pi \text{ için}
+\end{array}$$ Bu durumda \eqref{bvp3-mod2-1}-\eqref{bvp3-mod2-3} eşitlikleri $$\begin{array}{l}
+0=U''+\sin x\\
+U(0)=1\\
+U'(\pi)=2
+\end{array}$$ halini alır ve buradaki ilk eşitlikten iki defa integrasyonla, $A,B$ keyfi sabitler olmak üzere $$U'(x)=\cos x+A\quad\text{ve}\quad U(x)=\sin x+Ax+B$$ elde edilir. Sınır koşulları kullanılırsa $A=3$ ve $B=1$ olduğu görülür ve böylece denge durumu çözümü $$U(x)=\sin x+3x+1$$ olarak elde edilmiş olur.
+</div>
+</p>
+
+<p>
+Bu bölümde incelediğimiz türden bir sınır değer probleminin genel durumunu veren bir formül geliştirilebilir ve böyle formüller çözümlerin kararlılığını gösterirken kullanışlı olabilir. Aşağıda böyle bir formülü vereceğiz, ispatını yapmayacağız.
+</p>
+
+<p>
+Eğer $$Q(x):=\int_{0}^{x}q,\qquad K(x):=\int_{0}^{a}\frac{1}{\kappa},\qquad \Delta:=\left[a_1\kappa(0)K(a)+b_1\right]a_2\kappa(a)+a_1b_2\kappa(0),$$ $$B:=\frac{1}{\Delta}\left[b_1c_2\kappa(a)+b_2c_1\kappa(0)+b_1b_2Q(a)+a_2c_1\kappa(0)\kappa(a)K(a)+a_2b_1\kappa(a)\int_{0}^{a}\frac{Q}{\kappa}\right]$$ ve $$A:=\frac{\kappa(0)}{\Delta}\left[\kappa(a)\left(a_1c_2-a_2c_1+a_1a_2\int_0^a\frac{Q}{\kappa}\right)+a_1b_2Q(a) \right]$$ olarak tanımlanırsa <a class="eqref" href="../37-zamandan-bagimsiz-problemler/index.html#bvp3-heat-1">(3.7.1)</a>-<a class="eqref" href="../37-zamandan-bagimsiz-problemler/index.html#bvp3-mod-3">(3.7.4)</a> sınır değer probleminin denge durumu çözümü $$U(x)=-\int_{0}^{x}\frac{Q}{\kappa}\;+\;AK(x)\;+\;B\;\geq \; 0$$ ile verilir.
+</p>
+
+<p>
+<div class="envex" id="ex-3.4"><h6 class="thenv">Örnek 3.8.2</h6>$x=0$ ve $x=9$ noktaları arasına yerleştirilmiş ince bir çubuğun iletkenliği $\kappa(x):=1+x$ ve iç ısı üretim oranı da $q(x):=2(1+x)$ olarak veriliyor. Çubuğun sol uç noktası ortamdan izole edilmiş ve sağ uç noktası $300^\circ K$ sabit sıcaklıktadır. Denge durumda çubuktaki ısı dağılımını bulalım. Bu durumda elimizdeki sınır değer problemi $$\begin{array}{ll}
+cu_{t}=\left[(1+x)u_x\right]_x+2(1+x) ,& \qquad0\lt x\lt 9\text{ ve }t>0\text{ için}\\
+u_x(0,t)=0, & \qquad t\geq0\text{ için}\\
+u(9,t)=300, & \qquad t\geq0\text{ için}  \\
+u(x,0)=f(x), & \qquad0\leq x\leq 9 \text{ için}
+\end{array}$$ biçimindedir, denge durumu çözümü için $c$ ve $f$ fonksiyonlarını bilmeye ihtiyacımız olmadığını hatırlayın. Bu durumda $a=9$, $a_1=c_1=b_2=0$, $b_1=a_2=1$ ve $c_2=300$'dür. Ayrıca $$Q(x)=2\int_{0}^{x}(1+s)ds=2x+x^2,$$ $$K(x)=\int_{0}^{x}\frac{1}{1+s}ds=\ln (1+x)$$ ve $$\int_0^x\frac{Q}{\kappa}=\int_{0}^{x}\frac{2s+s^2}{1+s}ds=\frac{x^2}{2}+x-\ln(1+x)$$ olur. Bu durumda $A=0$ ve $$B=\frac{b_1c_2\kappa(9)+a_2b_1\kappa(9)\int_0^9\frac{Q}{\kappa}}{b_1a_2\kappa(9)}=\frac{c_2+a_2\int_0^9\frac{Q}{\kappa}}{a_2}=\frac{699}{2}-\ln 10$$ olarak bulunur. Böylece denge durumu çözümü $$U(x)=\ln\frac{1+x}{10}+\frac{699-x^2}{2}-x$$ olarak elde edilmiş olur.
+</div>
+</p>
+
+<p>
+<div class="envex" id="ex-3.5"><h6 class="thenv">Örnek 3.8.3</h6>$x=0$ ve $x=10$ noktaları arasına yerleştirilmiş ince bir çubuğun iletkenliği $\kappa(x):=e^{-x}$ ile verilsin ve cubukta ısı üretimi olmasın. Ayrıca uç noktalarında ortam sıcaklığı olan $320^\circ K$ ile çubuğun sıcaklığını farkıyla eşit hızda konveksiyon olsun. Bu durumda çubuğun denge durumundaki sıcaklık dağılımını bulalım. Elimizdeki sınır değer problemi $$\begin{array}{ll}
+cu_{t}=(e^{-x}u_x)_x ,& \qquad0\lt x\lt 10\text{ ve }t>0\text{ için}\\
+u(0,t)-u_x(0,t)=320, & \qquad t\geq0\text{ için}\\
+u(10,t)+u_x(10,t)=320, & \qquad t\geq0\text{ için}  \\
+u(x,0)=f(x), & \qquad0\leq x\leq 10 \text{ için}
+\end{array}$$ biçimindedir. Dikkat edilirse $a_1c_2=a_2c_1$ olduğundan $Q\equiv0$, dolayısıyla $A=0$ ve $U\equiv B$ olduğu görülür. Denge durumu çözümünün sabit olduğunu gördükten sonra bu sabiti formül kullanmadan sınır koşulları yardımıyla da belirleyebiliriz. Eğer $U$ sabit ise $U'=0$ olmalıdır, bunu sol uç noktasındaki sınır koşulunda kullanırsak $U(x)=U(0)=320$ olduğunu görürüz.
+</p>
+
+<p>
+Dikkat ediniz, eğer uç noktalardaki konnveksiyon orantı sabitleri $1$ yerine $b_1$ ve $b_2$ sabitleri olsaydı da aynı sabit $U(x)$ çözümü elde edilirdi. Denge durumu çözümünün sabit olmaması için ya çubuk içinde ısı üretimi olması gerekir, yada uç nokta sıcaklıklarının farklı olması gerekir.
+</p>
+</div>
+
+<p>
+<div class="envex" id="ex-3.6"><h6 class="thenv">Örnek 3.8.4</h6>Bir önceki örnekte verilen çubuğun sağ uç noktasındaki sıcaklığın $300^\circ K$ olarak değiştirildiğini düşünelim. Bu durumda $Q\equiv0$ olduğundan $U(x)=AK(x)+B$ biçimindedir. Ayrıca ilgili formüller kullanılarak $K(x)=e^x-1$ ve $\Delta=2$ olduğu, bunlardan da $A=-10e^{-10}$ ve $B=320-10e^{-10}$ elde edilebilir. Böylece bulunanlar yerine yazılırsa denge durumu çözümü $$U(x)=320-10e^{x-10}$$ olarak bulunmuş olur.
+</div>
+</p>
+
+<p>
+Bu bölümdeki araştırmalarımzda $\kappa$ fonksiyonunu sürekli türevlere sahip kabul ettik, fakat bazı fiziksel uygulamalarda bu koşul sağlanmayabilir. Örneğin uç uca eklenmiş farklı materyallerden oluşan bir çubukta bu fonksiyon parçalı sürekli olacaktır. Modelimizde parçalı sürekli bir iletkenlik fonksiyonu bulunuyorsa bunun yerine sürekli bir yaklaşımını alabiliriz, bu ikisi sadece süreksizlik noktasının keyfi küçüklükte bir komşuluğu hariç birbirine çok benzerdir ve denge durumu çözümüne iyi bir yaklaşım sunabilir.
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../37-zamandan-bagimsiz-problemler/index.html">3.7. Zamandan Bağımsız Problemler</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Fourier Analizi</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../39-gecici-cozum/index.html">3.9. Geçici Çözüm</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/38-denge-durumu-cozumu/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:35 GMT -->
+</html>

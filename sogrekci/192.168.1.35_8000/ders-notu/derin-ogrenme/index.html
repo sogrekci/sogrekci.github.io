@@ -1,0 +1,484 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/derin-ogrenme/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:33:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - Derin Öğrenme
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../static/site/prism.css">
+    <script src="../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<div class="container px-5 my-5 pb-5 shadow bg-light rounded-lg">
+
+  <div class="row pt-4">
+    <div class="col text-center">
+      <h1 style="font-family: 'Rajdhani', sans-serif;">Derin Öğrenme</h1>
+    </div>
+  </div>
+ 
+  
+  <div class="row text-justify mb-5">
+    <p><p><p><br><strong>Yapay zeka</strong>, <strong>makine öğrenmesi</strong>, <strong>sinir ağları</strong>, <strong>derin öğrenme</strong> gibi terimler bilgisayarların açıkça programlanmadıkları görevleri yerine getirebilecek şekilde çalışabilmeleri durumunu ima ediyor. Bu konularla ilgili daha önce hiç bir teknik yazı okumadıysanız bu ders notları size hitap edecektir, çok az teknik detayla ve minimum Python bilgisi ile dilim döndüğü kadar konuyu anlatmaya çalışacağım.<br></p></p>
+
+<p><p><br>Öncelikle bu terimleri sınıflandırmalıyız, yapay zeka ve makine öğrenmesi terimleri oldukça genel terimlerdir. Bunların ortak yöntemleri olduğu gibi birbiri ile kesişmeyen ayrı uygulamaları ve yöntemleri de vardır; tam olarak bu terimlerin hiyerarşisi konusunda ortak bir fikir de yoktur. Ama <strong>derin öğrenme</strong> denilen şey makine öğrenmesi yöntemlerinden birisi; sinir ağları (neural networks) denilen başka bir yöntemin ardışık olarak uygulanması olarak açıklanabilir ve bu yöntem günümüzde en modern ve etkili yöntem olarak kabul ediliyor.<br></p></p>
+
+<p><p><br>Peki makine nasıl öğrenir? Bu aslında <strong>öğrenmeyi</strong> nasıl tanımladığınıza bağlı. Esasında makine öğrenmez (çünkü o bir makinedir), sadece çok hızlı bir şekilde deneme yanılma yapar. Ona çok sayıda soru ve bunların cevaplarını verirseniz, makine bunlar arasında rastgele bir eşleşme kurar ve bu eşleşmenin gerçek cevaplarla ne kadar örtüştüğünü test eder. Bu işlemi defalarca tekrarlar ve her seferinde eşleşmenin hatasını ölçüp eşleşmeyi daha doğru olacak şekilde bir miktar düzeltir. Böylece makine bir şablona sahip olur ve makineye benzer bir soru (daha önce hiç görmediği bir soru) sorduğunuzda ürettiği eşleşmeye göre bir cevap verir. Sonuç olarak makine bir soruya nasıl cevap vereceği konusunda açık olarak programlanmamıştır fakat benzer soru ve cevapları inceleyerek bir tahmin üretebilir duruma gelmiştir. <strong>Makine öğrenmesi</strong> denilen olay kabaca budur, burada eşleşmeyi düzeltme aşaması makinenin <strong>öğrenme</strong> aşaması olarak adlandırılır. Bu sürecin her bir aşaması için farklı yöntemler vardır, ele alınan probleme en uygun yöntemi seçerek çalışırız.<br></p></p>
+
+<p><p><br>Bu derslerde size bu aşamaları nasıl kodlayabileceğinizi çok kaba bir şekilde açıklayacağım. Makine öğrenmesi çalışmalarında bu amaca yönelik özel modüller (tensorflow, pytorch, keras gibi) kullanılır ama biz bu derslerde çok temel Python elemanlarını kullanarak el yordamıyla çok basit programlar yazacağız, amacım size süreci açıklamak.<br></p></p></p>
+  </div>
+  
+ 
+ 
+  
+  
+  <div class="row mt-3">
+    <h3 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="1-tahmin-etme-forward-propagation/index.html">1. Tahmin Etme, Forward Propagation</a>
+      <a data-toggle="collapse" href="#ozet-1-tahmin-etme-forward-propagation" role="button" aria-expanded="false" aria-controls="ozet-1-tahmin-etme-forward-propagation">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h3>
+  </div>
+
+  <div class="row">
+    <div class="collapse" id="ozet-1-tahmin-etme-forward-propagation">
+      <div class="col p-1 mb-3 font-italic bg-light" style="line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste bir program ile bir sorunun cevabının nasıl tahmin edildiği açıklanıyor. Bu işlem son derece basit aslında; tahmin işlemi dediğimiz işlem sadece girişi verisini belirli bir sayı ile çarpmaktan ibaret.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/forward-propagation/index.html">Forward Propagation</a> &middot; 
+        
+        <a href="../../dizin/input/index.html">Input</a> &middot; 
+        
+        <a href="../../dizin/output/index.html">Output</a> &middot; 
+        
+        <a href="../../dizin/prediction/index.html">Prediction</a> &middot; 
+        
+        <a href="../../dizin/tahmin/index.html">Tahmin</a> &middot; 
+        
+        <a href="../../dizin/weight/index.html">Weight</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row mt-3">
+    <h3 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="2-ogrenme-gradient-descent/index.html">2. Öğrenme, Gradient Descent</a>
+      <a data-toggle="collapse" href="#ozet-2-ogrenme-gradient-descent" role="button" aria-expanded="false" aria-controls="ozet-2-ogrenme-gradient-descent">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h3>
+  </div>
+
+  <div class="row">
+    <div class="collapse" id="ozet-2-ogrenme-gradient-descent">
+      <div class="col p-1 mb-3 font-italic bg-light" style="line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Hazır parametreler verildiğinde nasıl tahmin üretildiğini bir önceki derste gördük, bu olay öğrenilmiş olan parametrelerin uygulanmasıdır. Bu derste bu parametrelerin nasıl öğrenildiğine bakacağız, deneme yanılma tekniğini biraz değiştirerek akıllıca bir strateji geliştireceğiz.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/alpha/index.html">Alpha</a> &middot; 
+        
+        <a href="../../dizin/delta/index.html">Delta</a> &middot; 
+        
+        <a href="../../dizin/error/index.html">Error</a> &middot; 
+        
+        <a href="../../dizin/gradient-descent/index.html">Gradient Descent</a> &middot; 
+        
+        <a href="../../dizin/hata-olcumu/index.html">Hata Ölçümü</a> &middot; 
+        
+        <a href="../../dizin/ogrenme/index.html">Öğrenme</a> &middot; 
+        
+        <a href="../../dizin/prediction/index.html">Prediction</a> &middot; 
+        
+        <a href="../../dizin/training/index.html">Training</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row mt-3">
+    <h3 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="3-derin-sinir-aglari-back-propagation/index.html">3. Derin Sinir Ağları, Back Propagation</a>
+      <a data-toggle="collapse" href="#ozet-3-derin-sinir-aglari-back-propagation" role="button" aria-expanded="false" aria-controls="ozet-3-derin-sinir-aglari-back-propagation">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h3>
+  </div>
+
+  <div class="row">
+    <div class="collapse" id="ozet-3-derin-sinir-aglari-back-propagation">
+      <div class="col p-1 mb-3 font-italic bg-light" style="line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste <strong>derin</strong> öğrenme konusuna giriyoruz, önceki derste gördüğümüz öğrenme adımını geliştirerek bir derin sinir ağı tasarlayacağız. Bu sinir ağının öğrenmesine de derin öğrenme diyeceğiz.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/activation/index.html">Activation</a> &middot; 
+        
+        <a href="../../dizin/back-propagation/index.html">Back Propagation</a> &middot; 
+        
+        <a href="../../dizin/batch-size/index.html">Batch Size</a> &middot; 
+        
+        <a href="../../dizin/derin-ogrenme/index.html">Derin Öğrenme</a> &middot; 
+        
+        <a href="../../dizin/derin-sinir-agi/index.html">Derin Sinir Ağı</a> &middot; 
+        
+        <a href="../../dizin/generalization/index.html">Generalization</a> &middot; 
+        
+        <a href="../../dizin/gizli-katman/index.html">Gizli Katman</a> &middot; 
+        
+        <a href="../../dizin/gradient-descent/index.html">Gradient Descent</a> &middot; 
+        
+        <a href="../../dizin/hidden-layer/index.html">Hidden Layer</a> &middot; 
+        
+        <a href="../../dizin/katman/index.html">Katman</a> &middot; 
+        
+        <a href="../../dizin/layer/index.html">Layer</a> &middot; 
+        
+        <a href="../../dizin/memorization/index.html">Memorization</a> &middot; 
+        
+        <a href="../../dizin/mini-batch-gradient-descent/index.html">Mini Batch Gradient Descent</a> &middot; 
+        
+        <a href="../../dizin/nonlinearity/index.html">Nonlinearity</a> &middot; 
+        
+        <a href="../../dizin/overfitting/index.html">Overfitting</a> &middot; 
+        
+        <a href="../../dizin/regularization/index.html">Regularization</a> &middot; 
+        
+        <a href="../../dizin/relu/index.html">Relu</a> &middot; 
+        
+        <a href="../../dizin/stochastic-gradient-descent/index.html">Stochastic Gradient Descent</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row mt-3">
+    <h3 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="4-mnist-veri-seti/index.html">4. MNIST Veri Seti</a>
+      <a data-toggle="collapse" href="#ozet-4-mnist-veri-seti" role="button" aria-expanded="false" aria-controls="ozet-4-mnist-veri-seti">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h3>
+  </div>
+
+  <div class="row">
+    <div class="collapse" id="ozet-4-mnist-veri-seti">
+      <div class="col p-1 mb-3 font-italic bg-light" style="line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Makine öğrenmesinin hello world uygulamaları MNIST veri seti ile yapılır. Bu veri setinde farklı insanlar tarafından el yazısı ile yazılmış rakamların resimleri yer alır, bir sonraki derste resimlere bakarak hangi rakama ait olduğunu tahmin eden bir sinir ağı tasarlayacağız. Bu derste bu veri setini tanıyacağız.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/flatten/index.html">Flatten</a> &middot; 
+        
+        <a href="../../dizin/keras/index.html">Keras</a> &middot; 
+        
+        <a href="../../dizin/label/index.html">Label</a> &middot; 
+        
+        <a href="../../dizin/mnist/index.html">Mnist</a> &middot; 
+        
+        <a href="../../dizin/tensorflow/index.html">Tensorflow</a> &middot; 
+        
+        <a href="../../dizin/x_train/index.html">X_Train</a> &middot; 
+        
+        <a href="../../dizin/y_train/index.html">Y_Train</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row mt-3">
+    <h3 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="5-ezbere-kacma-overfitting/index.html">5. Ezbere Kaçma, Overfitting</a>
+      <a data-toggle="collapse" href="#ozet-5-ezbere-kacma-overfitting" role="button" aria-expanded="false" aria-controls="ozet-5-ezbere-kacma-overfitting">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h3>
+  </div>
+
+  <div class="row">
+    <div class="collapse" id="ozet-5-ezbere-kacma-overfitting">
+      <div class="col p-1 mb-3 font-italic bg-light" style="line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste MNIST veri seti üzerinde sinir ağının öğrenme aşamasını gerçekleştireceğiz, bunu daha önce daha basit veri setleri üzerinde yapmıştık. Fakat şimdi göreceğiz ki MNIST veri setinde training aşamasında kullanmadığımız ve sinir ağının hiç görmediği veriler üzerinde tahminlerimiz yeterince iyi olmayacak, bunun sebebi öğrenme aşamasının tarining verilerine göre gereğinden fazla spesifik olmasıdır. Sinir ağımız genel kurallar çıkarmak yerine fazla detaya odaklanmış ve ezbere kaçmıştır, bu olay <strong>overfitting</strong> olarak adlandırılır. Bu derste overfitting ile mücadele etmenin basit bir kaç yöntemini öğreneceğiz.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/dropout/index.html">Dropout</a> &middot; 
+        
+        <a href="../../dizin/mini-batch-gradient-descent/index.html">Mini Batch Gradient Descent</a> &middot; 
+        
+        <a href="../../dizin/mnist/index.html">Mnist</a> &middot; 
+        
+        <a href="../../dizin/normalizasyon/index.html">Normalizasyon</a> &middot; 
+        
+        <a href="../../dizin/one-hot-encoding/index.html">One-Hot Encoding</a> &middot; 
+        
+        <a href="../../dizin/overfitting/index.html">Overfitting</a> &middot; 
+        
+        <a href="../../dizin/regularization/index.html">Regularization</a> &middot; 
+        
+        <a href="../../dizin/test-accuracy/index.html">Test Accuracy</a> &middot; 
+        
+        <a href="../../dizin/training-accuracy/index.html">Training Accuracy</a> &middot; 
+        
+        <a href="../../dizin/validation-set/index.html">Validation Set</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row mt-3">
+    <h3 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="6-aktivasyon-fonksiyonlari/index.html">6. Aktivasyon Fonksiyonları</a>
+      <a data-toggle="collapse" href="#ozet-6-aktivasyon-fonksiyonlari" role="button" aria-expanded="false" aria-controls="ozet-6-aktivasyon-fonksiyonlari">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h3>
+  </div>
+
+  <div class="row">
+    <div class="collapse" id="ozet-6-aktivasyon-fonksiyonlari">
+      <div class="col p-1 mb-3 font-italic bg-light" style="line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Daha önce sinir ağlarımızda sadece <strong>relu</strong> aktivasyon fonksiyonunu kullandık fakat tek seçenek bu değildir. Farklı amaçlara göre uygun bir aktivasyon kullanabiliriz, bu derste bu konuya değineceğiz.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/aktivasyon-fonksiyonu/index.html">Aktivasyon Fonksiyonu</a> &middot; 
+        
+        <a href="../../dizin/cross-entropy/index.html">Cross Entropy</a> &middot; 
+        
+        <a href="../../dizin/regresyon/index.html">Regresyon</a> &middot; 
+        
+        <a href="../../dizin/relu/index.html">Relu</a> &middot; 
+        
+        <a href="../../dizin/sigmoid/index.html">Sigmoid</a> &middot; 
+        
+        <a href="../../dizin/softmax/index.html">Softmax</a> &middot; 
+        
+        <a href="../../dizin/tanh/index.html">Tanh</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row mt-3">
+    <h3 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="7-konvolusyonel-katmanlar-cnns/index.html">7. Konvolüsyonel Katmanlar, CNNs</a>
+      <a data-toggle="collapse" href="#ozet-7-konvolusyonel-katmanlar-cnns" role="button" aria-expanded="false" aria-controls="ozet-7-konvolusyonel-katmanlar-cnns">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h3>
+  </div>
+
+  <div class="row">
+    <div class="collapse" id="ozet-7-konvolusyonel-katmanlar-cnns">
+      <div class="col p-1 mb-3 font-italic bg-light" style="line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Overfitting ile mücadele etmenin temel yolu sinir ağının parametre sayısını (kapasitesi denir) azaltmaktır, bunun en mantıklı yollarından birisi benzer girdiler için aynı weight değerlerini tekrar kullanmaktır. Konvolüsyonel sinir ağlarının temel fikri budur, bu derste bu konuyu tartışacağız.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/cnn/index.html">Cnn</a> &middot; 
+        
+        <a href="../../dizin/convolutional-layer/index.html">Convolutional Layer</a> &middot; 
+        
+        <a href="../../dizin/convolutional-neural-network/index.html">Convolutional Neural Network</a> &middot; 
+        
+        <a href="../../dizin/convolution-kernel/index.html">Convolution Kernel</a> &middot; 
+        
+        <a href="../../dizin/konvolusyon/index.html">Konvolüsyon</a> &middot; 
+        
+        <a href="../../dizin/konvolusyonel-katman/index.html">Konvolüsyonel Katman</a> &middot; 
+        
+        <a href="../../dizin/max-pooling/index.html">Max Pooling</a> &middot; 
+        
+        <a href="../../dizin/mean-pooling/index.html">Mean Pooling</a> &middot; 
+        
+        <a href="../../dizin/sum-pooling/index.html">Sum Pooling</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  
+
+
+  
+
+
+  
+  <div class="row mt-5">
+    <h3 style="font-family: 'Rajdhani', sans-serif;">
+      KAYNAKÇA
+      <a data-toggle="collapse" href="#kaynakca-derin-ogrenme" role="button" aria-expanded="false" aria-controls="kaynakca-derin-ogrenme">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h3>
+  </div>
+
+  <div class="row">
+    <div class="collapse" id="kaynakca-derin-ogrenme">
+      <div class="col p-1 mb-3 bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <ol>
+<li><strong>A. W. Trask</strong>, <em>Grokking Deep Learning</em>, Manning Publications Co., New York, 2019.</li>
+</ol>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/derin-ogrenme/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:33:49 GMT -->
+</html>

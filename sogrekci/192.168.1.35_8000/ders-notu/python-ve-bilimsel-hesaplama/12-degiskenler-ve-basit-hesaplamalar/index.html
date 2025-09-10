@@ -1,0 +1,474 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/python-ve-bilimsel-hesaplama/12-degiskenler-ve-basit-hesaplamalar/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 1.2. Değişkenler ve Basit Hesaplamalar
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>1.2. Değişkenler ve Basit Hesaplamalar</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-21">
+          21 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste Python ile program yazarken değişkenleri kullanmaya başlıyoruz, bu sayede karmaşık hesaplamaları daha basit kod parçaları ile yapabiliriz.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/bicimleyiciler/index.html">biçimleyiciler</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/degiskenler/index.html">değişkenler</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/printf/index.html">printf</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/qnew/index.html">qnew</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/tam-sayi-bolmesi/index.html">tam sayı bölmesi</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <h3 class="mb-3">Basit Bir Hesaplama</h3>
+
+
+
+
+
+<p>
+Yerden $v_0$ ilk hızla havaya atılan bir topun bir $t$ anındaki düşey konumunu veren $y(t)$ fonksiyonu $$y(t)=v_0t-\frac{1}{2}gt^2$$ ile verilir ($g\approx 9.81\;\text{m/sn}^2$ yerçekimi sabiti). Şimdi Python programlama dili yardımı ile bilgisayarı bir hesap makinesi gibi kullanarak bu formülü $v_0$ ve $t$'nin farklı değerleri için hesaplatacağız. Örnek olarak $v_0=10 \text{ m/sn}^2$ ilk hızla fırlatılan nesnenin $t=0.3$ sn zamanındaki konumunu hesaplatıp ekrana yazdıran bir program yazalım, Bunu Python da tek satırlık bir kod ile aşağıdaki gibi yapabiliriz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+print 10*0.3 - 0.5*9.81*0.3**2
+</code></pre>
+
+<p>
+Gördüğünüz gibi yukarıdaki formülde $v_0$, $t$ ve $g$ değerlerine yerine yazdık ve <code class="language-python">print</code> ifadesiyle bunu ekrana yazdırdık. Python burada ekrana belirtilen işlemin sonucunu doğrudan yazdırır. Bu kodları <code class="language-python">hesap1.py</code> olarak kaydedip çalıştırırsak aşağıdaki çıktıyı alırız.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python hesap1.py
+2.55855
+</code></pre>
+
+<p>
+Aynı hesabı $v_0 = 2$ ve $t=0.1$ için yapalım, <code class="language-python">hesap2.py</code> olarak kaydedip çalıştıralım.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+print 2*0.1 - 0.5*9.81*0.1**2
+</code></pre>
+
+<p>
+Çıktısı aşağıdaki gibi olcaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python hesap2.py
+0.15095
+</code></pre>
+
+<p>
+Şimdi bu yazdığımız programı analiz edelim. Burada kullandığımız ilk ifade <code class="language-python">print</code>, bu ifade kendinden sonra gelen nesneyi ekrana yazdırmaya yarar. Daha sonra da ekrana yazdırılmasını istediğimiz ifadeyi Python dilinde yazdık. Cebirsel işlemler Python'da yazılırken günlük matematik yazımına benzer bir söz dizimi uygularız. Toplama, çıkarma, çarpma, bölme ve kuvvet alma işlemlerini sırasıyla <code class="language-python">+, -, *, /, **</code> sembolleriyle kodlarız. Burada $(1/2)\cdot9.81\cdot0.1^2$ sayısını kodlarken <code class="language-python">1/2</code> sayısını <code class="language-python">0.5</code> olarak yazmamızın özel bir sebebi var, az sonra değineceğiz. Python ile kodlama yaparken cebirsel işlem önceliği matematikte olduğu gibidir. Ayrıca bu temel işlemler dışında işlemler yapmamızı sağlayan farklı cebirsel işlem operatörleri de vardır, zamanı geldikçe öğreneceğiz. Bu programda boşlukların kullanımına da değinelim, <code class="language-python">-</code> işaretinin boşluklarla ayrıldığı dikkatinizi çekmiş olabilir. Aynı satırda olduktan sonra boşlukların sayısı Python için fark oluşturmaz, <code class="language-python">print 2*0.1-0.5*9.81*0.1**2</code> komutu da aynı sonucu verir. Fakat okunaklı olması açısından programımıza gerekli yerlerde boşluklar bırakabiliriz, matematiksel işlemlerde <code class="language-python">+</code> ve <code class="language-python">-</code> işaretlerini boşluklarla ayırmak, diğer işlemlerde boşluk kullanmamak işlemi daha kolay okunur yapacaktır.
+</p>
+
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Python Değişkenleri</h3>
+
+
+
+
+
+
+<p>
+Bir program yazarken genelde tüm sayıları yukarıda yaptığımız gibi işleme sokarak sonuca gitmeyiz, bunlara birer isim verip birer <strong>değişken</strong> haline getirip formülde isimleriyle kullanırız.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+v0 = 2
+g = 9.81
+t = 0.1
+y = v0*t - 0.5*g*t**2
+print y
+</code></pre>
+
+<p>
+Yukarıdaki programda <code class="language-python">v0</code>, <code class="language-python">g</code>, <code class="language-python">t</code> ve <code class="language-python">y</code> isimli dört tane yeni değişken tanımladık. Bunlardan ilk üçüne birer değer atadık, dördüncüsünün de değerini Python'a nasıl hesaplayacağını tarif ettik. Daha sonra bu son değişkenin değerini ekrana yazdırdık. Python'da yeni bir değişken tanımlama işlemi <code class="language-python">degisken_ismi = deger</code> komutuyla yapılır. Bu programı kaydedip çalıştırırsak öncekiyle aynı çıktıyı alırız, bu program sadece daha okunaklı. Yazacağımız programların olabildiğince okunaklı olmasını sağlamalıyız, bu sayede daha sonra mevcut hataları düzeltmek veya programı geliştirmek için yapacağımız güncellemeler yapmak daha kolay olacaktır. Değişkenleri isimlendirirken olabildiğince kısa ve amacına uygun isimler seçmeliyiz, bu da programın okunaklı olmasına katkıda bulunacaktır. Yukarıdaki programı şimdi de bir interaktif Python oturumunda çalıştıralım.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python
+Python 2.7.13 (default Apr 4 2017, 8:46:44)
+[GCC 4.2.1 Compatible Apple LLVM 8.0.0 (clang-800.0.42.1)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> v0 = 2
+>>> g = 9.81
+>>> t = 0.1
+>>> y = v0*t - 0.5*g*t**2
+>>> print y
+0.15095
+</code></pre>
+
+<p>
+Değişken tanımlarken dikkat etmemiz gereken önemli bir nokta var. Bazı kelimeler Python tarafından rezerve edilmiştir ve programlarımızda bu kelimeleri değişkenlere isim olarak atayamayız. Bu kelimeler <code class="language-python">and, as, assert, break, class, continue, def, del, elif, else, except, False, finally, for, from, global, if, import, in, is, lambda, None, nonlocal, not, or, pass, raise, return, True, try, with, while, yield</code> kelimeleridir. Bunların Python için özel anlamları vardır ve bu kelimeleri görünce Python bu anlamlarına göre hareket eder, bunların anlamlarını karşılaştıkça öğreneceğiz.
+</p>
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Yorumlar ve Metin Biçimleyiciler</h3>
+
+
+
+
+
+Şimdi yukarıdaki programı daha okunaklı yapmak için kodların içine bazı notlar ekleyelim.
+
+<pre class="my-4"><code class="language-python line-numbers">
+v0 = 2                 #baslangic hizi
+g = 9.81               #yercekimi ivmesi
+t = 0.1                #zaman degiskeni
+y = v0*t - 0.5*g*t**2  #konum hesaplamasi
+print y
+</code></pre>
+
+<p>
+Python <code class="language-python">#</code> karakteri ile karşılaştığında o satırın geri kalanını değerlendirmeden bir alt satıra atlar. Bu sayede programımıza bazı <strong>yorumlar</strong> ekleyebiliriz. Bu notlar program çıktısına etki etmez, sadece kodları daha okunaklı yapar. Burada yorumları yazarken Türkçe karakterler kullanmadığımız dikkatinizi çekmiştir, Python varsayılan olarak ASCII karakterlerle çalışır, eğer farklı bir karakter seti kullanmak istiyorsak bunu belirtmeliyiz. Örneğin Türkçe karakterler için UTF-8 karakterlere ihtiyacımız var bunun için programın ilk satırına <code class="language-python"># -*- coding: utf-8 -*-</code> yazmalıyız. Bu satır <code class="language-python">#</code> karakteriyle başlasa da Python tarafından yorum olarak kabul edilmez ve değerlendirilir. Ayrıca bu satırın programımızın ilk satırı olması zorunludur. Bu şekilde Türkçe karakterler sorunsuz bir şekilde kullanılabilir olsa da yukarıdaki örnekte yaptığımız gibi programımızı tamamen ASCII karakterlerle yazmanız önerilir. Bu metinde bundan sonra türkçe kelimeler sadece ASCII karakterler kullanılarak yazılacaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+# -*- coding: utf-8 -*-
+v0 = 2                 #baslangıç hızı
+g = 9.81               #yerçekimi ivmesi
+t = 0.1                #zaman değişkeni
+y = v0*t - 0.5*g*t**2  #konum hesaplaması
+print y
+</code></pre>
+
+<p>
+Programımızın kodlarını yeterince okunaklı yapmak sadece programcının yararınadır, kullanıcı için de programın çıktısını daha anlaşılır yapmalıyız. Şu anda programımız sadece ekrana bir sayı yazdırıyor, bu sayının anlamlı bir cümle içinde yazılması daha uygun olacaktır. Bunun için en sık kullanılan yöntem <strong>printf</strong> yöntemi olarak adlandırılır ve aşağıdaki gibi kullanılır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+v0 = 2
+g = 9.81
+t = 0.1
+y = v0*t - 0.5*g*t**2
+print "t=%g sn zamaninda topun yuksekligi %5.2f metredir." % (t, y)
+</code></pre>
+
+<p>
+Bu programı çalıştırırsanız çıktısı aşağıdaki gibi olacaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python hesap6.py
+t=0.1 sn zamaninda topun yerden yuksekligi 0.15 metredir.
+</code></pre>
+
+<p>
+Bu çıktı kullanıcı açısından yeteri kadar açıktır. Şimdi bu programda <code class="language-python">print</code> ifadesinde metni nasıl biçimlendirdiğimizi açıklayalım. Bu yöntemde önce ekrana yazdıracağımız metni hazırlarız ve değişkenlerin yerleşeceği bölümleri belirleriz. Bu örnekte ekrana yazdırmak istediğimiz metin <code class="language-python">"t=X sn zamaninda topun yerden yuksekligi Y metredir."</code> biçimindedir ve <code class="language-python">X</code> ile <code class="language-python">Y</code> kısımlarına bazı değişkenlerin değerlerinin yazılmasını istiyoruz. Python'da bu şekilde çift tırnak işareti içinde yazılan her şey bir saf metin olarak algılanır, bu tür nesnelere <strong>string</strong> nesneleri denir. Nesne konusunu daha sonra detaylı olarak ele alacağız ama birkaç söz söyleyelim şimdi. Python'da herşey bir nesnedir, metinler, sayılar, formüller, fonksiyonlar, vb.. Bu bölümde metinlerin dışında sıklıkla kullandığımız tamsayılar <strong>int</strong> nesneleridir (integer), ondalıklı sayılar ise <strong>float</strong> nesneleridir. String nesneleri tek tırnak içinde de yazılabilir, <code class="language-python">`t=X sn zamaninda topun yerden yuksekligi Y metredir.'</code> ifadesi de aynı anlamdadır. Şimdi bu string nesnesini biçimlendireceğiz, yani <code class="language-python">X</code> ve <code class="language-python">Y</code> yazan yerlere sırasıyla programımızda tanımladığımız <code class="language-python">t</code> ve <code class="language-python">y</code> değişkenlerinin değerlerini yazdıracağız. Bunun için bu karakterlerin olduğu yere <code class="language-python">%</code> sembolüyle başlayan bir <strong>biçimleyici</strong> yerleştiririz. <code class="language-python">%</code> karakterinden sonra buraya yerleştirilecek verinin formatını belirten kısaltmalar kullanırız. <code class="language-python">%s</code> ile buraya bir string formatında, <code class="language-python">%d</code> ile tamsayı formatında ve <code class="language-python">%f</code> ile de 6 ondalık basmaklı olmak üzere bir float veri yazılacağı belirtilir. Eğer <code class="language-python">%.2f</code> biçiminde girersek virgülden sonra iki ondalık basamaklı biçimlendirmesini istemiş oluruz, benzer şekilde <code class="language-python">%5.2f</code> yazarsak virgülden sonra iki basamak olmak üzere toplam beş karakterlik bir biçimlendirme yaptırırız. Bilimsel formatta biçimlendirme çeşitleri de <code class="language-python">%e</code> ve <code class="language-python">%E</code> biçimindedir. <code class="language-python">%g</code> veya <code class="language-python">%G</code> ile mümkün olan en kompakt biçimde sayıları biçimlendiririz. Biçimleyicileri yerleştirdikten sonra metnin sonuna tekrar <code class="language-python">%</code> işareti koyup bu biçimleyicilerin alacakları değişkenleri <strong>sırasıyla</strong> belirtiriz, tek bir değişken kullandıysak parantez kullanmadan da yazabiliriz. Eğer birden fazla satır kaplayan bir metin yazdırmak istersek bunu üç tane tırnak işareti arasında yazarız.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+v0 = 2
+g = 9.81
+t = 0.1
+y = v0*t - 0.5*g*t**2
+print """
+v0=%f m/sn ilk hizla firlatilan bir topun
+t=%g sn zamaninda yerden yuksekligi %.2e metredir.
+g=%3.2f m/sn^2 alinmistir.
+""" % (v0, t, y, g)
+</code></pre>
+
+<p>
+Bu programın çıktısı aşağıdaki gibi olacaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python hesap7.py
+
+v0=2.000000 m/sn ilk hizla firlatilan bir topun
+t=0.1 sn zamaninda yerden yuksekligi 1.51e-1 metredir.
+g=9.81 m/sn^2 alinmistir.
+</code></pre>
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Tam Sayı Bölmesi</h3>
+
+
+
+
+
+
+<p>
+Şimdi bu programda kullandığımız fomülü yeniden ele alalım. Bu formülü <code class="language-python">y = v0*t - 0.5*g*t**2</code> yerine <code class="language-python">y = v0*t - (1/2)*g*t**2</code> biçiminde değiştirelim.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+v0 = 2
+g = 9.81
+t = 0.1
+y = v0*t - (1/2)*g*t**2
+print y
+</code></pre>
+
+<p>
+Programı çalıştırırsak beklemediğimiz bir çıktı alırız.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python hesap8.py
+0.2
+</code></pre>
+
+<p>
+Gördüğünüz gibi yanlış hesaplama yapıldı. Bunun sebebi şudur, Python 2'de tamsayı nesneleri bölme işlemine alınınca sonuç yine bir tamsayı olarak döndürülür. Dolayısıyla bölme işlemi sonucu ondalıklı oluyorsa virgülden sonraki kısmı silinerek bu sayı bir integer nesnesine döndürülür. Bu örnekte parantez içinde bulunan <code class="language-python">1/2</code> işlemi <code class="language-python">0.5</code> değerine eşit olduğu için virgülden sonra gelen kısım silinince <code class="language-python">0</code> tam sayısı elde edilir, hatanın kaynağı budur. Bu hatanın önüne geçmenin birkaç yolu vardır. İlk yöntem programımızın ilk satırına <code class="language-python">from __future__ import division</code> satırını eklemektir. Bundan sonra programdaki tüm bölmeler tamsayı bölmesi yerine ondalıklı bölme işlemi olacaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+from __future__ import division
+v0 = 2
+g = 9.81
+t = 0.1
+y = v0*t - (1/2)*g*t**2
+print y
+</code></pre>
+
+<p>
+Şimdi tekrar kontrol edersek işlemin hatasız yapıldığını görürüz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python hesap9.py
+0.15095
+</code></pre>
+
+<p>
+Tam sayı bölmesini engellemenin bir diğer yolu da programı çalıştırırken komut istemcisinde <code class="language-python">-Qnew</code> parametresini girmektir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python -Qnew hesap8.py
+0.15095
+</code></pre>
+
+<p>
+Tam sayı bölmesini engellemenin önerilen yöntemi ise şudur, programımızda float bölmesi yapacaksak kullanacağımız sayıları birer float nesnesine çevirmeliyiz. Python'da bir float ve bir int nesnesinin toplamı, farkı, çarpımı ve bölümü her zaman bir float sonuç üretir, dolayısıyla böleceğimiz sayılardan sadece bir tanesini float yaparsak sorunu çözeriz. Bir int nesnesini float nesnesine çevirmenin en basit yolu sayıyı virgülden sonraki kısmı 0 olacak şekilde ondalıklı yazmaktır. Yani programımızda <code class="language-python">1</code> yerine <code class="language-python">1.0</code> yazarsak problem çözülür.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+v0 = 2
+g = 9.81
+t = 0.1
+y = v0*t - (1.0/2)*g*t**2
+print y
+</code></pre>
+
+<p>
+Bu programı çalıştırırsak yine doğru hesaplama yapıldığını görürüz. Float dönüşümünün bir diğer yolu da <code class="language-python">float()</code> fonksiyonunu kullanmaktır, bu fonksiyon aldığı argümanı mümkünse bir float nesnesine çevirir. Dolayısıyla aşağıdaki program da hatasız işlem yapacaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+v0 = 2
+g = 9.81
+t = 0.1
+y = v0*t - (1/float(2))*g*t**2
+print y
+</code></pre>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../11-baslarken/index.html">1.1. Başlarken</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Python ve Bilimsel Hesaplama</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../13-matematiksel-fonksiyonlar/index.html">1.3. Matematiksel Fonksiyonlar</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/python-ve-bilimsel-hesaplama/12-degiskenler-ve-basit-hesaplamalar/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:46 GMT -->
+</html>

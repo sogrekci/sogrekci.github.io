@@ -1,0 +1,342 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/51-parseval-ozdesligi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:38 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 5.1. Parseval Özdeşliği
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>5.1. Parseval Özdeşliği</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-11">
+          11 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu bölümde <strong>ortogonal sistem</strong> kavramını tanımlayıp bazı önemli örneklerini vereceğiz. Ayrıca ortogonal sistemler ve tamlık ilişkisi için çok önemli olan <strong>Parseval özdeşliğine</strong> de ulaşacağız.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/chebyshev-polinomlari/index.html">Chebyshev polinomları</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/haar-fonksiyonlari/index.html">Haar fonksiyonları</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/ic-carpim/index.html">İç çarpım</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/norm/index.html">norm</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/ortogonal-sistem/index.html">ortogonal sistem</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/parseval-ozdesligi/index.html">Parseval özdeşliği</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Genelleştirilmiş Fourier serileri <strong>David Hilbert</strong> (1862-1943) tarafından 1904 ve 1906 yılları arasında bazı çok önemli çalışmalarda kullanıldı. Fakat Hilbert çalışmalarında Sturm-Liouville problemlerinin özfonksiyonlarını <strong>kullanmayarak</strong> Fourier serilerini bir adım daha genelleştirdi. Bir önceki bölümden hatırlayacak olursak Fourier katsayılarının hesaplanmasında ihtiyacımız olan kritik özellik ortogonallikti, yani $$m\neq n\quad\text{için}\quad\int_{a}^{b}rX_mX_n=0$$ olmasıydı. Hilbert, özfonksiyon olup olmadıklarına bakmaksızın bu özelliği sağlayan fonksiyonların bir kümesini ele aldı.
+</p>
+
+<p>
+Böyle bir kümeyi düzgün bir şekilde tanımlamak için aşağıdaki gösterimleri sıklıkla kullanacağız. Eğer $f$ ve $g$ fonksiyonları $(a,b)$ aralığında integrallenebilir ise ve $r$ de bu aralıkta sürekli ve pozitif olarak verilmiş bir fonksiyon ise $f$ ile $g$ fonksiyonlarının <strong>iç çarpımı</strong> $$\langle f,g \rangle:=\int_{a}^{b}rfg$$ olarak, $f$ fonksiyonunun <strong>normu</strong> da $$\Vert f\Vert:=\sqrt{\langle f,f\rangle}$$ olarak tanımlanır. Bu tanımlar tamamen $r$ fonksiyonu bağlıdır ve bu fonksiyona <strong>ağırlık fonksiyonu</strong> denir. $f$, $g$, $h$ integrallenebilir fonksiyonlar ve $c$ bir sabit olmak üzere aşağıdaki birkaç temel özellik kolaylıkla kanıtlanabilir
+<ol><li>$\langle f,g\rangle=\langle g,f\rangle$,</li>
+<li>$\langle f+g,\,h\rangle=\langle f,h\rangle+\langle g,h\rangle$,</li>
+<li>$\langle cf,g\rangle=c\langle f,g\rangle$.</li></ol>
+</p>
+
+<p>
+<div class="envdef" id="def-ortogonalsistem"><h6 class="thenv">Tanım 5.1.1</h6>$(a,b)$ aralığında integrallenebilir fonksiyonların bir $\left\{\varphi_n \right\}$ dizisi
+<ol type="i"><li>$m\neq n$ için $\langle\varphi_m,\varphi_n \rangle=0$,</li>
+<li>her $n\in\mathbb{N}$ için $\Vert\varphi_n\Vert>0$</li></ol>koşullarını sağlıyorsa buna $(a,b)$ aralığında bir <strong>ortogonal sistem</strong> denir. Ayrıca ek olarak her $n\in\mathbb{N}$ için $\Vert\varphi_n\Vert=1$ oluyorsa bu sistem <strong>ortonormaldir</strong> denir.
+</div>
+</p>
+
+<p>
+Bir önceki bölümde bir Sturm-Liouville probleminin özfonksiyonlarının ortogonal bir sistem oluşturduğunu gördük. Sırada vereceğimiz örnekler herhangi bir Sturm-Liouville probleminden elde edilmemiştir.
+</p>
+
+<p>
+<div class="envex" id="ex-6.1"><h6 class="thenv">Örnek 5.1.1</h6>Her $n$ doğal sayısı için $$\varphi_n(x):=\cos(n\arccos x)$$ olarak tanımlanan fonksiyonlar $$r(x):=\frac{1}{\sqrt{1-x^2}}$$ ağırlık fonksiyonuna göre $(-1,1)$ aralığında bir ortogonal sistemdir. Gerçekten $x=\cos t$ dönüşümü yapılırsa
+	\begin{eqnarray*}
+		\int_{-1}^{1}\frac{1}{\sqrt{1-x^2}}\varphi_m(x)\varphi_n(x)\,dx &=& \int_{0}^{\pi}\frac{1}{\sqrt{1-\cos^2t}}\cos mt\cos nt\,dt\\
+		&=&\int_{0}^{\pi}\cos mt\cos nt\,dt
+	\end{eqnarray*}
+	olduğu görülür ki $m\neq n$ için bu integral sıfıra eşittir. Burada eşitliğin solundaki integralden görüleceği gibi integrand $x=\pm1$ için tanımsızdır dolayısıyla integral genelleştirilmiş bir integraldir, genelleştirilmiş integralin limit tanımını kullanarak okuyucu bu eşitliği doğrulamalıdır. Bu ortogonal fonksiyonların her $n$ doğal sayısı için birer polinom belirttiği gösterilebilir ve bu polinomlara <strong>Chebyshev polinomları</strong> denir, çünkü bu polinomlar ilk kez <strong>Pafnuti L'vovich Chebyshev</strong> (1821-1894) tarafından tanıtılmıştır.
+</div>
+</p>
+
+<p>
+<div class="envex" id="ex-6.2"><h6 class="thenv">Örnek 5.1.2</h6>$\varphi_0:[0,1)\rightarrow\mathbb{R}$ fonksiyonu $\varphi_0\equiv0$ olarak tanımlansın. Ayrıca $2^k$ biçimine sahip herhangi bir $m$ doğal sayısı ve her $n=1,2,\ldots,m$ için $\varphi_{mn}:[0,1)\rightarrow\mathbb{R}$ fonksiyonları $$\varphi_{mn}(x):=\left\{\begin{array}{rl}
+	1, & \qquad \dfrac{n-1}{m}\leq x<\dfrac{2n-1}{2m}\text{ ise}\\
+	-1, & \qquad \dfrac{2n-1}{2m}\leq x<\dfrac{n}{m}\text{ ise}\\
+	0, & \qquad \text{diğer durumlarda}
+	\end{array} \right.$$ olarak tanımlansın. Bu fonksiyonların $r\equiv1$ ağırlık fonksiyonuna göre ortogonal bir sistem oluştururdukları kolayca gösterilebilir. 1910 yılında <strong>Albert Haar</strong> (1885-1933) tarafından tanıtılan bu fonksiyonlara <strong>Haar fonksiyonları</strong> diyoruz.
+</div>
+</p>
+
+<p>
+<div class="row">
+<div class="col-6"><img id="fig:ex-6.1" class="envfig" src="../../../static/ders-notu/fourier-analizi/haar-21.png" width="70%"></div>
+<div class="col-6"><img class="envfig" src="../../../static/ders-notu/fourier-analizi/haar-22.png" width="70%"></div>
+</div>
+<div class="row">
+<div class="col-6"><img class="envfig" src="../../../static/ders-notu/fourier-analizi/haar-41.png" width="70%"></div>
+<div class="col-6"><img class="envfig" src="../../../static/ders-notu/fourier-analizi/haar-42.png" width="70%"></div>
+</div>
+<div class="row">
+<div class="col-6"><img class="envfig" src="../../../static/ders-notu/fourier-analizi/haar-43.png" width="70%"></div>
+<div class="col-6"><img class="envfig" src="../../../static/ders-notu/fourier-analizi/haar-44.png" width="70%"></div>
+</div>
+</p>
+
+<p>
+<span style="margin:auto; display:table;"><span class="figcap">Şekil 5.1:</span> <a class="eqref" href="#ex-6.2">Örnek 5.1.2</a>'de tanıtılan Haar fonksiyonlarının bazı örnekleri.</span>
+</p>
+
+<p>
+<div class="envex" id="ex-6.3"><h6 class="thenv">Örnek 5.1.3</h6>Her ortogonal sistem her $\varphi_n$ yerine $\Vert\varphi_n\Vert^{-1}\varphi_n$ yazılarak <strong>normalleştirilebilir</strong>, yani ortonormal bir sisteme dönüştürülebilir. <a class="eqref" href="#ex-6.1">Örnek 5.1.1</a> ile verilen Chebyshev polinomları için $$\Vert\varphi_0\Vert^2=\int_{-1}^{1}\frac{1}{\sqrt{1-x^2}}dx=\int_{0}^{\pi}dt=\pi$$ ve $n>1$ için $$\Vert\varphi_n\Vert^2=\int_{-1}^{1}\frac{\cos^2(n\arccos x)}{\sqrt{1-x^2}}dx=\int_{0}^{\pi}\cos^2nt\,dt=\frac{\pi}{2}$$ olduğundan $$\sqrt{\frac{1}{\pi}}\varphi_0,\sqrt{\frac{2}{\pi}}\varphi_1,\sqrt{\frac{2}{\pi}}\varphi_2,\ldots,\sqrt{\frac{2}{\pi}}\varphi_n,\ldots$$ fonksiyonları ortonormal bir sistem belirtir. Haar fonksiyonları için de $\Vert\varphi_0\Vert=1$ ve $$\Vert\varphi_{mn}\Vert^2=\int_{0}^{1}\varphi_{mn}^2=\frac{1}{m}$$ olduğu gösterilebilir, bu durumda $$\varphi_0, \varphi_{11},\ldots,\sqrt{m}\varphi_{mn},\ldots$$ fonksiyonları ortonormal bir sistem oluşturur.
+</div>
+</p>
+
+<p>
+Bu bölümde tanımladığımız ortogonal sistem kavramının ve bu bölümün devamında elde edeceğimiz teorisinin çok kullanışlı iki genelleştirilmesi vardır. Bunlardan birincisi kavramı $(a,b)$ aralığı yerine sonsuz da olabilen aralıklara taşımaktır, bu durumda karşılaşılan genelleştirilmiş integraller dikkatlice incelenmeli ve normun varlığı garanti altına alınmalıdır. Diğer genelleştirme ise fonksiyonları kompleks değerli kabul etmektir, bu durumda iç çarpım tanımındaki $fg$ çarpımı $f\overline{g}$ ile değişir ve iç çarpımın yukarıda sıralanan özelliklerden ilki $\langle f,g\rangle=\overline{\langle g,f\rangle}$ biçimini alır.
+</p>
+
+<p>
+Biz şimdi Fourier serilerini genel ortogonal sistemler üzerine genelleştirmek için reel değerli fonksiyonları ele alacağız.
+</p>
+
+<p>
+<div class="envdef" id="def-fs-ortogonal"><h6 class="thenv">Tanım 5.1.2</h6>Eğer $(a,b)$ aralığında $f$ integrallenebilir bir fonksiyon ve $\{\varphi_n\}$ bu aralıkta bir ortogonal sistem ise bu durumda $$c_n:=\frac{1}{\Vert\varphi_n\Vert^2}\langle f,\varphi_n\rangle$$ sabitlerine $f$ fonksiyonunun $\{\varphi_n\}$ ortogonal sistemine göre <strong>Fourier katsayıları</strong> denir, $$\sum_{n=1}^{\infty}c_n\varphi_n$$ serisine de onun $\{\varphi_n\}$ ortogonal sistemine göre <strong>Fourier serisi</strong> denir.
+</div>
+</p>
+
+<p>
+<div class="envex" id="ex-6.4"><h6 class="thenv">Örnek 5.1.4</h6>$n$ bir tamsayı olmak üzere $\{e^{inx}\}$ sistemi $r\equiv1$ ağırlık fonksiyonuna göre $(-\pi,\pi)$ aralığında ortogonaldir, ayrıca $$\int_{-\pi}^{\pi}e^{inx}e^{-inx}dx=2\pi$$ olduğundan dizideki her fonksiyonun normu $\sqrt{2\pi}$ olur. Bu durumda $f$ fonksiyonu $(a,b)$ aralığında reel veya kompleks değerli bir fonksiyon ise bu sisteme göre Fourier katsayıları $$c_n=\int_{-\pi}^{\pi}f(x)e^{inx}dx$$ biçiminde ve Fourier serisi $$\sum_{-\infty}^{\infty}c_ne^{inx}$$ biçimindedir. Bu seriye $f$ fonksiyonunun $(-\pi,\pi)$ aralığında <strong>kompleks Fourier serisi</strong> denir. Eğer $f$ reel bir fonksiyon ise her $n$ sayısı için $c_{-n}=\overline{c_n}$ olduğuna dikkat edin.
+</div>
+</p>
+
+<p>
+Buradan itibaren sadece reel değerli fonksiyonları ele alacağız. Temel sorumuz bir fonksiyonun Fourier serisinin kendisine yakınsak olup olmadığı sorusudur, yani
+
+\begin{equation}
+\label{eq:ortogonal-1}
+\tag{5.1.1}
+f(x)=\sum_{n=1}^{\infty}c_n\varphi_n
+\end{equation}
+
+eşitliğinin sağlanıp sağlanmadığı sorusudur. İlk akla gelen nokta, Fourier'in de 1809 yılında dikkat çektiği gibi, $\{\varphi_n\}$ ortogonal sisteminde bu eşitliği sağlatmaya yetecek kadar fonksiyonun bulunamayabileceği durumudur. Örneğin $$\{\sin x,\sin 2x,\ldots,\sin nx,\ldots \}$$ sistemi $(-\pi,\pi)$ aralığında ortogonaldır fakat \eqref{eq:ortogonal-1} eşitliği $f\equiv1$ için sağlanmaz, çünkü bu durumda tüm Fourier katsayıları sıfır olur. Bu durumu daha yakından görmek için şöyle bir örnek de verebiliriz. $c_1$, $c_2$ ve $c_3$ ile bir $p\in\mathbb{R}^3$ noktasının koordinatlarını gösterelim. $\varphi_1=(1,0,0)$, $\varphi_2=(0,1,0)$ ve $\varphi_3=(0,0,1)$ ortogonal vektörleri için $p=(c_1,c_2,c_3)$ noktası $$\sum_{n=1}^{3}c_n\varphi_n$$ biçiminde gösterilir. Fakat keyfi bir $p$ noktası $\{\varphi_1,\varphi_2,\varphi_3 \}$'ten daha küçük olan bir sistemde bu şekilde ifade edilemez, örneğin $p=(0,0,1)$ noktası $\{\varphi_1,\varphi_2 \}$ ortogonal sisteminde ifade edilemez. Bu örneklere benzer şekilde integrallenebilir fonksiyonlarla çalışırken $\{\varphi_n \}$ ortogonal sistemini korrdinat sistemimiz gibi düşünebiliriz. Bu durumda Fourier katsayıları da koordinatlarımız olacaktır. Bu durumda da $\{\varphi_n \}$ yeteri kadar geniş bir ortogonal sistem değilse keyfi bir $f$ fonksiyonu için \eqref{eq:ortogonal-1} eşitliği sağlanamayabilir. Gerçekten, pozitif normlu bir $f$ fonksiyonu her bir $\varphi_n$ ile ortogonal oluyorsa onun tüm Fourier katsayıları sıfır olacağından \eqref{eq:ortogonal-1} eşitliği sağlanmaz. Bu durumda aşağıdaki tanımı yapmak anlamlıdır.
+</p>
+
+<p>
+<div class="envdef" id="def-ortogonal-tam"><h6 class="thenv">Tanım 5.1.3</h6>Bir ortogonal sistem başka bir ortogonal sistemin bir öz alt kümesi değise, yani her $n$ sayısı için $\langle f,\varphi_n \rangle=0$ olması $\Vert f\Vert=0$ olmasını gerektiriyorsa, bu sisteme bir <strong>tam ortogonal sistem</strong> denir.
+</div>
+</p>
+
+<p>
+Yukarıdaki açıklamalardan genel durumda Fourier serilerinin yakınsaklığı için ortogonal sistemin tam olmasının gerekliliği anlaşılıyor. Peki verilen bir ortogonal sistemin tam olup olmadığı nasıl anlaşılır? Bu konuda <a class="eqref" href="#def-ortogonal-tam">Tanım 5.1.3</a> fazla ipucu vermez, bu soruyu cevaplamak için önce yine $\mathbb{R}^2$ Öklid uzayında gözlem yapalım. Eğer $p\in\mathbb{R}^3$ noktasının orijine uzaklığını $\Vert p\Vert$ ile gösterirsek Pisagor teoremi gereği $$\Vert p\Vert^2=\sum_{n=1}^{3}\Vert c_n\varphi_n\Vert^2=\sum_{n=1}^{3}c_n^2\Vert\varphi_n\Vert^2$$ eşitliği sağlanır. Bu özdeşiliğin her $p\in\mathbb{R}^3$ için $\{\varphi_1,\varphi_2,\varphi_3 \}$ sisteminden daha küçük bir ortogonal sistemde sağlanmayacağı açıktır. Tersine, her $p\in\mathbb{R}^3$ için bu eşitlik sağlandığından $\{\varphi_1,\varphi_2,\varphi_3 \}$ sisteminin tam olduğu açıktır. Ayrıca bir $p$ noktası her $\varphi_n$ vektörüne ortogonal ise bu durumda $c_n=p\cdot \varphi_n=0$ olacağından Pisagor teoreminden $\Vert p\Vert=0$ olduğu görülür.
+</p>
+
+<p>
+Şimdi bir $f$ fonksiyonunun sıfır fonksiyonuna olan uzaklığını fonksiyonun normu ile, yani $$\Vert f\Vert=\sqrt{rf^2}$$ ölçtüğümüzü varsayalım, bu durumda Pisagor teoreminden
+
+\begin{equation}
+\label{eq:ortogonal-parseval}
+\tag{5.1.2}
+\Vert f\Vert^2=\sum_{n=1}^{\infty}c_n^2\Vert\varphi_n\Vert^2
+\end{equation}
+
+eşitliği elde edilir. Bu eşitliği ilk defa 1799 yılında kuvvet serileri için <strong>Marc Antoine Parseval-Deschenes</strong> (1755-1836) ifade etmiştir, günümüzde bu eşitliğe <strong>Parseval özdeşliği</strong> diyoruz. Az önce yaptığımız gözlemlerin sonucu olarak bir ortogonal sistemin tam olması için gerek ve yeter koşulun o sistemde Parseval özdeşliğinin sağlanması olduğunu düşünebiliriz, bu doğrudur. Bunun yeterlilik kısmını kolayca ispatlayabiliriz, gereklilik kısmını ispatlamak için biraz daha araştırma yapmaya ihtiyacımız var.
+</p>
+
+<p>
+<div class="envtheo" id="ortogonal-theo-1"><h6 class="thenv">Teorem 5.1.1</h6>Eğer $(a,b)$ aralığında integrallenebilir olan her $f$ fonksiyonu için $\{\varphi_n\}$ sistemine göre \eqref{eq:ortogonal-parseval} ile verilen Parseval özdeşiliği sağlanıyorsa bu durumda $\{\varphi_n\}$ sistemi tamdır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>Eğer $\{\varphi_n\}$ sistemi tam değilse pozitif normlu ve her bir $\varphi_n$ fonksiyonuna ortogonal olan bir $f$ fonksiyonu vardır. Fakat bu durumda her $n$ için $f$ fonksiyonunun Fourier katsayıları sıfır olacağından $$0<\Vert f\Vert^2=\sum_{n=1}^{\infty}c_n^2\Vert\varphi_n\Vert=0$$ çelişkisi elde edilir.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+Bu sonuç doğrultusunda şu soruyu sorabiliriz: bir ortogonal sistem verlidiğinde, her integrallenebilir $f$ fonksiyonu için Parseval özdeşliğinin sağlanıp sağlanmadığını nasıl söyleyebiliriz? Fakat bu durumda daha önce sorduğumuz sorudan hareket edip kolay olmayan başka bir soruya atlamış oluruz. 1883 yılında <strong>Jorgen Pedersen Gram</strong> (1850-1916) bir yaklaşım problemi üzerinde çalışırken Fourier serileri hakkında beklenmedik bir şey keşfetti, ne yapmamız gerektiği hakkında bize bir ipucu verecek olan bu keşife sıradaki bölümde değineceğiz.
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../44-genellestirilmis-fourier-serileri/index.html">4.4. Genelleştirilmiş Fourier Serileri</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Fourier Analizi</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../52-bir-yaklasim-problemi/index.html">5.2. Bir Yaklaşım Problemi</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/51-parseval-ozdesligi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:46 GMT -->
+</html>

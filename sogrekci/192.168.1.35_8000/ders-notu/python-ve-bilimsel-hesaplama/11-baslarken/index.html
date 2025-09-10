@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/python-ve-bilimsel-hesaplama/11-baslarken/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 1.1. Başlarken
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>1.1. Başlarken</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-21">
+          21 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-29">
+          29 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste <strong>Python</strong> ile programlama yapmaya başlamak için gerekli yazılımı yüklüyoruz. Daha sonra bu derste ilk programımızı yazıp çalıştıracağız.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/interpreter/index.html">interpreter</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/powershell/index.html">powershell</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/print/index.html">print</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/python/index.html">python</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/terminal/index.html">terminal</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <h3 class="mb-3">Neden Python?</h3>
+
+
+
+<p>
+Python, <a class="outref" target="_blank" href="http://www.python.org/~guido/">Guido von Rossum</a> tarafından geliştirilen ve ilk sürümü 1991 yılında yayınlanan bir programlama dilidir. Python oldukça yüksek seviyeli bir programlama dilidir, yani konuşma diline çok benzerdir ve öğrenilmesi çok kolaydır. Günümüzde bu programlama dilinin çok popüler olmasının bir çok sebebi vardır, bazılarını sıralayalım.
+
+<ul>
+<li class="py-2">Son derece basittir, kolay öğrenilir.</li>
+<li class="py-2">Ücretsiz ve açık kaynak kodludur.</li>
+<li class="py-2">Çok yüksek seviyeli bir dildir, kısa kod parçalarıyla karmaşık işlemler yapılabilir.</li>
+<li class="py-2">Portatiftir, programlar her sistemde aynı şekilde çalışır.</li>
+<li class="py-2">Geniş bir modül kütüphanesi vardır, bir çok amaç için önceden hazırlanmış kullanıma hazır modüller vardır.</li>
+<li class="py-2">Geniş bir kullanıcı topluluğu vardır, destek ve dokümantasyon bulmak kolaydır.</li>
+<li class="py-2">Kaynak kodundan gerçek zamanlı olarak çalışır, kodların derlenmeye ihtiyacı yoktur.</li>
+<li class="py-2">Tamamen nesne yönelimlidir, büyük ölçekli ve kompleks programlar yazmak kolaydır.</li>
+</ul>
+
+Python programlama dilinin iki farklı verisyonu var; <strong>versiyon 2</strong> ve <strong>versiyon 3</strong>. Biz <strong>versiyon 2</strong>'yi kullanacağız, bu konuda <a class="eqref" href="../index.html">dersin ana sayfasındaki</a> açıklamayı okuyun. Versiyonlar arasında söz dizimi açısından çok az fark var, zamanla bu farkları öğrenip kolayca versiyon 3'e geçebileceksiniz.
+</p>
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Python Yazılımı</h3>
+
+
+<p>
+Bu bölümde, Python ile programlamaya başlamadan önce öğrenmemiz gereken bazı önemli noktalara değineceğiz. Önce Python yazılımını bilgisayarımıza kurup kullanmayı öğreneceğiz, daha sonra da ilk programımızı yazıp çalıştıracağız.
+</p>
+
+<p>
+Yapacağımız ilk iş Python yazılımını (Python <strong>interpreter</strong> denir) kişisel bilgisayarımıza kurmak olacak. Bu işlemi Linux ve Windows tabanlı işletim sistemlerinde benzer şekilde yaparız. Bilgisayarlar kullanıcılar tarafından girilen komutlar ile işlem yapar, grafiksel bir arayüzde fareniz ile bir butona tıkladığınızda arka planda bir komut girmiş olursunuz, bilgisayar da bu komut ile istenen işlemi yapar. Her bilgisayarda grafik arayüz olmadan doğrudan komutları girebileceğiniz bir yazılım bulunur, bu yazılım Mac OSX veya diğer Linux tabanlı işletim sistemlerinde genelde <strong>Terminal</strong>, Windows işletim sisteminde ise <strong>PowerShell</strong>'dir. Bilgisayarınız Mac OSX işletim sistemine sahip bir Mac bilgisayar ise Terminal uygulamasını çalıştırın ve açılan ekranda <code class="language-python">python</code> yazıp enter tuşuna basın. Uygulama size bir mesaj ile cevap verecektir, bu mesajda sistemde yüklü Python versiyonu hakkında bilgi verir. Bütün Mac OSX işletim sistemleri içinde Python 2 verisyonu yüklü olarak gelir. Bundan dolayı böyle bir bilgisayarınız varsa otomatik olarak Python yazılımına sahipsiniz demektir ve yeni bir yükleme yapmanıza gerek yok, şimdi <code class="language-python">exit()</code> komutunu girerek Python yazılımını sonlandırın. Aslında sistemde yüklü gelen Python yazılımı ile program geliştirmek pek önerilmez, bunun yerine yeni bir Python 2 yüklemesi yapmak iyi bir fikirdir. Ama eğitim amaçlı bunu kullanabiliriz, daha sonra isterseniz öğrenip yeni bir yükleme yapabilirsiniz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python
+Python 2.7.13 (default Apr 4 2017, 8:46:44)
+[GCC 4.2.1 Compatible Apple LLVM 8.0.0 (clang-800.0.42.1)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+</code></pre>
+
+<p>
+Windows bilgisayarlarda PowerShell uygulamasını çalıştırıp <code class="language-python">python</code> komutunu girerseniz muhtemelen bir hata mesajı ile karşılaşırsınız, çünkü sistemde Python yazılmı yüklü değildir. Yüklemek için Python <a class="outref" target="_blank" href="https://www.python.org/downloads/">web sitesine</a> gidip güncel Python yazılımını indirip bilgisayarınıza kurmanız gerekir, şu an güncel versiyon Python 2.7.18'tir (versiyon 2 için). Şimdi tekrar <code class="language-python">python</code> komutunu girin, yine bir hata mesajı alabilirsiniz. Bunun sebebi, yazılım sisteme kurulmuş olsa da komut istemcisinden <code class="language-python">python</code> komutu ile çalışacak şekilde ayarlanmamış olabilir. Bunu sağlamak için PowerShell yazılımını tekrar çalıştırıp aşağıdaki komutu girin.
+</p>
+
+<pre class="my-4"><code class="language-python">
+[Environment]::SetEnvironmentVariable("Path", "$env:Path;C\Python27", "User")
+</code></pre>
+
+<p>
+Artık PowerShell uygulamasını yeniden başlattığınızda Python yazılımını yukarıdaki gibi çalıştırıyor olmanız gerekiyor. <code class="language-python">exit</code> komutuyla Python yazılımını kapatabilirsiniz (Eğer hala Python yazılımı çalışmıyorsa yukarıdaki koddan <code class="language-python">, "User"</code> kısmını çıkararak tekrar deneyin, yine olmazsa sistemin <code class="language-python">PATH</code> değişkenini nasıl değiştirebileceğiniz konusunda yardım bulmaya çalışın).
+</p>
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">İlk Program</h3>
+
+
+
+
+<p>
+Şimdi artık Python ile programlar yazıp çalıştırmaya hazırız. Bir Python programını çalıştırmanın farklı yolları vardır, en basiti kodları bir metin editöründe yazıp <code class="language-python">program.py</code> şeklinde <code class="language-python">.py</code> uzantılı bir dosya olarak kaydedip komut istemcisinde dosyanın bulunduğu klasöre gidip <code class="language-python">python program.py</code> komutunu girmektir. Böylece komut istemcisinde programımız çalışmaya başlar. Komut istemcisinde <code class="language-python">ls</code> komutunu girersek bulunduğumuz konumdaki dosya ve klasörlerin listesini görürüz, burada listelenen bir klasöre girmek için <code class="language-python">cd</code> komutunu kullanırız: <code class="language-python">cd klasor1</code>. Bu şekilde konumumuzu öğrenip dosyayı kaydettiğimiz klasöre girebiliriz, kolaylık açısından programlarınızı bilgisayarınızın ana dizininde bir klasör oluşturup programlarınızı buraya kaydetmeniz önerilir. Şimdi ilk programımızı yazıp çalıştıralım. Bir programlama dili öğrenilirken yazılan ilk programın <code class="language-python">hello world</code> programı olması adettendir, böyle bir programı Python ile yazmak oldukça kolay.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+print "Hello, World."
+</code></pre>
+
+<p>
+Gördüğümüz gibi bu programı Python ile tek satırda yazabiliyoruz. Bu programı bir metin editöründe yazıp bilgisayarımızın ana klasörüne <code class="language-python">hello.py</code> olarak kayededip çalıştırdığımızda ekranda <code class="language-python">Hello, World!</code> mesajı görüntülenecektir. Burada ekrana yazdırma işini <code class="language-python">print</code> ifadesi yapıyor.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python hello.py
+Hello, World.
+</code></pre>
+
+<p>
+Bir Python programını çalıştırmanın diğer bir yolu da komut istemcisinde <code class="language-python">python</code> komutunu girerek Python yazılımını çalıştırdıktan sonra programımızın kodlarını satır satır komut istemcisine girip enter tuşuna basmaktır, bundan sonra girdiğiniz kodun karşılığı olan çıktı anında ekranda görülür. Bu yolla bir dosyaya kodları kaydetmemize gerek yoktur fakat yukarıdaki gibi tek satırdan oluşan bir programımız yoksa bu metod kullanışsızdır, dosyayı kaydederek çalıştırdığınızda tek tek değil tüm dosya içeriği aynı anda çalıştırılır. Öğrenme amaçlı deneme yapmak için kullanırız genelde bu yöntemi, örnek olarak yukarıdaki programı bu yolla çalıştıralım. Önce <code class="language-python">python</code> komutunu girerek bir Python <strong>oturumu</strong> başlatalım, sonra da komutumuzu girerek çıktısını alalım. Bu şekilde Python oturumu ile yapılan hesaplamalara <strong>interaktif</strong> hesaplama deriz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python
+Python 2.7.13 (default Apr 4 2017, 8:46:44)
+[GCC 4.2.1 Compatible Apple LLVM 8.0.0 (clang-800.0.42.1)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> print "Hello, World"
+Hello, World.
+</code></pre>
+
+<p>
+Başka bir yöntem de bir <strong>IDE</strong> (integrated developement environment) kullanmaktır. Bir IDE, hem metin editörünü hem de komut istemcisini aynı grafik arayüz içinde sunan bir yazılımdır. Bir çok kullanışlı IDE yazılımı vardır, ilgili okur araştırıp herhangi birini kullanabilir.
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Python ve Bilimsel Hesaplama</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../12-degiskenler-ve-basit-hesaplamalar/index.html">1.2. Değişkenler ve Basit Hesaplamalar</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/python-ve-bilimsel-hesaplama/11-baslarken/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:46 GMT -->
+</html>

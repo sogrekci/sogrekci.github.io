@@ -1,0 +1,333 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/31-permutasyonlar/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:04 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 3.1. Permütasyonlar
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>3.1. Permütasyonlar</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-06-01">
+          1 Haziran 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-06-02">
+          2 Haziran 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Determinant kavramını temellendirebilmek için önce <strong>permütasyon</strong> kavramını anlamalıyız. Bu derste bunu yapacağız, permütasyonlar kısaca bir küme üzerinde tanımlı bire bir dönüşümlerdir.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/birim-permutasyon/index.html">birim permütasyon</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/cift-permutasyon/index.html">çift permütasyon</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/evirtim/index.html">evirtim</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/permutasyon/index.html">permütasyon</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/permutasyon-isareti/index.html">permütasyon işareti</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/tek-permutasyon/index.html">tek permütasyon</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/ters-permutasyon/index.html">ters permütasyon</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+<div class="envdef" id="def:permutasyon"><h6 class="thenv">Tanım 3.1.1</h6>
+Bir $S$ kümesinden yine $S$'ye tanımlı bire-bir bir dönüşüme, $S$ kümesinin bir <strong>permütasyonu</strong> denir. Bir permütasyonu $\pi$ ile göstereceğiz.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:1"><h6 class="thenv">Uyarı 3.1.2</h6>
+İlgileneceğimiz permütasyonlar $S:=\{1,2,\ldots,n\}$ sonlu kümesinde tanımlı olacak, herhangi bir $i\in S$ doğal sayısının permütasyon değerini $\pi(i)$ ile göstereceğiz. Bir permütasyonu göstermek için genellikle iki satırdan oluşan bir notasyın kullanırız. İlk satırda herhangi bir sırada $S$'nin elemanlarını, ikinci satırda da karşılık gelen permütasyon değerlerini yazarız. Örneğin $S:=\{1,2,3,4\}$ kümesinin $\pi(1)=2$, $\pi(2)=4$, $\pi(3)=3$ ve $\pi(4)=1$ biçimindeki $\pi$ permütasyonunu
+	$$
+	\left(\begin{array}{cccc}1&2&3&4\\2&4&3&1\end{array}\right),\qquad \left(\begin{array}{cccc}2&4&1&3\\4&1&2&3\end{array}\right) \quad\text{veya}\quad \left(\begin{array}{cccc}4&1&3&2\\1&2&3&4\end{array}\right)
+	$$
+	olarak gösterebiliriz.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:2"><h6 class="thenv">Uyarı 3.1.3</h6>
+Aynı kümenin iki permütasyonu birer fonksiyon olarak kombine edilebilir. Yani $\sigma$ ve $\pi$ permütasyonları için $\sigma\pi$ permütasyonu $(\sigma\pi)(i)=\sigma\left[\pi(i)\right]$ olarak tanımlanır. Örneğin <a class="eqref" href="#rmk:det:1">Uyarı 3.1.2</a> ile verilen $\pi$ permütasyonu ve $$\sigma:=\left(\begin{array}{cccc}1&2&3&4\\1&3&4&2\end{array}\right)$$ olarak tanımlanan $\sigma$ permütasyonu için $$\sigma\pi:=\left(\begin{array}{cccc}1&2&3&4\\3&2&4&1\end{array}\right)$$ olur. Genel olarak $\sigma\pi\neq\pi\sigma$ olduğuna dikkat edilmelidir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:3"><h6 class="thenv">Uyarı 3.1.4</h6>
+Verilen $\pi$ ve $\sigma$ permütasyonları için $\rho\pi=\sigma$ eşitliğini sağlayan tek bir $\rho$ permütasyonu vardır. Böyle bir $\rho$ permütasyonu $\rho\left[\pi(i)\right]=\sigma(i)$ eşitliğini sağladığından ilk ve ikinci satırında sırasıyla $\pi(i)$ ve $\sigma(i)$ değerleri yer alır. Örneğin <a class="eqref" href="#rmk:det:1">Uyarı 3.1.2</a> ve <a class="eqref" href="#rmk:det:2">Uyarı 3.1.3</a> ile verilen $\pi$ ve $\sigma$ permütasyonlarına karşılık gelen $\rho$ permütasyonu $$\sigma:=\left(\begin{array}{cccc}2&4&3&1\\1&3&4&2\end{array}\right)$$ şeklinde olur.
+</div>
+</p>
+
+<p>
+<div class="envdef" id="def:birimtersperm"><h6 class="thenv">Tanım 3.1.5</h6>
+Bir $S$ kümesinin tüm elemanlarını değiştirmeden bırakıyorsa buna <strong>birim</strong> permütasyon denir ve bu permütasyon $\varepsilon$ ile gösterilir. Ayrıca verilen $\pi$ permütasyonu için $\pi^{-1}\pi=\varepsilon$ eşitliğini sağlayan tek türlü $\pi^{-1}$ permütasyonuna $\pi$ permütasyonunun <strong>tersi</strong> denir.
+</div>
+</p>
+
+<p>
+<div class="envdef" id="def:evirtim"><h6 class="thenv">Tanım 3.1.6</h6>
+$i\gt j$ özelliğinde bir çift $i$ ve $j$ indisi için $\pi(i)\gt\pi(j)$ oluyorsa $\pi$ permütasyonu bir <strong>evirtim</strong> yapıyor denir, $\pi$ permütasyonunun evirtim sayısı $k(\pi)$ ile gösterilir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:4"><h6 class="thenv">Uyarı 3.1.7</h6>
+Bir $\pi$ permütasyonu için $k(\pi)$ ile $k(\pi^{-1})$ sayıları eşittir. Örnek olarak <a class="eqref" href="#rmk:det:1">Uyarı 3.1.2</a> ile verilen permütasyon için $k(\pi)=4$ olur.
+</div>
+</p>
+
+<p>
+<div class="envdef" id="def:tekciftperm"><h6 class="thenv">Tanım 3.1.8</h6>
+Bir $\pi$ permütasyonunun <strong>işareti</strong>, ${\rm sgn}\,\pi=\left(-1\right)^{k(\pi)}$ olarak tanımlanır. ${\rm sgn}\,\pi=1$ ise $\pi$ permütasyonuna <strong>çift</strong> bir permütasyon, ${\rm sgn}\,\pi=-1$ ise $\pi$ permütasyonuna <strong>tek</strong> bir permütasyon denir.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:det:1"><h6 class="thenv">Teorem 3.1.9</h6>
+${\rm sgn}\,\sigma\pi={\rm sgn}\,\sigma\cdot{\rm sgn}\,\pi$.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>$\sigma$ dönüşümünün
+	$$
+	\left(\begin{array}{ccccc}
+	\cdots&\pi(i)&\cdots&\pi(j)&\cdots\\
+	\cdots&\sigma\pi(i)&\cdots&\sigma\pi(j)&\cdots
+	\end{array}\right)
+	$$
+	olarak yazılabileceği açıktır, çünkü $S$'nin her bir elemanı ilk satırda mevcuttur. $i\lt j$ özelliğindeki bir çift $i$ ve $j$ indisi için dört olasılık vardır:
+<ol>
+<li class="py-2">$i\lt j,\;\pi(i)\lt\pi(j),\;\sigma\pi(i)\lt\sigma\pi(j)$; evirtim yoktur.</li>
+<li class="py-2">$i\lt j,\;\pi(i)\lt\pi(j),\;\sigma\pi(i)\gt\sigma\pi(j)$; bir evirtim $\sigma$'da, bir evirtim $\sigma\pi$'de vardır.</li>
+<li class="py-2">$i\lt j,\;\pi(i)\gt\pi(j),\;\sigma\pi(i)\gt\sigma\pi(j)$; bir evirtim $\pi$'de, bir evirtim $\sigma\pi$'de vardır.</li>
+<li class="py-2">$i\lt j,\;\pi(i)\gt\pi(j),\;\sigma\pi(i)\lt\sigma\pi(j)$; bir evirtim $\sigma$'da, bir evirtim $\pi$'de vardır.</li>
+</ol>
+	Bu olasılıklar analiz edilirse $k(\sigma\pi)$ sayısının $k(\sigma)+k(\pi)$ sayısından farkının bir tek sayı olduğu anlaşılır ve bu da ispatı tamamlar.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="theo:det:2"><h6 class="thenv">Teorem 3.1.10</h6>
+Bir $\pi$ permutasyonu $S$'nin bir elemanını değiştirmeden sabit bıraksın. Bu durumda $\pi$ permutasyonunun tek veya çift olması bu elemanı içeren evirtimlerden etkilenmez.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>Bir $j$ elemanı için $\pi(j)=j$ olsun. $i\lt j$ olmak üzere bir evirtim olması için gerek ve yeter koşul $\pi(i)\gt\pi(j)=j$ olmasıdır. Farzedelim ki $j$'den önceki $i$ elemanları için bu durum $k$ defa gerçekleşsin. Fakat bu durumda $j$'den sonraki $i$ elemanları için $\pi(i)\lt j$ durumu da $k$ defa gerçekleşir ve bunlar da birer evirtim oluşturur. Sonuç olarak $j$ elemanını içeren $2k$ tane evirtim vardır ve bu bir çift sayı olduğundan $\left(-1\right)^{k(\pi)}$ sayısını değiştirmez.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="theo:det:3"><h6 class="thenv">Teorem 3.1.11</h6>
+$S$'nin tam olarak iki elemanını yer değiştiren ve diğer elemanları sabit bırakan bir permütasyon tektir.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>Bir $\pi$ permütasyonu $i$ ve $j$ elemanlarını yer değiştirsin ve diğer elemanları sabit bıraksın. <a class="eqref" href="#theo:det:2">Teorem 3.1.10</a> gereği $i$ ve $j$ dışındaki elemanları içeren evirtimler permütasyonun işaretini etkilemez. Bu elemanlar için de tam olarak bir tane evirtim gerçekleştiğinden ${\rm sgn}\,\pi=-1$ olur.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envrem" id="rmk:det:5"><h6 class="thenv">Uyarı 3.1.12</h6>
+<a class="eqref" href="#theo:det:3">Teorem 3.1.11</a> en az bir tane tek permutasyonun varlığını gösterir, bununla beraber <a class="eqref" href="#theo:det:2">Teorem 3.1.10</a> ile de en az bir tane çift permutasyonun varlığı görülür. Şimdi $\sigma$ bir tek permutasyon olsun, eğer $\pi$ permutasyonu çift ise <a class="eqref" href="#theo:det:2">Teorem 3.1.10</a> gereği $\sigma\pi$ tek olur. Ayrıca $\sigma^{-1}$ de bir tek permutasyondur ve her tek $\tau$ permütasyonuna karşılık bir $\sigma^{-1}\tau$ çift permütasyonu vardır. $\sigma^{-1}\left(\sigma\pi\right)=\pi$ olduğundan, çift permütasyonlar kümesinden tek permütasyonlar kümesine tanımlı $\pi\rightarrow\sigma\pi$ dönüşümü bire-bir ve örtendir. Bundan dolayı tek permütasyonların sayısı ile çift permütasyonların sayısı eşittir.
+</div>
+</p>
+
+
+
+
+
+<h3 class="mt-5 mb-3">Alıştırmalar</h3>
+
+
+
+
+<p>
+<ol>
+<li class="py-2">$n$ elemanlı bir $S$ kümesinin $n!$ tane permütasyonu vardır, gösterin.</li>
+<li class="py-2">Üç elemanlı bir kümenin altı tane permütasyonu vardır, bunların hangilerinin tek hangilerinin çift olduğunu belirleyin.</li>
+</ol>
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../29-normal-formlar/index.html">2.9. Normal Formlar</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Lineer Cebire Giriş</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../32-determinantlar/index.html">3.2. Determinantlar</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/31-permutasyonlar/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:04 GMT -->
+</html>

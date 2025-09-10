@@ -1,0 +1,979 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/latexe-giris/7-tablolar/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:41:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 7. Tablolar
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>7. Tablolar</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-18">
+          18 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu ders notunda LaTeX ile tabloların nasıl yazdırılacağına değineceğiz. Tabloların yapısı, satır ve sütun bölme, birleştirme, renklendirme gibi sık kullanılan işlemleri açıklayacağız.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/latex/index.html">LaTeX</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/table/index.html">table</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/tablo/index.html">tablo</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/tabular/index.html">tabular</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <h3 class="mb-3">Tablo Ortamı</h3>
+
+<p>
+LaTeX ile <strong>tablo</strong> oluşturmak için <code class="language-latex">tabular</code> ortamı kullanılır. <code class="language-latex">\begin{tabular}[konum]{sütunlar}</code> şeklinde uygulanır. Buradaki sütunlar kısmına tablonun kaç sütunu olacağı ve sütunların hizalama özellikleri girilir. Sola yaslı, sağa yaslı ve ortalı sütun için sırasıyla <code class="language-latex">l</code> , <code class="language-latex">r</code> ve <code class="language-latex">c</code> harfleri kullanılır. Örneğin <code class="language-latex">cccc</code> ifadesi, tablonun 4 sütunlu olacağı ve her sütunun ortalı olacağı anlamına gelir. <code class="language-latex">llcll</code> ifadesi ile de 5 sütunlu, 3. sütunu ortaya hizalı, diğer sütunları sola yaslı bir tablo anlamına gelir. Daha sonra hücreler tek tek girilir. Hücreler arası geçiş <code class="language-latex">&</code> karakteri ile yapılır, her satır sonunda <code class="language-latex">\\</code> komutu girilir.  Tablo biçimlendirilirken  <code class="language-latex">|</code> karakteri ile dikey çizgi, <code class="language-latex">\hline</code> komutu ile de yatay çizgi eklenir. Aşağıdaki örnekleri tatbik edin.
+</p>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 30}
+\maketitle 
+\begin{tabular}{|ccc|}
+	\hline
+	1 & 2 & 3 \\
+	4 & 5 & 6 \\
+	7 & 8 & 9 \\
+	\hline
+\end{tabular}
+\end{document}
+</code></pre>
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tablo1.svg" width="15%">
+
+
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 31}
+\maketitle 
+\begin{tabular}{|l|l|l|}
+	\hline
+	satır1 - sütun1 & satır1 - sütun2 & satır1 - sütun3 \\
+	\hline
+	satır2 - sütun1 & satır2 - sütun2 & satır2 - sütun3 \\
+	\hline
+	satır3 - sütun1 & satır3 - sütun2 & satır3 - sütun3 \\
+	\hline
+\end{tabular}
+\end{document}
+</code></pre>
+
+
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tablo2.svg" width="65%">
+
+
+
+
+
+
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 32}
+\maketitle 
+\begin{center}
+\begin{tabular}{cc}
+	Zaman ($t$) & Konum ($x(t)$) \\ 
+	\hline 
+	0 & 0,0087 \\ 
+	1 & 0,0051 \\ 
+	2 & 0,0024 \\ 
+	3 & 0,0009 \\ 
+	4 & -0,0017 \\ 
+	5 & -0,0089 \\ 
+	6 & -0,0398 \\ 
+	7 & -0,1189 \\ 
+	8 & -0,6325 \\ 
+	9 & -2,9003 \\ 
+	10 & -9,1655 \\ 
+	\hline 
+\end{tabular}
+\end{center}
+\end{document}
+</code></pre>
+
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tablo3.svg" width="35%">
+
+
+
+
+
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 33}
+\maketitle 
+\begin{tabular}{l|l|l|l}
+	 ID & Malın Adı & Malın Cinsi & Malın Menşei \\ 
+	\hline 
+	 1 & Domates & Yaş sebze & Antalya \\ 
+	 2 & Takunya & Kıyafet & Konya \\ 
+	 3 & Egzantrik mili & Yedek Parça & Almanya \\ 
+	 4 & Minnoş & Evcil Hayvan & İzmir \\ 
+	 5 & Kontrbas & Enstürman & Ankara \\ 
+\end{tabular}
+\end{document}
+</code></pre>
+
+
+
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tablo4.svg" width="70%">
+
+
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Tablolar ve Satır Bölme</h3>
+
+<p>
+LaTeX tablolarında satır sonuna sığmayan uzun cümleleri <strong>bölmez</strong>. Bunun için o sütuna paragraf girileceğini sütun pozisyonu bölümünde belirtmeliyiz. <code class="language-latex">p{boyut}</code> ifadesi o sütuna girilen uzun cümlelerin ilgili boyuta sığmazsa bölünüp bir alt satırdan devam edeceğini bildirir. Boyut birimi cm veya pt veya başka bit LaTeX birimi olabilir. Paragraf sütunlarında dikey hizalama yapmak için array paketi kullanılır. Üst, orta ve alt hizalama için sırasıyla <code class="language-latex">t{boyut}</code>, <code class="language-latex">m{boyut}</code> ve <code class="language-latex">b{boyut}</code> kullanılır. Aşağıdaki örnekleri inceleyin.
+</p>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 34}
+\maketitle 
+\begin{tabular}{|c||c|c|p{6cm}|}
+	\hline Gün & Min Saıcaklık & Max Sıcaklık & Özet \\ 
+	\hline Pazartesi & 18$^\circ$C & 22$^\circ$C & Yer yer bulutlanmalar olsa da genel olarak
+           gökyüzünün oldukça açık ve güneşli olduğu bir gündü.  \\ 
+	\hline Salı & 12$^\circ$C & 13$^\circ$C & Balkanlardan gelen soğuk hava dalgasının etkisiyle
+           sıcaklıklarda ani bir düşüş yaşandı. \\ 
+	\hline Çarşamba & 11$^\circ$C & 16$^\circ$C & Gram güneş görmedik. \\ 
+	\hline 
+\end{tabular}
+\end{document}
+</code></pre>
+
+
+
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tablo5.svg" width="90%">
+
+
+
+
+
+
+
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{array} %tablo için
+\begin{document} 
+\title{Belge 35}
+\maketitle 
+\begin{tabular}{|c||c|c|m{6cm}|} %(m)iddle, (t)op, (b)ottom
+	\hline Gün & Min Saıcaklık & Max Sıcaklık & Özet \\ 
+	\hline Pazartesi & 18$^\circ$C & 22$^\circ$C & Yer yer bulutlanmalar olsa da genel olarak
+           gökyüzünün oldukça açık ve güneşli olduğu bir gündü.  \\ 
+	\hline Salı & 12$^\circ$C & 13$^\circ$C & Balkanlardan gelen soğuk hava dalgasının etkisiyle
+           sıcaklıklarda ani bir düşüş yaşandı. \\ 
+	\hline Çarşamba & 11$^\circ$C & 16$^\circ$C & Gram güneş görmedik. \\ 
+	\hline 
+\end{tabular}
+\end{document}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Hücre Bölme ve Birleştirme</h3>
+
+
+<p>
+<strong>Birden fazla sütunu</strong> kaplayan satırlar için <code class="language-latex">\multicolumn{sayı}{pozisyon}{metin}</code> komutu kullanılır. Örneğin <code class="language-latex">\multicolumn{3}{|c|}{Puan Sıralaması}</code>  komutu ile üç sütunu kaplayan, ortalanmış ve Puan Sıralaması metnini içeren bir satır oluşturulur. <code class="language-latex">\hline</code> yerine <code class="language-latex">\cline{n-k}</code> komutu kullanılırsa n-inci sütundan başlayan ve k-inci sütunda biten bir çizgi çizilir. Fakat bu çizgilerin çizilmesi yoluyla birden çok satırı kaplayan sütunlar <strong>oluşturulamaz</strong>. Bunun için <code class="language-latex">multirow</code> paketi kullanılır. <code class="language-latex">\multirow{sayı}{boyut}{Metin}</code> komutuyla ilgili sayı kadar satırı kapsayan bir sütun oluşturulur. Boyut kısmında <code class="language-latex">*</code> yazılırsa metnin doğal genişliği alınır. Bunların uygulamalarını aşağıdaki örneklerde gözlemleyebilirsiniz.
+</p>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 36}
+\maketitle 
+\begin{center}
+\begin{tabular}{|c|p{5cm}|c|}
+	\hline \multicolumn{2}{|c|}{Haftanın Talihlileri} \\
+	\hline 1 & Fazıl Kerim \\
+	\hline 2 & Mehmet Torun \\ 
+	\hline 3 & Aliye Çekmez \\ 
+	\hline 4 & Galip Bordanacı \\
+	\hline 5 & Ferit Akçay \\
+	\hline
+\end{tabular} 
+\end{center}
+\end{document}
+</code></pre>
+
+
+
+
+
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tablo7.svg" width="60%">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 37}
+\maketitle 
+\begin{center}
+\begin{tabular}{|c|p{5cm}|c|}
+	\hline Türkçe & İngilizce \\
+	\hline ayva & quince \\ 
+	\cline{1-1} armut & pear \\ 
+	\cline{1-1} erik & plum \\
+	\hline nar & pomegranate \\
+	\hline
+\end{tabular} 
+\end{center}
+\end{document}
+</code></pre>
+
+
+
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tablo8.svg" width="70%">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 38}
+\maketitle 
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+	\hline \multicolumn{5}{|c|}{Zeytin Üretiminde Başı Çeken Ülkeler} \\
+	\hline Sıra & Kıta & Ülke & Ekili Alan (hektar) & Yıllık Üretim (ton) \\ 
+	\hline 1 & Avrupa & İspanya & 2,400,000 & 6,160,100 \\ 
+	\hline 2 & Avrupa & İtalya & 1,140,685 & 3,148,130 \\ 
+	\hline 3 & Avrupa & Yunanistan & 765,000 & 2,400,000 \\
+	\hline 4 & Avrupa & Türkiye  & 594,000 & 1,800,000 \\
+	\hline 5 & Asya & Suriye & 498,891 & 998,988 \\
+	\hline 6 & Afrika & Tunus & 1,500,000 & 500,000 \\
+	\hline 7 & Afrika & Fas & 550,000 & 470,000 \\
+	\hline 8 & Afrika & Mısır & 49,888 & 318,339 \\
+	\hline 9 & Afrika & Cezayir & 178,000 & 300,000 \\
+	\hline
+\end{tabular} 
+\end{center}
+\end{document}
+</code></pre>
+
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tablo9.svg" width="90%">
+
+
+
+
+
+
+
+
+
+
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{multirow}
+\begin{document} 
+\title{Belge 39}
+\maketitle 
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|} 	
+	\hline \multicolumn{5}{|c|}{Zeytin Üretiminde Başı Çeken Ülkeler} \\
+	
+	\hline 1 & \multirow{4}{*}{Avrupa} & İspanya & 2,400,000 & 6,160,100 \\ 
+	
+	 2 & & İtalya & 1,140,685 & 3,148,130 \\ 
+	 3 & & Yunanistan & 765,000 & 2,400,000 \\
+	 4 & & Türkiye  & 594,000 & 1,800,000 \\
+	 
+	\hline 5 & Asya & Suriye & 498,891 & 998,988 \\
+	
+	\hline 6 & \multirow{4}{*}{Afrika} & Tunus & 1,500,000 & 500,000 \\
+	
+	 7 &  & Fas & 550,000 & 470,000 \\
+	 8 &  & Mısır & 49,888 & 318,339 \\
+	 9 &  & Cezayir & 178,000 & 300,000 \\
+	\hline	
+\end{tabular} 
+\end{center}
+\end{document}
+</code></pre>
+
+
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tablo10.svg" width="70%">
+
+
+
+
+
+
+
+
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{multirow}
+\begin{document} 
+\title{Belge 40}
+\maketitle 
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|} 	
+	\hline \multicolumn{5}{|c|}{Zeytin Üretiminde Başı Çeken Ülkeler} \\
+	
+	\hline 1 & \multirow{4}{*}{Avrupa} & İspanya & 2,400,000 & 6,160,100 \\ 
+	
+	 \cline{3-5} 2 & & İtalya & 1,140,685 & 3,148,130 \\ 
+	 \cline{3-5} 3 & & Yunanistan & 765,000 & 2,400,000 \\
+	 \cline{3-5} 4 & & Türkiye  & 594,000 & 1,800,000 \\
+	 
+	\hline 5 & Asya & Suriye & 498,891 & 998,988 \\
+	
+	\hline 6 & \multirow{4}{*}{Afrika} & Tunus & 1,500,000 & 500,000 \\
+	
+	 \cline{3-5} 7 &  & Fas & 550,000 & 470,000 \\
+	 \cline{3-5} 8 &  & Mısır & 49,888 & 318,339 \\
+	 \cline{3-5} 9 &  & Cezayir & 178,000 & 300,000 \\
+	\hline	
+\end{tabular} 
+\end{center}
+\end{document}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{multirow}
+\begin{document} 
+\title{Belge 41}
+\maketitle 
+\begin{tabular}{|c|c|c|c|c|c|}
+	\cline{4-6} \multicolumn{3}{c|}{} & \multicolumn{3}{|c|}{Karadeniz Bölgesi} \\ 
+
+	\cline{4-6} \multicolumn{3}{c|}{} & Samsun & Amasya & Trabzon \\ 
+
+	\hline \multicolumn{2}{|c|}{\multirow{2}{*}{Akdeniz Bölgesi}} & Antalya & 935 & 859 & 1198 \\ 
+
+	\cline{3-6} \multicolumn{2}{|c|}{} & Mersin & 734 & 598 & 903 \\ 
+
+	\hline \multicolumn{2}{|c|}{\multirow{2}{*}{Marmara Bölgesi}} & İstanbul & 740 & 682 & 1069 \\ 
+
+	\cline{3-6} \multicolumn{2}{|c|}{} & Edirne & 975 & 916 & 1303 \\ 
+	\hline 
+\end{tabular} \end{document}
+</code></pre>
+
+
+
+
+
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tablo12.svg" width="80%">
+
+
+
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Tablo Biçimlendirme</h3>
+
+
+<p>
+İçerisinde bir ortam bulunduracak olan sütunlar <strong>paragraf</strong> olarak belirtilmelidir. Çok sütunlu tablolarda birden fazla sütun <code class="language-latex">*{sayı}{pozisyon}</code> ifadesi ile oluşturulabilir. Örneğin <code class="language-latex">*{7}{c}</code> ifadesi 7 tane ortalı sütun anlamına gelir. Bir sütunun tamamında <strong>sütun başında uygulanacak</strong> olan komutlar <code class="language-latex">>{\komut}</code> ile, <strong>sütun sonunda uygulanacak</strong> olan komutlar <code class="language-latex"><{\komut}</code> ile belirtilir. Komutlar deklorasyon şeklinde olmalıdır. Örneğin <code class="language-latex">>{\textbf}</code> yanlış, <code class="language-latex">>{\bfseries}</code> ise doğru bir kullanımdır. Satırları alterne olarak <strong>renklendirmek</strong> için <code class="language-latex">xcolor</code> paketi <code class="language-latex">table</code> opsiyonel parametresi ile yüklenmelidir. <code class="language-latex">\rowcolors{sayı}{renk1}{renk2}</code> ifadesi ile ilgili sayılı satırdan başlanarak <strong>iki renkli</strong> bir tablo elde edilir. Daha özel tablolar içinse aynı paketin <code class="language-latex">\cellcolor{renk}</code> komutu ile <strong>istenilen hücre</strong> renklendirilebilir. Gri renk için <code class="language-latex">\cellcolor[gray]{0.9}</code> ifadesi ile farklı tonlarda gri elde edilebilir (burada 0.9). Aşağıdaki örnekleri inceleyin.
+</p>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\begin{document} 
+\title{Belge 42}
+\maketitle 
+\begin{tabular}{|c|c|c|m{6cm}|}
+	\hline Model & Motor Gücü & 0--100 hızlanma & Açıklamalar \\ 
+	\hline \hline SL65 AMG & 630 HP & 4.0 sn & 
+		\begin{flushright}12 silindirli çift turbo şarjlı 6 lt hacimli AMG motoru
+                          1000 Nm tork üretmektedir. Aracın maks. süratı elektronik olarak
+                          300 km/h ile limitlenmiştir.
+		\end{flushright}   \\ 
+	\hline \hline SLS AMG & 570 HP & 3.8 sn & 
+	\begin{itemize}
+		\item 6.3 lt, 8 silindirli AMG motor,	
+		\item 650 Nm tork,	
+		\item 317 km/h maks sürat.
+	\end{itemize} \\ 
+	\hline 
+\end{tabular} 
+\end{document}
+</code></pre>
+
+
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tablo13.svg" width="80%">
+
+
+
+
+
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+ \begin{document} 
+\title{Belge 43}
+\maketitle 	
+\begin{tabular}{l|*{8}{c}}
+		Takım & O & G & B & M & A & Y & Puan & Av \\
+		\hline
+		İzlanda & 3 & 3 & 0 & 0 & 8 & 0 & 9 & +8 \\
+		Çek Cumhuriyeti & 3 & 3 & 0 & 0 & 8 & 4 & 9 & +4 \\
+		Hollanda  & 3 & 1 & 0 & 2 & 4 & 5 & 3 & -1 \\
+		Letonya  & 3 & 0 & 2 & 1 & 1 & 4 & 2 & -3 \\
+		Kazakistan  & 3 & 0 & 1 & 2 & 3 & 7 & 1 & -4 \\
+		Türkiye  & 3 & 0 & 1 & 2 & 2 & 6 & 1 & -4 \\
+\end{tabular}
+\end{document}
+</code></pre>
+
+
+
+
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tablo14.svg" width="80%">
+
+
+
+
+
+
+
+
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\begin{document} 
+\title{Belge 44}
+\maketitle 
+\begin{tabular}{>{\em}l|*{6}{c}>{\bfseries}cc}
+		Takım & O & G & B & M & A & Y & Puan & Av \\
+		\hline
+		İzlanda & 3 & 3 & 0 & 0 & 8 & 0 & 9 & +8 \\
+		Çek Cumhuriyeti & 3 & 3 & 0 & 0 & 8 & 4 & 9 & +4 \\
+		Hollanda  & 3 & 1 & 0 & 2 & 4 & 5 & 3 & -1 \\
+		Letonya  & 3 & 0 & 2 & 1 & 1 & 4 & 2 & -3 \\
+		Kazakistan  & 3 & 0 & 1 & 2 & 3 & 7 & 1 & -4 \\
+		Türkiye  & 3 & 0 & 1 & 2 & 2 & 6 & 1 & -4 \\
+\end{tabular}
+\end{document}
+</code></pre>
+
+
+
+
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tablo15.svg" width="80%">
+
+
+
+
+
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage[table]{xcolor}
+\begin{document} 
+\title{Belge 45}
+\maketitle 
+\begin{center}
+\rowcolors{1}{pink}{white}
+\begin{tabular}{>{\em}l|*{6}{c}>{\bfseries}cc}
+		Takım & O & G & B & M & A & Y & Puan & Av \\
+		\hline
+		İzlanda & 3 & 3 & 0 & 0 & 8 & 0 & 9 & +8 \\
+		Çek Cumhuriyeti & 3 & 3 & 0 & 0 & 8 & 4 & 9 & +4 \\
+		Hollanda  & 3 & 1 & 0 & 2 & 4 & 5 & 3 & -1 \\
+		Letonya  & 3 & 0 & 2 & 1 & 1 & 4 & 2 & -3 \\
+		Kazakistan  & 3 & 0 & 1 & 2 & 3 & 7 & 1 & -4 \\
+		Türkiye  & 3 & 0 & 1 & 2 & 2 & 6 & 1 & -4 \\
+\end{tabular}
+\end{center}
+\end{document}
+</code></pre>
+
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tablo16.svg" width="80%">
+
+
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage[table]{xcolor}
+\begin{document} 
+\title{Belge 46}
+\maketitle 
+\begin{center}
+\begin{tabular}{>{\em}l|*{6}{c}>{\bfseries}cc}
+		Takım & O & G & B & M & A & Y & Puan & Av \\
+		\hline
+		İzlanda & 3 & 3 & 0 & 0 & 8 & 0 & 9 & +8 \\
+		Çek Cumhuriyeti & 3 & 3 & 0 & 0 & 8 & 4 & 9 & +4 \\
+		Hollanda  & 3 & 1 & 0 & 2 & 4 & 5 & 3 & -1 \\
+		Letonya  & 3 & 0 & 2 & 1 & 1 & 4 & 2 & -3 \\
+		Kazakistan  & 3 & 0 & 1 & 2 & 3 & 7 & 1 & -4 \\
+		\cellcolor[gray]{0.9} Türkiye  & 3 & 0 & 1 & 2 & 2 & 6 & \cellcolor{red} 1 & -4 \\
+\end{tabular}
+\end{center}
+\end{document}
+</code></pre>
+
+
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tablo17.svg" width="80%">
+
+
+
+
+
+
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage[table]{xcolor}
+\begin{document} 
+\title{Belge 47}
+\maketitle 
+\begin{center}
+\begin{tabular} {>{\cellcolor{pink}\em}l|*{6}{c}>{\cellcolor[gray]{0.9}\bfseries}cc}
+ 		Takım & O & G & B & M & A & Y & Puan & Av \\
+		\hline
+		İzlanda & 3 & 3 & 0 & 0 & 8 & 0 & 9 & +8 \\
+		Çek Cumhuriyeti & 3 & 3 & 0 & 0 & 8 & 4 & 9 & +4 \\
+		Hollanda  & 3 & 1 & 0 & 2 & 4 & 5 & 3 & -1 \\
+		Letonya  & 3 & 0 & 2 & 1 & 1 & 4 & 2 & -3 \\
+		Kazakistan  & 3 & 0 & 1 & 2 & 3 & 7 & 1 & -4 \\
+		Türkiye  & 3 & 0 & 1 & 2 & 2 & 6 & 1 & -4 \\
+\end{tabular}
+\end{center}
+\end{document}
+</code></pre>
+
+
+
+
+
+
+<img class="envfig my-5" src="../../../static/ders-notu/latexe-giris/tablo18.svg" width="80%">
+
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Tablo Yerleştirme</h3>
+
+<p>
+Tablo metin içerisine gömülürken kaynak dosyada <code class="language-latex">tabular</code> ortamıyla tablonun oluşturulduğu yere yerleştirilir. Fakat bu yöntem bazen kötü görünebilir. Örneğin tablo sayfanın son satırlarında başlıyorsa paragraf düzeni bozulabilir. Bu durumda <code class="language-latex">table</code> ortamı kullanılır. <code class="language-latex">\begin{table}[konum]</code> ve <code class="language-latex">\end{table}</code> komutları arasında oluşturulan tablolar, belirtilen konum parametresine göre konumlandırılırlar. Bu ortam kullanılırsa <code class="language-latex">\caption{açıklama}</code> komutu ile tabloya açıklama eklenebilir ve <code class="language-latex">\label{anahtar kelime}</code> komutu ile atıf yapmak için referans oluşturulabilir. Ayrıca <code class="language-latex">\listoftables</code> komutu ile belgedeki tabloların listesi oluşturulabilir.
+</p>
+
+<p>
+Kayar tablolar için opsiyonel konum parametreleri şu karakterlerden oluşan bir ifadedir: <code class="language-latex">h</code>, <code class="language-latex">t</code>, <code class="language-latex">b</code>, <code class="language-latex">p</code> ve <code class="language-latex">!</code>. Bunlarda biri veya birkaçı kullanılabilir. Bunların anlamları da sırasıyla şöyledir; <code class="language-latex">h</code> (here) ile tablonun kodunun girildiği yere yazılmasını isteriz, <code class="language-latex">t</code> (top) ile tablonun ilgili sayfanın en üstüne yazılmasını isteriz, <code class="language-latex">b</code> (bottom) ile tablonun ilgili sayfanın en altına yazılmasını isteriz, <code class="language-latex">p</code> (page) ile tablonun başka tablolar ile ayrı bir sayfada yazılmasını isteriz, <code class="language-latex">!</code> ile de verdiğimiz seçeneklerin zorunlu olduğunu belirtiriz. Konum parametresi girilmezse varsayılan olarak <code class="language-latex">htbp</code> kabul edilir. Örneğin, <code class="language-latex">hb</code> parametresi ile tablonun oluştrulduğu yere, bu mümkün değilse sayfanın altına yerleştirilmesini isteriz. Fakat bu ikisi de mümkün değilse LaTeX tabloyu diğer seçeneklerden mümkün olan birini kullanır. <code class="language-latex">!hb</code> parametresi ile ise LaTeX'i bu iki seçenekten birine zorlarız.
+</p>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt,twocolumn]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 48}
+\maketitle 
+
+Kurtuluş Savaşımızın en önemli siyasi başarılarından biri olan ve 20 - 22 Ekim 1919
+tarihleri arasında Amasya'da gerçekleştirilen Amasya Protokolünün 95. yıldönümü
+dolayısıyla Amasya Valiliği ile üniversitemiz  tarafından bir konferans düzenlendi.
+Saraydüzü Kışlası Milli Mücadele Müzesi ve Kongre Salonunda düzenlenen konferansı
+Vali Yardımcısı Oktay Sinanoğlu, Belediye Başkan Yardımcısı Mehmet Öz,
+Üniversitemiz Rektör Yardımcısı Prof. Dr. Murat Kekilli ve kalabalık bir izleyici
+topluluğu izledi. (bkz: Tablo \ref{kelalaka})
+
+\begin{table}[!hb]
+	\begin{center}
+	\begin{tabular}{cc}
+	Zaman ($t$) & Konum ($x(t)$) \\ 
+	\hline 
+	0,000 & 0,0087 \\ 
+	0,001 & 0,0051 \\ 
+	0,002 & 0,0024 \\ 
+	0,003 & 0,0009 \\ 
+	0,004 & -0,0017 \\ 
+	0,005 & -0,0089 \\ 
+	0,006 & -0,0398 \\ 
+	0,007 & -0,1189 \\ 
+	0,008 & -0,6325 \\ 
+	0,009 & -2,9003 \\ 
+	0,010 & -9,1655 \\ 
+	\hline 
+\end{tabular}
+	\caption{Konuyla alakası olamayan bir tablo}
+	\label{kelalaka}
+\end{center}
+\end{table}
+
+\end{document}
+</code></pre>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../6-ortamlar/index.html">6. Ortamlar</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">LaTeX'e Giriş</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../8-latex-ve-matematik/index.html">8. LaTeX ve Matematik</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/latexe-giris/7-tablolar/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:41:38 GMT -->
+</html>

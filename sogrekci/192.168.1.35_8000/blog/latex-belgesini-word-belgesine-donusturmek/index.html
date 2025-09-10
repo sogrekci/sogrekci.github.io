@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/blog/latex-belgesini-word-belgesine-donusturmek/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:33:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - LaTeX Belgesini Word Belgesine Dönüştürmek
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../static/site/prism.css">
+    <script src="../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>LaTeX Belgesini Word Belgesine Dönüştürmek</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2021-07-03">
+          3 Temmuz 2021
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu çok sorulan bir soru, basit bir cevabı olmasa da bazı yöntemler var. Bu yazımda bu işlemi yapmanın birkaç yolundan ve benim tercih ettiğim yöntemden bahsedeceğim.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../dizin/e-kitap/index.html">e-kitap</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/epub/index.html">EPUB</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/latex/index.html">LaTeX</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/latex-belgesi/index.html">LaTeX belgesi</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/latex-belgesi-donusturme/index.html">latex belgesi dönüştürme</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/mathml/index.html">MathML</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/pandoc/index.html">Pandoc</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/tex4ebook/index.html">tex4ebook</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/word-belgesi/index.html">Word belgesi</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-5 text-justify">
+        <p>Öncelikle söylemeliyim ki bir LaTeX belgesini bire bir aynı çıktıya sahip olacak şekilde Word belgesine dönüştürmenin sihirli bir yolu yok, bu dönüşümü yapan bazı yazılımlar var fakat illa ki dönüşüm sonrasında kendiniz elle bazı düzenlemeler yapmak zorunda kalırsınız.</p>
+
+<p>Size ilk bahsedeceğim araç <a class="outref" target="_blank" href="https://pandoc.org/"><strong>Pandoc</strong></a>'tur, bu yazılım bir çok doküman formatı arasında dönüşüm yapabilen oldukça kullanışlı bir yazılım (mesela e-kitap ve Word belgeleri arasında dönüşüm yapabiliyor). Bu yazılım doğrudan bir LaTeX belgesini Word belgesine dönüştürebilir, yazılımı kurduktan sonra komut satırından
+<pre class="my-4"><code class="language-python">
+pandoc latex_belgesi.tex -o word_belgesi.docx
+</code></pre>
+komutunu girerek <code class="language-python">latex_belgesi.tex</code> dosyasını <code class="language-python"> word_belgesi.docx</code> dosyasına dönüştürebilirsiniz. Fakat bu dönüşüm bazı LaTeX özelliklerini desteklemiyor, en önemlisi denklem numarası gibi LaTeX sayaçlarını desteklemiyor. Küçük boyutlu (makaleler gibi) dokümanlarda bunu elle kendiniz ekleyebilirsiniz ama büyük ölçekli belgelerde bu çok zor olur. Pandoc için md (Markdown) dosyasını Word dosyasına dönüştürürken etiketleri ayarlayabilen eklentiler mevcut olsa da LaTeX için böyle bir araç maalesef yok.</p>
+
+<p>Şimdi size LaTeX belgesini çeşitli formatlarda e-kitap belgelerine dönüştürmek için kullanılan <a class="outref" target="_blank" href="https://ctan.org/pkg/tex4ebook"><strong>tex4ebook</strong></a> yazılımından bahsedeceğim, bunun Word dosyasıyla bir alakası yok aslında ama işimize yarayacak. Bununla LaTeX belgesini MathML destekli bir <code class="language-python">epub3</code> formatlı e-kitap belgesine çevirirseniz denklem numaraları gibi etiketler sorunsuz çalışıyor. Yaygın LaTeX dağıtımlarıyla birlikte bu yazılım geliyor, komut satırından <code class="language-python"> tex4ebook</code> komutunu çalıştırıp sisteminizde yüklü olup olmadığını kontrol edebilirsiniz. Daha sonra komut satırından
+<pre class="my-4"><code class="language-python">
+tex4ebook -f epub3 latex_belgesi.tex "mathml"
+</code></pre>
+komutunu girerek <code class="language-python">latex_belgesi.tex</code> dosyasını <code class="language-python"> word_belgesi.epub</code> dosyasına dönüştürebilirsiniz ve bunu bir e-kitap okuyucusunda açabilirsiniz.</p>
+
+<p>Bu arada şuna dikkat etmelisiniz, tex4ebook yazılımı <strong>çok basit</strong> LaTeX belgelerini dönüştürebilir, yani karmaşık paketler kullanmayan belgeleri. Bundan dolayı tex4ebook ile dönüşüm yapmadan önce LaTeX belgenizi gözden geçirmeniz ve basitleştirmeniz gerekebilir. Dönüşüm esnasında bir hata alırsanız dönüştürmek istediğiniz belgenin küçük bir kısmıyla deneyin, bu kez hata almıyorsanız belgeyi büyüterek hata alıncaya kadar denemeye devam edin. Bu şekilde hatanın kaynağını tespit edip gerekli düzenlemeleri yapın, hatayı böyle tespit etmeniz gerekiyor çünkü maalesef tex4ebook yazılımının ürettiği hata mesajları çok açıklayıcı olmuyor. Örneğin ben LaTeX ile yazdığım bir kitabı e-kitap dosyasına dönüştürürken Tikz, fancyhdr, enumitem, multicolumns gibi paketleri kaldırmak zorunda kaldım. Ayrıca etiketleri tanımlarken kullanığım iki noktaların sorun oluşturduğunu gördüm, dolayısıyla <code class="language-latex">\label{eq:chap1:eq1}</code> gibi tanımları <code class="language-latex">\label{eq-chap1-eq1}</code> olarak değiştirdim. Buna benzer bazı düzenlemeleri siz de yapmak zorunda kalabilirsiniz. Bu işlem belgenizin LaTeX'deki görünüşünü değiştiriyor diye üzülmeyin, sebebini az sonra anlayacaksınız.</p>
+
+<p>Şimdi, tahmin ettiğiniz gibi LaTeX belgemizi Word belgesine dönüştürmek için izleyeceğimiz yol şudur: önce LaTeX belgesini tex4ebook ile bir e-kitapa çevirmek, sonra bu e-kitap belgesini de Pandoc ile Word belgesine dönüştürmek. LaTeX belgesinde yukarıda anlattığım hazırlıkları yaptıktan sonra
+<pre class="my-4"><code class="language-python">
+tex4ebook -f epub3 latex_belgesi.tex "mathml"
+</code></pre>
+komutu ile bunu bir e-kitap belgesine dönüştürün. Daha sonra aynı klasör içinde 
+<pre class="my-4"><code class="language-python">
+pandoc latex_belgesi.epub -o word_belgesi.docx
+</code></pre>
+komutu ile de bunu bir Word dosyasına dönüştürün.</p>
+
+<p>Dönüşüm tamamlanınca elde ettiğiniz Word dosyasını açın, göreceğiniz gibi LaTeX çıktısı olan PDF dosyası ile alakası yok bunun. Başlık formatları değişik, yazı tipi (kalın, italik, vs) ve paragraf yapıları değişik, resimlerin ve tabloların boyutları ayarsız, vesaire. Ama iyi haber şu: tüm paragraflar eksiksiz yazılmış, resimler içerilmiş, ve en önemlisi tüm denklemler Word denklem nesnesi olarak eksiksiz yer alıyor. Hatta denklem numaraları da yazılmış ama bazı hizalama sorunları görülebilir, denklem ve numarasını Word içinde kenarlıksız bir tablo içinde bulacaksınız ve basit hizalama ayarlarıyla bunu düzeltebilirsiniz.</p>
+
+<p>O zaman yapmanız gereken şey şu: elde ettiğiniz Word belgesinin üzerinden <strong>satır satır</strong> geçmek. Kalın ve italik olması gereken kelimeleri düzenleyin, denklem ve denklem numarası öğelerini düzenleyin (hizalama gibi, ayrıca satıra sığmayan denklemleri bölün), içindekiler gibi kısımları oluşturun, vs. Bu şekilde belgenize son halini verene dek düzenleme yapın ve süreci tamamlayın.</p>
+
+<p>Yazımın başında da dediğim gibi LaTeX belgesini tek bir komutla bire bir aynı görünen bir Word belgesine dönüştüremezsiniz, mutlaka bazı düzenlemeleri kendiniz yapacaksınız. Bu yol zahmetli gibi görünse de büyük belgeleri dönüştürmek için kullanılabilir, belgeyi sıfırdan yazmaktan kat be kat daha pratik bir yöntem.</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Blog Yazısı:<br>
+        <a href="../docker-nedir-ve-nasil-kullanilir/index.html">Docker Nedir ve Nasıl Kullanılır?</a>
+        
+      </div>
+      <div class="col text-center mt-auto">
+        <a href="../index.html">Blog Ana Sayfası</a>
+      </div>
+      <div class="col text-right">
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+
+
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../ders-notu/index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/blog/latex-belgesini-word-belgesine-donusturmek/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:33:50 GMT -->
+</html>

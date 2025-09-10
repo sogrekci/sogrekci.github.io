@@ -1,0 +1,370 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/24-baz-degisimi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:04 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 2.4. Baz Değişimi
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>2.4. Baz Değişimi</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-31">
+          31 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-06-01">
+          1 Haziran 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Lineer dönüşümlerin verilen sabit bazlara göre bir matris ile temsil edildiğini daha önceden öğrendik. Bu bölümde seçilen bazlar değiştirildiğinde bu matrislerin nasıl etkilendiğini araştıracağız.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/baz-degisimi/index.html">baz değişimi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/benzerlik/index.html">benzerlik</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/benzer-matrisler/index.html">benzer matrisler</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/gecis-matrisi/index.html">geçiş matrisi</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Lineer dönüşümleri temsil etmek için kullandığımız matrisler, dönüşümün tanım uzayından seçilen baza bağlıdır. Seçilmiş olan sabit baz değiştiği zaman dönüşümü temsil eden matris de değişecektir.
+</p>
+
+<p>
+<div class="envdef" id="def:transition-matrix"><h6 class="thenv">Tanım 2.4.1</h6>
+$A:=\{\alpha_1,\ldots,\alpha_n \}$ ve $A':=\{\alpha_1',\ldots,\alpha_n' \}$ kümeleri $U$ vektör uzayının iki bazı olsun. Bu durumda her $a_j'$ vektörü, $A$ kümesi elemanlarının lineer kombinasyonu olarak
+
+\begin{equation}
+\label{eq:lint:8}
+\tag{2.4.1}
+a_j'=\sum_{i=1}^{n}p_{ij}\alpha_i
+\end{equation}
+
+biçiminde yazılabilir. Buradaki $P:=\left[p_{ij} \right]$ matrisine, $A$ bazından $A'$ bazına <strong>geçiş matrisi</strong> denir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:23"><h6 class="thenv">Uyarı 2.4.2</h6>
+\eqref{eq:lint:8} ile tanımlanan $P$ matrisinin sütunları, yeni bazı eski baz cinsinden temsil eden sıralı $n-$lileridir. Bu sütunlar dolayısıyla lineer bağımsızdır, bundan dolayı $P$ matrisi tersinirdir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:24"><h6 class="thenv">Uyarı 2.4.3</h6>
+Keyfi bir $\xi\in U$ vektörü $A$ ve $A'$ bazları cinsinden sırasıyla $\xi=\sum x_i\alpha_i$ ve $\xi=\sum x_i'\alpha_i'$ olsun. Bu durumda
+
+\begin{equation}
+\label{eq:lint:9}
+\tag{2.4.2}
+\xi=\sum_{j=1}^{n}x_j'\alpha_j'=\sum_{j=1}^{n}x_j'\left( \sum_{i=1}^{n}p_{ij}\alpha_i \right)=\sum_{i=1}^{n}\left( \sum_{j=1}^{n}p_{ij}x_j' \right)\alpha_i
+\end{equation}
+
+eşitliği sağlanır. $\xi$ vektörünün $A$ bazına göre koordinatları tek türlü olduğundan bu eşitlikten $x_i=\sum_{j=1}^{n}p_{ij}x_j'$ olduğu görülür. Yani geçiş matrisi $P$'nin satırları $\xi$ vektörünün eski koordinatlarını yeni koordinatları cinsinden yazmak için kullanılır. $P$'nin sütunlarının ise yeni baz vektörlerinin eski baz vektörleri cinsinden ifade etmek için kullanıldığını hatırlayın (bk. <a class="eqref" href="#rmk:lint:23">Uyarı 2.4.2</a>).
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:25"><h6 class="thenv">Uyarı 2.4.4</h6>
+$\xi\in U$ vektörünü $A$ ve $A'$ bazlarına göre temsil eden sıralı $n-$lileri sırasıyla $n\times 1$ boyutlu $X:=\left( x_1,\ldots,x_n \right)$ ve $X':=\left( x_1',\ldots,x_n' \right)$ matrisleri olarak yazılsın. Bu durumda her $i$ için $x_i=\sum_{j=1}^{n}p_{ij}x_j'$ denklemleri
+
+\begin{equation}
+\label{eq:lint:10}
+\tag{2.4.3}
+X=PX'
+\end{equation}
+
+olarak tek bir matris denklem biçiminde yazılabilir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:26"><h6 class="thenv">Uyarı 2.4.5</h6>
+Kabul edelim ki $U$ vektör uzayından $V$ vektör uzayına tanımlı olan $\sigma$ lineer dönüşümü $A\subset U$ ve $B:=\{\beta_1,\ldots,\beta_m\}\subset V$ bazlarına göre $A:=\left[a_{ij}\right]$ matrisi ile temsil edilsin. Şimdi bu dönüşümü $A'$ ve $B$ bazlarına göre temsil eden matrisi tespit edelim. \eqref{eq:lint:8} gereği
+
+\begin{equation}
+\label{eq:lint:11}
+\tag{2.4.4}
+\sigma(\alpha_j')=\sum_{k=1}^{n}p_{kj}\sigma(\alpha_k)=\sum_{k=1}^{n}p_{kj}\left( \sum_{i=1}^{m}a_{ik}\beta_i \right)=\sum_{i=1}^{m}\left( \sum_{k=1}^{n}a_{ik}p_{kj} \right)\beta_i:=\sum_{i=1}^{m}a_{ij}'\beta_i
+\end{equation}
+
+yazılabilir, burada $a_{ij}':=\sum_{k=1}^{n}a_{ik}p_{kj}$ olarak tanımladık. $B$ bir baz olduğundan bu eşitlikten $\sigma$ dönüşümünü $A'$ ve $B$ bazlarına göre temsil eden matrisin $A':=\left[a_{ij}'\right]$ olduğu anlaşılır. Bu ise <a class="eqref" href="../22-matrisler/index.html#def:matiscarpim">Tanım 2.2.7</a> ile verilen matris çarpımı tanımı göz önüne alındığında
+
+<span id="eq:lint:12">
+\begin{equation}
+\label{eq:lint:12}
+\tag{2.4.5}
+A'=AP
+\end{equation}
+</span>
+
+matris denklemini verir.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:27"><h6 class="thenv">Uyarı 2.4.6</h6>
+\eqref{eq:lint:12} eşitliği başka bir yöntemle de elde edilebilir. Keyfi bir $\xi=\sum_{j=1}^{n}x_j\alpha_j\in U$ için $\sigma(\xi)=\sum_{i=1}^{m}y_i\beta_i\in V$ olsun. Bu durumda <a class="eqref" href="../22-matrisler/index.html#eq:lint:7">(2.2.6)</a> ve \eqref{eq:lint:10} eşitliklerini kullanarak
+
+\begin{equation}
+\label{eq:lint:13}
+\tag{2.4.6}
+Y=AX=A\left(PX'\right)=\left(AP\right)X'
+\end{equation}
+
+eşitliğini elde ederiz. Yani $AP$ matrisi $\sigma$ dönüşümünü $A'$ ve $B$ bazlarına göre temsil eder, dolayısıyla \eqref{eq:lint:12} eşitliği elde edilmiş olur.
+</div>
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:28"><h6 class="thenv">Uyarı 2.4.7</h6>
+Şimdi $V$ uzayında baz değişiminin etkisini araştıralım. $B$ bazı $B':=\{\beta_1',\ldots,\beta_m' \}$ bazı ile deiştirilsin ve bu değişimin geçiş matrisi $Q:=\left[q_{ij} \right]$ olsun, yani her $j$ için $\beta_j'=\sum_{i=1}^{m}q_{ij}\beta_j$ olsun. Bu durumda $\sigma$ dönüşümünü $A$ ve $B'$ bazlarına göre temsil eden matris $A'':=\left[a_{ij}'' \right]$ ile gösterilirse
+
+\begin{equation}
+\label{eq:lint:14}
+\tag{2.4.7}
+\sigma(\alpha_j)=\sum_{k=1}^{m}\alpha_{kj}''\beta_k'=\sum_{k=1}^{m}a_{kj}''\left( \sum_{i=1}^{m}q_{ik}\beta_i \right)=\sum_{i=1}^{m}\left( \sum_{k=1}^{m}q_{ik}a_{kj}'' \right)\beta_i=\sum_{i=1}^{m}a_{ij}\beta_i
+\end{equation}
+
+eşitliğine varılır. Diğer yandan $\sigma$ dönüşümünün $A$ ve $B$ bazlarına göre $A$ matrisi ile temsil edilmesinden dolayı $\sigma(\alpha_j)=\sum_{i=1}^{m}a_{ij}\beta_i$ olduğundan \eqref{eq:lint:14} eşitliği gereği $A=QA''$ veya
+
+\begin{equation}
+\label{eq:lint:15}
+\tag{2.4.8}
+A''=Q^{-1}A
+\end{equation}
+
+sonucu elde edilir. Sonuç olarak eğer değişiklik hem $U$ hem de $V$ uzaylarında yapılmışsa dönüşümü temsil eden yeni matris \eqref{eq:lint:12} ve \eqref{eq:lint:15} eşitlikleri gereği $Q^{-1}AP$ olur.
+</div>
+</p>
+
+<p>
+<div class="envtheo" id="theo:lint:22"><h6 class="thenv">Teorem 2.4.8</h6>
+$A$ matrisinin boyutu $m\times n$ ve rankı $\rho$ olsun. Bu durumda $Q^{-1}AP$ matrisinin esas köşegeninin ilk $\rho$ tane elemanı 1, diğer elemanları 0 olacak şekilde $n\times n$ boyutlu tersinir bir $P$ matrisi ve $m\times m$ boyutlu tersinir bir $Q$ matrisi vardır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong><a class="eqref" href="../21-lineer-donusumler/index.html#theo:lint:5">Teorem 2.1.22</a> ispatında olduğu gibi $U$ uzayında yeni bir $A':=\{\alpha_1',\ldots,\alpha_n' \}$ bazı seçebiliriz öyle ki bunun son $n-\rho=\nu$ tane elemanı $K(\sigma)$ alt uzayının bazı olur. $\{ \sigma(\alpha_1'),\ldots,\sigma(\alpha_\rho') \}$ kümesi $V$ içinde $\sigma(U)$ için bir baz olduğundan lineer bağımsızdır ve dolayısıyla bu küme $V$'nin bir $B'$ bazına tamamlanabilir. Sonuç olarak $$\sigma(\alpha_j')=\left\{\begin{array}{rr}\beta_j'\;,&\quad j\leq\rho\\0\;,&\quad j>\rho\end{array} \right.$$ olduğundan $\sigma$ dönüşümünü $A'$ ve $B'$ bazlarına göre temsil eden $Q^{-1}AP$ matrisi
+	$$
+	Q^{-1}AP=
+	\left[\begin{array}{cc}
+	\boxed{\begin{array}{cccc}1&0&\cdots&0\\0&1&\cdots&0\\ \vdots&\vdots&\ddots&\vdots\\0&0&\cdots&1\end{array}}
+	&
+	{\begin{array}{ccc}0&\cdots&0\\0&\cdots&0 \\ \vdots&\ddots&\vdots\\0&\cdots&0\end{array}}
+	\\
+	&\\
+	{\begin{array}{cccc}0&0&\cdots&0\\ \vdots&\vdots&\ddots&\vdots\\0&0&\cdots&0\end{array}}
+	&
+	{\begin{array}{ccc}0&\cdots&0\\ \vdots&\ddots&\vdots\\0&\cdots&0\end{array}}
+	\end{array}\right]_{m\times n}
+	$$
+	biçiminde olur. Burada dikdörtgen içindeki matris $I_\rho$ matrisi, diğer kısımlar 0 elemanlarından oluşmaktadır.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envrem" id="rmk:lint:29"><h6 class="thenv">Uyarı 2.4.9</h6>
+$U=V$ ve $A=B$ olsun, bu durumda $P=Q$ olur. Bu durumda $\sigma$ dönüşümünü temsil eden matris <a class="eqref" href="#theo:lint:22">Teorem 2.4.8</a> ile verildiği kadar basit bir yapıda olmayabilir. $V$'den $V$'ye tanımlı olan aynı dönüşümü temsil eden matrislere <strong>benzer</strong> matrisler denir, buna göre $A$ ve $B$ matrislerinin benzer olması için gerek ve yeter koşul $B=P^{-1}AP$ olacak şekilde tersinir bir geçiş matrisinin var olmasıdır. Benzerlik konusu sonraki bölümlerde daha ayrıntılı olarak ele alınacaktır.
+</div>
+</p>
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Alıştırmalar</h3>
+
+
+
+<p>
+<ol>
+<li class="py-2" id="exe:lint:bazdegisim:a1">$\mathbb{R}^2$ uzayında $A:=\{(1,0), (0,1)\}$ ve $A':=\{(1/2, \sqrt{3/2}), (-\sqrt{3/2}, 1/2)\}$ bazları verilsin. $A$ bazından $A'$ bazına geçiş matrisinin $$P:=\left[\begin{array}{rr}1/2&-\sqrt{3/2}\\ \sqrt{3/2}&1/2\end{array}\right]$$ olduğunu gösterin. Daha sonra $A'$ bazından $A$ bazına geçiş matrisi olan $R$ matrisini hesaplayın ve $RP=I$ olduğunu doğrulayın.</li>
+<li class="py-2" id="exe:lint:bazdegisim:a2">$\mathbb{R}^3$ uzayında $A:=\{(1,0,0), (0,1,0), (0,0,1)\}$ ve $A':=\{(0,1,1), (1,0,1), (1,1,0)\}$ bazları verilsin. $A$ bazından $A'$ bazına ve diğer yönlü baz değişimleri için geçiş matrislerini hesaplayın. Bir önceki alıştırmada olduğu gibi yine bunların birbirinin tersi olduğunu doğrulayın.</li>
+<li class="py-2" id="exe:lint:bazdegisim:b1">$A$, $B$ ve $C$ ile $V$'nin üç bazı gösterilsin. $A$'dan $B$'ye geçiş matrisi $P$, $B$'den $C$'ye geçiş matrisi de $Q$ olsun. $PQ$ veya $QP$ matrisinin $A$'dan $C$'ye geçiş matrisi olup olmadığını araştırın.</li>
+<li class="py-2" id="exe:lint:bazdegisim:b2">Yukarıdaki <a class="eqref" href="#exe:lint:bazdegisim:a1">Alıştırma 2.4-1</a> ve <a class="eqref" href="#exe:lint:bazdegisim:a2">Alıştırma 2.4-2</a> ile görülen durum her baz değişimi için geçerlidir. Bir önceki alıştırmanın sonucunu kullanarak şunu kanıtlayın. $A$ bazından $A'$ bazına geçiş matrisi $P$, $A'$ bazından $A$ bazına geçiş matrisi de $Q$ olsun. Bu durumda $PQ=I$ olur.</li>
+<li class="py-2">$P_3$ uzayında $A:= \{1, t, t^2 \}$ ve $A':=\{t^2+t+1, t^2-t-2, t^2+t-1 \}$ bazları için geçiş matrisini hesaplayın.</li>
+</ol>
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../23-tersinir-matrisler/index.html">2.3. Tersinir Matrisler</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Lineer Cebire Giriş</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../25-hermite-normal-bicimi/index.html">2.5. Hermite Normal Biçimi</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/24-baz-degisimi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:04 GMT -->
+</html>

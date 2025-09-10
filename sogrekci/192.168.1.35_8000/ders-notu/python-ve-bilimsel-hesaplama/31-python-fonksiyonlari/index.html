@@ -1,0 +1,723 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/python-ve-bilimsel-hesaplama/31-python-fonksiyonlari/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 3.1. Python Fonksiyonları
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>3.1. Python Fonksiyonları</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-22">
+          22 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-29">
+          29 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste kendi fonksiyonlarımızı tanımlamanın ve kullanmanın yollarını öğreneceğiz. Fonksiyon tanımlama işlemi programlama dilleri için kritik öneme sahiptir ve Python'da bu işlem son derece basittir.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/doc-string/index.html">doc string</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/global-degisken/index.html">global değişken</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/hata-fonksiyonu/index.html">hata fonksiyonu</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/lambda/index.html">lambda</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/lokal-degisken/index.html">lokal değişken</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/none/index.html">None</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/python-fonksiyonu/index.html">python fonksiyonu</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/return/index.html">return</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/simpson-kurali/index.html">Simpson kuralı</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/test-fonksiyonu/index.html">test fonksiyonu</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/yaklasik-turev/index.html">yaklaşık türev</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Programlarımızda sık kullanacağımız verileri değişken olarak tanımladığımız gibi sık yapacağımız işlemleri birer fonksiyon olarak tanımlayıp isimleriyle çağırdığımızda söz konusu işlemlerin tekrar kodlarını yazmadan yapılmasını sağlayabiliriz. Şu ana kadar <code class="language-python">range()</code>, <code class="language-python">len()</code>, <code class="language-python">math.sqrt()</code> gibi bir çok hazır fonksiyon ile çalıştık, şimdi kendi fonksiyonlarımızı tanımlayıp kullanacağız.
+</p>
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Basit Fonksiyonlar</h3>
+
+
+
+
+
+<p>
+Örnek olarak ilk bölümde ele aldığımız $$y(t) = v_0t-\frac{1}{2}gt^2$$ matematik fonksiyonunu bir Python fonksiyonu olarak tanımlayalım.
+<p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+def y(t):
+    v0 = 2
+    g = 9.81
+    y = v0*t - 0.5*g*t**2
+    return y
+
+print y(0.1)
+</code></pre>
+
+<p>
+Python'da bir fonksiyon tanımlamak için satıra <code class="language-python">def</code> ifadesi ile başlayıp hemen sonrasında yukarıda görüldüğü gibi fonksiyon ismi ve parametreleri belirtilir. Alt satırlarda sağdan hizalanmış satırlarda belirtilen değişkenler ile yapılacak işlemler kodlandıktan sonra <code class="language-python">return</code> ifadesi ile başlayıp sonrasında fonksiyonun döndüreceği değerin belirtildiği bir satırla tanımı sonlandırırız. Bu örnekte tek bir parametresi ($t$) olan bir <code class="language-python">y(t)</code> fonksiyonu tanımladık. Fonksiyon tanımında <code class="language-python">v0 = 2</code> ve <code class="language-python">g = 9.81</code> değişkenlerini kullanarak <code class="language-python">y = v0*t - 0.5*g*t**2</code> hesabını yaptırıp bunun sonucunu <code class="language-python">return</code> değeri olarak tanımladık. Burada <code class="language-python">t</code> değişkenini tanımlamadığımıza dikkat edin, bu değişkeni fonksiyonun bir parametresi olarak belirttik. Fonksiyonu tanımladıktan sonra artık programımız içinde herhangi bir yerde <code class="language-python">y(0.1)</code> gibi fonksiyonu çağırarak ilgili işlemin sonucunu getirebiliriz, yukarıda bu işlemin sonucunu ekrana yazdırdık. Bu programın çıktısı aşağıdaki gibi olacaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python fonk1.py
+0.15095
+</code></pre>
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Parametreler, Değişkenler ve Dahası</h3>
+
+
+
+<p>
+Burada tanımladığımız <code class="language-python">v0</code>, <code class="language-python">g</code> ve <code class="language-python">y</code> değişkenleri fonksyion içindeki <strong>lokal</strong> değişkenlerdir, fonksiyonun dışında ana programda tanımlanmış değişkenlere ise <strong>global</strong> değişkenler denir. Program içinde hesaplama yapılırken, örneğin <code class="language-python">v0*t - 0.5*g*t**2</code> hesabı yapılırken, Python burada geçen <code class="language-python">v0</code> ve <code class="language-python">g</code> değişkenlerini <strong>önce lokal</strong> değişkenler içinde arar, bulamazsa sonra global değişkenlerde arar. Dolayısıyla yukarıdaki programda 2 ve 3 numaralı satırları silersek yine hatasız bir fonksiyon tanımlamış oluruz ama bu durumda programımızda fonksiyonu çağırmadan önce bu değişkenleri global olarak tanımlamamız gerekir. Aksi taktirde python bu değişkenlerin tanımlı olmadığını bildiren bir hata mesajı gösterecektir. Şunu da ekleyelim, lokal değişkenlere ilgili fonksiyon dışından <strong>erişemeyiz</strong>, bunlar fonksiyon işlemi yaptıktan sonra bellekten silinirler. Aşağıdaki program da aynı çıktıyı üretecektir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+def y(t):
+    return v0*t - 0.5*g*t**2
+
+v0 = 2
+g = 9.81
+print y(0.1)
+</code></pre>
+
+<p>
+Bir Python fonksiyonu birden fazla parametreye sahip olabilir, örneğin yukarıda tanımladığımız <code class="language-python">y(t)</code> fonksiyonunu geliştirerek bir <code class="language-python">y(v0, t)</code> fonksiyonu tanımlayabiliriz. Böylece fonksiyon sabit bir ilk hız için değil, verilecek olan herhangi bir ilk hız için de çalışabilir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+def y(v0, t):
+    g = 9.81
+    y = v0*t - 0.5*g*t**2
+    return y
+
+print y(2, 0.1)
+</code></pre>
+
+<p>
+Çok değişkenli fonksiyonlar çağrılırken parametre değerleri <code class="language-python">def</code> satırında belirtilen sıra ile verilmesi gerekir fakat değişkenlerin isimleri açıkça belirtilirse sıranın önemi yoktur. Yani yukarıda tanımladığımız fonksiyonu <code class="language-python">y(t=0.1, v0=2)</code> biçiminde çağırırsak da aynı sonucu alırız ama <code class="language-python">y(0.1, 2)</code> biçiminde çağırırsak farklı bir işlem yaptırmış oluruz.
+</p>
+
+<p>
+Python fonksiyonlarında bazı parametrelere varsayılan değerler tanımlayabiliriz. Böylece fonksiyon çağrılırken o parametreler verilmemişse fonksiyon belirtilen varsayılan değerleri kullanır, eğer bu parametreler belirtilerek fonksiyon çağrılırsa fonksiyon bu değerleri dikkate alır. Böyle parametrelere anahtar kelime argümanı (<strong>keyword argument</strong>) denir, varsayılan değeri olmayan sıradan parametrelere ise sıradan veya <strong>pozisyonel</strong> argüman (veya parametre) denir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+def y(v0, t, g=9.81):
+    return v0*t - 0.5*g*t**2
+
+print y(2, 0.1)
+print y(2, 0.1, 9.81)
+print y(2, 0.1, 12.0)
+</code></pre>
+
+<p>
+Yukarıdaki örnekte görüldüğü gibi varsayılan değerli parametrelerin varsayılan değerleri <code class="language-python">def</code> satırında belirtilir. Burada dikkat edilmesi gereken husus şudur, varsayılan değerli parametreler <code class="language-python">def</code> saturında mutlaka pozisyonel parametrelerden <code class="language-python">sonra</code> tanımlanmalıdır. Yukarıdaki programın çıktısı aşağıda görüldüğü gibi olacaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > fonk4.py
+0.15095
+0.15095
+0.14
+</code></pre>
+
+<p>
+Python'da basit fonksiyonları tek satırda kompakt olarak tanımlamak için bir <code class="language-python">lambda</code> ifadesi vardır. Bu yöntemle örneğin $f(x)=x^2 + 3x$ fonksiyonunu <code class="language-python">f = lambda x: x**2 + 3*x</code> biçiminde hızlıca tanımlayabiliriz. Bu yöntemle çok değişkenli fonksiyonlar ve varsayılan argümanlı fonksiyonlar da tanımlanabilir, aşağıdaki örnekleri inceleyin.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> y1 = lambda t: v0*t - 0.5*g*t**2
+>>> y2 = lambda v0, t: v0*t - 0.5*g*t**2
+>>> y3 = lambda v0, t, g=9.81: v0*t - 0.5*g*t**2
+>>>
+>>> v0 = 2; g = 9.81
+>>>
+>>> y1(0.1)
+0.15095
+>>> y2(3, 0.1)
+0.25095
+>>> y3(3, 0.1)
+0.25095
+>>> y3(3, 0.1, 1.62)
+0.29190000000000005
+</code></pre>
+
+<p>
+Bir Python fonksiyonu birden fazla değer döndürebilir, bu değerleri <code class="language-python">return</code> ifadesinden sonra virülle ayırarak belirtiriz. Bu durumda geri dönecek veri bir <code class="language-python">tuple</code> nesnesidir ve elemanları da belirttiğimiz return değerleridir. Örnek olarak tanımladığımız <code class="language-python">y(v0, t, g=9.81)</code> fonksiyonunu, fırlatılan topun belirtilen $t$ anındaki konumunun yanında hızını da döndürecek şekilde geliştirelim. Bu hızın $v0 - gt$ (konumun türevi) olarak hesaplandığını hatırlayın.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+def y(v0, t, g=9.81):
+    y = v0*t - 0.5*g*t**2
+    v = v0 - g*t
+    return y, v
+
+v0 = 2
+t = 0.1
+g = 1.62
+konum, hiz = y(v0, t, g)
+
+print "g=%g, v0=%g, t=%g\nkonum: %g\nhiz: %g " % (g, v0, t, konum, hiz)
+</code></pre>
+
+<p>
+Burada <code class="language-python">konum</code> ve <code class="language-python">hiz</code> global değişkenlerini nasıl tanımladığımıza dikkat edin. Bu programın çıktısı aşağıda verilmiştir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python fonk5.py
+g=1.62, v0=2, t=0.1
+konum: 0.1919
+hiz: 1.838
+</code></pre>
+
+<p>
+Bir Python fonksiyonunda <code class="language-python">return</code> ifadesi bulunmayabilir, fonksiyon bir nesne döndürmeden bazı işlemler yapabilir. Aşağıdaki örneği inceleyin.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+def y(v0, t, g=9.81):
+    y = v0*t - 0.5*g*t**2
+    v = v0 - g*t
+    print "g=%g, v0=%g ve t=%g\nkonum: %g\nhiz: %g " % (g, v0, t, y, v)
+
+y(2, 0.1, 1.62)
+</code></pre>
+
+<p>
+Burada fonksiyon bir <code class="language-python">return</code> değeri döndürmek yerine hesaplama sonucu elde ettiği değerleri doğrudan yazdırıyor. Yani yukarıdaki program da bir öncekiyle aynı çıktıyı üretecektir. Python'da bir değer döndürmeyen fonksiyonlar aslında özel bir nesne olan <code class="language-python">None</code> nesnesini döndürür, bir fonksiyona <code class="language-python">return</code> satırını koymazsak Python otomatik olarak ona <code class="language-python">return None</code> satırını ekler.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+>>> def f():
+...     print "merhaba"
+...
+>>> f()
+merhaba
+>>> a = f()
+merhaba
+>>> type(a)
+type 'NoneType'>
+</code></pre>
+
+<p>
+Yukarıdaki örnekte Terminal içinde interaktif olarak da bir fonksiyon tanımlamış oluyoruz. Ayrıca bu örnekte hiç bir argümanı (parametresi) olmayan bir fonksiyon da tanımlanabileceğini görmüş oluyoruz.
+</p>
+
+<p>
+Daha önce Python fonksiyonları içinde tanımladığımız lokal değişkenlere fonksiyon dışından ulaşamayacağımızı belirtmiştik, bunlara ulaşmak için <code class="language-python">return</code> ifadesiyle fonksiyonun bunları döndürmesi gerekir. Diğer yandan fonksiyon içinden global değişkenlere her zaman ulaşılabilir fakat <strong>aksi belirtilmedikçe</strong> değiştirilemez. Bunun için global olarak aynı isimde bir değişken tanımlanmalıdır, fonksiyon içinden global bir <code class="language-python">x</code> değişkeni tanımlamak için <code class="language-python">global x</code> biçiminde bir ifade sonrasında değer atanmalıdır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+def f(x):
+    a = 2
+    return a + x
+
+def g(x):
+    global a
+    a += x
+    return a + x
+
+a = 0
+print f(5), a, g(5), a, f(5), a, g(5), a
+</code></pre>
+
+<p>
+Yukarıdaki programı dikkatli bir şekilde inceleyin. Dikkat ederseniz her iki fonksiyon da <code class="language-python">a</code> isimli bir değişken kullanıyor, ayrıca aynı isimde bir de global değişken var. <code class="language-python">f</code> içinde tanımlanan <code class="language-python">a</code> değişkeni lokal bir değişken olarak kalıyor ve global olan <code class="language-python">a</code> değişkenini etkilemiyor. Fakat <code class="language-python">g</code> fonksiyonu içinde kullanılan <code class="language-python">a</code> değişkeni global olarak alınıyor  ve yapılan yeni atamalar global <code class="language-python">a</code> değişkeninin değerini de değiştirmiş oluyor. Programın çıktısı aşağıdaki gibi olacaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python fonk7.py
+7 0 10 5 7 5 15 10
+</code></pre>
+
+<p>
+Python fonksiyonları parametre olarak başka fonksiyonları alabilirler. Örneğin bir $f$ fonksiyonunun ikinci türevini yaklaşık olarak hesaplamakta kullanılan $$f''(x)\approx\frac{f(x-h)-2f(x)+f(x+h)}{h^2}$$ formülünde $f''$ fonksiyonu tanımlanırken $f$ fonksiyonu bir değişken olarak kullanılır. Başka programlama dillerinde bu işlemler biraz karmaşıktır ama pythonda sıradan bir argüman tanımlamaktan hiçbir farkı yoktur. Örneğin yukarıdaki yaklaşık türev hesabını yapan fonksiyon aşağıdaki gibi tanımlanabilir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+from math import cos, pi
+
+def turev2m(f, x, h=1E-6):
+    r = (f(x-h) -2*f(x) +f(x+h))/(h**2)
+    return r
+
+def f(x):
+    return cos(x)
+
+x = pi
+for k in range(1, 15):
+    h = 10**(-k)
+    yaklasik_turev = turev2m(f, x, h)
+    net_turev = -f(x)
+    hata = abs(turev2m(f, x, h) + f(x))
+    print "h=%.3e, yaklasik turev=%f, kesin turev=%g, hata=%g" \
+    % (h, yaklasik_turev, net_turev, hata)
+</code></pre>
+
+<p>
+Burada kullandığımız <code class="language-python">abs()</code> fonksyionu verilen argümanın <strong>mutlak değerini</strong> döndürür. Ayrıca uzun satırları <code class="language-python">\</code> karakteri ile bölebilirsiniz, yukarıda <code class="language-python">print</code> ifadesinde bunu kullandık. Yukarıdaki programın çıktısı aşağıda verilmiştir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python fonk8.py
+h=1.000e-01, yaklasik turev=0.999167, kesin turev=1, hata=0.000833056
+h=1.000e-02, yaklasik turev=0.999992, kesin turev=1, hata=8.33331e-06
+h=1.000e-03, yaklasik turev=1.000000, kesin turev=1, hata=8.3349e-08
+h=1.000e-04, yaklasik turev=1.000000, kesin turev=1, hata=6.07747e-09
+h=1.000e-05, yaklasik turev=1.000000, kesin turev=1, hata=8.27404e-08
+h=1.000e-06, yaklasik turev=1.000089, kesin turev=1, hata=8.89006e-05
+h=1.000e-07, yaklasik turev=0.988098, kesin turev=1, hata=0.0119015
+h=1.000e-08, yaklasik turev=0.000000, kesin turev=1, hata=1
+h=1.000e-09, yaklasik turev=0.000000, kesin turev=1, hata=1
+h=1.000e-10, yaklasik turev=0.000000, kesin turev=1, hata=1
+h=1.000e-11, yaklasik turev=0.000000, kesin turev=1, hata=1
+h=1.000e-12, yaklasik turev=0.000000, kesin turev=1, hata=1
+h=1.000e-13, yaklasik turev=0.000000, kesin turev=1, hata=1
+h=1.000e-14, yaklasik turev=0.000000, kesin turev=1, hata=1
+</code></pre>
+
+<p>
+Matematiksel olarak $h\rightarrow0$ için yukarıda tanımladığımız oranın $f''(x)$ kesin değerine yakınsadığı kanıtlanabilir. Ama burada programımızın çıktısında belirli bir noktadan sonra <code class="language-python">h</code> küçüldükçe hatanın büyüdüğünü görüyoruz. Bunun sebebi yuvarlama hatalarıdır, $h$ sayısı çok hızlı bir şekilde küçüldüğünde $h^{-2}$ sayısı hızlı bir şekilde büyür. Dolayısıyla $h$ hızlıca küçülürken $h^{-2}$ <code class="language-python">float</code> nesnesindeki küçük yuvarlama hataları belli bir noktadan sonra yakınsamayı bozacak kadar büyür.
+</p>
+
+<p>
+Pythonda bir fonksiyon tanımlandığında kısa bir dokümantasyon metni ile fonksiyonu tanıtmak adettir. Bu metne <strong>doc string</strong> denir üç tırnak işareti içinde <code class="language-python">def</code> satırından <strong>hemen sonra</strong> yazılır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+def erf(x, n):
+    """
+    Bu fonksiyon erf(x) hata fonksiyonunun yaklasik degerini hesaplar.
+    Kullanimi erf(x, n) bicimindedir. x bir float, n bir int.
+    Ornek: erf(1.0, 100)
+    """
+    from math import factorial, sqrt, pi
+    s = 0
+    for k in range(n + 1):
+        terim = ((-1)**k)*(x**(2*k+1))/(factorial(k)*(2*k+1))
+        s = s + terim
+    return 2*s/sqrt(pi)
+
+n = 100
+xlist = [-3 + i*0.5 for i in range(13)]
+for x in xlist:
+    print "x = %4.1f, erf(x)=%10f" % (x, erf(x, n))
+</code></pre>
+
+<p>
+Çalıştığımız fonksiyonların doc string metnine <code class="language-python">help(fonksiyon)</code> veya <code class="language-python">fonksiyon.__doc__</code> komutlarıyla ulaşabiliriz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > import math
+>>> help(math.sin)
+Help on built-in function sin in module math:
+
+sin(...)
+sin(x)
+
+Return the sine of x (measured in radians).
+>>>
+>>> print math.sin.__doc__
+sin(x)
+
+Return the sine of x (measured in radians).
+</code></pre>
+
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Örnek: Hata Fonksiyonu</h3>
+
+
+
+
+
+<p>
+Bilimsel hesaplamalarda sıklıkla bir sonlu toplamı kullanarak fonksiyonlar tanımlamaya ihtiyaç duyarız. Bunları yapmak için fonksiyon tanımında bir döngü kurmamız gerekir. Örneğin istatistikte 0 ortalama değere ve $1/2$ standart sapmaya sahip olan normal dağılımlı bir rastgele değişkenin $[-x, x]$ aralığına düşme olasılığı $$\text{erf}(x):=\frac{2}{\sqrt{\pi}}\int_{0}^{x}\text{e}^{-t^2}\text{dt}$$ ile verilir, bu fonksiyon <strong>hata fonksiyonu</strong> olarak adlandırılır. Bu integral elemanter fonksiyonlar cinsinden ifade edilemez fakat yaklaşık olarak $$\text{erf}(x)\approx\frac{2}{\sqrt{\pi}}\sum_{k=0}^{n}\frac{(-1)^{k}x^{2k+1}}{k!(2k+1)}$$ formülü ile hesaplanabilir.
+</p>
+
+<p>
+Bu fonksiyonu Python'da basit bir döngü yardımıyla tanımlayıp bazı değerlerini hesaplatabiliriz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+def erf(x, n):
+    from math import factorial, sqrt, pi
+    s = 0
+    for k in range(n + 1):
+        terim = ((-1)**k)*(x**(2*k+1))/(factorial(k)*(2*k+1))
+        s = s + terim
+    return 2*s/sqrt(pi)
+
+n = 100
+xlist = [-3 + i*0.5 for i in range(13)]
+for x in xlist:
+    print "x = %4.1f, erf(x)=%10f" % (x, erf(x, n))
+</code></pre>
+
+<p>
+Programın çıktısı aşağıdaki gibi olacaktır.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+Terminal > python erf1.py
+x = -3.0, erf(x)= -0.999978
+x = -2.5, erf(x)= -0.999593
+x = -2.0, erf(x)= -0.995322
+x = -1.5, erf(x)= -0.966105
+x = -1.0, erf(x)= -0.842701
+x = -0.5, erf(x)= -0.520500
+x =  0.0, erf(x)=  0.000000
+x =  0.5, erf(x)=  0.520500
+x =  1.0, erf(x)=  0.842701
+x =  1.5, erf(x)=  0.966105
+x =  2.0, erf(x)=  0.995322
+x =  2.5, erf(x)=  0.999593
+x =  3.0, erf(x)=  0.999978
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Test Fonksiyonları</h3>
+
+
+
+
+
+<p>
+Python'da tanımladığımız bir fonksiyon kodlama açısından hiç bir hata içermeyebilir, çalıştırıldığında Python hiç bir hata mesajı göstermeyebilir. Fakat fonksiyonun yaptığı matematiksel veya diğer genel işlemler hatalı olabilir. Örneğin yukarıda tanımladığımız <code class="language-python">erf(x, n)</code> fonksiyonu hatalı hesaplama yapıyor olabilir, bu gibi durumları tespit etmek için her yazdığımız programı test etmeliyiz. Yazdığımız fonksiyonlar geliştikçe bu testleri manuel olarak yapmak zorlaşır, bunun için <strong>test fonksiyonları</strong> tanımlarız. Bir test fonksiyonu, başka bir fonksiyonun önceden bilinen argüman ve değeleri ile test edip beklenen sonucun dönüp dönmediğini kontrol eden bir fonksiyondur. Örneğin yukarıda tanımladığımız $\text{erf}(x)$ fonksiyonu için matematiksel olarak $\text{erf}(0)=0$ olduğunu biliyoruz. Yazdığımız fonksiyonu test etmek için bu veriyi kullanabiliriz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+def erf_test():
+    x = 0
+    n = 100
+    if erf(x, n) == 0:
+        print "test basarili"
+    else:
+        print "test basarisiz"
+</code></pre>
+
+<p>
+Bu tanımladığımız fonksiyon amacımıza hizmet etse de modern test fonksiyonları bu şekilde olmamalıdır. Yazılımları test etmek önemli bir iştir ve bunun için çok geniş paketler bulunur Python'da. Modern bir test fonksiyonu aşağıdaki özelliklere sahip olmalıdır.
+<ul>
+<li class="py-2">İsmi <code class="language-python">test_</code> ile başlamalı.</li>
+<li class="py-2">Hiçbir argümanı olmamalı.</li>
+<li class="py-2">Bir bool değişkeni tanımlanmalı, örneğin <code class="language-python">test</code>. Test başarılı olursa <code class="language-python">True</code>, başarısız olursa <code class="language-python">False</code> değerini almalı.</li>
+<li class="py-2">Neyin başarısız olduğunu bildiren bir mesaj üretmeli, <code class="language-python">hata</code> gibi.</li>
+<li class="py-2"><code class="language-python">assert test, hata</code> komutunu kullanmalı. Bu komut; <code class="language-python">success = False</code> ise <code class="language-python">msg</code> hata mesajını döndürür.</li>
+</ul>
+</p>
+
+<p>
+Bunlara uygun bir test fonksiyonu aşağıdaki gibi olabilir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+def test_erf():
+    hesaplanan = erf(0, 100)
+    beklenen = 0.0
+    tolerans = 1E-12
+    test = abs(beklenen - hesaplanan) < tolerans
+    msg = "hatali hesap"
+    assert test, msg
+</code></pre>
+
+<p>
+<code class="language-python">erf(x, n)</code> fonksiyonu yanlış hesap yapmazsa bu test fonksiyonu hiç bir çıktı üretmez. Fakat <code class="language-python">erf(x, n)</code> fonksiyonu hatalı işlem yaparsa <code class="language-python">test_erf()</code> fonksiyonu hata üretir ve belirtilen hata mesajını gösterir. 5. satırda doğrudan karşılaştırma yerine belirli bir tolerans ile kıyaslama yaptık, yuvarlama hatalarını göz önüne almazsak fonksiyonumuz doğru hesap yapsa bile test fonksiyonu yanlış algılayabilir.
+</p>
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Örnek: Simpson Kuralı</h3>
+
+
+
+
+<p>
+Başka bir örnek olarak nümerik integrasyon için kullanılan ve <strong>Simpson kuralı</strong> olarak bilinen yöntemi ele alalım. Bu yöntemle bir $$\int_{a}^{b}f(x)dx$$ integrali  $$\int_{a}^{b}f(x)dx \approx \frac{h}{3}\left( f(a)+ f(b) +4\sum_{i=1}^{n/2}f(a+(2i-1)h) + 2\sum_{i=1}^{n/2-1}f(a+2ih) \right) $$ formülü ile yaklaşık olarak hesaplanabilir. Burada $n$ bir çift tamsayı ve $h=(b-a)/n$ dir. Şimdi bu hesaplamayı yapacak olan bir <code class="language-python">Simpson(f, a, b, n=100)</code> fonksiyonu tanımlayalım.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+def Simpson(f, a, b, n=100):
+    h = (b-a)/float(n)
+    toplam1 = 0
+    toplam2 = 0
+    
+    for i in range(1, n/2 + 1):
+        toplam1 += f(a + (2*i-1)*h)
+    
+    for i in range(1, n/2):
+        toplam2 += f(a + 2*i*h)
+    
+    integral = (h/3)*(f(a) + f(b) + 4*toplam1 + 2*toplam2)
+    return integral
+</code></pre>
+
+<p>
+Bu fonksiyonu kullanarak bir işlem yapalım. $\int_{0}^{\pi}\sin^3(x)\text{d}x=4/3$ olduğunu biliyoruz. Aşağıdaki döngüyle farklı adım sayılarıyla Simpson kuralı yaklaşık hesabını yaptıralım.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+from math import sin, pi
+
+f = lambda x: sin(x)**3
+a = 0; b = pi
+
+for n in 2, 5, 10, 50, 100, 500, 1000:
+    hesap = Simpson(f, a, b, n)
+    kesin = 4.0/3
+    hata = abs(hesap - kesin)
+    print "n = %4d, Hesaplanan=%.12f, Hata=%g" % (n, hesap, hata)
+</code></pre>
+
+<p>
+Bu döngü ile aşağıdaki tablo üretilecektir, göreceğimiz gibi <code class="language-python">n</code> adım sayısı arttıkça hata azalıyor.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+n =    2, Hesaplanan=2.094395102393, Hata=0.761062
+n =    5, Hesaplanan=1.251135387587, Hata=0.0821979
+n =   10, Hesaplanan=1.332599724263, Hata=0.000733609
+n =   50, Hesaplanan=1.333332289401, Hata=1.04393e-06
+n =  100, Hesaplanan=1.333333268318, Hata=6.50158e-08
+n =  500, Hesaplanan=1.333333333229, Hata=1.03907e-10
+n = 1000, Hesaplanan=1.333333333327, Hata=6.49392e-12
+</code></pre>
+
+<p>
+Şimdi bir de bu fonksiyon için test yazalım. Bunu yazabilmemiz için Simpson kuralının kesin değer verdiği bir durum kullanmalıyız. Simpson kuralının şöyle ilginç bir özelliği var, bu kural ile 2 veya daha küçük dereceli polinomların integrali hatasız olarak hesaplanıyor. Bunu kullanarak aşağıdaki test fonksiyonu tanımlanabilir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+def test_Simpson():
+    a = 1.5; b = 2.0; n = 10; tolerans = 1E-14
+    g = lambda x: 3*x**2 - 2*x + 2#integrand
+    G = lambda x: x**3 - x**2 + x#integral
+    kesin = G(b) - G(a)
+    hesap = Simpson(g, a, b, n)
+    test = abs(kesin - hesap) < tolerans
+    msg = "Simpson: %g, Analitik: %g" % (hesap, kesin)
+    assert test, msg
+</code></pre>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../23-if-else-kosullu-yapisi/index.html">2.3. If-Else Koşullu Yapısı</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Python ve Bilimsel Hesaplama</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../32-kullanicidan-veri-alma/index.html">3.2. Kullanıcıdan Veri Alma</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/python-ve-bilimsel-hesaplama/31-python-fonksiyonlari/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:48 GMT -->
+</html>

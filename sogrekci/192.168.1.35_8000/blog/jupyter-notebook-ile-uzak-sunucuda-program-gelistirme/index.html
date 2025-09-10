@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/blog/jupyter-notebook-ile-uzak-sunucuda-program-gelistirme/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:34:07 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - Jupyter Notebook İle Uzak Sunucuda Program Geliştirme
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../static/site/prism.css">
+    <script src="../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>Jupyter Notebook İle Uzak Sunucuda Program Geliştirme</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2021-04-09">
+          9 Nisan 2021
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2021-07-30">
+          30 Temmuz 2021
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu yazımda sizlere uzak bir bilgisayarda kodlama yapmanın bir yolunu açıklayacağım. Bunun için uzak sunucuda Jupyter Lab servisi kurup buna yerel bilgisayarımızda erişeceğiz. Yazımın sonunda yer alan videoda adımların uygulanışını izleyebilirsiniz.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../dizin/aws/index.html">AWS</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/ddns/index.html">DDNS</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/ec2/index.html">EC2</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/jupyter-lab/index.html">Jupyter Lab</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/jupyter-notebook/index.html">Jupyter Notebook</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/noip-duc/index.html">Noip DUC</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/python/index.html">python</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/systemd/index.html">systemd</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-5 text-justify">
+        <p>
+Bazı durumlarda uzak bir bilgisayarda kodlama yapmak ihtiyacı hissederiz, mesela yapay zeka ve büyük veri uygulamalarında yüksek kapasiteli sanal sunucuların gücünden faydalanmak isteriz. Bunu yapmanın pratik bir yolu uzak sunucuya Jupyter Notebook sunucusu kurup lokal bilgisayarınızdan buna bağlanmaktır. Bu yazımda bunun nasıl yapılabileceğini açıklayacağım, bunun birden fazla yolu var fakat açıklayacağım yöntem bana göre en pratik yöntemdir. Uzaktaki sunucunun bir linux işletim sistemine sahip olduğunu ve 80 numaralı HTTP portunun açık olduğunu varsayıyorum, ben Ubuntu 20.04 ile uyguladım. Yöntem kabaca şu adımlardan oluşuyor: Uzak sunucuda gerekli paketlerin yüklenmesi, DDNS kurulumu, Jupyter Notebook kurulumu ve ayarlarının yapılması, systemd aracılığıyla kurulan uygulamaların sistem başlangıcında otomatik olarak başlamasının sağlanması.
+</p>
+
+
+<h3>Ön Hazırlık</h3>
+<p>
+Öncelikle uzak sunucuda bize gerekli paketlerin yüklenmesi gerekiyor, <code class="language-python">sudo apt-get upgrade</code>  ile paket listenizi güncelleyip sonrasında <code class="language-python">sudo apt-get install gcc</code> yazarak <code class="language-python">gcc</code> paketini yükleyin. Daha sonra benzer şekilde <code class="language-python">make</code> ve <code class="language-python">python3-venv</code> paketlerini yükleyin.
+</p>
+
+
+<h3>DDNS Ayarları</h3>
+<p>
+Bu aşamada öncelikle <a class="outref" target="_blank" href="http://www.noip.com/">noip</a> sitesini ziyaret edip ücretsiz bir hesap açın ve bir alan adı oluşturun (bu siteye erişmek için VPN kullanmak gerekebilir). Daha sonra da <a class="outref" target="_blank" href=https://www.noip.com/support/knowledgebase/installing-the-linux-dynamic-update-client-on-ubuntu/">şu sayfadaki<a> adımları takip ederek Noip DUC yazılımını kurun. Bu yazılım uzak sunucunuzun ip adresi değiştiğinde gerekli güncellemeyi noip servisine bildirecek. Bu yazılımın sistem açılışında otomatik olarak çalışmaya başlamasını sağlamak için bir systemd servisi oluşturalım. Bunun için aşağıdaki kodları <code class="language-python">/etc/systemd/system/noip2.service</code> olarak kaydedin. Bundan sonra <code class="language-python">sudo systemctl daemon-reload</code> komutunu, sonrasında da sırasıyla <code class="language-python">sudo systemctl start noip2</code> ve <code class="language-python">sudo systemctl enable noip2</code> komutlarını çalıştırın. Servisin durumunu <code class="language-python">sudo systemctl status noip2</code> komutu ile ekrana yazdırabilirsiniz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+[Unit]
+Description=Noip Dynamic Update Client
+After=network.target
+After=syslog.target
+
+[Service]
+ExecStart=/usr/local/bin/noip2
+Restart=always
+Type=forking
+
+[Install]
+WantedBy=multi-user.target
+Alias=noip.service
+</code></pre>
+
+
+<h3>Jupyter Server Kurulumu</h3>
+<p>
+Bunun için uzak sunucuda bir <code class="language-python">jpserver</code> klasörü oluşturun, bunun içine girip <code class="language-python">python3 -m venv env</code> ile bir sanal ortam oluşturun. Bu klasörde bir de ayrıca <code class="language-python">notebooks</code> klasörü oluşturun, çalışma klasörünüz bu olacak. Sonra <code class="language-python">source env/bin/activate</code> ile sanal ortamı aktif hale getirin. Daha sonra <code class="language-python">pip install --upgrade pip</code> ile <code class="language-python">pip</code> paketini güncelleyin, sonrasında <code class="language-python">pip install jupyterlab</code> komutu ile <code class="language-python">jupyterlab</code> paketini yükleyin.
+</p>
+
+
+<h3>Jupyter Ayarlarının Yapılması</h3>
+<p>
+Bu aşamada Jupyter paketini uzak bağlantılara servie yapabilmesi için gerekli şekilde ayarlayacağız. Önce <code class="language-python">jupyter notebook --generate-config</code> komutuyla bir <code class="language-python">config</code> dosyası oluşturun, bu dosyanın yeri ekranda yazılacaktır. Daha sonra <code class="language-python">jupyter notebook password</code> komutunu girerek bir şifre oluşturun, parola hash verisinin saklandığı dosyanın yeri ekranda yazılacaktır. Bu dosyaya girip bu hash verisini kopyalayın. Sonra da az önce oluşturduğunuz <code class="language-python">config</code> dosyasını düzenlemek için açın, aşağıdaki kodları ekleyin. Az önce kopyaladığınız hash verisini de kullanacaksınız.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+c.NotebookApp.ip = '*'
+c.NotebookApp.port = 80
+c.NotebookApp.allow_root = True
+c.NotebookApp.open_browser = False
+c.NotebookApp.password = "şifre hash"
+</code></pre>
+
+
+<p>
+Şimdi Jupyter servisinin sistem başlangıcında arka planda otomatik olarak başlamasını sağlayacağız, bunun için yine systemd servisi oluşturmalıyız. Aşağıdakileri <code class="language-python">/etc/systemd/system/jupyterlab.service</code> olarak kaydedin, farklı klasör ve kullanıcı isimleri için düzenleme yapmak durumunda olabilirsiniz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+[Unit]
+Description=Jupyter Lab Server
+
+[Service]
+Type=simple
+WorkingDirectory=/home/ubuntu/jpserver/notebooks/
+ExecStart=/home/ubuntu/jpserver/env/bin/jupyter-lab --config=/home/ubuntu/.jupyter/jupyter_notebook_config.py             
+StandardOutput=null
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+
+<p>
+Sonra <code class="language-python">sudo systemctl daemon-reload</code> komutunu, sonrasında da sırasıyla <code class="language-python">sudo systemctl start jupyterlab</code> ve <code class="language-python">sudo systemctl enable jupyterlab</code> komutlarını çalıştırın. Bu servisin anlık durumunu <code class="language-python">sudo systemctl status jupyterlab</code> komutu ile görüntüleyebilirsiniz.
+</p>
+
+<h3>Test</h3>
+<p>
+Şimdi uzak sunucunuzu kapatıp açın ve DDNS adımında seçtiğiniz alan adını ziyaret edin, bi aksilik olmazsa Jupyter Lab uygulaması çalışması ve sizden şifre istemesi gerekiyor. Ben burada anlattıklarımı AWS'de bir EC2 sanal sunucusunda uyguladım, aşağıdaki videoda izleyebilirsiniz. 
+</p>
+
+<p>
+<div class="embed-responsive embed-responsive-16by9 my-5">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1F8BCy7klKw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Blog Yazısı:<br>
+        <a href="../e-kitaplar-ve-bir-epub-dosyasinin-anatomisi/index.html">E-Kitaplar ve Bir EPUB Dosyasının Anatomisi</a>
+        
+      </div>
+      <div class="col text-center mt-auto">
+        <a href="../index.html">Blog Ana Sayfası</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Blog Yazısı:<br>
+        <a href="../docker-nedir-ve-nasil-kullanilir/index.html">Docker Nedir ve Nasıl Kullanılır?</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+
+
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../ders-notu/index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/blog/jupyter-notebook-ile-uzak-sunucuda-program-gelistirme/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:34:07 GMT -->
+</html>

@@ -1,0 +1,399 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/28-bazi-uygulamalar/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:04 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 2.8. Bazı Uygulamalar
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>2.8. Bazı Uygulamalar</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-06-01">
+          1 Haziran 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derse kadar Hermite normal biçimin bazı önemli uygulamalarını gördünüz, matris tersi hesaplama, lineer problem çözümü gibi. Bu bölümde başka bazı uygulamalar özetlenecektir.</em></p>
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Bu bölümde elementer satır işlemleri ve Hermite normal formu kullanarak daha önce ele aldığımız bazı problemler için pratik hesaplama teknikleri geliştireceğiz.
+</p>
+
+
+
+
+<h3 class="mt-5 mb-3">Alt Uzaylar İçin Standart Bazlar</h3>
+
+
+
+
+
+<p>
+$A:=\{\alpha_1,\ldots,\alpha_n \}$ kümesi $U$ vektör uzayı için bir baz ve $W$ kümesi de $B:=\{\beta_1,\ldots,\beta_r \}$ kümesi tarafından gerilen bir alt uzay olsun. Ayrıca $\beta_i=\sum_{j=1}^{n}b_{ij}\alpha_j$ olsun, yani $\beta_i$ vektörü $\left(b_{i1},\ldots,b_{in} \right)$ sıralı $n-$lisi tarafından temsil edilsin. Bu durumda $B:=\left[b_{ij}\right]$ matrisinin her bir satırı $B$ kümesinin bir vektörünü temsil eden bir sıralı $n-$li olur. Şimdi $B$ matrisine bir elementer satır işlemi uygulayarak $B'$ matrisini elde edelim, bu durumda $B'$ matrisinin her bir satırı $B$ matrisinin satırlarının birer lineer kombinasyonu olacaktır. Her elementer işlemin tersi var olduğundan (bk. <a class="eqref" href="../26-elementer-matrisler/index.html#rmk:lint:32">Uyarı 2.6.2</a>) $B$ matrisinin her bir satırı da $B'$ matrisi satırlarının birer lineer kombinasyonu olur. Bundan dolayı $B$ ve $B'$ matrsileri satırlarının temsil ettiği kümeler aynı alt uzayı, $W$ alt uzayını, gerer. Bundan hareketle elementer satır işlemleriyle $B$ matrisini Hermite normal formuna indirgeyerek $W$ kümesini geren başka bir küme elde edebiliriz, diğer yandan Hermite normal biçimindeki matrislerin sıfırdan farklı satırları lineer bağımsız olduğundan bunlar $W$ için bir baz olacaktır.
+</p>
+
+<p>
+Şimdi $U$ vektör uzayını geren başka bir $C$ kümesini ele alalım, yukarıda yapıldığı gibi satırları bu kümenin vektörlerini temsil eden bir $C$ matrisi elde edilebilir ve bu da $C'$ Hermite normal formuna indirgenebilir. $B$ ve $C$ kümeleri aynı sayıda elemana sahip olamayabileceği için karşılık gelen $B$ ve $C$ matrislerinin sütun sayıları aynı olmayabilir. Fakat her ikisinde de sıfırdan farklı satır sayısı aynı olmalıdır, $\dim W$ kadar. Bunların sıfırdan farklı bu satırlarının özdeş olduğunu iddia ediyoruz, şimdi bunu göstereceğiz.
+</p>
+
+<p>
+Bunu göstermek için $B'$ matrisinin sıfırdan farklı satırlarının altına $C'$ matrisinin sıfırdan farklı satırlarını ekleyerek yeni bir matris oluşturalım ve bunu Hermite normal formuna indirgeyelim. $C'$ matrisinin satırları $B'$ matrisi satırlarına lineer bağımlı olduğundan elementer satır işlemleriyle $C'$ matrisinin satırları yok edilebilir, sonuçta sadee $B'$ matrisi satırları kalır. $B'$ matrisi zaten Hermite normal formda olduğundan daha fazla indirgeme yapılamaz. Şimdi başa dönerek, oluşturduğumuz matrisin satırlarını yer değiştirip (bu bir elementer işlemdir) $C'$ matrisinin sıfırdan farklı satırları altında $B'$ matrisinin sıfırdan farklı satırları olan bir matris elde edelim. Daha sonra elementer işlemlerle $B'$ matrisine ait satırları yok edip sadece $C'$ satırlarını bırakalım, bu da bir Hermite normal biçimli matris olacağından daha fazla indirgeme yapamayız. Bir matrisin Hermite normal biçimi tek türlü olduğundan bu yolla $B'$ ve $C'$ matrislerinin sıfırdan farklı satırlarının özdeş olduğu sonucuna ulaşmış oluruz.
+</p>
+
+<p>
+Bu şekilde elde edilen baza $W$ alt uzayının $A$ bazına göre <strong>standart bazı</strong> denir. Bunu kullanarak herhangi iki kümenin aynı alt uzayı gerip germedikleri kolayca test edilebilir. Örneğin <a class="eqref" href="../14-alt-uzaylar/index.html#exe:vec:altuzay:3">Alıştırma 1.4-3</a> ile $\{(1,1,0,0), (1,0,1,1)\}$ ve $\{(2,-1,3,3),(0,1,-1,-1)\}$ kümelerinin $\mathbb{R}^4$'ün aynı alt uzayını gerdiklerinin gösterilmesi istenmişti. Bu yöntemle her iki durumda da standart baz $\{(1,0,1,1), (0,1,-1,-1) \}$ olarak kolayca elde edilebilir.
+</p>
+
+
+
+
+<h3 class="mt-5 mb-3">İki Alt Uzayın Toplamı</h3>
+
+
+
+<p>
+ İki kümenin toplamının bir bazını tespit etmek için de Standart baz yönteminden faydalanabiliriz. $A_1$ kümesi $W_1$ alt uzayını, $A_2$ kümesi de $W_2$ alt uzayını geriyorsa $A\cup B$ kümesinin $W_1+W_2$ alt uzayını gerdiğini biliyoruz (bk. <a class="eqref" href="../14-alt-uzaylar/index.html#theo:vec:17">Teorem 1.4.8</a>). Dolayısıyla $W_1+W_2$ uzayının bir bazını tespit etmek için $A\cup B$ kümesi vektörlerini temsil eden sıralı $n-$lilerden geniş bir matris oluşturup Hermite normal biçimine indirgeyebiliriz.
+ </p>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <h3 class="mt-5 mb-3">Bir Alt Uzayın Bir Lineer Problem Tarafından Belirlenmesi</h3>
+
+
+
+
+
+<p>
+Bir homojen lineer problemin tüm çözümlerinin kümesinin bir alt uzay, $K(\sigma)$, olduğunu biliyoruz (bk. <a class="eqref" href="../27-lineer-problemler/index.html#rmk:lint:40">Uyarı 2.7.2</a>). Bir önceki bölümde <a class="eqref" href="../27-lineer-problemler/index.html#ex:lint:6">Örnek 2.7.9</a> ile tarif edilen yöntemde çözümlerin kümesini çözüm uzayının baz vektörlerinin lineer kombinasyonu olarak nasıl elde edildiği gösterilmiştir. Şimdi şu soruya çözüm arayacağız: bir $W$ alt uzayını geren bir küme verildiğinde tüm çözümlerinin kümesi bu uzay olan bir lineer problem nasıl tespit edilebilir?
+</p> 
+
+<p>
+Eğer $a_1x_1+\cdots +a_nx_n=0$ ve $b_1x_1+\cdots+b_nx_n=0$ iki farklı homojen lineer denklem ise $(a_1+b_1)x_1+\cdots+(a_n+b_n)x_n=0$ ve bir $a\in F$ skaleri için $aa_1x_1+\cdots+aa_nx_n=0$ eşitlikleri de birer homojen lineer denklem olurlar. Dolayısıyla $n-$bilinmeyenli tüm homojen lineer denklemlerin kümesi $F$ cismi üzerinde bir vektör uzayıdır, bu uzaydaki bir $a_1x_1+\cdots+a_nx_n=0$ vektörü $(a_1,\ldots,a_n)$ sıralı $n-$lisi ile temsil edilir. Bu uzaydan alınan bazı denklemlerin oluşturduğu bir lineer problemin matris temsilini yazıp Hermite normal biçime indirgersek, bu bölümde daha önce yaptığımız gibi bu denklemler tarafından gerilen alt uzayın standart bazını elde edebiliriz. Ele alınan lineer denklem sisteminin rankı bu alt uzayın boyutu olacaktır.
+</p>
+
+<p>
+Şimdi bir küme tarafından gerilen bir $W$ alt uzayı verilsin, $W$'deki vektörleri sağlayan tüm lineer denklemlerin oluşturduğu $E$ alt uzayını belirleyelim. Daha sonra $E$'de oluşan sistemin tüm çözümlerinin oluşturduğu alt uzayı tespit edelim, bu durumda $W$ uzayı tüm çözümlerin uzayının bir alt uzayı olmalıdır. $\dim W=\nu$ olsun, bu durumda <a class="eqref" href="../27-lineer-problemler/index.html#theo:lint:26">Teorem 2.7.8</a> gereği $\dim E=n-\nu$ olur. Diğer yandan tüm çözümlerin oluşturduğu alt uzayın boyutu da $n-(n-\nu)=\nu$ olacaktır, dolayısıyla $W$ alt uzayı tam olarak tüm çözümlerin uzayıdır. Yani $E$ ve $W$ uzayları birbirlerini karakterize eder.
+</p>
+
+<p>
+Bir denklem sistemi verildiğinde onu Hermite normal biçimini çözersek çözüm uzayı için bir baz elde ederiz fakat bu baz çözüm uzayının standart bazı olmayabilir. Eğer elementer saır işlemlerini en sol taraftaki sütun yerine en sağ taraftaki sütundan başlayarak işlem yaparsak ve bu şekilde elde edeceğimiz bazı standart baz olarak tanımlarsak ulşacağımız denklemler standart denklemler, bunların çözümleri de çözüm uzayının standart bazı olacaktır. Aşağıdaki örnekte bu fikri göstereceğiz ama genel durumda bu yöntemdeki gibi standart tanımları değiştirmek tavsiye edilmez.
+</p>
+ 
+<p>
+<div class="envex" id="ex:lint:7"><h6 class="thenv">Örnek 2.8.1</h6>
+$W:=\left\{\langle (1,0,-3,11,-5), (3,2,5,-5,3), (1,1,2,-4,2), (7,2,12,1,2) \rangle \right\}$ verilsin. Yukarıda anlatıldığı anlamda standart bazı tespit etmek için
+ 	$$
+ 	\left[\begin{array}{rrrrr}
+ 	1&0&-3&11&-5\\
+ 	3&2&5&-5&3\\
+ 	1&1&2&-4&2\\
+ 	7&2&12&1&2
+ 	\end{array}\right]
+ 	$$
+ 	matrisini sağdan sola doğru elementer satır işlemleriyle
+ 	$$
+ 	\left[\begin{array}{rrrrr}
+ 	2&0&5&0&1\\
+ 	1&0&2&1&0\\
+ 	1&1&0&0&0\\
+ 	0&0&0&0&0
+ 	\end{array}\right]
+ 	$$
+ 	formuna indirgeyelim. Bu matristen sistemimizin katsayılarının
+ 	$$
+ 	\begin{array}{rrrrrrrrrrr}
+ 	2a_1&&&+&5a_3&&&+&a_5&=&0\\
+ 	a_1&&&+&2a_3&+&a_4&&&=&0\\
+ 	a_1&+&a_2&&&&&&&=&0
+ 	\end{array}
+ 	$$
+ 	eşitliklerini sağladığını anlarız. Burada $a_1$ ve $a_3$ katsayılarına keyfi değerler vererek diğerlerini bunlar cinsinden çözebiliriz.Bu sistemi
+ 	$$
+ 	\begin{array}{rrrrr}
+ 	a_1&=&a_1&&\\
+ 	a_2&=&-a_1&&\\
+ 	a_3&=&&&a_3\\
+ 	a_4&=&-a_1&-&2a_3\\
+ 	a_5&=&-2a_1&-&5a_3
+ 	\end{array}
+ 	$$
+ 	olarak yazarsak $$ (a_1,a_2,a_3,a_4,a_5)=a_1(1,-1,0,-1,-2)+a_3(0,0,1,-2,-5) $$ olduğunu elde edebiliriz. Buradaki $(1,-1,0,-1,-2)$ ve $(0,0,1,-2,-5)$ vektörleri
+ 	$$
+ 	\begin{array}{rrr}
+ 	x_1-x_2-x_4-2x_5&=&0\\
+ 	x_3-2x_4-5x_5&=&0
+ 	\end{array}
+ 	$$
+ 	denklemlerini temsil eder ve böylece aranan denklem sistemi bulunmuş olur. Okuyucu $W$'de verilen vektörlerin bu denklem sistemini sağladığını doğrulamalıdır. Sonuç olarak $W$ için bir standart baza ulaşılmış olur.
+</div>
+</p>
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">İki Alt Uzayın Kesişimi</h3>
+
+
+
+
+
+<p>
+$U$ vektör uzayının sırasıyla $\nu_1$ ve $\nu_2$ boyutlu $W_1$ ve $W_2$ alt uzaylarını ele alalım. Ayrıca $\dim W_1\cap W_2=\nu$ olsun, bu durumda $\dim W_1+W_2=\nu_1+\nu_2-\nu$ olur (bk. <a class="eqref" href="../14-alt-uzaylar/index.html#theo:vec:21">Teorem 1.4.12</a>). Eğer $W_1$ ve $W_2$ alt uzaylarını karakterize eden lineer denklem uzayları $E_1$ ve $E_2$ ile gösterilirse, $\dim E_1=n-\nu_1$ ve $\dim E_2=n-\nu_2$ olduğu bu bölümde gösterildi. $E_1+E_2$ uzayının boyutunu $\rho$ ile gösterelim, bu durumda $\dim E_1\cap E_2=(n-\nu_1)+(n-\nu_2)-\rho=2n-\nu_1-\nu_2-\rho$ olacaktır.
+</p>
+
+<p>
+$W_1\cap W_2$ uzayındaki vektörler hem $E_1$ hem de $E_1$ uzayındaki lineer denklemleri sağladığından $E_1+E_2$ uzayındaki denklemleri de sağlar, dolayısıyla $\nu\leq n-\rho$ olur. Diğer taraftan hem $W_1$ hem de $W_2$ uzayı vektörleri $E_1\cap E_2$ uzayındaki denklemleri sağlar. Dolayısıyla $\nu_1+\nu_2-\nu\leq n-(2n-\nu_1-\nu_2-\rho)$ eşitsizliği sağlanır. Elde edilen son iki eşitsizlikten $\nu=n-\rho$ elde edilir, yani $W_1\cap W_2$ uzayı $E_1+E_2$ uzayı tarafından karakterize edilir.
+</p>
+
+<p>
+$W_1$ ve $W_2$ uzayları verildiğinde $W_1\cap W_2$ uzayını belirlemenin en kolay yolu $E_1$, $E_2$ ve sonra da bunlardan $E_1+E_2$ uzayını tespit etmek, $E_1+E_2$ uzayından da $W_1\cap W_2$ uzayı belirlenebilir. Bu yöntem üç defa lineer denklem sistemi çözme ve üç defa Hermite normal biçime indirgeme işlemi içerse de direkt metoda göre daha pratik bir yöntemdir.
+</p>
+
+<p>
+<div class="envex" id="ex:lint:8"><h6 class="thenv">Örnek 2.8.2</h6>
+<a class="eqref" href="../14-alt-uzaylar/index.html#exe:vec:altuzay:8">Alıştırma 1.4-6</a> ile verilen problemi ele alalım. $W_1:= \langle(1,2,3,6), (4,-1,3,6), (5,1,6,12)\rangle$ ve $W_2:=\langle (1,-1,1,1), (2,-1,4,5) \rangle$ verilsin. Bu bölümde gösterilen yöntemlerle, Hermite normal biçimi kullanarak $E_1=\langle (-2,-2,0,1), (-1,-1,1,0) \rangle$ ve $E_2=\langle (-4,-3,0,1), (-3,-2,1,0) \rangle$ olarak bulunur. Yine bu bölümde gördüğümüz yöntemle Hermite normal biçimi kullanarak $E_1+E_2$ uzayı için standart bazı $\left\{ (1,0,0,1/2), (0,1,0,-1), (0,0,1,-1/2) \right\}$ olarak buluruz. Buradan de kolaylıkla $W_1\cap W_2=\langle(-1/2,1,1/2,1)\rangle$ olarak elde ederiz. Bu örnekte uygulanan adımların detayları okuyucu tarafından tamamlanmalıdır..
+</div>
+</p>
+
+<p>
+Şimdi <a class="eqref" href="../12-lineer-bagimsizlik/index.html#theo:vec:2">Teorem 1.2.5</a> ile ele aldığımız problemi tekrar düşünelim. $B:=\{\beta_1,\ldots,\beta_n \}$ verilmiş olsun, bir $\beta_k$ vektörünün $i\lt k$ olmak üzere $\beta_i$ vektörlerinin lineer kombinasyonu olarak yazılabildiğini nasıl gösterebiliriz? Ya da hiç bir $\beta_k$ vektörünün bu şekilde temsil edilemeyeceğini nasıl gösterebiliriz?
+
+\begin{equation}
+\label{eq:lint:21}
+\tag{2.8.1}
+\beta_k=\sum_{i=1}^{k-1}x_{ik}\beta_i
+\end{equation}
+
+biçiminde bir bağıntıya ulaşmak istiyoruz. $A:=\{\alpha_1,\ldots,\alpha_m \}$ verilen bir baz ve $$\beta_j=\sum_{i=1}^{m}a_{ij}\alpha_i,\qquad i=1,2,\ldots,n$$ olsun. Ayrıca $A':=\{\alpha_1',\ldots,\alpha_m' \}$ yeni bir baz (elemanlarını açık olarak henüz bilmiyoruz) ve $$\beta_j=\sum_{i=1}^{m}a_{ij}'\alpha_i',\qquad i=1,2,\ldots,n$$ olsun. Bu durumda $A$ bazından $A'$ bazına geçiş matrisi $P$ ise <a class="eqref" href="../24-baz-degisimi/index.html#eq:lint:12">(2.4.5)</a> gereği $A=PA'$ olur. Diğer yandan $P$ matrisi tersinir olduğundan (bk. <a class="eqref" href="../24-baz-degisimi/index.html#rmk:lint:23">Uyarı 2.4.2</a>) elementer matrislerin çarpımı olarak yazılabilir, sonuç olarak $A'$ matrisi $A$ matrisine elementer işlemler uygulanarak elde edilebilir. Bundan dolayı \eqref{eq:lint:21} problemini çözmek için en uygun yöntem $A'$ matrisini Hermite normal biçimde almaktır. $A'$ matrisi böyle alınırsa <a class="eqref" href="../25-hermite-normal-bicimi/index.html#theo:lint:23">Teorem 2.5.2</a> ile verilen notasyonu kullanarak her $j=k_i$ indisi için $$\beta_{k_i}=\alpha_i'$$ ve $k_r\lt j\lt k_{r+1}$ indisleri için $$\beta_j=\sum_{i=1}^{r}a_{ij}'\alpha_i'=\sum_{i=1}^{r}a_{ij}'\beta_{k_i}$$ yazabiliriz. $k_i\leq k_r\lt j$ olduğundan bu son eşitlik istediğimiz yapıdadır.
+</p>
+
+<p>
+Hem $A$ hem de $A'$ matrislerinin sütunları $B$ içindeki vektörleri temsil ettiğinden $A$ matrisinin rankı, $B$ içindeki maximal lineer bağımsız küme içindeki vektör sayısına eşittir. Bundan dolayı eğer $B$ lineer bağımsız ise $\rho(A)=n$ olacaktır, dolayısıyla $A$ matrisinin Hermite normal biçimi ya $B$'nin lineer bağımsız olduğunu gösterir ya da $B$ vektörleri arasında lineer bir bağıntı ortaya çıkarır.
+</p>
+
+<p>
+<div class="envex" id="ex:lint:9"><h6 class="thenv">Örnek 2.8.3</h6>
+$\{(1,0,-3,11,-5), (3,2,5,-5,3), (1,1,2,-4,2), (7,2,12,1,2) \}$ kümesini ele alalım. $A:=\{\alpha_1,\ldots,\alpha_5 \}$ bazı verilmiş ve $\beta_1=\alpha_1-3\alpha_3+11\alpha_4-5\alpha_5$ ve benzer şekilde diğer bağıntılar sağlansın. \eqref{eq:lint:21} gereği uygun matris
+	$$
+	\left[\begin{array}{rrrr}
+	1&3&1&7\\
+	0&2&1&2\\
+	-3&5&2&12\\
+	11&-5&-4&1\\
+	-5&3&2&2
+	\end{array}\right]
+	$$
+	olur ve bunun Hermite normal biçimi
+	$$
+	\left[\begin{array}{rrrr}
+	1&0&0&-\frac{3}{4}\\
+	0&1&0&\frac{23}{4}\\
+	0&0&1&-\frac{19}{2}\\
+	0&0&0&0\\
+	0&0&0&0
+	\end{array}\right]
+	$$
+	olur. Gerçekten $-\frac{3}{4}(1,0,-3,11,5)+\frac{23}{4}(3,2,5,-5,3)-\frac{19}{2}(1,1,2,-4,2)=(7,2,12,1,2)$ olduğu kolayca doğrulanabilir.
+</div>
+</p>
+
+
+
+
+
+
+ <h3 class="mt-5 mb-3">Alıştırmalar</h3>
+
+
+
+
+<p>
+
+<ol>
+<li class="py-2">$\mathbb{R}^5$ uzayında $\{(1,1,1,1,1), (1,0,1,0,1), (0,1,1,1,0), (2,0,0,1,1), (2,1,1,2,1), (1,-1,-1,-2,2), (1,2,3,4,-1)\}$ kümesi tarafından gerilen alt uzay $W$ olsun. Bunun için standart bazı bulun ve boyutunu hesaplayın. Bu probleme denk bir problem daha önce <a class="eqref" href="../14-alt-uzaylar/index.html#exe:vec:altuzay:5">Alıştırma 1.4-3</a> ile de sorulmuştu.</li>
+<li class="py-2">$\{(1,-1,2,-3), (1,1,2,0), (3,-1,6,-6)\}$ ve $\{(1,0,1,0),(0,2,0,3)\}$ kümelerinin $\mathbb{R}^4$'ün farklı alt uzaylarını gerdiklerini gösterin. Bu problem daha önce <a class="eqref" href="../14-alt-uzaylar/index.html#exe:vec:altuzay:5">Alıştırma 1.4-3</a> ile de sorulmuştu.</li>
+<li class="py-2">$W_1:=\langle (1,1,3,-1), (1,0,-2,0), (3,2,4,-2) \rangle$ ve $W_2:=\langle (1,0,0,1),(1,1,7,1) \rangle$ olmak üzere $W_1+W_2$ uzayının boyutunu tespit edin.</li>
+</li>$W:=\langle (1,-2,-3,0,1), (2,1,0,-1,4), (3,1,-1,1,8), (1,2,3,2,6) \rangle$ uzayının standart bazını belirleyin. Ayrıca $W$ uzayını karakterize eden lineer denklem sistemini belirleyin.</li>
+</ol>
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../27-lineer-problemler/index.html">2.7. Lineer Problemler</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Lineer Cebire Giriş</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../29-normal-formlar/index.html">2.9. Normal Formlar</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/28-bazi-uygulamalar/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:04 GMT -->
+</html>

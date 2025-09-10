@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/15-lineerlik-ve-superpozisyon/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:05 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 1.5. Lineerlik ve Süperpozisyon
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>1.5. Lineerlik ve Süperpozisyon</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-06">
+          6 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste ısı denkleminin <strong>lineerlik</strong> özelliğini vurgulayacağız. Bunun sonucu olan <strong>süperpozisyon</strong> ilkesine de değineceğiz. Bu iki özellik bizi Fourier serisi kavramına bir adım daha yaklaştıracak.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/lineerlik/index.html">lineerlik</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/superpozisyon/index.html">süperpozisyon</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Isı denkleminin bir önceki bölümde elde ettiğimiz çözümünde $t=0$ yazarsak $$u_n(x,0)=c_n\sin\frac{n\pi}{a}x$$ olduğunu görürüz. Bu durumda görünüşe göre bulduğumuz fonksiyon, başlangıç koşulundaki $f$ fonksiyonu keyfi bir $A$ sabiti için $$f(x)=A\sin\frac{n\pi}{a}x$$ biçiminde değilse ele aldığımız sınır değer probleminin bir çözümü olamaz. O halde kullandığımız değişkenlere ayırma metodunun bu problemde başarısız mı olmuştur? Bunu söyleyemeyiz, çünkü ısı denklemi <strong>lineer</strong> bir denklemdir ve lineer denklemlerin çözümlerinin lineer kombinasyonları da bir çözümdür. Şimdi bu kavramları açıklayalım.
+</p>
+
+<p>
+Bir kısmi diferensiyel denklem için
+<ol><li>eğer $u$ ve $v$ fonksiyonları birer çözüm ise, $u+v$ fonksiyonu da bir çözümdür,</li>
+<li>eğer $u$ fonksiyonu bir çözüm ve $r\in\mathbb{R}$ keyfi bir sabit ise $ru$ fonksiyonu da bir çözümdür</li></ol>
+koşulları sağlanıyorsa bu denkleme bir <strong>lineer denklem</strong> denir. Ayrıca benzer şekilde bir sınır koşulunu sağlayan çözümlerin toplamları veya çarpımları da bu koşulu sağlıyorsa söz konusu koşula da lineer bir sınır koşulu denir.
+</p>
+
+<div class="envex" id="ex-1.4"><h6 class="thenv">Örnek 1.5.1</h6><p>Ele aldığımız ısı denkleminin ve ilgili sınır koşullarının lineer olduğu açıktır. Gerçekten $$(u+v)_t=u_t+v_t=ku_{xx}+kv_{xx}=k(u+v)_{xx}$$ ve keyfi bir $r\in\mathbb{R}$ için $$(ru)_t=ru_t=rku_{xx}=kru_{xx}=k(ru)_xx$$ eşitlikler sağlanır. Ayrıca $$(u+v)(0,t)=u(0,t)+v(0,t)=0+0=0\quad\text{ve}\quad (ru)(0,t)=r\left[u(0,t)\right]=r0=0$$ eşitlikleri de ilk sınır koşulunun lineerliğini gösterir, diğer sınır koşulunun da lineerliği aynı şekilde görülür. Sınırlardaki değerlerin en az biri sıfırdan farklı verilseydi bu koşulların lineer olmayacağını gösterebilirsiniz.</p>
+</div>
+
+<div class="envex" id="ex-1.3"><h6 class="thenv">Örnek 1.5.2</h6><p>$u_t+u. u_x=u_{xx}$ denklemi lineer değildir. Gerçekten sabit olmayan bir $u$ çözümü ve $r\not\in\{0,1\}$ sabiti için $$(ru)_t+(ru)(ru)_x=r.u_t+r^2.u. u_x\neq r.u_t+r.u.u_x+r.u_{xx}=(ru)_{xx}$$ olduğu açıktır.</p>
+</div>
+
+<p>
+Lineer denklemlerin aşağıdaki özelliği sağladığı açıktır.
+
+<strong>Süperpozisyon İlkesi:</strong> Eğer $u_1, u_2, \ldots, u_N$ fonksiyonları lineer bir kısmi diferensiyel denklemin çözümleri ise ve $c_1, c_2, \ldots, c_N$ keyfi sabitler ise bu durumda $$c_1u_1+c_2u_2+\cdots+c_Nu_N$$ fonksiyonu da aynı denklemin bir çözümüdür.
+</p>
+
+<p>
+Şimdi ele aldığımız probleme dönersek, başlangıç koşulunu sağlayan bir çözümün $$f(x)=\sum\limits_{n=1}^{N}c_n\sin\frac{n\pi}{a}x$$ eşitliğinin sağlanması gerekir. Acaba herhangi bir $f$ fonksiyonu için bu eşitlik sağlanacak şekilde bir $N\in\mathbb{N}$ ve $c_1,c_2,\ldots,c_n$ sayıları bulunabilir mi? Genelde hayır, sadece çok özel seçilen fonksiyonlar için bu eşitlik sağlatılabilir.
+</p>
+
+<p>
+Fourier bu durumda <strong>sonsuz serileri</strong> kullandı ve herhangi bir fonksiyon için $$f(x)=\sum\limits_{n=1}^{\infty}c_n\sin\frac{n\pi}{a}x$$ eşitliği sağlanacak şekilde $c_n$ sayılarının bulunabileceğini iddia etti. Benzer bir iddia daha önce <strong>Daniel Bernoulli</strong> tarafından da dile getirilmişti, fakat Bernoulli bunu temellendirecek yeterli açıklama yapmamış ve dönemin bilim otoriteleri tarafından ciddi eleştirilere maruz kalmıştır, sonuç olarak çalışması yayınlanmamıştır. Gerçekten, mesela $f(x):=e^x$ gibi bir fonksiyonu nasıl olur da sinüs fonksiyonlarının bir toplamıne eşit olabilirdi? Sinüslerin toplamı periyodikken ve tek fonksiyon iken, $f$ fonksiyonu böyle değildir. Fakat Fourier bu iddiayı tüm reel eksende değil <strong>sınırlı bir aralık üzerinde</strong> dile getirmişti. Farklı özelliklerdeki iki fonksiyon tüm reel eksende çok farklı olsa da çakıştıkları sınırlı bir aralık var olabilir. Fourier bu iddiasını çok sayıda örnekle pekiştirmiştir.
+</p>
+
+<div class="envex" id="ex-1.6">
+<h6 class="thenv">Örnek 1.5.3</h6><p>Aşağıdaki grafiklerde de görüldüğü üzere $$\sum\limits_{n=1}^{\infty}2\frac{(-1)^{n+1}}{n}\sin nx$$ toplamı her toplamda $x\in[0,\pi)$ aralığında $f(x):=x$ fonksiyonunda biraz daha yaklaşır. Toplam tek fonksiyon olduğundan aynı durum $(-\pi,0]$ aralığında da geçerlidir. Ayrıca bu toplam tüm $\mathbb{R}$ için $2\pi-$periyodiktir ve $k\in\mathbb{Z}$ olmak üzere $\pi+2k\pi$ noktalarında süreksizdir. Yukarıdaki serinin kısmi toplamlar dizisinin ilk dört terimi sırasıyla aşağıda grafiklenmiştir.</p>
+
+<div class="text-center">
+<img src="../../../static/ders-notu/fourier-analizi/ex-1-5-3_1.svg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../../static/ders-notu/fourier-analizi/ex-1-5-3_2.svg">
+<img src="../../../static/ders-notu/fourier-analizi/ex-1-5-3_3.svg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../../static/ders-notu/fourier-analizi/ex-1-5-3_4.svg">
+</div>
+
+</div>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../14-degiskenlere-ayirma-yontemi/index.html">1.4. Değişkenlere Ayırma Yöntemi</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Fourier Analizi</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../21-giris/index.html">2.1. Giriş</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/15-lineerlik-ve-superpozisyon/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:08 GMT -->
+</html>

@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/35-farkli-uc-nokta-kosullari/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 3.5. Farklı Uç Nokta Koşulları
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>3.5. Farklı Uç Nokta Koşulları</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-09">
+          9 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Son iki bölümde farklı uç nokta sıcaklıkları ve izole uç noktalar olması durumlarını inceledik. Bu derste bunların bir karışımını, yani bir uç noktanın ortamdan izole olması ve diğer uç noktanın böyle olmaması durumunu inceleyeceğiz.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/degiskenlere-ayirma/index.html">değişkenlere ayırma</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/isi-denklemi/index.html">Isı denklemi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/sinir-deger-problemi/index.html">sınır değer problemi</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Şimdi çubuğun $x=0$ uç noktası sabit olarak sıfır sıcaklıkta tutulsun fakat $x=a$ noktasındaki diğer ucu ortamdan izole edilmiş olsun ve bu uç nokta ile ortam arasında ısı yayılımı olmasın. Bu durumda elimizdeki sınır değer problemi $$\begin{array}{ll}
+u_{t}=ku_{xx} ,& \quad(x,t)\in D\text{ için}\\
+u(0,t)=0, & \quad t\geq0\text{ için}\\
+u_x(a,t)=0, & \quad t\geq0\text{ için}  \\
+u(x,0)=f(x), & \quad0\leq x\leq a \text{ için}
+\end{array}$$ biçimindedir. Buradaki $f$ fonksiyonu negatif olmayan, sürekli, türevi de parçalı sürekli ve $f(0)=f'(a)=0$ koşulunu sağlayan bir fonksiyondur.
+</p>
+
+<p>
+Değişkenlere ayırma yöntemiyle yine $$X(x)=A\sin\sqrt{\lambda/k}\,x+B\cos\sqrt{\lambda/k}\,x$$ olduğu görülebilir, burada sınır koşulları olan $$X(0)=X'(a)=0$$ eşitlikleri kullanılırsa $$B=0\quad\text{ve}\quad \lambda=\frac{(2n-1)^2\pi^2}{4a^2}k$$ olduğu sonucu elde edilir. Böylece $c_n$ keyfi sabitler olmak üzere $$c_ne^{-(2n-1)^2\pi ^2kt/4a^2}\sin\frac{(2n-1)\pi}{2a}x$$ fonksiyonları ısı iletim denklemini ve yukarıda verdiğimiz uç nokta koşullarını sağlar.
+</p>
+
+<p>
+Başlangıç koşulunun sağlanması için ise $$f(x)=\sum_{n=1}^{\infty}c_n\sin\frac{(2n-1)\pi}{2a}x$$ eşitliği sağlanacak şekilde $c_n$ katsayılarının bulunabileceğini göstermemiz gerekir. Buradaki zorluk şudur: dikkat edilirse $(2n-1)/2$ sayısı bir tamsayı olmadığından bu seri $(0,a)$ aralığında bir Fourier sinüs serisi olamaz.  Bundan dolayı daha önceki bölümlerde geliştirdiğimiz teori bu probleme uygulanamaz. Elbette bu problemi başlangıç noktası kabul edip yeni bir çeşit trigonometrik seri için benzer bir teori geliştirebiliriz, ama buna gerek yok, daha basit bir seçeneğimiz var.
+</p>
+
+<p>
+Yukarıdaki seri $(0,a)$ aralığında bir Fourier serisi değil, ama $(0,2a)$ aralığında elbette bir Fourier sinüs sersidir, çünkü $2n-1$ bir tamsayıdır. O halde yapmamız gereken şey problemimizi fiziksel dinamikleri değişmeyecek şekilde $(0,2a)$ aralığına genişletmektir. Bunu şöyle yapacağız,
+<ol><li>$f$ fonksiyonunu, $x=a$ doğrusuna göre simetrik olacak şekilde $[0,2a]$ aralığına genişleteceğiz, yani başlangıç sıcaklık dağılımı için $$\tilde{f}(x):=\left\{ \begin{array}{ll}
+	f(x), &\quad 0\leq x\leq a\text{ ise}\\
+	f(2a-x), &\quad a\lt x\leq2a\text{ ise}
+	\end{array} \right.$$
+	fonksiyonunu tanımlayacağız.</li>
+<li>$x=2a$ uç noktasında sıcaklığın sabit olarak sıfırda tutulmasını varsayacağız.</li></ol>
+</p>
+
+<p>
+Dikkat edilirse tanımından dolayı $\tilde{f}$ fonksiyonu süreklidir, ayrıca $f'$ parçalı sürekli olduğundan $\tilde{f}'$ fonskiyonu da öyledir. $f$ fonksiyonunda bu yaptığımız genişleme ele aldığımız problemi $x=a$ dikey eksenine göre simetrik bir probleme dönüştürür ve $x=a$ noktasında dik kesit boyunca bir ısı iletimi yoktur. Bundan dolayı eğer $u$ fonksiyonu $$\begin{array}{ll}
+u_{t}=ku_{xx} ,& \quad 0\lt x\lt 2a\text{ ve } t>0 \text{ için}\\
+u(0,t)=0, & \quad t\geq0\text{ için}\\
+u(2a,t)=0, & \quad t\geq0\text{ için}  \\
+u(x,0)=\tilde{f}(x), & \quad0\leq x\leq 2a \text{ için}
+\end{array}$$ sınır değer probleminin bir çözümü ise aynı zamanda $t\geq0$ için $u_x(a,t)=0$ koşulunu da sağlar ve az önce ele aldığımız orijinal problemimizin de $0\leq x\leq a$ için bir çözümüdür.
+</p>
+
+<p>
+<a class="eqref" href="../31-cozumun-varligi/index.html#bvp-teo-varlik-3">Teorem 3.1.3</a> gereği bu problemin tek çözümü $$\sum_{n=1}^{\infty}c_ne^{-n^2\pi^2kt/4a^2}\sin\frac{n\pi}{2a}x$$ biçimindedir ve buradaki $c_n$ sayıları
+\begin{eqnarray*}
+	c_n &=& \frac{2}{2a}\int_{0}^{2a}\tilde{f}(x)\sin\frac{n\pi}{2a}x\,dx\\
+	&=& \frac{1}{a}\int_{0}^{a}f(x)\sin\frac{n\pi}{2a}x\,dx+\frac{1}{a}\int_{a}^{2a}f(2a-x)\sin\frac{n\pi}{2a}x\,dx\\
+	&=& \frac{1}{a}\int_{0}^{a}f(x)\sin\frac{n\pi}{2a}x\,dx-\frac{1}{a}\int_{a}^{0}f(s)\sin\frac{n\pi}{2a}(2a-s)\,ds\\
+	&=& \frac{1}{a}\int_{0}^{a}f(x)\sin\frac{n\pi}{2a}x\,dx+\frac{1}{a}\int_{0}^{a}(-1)^{n+1}f(s)\sin\frac{n\pi}{2a}s\,ds\\
+	&=& \left\{ \begin{array}{ll}
+		0, & \quad n \text{ çift ise}\\
+		\frac{2}{a}\int_{0}^{a}f(x)\sin\frac{n\pi}{2a}x, & \quad n \text{ tek ise}
+	\end{array} \right.
+\end{eqnarray*}
+biçimindedir. Böylece $$c_{2n-1}:=\frac{2}{a}\int_{0}^{a}f(x)\sin\frac{(2n-1)\pi}{2a}x\,dx$$ olmak üzere $$\sum_{n=1}^{\infty}c_{2n-1}e^{-(2n-1)^2\pi^2kt/4a^2}\sin\frac{(2n-1)\pi}{2a}x$$ serisinin toplamu olan $u(x,t)$ fonksiyonu bu bölümde ele aldığımız orijinal sınır değer probleminin bir çözümüdür. Çözümün $\overline{D}$ kümesinde sürekli olduğu daha önce yaptığımız gibi kolayca görülebilir ve böylece çözüm Hadamard anlamında kararlıdır, ayrıca $f\geq0$ ise $u\geq0$ olur. ayrıca $u$ fonksiyonu önceki bölümlerde incelediğimiz yapıda olduğundan $t\rightarrow\infty$ için $u(t,x)\rightarrow0$ olduğu da kolayca gösterilebilir.
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../34-uclari-yalitimli-cubuk/index.html">3.4. Uçları Yalıtımlı Çubuk</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Fourier Analizi</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../36-bir-ucta-isi-konveksiyonu/index.html">3.6. Bir Uçta Isı Konveksiyonu</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/35-farkli-uc-nokta-kosullari/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:33 GMT -->
+</html>

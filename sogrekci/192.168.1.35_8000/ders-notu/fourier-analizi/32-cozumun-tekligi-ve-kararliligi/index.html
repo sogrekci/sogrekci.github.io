@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/32-cozumun-tekligi-ve-kararliligi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:30 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 3.2. Çözümün Tekliği ve Kararlılığı
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>3.2. Çözümün Tekliği ve Kararlılığı</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-09">
+          9 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bir önceki bölümde ısı denkleminin çözümünün varlığını elde etmiştik. Fakat çözümlerin Hadamard anlamında iyi tanımlı olmasını da istiyoruz. Yani çözümlerin tekliği ve kararlılığına ihtiyacımız var, bu bölümde bunları kanıtlayacağız.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/cozumun-tekligi/index.html">çözümün tekliği</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/kararli-cozum/index.html">kararlı çözüm</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/maksimum-prensibi/index.html">maksimum prensibi</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Buraya kadar ele aldığımız sınır değer probleminin çözümüne ulaştık, şimdi ise bu çözümün Hadamard anlamında kararlılığını araştıracağız. Yani bu çözümün tek olduğunu ve başlangıç koşullarına sürekli olarak bağımlı olduğunu göstereceğiz. Bunları göstermek için <strong>maksimum prensibi</strong> adı verilen bir sonucu kullanacağız, bu sonuç aslında ısının sıcak ortamdan soğuk ortama doğru yayıldığının matematiksel bir ifadesinden başka birşey değildir.
+</p>
+
+<p>
+<div class="envtheo" id="bvp-teo-maksimumprensibi"><h6 class="thenv">Teorem 3.2.1 (Isı Denklemi İçin Maksimum Prensibi)</h6>Keyfi bir $T$ pozitif sayısı için $$D_T:=\{ (x,t)\in D:\;t\geq T \}\text{,}\quad \overline{D}_T:=\{ (x,t)\in \overline{D}:\;t\geq T \}\quad\text{ve}\quad \Gamma_T:=\overline{D}\backslash D_t$$ kümelerini tanımlayalım. Bu durumda eğer $u:\overline{D}_T\rightarrow\mathbb{R}$ sürekli fonksiyonu $D_T$ kümesinde ısı denklemini sağlıyorsa maksimum ve minimum değerlerini $\Gamma_T$ kümesinde alır.
+</div>
+</p>
+
+<p>
+<img id="fig:maksimumprensibi" class="envfig" src="../../../static/ders-notu/fourier-analizi/bvp-maksprensip.svg" width="40%">
+</p>
+
+<p>
+<span style="margin:auto; display:table;"><span class="figcap">Şekil 3.3:</span> Teoremde tanımlanan $\Gamma_T$ kümesi.</span>
+</p>
+
+<p>
+<strong>İspat: </strong>Kabul edelim ki $u:\overline{D}_T\rightarrow\mathbb{R}$ sürekli fonksiyonu $D_T$ kümesinde ısı denklemini sağlasın, bir $(x_0,t_0)\in D_T$ noktasında $m$ minimum değerini alsın, ve iddiamızın aksine $\Gamma_T$ üzerindeki minimum değeri $M>m$ olsun. Şimdi yeni bir $v:\overline{D}\rightarrow\mathbb{R}$ fonksiyonunu $$v(x,t):=u(x,t)+\frac{M-m}{2T}(t-t_0)$$ olarak tanımlayalım. Bu durumda $t-t_0\geq T_0$ olduğu açıktır ve eğer $(x,t)\in\Gamma_T$ ise $u(x,t)\geq M$ olacağından $$u(x,t)\geq M-\frac{M-m}{2}=\frac{M+m}{2}>m$$ eşitsizliği sağlanır. Ayrıca $$v(x_0,t_0)=u(x_0,t_0)=m$$ olduğundan $v$ fonksiyonu da bir $(x_1,t_1)\in D_T$ noktasında minimum değere sahip olur. Fakat bu durumda $t_1\lt T$ için $v_t(x_1,t_1)=0$ ($t=T$ için negatif olabilir) ve $v_{xx}(x_1,t_1)\geq 0$ olacağından $$0\geq v_t-ku_{xx}=u_t-ku_{xx}+\frac{M-m}{2T}=\frac{M-m}{2T}>0$$ çelişkisi elde edilir. Dolayısıyle $u$ fonksiyonu $\Gamma_T$ kümesinde minimum değerini almalıdır. Aynı düşünüşle $-u$ fonksiyonunun da $\Gamma_T$ kümesinde minimum değeri alması gerektiğini, yani $u$ fonksiyonun bu kümede maksimum değerini de alması gerektiğini gösterebiliriz.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+<div class="envtheo" id="bvp-teo-stability"><h6 class="thenv">Teorem 3.2.2</h6><a class="eqref" href="../31-cozumun-varligi/index.html#bvp-teo-varlik-3">Teorem 3.1.3</a> ile verilen sınır değer probleminin çözümü olan $u$ fonksiyonu Hadamard anlamında kararlıdır. Ayrıca $f\geq0$ için $u\geq0$'dır.
+</div>
+</p>
+
+<p>
+<strong>İspat: </strong>Çözümün varlığını daha önce gösterdik. Şimdi $u_1$ ve $u_2$ ile sırasıyla başlangıç sıcaklıkları $[0,a]$ aralığında sürekli olan $f$ ve $g$ fonksiyonları ile verilen problemlerin çözümlerini gösterelim. Bu durumda $u_1-u_2$ fonksiyonu da başlangıç sıcaklığı $f-g$ ile verilen problemin çözümü olur ve $\overline{D}_T$ kümesinde süreklidir. Bu durumda eğer $|f-g|$ fonksiyonunun $[0,a]$ aralığındaki maksimum değerini $M_{f-g}$ ile gösterirsek, $u_1-u_2$ fonksiyonu $x=0$ ve $x=a$ için sıfır olduğundan, her $(x,t)\in\overline{D}_T$ için $$|u_1(x,t)-u_2(x,t)|\leq M_{f-g}$$ eşitsizliği sağlanır. $T$ sayısı keyfi olduğundan bu eşitsizlikten başlangıç fonksiyonundaki küçük değişikliklerin çözümü büyük oranda değiştiremeyeceği görülür. Ayrıca eğer $f\equiv g$ ise her $(x,t)\in\overline{D}_T$ için $u_1\equiv u_2$ olacağından $T$ keyfi olduğundan çözümün tekliği de elde edilmiş olur. Son olarak eğer $f\geq0$ ise maksimum prensibinden ve $x=0$ ile $x=a$ noktalarında $u$ fonksiyonunun sıfır olduğundan $u$ fonksiyonunun minimum değerinin sıfır olduğu açıktır.$$\tag*{$\blacksquare$}$$
+</p>
+
+<p>
+Yukarıdaki sonuçla sadece kararlılık değil çözümün negatif olmadığı da kanıtlanmıştır. Burada problemimizde sıcaklığı mutlak sıfırdan ölçtük, eğer başka bir ölçek kullanılırsa buradaki negatif olmama durumu değişir, bu durumda çözümün minimum değeri sıfır yerine bu ölçeğe bağlı başka bir sabit olacaktır. Örneğin Celcius derece cinsinden ölçüm yapılırsa bu sabit negatif olan $-273.15$ sayısı olur.
+</p>
+
+<p>
+Şimdi son olarak çözümün asimptotik davranışına değineceğiz. Fiziksel olarak, çubuktan ısının uç noktalardan ortama geçtiği ve bu uç noktlarda sıcaklığın sıfır olarak sabit tutulduğu düşünülürse çubuğun her yerinde sıcaklığın zamanla sıfıra yaklaşması beklenir. Bunu matematiksel olarak şöyle gözlemleyebiliriz. Her $n\in\mathbb{N}$ için $|c_n|\lt M$ olacak şekilde bir $M$ sayısı seçilirse, $\alpha:=\pi^2k/a^2$ ve $r:=e^{-at}$ olarak tanımlanırsa $$\left| c_ne^{-n^2\alpha t}\sin\frac{n\pi}{a}x \right|\lt Me^{-n^2\alpha t}\leq Me^{-n\alpha t}=Mr^n$$ olduğu görülür. Böylece $0\lt r\lt 1$ olduğundan $$u(x,t)\leq M\sum\limits_{n=1}^{\infty}r^n=\frac{r}{1-r}=M\frac{e^{-\alpha t}}{1-e^{-\alpha t}}$$ elde edilir. Buradan da $t\rightarrow\infty$ için $u(x,t)\rightarrow0$ olduğu açıkça görülüyor.
+</p>
+
+<p>
+Buraya kadar çözdüğümüz problem sınır koşulları değişik olan buna benzer başka problemlerin çözümü için bize temel olabilir. Sıradaki bölümlerde bunlara bazı örnekler vereceğiz. Fakat göreceğiz ki bazı durumlarda bu temel yeterli değildir.
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../31-cozumun-varligi/index.html">3.1. Çözümün Varlığı</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Fourier Analizi</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../33-uc-noktalarda-farkli-sicakliklar/index.html">3.3. Uç Noktalarda Farklı Sıcaklıklar</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/fourier-analizi/32-cozumun-tekligi-ve-kararliligi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:32 GMT -->
+</html>

@@ -1,0 +1,478 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/latexe-giris/5-duz-metin-bicimleme/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:41:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 5. Düz Metin Biçimleme
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>5. Düz Metin Biçimleme</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-17">
+          17 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-25">
+          25 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Matematiksel metinler dışındaki metin parçalarını biçimlendirmek için, mesela yazı tipi karakteri tipi ve boyutu değiştirme, başlıkları biçimlendirme gibi, bazı temel kontrol dizilerinden faydalanırız. Bu derste bu amaçlar için en sık kullanılan kontrol dizileri tanıtılacaktır.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/atif/index.html">atıf</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/basliklar/index.html">başlıklar</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/dipnot/index.html">dipnot</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/font-ailesi/index.html">font ailesi</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/referans/index.html">referans</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/yazi-tipi/index.html">yazı tipi</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <p>
+Bir belge hazırlarken sıklıkla metnin bazı parçalarını biçimlendirmek (italik veya kalın metin, başlık biçimleme, vs..) ihtiyacı duyarız, bu derste bunlara kısaca değineceğiz. LaTeX'te bir işlemi yapmanın bir çok yolu vardır, ihtiyacınız olan düzenlemeyi yapmak için farklı yollar denenebilir.
+</p>
+
+<h3 class="mt-5 mb-3">Özel Karakterler</h3>
+
+<p>
+ Önce <strong>özel karakterlerden</strong> başlayalım, <code class="language-latex">#</code> , <code class="language-latex">$</code> , <code class="language-latex">%</code> , <code class="language-latex">^</code> , <code class="language-latex">&</code> , <code class="language-latex">_</code> , <code class="language-latex">{</code> , <code class="language-latex">}</code> , <code class="language-latex">~</code> , <code class="language-latex">\</code>  simgelerini LaTeX yazılımı özel amaçlar için ayırmıştır. Metin içerisinde bu simgeleri doğrudan girerseniz birşeylerin ters gitmesine yol açabilirsiniz. Metninizde bu karakterleri yazdırmak isterseniz şu kontrol dizilerini kullanmalısınız: <code class="language-latex">\#</code>, <code class="language-latex">\$</code>, <code class="language-latex">\%</code>, <code class="language-latex">\^{}</code>, <code class="language-latex">\&</code>, <code class="language-latex">\_</code>, <code class="language-latex">\{</code>, <code class="language-latex">\}</code>, <code class="language-latex">\~{}</code>, <code class="language-latex">\backslash</code>. LaTeX'te dört farklı çeşit <strong>tire</strong> işareti yapılabilir. Bunlardan üç tanesi farklı uzunluklarda kullanılan tire işareti olup dördüncüsü ise matematikte kullanılan <strong>eksi</strong> işaretidir. Bunlar sırasıyla <code class="language-latex">-</code> , <code class="language-latex">--</code> , <code class="language-latex">---</code>  ve <code class="language-latex">$-$</code> ile yapılır. Bazı web adreslerinde kullanılan <strong>tilda</strong> (~) sembolünü <code class="language-latex">\~{}</code> komutu yerine <code class="language-latex">$\sim$</code> komutuyla yazmak daha kullanışlıdır. <strong>Derece</strong> işaretini yazmak için <code class="language-latex">$^\circ$</code> komutu kullanılır.
+</p>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 13}
+\maketitle 
+Celsius ölçeğine göre, suyun üçlü noktası (aynı anda katı-sıvı-gaz halinde bulunabildiği
+sıcaklık 0,01$^\circ$C --veya 273,16$^\circ$K-- olarak tanımlanır. Bir derece Celsius (1$^\circ$C)
+ise, mutlak sıfır ile suyun üçlü noktasının farkının 1/273,16'sı olarak tanımlanmıştır. İlk olarak
+Anders Celsius tarafından önerilen buzun erime noktası ile suyun kaynama noktası arasında
+100 derecelik bir sıcaklık ölçeği düşüncesi, 1954 yılında daha kesin sonuç vermesi amacıyla
+bu şekle getirilmiştir. Bu değişiklik ve Uluslararası Ağırlıklar ve Ölçüler konferansının son kararları
+doğrultusunda ($^\circ$C) birimindeki C sembolü santigrat olarak değil Celsius (selsiyus)
+şeklinde okunacak. Yani ($^\circ$ C) nin doğru okunuşu "derece Celsius (selsiyus)" şeklindedir. ---
+
+---Celcius ve Kelvin birimleri arasında $^\circ$C=$^\circ$K$-$273,15 bağıntısı vardır.
+\end{document}
+</code></pre>
+
+
+
+
+
+<h3 class="mt-5 mb-3">Yazı Tipi ve Boyutu</h3>
+
+
+<p>
+Bazen metin içinde bazı kelimeleri <em>italik</em>, <strong>kalın</strong> gibi faklı biçimlerde, bazen de farklı yazı tiplerinde kullanmamız gerekebilir. Bunun için aşağıdaki komutlar kullanılır. Bu komutlar çok fazla sayıda kelimeye uygulanmak gerekirse tek tek değil toplu olarak uygulanabilir, bunun için aşağıdaki deklorasyonlar kullanılır.
+</p>
+
+<div class="table-responsive">
+<table class="table my-5">
+  <thead class="table-primary">
+    <tr>
+      <th scope="col">Komut</th>
+      <th scope="col">Dekorasyon</th>
+      <th scope="col">Açıklama</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><code class="language-latex">\emph</code></th>
+      <th scope="col"><code class="language-latex">\em</code></td>
+<td>Vurgulama, italik yazı tipine benzer</th>
+    </tr>
+
+<tr>
+      <th scope="row"><code class="language-latex">\textrm</code></th>
+<th scope="col"><code class="language-latex">\rmfamily</code></td>
+<td>Roman font ailesi</th>
+    </tr>
+
+<tr>
+      <th scope="row"><code class="language-latex">\textsf</code></th>
+<th scope="col"><code class="language-latex">\sffamily</code></td>
+<td>San-serif font ailesi</th>
+    </tr>
+
+<tr>
+      <th scope="row"><code class="language-latex">\texttt</code></th>
+<th scope="col"><code class="language-latex">\ttfamily</code></td>
+<td>Typewritter font ailesi</th>
+    </tr>
+
+<tr>
+      <th scope="row"><code class="language-latex">\textbf</code></th>
+<th scope="col"><code class="language-latex">\bfseries</code></td>
+<td>Kalın (Bold-Face)</th>
+    </tr>
+
+<tr>
+      <th scope="row"><code class="language-latex">\textit</code></th>
+<th scope="col"><code class="language-latex">\itshape</code></td>
+<td>İtalik</th>
+    </tr>
+
+<tr>
+      <th scope="row"><code class="language-latex">\textsl</code></th>
+<th scope="col"><code class="language-latex">\slshape</code></td>
+<td>Eğik (slanted)</th>
+    </tr>
+
+<tr>
+      <th scope="row"><code class="language-latex">\textsc</code></th>
+<th scope="col"><code class="language-latex">\scshape</code></td>
+<td>Baş harfler büyük (Small Caps)</th>
+    </tr>
+  
+  </tbody>
+</table>
+</div>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 14}
+\maketitle 
+Oysa \emph{fizik} ilminde \sffamily uzaklık ve yakınlık \rmfamily burada olduğu gibi
+tartışmalı \textbf{değildir}. Çünkü \texttt{matematik} soyut ve nesnel bir \textit{biçimselliğe}
+sahiptir ve her fırsatta \textsl{kesinlik} bildirir. Bu yüzden “\textit{\textbf{sayısal}}”
+düşünmeye alışmış bir zihin için yaşam hiçte karmaşık değildir ve onu karmaşıklaştıran
+sözcüklerin sesleniş biçimleridir. Rakamların bu türden tartışma alanı yoktur.
+\scshape Jack Benjamin Trashowski
+\end{document}
+</code></pre>
+
+<p>
+LaTeX tarafından kullanılan temel yazı tipi boyutları aşağıdaki örnekte görülen komutlar yardımıyla ayarlanabilir.
+</p>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 15}
+\maketitle 
+\tiny Köpeklerin \small saymayı \normalsize bilmediğini \large düşünüyorsanız,
+\Large cebinize üç \LARGE bisküvi koyup \tiny ikisini \footnotesize köpeğe vermeyi
+\huge deneyin.\\ \# \Huge \scshape Phil Pastoret.
+\end{document}
+</code></pre>
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Başlıklar</h3>
+
+
+<p>
+LaTeX'te başlıkların biçimlendirilmesi de otomatik olarak yapılır, sahanlıkta bunlar düzenlenebilir. Başlık tipleri <code class="language-latex">\part</code>, <code class="language-latex">\chapter</code>, <code class="language-latex">\section</code>, <code class="language-latex">\subsection</code>, <code class="language-latex">\subsubsection</code>, <code class="language-latex">\paragraph</code> ve <code class="language-latex">\subparagraph</code> biçimindedir, bunların seviyeleri sırasıyla -1, 0, 1, 2, 3, 4 ve 5'tir. Bu seviye numaraları başlık biçimlendirmede ve içindekiler tablosu biçimlendirilirken kullanılır. <code class="language-latex">\part</code> kesimi sadece <code class="language-latex">book</code> doküman sınıfında vardır.
+</p>
+
+<p>
+Bu kontrol dizilerinin nasıl çalıştığını anlamak için aşağıdaki örnekleri tatbik edin.
+</p>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} 
+\title{Belge 16}
+\maketitle 
+\part{Temel Bilgiler}
+\ldots \\ \ldots \\ \ldots
+\section{Giriş}
+\ldots
+\subsection{Girişin girişi}
+\ldots
+\subsubsection{Beterin de Beteri}
+\ldots
+\end{document}
+</code></pre>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document}
+\title{Belge 17}
+\author{Süleyman ÖĞREKÇİ}
+\maketitle
+\tableofcontents \pagebreak
+\part{Banach Sabit Nokta Teoremleri} \ldots \\ \ldots \\ \ldots
+\section{Temel Bilgiler}\ldots
+\subsection{Daralma Dönüşümü}\ldots
+\subsection{Sabit Nokta}\ldots
+\subsection{Varlık-Teklik} \ldots
+\subsubsection{Örnek} \ldots
+\section{Diğer Teoremler} \ldots
+\section{Uygulamalar} \ldots \pagebreak
+\part{Brouwer Sabit Nokta Teoremleri} \ldots \\ \ldots \\ \ldots
+\section{Teoremin İfadesi} \ldots
+\section{İspat ve Uygulamalar} \ldots
+\subsection{Sperner Lemması} \ldots
+\end{document}
+</code></pre>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{book} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document}
+\frontmatter %sadece book sınıfında bulunur. \begin{document} komutundan sonra verilmelidir.
+\title{Belge 18}
+\author{Süleyman ÖĞREKÇİ}
+\maketitle
+\tableofcontents \pagebreak
+\mainmatter %sadece book sınıfında bulunur.
+%\frontmatter komutundan buraya kadar roma rakamı ile,
+%burdan sonra numaralandırmayı yeniden arap-hint rakamlarıyla başlatır.
+\part{Banach Sabit Nokta Teoremleri} \ldots \\ \ldots \\ \ldots
+\section{Temel Bilgiler}\ldots
+\subsection{Daralma Dönüşümü}\ldots
+\subsection{Sabit Nokta}\ldots
+\subsection{Varlık-Teklik} \ldots
+\subsubsection{Örnek} \ldots
+\section{Diğer Teoremler} \ldots
+\section{Uygulamalar} \ldots \pagebreak
+\part{Brouwer Sabit Nokta Teoremleri} \ldots \\ \ldots \\ \ldots
+\section{Teoremin İfadesi} \ldots
+\section{İspat ve Uygulamalar} \ldots
+\subsection{Sperner Lemması} \ldots
+\end{document}
+</code></pre>
+
+
+<h3 class="mt-5 mb-3">Atıf ve Dipnotlar</h3>
+
+<p>
+LaTeX'te <strong>atıflar</strong> <code class="language-latex">\label{anahtar kelime}</code> komutu ile tanımlanır. Anahtar kelime bir bölüm (section), denklem (equation), tablo (tabular), şekil (figure), vb… bir nesne olabilir. Örneğin bir denklemi daha sonra atıfta bulunmak için tanımlamak istersek <code class="language-latex">\label{eq:denklem1}</code> komutunu kullanırız. Bu komut ile LaTeX programı o denklemi bir numara ile hafızada tutar. Tanımladığımız nesnelere <strong>atıf</strong> yapmak için de <code class="language-latex">\ref{anahtar kelime}</code> komutunu kullanırız. Örneğin yukarıda tanımladığımız denkleme atıfta bulunmak için <code class="language-latex">\ref{eq:denklem1}</code> komutu kullanılır. Bu komut ile ilgili denkleme atanan numara getirilir. <code class="language-latex">\pageref{anahtar kelime}</code> komutu ile de tanımlanan nesnenin buluduğu <strong>sayfa numarası</strong> getirilir. <strong>Dipnotlar</strong> ise <code class="language-latex">\footnote{örnek bir dipnot}</code> komutu ile hazırlanır.
+</p>
+
+<pre class="my-4"><code class="language-latex line-numbers">
+\documentclass[a4paper,11pt]{article} 
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document} \title{Belge 19} \maketitle
+\section{$\pi$reli Kebap} \ldots \\ \ldots \\ \ldots
+\section{Mısır $\pi$ramitleri} \ldots \\ \ldots \\ \ldots \pagebreak 
+\section{$\pi$ Hakkında} 
+Pi ($\pi$) sayısı ilk kez M.Ö. 26. Yüzyılda Mısırlılar tarafından $\frac{22}{7}$ olarak hesaplanmıştır.
+Daha sonra M.Ö.20. yüzyılda \emph{Rhind Papirüs} belgesinde \textbf{3,14} olarak virgülden sonra
+iki basamağa kadar hesaplanmıştır. Böyle 5, 10, 20, 30 diyerek 1700 lü yıllarda virgülden sonra 100
+basamağa kadar hesaplamalar yapılabilmiştir. 1949 dan sonra bilgisayarın icadıyla beraber olayın
+rengi değişmiş, hesaplamalar hızlanmıştır. Bilgisayarla ilk $\pi$ hesaplama girişimi 1949'da
+ilk genel amaçlı elektronik bilgisayar olan \emph{\textbf{ENIAC}} \footnote{IBM firması tarafından
+geliştirilen 30 ton ağırlığında olan ve 167 $m^2$ alan kaplayan \emph{Elektronik Sayısal Entegreli Hesaplayıcı}
+(\emph{Electronic Numerical Integrator and Computer}).} ile yapılmış ve 70 saatlik hesaplamanın
+sonucu olarak 2037 basamak hesaplanmıştır. 1967 de yarım milyon basamak, 2009 da da 2,7 trilyon
+basamak hesaplanmış. En güncel kayıt ise 2011 de alınmış. Hızlı fakat öncekilerdeki gibi çılgın olmayan :)
+bir bilgisayarla virgülden sonra 10 trilyon basamak hesaplanmış. \label{sec:pi} \\ \ldots \\ \ldots \\ \ldots
+\pagebreak 
+\section{$\Pi$s Yedili Son Bölüm} \ldots \\ \ldots \\ \ldots \pagebreak 
+\section{Bu Gün Bize $\pi$r Geldi} \ldots \\ \ldots \\ \ldots \pagebreak 
+\section{$\pi$yade $\pi$lavı} Sayfa \pageref{sec:pi} de Bölüm \ref{sec:pi} de de bahsettiğim hesaplamalar
+sonucunda $\pi$ sayısı içinde arama bile yapabiliyorsunuz, mesela benim doğum tarihim 50,363,553'üncü
+basamaktaymış. Saçma bir matematikçi totemi olsa da daha önceki basamaklarda olmasını isterdim doğrusu :)
+\ldots 
+\end{document}
+</code></pre>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../4-bosluklar-ve-heceleme/index.html">4. Boşluklar ve Heceleme</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">LaTeX'e Giriş</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../6-ortamlar/index.html">6. Ortamlar</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/latexe-giris/5-duz-metin-bicimleme/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:41:18 GMT -->
+</html>

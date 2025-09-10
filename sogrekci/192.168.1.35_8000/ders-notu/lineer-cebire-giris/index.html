@@ -1,0 +1,963 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:33:45 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - Lineer Cebire Giriş
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../static/site/prism.css">
+    <script src="../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<div class="container px-5 my-5 pb-5 shadow bg-light rounded-lg">
+
+  <div class="row pt-4">
+    <div class="col text-center">
+      <h1 style="font-family: 'Rajdhani', sans-serif;">Lineer Cebire Giriş</h1>
+    </div>
+  </div>
+ 
+  
+  <div class="row text-justify mb-5">
+    <p><p>Modern matematikte ilgilendiğimiz bir çok problem doğrusal olmasa da önemli problemlerimizin büyük çoğunluğu doğrusal (<strong>lineer</strong>) yöntemlere dayanır. Lineer yöntem veya lineer problem kavramları doğrudan <strong>lineer dönüşümler</strong> ile bağlantılıdır, bu dönüşümlerin rol aldığı her türlü kavram <strong>lineer cebir</strong> dersinin konusudur.</p>
+
+<p>Bu ders notlarında lineer cebir dersinin en temel konuları detaylı bir şekilde tartışılacaktır. Önce <strong>lineer uzay</strong> ve <strong>vektör</strong> kavramları tanıtılarak dersin tamamında ihtiyacımız olacak temel bilgiler aktarılacak, daha sonra da lineer dönüşümler incelenmeye başlanacaktır. Lineer dönüşümleri temsil etmekte kullanılan <strong>matrislerin</strong> de kapsamlı bir analizi yapılacaktır.</p></p>
+  </div>
+  
+ 
+ 
+  
+
+
+  
+  
+  <div class="row mt-3">
+    <h3 style="font-family: 'Rajdhani', sans-serif;">
+      1. Vektör Uzayları
+      <a data-toggle="collapse" href="#ozet-1-vektor-uzaylari" role="button" aria-expanded="false" aria-controls="ozet-1-vektor-uzaylari">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h3>
+  </div>
+ 
+  <div class="row">
+    <div class="collapse" id="ozet-1-vektor-uzaylari">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu bölümde öncelikle <strong>vektör uzayı</strong> kavramını tanımlayıp bunların elemanları olan vektörlerden belirli özelliklere sahip olan bazılarının, bunlara <strong>baz</strong> diyeceğiz, tüm vektör uzayını temsil etmekte nasıl kullanılabileceğini göreceğiz. Bu vektörler yardımıyla bir uzayın <strong>boyutu</strong> kavramını tanımlayıp boyutları aynı olan tüm vektör uzaylarının yapısal olarak <strong>benzer</strong> olduklarını göstereceğiz. Daha sonra bir vektör uzayının <strong>alt uzayı</strong> kavramını tanıtıp bunların bazlarının vektör uzayının bazına tamamlanabileceğini göstereceğiz.
+      </div>
+    </div>
+  </div>
+
+
+  
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="11-temel-tanimlar/index.html">1.1. Temel Tanımlar</a>
+      <a data-toggle="collapse" href="#ozet-11-temel-tanimlar" role="button" aria-expanded="false" aria-controls="ozet-11-temel-tanimlar">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-11-temel-tanimlar">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Lineer cebir dersinin konusu lineer dönüşümler ve lineer problemlerdir, bunun için önce lineer uzay (<strong>vektör uzayı</strong>) kavramını tanımalısınız. Vektör uzaylarının elemanlarına <strong>vektör</strong> deriz, bu derste <strong>skaler</strong>-vektör ayrımını yapacağız (<strong>cisim</strong>-vektör uzayı).
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/birim-eleman/index.html">Birim Eleman</a> &middot; 
+        
+        <a href="../../dizin/carpma/index.html">Çarpma</a> &middot; 
+        
+        <a href="../../dizin/cisim/index.html">Cisim</a> &middot; 
+        
+        <a href="../../dizin/koordinat-uzayi/index.html">Koordinat Uzayı</a> &middot; 
+        
+        <a href="../../dizin/skaler/index.html">Skaler</a> &middot; 
+        
+        <a href="../../dizin/ters-eleman/index.html">Ters Eleman</a> &middot; 
+        
+        <a href="../../dizin/toplama/index.html">Toplama</a> &middot; 
+        
+        <a href="../../dizin/vektor/index.html">Vektör</a> &middot; 
+        
+        <a href="../../dizin/vektor-uzayi/index.html">Vektör Uzayı</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="12-lineer-bagimsizlik/index.html">1.2. Lineer Bağımsızlık</a>
+      <a data-toggle="collapse" href="#ozet-12-lineer-bagimsizlik" role="button" aria-expanded="false" aria-controls="ozet-12-lineer-bagimsizlik">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-12-lineer-bagimsizlik">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste lineer cebir için çok önemli bir kavram olan <strong>lineer bağımsızlık</strong> kavramını açıklayacağız. Bunun dışında bir kümeyi <strong>germe</strong> kavramını ve uzayı geren vektörlerin bazı temel özelliklerini de keşfedeceğiz.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/asikar-lineer-baginti/index.html">Aşikar Lineer Bağıntı</a> &middot; 
+        
+        <a href="../../dizin/asikar-olmayan-lineer-baginti/index.html">Aşikar Olmayan Lineer Bağıntı</a> &middot; 
+        
+        <a href="../../dizin/geren-kume/index.html">Geren Küme</a> &middot; 
+        
+        <a href="../../dizin/gerilen-kume/index.html">Gerilen Küme</a> &middot; 
+        
+        <a href="../../dizin/germe/index.html">Germe</a> &middot; 
+        
+        <a href="../../dizin/lineer-bagimlilik/index.html">Lineer Bağımlılık</a> &middot; 
+        
+        <a href="../../dizin/lineer-bagimsizlik/index.html">Lineer Bağımsızlık</a> &middot; 
+        
+        <a href="../../dizin/lineer-baginti/index.html">Lineer Bağıntı</a> &middot; 
+        
+        <a href="../../dizin/lineer-kombinasyon/index.html">Lineer Kombinasyon</a> &middot; 
+        
+        <a href="../../dizin/lineerlik/index.html">Lineerlik</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="13-baz-ve-boyut/index.html">1.3. Baz ve Boyut</a>
+      <a data-toggle="collapse" href="#ozet-13-baz-kavrami" role="button" aria-expanded="false" aria-controls="ozet-13-baz-kavrami">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-13-baz-kavrami">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste vektör uzayları için <strong>baz</strong> ve <strong>boyut</strong> kavramlarını tartışacağız. Göreceğiz ki bir vektör uzayı aslında onun bazı denilen bir alt kümesi ile temsil edilebilir. Bu bilgi ileride çok işimize yarayacak.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/baz/index.html">Baz</a> &middot; 
+        
+        <a href="../../dizin/boyut/index.html">Boyut</a> &middot; 
+        
+        <a href="../../dizin/kronecker-delta/index.html">Kronecker Delta</a> &middot; 
+        
+        <a href="../../dizin/sonlu-boyutlu-uzay/index.html">Sonlu Boyutlu Uzay</a> &middot; 
+        
+        <a href="../../dizin/taylor-polinomu/index.html">Taylor Polinomu</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="14-alt-uzaylar/index.html">1.4. Alt Uzaylar</a>
+      <a data-toggle="collapse" href="#ozet-14-alt-uzaylar" role="button" aria-expanded="false" aria-controls="ozet-14-alt-uzaylar">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-14-alt-uzaylar">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bir vektör uzayının bir alt kümesi aynı işlemlere göre yine bir vektör uzayı oluyorsa buna bir <strong>alt uzay</strong> denir. Vektör uzaylarının temel özelliklerinin alt uzaylarıyla yakından ilişkisi vardır, bu derste bu konulara değineceğiz.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/alt-uzay/index.html">Alt Uzay</a> &middot; 
+        
+        <a href="../../dizin/direkt-toplam/index.html">Direkt Toplam</a> &middot; 
+        
+        <a href="../../dizin/en-kucuk-alt-uzay/index.html">En Küçük Alt Uzay</a> &middot; 
+        
+        <a href="../../dizin/kume-toplami/index.html">Küme Toplamı</a> &middot; 
+        
+        <a href="../../dizin/tumleyen/index.html">Tümleyen</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  
+
+
+  
+  
+  
+  
+  <div class="row mt-3">
+    <h3 style="font-family: 'Rajdhani', sans-serif;">
+      2. Lineer Dönüşümler ve Matrisler
+      <a data-toggle="collapse" href="#ozet-2-lineer-donusumler-ve-matrisler" role="button" aria-expanded="false" aria-controls="ozet-2-lineer-donusumler-ve-matrisler">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h3>
+  </div>
+ 
+  <div class="row">
+    <div class="collapse" id="ozet-2-lineer-donusumler-ve-matrisler">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu bölümde <strong>lineer</strong> dönüşüm kavramı tanıtılıp bazı özellikleri detaylı olarak ele alınacaktır. Daha sonra <strong>matrisler</strong> tanımlanacak ve bunlar yardımıyla lineer dönüşümlerin nasıl temsil edildiği açıklanacaktır. Matrisler yardımıyla lineer dönüşümlerin bazı özellikleri araştırılacak ve  <strong>lineer problemlerin</strong> çözüm yöntemleri verilecektir.
+      </div>
+    </div>
+  </div>
+
+
+  
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="21-lineer-donusumler/index.html">2.1. Lineer Dönüşümler</a>
+      <a data-toggle="collapse" href="#ozet-21-lineer-donusumler" role="button" aria-expanded="false" aria-controls="ozet-21-lineer-donusumler">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-21-lineer-donusumler">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu bölümde lineer cebir dersinin temel konusu olan <strong>lineer dönüşüm</strong> kavramı anlatılacak. Ayrıca bununla bağlantılı diğer kavramlar da açıklanacak olup detaylı teorik araştırma yapılacaktır.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/birim-donusum/index.html">Birim Dönüşüm</a> &middot; 
+        
+        <a href="../../dizin/cekirdek/index.html">Çekirdek</a> &middot; 
+        
+        <a href="../../dizin/degismeli-cebir/index.html">Değişmeli Cebir</a> &middot; 
+        
+        <a href="../../dizin/epimorfizm/index.html">Epimorfizm</a> &middot; 
+        
+        <a href="../../dizin/goruntu/index.html">Görüntü</a> &middot; 
+        
+        <a href="../../dizin/homomorfizm/index.html">Homomorfizm</a> &middot; 
+        
+        <a href="../../dizin/izdusum/index.html">Izdüşüm</a> &middot; 
+        
+        <a href="../../dizin/izomorfizm/index.html">Izomorfizm</a> &middot; 
+        
+        <a href="../../dizin/lineer-donusum/index.html">Lineer Dönüşüm</a> &middot; 
+        
+        <a href="../../dizin/monomorfizm/index.html">Monomorfizm</a> &middot; 
+        
+        <a href="../../dizin/nullity/index.html">Nullity</a> &middot; 
+        
+        <a href="../../dizin/projeksiyon/index.html">Projeksiyon</a> &middot; 
+        
+        <a href="../../dizin/rank/index.html">Rank</a> &middot; 
+        
+        <a href="../../dizin/sadelesme/index.html">Sadeleşme</a> &middot; 
+        
+        <a href="../../dizin/sifirlik-sayisi/index.html">Sıfırlık Sayısı</a> &middot; 
+        
+        <a href="../../dizin/skaler-donusum/index.html">Skaler Dönüşüm</a> &middot; 
+        
+        <a href="../../dizin/tam-ters-goruntu/index.html">Tam Ters Görüntü</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="22-matrisler/index.html">2.2. Matrisler</a>
+      <a data-toggle="collapse" href="#ozet-22-matrisler" role="button" aria-expanded="false" aria-controls="ozet-22-matrisler">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-22-matrisler">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste <strong>matris</strong> kavramını tanımlayacağız, daha sonra bu nesneler ile lineer dönüşümlerin nasıl temsil edileceğini tartışacağız. Lineer dönüşümler seçilen baza bağlı olarak bir matris ile temsil edilir.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/esas-kosegen/index.html">Esas Köşegen</a> &middot; 
+        
+        <a href="../../dizin/kosegen-matris/index.html">Köşegen Matris</a> &middot; 
+        
+        <a href="../../dizin/matris/index.html">Matris</a> &middot; 
+        
+        <a href="../../dizin/rank/index.html">Rank</a> &middot; 
+        
+        <a href="../../dizin/satir-ranki/index.html">Satır Rankı</a> &middot; 
+        
+        <a href="../../dizin/sifirlik-sayisi/index.html">Sıfırlık Sayısı</a> &middot; 
+        
+        <a href="../../dizin/sutun-ranki/index.html">Sütun Rankı</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="23-tersinir-matrisler/index.html">2.3. Tersinir Matrisler</a>
+      <a data-toggle="collapse" href="#ozet-23-tersinir-matrisler" role="button" aria-expanded="false" aria-controls="ozet-23-tersinir-matrisler">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-23-tersinir-matrisler">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste matris terslerini ele alacağız. Bir matris bir dönüşümü temsil ediyorsa onun <strong>tersi</strong> denilen matris de bu dönüşümün ters dönüşümünü (varsa) temsil eder.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/birim-matris/index.html">Birim Matris</a> &middot; 
+        
+        <a href="../../dizin/endomorfizm/index.html">Endomorfizm</a> &middot; 
+        
+        <a href="../../dizin/matris-tersi/index.html">Matris Tersi</a> &middot; 
+        
+        <a href="../../dizin/otomorfizm/index.html">Otomorfizm</a> &middot; 
+        
+        <a href="../../dizin/singuler-matris/index.html">Singüler Matris</a> &middot; 
+        
+        <a href="../../dizin/tekil-matris/index.html">Tekil Matris</a> &middot; 
+        
+        <a href="../../dizin/ters-donusum/index.html">Ters Dönüşüm</a> &middot; 
+        
+        <a href="../../dizin/tersinir-matris/index.html">Tersinir Matris</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="24-baz-degisimi/index.html">2.4. Baz Değişimi</a>
+      <a data-toggle="collapse" href="#ozet-24-baz-degisimi" role="button" aria-expanded="false" aria-controls="ozet-24-baz-degisimi">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-24-baz-degisimi">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Lineer dönüşümlerin verilen sabit bazlara göre bir matris ile temsil edildiğini daha önceden öğrendik. Bu bölümde seçilen bazlar değiştirildiğinde bu matrislerin nasıl etkilendiğini araştıracağız.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/baz-degisimi/index.html">Baz Değişimi</a> &middot; 
+        
+        <a href="../../dizin/benzerlik/index.html">Benzerlik</a> &middot; 
+        
+        <a href="../../dizin/benzer-matrisler/index.html">Benzer Matrisler</a> &middot; 
+        
+        <a href="../../dizin/gecis-matrisi/index.html">Geçiş Matrisi</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="25-hermite-normal-bicimi/index.html">2.5. Hermite Normal Biçimi</a>
+      <a data-toggle="collapse" href="#ozet-25-hermite-normal-bicimi" role="button" aria-expanded="false" aria-controls="ozet-25-hermite-normal-bicimi">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-25-hermite-normal-bicimi">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bir önceki bölümde seçilen bazlar değiştirildiğinde bir lineer dönüşümü temsil eden matrisin nasıl değiştiğini anladık. Bu bölümde şu soruya cevap arayacağız: nasıl bir baz seçelim ki dönüşümü temsil eden matris en basit yapıda olsun?
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/hermite-normal-bicim/index.html">Hermite Normal Biçim</a> &middot; 
+        
+        <a href="../../dizin/satir-eselon-form/index.html">Satır Eşelon Form</a> &middot; 
+        
+        <a href="../../dizin/transpoz/index.html">Transpoz</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="26-elementer-matrisler/index.html">2.6. Elementer Matrisler</a>
+      <a data-toggle="collapse" href="#ozet-26-elementer-matrisler" role="button" aria-expanded="false" aria-controls="ozet-26-elementer-matrisler">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-26-elementer-matrisler">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste şunu keşfedeceğiz: bir matrise <strong>elementer işlem</strong> dediğimiz bazı işlemler uygulanınca lineer dönüşümü temsil etmesi için seçilen bir bazda bir eleman değişir. Bu işlemleri uygulamak demek aslında matrisi <strong>elementer matrisler</strong> denilen matrislerle çarpmak demektir. Böylece Hermite normal biçime ulaşmak için ardışık olarak elementer işlemler uygulanabilir.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/elementer-islem/index.html">Elementer Işlem</a> &middot; 
+        
+        <a href="../../dizin/elementer-matris/index.html">Elementer Matris</a> &middot; 
+        
+        <a href="../../dizin/elementer-satir-islemleri/index.html">Elementer Satır Işlemleri</a> &middot; 
+        
+        <a href="../../dizin/elementer-sutun-islemleri/index.html">Elementer Sütun Işlemleri</a> &middot; 
+        
+        <a href="../../dizin/hermite-normal-bicim/index.html">Hermite Normal Biçim</a> &middot; 
+        
+        <a href="../../dizin/matris-tersi/index.html">Matris Tersi</a> &middot; 
+        
+        <a href="../../dizin/tersinir-matris/index.html">Tersinir Matris</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="27-lineer-problemler/index.html">2.7. Lineer Problemler</a>
+      <a data-toggle="collapse" href="#ozet-27-lineer-problemler" role="button" aria-expanded="false" aria-controls="ozet-27-lineer-problemler">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-27-lineer-problemler">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste <strong>lineer problemleri</strong> tanıtacağız, bunların çözümlerinin bir alt uzay oluşturduğunu ve bazı önemli özelliklerini öğreneceğiz. <strong>özel çözüm</strong> ve <strong>genel çözüm</strong> kavramları size bu teorinin bazı uygulamalarını hatırlatacaktır.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/genel-cozum/index.html">Genel Çözüm</a> &middot; 
+        
+        <a href="../../dizin/genisletilmis-matris/index.html">Genişletilmiş Matris</a> &middot; 
+        
+        <a href="../../dizin/homojen-lineer-problem/index.html">Homojen Lineer Problem</a> &middot; 
+        
+        <a href="../../dizin/homojen-sistem/index.html">Homojen Sistem</a> &middot; 
+        
+        <a href="../../dizin/lineer-denklem-sistemi/index.html">Lineer Denklem Sistemi</a> &middot; 
+        
+        <a href="../../dizin/lineer-problem/index.html">Lineer Problem</a> &middot; 
+        
+        <a href="../../dizin/ozel-cozum/index.html">Özel Çözüm</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="28-bazi-uygulamalar/index.html">2.8. Bazı Uygulamalar</a>
+      <a data-toggle="collapse" href="#ozet-28-bazi-uygulamalar" role="button" aria-expanded="false" aria-controls="ozet-28-bazi-uygulamalar">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-28-bazi-uygulamalar">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derse kadar Hermite normal biçimin bazı önemli uygulamalarını gördünüz, matris tersi hesaplama, lineer problem çözümü gibi. Bu bölümde başka bazı uygulamalar özetlenecektir.
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="29-normal-formlar/index.html">2.9. Normal Formlar</a>
+      <a data-toggle="collapse" href="#ozet-29-normal-formlar" role="button" aria-expanded="false" aria-controls="ozet-29-normal-formlar">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-29-normal-formlar">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste en genel anlamıyla <strong>normal</strong> veya <strong>kanonik</strong> form (biçim) kavramı açıklanacaktır. Özetle bir denklik bağıntısı verildiğinde bir denklik sınıfından seçilen özel bir matrise bir normal form denir.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/baginti/index.html">Bağıntı</a> &middot; 
+        
+        <a href="../../dizin/denklik-bagintisi/index.html">Denklik Bağıntısı</a> &middot; 
+        
+        <a href="../../dizin/denklik-sinifi/index.html">Denklik Sınıfı</a> &middot; 
+        
+        <a href="../../dizin/kanonik-form/index.html">Kanonik Form</a> &middot; 
+        
+        <a href="../../dizin/normal-form/index.html">Normal Form</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  
+
+
+  
+  
+  
+  
+  <div class="row mt-3">
+    <h3 style="font-family: 'Rajdhani', sans-serif;">
+      3. Determinantlar, Özdeğerler ve Benzerlik
+      <a data-toggle="collapse" href="#ozet-3-determinantlar-ozdegerler-ve-benzerlik" role="button" aria-expanded="false" aria-controls="ozet-3-determinantlar-ozdegerler-ve-benzerlik">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h3>
+  </div>
+ 
+  <div class="row">
+    <div class="collapse" id="ozet-3-determinantlar-ozdegerler-ve-benzerlik">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu bölümde lineer dönüşümüleri araştırmaya devam edeceğiz. Daha önce öğrendiğimiz gibi lineer dönüşümler matrislerle temsil ediliyordu, dolayısıyla matrislerin analizi oldukça önemlidir. Matrislerin özelliklerini araştırmak için çok önemli araçlar olan <strong>determinant</strong>, <strong>özdeğer</strong>, <strong>özvektör</strong>, <strong>iz</strong> gibi kavramları tanıyacağız.
+      </div>
+    </div>
+  </div>
+
+
+  
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="31-permutasyonlar/index.html">3.1. Permütasyonlar</a>
+      <a data-toggle="collapse" href="#ozet-31-permutasyonlar" role="button" aria-expanded="false" aria-controls="ozet-31-permutasyonlar">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-31-permutasyonlar">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Determinant kavramını temellendirebilmek için önce <strong>permütasyon</strong> kavramını anlamalıyız. Bu derste bunu yapacağız, permütasyonlar kısaca bir küme üzerinde tanımlı bire bir dönüşümlerdir.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/birim-permutasyon/index.html">Birim Permütasyon</a> &middot; 
+        
+        <a href="../../dizin/cift-permutasyon/index.html">Çift Permütasyon</a> &middot; 
+        
+        <a href="../../dizin/evirtim/index.html">Evirtim</a> &middot; 
+        
+        <a href="../../dizin/permutasyon/index.html">Permütasyon</a> &middot; 
+        
+        <a href="../../dizin/permutasyon-isareti/index.html">Permütasyon Işareti</a> &middot; 
+        
+        <a href="../../dizin/tek-permutasyon/index.html">Tek Permütasyon</a> &middot; 
+        
+        <a href="../../dizin/ters-permutasyon/index.html">Ters Permütasyon</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="32-determinantlar/index.html">3.2. Determinantlar</a>
+      <a data-toggle="collapse" href="#ozet-32-determinantlar" role="button" aria-expanded="false" aria-controls="ozet-32-determinantlar">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-32-determinantlar">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste <strong>determinant</strong> kavramını tanıyacağız ve temel özelliklerini keşfedeceğiz. Bu kavram bize matrislerin singülerliğini test etmek için pratik bir yöntem sağlar.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/determinant/index.html">Determinant</a> &middot; 
+        
+        <a href="../../dizin/permutasyon/index.html">Permütasyon</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="33-kofaktorler/index.html">3.3. Kofaktörler</a>
+      <a data-toggle="collapse" href="#ozet-33-kofaktorler" role="button" aria-expanded="false" aria-controls="ozet-33-kofaktorler">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-33-kofaktorler">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste <strong>kofaktör</strong> ve <strong>adjoint</strong> (adjunct, eşlenik, ilave) matris kavramınlarını tartışacağız. Bunlar yardımıyla determinantları ve matris terslerini hesaplama yöntemleri ve lineer denklem sistemlerini çözmek için kullanılan bir yöntem olan <strong>Cramer</strong> kuralını keşfedeceğiz.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/adjoint-matris/index.html">Adjoint Matris</a> &middot; 
+        
+        <a href="../../dizin/adjunct/index.html">Adjunct</a> &middot; 
+        
+        <a href="../../dizin/cramer-kurali/index.html">Cramer Kuralı</a> &middot; 
+        
+        <a href="../../dizin/ilave-matris/index.html">Ilave Matris</a> &middot; 
+        
+        <a href="../../dizin/kofaktor/index.html">Kofaktör</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="34-hamilton-cayley-teoremi/index.html">3.4. Hamilton-Cayley Teoremi</a>
+      <a data-toggle="collapse" href="#ozet-34-hamilton-cayley-teoremi" role="button" aria-expanded="false" aria-controls="ozet-34-hamilton-cayley-teoremi">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-34-hamilton-cayley-teoremi">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste polinomsal matrislere ilişkin çok önemli bir sonuç olan <strong>Hamilton-Cayley teoremini</strong> kanıtlayacağız. Ayrıca <strong>minimal polinom</strong> ve özellikleri konusuna da değineceğiz.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/cayley-hamilton-teoremi/index.html">Cayley-Hamilton Teoremi</a> &middot; 
+        
+        <a href="../../dizin/es-matris/index.html">Eş Matris</a> &middot; 
+        
+        <a href="../../dizin/karakteristik-denklem/index.html">Karakteristik Denklem</a> &middot; 
+        
+        <a href="../../dizin/karakteristik-matris/index.html">Karakteristik Matris</a> &middot; 
+        
+        <a href="../../dizin/karakteristik-polinom/index.html">Karakteristik Polinom</a> &middot; 
+        
+        <a href="../../dizin/minimal-polinom/index.html">Minimal Polinom</a> &middot; 
+        
+        <a href="../../dizin/minimum-denklem/index.html">Minimum Denklem</a> &middot; 
+        
+        <a href="../../dizin/polinomsal-matris/index.html">Polinomsal Matris</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="35-ozdegerler-ve-ozvektorler/index.html">3.5. Özdeğerler ve Özvektörler</a>
+      <a data-toggle="collapse" href="#ozet-35-ozdegerler-ve-ozvektorler" role="button" aria-expanded="false" aria-controls="ozet-35-ozdegerler-ve-ozvektorler">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-35-ozdegerler-ve-ozvektorler">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bu derste özdeğer problemlerine değineceğiz, bunun için önce <strong>özdeğer</strong> ve <strong>özvektör</strong> kavramlarının tanıyıp önemlerini tartışacağız. Daha sonra özdeğer ve özvektörlerin temel özelliklerini keşfedeceğiz.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/cebirsel-katlilik/index.html">Cebirsel Katlılık</a> &middot; 
+        
+        <a href="../../dizin/fourier-analizi/index.html">Fourier Analizi</a> &middot; 
+        
+        <a href="../../dizin/fourier-serisi/index.html">Fourier Serisi</a> &middot; 
+        
+        <a href="../../dizin/geometrik-katlilik/index.html">Geometrik Katlılık</a> &middot; 
+        
+        <a href="../../dizin/invaryant-alt-uzay/index.html">Invaryant Alt Uzay</a> &middot; 
+        
+        <a href="../../dizin/ozdeger/index.html">Özdeğer</a> &middot; 
+        
+        <a href="../../dizin/oz-uzay/index.html">Öz Uzay</a> &middot; 
+        
+        <a href="../../dizin/ozvektor/index.html">Özvektör</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row ml-5 mt-1">
+    <h4 style="font-family: 'Rajdhani', sans-serif;">
+      <a href="36-benzerlik/index.html">3.6. Benzerlik</a>
+      <a data-toggle="collapse" href="#ozet-36-benzerlik" role="button" aria-expanded="false" aria-controls="ozet-36-benzerlik">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h4>
+  </div>
+
+  <div class="row ml-5">
+    <div class="collapse" id="ozet-36-benzerlik">
+      <div class="col p-1 mb-3 font-italic bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <strong>Özet:</strong> Bir lineer dönüşümle ilgilenirken genellikle onu mümkün olan en basit matrisle temsil etmemizi sağlayacak bazları araştırırız. Bunun için isteyeceğimiz en basit matrisler köşegen elemanları dışındaki tüm elemanları sıfır olan matrislerdir (köşegen matrisler). Her dönüşüm bir köşegen matrisle temsil edilemese de matrislerin önemli bir sınıfı için bu mümkündür. Bu derste bu konuyu tartışacağız.
+        
+        <br><br>
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a href="../../dizin/kosegen-matris/index.html">Köşegen Matris</a> &middot; 
+        
+        <a href="../../dizin/matris-izi/index.html">Matris Izi</a> &middot; 
+        
+        <a href="../../dizin/trace/index.html">Trace</a>
+          
+        
+      </div>
+    </div>
+  </div>
+  
+  
+
+
+  
+  
+  
+  
+  
+
+
+  
+  <div class="row mt-5">
+    <h3 style="font-family: 'Rajdhani', sans-serif;">
+      KAYNAKÇA
+      <a data-toggle="collapse" href="#kaynakca-lineer-cebire-giris" role="button" aria-expanded="false" aria-controls="kaynakca-lineer-cebire-giris">
+        <svg class="bi bi-chevron-expand text-success" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 01.708 0L8 12.793l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708zm0-2.292a.5.5 0 00.708 0L8 3.207l3.646 3.647a.5.5 0 00.708-.708l-4-4a.5.5 0 00-.708 0l-4 4a.5.5 0 000 .708z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </h3>
+  </div>
+
+  <div class="row">
+    <div class="collapse" id="kaynakca-lineer-cebire-giris">
+      <div class="col p-1 mb-3 bg-light" style="font-family: Manrope; line-height: 1.25; font-size: 0.95rem;">
+        <ol>
+<li><strong>S. Axler</strong>, <em>Linear Algebra Done Right 2nd Ed.</em>, Springer-Verlag, New York, 1997.</li>
+<li><strong>E. D. Nering</strong>, <em>Linear Algebra and Matrix Theory 2nd Ed.</em>, John Wiley & Sons Inc., New York, 1970.</li>
+<li><strong>I. M. Gel'fand</strong>, <em>Lectures on Linear Algebra</em>, Dover Publications, New York, 1961.</li>
+</ol>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/lineer-cebire-giris/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:33:45 GMT -->
+</html>

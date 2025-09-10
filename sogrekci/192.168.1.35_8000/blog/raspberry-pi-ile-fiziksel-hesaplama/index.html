@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/blog/raspberry-pi-ile-fiziksel-hesaplama/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:34:25 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - Raspberry Pi ile Fiziksel Hesaplama
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../static/site/prism.css">
+    <script src="../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>Raspberry Pi ile Fiziksel Hesaplama</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-09-15">
+          15 Eylül 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-09-21">
+          21 Eylül 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu yazımda size Raspberry Pi kartınıza çeşitli elektronik bileşenleri nasıl bağlayacağınızı ve bunlarla nasıl iletişim kurabileceğinizi açıklayacağım. Farklı kombinasyonlarla istediğiniz özelliklerde robotlar geliştirebilirsiniz. Programlama için Python kullanacağız, minimum düzeyde elektronik bilgisine ihtiyacınız olabilir.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../dizin/buton/index.html">buton</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/buzzer/index.html">buzzer</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/dc-motor/index.html">dc motor</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/direnc/index.html">direnç</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/gpio/index.html">GPIO</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/gpiozero/index.html">gpiozero</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/hcsr04/index.html">HCSR04</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/kondansator/index.html">kondansatör</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/ldr/index.html">ldr</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/led/index.html">led</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/raspberry-pi/index.html">Raspberry Pi</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/raspberry-pi-zero-w/index.html">Raspberry Pi Zero W</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/robot/index.html">robot</a> &middot; 
+        
+        <a class="text-light" href="../../dizin/servo/index.html">servo</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-5 text-justify">
+        <p>
+Bu yazımda size Raspberry Pi ile çeşitli elektronik bileşenler kullanarak nasıl <strong>fiziksel hesaplama</strong> yapılabildiğini açıklayacağım. Fiziksel hesaplamadan kasıt; Raspberry Pi üzerinde bulunan genel amaçlı giriş/çıkış pinleri (<strong>GPIO</strong>, general purpose input/output pins) yardımıyla butonlar, led lambalar, motorlar ve çeşitli sensörlere bağlanmak, bunlara programatik olarak veriler göndermek veya bunlardan gelen verileri dinlemek ve bu verileri işlemektir.
+</p>
+
+
+<p>
+Bunun için öncelikle Raspberry Pi üzerindeki pinleri anlamak gerekiyor, kart üzerinde çeşitli amaçlarda kullanılabilecek şekilde toplam 40 adet pin mevcuttur. Aşağıdaki grafikte bu pinlerin yerleşimi gösteriliyor, burada yeşil renkli olanlar GPIO pinleridir. Kırmızı ve turuncu olanlar sırasıyla sabit olarak 5V ve 3V gerilim verir, bunlarla karta bağladığınız led lamba gibi kaynağa ihtiyaç duyan bileşenlere güç verebilirsiniz. Siyah olanlar topraklama (ground) için kullanılır, diğerleri de farklı iletişim protokolları için ayrılmıştır.
+
+<img class="envfig my-5" src="https://raw.githubusercontent.com/Gadgetoid/Pinout.xyz/master/resources/raspberry-pi-pinout.png">
+</p>
+
+
+<p>
+Bağladığımız bileşenlerle iletişim kurmak için Python programlama dilini kullanacağız, bu zaten Raspberry Pi ile yüklenmiş olarak geliyor. Genel mantık şudur; bir pinin değeri aldığı gerilime göre ya <code class="language-python">1</code>'dir ya da <code class="language-python">0</code>, kodlama ile bu gerilimi okuyabilir ve değiştirebiliriz. Mesela bir buton ve bir led bağladığımızı düşünelim ve butona basıldığında lambanın yanmasını istiyoruz. Butonun bağlandığı pinin değerini okuyacağız, bu değer <code class="language-python">1</code> ise led bağlı pinin değerini <code class="language-python">1</code> yapacağız. Pin değerlerini okumayı ve yazmayı becerebilirsek gerisi çok basit bir <code class="language-python">if-else</code> işlemine bakıyor. Biraz daha karmaşık olarak mesela iki adet tekeri döndüren iki adet motor ve bir mesafe ölçen sensör bağlı olan bir düzeneği düşünelim. Amacımız motorları aynı anda çalıştırıp düzeneğin ileri doğru hareket etmesini sağlamak, aynı zamanda sürekli olarak mesafe sensörünü okuyarak bir engel ile karşılaştığında yön değiştirmesini sağlamak olsun. Bu durumda önce her bir motorun bağlandığı pinleri aynı anda <code class="language-python">1</code> yaparak başlarız ve mesafe sensörünü de sürekli olarak okuruz, bu durumda düzenek tekerleri döndürerek ileri doğru hareket eder. Düzeneğin önüne bir engel çıktığı zaman mesafe sensörü değerleri düşmeye başlar, belirlediğimiz bir eşiğin altına düştüğü zaman motorları <code class="language-python">0</code> yaparak durdururuz ve mesela sağa dönmek isteriz. Sağa dönmek için motor değerleri farklı olmalı çünkü sol tekerlek ileri doğru ve sağ tekerlek geri doğru hareket etmelidir. Bunun için sol motor pinini <code class="language-python">1</code> yaparız, sağ motoru ters yönde hareket ettirmek için akım yönünü değiştirmemiz gerekir. Bunun için her dönüş öncesinde düzeneği söküp kabloların yerini değiştirmemiz gerekir aslında, ama buna gerek kalmadan akım yönü değiştirebileceğimiz ara bileşenler var. Bunlardan birini motor ve Raspberry Pi arasına bağlayabiliriz ve bundan sonra sağ motoru <code class="language-python">-1</code> yaparak ters yönde hareket ettirebiliriz. Bu işlem karmaşık değil aslında, programlama açısından birkaç <code class="language-python">if-else</code> ve birkaç döngüden ibaret. Önemli nokta elektronik bileşenlere erişim.
+</p>
+
+
+<p>
+Şimdi bu bileşenlere erişimi nasıl sağlayacağımızı açıklayayım. Aslında yukarıda açıkladığım kadar düşük seviye bir kodlamaya gerek yok çünkü Python'da bunları yapmaya yarayan çok kapsamlı ve pratik bir modül var: <a class="outref" target="_blank" href="https://gpiozero.readthedocs.io/en/stable/index.html"><strong>gpiozero</strong></a>. Bu modülde en sık kullanılan elektronik bileşenler için hazır fonksiyonlar var, mesela bir led lambayı yakmak için onun pin numarasını belirterek bir <code class="language-python">LED</code> sınıfı instance aldıktan sonra sadece <code class="language-python">LED.on()</code> yapmamız yeterli. Eğer bu modülde içerilmeyen bir bileşen ile çalışıyorsanız sadece o zaman düşük seviye kodlama yaparsınız, diğer durumlarda <code class="language-python">gpiozero</code> işimizi çok kolaylaştırır. Bu modülde her şey kabaca pinler (pins) ve aygıtlar (devices) olarak ikiye ayrılır, biz bileşenler için devices sınıfı ile çalışacağız. Modülün device hiyerarşisi aşağıdaki görselde açıklanıyor, oldukça kapsamlı olduğundan üzerine tıklayarak büyütmeniz gerekebilir.
+
+<a class="eqref" href="../../static/blog/gpiozero_devices.svg">
+<img class="envfig my-5" src="../../static/blog/gpiozero_devices.svg" width="50%">
+</a>
+</p>
+
+
+
+<p>
+Şimdi harekete geçelim ve ilk uygulamamızı yapalım, basit bir örnek olarak bir led lambayı kontrol etmeye çalışalım. Led lambaların bir girişi bir de çıkışı vardır, bunlara gerilim ve topraklama vererek yanmalarını sağlarız. Fakat 3V gerilim bir led için çok fazladır ve lambanın bozulmasına neden olur, bundan dolayı gerilim hattına bir direnç bağlayarak akımı düşürmeliyiz (50&Omega; üzerinde herhangi bir direnç iş görür). Önce led bağlantısını aşağıdaki şekilde görüldüğü gibi yapalım. Led lambanın uzun bacağı seri olarak bir dirence ve Raspberry Pi'in 3V pinine bağlanacak, diğer bacağı da herhangi bir topraklama pinine.
+
+<img class="envfig my-5" src="../../static/blog/rpi_led.svg" width="50%">
+
+Şimdi aşağıdaki gibi led lambamızı kontrol edebiliriz, 17 numaralı pine bağladığımız için kodlarda buna dikkat ediyoruz. Aşağıdaki programı çalıştırdığımızda led lambamız birer saniye aralıkla yanıp sönmelidir.
+
+<pre class="my-4"><code class="language-python line-numbers">
+from gpiozero import LED
+from time import sleep
+
+led = LED(17)
+
+while True:
+    led.on()
+    sleep(1)
+    led.off()
+    sleep(1)
+</code></pre>
+
+<img class="envfig my-5" src="../../static/blog/rpi_led.jpg" width="75%">
+</p>
+
+
+<p>
+Şimdi bir adım daha ileriye gidelim ve bir de buton bağlayalım, aşağıdaki gibi bağlantınızı yapın.
+
+<img class="envfig my-5" src="../../static/blog/rpi_button_led.svg" width="50%">
+
+Aşağıdaki gibi buton yardımıyla lambayı kontrol edebilirsiniz. Bu programı çalıştırdığınzda butona basınca üç saniye boyunca led lambayı yakacak sonra söndürecektir.
+
+<pre class="my-4"><code class="language-python line-numbers">
+from gpiozero import LED, Button
+from time import sleep
+
+led = LED(17)
+button = Button(5)
+
+button.wait_for_press() #butona basana kadar bir sey yapma
+led.on()
+sleep(3)
+led.off()
+</code></pre>
+
+<img class="envfig my-5" src="../../static/blog/rpi_button_led.jpg" width="75%">
+</p>
+
+
+
+<p>
+Şimdi buzzer kontrol etmeye çalışalım, bu bileşen bip sesi çıkarmaya yarar. Aşağıdaki gibi bağlantımızı yapalım.
+
+<img class="envfig my-5" src="../../static/blog/rpi_buzzer.svg" width="50%">
+
+Şimdi artık gpiozero modülüyle kolayca düzeneğimiz ses çıkarabilir. Aşağıdaki kodları çalıştırın, bir saniye aralıklı olarak buzzerımız bip sesi çıkaracaktır. Ben söküp takmak ile uğraşmamak için aynı breadboard üzerinde çalıştım, siz isterseniz önceki bileşenleri sökebilirsiniz.
+
+<pre class="my-4"><code class="language-python line-numbers">
+from gpiozero import LED, Button
+from time import sleep
+
+buzzer = Buzzer(23)
+
+while True:
+    buzzer.on()
+    sleep(1)
+    buzzer.off()
+    sleep(1)
+</code></pre>
+
+<img class="envfig my-5" src="../../static/blog/rpi_buzzer.jpg" width="75%">
+</p>
+
+
+<p>
+Şimdi de ışık sensörü kontrol edelim, <strong>ldr</strong> (light dependent resistor) dediğimiz bu bileşen aslında ışığa duyarlı bir dirençten ibarettir ve üzerine düşen ışık şiddetine göre akımı değiştirir. Buna küçük bir kondansatör (1&mu;f yeterli) ekleyeceğiz, kondansatörde biriken gerilim miktarına göre ışık şiddetini tespit edebiliriz. Aşağıdaki gibi bağlantıları yapalım.
+
+<img class="envfig my-5" src="../../static/blog/rpi_ldr.svg" width="50%">
+
+Aşağıdaki programı çalıştırınca ekrana sürekli olarak ışık şiddeti değerinin yazıldığını göreceksiniz. Sensörü küçük bir kutuyla kapatmayı deneyip değerleri gözlemleyin.
+
+<pre class="my-4"><code class="language-python line-numbers">
+from gpiozero import LightSensor
+
+ldr = LightSensor(18)
+
+while True:
+    print(ldr.value)
+</code></pre>
+
+<img class="envfig my-5" src="../../static/blog/rpi_ldr.jpg" width="75%">
+</p>
+
+
+
+<p>
+şimdi bir <strong>servo motor</strong> çalıştıralım, bu tür motorlar sınırlı açısal hareket yaparlar ve robotik kol tasarımında sıklıkla kullanılırlar. Bağlantımızı aşağıdaki gibi yapalım.
+
+<img class="envfig my-5" src="../../static/blog/rpi_servo.svg" width="50%">
+
+Aşağıdaki program ile servonuzu çalıştırabilirsiniz, bu program servoyu birer saniye aralıklara başlangıç, orta ve son konumuna getirir.
+
+<pre class="my-4"><code class="language-python line-numbers">
+from gpiozero import Servo
+from time import sleep
+
+servo = Servo(17)
+
+while True:
+    servo.min()
+    sleep(1)
+    servo.mid()
+    sleep(1)
+    servo.max()
+    sleep(1)
+</code></pre>
+
+<img class="envfig my-5" src="../../static/blog/rpi_servo.jpg" width="75%">
+</p>
+
+
+<p>
+Şimdi <strong>HCSR04</strong> mesafe sensörü kontrolü yapalım. Bu aygıtlar üzerinde bulunan bir verici ultrasonik seviyede ses dalgaları üretir, diğer bir alıcı da yansıyıp geri gelen ses dalgasını alır. Verici ve alıcı çalışması arasındaki geçen süre hesaplanır ve ses hızı ile mukayese edilerek en yakın cismin sensöre ulan uzaklığı tespit edilir. Bu sensörler <code class="language-python">echo</code> ve <code class="language-python">trig</code> olmak üzere iki çıkışa sahiptir ve iki pin kullanır. Bu pinler farklı gerilimler ile çalışır, dolayısıyla 5V çıkışını kullanırız ve dirençlerle akımı ayarlarız. Aşağıda sırasıyla 330&Omega; ve 470&Omega; dirençler kullandım.
+
+<img class="envfig my-5" src="../../static/blog/rpi_hcsr04.svg" width="70%">
+
+Aşağıdaki programla sensörü kullanalım, bu program sensörün önündeki mesafeyi cm cinsinden ekrana yazdırır. Elinizi sensör önünden geçirerek deneme yapabilirsiniz.
+
+<pre class="my-4"><code class="language-python line-numbers">
+from gpiozero import DistanceSensor
+
+ultrasonic = DistanceSensor(echo=17, trigger=4)
+
+while True:
+    print(ultrasonic.distance*100)
+</code></pre>
+
+<img class="envfig my-5" src="../../static/blog/rpi_hcsr04.jpg" width="75%">
+</p>
+
+
+
+<p>
+Servo motor ve HCSR04 sensör kullanarak aşağıdaki gibi ev yapımı bir radar üretebilirsiniz.
+
+<img class="envfig my-5" src="../../static/blog/rpi_radar.gif" width="30%">
+</p>
+
+
+<p>
+Son olarak bir de <strong>DC motor</strong> kontrolüne değineyim, bu motorlar sürekli dönerek tekerlek bağlı düzenekleri hareket ettirebilir. Daha önce bahsettiğim gibi hareket yönünü değiştirmek için akım yönünü değiştirmeye ihtiyaç duyarız ve bunun için <strong>H-bridge</strong> denilen elektronik bileşenlere ihtiyaç duyarız, en basitleri <strong>L298N</strong> denilen bileşenlerdir. Aşağıda iki tekerleği döndürmek için iki adet DC motor ve bir dual H-bridge bileşenini nasıl bağlandığı gösteriliyor.
+
+<img class="envfig my-5" src="../../static/blog/rpi_dc_motor.svg" width="75%">
+
+Bu kullandığım motorlar 5V ile çalışıyor fakat daha yüksek gerilime ihtiyaç duyan motorlar da sıklıkla kullanılır. Dolayısıyla motorlara güç kaynağı olarak kalem pillerden oluşan ayrı bir kaynak ayırmak mantıklıdır. Aşağıdaki program motorların nasıl hareket ettirileceğini kabaca özetliyor, genelde <code class="language-python">forward()</code>, <code class="language-python">backward()</code>, <code class="language-python">left()</code>, <code class="language-python">right()</code> ve <code class="language-python">stop()</code> metotlarını kullanırız.
+
+<pre class="my-4"><code class="language-python line-numbers">
+from gpiozero import Robot
+from time import sleep
+
+robot = Robot(left = (7, 8), right = (9, 10))
+
+while True:
+	robot.forward()
+	sleep(3)
+	robot.stop()
+	robot.right()
+	sleep(1)
+	robot.stop()
+</code></pre>
+</p>
+
+
+
+<p>
+Ben burada anlattığım bazı bileşenleri ve bazı basit mekanik parçalar kullanarak aşağıdaki gibi otonom bir robot ürettim, siz de böyle şeyleri kolayca geliştirebilirsiniz.
+
+<img class="envfig my-5" src="../../static/blog/rpi_robot.jpg" width="75%">
+</p>
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Blog Yazısı:<br>
+        <a href="../bodoslama-javascript/index.html">Bodoslama JavaScript</a>
+        
+      </div>
+      <div class="col text-center mt-auto">
+        <a href="../index.html">Blog Ana Sayfası</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Blog Yazısı:<br>
+        <a href="../e-kitaplar-ve-bir-epub-dosyasinin-anatomisi/index.html">E-Kitaplar ve Bir EPUB Dosyasının Anatomisi</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+
+
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../ders-notu/index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/blog/raspberry-pi-ile-fiziksel-hesaplama/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:35:34 GMT -->
+</html>

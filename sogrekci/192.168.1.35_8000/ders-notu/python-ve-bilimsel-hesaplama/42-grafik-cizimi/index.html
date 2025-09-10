@@ -1,0 +1,805 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/python-ve-bilimsel-hesaplama/42-grafik-cizimi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:40:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169637559-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169637559-1');
+</script>
+
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>
+Süleyman Öğrekçi - 4.2. Grafik Çizimi
+</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/site/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/site/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/site/site.webmanifest">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital@1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&amp;display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap and jquery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          macros: {
+            im: "{\\mathop{\\rm Im}}",
+            Tr: "{\\mathop{\\rm Tr}}",
+            d: ["{\\operatorname{d}{#1}}", 1]
+          }
+        },
+        //for v2 cequations
+        options: {
+      renderActions: {
+      findScript: [10, function (doc) {
+        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+          const display = !!node.type.match(/; *mode=display/);
+          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+          const text = document.createTextNode('');
+          node.parentNode.replaceChild(text, node);
+          math.start = {node: text, delim: '', n: 0};
+          math.end = {node: text, delim: '', n: 0};
+          doc.math.push(math);
+        }
+      }, '']
+    }
+  }
+      };
+
+      
+    </script>
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="../../../static/site/prism.css">
+    <script src="../../../static/site/prism.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../static/site/sitebody.css">
+
+    
+  </head>
+
+  <body>
+
+    <main>
+      
+      
+<article>
+  <div class="container-fluid bg-light">
+
+    <header>
+    <div class="row py-4">
+      <div class="col">
+        <h1>4.2. Grafik Çizimi</h1>
+      </div>
+    </div>
+
+    <div class="row bg-secondary text-light py-2" style="line-height: 1.25; font-size: 0.95rem;">
+      <div class="col-2">
+        <p>
+          <strong>Kayıt Tarihi:</strong>
+          <br>
+          <time datetime="2020-05-23">
+          23 Mayıs 2020
+          </time>
+        </p>
+        
+        <p>
+          <strong>Son Güncelleme:</strong>
+          <br>
+          <time datetime="2020-05-24">
+          24 Mayıs 2020
+          </time>
+        </p>
+        
+      </div>
+      <div class="col-10 border-left">
+        <strong>Özet:</strong>
+        <p><em>Bu derste iki boyutlu grafikleri çizmeyi öğreneceğiz, bu yöntemleri genelde bir $y=f(x)$ fonksiyonunun grafiğini çizdirmek için kullansak da bunların dışında istatiksel grafikler için de kullanılır.</em></p>
+        
+        <strong>Anahtar Kelimeler:</strong>
+        
+        <a class="text-light" href="../../../dizin/animasyon/index.html">animasyon</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/convert/index.html">convert</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/figaspect/index.html">figaspect</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/figsize/index.html">figsize</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/figure/index.html">figure</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/grafik/index.html">grafik</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/grafik-cizme/index.html">grafik çizme</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/imagemagick/index.html">Imagemagick</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/matplotlib/index.html">matplotlib</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/plot/index.html">plot</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/pyplot/index.html">pyplot</a> &middot; 
+        
+        <a class="text-light" href="../../../dizin/subplot/index.html">subplot</a>
+        
+        
+      </div>
+    </div>
+    </header>
+
+    <div class="row mt-5 justify-content-center" style="font-family: 'Merriweather', serif; line-height: 1.70; font-size: 1.05rem;">
+      <div class="col mx-3 text-justify">
+        <h3 class="mb-3">Temel Grafik Çizme Yöntemi</h3>
+
+
+
+
+
+
+<p>
+Python'da grafik çizmenin son derece basit bir mantığı vardır. Biz $x_0, x_1,\ldots,x_{n-1}$ ve $y_0, y_1, \ldots, y_{n-1}$ sayılarından oluşan verileri hazırlarız ve ilgili modüller $(x_0, y_0), (x_1, y_1),\ldots,(x_{n-1}, y_{n-1})$ noktalarını <strong>düz doğrularla</strong> birleştirirerek bir grafik oluşturur. Eğer nokta sayısını yeterince büyük seçersek köşeleri farketmeyiz ve bir eğrinin grafiğini böylece elde etmiş oluruz.
+</p>
+
+<p>
+Python'da fonksiyonların grafiklerini çizmek için en yaygın olarak kullanılan paket <strong>Matplotlib</strong>'dir ve buna <code class="language-python">import matplotlib.pyplot</code> biçiminde ulaşırız, bu paketi <code class="language-python">plt</code> ön eki ile kullanmak standart bir uygulamadır. Bu paketin temel kullanımını bir örnek üzerinde açıklayalım.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import matplotlib.pyplot as plt
+
+x = [-1.0, -0.5, 0.0 , 0.5, 1.0]
+y = [1.0, 0.25, 0.0, 0.25, 1.0]
+
+plt.plot(x, y)
+plt.show()
+</code></pre>
+
+<p>
+Burada önce Matplotlib paketine erişiyoruz, daha sonra da <code class="language-python">x</code> ve <code class="language-python">y</code> list nesneleriyle çizilecek grafiğin noktalarının koordinatlarını tanımlıyoruz. Amacımız $(-1, 1)$, $(-0.5, 0.25)$, $(0, 0)$, $(0.5, 0.25)$ ve $(1, 1)$ noktalarını birleştirerek bir grafik elde etmektir. Bunu yapmak için Matplotlib paketinde bulunan <code class="language-python">plot()</code> fonksiyonunu kullanırız, <code class="language-python">plot(x, y)</code> komutu koordinatları <code class="language-python">x</code> ve <code class="language-python">y</code> ile verilen noktaları birleştiren bir grafik oluşturur. Bu grafiği ekranda görüntülemek için se <code class="language-python">show()</code> fonksiyonunu çağırmamız gerekir. Bu kodları çalıştırdığımızda ekranda yeni bir pencerede istenen grafik görüntülenecektir, Aşağıda verilen ilk grafiği inceleyin.
+</p>
+
+
+
+<img class="envfig" src="../../../static/ders-notu/python-bilimsel-hesaplama/plt1.svg" width="100%">
+
+
+
+<p>
+Bir fonksiyonun grafiğini çizmek için noktaları böyle elle girmeyiz, aşağıdaki gibi listeler kolayca oluşturulabilir. Bunların oluşturduğu $f(x):=x^2$ grafiği yukarıda verilen ikinci grafiktir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import matplotlib.pyplot as plt
+
+x = [-1 + i*0.2 for i in range(11)]
+y = [a**2 for a in x]
+
+plt.plot(x, y)
+plt.savefig('grafik.png')
+plt.show()
+</code></pre>
+
+<p>
+Burada kullandığımız <code class="language-python">savefig()</code> fonksiyonu belirtilen dosya yolu ve ismiyle grafiği sabit diskimize kayıt etmemizi sağlar.
+</p>
+
+<p>
+Görüldüğü gibi on tane nokta ile bile köşeler belli oluyor, genelde çok daha fazla nokta kullanarak grafik çizeriz, bunların programımızın verimliliğini düşürmemesi için list nesneleri yerine NumPy array nesneleriyle çalışırız. Bunun için de grafiğini çizeceğimiz fonksiyonu vektörize etmemiz gerekir. Daha önce öğrendiğimiz gibi vektörizasyon oldukça basittir, çoğu durumda hiç bir şey yapmaya gerek bile yoktur. Örnek olarak $[-\pi, \pi]$ aralığında $f(x):=\text{e}^{-x^2}\sin(x)$ fonksiyonunun grafiğini çizdirelim. Bu fonksiyonu vektörize edebilmek için <code class="language-python">exp</code> ve <code class="language-python">sin</code> fonksiyonlarını <code class="language-python">math</code> yerine <code class="language-python">numpy</code> paketinden sağlamalıyız.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import numpy as np
+import matplotlib.pyplot as plt
+
+f = lambda x: np.exp(-x**2)*np.sin(x)
+x = np.linspace(-3, 3, 101)
+plt.plot(x, f(x))
+plt.show()
+</code></pre>
+
+
+
+
+
+
+
+<img class="envfig" src="../../../static/ders-notu/python-bilimsel-hesaplama/plt2.svg" width="100%">
+
+
+
+
+
+<p>
+Bu program yukarıdaki şekilde ilk sırada verilen grafiği üretecektir. Şimdi bu grafiği biraz zenginleştirelim. Grafiğe bir başlık eklemek için <code class="language-python">title()</code> fonksiyonunu, yatay ve dikey eksenlere etiket yazmak için <code class="language-python">xlabel()</code> ve <code class="language-python">ylabel()</code> fonksiyonlarını, eksenlerin başlangıç ve bitiş noktalarını belirtmek için de <code class="language-python">axis()</code> fonksiyonunu kullanırız. Aşağıdaki programda bu komutların kullanımına örnek veriyoruz, ayrıca bu kodlarda <code class="language-python">plot()</code> komutunda üçüncü bir agüman olarak <code class="language-python">'r-'</code> girdiğimize dikkat edin. Bu üçüncü argüman grafiğin çizgi formatını belirtir ve iki veya üç karakterlik bir string verisi olarak verilir. Bunlardan ilki <strong>renk</strong> belirtir ve <code class="language-python">r,g,b,c,m,y,k,w</code> karakterlerinden birisi olmalıdır, bunlar <code class="language-python">red, green, blue, cyan, magenta, black, white</code> kelimelerini temsil eder. Daha sonra gelen karakter <strong>işaretleyici</strong> belirtir (marker), en sık kullanılanları <code class="language-python">o, s, p, D</code> seçenekleridir ve bunlar daire, kare (<code class="language-python">square</code>), beşgen (<code class="language-python">pentagon</code>) ve elmas (<code class="language-python">diamond</code>)'dır. Son olarak üçücü karakter ile çizgi stilini belirtiriz, seçenkler <code class="language-python">-, --, -., :</code> biçimindedir. Bunlar sırasıyla tam çizgi, kesikli çizgi, keskli-noktalı çizgi ve noktalı çizgi anlamındadır. Örnek verecek olursak <code class="language-python">'bs-.'</code> olarak girilirse grafikte noktalar kare işaretleriyle işaretlenir, arasını dolduran çizgiler kesikli-noktalı olur ve renk kırmızı olur. İhtiyaca göre işaretleyici yada çizgi stili girmeyebiliriz, mesela sadece noktaları mavi renkte göstermek istersek <code class="language-python">'bo'</code> girebiliriz, ya da sadece kırmızı bir eğri göstermek istersek <code class="language-python">'r-'</code> girebiliriz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import numpy as np
+import matplotlib.pyplot as plt
+
+f = lambda x: np.exp(-x**2)*np.sin(x)
+x = np.linspace(-np.pi, np.pi, 101)
+plt.plot(x, f(x), 'r-')          #plt.plot(x, f(x), c='red', ls='-')
+plt.title('Bir Grafik')
+plt.xlabel('x')
+plt.ylabel('y=f(x)')
+plt.axis([-np.pi, np.pi, -1, 1]) #[xmin, xmax, ymin, ymax]
+plt.show()
+</code></pre>
+
+<p>
+Yukarıda belirttiğimiz renk seçenekleri dışında herhangi başka bir renk belirtmek için <code class="language-python">color</code> ya da sadece <code class="language-python">c</code> parametresine değerler verebiliriz, <code class="language-python">c='red'</code> gibi bir renk ismi belirtebiliriz. Veya alternatif olarak kendi rengimizin RGB kodlarını [0,1] aralığında olmak şartıyla yazabiliriz, <code class="language-python">c=[0.1, 0.5, 0.5]</code> gibi. Pythonda kullanılabilen renk isimleri aşağıdaki şekil ile görülebilir. Renk dışında çizgi stili de bir argüman olarak girilebilir, <code class="language-python">linestyle='--'</code> veya kısaca <code class="language-python">ls='--'</code> gibi. Aynı şekilde işaretleyici simge de <code class="language-python">marker='o'</code> biçiminde girilebilir, bunların dışında sık kullanılan bir da <code class="language-python">linewidth</code> veya kısaca <code class="language-python">lw</code> argümanı vardır, bununla çizgi kalınlığını float olarak belirtebiliriz. Bunların dışında grafiği özelleştirmek için bir çok argüman seçeneği vardır, <a class="outref" target="_blank" href="https://matplotlib.org/tutorials/introductory/pyplot.html">Matplotlib</a> internet sitesinden detaylı bilgi sağlanabilir.
+</p>
+
+
+
+
+
+
+<img class="envfig" src="../../../static/ders-notu/python-bilimsel-hesaplama/colornames.svg" width="100%">
+
+
+
+
+
+
+
+<p>
+Bir grafikte birden fazla eğri çizmek için her biri için ayrı bir <code class="language-python">plot()</code> fonksiyonu çağırabiliriz, aşağıdaki örnekte göreceğimiz gibi bunun yerine tek bir fonksiyon içinde de grafikleri çizdirebiliriz. Birden fazla eğri içeren grafiklere çizgi stillerine göre bir açıklama eklemek için <code class="language-python">legend()</code> fonksiyonunu kullanabiliriz, bu fonksiyona string verilerinden oluşan bir list nesnesi verirsek bu stringler açıklayıcı metin olarak grafiğe yapıştırılır. Aşağıdaki programda bunların kullanımını örnekliyoruz, bu program sıradaki şekil ile verilen grafiği üretecektir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import numpy as np
+import matplotlib.pyplot as plt
+
+f = lambda x: np.exp(-x**2)*np.sin(x)
+g = lambda x: np.exp(-x**2)*np.sin(2*x)
+h = lambda x: np.exp(-x**2)*np.sin(3*x/2)
+
+x = np.linspace(-3, 3, 101)
+
+plt.plot(x, f(x), 'r-')
+plt.plot(x, g(x), 'g--')
+plt.plot(x, h(x), 'b-.')
+#ya da
+#plt.plot(x, f(x), 'r-', x, g(x), 'g--', x, h(x), 'b-.')
+plt.legend(['w=1','w=2', 'w=3/2'])
+plt.title('Bir Grafik')
+plt.xlabel('x')
+plt.ylabel('y=f(x)')
+plt.axis([-np.pi, np.pi, -1, 1])
+plt.show()
+</code></pre>
+
+
+
+
+
+
+
+
+<img class="envfig" src="../../../static/ders-notu/python-bilimsel-hesaplama/plt3.svg" width="60%">
+
+
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">İleri Seviye Grafik Çizimi</h3>
+
+
+
+
+
+
+
+
+<p>
+Şimdi farklı grafikleri kullanarak yeni çizimler yapacağız. Örneğin birden fazla grafiği aynı şekil içinde fakat farklı eksenlerde gösterebiliriz, bunun için Matplotlib garfik yapısını biraz daha iyi anlamamız gerekir. Matplotlib ile bir grafik çizerken bir <code class="language-python">figure</code> nesnesi oluşturulur ve <code class="language-python">plot()</code> fonksiyonu ile çizilen grafikler birer <code class="language-python">plot</code> nesnesi olarak bu figure nesnesi içine yerleştirilir, eğer yeni bir figure nesnesi oluşturmazsak tüm plot nesneleri aynı figure nesnesi içinde kalır. Ayrıca bir figure nesnesi içinde birden fazla plot nesnesi oluşturabiliriz, bunun için <code class="language-python">subplot()</code> fonksiyonundan faydalanırız. Örnek olarak bir figure içinde yan yana iki grafik göstermek için bir <code class="language-python">figure</code> nesnesi oluşturup daha sonra <code class="language-python">subplot()</code> fonksiyonuyla iki tane plot nesnesi oluştururuz. Subplot nesnesi oluştururken <code class="language-python">subplot(1, 2, 1)</code> ve <code class="language-python">subplot(1, 2, 2)</code> komutlarını girmeliyiz. Buradak verdiğimiz argümanlar oluşturulan figure nesnesi içinde plotların nasıl yerleşeceğini belirtir. <code class="language-python">subplot(1, 2, 1)</code> komutu ile bu grafiğin figure içinde $1\times2$ bölme oluşturulup ilk bölmeye yerleşeceğini belirtiyoruz, daha sonraki komut ile aynı şekilde bölme oluşturup ikinci bölmeye grafik yerleştiriyoruz. Bir örnek üzerinde gözlemleyelim.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import numpy as np
+import matplotlib.pyplot as plt
+
+f = lambda x: np.exp(-x**2)*np.sin(x)
+g = lambda x: np.exp(-x**2)*np.sin(2*x)
+x = np.linspace(-3, 3, 101)
+
+plt.figure()            #figure nesnesi olustur
+
+plt.subplot(1, 2, 1)    #subplot 1
+plt.plot(x, f(x))
+plt.title('Grafik 1')
+
+plt.subplot(1, 2, 2)    #subplot 2
+plt.plot(x, f(x), 'b-', x, g(x), 'r--')
+plt.legend(['w=1','w=2'])
+plt.title('Grafik 2')
+plt.axis([-np.pi, np.pi, -1, 1])
+
+plt.show()
+</code></pre>
+
+<p>
+Bu program aşağıda gösterilen grafiği üretecektir.
+</p>
+
+
+
+
+
+
+
+<img class="envfig" src="../../../static/ders-notu/python-bilimsel-hesaplama/plt4.svg" width="60%">
+
+
+
+
+
+
+
+<p>
+Bu grafikte bazı iyileştirmeler yapmamız gerekiyor. Öncelikle grafikler aynı figure nesnesi içine sığması için yanlardan biraz bastırılmış gibi duruyor, ayrıca eksenler üzerindeki sayılar birbirine geçmiş. Grafiğin boyutunu ayarlamak için <code class="language-python">figure()</code> fonksiyonuna bazı argümanlar verebiliriz. Örneğin <code class="language-python">figure(figsize=(8, 3))</code> biçiminde girersek grafiğin boyutu $8\times 3$ (inç cinsinden) biçiminde olacaktır ve bu yan yana iki grafik için uygun olur. Bunun yerine <code class="language-python">figure(figsize=plt.figaspect(0.4))</code> biçiminde girebiliriz, buradaki <code class="language-python">figaspect(0.4)</code> ifadesi en-boy oranı 0.4 olacak anlamındadır. Diğer taraftan eksen üzerindeki sayıların birbirine girmemesini garanti etmek için <code class="language-python">tight_layout()</code> komutunu kullanırız.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import numpy as np
+import matplotlib.pyplot as plt
+
+f = lambda x: np.exp(-x**2)*np.sin(x)
+g = lambda x: np.exp(-x**2)*np.sin(2*x)
+x = np.linspace(-3, 3, 101)
+
+plt.figure(figsize=plt.figaspect(0.4)) #en-boy oran: 0.4
+
+plt.subplot(1, 2, 1)
+plt.plot(x, f(x))
+plt.title('Grafik 1')
+
+plt.subplot(1, 2, 2)
+plt.plot(x, f(x), 'b-', x, g(x), 'r--')
+plt.legend(['w=1','w=2'])
+plt.title('Grafik 2')
+plt.axis([-np.pi, np.pi, -1, 1])
+
+plt.tight_layout() #yerlesimi iyilestir
+plt.show()
+</code></pre>
+
+<p>
+Bu program da aşağıda verilen grafiği üretir.
+</p>
+
+
+
+
+
+
+<img class="envfig" src="../../../static/ders-notu/python-bilimsel-hesaplama/plt5.svg" width="100%">
+
+
+
+
+
+<p>
+Grafik yerleşimi konusunda <code class="language-python">subplot()</code> fonksiyonunun kullanımını daha iyi kavramanız için farklı bir örnek daha yapalım.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import numpy as np
+import matplotlib.pyplot as plt
+
+f = lambda x: np.exp(-x**2)*np.sin(x)
+g = lambda x: np.exp(-x**2)*np.sin(2*x)
+x = np.linspace(-3, 3, 51)
+
+plt.figure(figsize=plt.figaspect(1)) #en-boy oran: 1
+
+plt.subplot(2, 2, 1)
+plt.plot(x, f(x), 'b-')
+plt.axis([-np.pi, np.pi, -1, 1])
+plt.title('Grafik 1')
+
+plt.subplot(2, 2, 2)
+plt.plot(x, g(x), 'r-')
+plt.axis([-np.pi, np.pi, -1, 1])
+plt.title('Grafik 2')
+
+plt.subplot(2, 1, 2)
+plt.plot(x, f(x), 'b.', x, g(x), 'r-')
+plt.legend(['w=1','w=2'])
+plt.title('Grafik 3')
+plt.axis([-np.pi, np.pi, -1, 1])
+
+plt.tight_layout()
+plt.show()
+</code></pre>
+
+<p>
+Bu program aşağıdaki grafiği üretir.
+</p>
+
+
+
+
+
+<img class="envfig" src="../../../static/ders-notu/python-bilimsel-hesaplama/plt6.svg" width="50%">
+
+
+
+
+
+
+
+<p>
+Benzer şekilde aşağıdaki program da sonrasında belirtilen grafiği üretecektir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import numpy as np
+import matplotlib.pyplot as plt
+
+f = lambda x: np.exp(-x**2)*np.sin(x)
+g = lambda x: np.exp(-x**2)*np.sin(2*x)
+x = np.linspace(-3, 3, 51)
+
+plt.figure(figsize=plt.figaspect(1)) #en-boy oran: 1
+
+plt.subplot(2, 2, 1)
+plt.plot(x, f(x), 'b-')
+plt.axis([-np.pi, np.pi, -1, 1])
+plt.title('Grafik 1')
+
+plt.subplot(2, 2, 3)
+plt.plot(x, g(x), 'r-')
+plt.axis([-np.pi, np.pi, -1, 1])
+plt.title('Grafik 2')
+
+plt.subplot(1, 2, 2)
+plt.plot(x, f(x), 'b.', x, g(x), 'r-')
+plt.legend(['w=1','w=2'])
+plt.title('Grafik 3')
+plt.axis([-np.pi, np.pi, -1, 1])
+
+plt.tight_layout()
+plt.show()
+</code></pre>
+
+
+
+
+
+
+<img class="envfig" src="../../../static/ders-notu/python-bilimsel-hesaplama/plt7.svg" width="50%">
+
+
+
+
+
+
+
+
+
+<p>
+Başka bir örnek olarak aşağıdaki programı inceleyin, üreteceği grafik hemen sonrasında veriliyor.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import numpy as np
+import matplotlib.pyplot as plt
+
+f = lambda x: np.exp(-x**2)*np.sin(x)
+g = lambda x: np.exp(-x**2)*np.sin(2*x)
+h = lambda x: np.exp(-x**2)*np.sin(3.0/2*x)
+x = np.linspace(-3, 3, 51)
+
+plt.figure(figsize=plt.figaspect(.7))
+
+plt.subplot(2, 3, 1)
+plt.plot(x, f(x), 'b-')
+plt.axis([-np.pi, np.pi, -1, 1])
+plt.title('Grafik 1')
+
+plt.subplot(2, 3, 2)
+plt.plot(x, g(x), 'r-')
+plt.axis([-np.pi, np.pi, -1, 1])
+plt.title('Grafik 2')
+
+plt.subplot(2, 3, 3)
+plt.plot(x, h(x), 'g-')
+plt.axis([-np.pi, np.pi, -1, 1])
+plt.title('Grafik 3')
+
+plt.subplot(2, 1, 2)
+plt.plot(x, f(x), 'b.', x, h(x), 'g--', x, g(x), 'r-')
+plt.legend(['w=1', 'w=1.5','w=2'])
+plt.title('Grafik 4')
+plt.axis([-np.pi, np.pi, -1, 1])
+
+plt.tight_layout()
+plt.show()
+</code></pre>
+
+
+
+
+
+
+
+<img class="envfig" src="../../../static/ders-notu/python-bilimsel-hesaplama/plt8.svg" width="60%">
+
+
+
+
+
+
+
+
+
+
+<h3 class="mt-5 mb-3">Animasyon Yapmak</h3>
+
+
+
+
+
+
+
+
+
+<p>
+Python'da bir dizi grafik birleştirilerek animasyonlar hazırlanabilir. Bunun birden fazla yolu vardır ve hepsinin mantığı animasyonun her bir karesini ayrı ayrı kaydedip bunları bazı araçlar kullanarak birleştirmeye dayanır. Bu işlemi yapmak için bazı paketler mevcuttur, hatta Matplotlib içinde de bunları yapmak için özel fonksiyonlar vardır. Biz burada görece pratik olan bir yöntem kullanacağız. Bunun için önce bir döngü kullanarak her bir kareyi Matplotlib ile çizip diskimize kaydedeceğiz, daha sonra harici bir yazılım kullanarak bunları birleştirip animasyonu oluşturacağız. Bu birleştirme işini yapan faklı yazılımlar var, biz <strong>ImageMagick</strong> yazılımından faydalanacağız. Onun için önce ImageMagick <a class="outref" target="_blank" href="http://www.imagemagick.org/">web sayfasından</a> bu yazılımı bilgisayarınıza kurmanız gerekiyor, işletim sisteminize ve donanımınıza göre bu işlemin nasıl yapılacağı detaylı bir şekilde açıklanmıştır. Bu işlemi tamamladıktan sonra işletim sistemi komut istemcisinde <code class="language-python">convert</code> komutu kullanılabilir olmalıdır.
+</p>
+
+<p>
+Bu işlemleri bir örnek üzerinde açıklayacağız. Örnek olarak daha önce 
+$$
+f(t)=
+\left\{
+\begin{array}{ll}
+1, & \quad 0 < t < T/2\\
+0, & \quad t = T/2\\
+-1, & \quad T/2 < t < T
+\end{array}
+\right.
+$$
+fonksiyonuna yaklaşımda bulunmak için kullandığımız $$ S(t;n) = \frac{4}{\pi}\sum_{i=1}^n\frac{1}{2i-1}\sin\left( \frac{2(2i-1)\pi t}{T} \right) $$ Fourier serisini ele alalım. Farklı $n$ değerleri için $[0, 2\pi]$ aralığında bir dizi grafik kaydedip daha sonra bunlardan bir animasyon oluşturacağız, bunun için $T=2\pi$ seçmeliyiz. Önce $S(t;n)$ toplamını hesaplayan bir fonksiyon tanımlayalım.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import numpy as np
+
+def S(t, n, T=2*np.pi):
+    s = 0.0
+    for i in range(1, n+1):
+        s += (1.0/(2*i - 1))*np.sin((2*(2*i - 1)*np.pi*t)/T)
+    return (4/np.pi)*s
+</code></pre>
+
+<p>
+Şimdi bir döngü kullanarak animasyonu oluşturacak grafikleri çizip kaydedelim.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import matplotlib.pyplot as plt
+
+t = np.linspace(0, 2*np.pi, 1000)
+for i in xrange(1, 20):
+    plt.figure()
+    plt.plot(t, S(t, i))
+    plt.title('n=%d' % i)
+    plt.savefig('anim%.02d.png' % i)
+</code></pre>
+
+<p>
+Burada her bir grafiği <code class="language-python">anim01.png</code>, <code class="language-python">anim02.png</code>, $\ldots$, <code class="language-python">anim50.png</code> biçiminde isimlendirmek için <code class="language-python">.02d</code> biçimleyicisini kullandık. Aksi taktirde, numaralandırmayı 01, 02,$\ldots$ yerine 1, 2,$\ldots$ olarak yapsaydık, sıralamada <code class="language-python">anim11.png</code> resmi <code class="language-python">anim2.png</code> resminden önce gelirdi. Dikkat çekmemiz gereken başka bir nokta ise döngünün her adımında yeni bir <code class="language-python">figure</code> nesnesi oluşturuyoruz, böyle yapmazsak tüm grafikler aynı figure içine çizilir ve grafikler üst üste biner. Sıradaki işlem diske kaydettiğimiz bu grafikleri kullanarak bir animasyon oluşturmak. Bunun için ImageMagick yazılımının sağladığı <code class="language-python">convert</code> komutunu kullanırız. Komut istemcisinde bu işlemi aşağıdaki komutla yaparız.
+</p>
+
+<pre class="my-4"><code class="language-python">
+Terminal > convert -delay 10 anim*png Fourier.gif
+</code></pre>
+
+<p>
+Bu komutla kaydettiğimiz grafiklerden aynı klasöre <code class="language-python">Fourier.gif</code> asimide bir dosya oluşturulur. Bunu bir web tarayıcısında açarsak animasyonu izleyebiliriz. Burada kullandığımız <code class="language-python">-delay 10</code> argümanı ile kareler arası geçişin 10 ms olacağını belirttik, 1 saniye toplam 100 ms olduğundan bunun anlamı animasyonun saniyede 10 kare hızda olacağıdır (10 fps). Bu animasyon oluşturma işlemini terminalden yapmak zorunda değiliz, Python'da programlarımız içinden işletim sistemi komutlarını çalıştırabiliriz. Bunun için <code class="language-python">os</code> komutu içinde bulunan <code class="language-python">system()</code> fonksiyonuna istediğimiz komutu bir string nesnesi olarak veririz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import os
+os.system('convert -delay 10 anim*png Fourier.gif')
+</code></pre>
+
+<p>
+Şimdi artık programımızı kaydettiğimiz klasörde <code class="language-python">Fourier.gif</code> animasyonumuz hazır vaziyettedir. Fakat yapmamız gereken son bir işlem daha var; klasörümüzde animasyon yapmak için kullandığımız çok sayıda resim var, bunları silmeliyiz. Bu işlemi programımız içinde yapmak için <code class="language-python">glob</code> modülünü kullanabiliriz.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import glob, os
+
+for dosya in glob.glob('anim*.png'):
+    os.remove(dosya)
+</code></pre>
+
+<p>
+Bu örneğin tamamı aşağıdaki şekilde olacaktır ve ürettiği animasyon sonrasında verilmiştir.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import glob, os
+import numpy as np
+import matplotlib.pyplot as plt
+
+def S(t, n, T=2*np.pi):
+    s = 0.0
+    for i in range(1, n+1):
+        s += (1.0/(2*i - 1))*np.sin((2*(2*i - 1)*np.pi*t)/T)
+    return (4/np.pi)*s
+
+t = np.linspace(0, 2*np.pi, 1000)
+for i in xrange(1, 20):
+    plt.figure()
+    plt.plot(t, S(t, i))
+    plt.title('n=%d' % i)
+    plt.savefig('anim%.02d.png' % i)
+
+os.system('convert -delay 10 anim*png Fourier.gif')
+
+for dosya in glob.glob('anim*.png'):
+    os.remove(dosya)
+</code></pre>
+
+<img class="envfig" src="../../../static/ders-notu/python-bilimsel-hesaplama/fourier.gif" width="65%">
+
+
+<p>
+Başka bir örnek olarak daha önce de incelediğimiz düzeltilmiş Heaviside fonksiyonu olarak bilinen
+$$
+H_\epsilon(x)=
+\left\{
+\begin{array}{ll}
+0, & \quad x<-\epsilon\\
+\frac{1}{2}+\frac{x}{2\epsilon}+\frac{1}{2\pi}\sin\left( \frac{\pi x}{\epsilon} \right), & \quad -\epsilon\leq x\leq\epsilon\\
+1, & \quad x>\epsilon
+\end{array}
+\right.
+$$
+fonksiyonunu ele alalım. Aşağıdaki program bu fonksiyonu $[-0.1, 0.1]$ aralığında $\varepsilon$ parametresi 2'den başlayıp $10^{-15}$ değerine kadar azalırken bir animasyon oluşturur.
+</p>
+
+<pre class="my-4"><code class="language-python line-numbers">
+import os, glob
+import numpy as np
+import matplotlib.pyplot as plt
+
+def H_eps_v(x, eps):
+    k1 = x < -eps
+    k2 = np.logical_and(-eps<=x, x<=eps)
+    k3 = x > eps
+    r = np.zeros(len(x))
+    r = np.where(k1, r, r)
+    r = np.where(k2, 0.5 + x/(2*eps) + \
+        (1/(2*np.pi))*np.sin((np.pi*x)/(eps)), r)
+    r = np.where(k3, 1, r)
+    return r
+
+x = np.linspace(-.1, .1, 50)
+eps = np.linspace(1, 1E-15, 50)
+for i in range(eps.size):
+    plt.plot(x, H_eps_v(x, eps[i]))
+    plt.title('eps = %g' % eps[i])
+    plt.savefig('animheaviside%03d' % i)
+    plt.clf()
+
+os.system('convert -delay 10 animheaviside*.png heaviside.gif')
+
+for filename in glob.glob('animheaviside*.png'):
+    os.remove(filename)
+</code></pre>
+
+<p>
+Bu örnekte Heaviside fonksiyonunu nasıl vektörize ettiğimize dikkat edin. Ayrıca döngü içinde grafikleri çizerken <code class="language-python">clf()</code> fonksiyonunu kullandık. Bu fonksiyon grafikleri çizdiğimiz figure nesnesini temizler (clear figure), böylece her adımda yeni bir figure nesnesi oluşturup bellekte gereksiz yer işgal etmeyiz. Bu programın ürettiği animasyonun bazı kareleri sonrasnda gösteriliyor.
+</p>
+
+
+
+
+
+<img class="envfig" src="../../../static/ders-notu/python-bilimsel-hesaplama/heaviside.svg" width="80%">
+      </div>
+    </div>
+
+    
+    <div class="row mt-0 border-top">
+      <div class="col text-left">
+        
+        Önceki Ders Notu:<br>
+        <a href="../41-array-nesneleri-ve-vektorizasyon/index.html">4.1. Array Nesneleri ve Vektörizasyon</a>
+        
+      </div>
+      <div class="col text-center">
+        Dersin Ana Sayfası:<br>
+        <a href="../index.html">Python ve Bilimsel Hesaplama</a>
+      </div>
+      <div class="col text-right">
+        
+        Sonraki Ders Notu:<br>
+        <a href="../43-uc-boyutlu-grafikler/index.html">4.3. Üç Boyutlu Grafikler</a>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</article>
+
+
+      
+    </main>
+
+    
+    <footer>
+      <div class="container-fluid text-center py-5" style="font-family: 'Rajdhani', sans-serif; background-color: #9bfac3;">
+        <!-- <nav>-->
+        <a href="../../../index.html">Ana Sayfa</a> <strong>&middot;</strong>
+        <a href="../../index.html">Ders Notları</a> <strong>&middot;</strong>
+        <a href="../../../blog/index.html">Blog</a> <strong>&middot;</strong>
+        <a href="../../../ornek/index.html">Örnekler</a> <strong>&middot;</strong>
+        <a href="../../../dizin/index.html">Dizin</a> <strong>&middot;</strong>
+        <a href="../../../sss/index.html">SSS</a>
+        <!-- </nav>-->
+        <p>&copy; 2021 SÜLEYMAN ÖĞREKÇİ</p>
+      </div>
+    </footer>
+    
+
+    <!-- Share buttons -->
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5182308741ad8067"></script>
+
+  </body>
+
+
+<!-- Mirrored from 192.168.1.35:8000/ders-notu/python-ve-bilimsel-hesaplama/42-grafik-cizimi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 May 2025 19:41:01 GMT -->
+</html>
