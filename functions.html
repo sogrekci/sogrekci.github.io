@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Fonksiyon Kümeleri - Basamak Fonksiyonu Güncellemesi</title>
+    <title>Fonksiyon Kümeleri - Akademik Atıflı Katalog</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@1,600&display=swap');
 
@@ -15,13 +15,11 @@
 
         .svg-wrapper { display: flex; justify-content: center; margin-bottom: 10px; position: relative; }
         
-        /* 1. Hover Tooltip */
+        /* Tooltip ve Popup Stilleri */
         .tooltip { 
             position: fixed; padding: 5px 10px; background: rgba(45, 52, 54, 0.95); color: #fff; 
             border-radius: 4px; font-size: 11px; pointer-events: none; opacity: 0; z-index: 2000; text-align: center;
         }
-
-        /* 2. Tıklama Pop-up */
         .info-popup { 
             position: fixed; padding: 12px; background: white; color: #333; 
             border-radius: 8px; font-size: 12px; opacity: 0; pointer-events: none; 
@@ -29,12 +27,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: opacity 0.2s; width: 230px;
         }
         .info-popup.active { opacity: 1; pointer-events: auto; }
-        
-        .popup-btn { 
-            display: inline-block; margin-top: 8px; padding: 4px 12px; 
-            background: #9b59b6; color: white; text-decoration: none; 
-            border-radius: 4px; font-weight: bold; font-size: 11px;
-        }
+        .popup-btn { display: inline-block; margin-top: 8px; padding: 4px 12px; background: #9b59b6; color: white; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 11px; }
 
         .region { transition: fill-opacity 0.3s; cursor: pointer; fill-opacity: 0.15; stroke: #2d3436; stroke-width: 0.8; }
         .region:hover { fill-opacity: 0.7; }
@@ -47,12 +40,19 @@
         .legend-item { font-size: 11px; color: #555; display: flex; align-items: center; }
         .legend-math { font-family: 'Pinyon Script', cursive; font-size: 18px; font-weight: bold; color: #000; margin-right: 4px; }
 
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 8px; border-top: 1px solid #eee; padding-top: 15px; }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 8px; border-top: 1px solid #eee; padding-top: 15px; margin-bottom: 15px; }
         .info-box { padding: 8px; border-radius: 5px; border: 1px solid #ddd; }
         .box-head { display: flex; align-items: center; margin-bottom: 2px; }
         .box-num { font-family: Arial, sans-serif; font-weight: bold; font-size: 11px; margin-right: 5px; }
         .box-math { font-family: 'Pinyon Script', cursive; font-size: 16px; font-weight: bold; }
         .box-desc { font-size: 10.5px; color: #444; line-height: 1.2; }
+
+        /* Kitap Atıf Stili */
+        .citation { 
+            font-size: 9px; color: #888; text-align: center; border-top: 1px solid #f0f0f0; padding-top: 10px; margin-top: 10px; font-style: italic;
+        }
+        .citation a { color: #9b59b6; text-decoration: none; }
+        .citation a:hover { text-decoration: underline; }
 
         .c1 { background-color: rgba(211, 84, 0, 0.08); } .c2 { background-color: rgba(243, 156, 18, 0.08); }
         .c3 { background-color: rgba(230, 126, 34, 0.08); } .c4 { background-color: rgba(46, 204, 113, 0.08); }
@@ -75,7 +75,6 @@
     
     <div class="svg-wrapper">
         <svg width="600" height="420" viewBox="0 0 650 480" xmlns="http://www.w3.org/2000/svg">
-            <!-- BÖLGELER -->
             <rect x="40" y="20" width="560" height="420" class="region" fill="#bdc3c7" data-id="11" />
             <path d="M 450,150 L 530,150 L 530,360 L 260,360 L 260,310 L 450,310 Z" class="region" fill="#9b59b6" data-id="10" />
             <path d="M 160,50 L 210,50 L 210,260 L 260,260 L 260,310 L 160,310 Z" class="region" fill="#3498db" data-id="9" />
@@ -113,19 +112,26 @@
         <div class="legend-item"><span class="legend-math">R</span>: Riemann İntegrallenebilir</div>
     </div>
 
-    <!-- Bilgi Kutucukları -->
     <div class="info-grid">
-        <div class="info-box c1"><div class="box-head"><span class="box-num">1</span><span class="box-math">D &cap; Mon</span></div><div class="box-desc">Türevlenebilir monoton fonksiyonlar [5].</div></div>
-        <div class="info-box c2"><div class="box-head"><span class="box-num">2</span><span class="box-math">D \ Mon</span></div><div class="box-desc">Monoton olmayan türevlenebilir fonksiyonlar [5].</div></div>
-        <div class="info-box c3"><div class="box-head"><span class="box-num">3</span><span class="box-math">Mon &cap; C \ D</span></div><div class="box-desc">Türevlenemeyen monoton fonksiyonlar [5].</div></div>
-        <div class="info-box c4"><div class="box-head"><span class="box-num">4</span><span class="box-math">Mon \ C</span></div><div class="box-desc">Ara değer özelliğini sağlamayan integrallenebilir monoton fonksiyonlar [5].</div></div>
-        <div class="info-box c5"><div class="box-head"><span class="box-num">5</span><span class="box-math">C \ (D &cup; Mon)</span></div><div class="box-desc">Sürekli olan, türevlenemeyen ve monoton olmayan fonksiyonlar [6].</div></div>
-        <div class="info-box c6"><div class="box-head"><span class="box-num">6</span><span class="box-math">C &cap; D' \ D</span></div><div class="box-desc">Sürekli olmayan, integrallenebilir olan ve antitürevi var olan fonksiyonlar [6].</div></div>
-        <div class="info-box c7"><div class="box-head"><span class="box-num">7</span><span class="box-math">D' \ C</span></div><div class="box-desc">İntegrallenebilen, ara değer özelliğine sahip olan fakat antitürevi var olmayanlar [6].</div></div>
-        <div class="info-box c8"><div class="box-head"><span class="box-num">8</span><span class="box-math">DC \ (D' &cup; C)</span></div><div class="box-desc">Antitürevi var olan fakat integrallenemeyen fonksiyonlar [6].</div></div>
-        <div class="info-box c9"><div class="box-head"><span class="box-num">9</span><span class="box-math">DC \ D'</span></div><div class="box-desc">Ara değer özelliğine sahip olan, antitürevi var olmayan ve integrallenemeyenler [3].</div></div>
-        <div class="info-box c10"><div class="box-head"><span class="box-num">10</span><span class="box-math">R \ DC</span></div><div class="box-desc">Ara değer özelliği olmayan, monoton olmayan integrallenebilir fonk. (Örn: Basamak Fonk.) [3, 4].</div></div>
-        <div class="info-box c11"><div class="box-head"><span class="box-num">11</span><span class="box-math">Tüm \ R</span></div><div class="box-desc">Ara değer özelliğine sahip olmayan ve integrallenemeyen fonksiyonlar [3].</div></div>
+        <div class="info-box c1"><div class="box-head"><span class="box-num">1</span><span class="box-math">D &cap; Mon</span></div><div class="box-desc">Türevlenebilir monoton fonksiyonlar.</div></div>
+        <div class="info-box c2"><div class="box-head"><span class="box-num">2</span><span class="box-math">D \ Mon</span></div><div class="box-desc">Monoton olmayan türevlenebilir fonksiyonlar.</div></div>
+        <div class="info-box c3"><div class="box-head"><span class="box-num">3</span><span class="box-math">Mon &cap; C \ D</span></div><div class="box-desc">Türevlenemeyen monoton fonksiyonlar.</div></div>
+        <div class="info-box c4"><div class="box-head"><span class="box-num">4</span><span class="box-math">Mon \ C</span></div><div class="box-desc">Ara değer özelliğini sağlamayan integrallenebilir monoton fonksiyonlar.</div></div>
+        <div class="info-box c5"><div class="box-head"><span class="box-num">5</span><span class="box-math">C \ (D &cup; Mon)</span></div><div class="box-desc">Sürekli olan, türevlenemeyen ve monoton olmayan fonksiyonlar.</div></div>
+        <div class="info-box c6"><div class="box-head"><span class="box-num">6</span><span class="box-math">C &cap; D' \ D</span></div><div class="box-desc">Sürekli olmayan, integrallenebilir olan ve antitürevi var olan fonksiyonlar.</div></div>
+        <div class="info-box c7"><div class="box-head"><span class="box-num">7</span><span class="box-math">D' \ C</span></div><div class="box-desc">İntegrallenebilen, ara değer özelliğine sahip olan fakat antitürevi var olmayanlar.</div></div>
+        <div class="info-box c8"><div class="box-head"><span class="box-num">8</span><span class="box-math">DC \ (D' &cup; C)</span></div><div class="box-desc">Antitürevi var olan fakat integrallenemeyen fonksiyonlar.</div></div>
+        <div class="info-box c9"><div class="box-head"><span class="box-num">9</span><span class="box-math">DC \ D'</span></div><div class="box-desc">Ara değer özelliğine sahip olan, antitürevi var olmayan ve integrallenemeyenler.</div></div>
+        <div class="info-box c10"><div class="box-head"><span class="box-num">10</span><span class="box-math">R \ DC</span></div><div class="box-desc">Ara değer özelliği olmayan, monoton olmayan integrallenebilir fonk.</div></div>
+        <div class="info-box c11"><div class="box-head"><span class="box-num">11</span><span class="box-math">Tüm \ R</span></div><div class="box-desc">Ara değer özelliği olmayan ve integrallenemeyen fonksiyonlar.</div></div>
+    </div>
+
+    <!-- Atıf Alanı -->
+    <div class="citation">
+        Diyagram hazırlanırken şu kitaptan fikir alınmıştır: 
+        <a href="https://www.cambridge.org/ag/universitypress/subjects/mathematics/real-and-complex-analysis/second-course-real-functions?format=PB&isbn=9780521283618" target="_blank">
+            A Second Course in Real Functions (Cambridge University Press)
+        </a>
     </div>
 </div>
 
@@ -140,7 +146,7 @@
         "7": { text: "İntegrallenebilen, ara değer özelliğine sahip olan fakat antitürevi var olmayanlar", link: "https://sogrekci.github.io/sogrekci/192.168.1.35_8000/ornek/hic-bir-fonksiyonun-turevi-olmayan-fonksiyonlar/index.html" },
         "8": { text: "Antitürevi var olan fakat integrallenemeyen fonksiyonlar", link: "https://sogrekci.github.io/sogrekci/192.168.1.35_8000/ornek/antiturevi-primitifi-var-olan-fakat-integrallenebilir-olmayan-fonksiyon/index.html" },
         "9": { text: "Ara değer özelliğine sahip, antitürevi yok, integrallenemez", link: "https://math.stackexchange.com/q/4856996" },
-        "10": { text: "Sıçrama sürekliliği olan ve monoton olmayan basamak fonksiyonları (Örn: Indicator f.)", link: "https://en.wikipedia.org/wiki/Step_function" },
+        "10": { text: "Monoton olmayan basamak fonksiyonları", link: "https://en.wikipedia.org/wiki/Step_function" },
         "11": { text: "Ara değer özelliği olmayan ve integrallenemeyen fonksiyonlar (Örn: Dirichlet)", link: "https://en.wikipedia.org/wiki/Dirichlet_function" }
     };
 
