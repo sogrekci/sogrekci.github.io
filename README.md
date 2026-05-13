@@ -1,3 +1,5 @@
 Bu site, artık çevrimiçi olmayan ***sogrekci.com*** adresinde yayınladığım sayfaların 2021 yılında alınmış kopyalarından oluşmaktadır.
 
 [**Anasayfaya ulaşmak için tklayın**](https://sogrekci.github.io/sogrekci/192.168.1.35_8000/index.html)
+
+Ayrıca fonksiyon sınıflarına ilişkin bir şemaya ulaşmak için [**buraya tklayın**](https://sogrekci.github.io/functions.html)
