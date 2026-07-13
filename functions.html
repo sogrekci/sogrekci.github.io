@@ -1,185 +1,1836 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Fonksiyon Kümeleri - Akademik Atıflı Katalog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <title>Function Classes - Academically Cited Catalog</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@1,600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&display=swap');
 
-        body { font-family: 'Segoe UI', sans-serif; background-color: #f4f6f8; display: flex; justify-content: center; padding: 20px; margin: 0; }
-        
-        .container { 
-            background: white; padding: 20px; border-radius: 10px; 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08); max-width: 780px; width: 100%; border: 1px solid #ddd;
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            margin: 0;
         }
+
+        .container {
+            background: white; padding: 20px; border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08); max-width: 780px; width: 100%; border: 1px solid #ddd;
+            position: relative;
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 8px; }
+            .container { padding: 12px; border-radius: 8px; }
+        }
+
+        /* ---------- Diagram (unchanged geometry / colors / symbols) ---------- */
 
         .svg-wrapper { display: flex; justify-content: center; margin-bottom: 10px; position: relative; }
-        
-        /* Tooltip ve Popup Stilleri */
-        .tooltip { 
-            position: fixed; padding: 5px 10px; background: rgba(45, 52, 54, 0.95); color: #fff; 
-            border-radius: 4px; font-size: 11px; pointer-events: none; opacity: 0; z-index: 2000; text-align: center;
+
+        .svg-wrapper svg { width: 100%; height: auto; touch-action: manipulation; }
+        .svg-wrapper-landscape svg { max-width: 600px; }
+        .svg-wrapper-portrait svg { max-width: 420px; }
+
+        .svg-wrapper-portrait { display: none; }
+
+        @media (orientation: portrait) {
+            .svg-wrapper-landscape { display: none; }
+            .svg-wrapper-portrait { display: flex; }
         }
-        .info-popup { 
-            position: fixed; padding: 12px; background: white; color: #333; 
-            border-radius: 8px; font-size: 12px; opacity: 0; pointer-events: none; 
-            z-index: 1000; text-align: center; border: 1px solid #9b59b6;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: opacity 0.2s; width: 230px;
-        }
-        .info-popup.active { opacity: 1; pointer-events: auto; }
-        .popup-btn { display: inline-block; margin-top: 8px; padding: 4px 12px; background: #9b59b6; color: white; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 11px; }
 
         .region { transition: fill-opacity 0.3s; cursor: pointer; fill-opacity: 0.15; stroke: #2d3436; stroke-width: 0.8; }
-        .region:hover { fill-opacity: 0.7; }
-        
-        .rsfso-font { font-family: 'Pinyon Script', cursive; font-size: 22px; pointer-events: none; fill: #000; }
+        .region:hover, .region:active { fill-opacity: 0.7; }
+
+        .prop-boundary { fill: none; stroke-width: 2.6; pointer-events: none; }
+
+        .page-subtitle {
+            text-align: center; font-family: 'Cormorant Garamond', serif; font-style: italic;
+            font-size: 12px; color: #999; margin: -6px 0 10px 0;
+        }
+
+        .contact-icon-btn {
+            position: absolute; top: 12px; right: 52px; width: 32px; height: 32px;
+            border-radius: 50%; background: #fafafa; border: 1px solid #ddd;
+            display: flex; align-items: center; justify-content: center;
+            color: #9b59b6; cursor: pointer; z-index: 50; padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .contact-icon-btn:active { background: rgba(155, 89, 182, 0.12); }
+        .contact-icon-btn svg { width: 16px; height: 16px; display: block; }
+
+        .table-icon-btn {
+            position: absolute; top: 12px; right: 92px; width: 32px; height: 32px;
+            border-radius: 50%; background: #fafafa; border: 1px solid #ddd;
+            display: flex; align-items: center; justify-content: center;
+            color: #9b59b6; cursor: pointer; z-index: 50; padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .table-icon-btn:active, .table-icon-btn.is-active { background: rgba(155, 89, 182, 0.16); }
+        .table-icon-btn.is-active { color: #7d3c98; border-color: #9b59b6; }
+        .table-icon-btn svg { width: 16px; height: 16px; display: block; }
+
+        .table-wrapper { margin-bottom: 10px; }
+        .table-scroll {
+            overflow-x: auto; -webkit-overflow-scrolling: touch;
+            border: 1px solid #eee; border-radius: 8px;
+        }
+        .class-table {
+            width: 100%; min-width: 320px; table-layout: fixed;
+            border-collapse: separate; border-spacing: 0; font-size: 11.5px;
+        }
+        .class-table th, .class-table td {
+            padding: 6px 4px; text-align: center; border-bottom: 1px solid #f0f0f0;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .class-table thead th {
+            font-family: Arial, sans-serif; font-size: 10px; text-transform: uppercase;
+            letter-spacing: 0.03em; color: #777; background: #fafafa;
+        }
+        .class-table thead th.class-table-corner { text-align: left; text-transform: none; padding-left: 8px; }
+        .class-table .class-table-symbol {
+            font-family: 'Pinyon Script', cursive; font-weight: bold; font-size: 15px;
+            color: #2d3436; text-transform: none; letter-spacing: 0;
+        }
+        .class-table tbody th {
+            text-align: left; font-weight: 600; font-size: 11.5px; color: #2d3436;
+            padding: 0; border-right: 1px solid #f0f0f0;
+        }
+        .class-table tbody tr:last-child th, .class-table tbody tr:last-child td { border-bottom: none; }
+        .class-table .table-class-link {
+            display: block; padding: 6px 4px 6px 8px;
+            color: #2d3436; text-decoration: none;
+            overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+        }
+        .class-table .table-class-link:hover, .class-table .table-class-link:active { color: #9b59b6; }
+        .class-table .table-check-icon { width: 12px; height: 12px; display: inline-block; }
+        .class-table td.is-true { color: #1e8449; }
+        .class-table td.is-false { color: #c0392b; }
+        @media (max-width: 480px) {
+            .class-table { font-size: 10.5px; }
+            .class-table th, .class-table td { padding: 5px 3px; }
+            .class-table .table-class-link { padding: 5px 3px 5px 6px; }
+        }
+
+        .lang-toggle-btn {
+            position: absolute; top: 12px; right: 12px; width: 32px; height: 32px;
+            border-radius: 50%; background: #fafafa; border: 1px solid #ddd;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; z-index: 50; padding: 0; overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .lang-toggle-btn:active { background: rgba(155, 89, 182, 0.12); }
+        .lang-toggle-btn svg { width: 22px; height: 16px; display: block; border-radius: 2px; }
+
+        .contact-popup {
+            position: absolute; top: 50px; right: 12px; width: 240px;
+            background: white; border: 1px solid #9b59b6; border-radius: 8px;
+            padding: 12px 14px; font-size: 12.5px; color: #444; line-height: 1.5;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+            opacity: 0; pointer-events: none; transform: translateY(-6px);
+            transition: opacity 0.18s ease, transform 0.18s ease;
+            z-index: 60;
+        }
+        .contact-popup.active { opacity: 1; pointer-events: auto; transform: translateY(0); }
+        .contact-popup-title { font-weight: 700; font-size: 13px; color: #2d3436; margin-bottom: 4px; }
+        .contact-popup-license {
+            font-size: 10.5px; color: #888; font-style: italic; line-height: 1.4;
+            padding-bottom: 8px; margin-bottom: 8px; border-bottom: 1px solid #f0f0f0;
+        }
+        .contact-popup canvas { display: block; margin-top: 6px; }
+
+        .rsfso-font { font-family: 'Pinyon Script', cursive; font-size: 22px; font-weight: bold; pointer-events: none; fill: #000; }
         .num-label { font-weight: bold; pointer-events: none; font-family: Arial, sans-serif; font-size: 13px; fill: #2d3436; }
         .footer-label { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; fill: #555; pointer-events: none; }
 
-        .symbol-legend { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; padding: 8px; margin-bottom: 15px; background: #fafafa; border-radius: 6px; border: 1px solid #eee; }
-        .legend-item { font-size: 11px; color: #555; display: flex; align-items: center; }
-        .legend-math { font-family: 'Pinyon Script', cursive; font-size: 18px; font-weight: bold; color: #000; margin-right: 4px; }
+        .symbol-legend { display: flex; justify-content: center; flex-wrap: wrap; gap: 4px; padding: 4px 6px; margin-bottom: 8px; background: #fafafa; border-radius: 6px; border: 1px solid #eee; }
+        .legend-item { font-size: 9px; color: #555; display: flex; align-items: center; }
+        .legend-math { font-family: 'Pinyon Script', cursive; font-size: 13px; font-weight: bold; color: #000; margin-right: 2px; }
 
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 8px; border-top: 1px solid #eee; padding-top: 15px; margin-bottom: 15px; }
-        .info-box { padding: 8px; border-radius: 5px; border: 1px solid #ddd; }
-        .box-head { display: flex; align-items: center; margin-bottom: 2px; }
-        .box-num { font-family: Arial, sans-serif; font-weight: bold; font-size: 11px; margin-right: 5px; }
-        .box-math { font-family: 'Pinyon Script', cursive; font-size: 16px; font-weight: bold; }
-        .box-desc { font-size: 10.5px; color: #444; line-height: 1.2; }
-
-        /* Kitap Atıf Stili */
-        .citation { 
+        .citation {
             font-size: 9px; color: #888; text-align: center; border-top: 1px solid #f0f0f0; padding-top: 10px; margin-top: 10px; font-style: italic;
         }
         .citation a { color: #9b59b6; text-decoration: none; }
         .citation a:hover { text-decoration: underline; }
 
-        .c1 { background-color: rgba(211, 84, 0, 0.08); } .c2 { background-color: rgba(243, 156, 18, 0.08); }
-        .c3 { background-color: rgba(230, 126, 34, 0.08); } .c4 { background-color: rgba(46, 204, 113, 0.08); }
-        .c5 { background-color: rgba(241, 196, 15, 0.08); } .c6 { background-color: rgba(232, 67, 147, 0.08); }
-        .c7 { background-color: rgba(231, 76, 60, 0.08); } .c8 { background-color: rgba(26, 188, 156, 0.08); }
-        .c9 { background-color: rgba(52, 152, 219, 0.08); } .c10 { background-color: rgba(155, 89, 182, 0.08); }
-        .c11 { background-color: rgba(189, 195, 199, 0.08); }
+        /* ---------- App shell / routing ---------- */
+
+        h4.page-title { text-align:center; margin: 34px 0 8px 0; font-family: 'Pinyon Script', cursive; font-weight: bold; font-size: 28px; color: #2d3436; }
+
+        .view { display: none; }
+        .view.active { display: block; }
+
+        /* ---------- Detail (örnek) view ---------- */
+
+        #detailView { animation: fadeIn 0.18s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+        .detail-back {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: none; border: none; cursor: pointer;
+            font-size: 13px; color: #9b59b6; font-weight: 600;
+            padding: 8px 4px; margin-bottom: 10px; -webkit-tap-highlight-color: transparent;
+        }
+        .detail-back:active { opacity: 0.6; }
+
+        .detail-banner {
+            display: flex; align-items: center; gap: 12px;
+            border-radius: 8px; padding: 14px 16px; margin-bottom: 16px;
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+        .detail-banner .meta { min-width: 0; }
+        .detail-banner .region-no {
+            font-family: Arial, sans-serif; font-size: 10.5px; letter-spacing: 0.04em;
+            text-transform: uppercase; color: #777; font-weight: 700;
+        }
+        .detail-banner .region-desc {
+            font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; color: #2d3436;
+        }
+
+        .detail-body {
+            font-size: 14px; line-height: 1.55; color: #333;
+        }
+        .detail-body .placeholder-tag {
+            display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.05em;
+            text-transform: uppercase; color: #9b59b6; background: rgba(155, 89, 182, 0.1);
+            border-radius: 4px; padding: 2px 7px; margin-bottom: 10px;
+        }
+        .detail-body .math-block {
+            background: #fafafa; border: 1px solid #eee; border-radius: 6px;
+            padding: 12px; margin: 12px 0; overflow-x: auto;
+        }
+        .detail-body h5 { font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.03em; color: #777; margin: 18px 0 6px 0; }
+
+        .fdef-formula { font-size: 15px; line-height: 1.7; text-align: center; }
+        .fdef-symbol { font-family: 'Pinyon Script', cursive; font-weight: bold; font-size: 21px; color: #2d3436; margin: 0 2px; }
+        .fdef-op { font-family: Arial, sans-serif; font-size: 15px; color: #777; margin: 0 3px; }
+        .fdef-tum { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 15px; color: #666; }
+
+        .example-card {
+            border: 1px solid #eee; border-radius: 8px; padding: 12px 14px; margin: 12px 0; background: #fcfcfc;
+        }
+        .example-card .example-title {
+            font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600;
+            font-size: 15.5px; color: #2d3436; margin-bottom: 2px;
+        }
+        .example-card .example-note { font-size: 12.5px; color: #444; line-height: 1.5; margin: 8px 0; }
+        .region-link { color: #9b59b6; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(155, 89, 182, 0.35); }
+        .region-link:hover, .region-link:active { border-bottom-color: #9b59b6; }
+        .example-card .example-source {
+            font-size: 10.5px; color: #888; font-style: italic; margin-top: 6px;
+            display: flex; align-items: center; gap: 2px;
+        }
+        .example-card .example-source strong { color: #555; font-style: normal; }
+        .example-card .source-link {
+            display: inline-flex; align-items: center; justify-content: center;
+            color: #9b59b6; text-decoration: none; padding: 5px; margin: -5px -5px -5px 1px;
+            border-radius: 5px; flex-shrink: 0; -webkit-tap-highlight-color: transparent;
+        }
+        .example-card .source-link:hover, .example-card .source-link:active { background: rgba(155, 89, 182, 0.12); }
+        .example-card .source-link svg { width: 12px; height: 12px; display: block; }
+
+        .graph-box {
+            background: #fff; border: 1px solid #eee; border-radius: 6px; padding: 6px; margin: 8px 0;
+        }
+        .graph-box canvas { width: 100%; height: auto; display: block; }
+
+        .further-reading {
+            border-left: 3px solid #bdc3c7; padding: 8px 12px; margin: 14px 0 4px 0;
+            background: #fafafa; border-radius: 0 6px 6px 0;
+        }
+        .further-reading .fr-label {
+            font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+            color: #999; margin-bottom: 3px;
+        }
+        .further-reading .fr-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: #2d3436; }
+        .further-reading .fr-note { font-size: 12px; color: #555; line-height: 1.5; margin: 4px 0 6px 0; }
+        .further-reading .fr-kaynak { font-size: 10.5px; color: #888; font-style: italic; margin: 0 0 6px 0; }
+        .further-reading .fr-kaynak strong { color: #666; font-style: normal; }
+        .further-reading .fr-link {
+            display: inline-flex; align-items: center; gap: 4px;
+            font-size: 11px; color: #9b59b6; text-decoration: none; font-weight: 600;
+        }
+        .further-reading .fr-link svg { width: 11px; height: 11px; }
+        .further-reading .fr-link:hover { text-decoration: underline; }
+
+        .property-panel {
+            background: #fafafa; border: 1px solid #eee; border-radius: 8px;
+            padding: 12px 14px; margin: 12px 0;
+        }
+        .property-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 10px;
+        }
+        .property-item {
+            display: flex; align-items: center; gap: 6px; padding: 5px 7px;
+            border-radius: 6px; font-size: 11px; font-weight: 600;
+        }
+        .property-item.is-true { background: rgba(46, 204, 113, 0.12); color: #1e8449; }
+        .property-item.is-false { background: rgba(0,0,0,0.03); color: #999; }
+        .property-item .prop-symbol { font-family: 'Pinyon Script', cursive; font-size: 17px; font-weight: bold; }
+        .property-item .prop-icon { flex-shrink: 0; width: 13px; height: 13px; }
+        @media (max-width: 480px) {
+            .property-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        .detailed-explanation { font-size: 12.5px; color: #444; line-height: 1.55; margin: 0; }
+        .detailed-explanation strong { color: #2d3436; }
+
+        .detail-source {
+            font-size: 10.5px; color: #888; font-style: italic;
+            border-top: 1px solid #f0f0f0; padding-top: 10px; margin-top: 18px;
+        }
+        .detail-source strong { color: #555; font-style: normal; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h4 style="text-align:center; margin: 0 0 10px 0;">Fonksiyon Kümeleri Sembolik Sınıflandırması</h4>
-    
-    <div id="hoverTooltip" class="tooltip"></div>
-    <div id="infoPopup" class="info-popup">
-        <div id="popupText"></div>
-        <a href="#" id="popupLink" target="_blank" class="popup-btn">Örnek</a>
-    </div>
-    
-    <div class="svg-wrapper">
-        <svg width="600" height="420" viewBox="0 0 650 480" xmlns="http://www.w3.org/2000/svg">
-            <rect x="40" y="20" width="560" height="420" class="region" fill="#bdc3c7" data-id="11" />
-            <path d="M 450,150 L 530,150 L 530,360 L 260,360 L 260,310 L 450,310 Z" class="region" fill="#9b59b6" data-id="10" />
-            <path d="M 160,50 L 210,50 L 210,260 L 260,260 L 260,310 L 160,310 Z" class="region" fill="#3498db" data-id="9" />
-            <rect x="210" y="50" width="50" height="210" class="region" fill="#1abc9c" data-id="8" />
-            <rect x="260" y="260" width="190" height="50" class="region" fill="#e74c3c" data-id="7" />
-            <rect x="260" y="210" width="190" height="50" class="region" fill="#e84393" data-id="6" />
-            <path d="M 260,50 L 310,50 L 310,100 L 380,100 L 380,150 L 450,150 L 450,210 L 260,210 Z" class="region" fill="#f1c40f" data-id="5" />
-            <rect x="450" y="50" width="80" height="100" class="region" fill="#2ecc71" data-id="4" />
-            <rect x="380" y="100" width="70" height="50" class="region" fill="#e67e22" data-id="3" />
-            <rect x="310" y="50" width="70" height="50" class="region" fill="#f39c12" data-id="2" />
-            <rect x="380" y="50" width="70" height="50" class="region" fill="#d35400" data-id="1" />
 
-            <g fill="none" stroke="#2d3436" stroke-width="1.2" style="pointer-events: none;">
-                <rect x="40" y="20" width="560" height="420" stroke-width="2"/>
-                <line x1="160" y1="50" x2="160" y2="310"/><line x1="210" y1="50" x2="210" y2="260"/><line x1="260" y1="50" x2="260" y2="360"/><line x1="310" y1="100" x2="450" y2="100"/><line x1="380" y1="150" x2="530" y2="150"/><line x1="260" y1="210" x2="450" y2="210"/><line x1="210" y1="260" x2="450" y2="260"/><line x1="160" y1="310" x2="450" y2="310"/><line x1="260" y1="360" x2="530" y2="360"/>
-            </g>
-            <g class="rsfso-font">
-                <text x="282" y="112">D</text><text x="335" y="142">Mon</text><text x="235" y="222">C</text><text x="180" y="278">D'</text><text x="115" y="325">DC</text><text x="235" y="382">R</text>
-            </g>
-            <g class="num-label">
-                <text x="410" y="80">1</text><text x="340" y="80">2</text><text x="410" y="130">3</text><text x="485" y="105">4</text>
-                <text x="330" y="185">5</text><text x="330" y="240">6</text><text x="330" y="290">7</text><text x="230" y="160">8</text>
-                <text x="180" y="160">9</text><text x="470" y="342">10</text><text x="65" y="410">11</text>
-            </g>
-            <text x="45" y="430" class="footer-label">Tüm Fonksiyonlar Kümesi</text>
-        </svg>
+    <button class="table-icon-btn" id="tableToggleBtn" type="button" aria-label="Tablo görünümü" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+    </button>
+
+    <button class="contact-icon-btn" id="contactBtn" type="button" aria-label="Suggest an example">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+    </button>
+    <div class="contact-popup" id="contactPopup">
+        <div class="contact-popup-title" id="contactPopupTitle">Real Functions v1.1</div>
+        <div class="contact-popup-license" id="contactPopupLicense">License: CC BY-SA 4.0 (free to use with attribution)</div>
+        <div class="contact-popup-suggest" id="contactPopupText">To suggest new examples:</div>
+        <canvas id="contactEmailCanvas" width="190" height="18"></canvas>
     </div>
 
-    <div class="symbol-legend">
-        <div class="legend-item"><span class="legend-math">D</span>: Türetilebilir</div>
-        <div class="legend-item"><span class="legend-math">C</span>: Sürekli</div>
-        <div class="legend-item"><span class="legend-math">Mon</span>: Monoton</div>
-        <div class="legend-item"><span class="legend-math">D'</span>: Antitürevi Var</div>
-        <div class="legend-item"><span class="legend-math">DC</span>: Ara Değer Öz. Var</div>
-        <div class="legend-item"><span class="legend-math">R</span>: Riemann İntegrallenebilir</div>
-    </div>
+    <button class="lang-toggle-btn" id="langToggleBtn" type="button" aria-label="Switch language / Dili değiştir">
+        <span id="flagUK" style="display:none;">
+            <svg viewBox="0 0 60 36" xmlns="http://www.w3.org/2000/svg">
+                <rect width="60" height="36" fill="#012169"/>
+                <path d="M0,0 L60,36 M60,0 L0,36" stroke="#ffffff" stroke-width="7"/>
+                <path d="M0,0 L60,36 M60,0 L0,36" stroke="#C8102E" stroke-width="3"/>
+                <path d="M30,0 V36 M0,18 H60" stroke="#ffffff" stroke-width="11"/>
+                <path d="M30,0 V36 M0,18 H60" stroke="#C8102E" stroke-width="6"/>
+            </svg>
+        </span>
+        <span id="flagTR" style="display:block;">
+            <svg viewBox="0 0 60 36" xmlns="http://www.w3.org/2000/svg">
+                <rect width="60" height="36" fill="#E30A17"/>
+                <circle cx="24" cy="18" r="9" fill="#ffffff"/>
+                <circle cx="27" cy="18" r="7.2" fill="#E30A17"/>
+                <polygon points="34,18 36.5,25 30.2,20.6 37.8,20.6 31.5,25" fill="#ffffff"/>
+            </svg>
+        </span>
+    </button>
 
-    <div class="info-grid">
-        <div class="info-box c1"><div class="box-head"><span class="box-num">1</span><span class="box-math">D &cap; Mon</span></div><div class="box-desc">Türevlenebilir monoton fonksiyonlar.</div></div>
-        <div class="info-box c2"><div class="box-head"><span class="box-num">2</span><span class="box-math">D \ Mon</span></div><div class="box-desc">Monoton olmayan türevlenebilir fonksiyonlar.</div></div>
-        <div class="info-box c3"><div class="box-head"><span class="box-num">3</span><span class="box-math">Mon &cap; C \ D</span></div><div class="box-desc">Türevlenemeyen monoton fonksiyonlar.</div></div>
-        <div class="info-box c4"><div class="box-head"><span class="box-num">4</span><span class="box-math">Mon \ C</span></div><div class="box-desc">Ara değer özelliğini sağlamayan integrallenebilir monoton fonksiyonlar.</div></div>
-        <div class="info-box c5"><div class="box-head"><span class="box-num">5</span><span class="box-math">C \ (D &cup; Mon)</span></div><div class="box-desc">Sürekli olan, türevlenemeyen ve monoton olmayan fonksiyonlar.</div></div>
-        <div class="info-box c6"><div class="box-head"><span class="box-num">6</span><span class="box-math">C &cap; D' \ D</span></div><div class="box-desc">Sürekli olmayan, integrallenebilir olan ve antitürevi var olan fonksiyonlar.</div></div>
-        <div class="info-box c7"><div class="box-head"><span class="box-num">7</span><span class="box-math">D' \ C</span></div><div class="box-desc">İntegrallenebilen, ara değer özelliğine sahip olan fakat antitürevi var olmayanlar.</div></div>
-        <div class="info-box c8"><div class="box-head"><span class="box-num">8</span><span class="box-math">DC \ (D' &cup; C)</span></div><div class="box-desc">Antitürevi var olan fakat integrallenemeyen fonksiyonlar.</div></div>
-        <div class="info-box c9"><div class="box-head"><span class="box-num">9</span><span class="box-math">DC \ D'</span></div><div class="box-desc">Ara değer özelliğine sahip olan, antitürevi var olmayan ve integrallenemeyenler.</div></div>
-        <div class="info-box c10"><div class="box-head"><span class="box-num">10</span><span class="box-math">R \ DC</span></div><div class="box-desc">Ara değer özelliği olmayan, monoton olmayan integrallenebilir fonk.</div></div>
-        <div class="info-box c11"><div class="box-head"><span class="box-num">11</span><span class="box-math">Tüm \ R</span></div><div class="box-desc">Ara değer özelliği olmayan ve integrallenemeyen fonksiyonlar.</div></div>
-    </div>
+    <!-- ============ HOME VIEW ============ -->
+    <section id="homeView" class="view">
+        <h4 class="page-title" id="pageTitle">Real Functions</h4>
+        <p class="page-subtitle" id="pageSubtitle">Tap any region</p>
 
-    <!-- Atıf Alanı -->
-    <div class="citation">
-        Diyagram hazırlanırken şu kitaptan fikir alınmıştır: 
-        <a href="https://www.cambridge.org/ag/universitypress/subjects/mathematics/real-and-complex-analysis/second-course-real-functions?format=PB&isbn=9780521283618" target="_blank">
-            A Second Course in Real Functions (Cambridge University Press)
-        </a>
-    </div>
+        <div class="svg-wrapper svg-wrapper-landscape">
+            <svg viewBox="0 0 650 480" xmlns="http://www.w3.org/2000/svg">
+                <rect x="40" y="20" width="560" height="420" class="region" fill="#bdc3c7" data-id="11" />
+                <path d="M 450,150 L 530,150 L 530,360 L 260,360 L 260,310 L 450,310 Z" class="region" fill="#9b59b6" data-id="10" transform="translate(-25,25)" />
+                <path d="M 160,50 L 210,50 L 210,260 L 260,260 L 260,310 L 160,310 Z" class="region" fill="#3498db" data-id="9" transform="translate(-25,25)" />
+                <rect x="210" y="50" width="50" height="210" class="region" fill="#1abc9c" data-id="8" transform="translate(-25,25)" />
+                <rect x="260" y="260" width="190" height="50" class="region" fill="#e74c3c" data-id="7" transform="translate(-25,25)" />
+                <rect x="260" y="210" width="190" height="50" class="region" fill="#e84393" data-id="6" transform="translate(-25,25)" />
+                <path d="M 260,50 L 310,50 L 310,100 L 380,100 L 380,150 L 450,150 L 450,210 L 260,210 Z" class="region" fill="#f1c40f" data-id="5" transform="translate(-25,25)" />
+                <rect x="450" y="50" width="80" height="100" class="region" fill="#2ecc71" data-id="4" transform="translate(-25,25)" />
+                <rect x="380" y="100" width="70" height="50" class="region" fill="#e67e22" data-id="3" transform="translate(-25,25)" />
+                <rect x="310" y="50" width="70" height="50" class="region" fill="#f39c12" data-id="2" transform="translate(-25,25)" />
+                <rect x="380" y="50" width="70" height="50" class="region" fill="#d35400" data-id="1" transform="translate(-25,25)" />
+
+                <g fill="none" stroke="#2d3436" stroke-width="1.2" style="pointer-events: none;">
+                    <rect x="40" y="20" width="560" height="420" stroke-width="2"/>
+                </g>
+                <g fill="none" stroke="#2d3436" stroke-width="1.2" style="pointer-events: none;" transform="translate(-25,25)">
+                    <line x1="160" y1="50" x2="160" y2="310"/><line x1="210" y1="50" x2="210" y2="260"/><line x1="260" y1="50" x2="260" y2="360"/><line x1="310" y1="100" x2="450" y2="100"/><line x1="380" y1="150" x2="530" y2="150"/><line x1="260" y1="210" x2="450" y2="210"/><line x1="210" y1="260" x2="450" y2="260"/><line x1="160" y1="310" x2="450" y2="310"/><line x1="260" y1="360" x2="530" y2="360"/>
+                </g>
+                <g class="rsfso-font" transform="translate(-25,25)">
+                    <text x="282" y="112" fill="#c0392b">D</text><text x="335" y="142" fill="#2980b9">Mon</text><text x="235" y="222" fill="#7b241c">C</text><text x="180" y="278" fill="#8e44ad">D'</text><text x="115" y="325" fill="#d35400">DC</text><text x="235" y="382" fill="#16a085">R</text>
+                </g>
+                <g class="num-label" transform="translate(-25,25)">
+                    <text x="410" y="80">1</text><text x="340" y="80">2</text><text x="410" y="130">3</text><text x="485" y="105">4</text>
+                    <text x="330" y="185">5</text><text x="330" y="240">6</text><text x="330" y="290">7</text><text x="230" y="160">8</text>
+                    <text x="180" y="160">9</text><text x="470" y="342">10</text>
+                </g>
+                <g class="num-label">
+                    <text x="65" y="410">11</text>
+                </g>
+                <text x="45" y="430" class="footer-label" id="footerLabelLandscape">Tüm Fonksiyonlar Kümesi</text>
+                <g class="prop-boundary" transform="translate(-25,25)">
+                    <rect x="310" y="50" width="140" height="50" stroke="#c0392b"/>
+                    <rect x="380" y="50" width="150" height="100" stroke="#2980b9"/>
+                    <rect x="260" y="50" width="190" height="160" stroke="#7b241c"/>
+                    <rect x="210" y="50" width="240" height="210" stroke="#8e44ad"/>
+                    <rect x="160" y="50" width="290" height="260" stroke="#d35400"/>
+                    <rect x="260" y="50" width="270" height="310" stroke="#16a085"/>
+                </g>
+            </svg>
+        </div>
+
+        <div class="svg-wrapper svg-wrapper-portrait">
+            <svg viewBox="0 0 480 650" xmlns="http://www.w3.org/2000/svg">
+                <rect x="40" y="40" width="420" height="560" class="region" fill="#bdc3c7" data-id="11" />
+                <path d="M 330,450 L 330,530 L 120,530 L 120,260 L 170,260 L 170,450 Z" class="region" fill="#9b59b6" data-id="10" transform="translate(-25,-25)" />
+                <path d="M 430,160 L 430,210 L 220,210 L 220,260 L 170,260 L 170,160 Z" class="region" fill="#3498db" data-id="9" transform="translate(-25,-25)" />
+                <rect x="220" y="210" width="210" height="50" class="region" fill="#1abc9c" data-id="8" transform="translate(-25,-25)" />
+                <rect x="170" y="260" width="50" height="190" class="region" fill="#e74c3c" data-id="7" transform="translate(-25,-25)" />
+                <rect x="220" y="260" width="50" height="190" class="region" fill="#e84393" data-id="6" transform="translate(-25,-25)" />
+                <path d="M 430,260 L 430,310 L 380,310 L 380,380 L 330,380 L 330,450 L 270,450 L 270,260 Z" class="region" fill="#f1c40f" data-id="5" transform="translate(-25,-25)" />
+                <rect x="330" y="450" width="100" height="80" class="region" fill="#2ecc71" data-id="4" transform="translate(-25,-25)" />
+                <rect x="330" y="380" width="50" height="70" class="region" fill="#e67e22" data-id="3" transform="translate(-25,-25)" />
+                <rect x="380" y="310" width="50" height="70" class="region" fill="#f39c12" data-id="2" transform="translate(-25,-25)" />
+                <rect x="380" y="380" width="50" height="70" class="region" fill="#d35400" data-id="1" transform="translate(-25,-25)" />
+
+                <g fill="none" stroke="#2d3436" stroke-width="1.2" style="pointer-events: none;">
+                    <rect x="40" y="40" width="420" height="560" stroke-width="2"/>
+                </g>
+                <g fill="none" stroke="#2d3436" stroke-width="1.2" style="pointer-events: none;" transform="translate(-25,-25)">
+                    <line x1="430" y1="160" x2="170" y2="160"/><line x1="430" y1="210" x2="220" y2="210"/><line x1="430" y1="260" x2="120" y2="260"/><line x1="380" y1="310" x2="380" y2="450"/><line x1="330" y1="380" x2="330" y2="530"/><line x1="270" y1="260" x2="270" y2="450"/><line x1="220" y1="210" x2="220" y2="450"/><line x1="170" y1="160" x2="170" y2="450"/><line x1="120" y1="260" x2="120" y2="530"/>
+                </g>
+                <g class="rsfso-font" transform="translate(-25,-25)">
+                    <text x="133" y="161" fill="#d35400">DC</text><text x="199" y="211" fill="#8e44ad">D'</text><text x="264" y="255" fill="#7b241c">C</text><text x="98" y="261" fill="#16a085">R</text><text x="359" y="311" fill="#c0392b">D</text><text x="293" y="373" fill="#2980b9">Mon</text>
+                </g>
+                <g class="num-label" transform="translate(-25,-25)">
+                    <text x="386" y="395">1</text><text x="386" y="325">2</text><text x="336" y="395">3</text><text x="336" y="465">4</text>
+                    <text x="276" y="275">5</text><text x="226" y="275">6</text><text x="176" y="275">7</text><text x="226" y="225">8</text>
+                    <text x="176" y="175">9</text><text x="126" y="275">10</text>
+                </g>
+                <g class="num-label">
+                    <text x="46" y="55">11</text>
+                </g>
+                <text x="46" y="73" class="footer-label" id="footerLabelPortrait">Tüm Fonksiyonlar Kümesi</text>
+                <g class="prop-boundary" transform="translate(-25,-25)">
+                    <rect x="380" y="310" width="50" height="140" stroke="#c0392b"/>
+                    <rect x="330" y="380" width="100" height="150" stroke="#2980b9"/>
+                    <rect x="270" y="260" width="160" height="190" stroke="#7b241c"/>
+                    <rect x="220" y="210" width="210" height="240" stroke="#8e44ad"/>
+                    <rect x="170" y="160" width="260" height="290" stroke="#d35400"/>
+                    <rect x="120" y="260" width="310" height="270" stroke="#16a085"/>
+                </g>
+            </svg>
+        </div>
+
+        <div class="table-wrapper" id="tableWrapper" style="display:none;">
+            <div class="table-scroll">
+                <table class="class-table" id="classTable"></table>
+            </div>
+        </div>
+
+        <div class="symbol-legend" id="symbolLegend">
+            <div class="legend-item"><span class="legend-math">D</span>: Türetilebilir</div>
+            <div class="legend-item"><span class="legend-math">C</span>: Sürekli</div>
+            <div class="legend-item"><span class="legend-math">Mon</span>: Monoton</div>
+            <div class="legend-item"><span class="legend-math">D'</span>: Antitürevi Var</div>
+            <div class="legend-item"><span class="legend-math">DC</span>: Ara Değer Öz. Var</div>
+            <div class="legend-item"><span class="legend-math">R</span>: Riemann İntegrallenebilir</div>
+        </div>
+
+        <div class="citation" id="citationBlock">
+            Bu sayfanın asıl ilham kaynağı,
+            A.C.M. van Rooij ve W.H. Schikhof'un
+            <a href="https://www.cambridge.org/ag/universitypress/subjects/mathematics/real-and-complex-analysis/second-course-real-functions?format=PB&isbn=9780521283618" target="_blank" rel="noopener noreferrer">
+                A Second Course on Real Functions
+            </a>
+            (Cambridge University Press) adlı eseridir — reel fonksiyonlar teorisinin en şaşırtıcı köşelerini hiç sadeleştirmeden, titiz ve zevkli bir anlatımla işleyen, konuya meraklı herkese kesinlikle tavsiye edilecek bir başucu kitabı.
+        </div>
+    </section>
+
+    <!-- ============ DETAIL VIEW (örnek sayfası) ============ -->
+    <section id="detailView" class="view">
+        <button class="detail-back" id="backBtn" type="button">&larr; <span id="backBtnText">Diyagrama dön</span></button>
+
+        <div class="detail-banner" id="detailBanner">
+            <div class="meta">
+                <div class="region-no" id="detailRegionNo"></div>
+                <div class="region-desc" id="detailRegionDesc"></div>
+            </div>
+        </div>
+
+        <div class="detail-body" id="detailBody">
+            <!-- JS tarafından dolduruluyor -->
+        </div>
+
+        <div class="detail-source" id="detailSource"></div>
+    </section>
+
 </div>
 
 <script>
-    const data = {
-        "1": { text: "Türevlenebilir monoton fonksiyonlar", link: "https://en.wikipedia.org/wiki/Exponential_function" },
-        "2": { text: "Monoton olmayan türevlenebilir fonksiyonlar", link: "https://sogrekci.github.io/sogrekci/192.168.1.35_8000/ornek/turevi-pozitif-olup-monoton-olmayan-bir-fonksiyon/index.html" },
-        "3": { text: "Türevlenemeyen monoton fonksiyonlar", link: "https://en.wikipedia.org/wiki/Cantor_function" },
-        "4": { text: "Ara değer özelliğini sağlamayan integrallenebilir monoton fonksiyonlar", link: "https://sogrekci.github.io/sogrekci/192.168.1.35_8000/ornek/integrallenebilir-olan-fakat-antiturevi-primitifi-var-olmayan-fonksiyon/index.html" },
-        "5": { text: "Sürekli olan, türevlenemeyen ve monoton olmayan fonksiyonlar", link: "https://en.wikipedia.org/wiki/Weierstrass_function" },
-        "6": { text: "Sürekli olmayan, integrallenebilir olan ve antitürevi var olan fonksiyonlar", link: "https://mathoverflow.net/q/427091" },
-        "7": { text: "İntegrallenebilen, ara değer özelliğine sahip olan fakat antitürevi var olmayanlar", link: "https://sogrekci.github.io/sogrekci/192.168.1.35_8000/ornek/hic-bir-fonksiyonun-turevi-olmayan-fonksiyonlar/index.html" },
-        "8": { text: "Antitürevi var olan fakat integrallenemeyen fonksiyonlar", link: "https://sogrekci.github.io/sogrekci/192.168.1.35_8000/ornek/antiturevi-primitifi-var-olan-fakat-integrallenebilir-olmayan-fonksiyon/index.html" },
-        "9": { text: "Ara değer özelliğine sahip, antitürevi yok, integrallenemez", link: "https://math.stackexchange.com/q/4856996" },
-        "10": { text: "Monoton olmayan basamak fonksiyonları", link: "https://en.wikipedia.org/wiki/Step_function" },
-        "11": { text: "Ara değer özelliği olmayan ve integrallenemeyen fonksiyonlar (Örn: Dirichlet)", link: "https://en.wikipedia.org/wiki/Dirichlet_function" }
+    window.MathJax = {
+        tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+    };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+<script>
+    // MathJax script'i CDN'den async yüklendiği için, kullanıcı bir bölgeye
+    // MathJax hazır olmadan tıklarsa typeset isteği sessizce kaybolmasın diye
+    // bekleyen elementi burada tutup script yüklenince otomatik render ediyoruz.
+    let pendingTypesetEl = null;
+    document.getElementById('MathJax-script').addEventListener('load', () => {
+        if (pendingTypesetEl && window.MathJax && window.MathJax.typesetPromise) {
+            window.MathJax.typesetPromise([pendingTypesetEl]);
+            pendingTypesetEl = null;
+        }
+    });
+</script>
+<script>
+    // ---------- Bölge verileri (sembolik / dummy içerik) ----------
+    // Not: link alanları kaldırıldı. Örnekler artık bu sayfa içinde,
+    // hash-routing ile (#/bolge/N) gösteriliyor. Kaynak bilgisi sadece
+    // metin olarak belirtilir, dışarı yönlendirme yapılmaz.
+    const regionColors = {
+        "1": "#d35400", "2": "#f39c12", "3": "#e67e22", "4": "#2ecc71", "5": "#f1c40f",
+        "6": "#e84393", "7": "#e74c3c", "8": "#1abc9c", "9": "#3498db", "10": "#9b59b6", "11": "#bdc3c7"
     };
 
-    const tooltip = document.getElementById('hoverTooltip');
-    const popup = document.getElementById('infoPopup');
-    const pText = document.getElementById('popupText');
-    const pLink = document.getElementById('popupLink');
-    const regions = document.querySelectorAll('.region');
+    const data = {
+        "1":  {
+            latex: "\\mathcal{D} \\cap \\mathcal{Mon}",
+            formulaHtml: '<span class="fdef-symbol">D</span><span class="fdef-op">∩</span><span class="fdef-symbol">Mon</span>',
+            desc: "Türevlenebilir monoton fonksiyonlar",
+            checklist: { D: true, C: true, Mon: true, Dp: true, DC: true, R: true },
+            detailed: "Bu bölgedeki fonksiyonlar altı özelliğin <strong>tamamını birden</strong> sağlar. Türevlenebilir olmak, zincir gereği ($\\mathcal{D}\\subseteq\\mathcal{C}\\subseteq\\mathcal{D}'\\subseteq\\mathcal{DC}$) sürekliliği, antitürevi ve ara değer özelliğini otomatik olarak getirir; monoton (ve sınırlı) olmak da integrallenebilirliği garanti eder. Bu yüzden Bölge 1, diyagramın en içteki ve en küçük bölgesidir — buraya giren bir fonksiyon, diğer tüm bölgelerin gerektirdiği koşulları da kendiliğinden sağlar.",
+            explanation: "Bu bölge, hem her noktada türevlenebilen hem de (artan ya da azalan yönde) monoton olan fonksiyonları temsil eder. Bu iki özelliği bir arada taşımak, analizde en sık karşılaşılan 've düzgün' fonksiyon davranışını oluşturur.",
+            examples: [
+                {
+                    name: "Üstel Fonksiyon",
+                    formula: "f(x) = e^{x}",
+                    note: "Üstel fonksiyon ℝ üzerinde her noktada türevlenebilir ($f'(x)=e^x$) ve her yerde kesin artandır; dolayısıyla hem $\\mathcal{D}$ hem de $\\mathcal{Mon}$ kümesine birden aittir.",
+                    plot: "expFn",
+                    xMin: -2, xMax: 2,
+                    color: "#d35400",
+                    kaynak: "Wikipedia, “Exponential function” maddesi.",
+                    kaynakUrl: "https://en.wikipedia.org/wiki/Exponential_function"
+                }
+            ],
+            furtherReading: [
+                {
+                    title: "Türevi Sıfır Olsa Da Kesin Artan",
+                    note: "Bu bölgede daha ince bir örnek de mümkün: φ(x) fonksiyonu, x'in Cantor kümesine olan uzaklığı olsun (φ(x)=0 ancak ve ancak x Cantor kümesindeyse). φ sürekli olduğundan, F(x):=∫₀ˣφ(t)dt tanımlanabilir ve F her noktada türevlenebilirdir (F'=φ). F kesin artandır ve HİÇBİR yerel ekstremumu yoktur — ama Cantor kümesinin (sayılamaz ama ölçü-sıfır) her noktasında tam olarak F'(x)=0'dır! Yani türevin sıfır olması, fonksiyonun 'düzleştiğini' ya da bir ekstremuma yaklaştığını hiç göstermez.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, s. 43-44.",
+                    url: "https://www.cambridge.org/ag/universitypress/subjects/mathematics/real-and-complex-analysis/second-course-real-functions?format=PB&isbn=9780521283618"
+                },
+                {
+                    title: "Pompeiu İnşası: Yoğun Bir Kümede Sıfır Türev",
+                    note: "Yukarıdaki örnekten daha çarpıcı bir yapı da mümkündür. [0,1]∩ℚ'nün bir sıralaması q₁, q₂, ... olsun ve g(x):=Σₙ (1/n!)·∛(x−qₙ) tanımlansın. g, [0,1]'i bir [a,b] aralığına sürekli ve kesin artan biçimde eşler; f:=g⁻¹ alınırsa f de [a,b] üzerinde sürekli, kesin artan ve HER noktada türevlenebilirdir — ama her n için f'(g(qₙ))=0 olur, yani türev [a,b] içinde yoğun olan sayılabilir bir küme üzerinde sıfırdır (Cantor kümesi gibi ölçü-sıfır bir küme değil, doğrudan yoğun bir küme). Böylece kesin artan ve türevlenebilir olmak, türevin bir aralıkta 'neredeyse hiç sıfır olmayacağı' izlenimini de çürütür.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, s. 83-84 (Example 13.3, Pompeiu'nun inşası).",
+                    url: "https://www.cambridge.org/ag/universitypress/subjects/mathematics/real-and-complex-analysis/second-course-real-functions?format=PB&isbn=9780521283618"
+                }
+            ]
+        },
+        "2":  {
+            latex: "\\mathcal{D} \\setminus \\mathcal{Mon}",
+            formulaHtml: '<span class="fdef-symbol">D</span><span class="fdef-op">∖</span><span class="fdef-symbol">Mon</span>',
+            desc: "Monoton olmayan türevlenebilir fonksiyonlar",
+            checklist: { D: true, C: true, Mon: false, Dp: true, DC: true, R: true },
+            detailed: "Türevlenebilir olmak, zincir gereği ($\\mathcal{D}\\subseteq\\mathcal{C}\\subseteq\\mathcal{D}'\\subseteq\\mathcal{DC}$) sürekliliği, antitürevi ve ara değer özelliğini otomatik getirir; türevlenebilir (dolayısıyla sürekli) fonksiyonlar da her zaman integrallenebilirdir. Yani bu bölgedeki fonksiyonlar <strong>monotonluk dışında</strong> her özelliği taşır. Sadece monotonluk garanti edilmez, çünkü bir noktada pozitif türev olması o noktanın çevresinde artan olmayı garantilemez.",
+            explanation: "Bu bölge, her noktada türevlenebildiği halde hiçbir aralıkta monoton olmayan fonksiyonları temsil eder. Bir noktadaki türevin pozitif olması, fonksiyonun o noktanın çevresinde artan olacağı anlamına gelmez — bu ancak türevin bir ARALIK boyunca pozitif kalması durumunda garanti edilir.",
+            examples: [
+                {
+                    name: "Monoton Olmayan Pozitif Türevli Bir Fonksiyon",
+                    formula: "f(x)=\\begin{cases}x+2x^2\\sin(1/x), & x\\neq 0\\\\ 0, & x=0\\end{cases}",
+                    note: "Sandviç teoremiyle gösterilebilir ki f, x=0 noktasında türevlenebilir ve $f'(0)=1$'dir — yani pozitif bir türeve sahiptir. Buna rağmen f, 0'ın hiçbir komşuluğunda monoton değildir: $2x^2\\sin(1/x)$ terimi sonsuz kez salınarak yerel artış-azalışı bozar.",
+                    plot: "region2Fn",
+                    xMin: -0.2, xMax: 0.2,
+                    color: "#f39c12",
+                    kaynak: "S. Öğrekçi, Temel Matematik Analiz, Nobel Akademik Yayıncılık, Ankara, 2018.",
+                    kaynakUrl: "https://sogrekci.github.io/sogrekci/192.168.1.35_8000/ornek/turevi-pozitif-olup-monoton-olmayan-bir-fonksiyon/index.html"
+                }
+            ],
+            furtherReading: [
+                {
+                    title: "Monoton Olmayanların Ayrıcalığı",
+                    note: "Bu bölgedeki fonksiyonlar monoton olmadığından, görüntü kümeleri (değer kümeleri) herhangi bir kısıtlamaya tabi değildir. Oysa HER monoton f:ℝ→ℝ için görüntü kümesi f(ℝ) her zaman bir Gδ kümesi (sayılabilir çoklukta açık kümenin kesişimi) olmak zorundadır — monotonluğun getirdiği şaşırtıcı bir topolojik sınırlama. Öyle ki, görüntü kümesi tam olarak irrasyonel sayılar kümesi olan bir monoton fonksiyon hiçbir zaman var olamaz. Buna karşın, her kapalı küme için, görüntü kümesi tam olarak o küme olan bir monoton fonksiyon her zaman inşa edilebilir. Bu bölgedeki fonksiyonlar monoton olmadığı için bu ince sınırlamadan tamamen muaftır.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, s. 41-42.",
+                    url: "https://www.cambridge.org/ag/universitypress/subjects/mathematics/real-and-complex-analysis/second-course-real-functions?format=PB&isbn=9780521283618"
+                },
+                {
+                    title: "Katznelson–Stromberg Fonksiyonu: Hiçbir Aralıkta Monoton Değil",
+                    note: "Yukarıdaki örnek (f(x)=x+2x²sin(1/x)) monotonluğu yalnızca x=0'ın civarında bozar. Çok daha güçlü bir örnek mümkündür: Y. Katznelson ve K. Stromberg'in 1974'te inşa ettiği L:ℝ→ℝ fonksiyonu her yerde türevlenebilir, |L'(x)|≤1'dir, ve hem {x:L'(x)>0} hem de {x:L'(x)&lt;0} kümeleri ℝ'de YOĞUNDUR — yani L, ℝ'nin HİÇBİR aralığında monoton değildir. Buna ek olarak L iki artan fonksiyonun farkı olarak yazılabilir, {x:L'(x)=0} kümesi de yoğundur, ve L' hiçbir aralık üzerinde Riemann integrallenebilir değildir. Bu örnek, türevlenebilirliğin monotonluk için ne kadar az garanti sunduğunu en uç noktasında gösterir.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, s. 80-83 (Example 13.2; Y. Katznelson & K. Stromberg, Amer. Math. Monthly 81 (1974), 349-353).",
+                    url: "https://www.cambridge.org/ag/universitypress/subjects/mathematics/real-and-complex-analysis/second-course-real-functions?format=PB&isbn=9780521283618"
+                }
+            ]
+        },
+        "3":  {
+            latex: "\\mathcal{Mon} \\cap \\mathcal{C} \\setminus \\mathcal{D}",
+            formulaHtml: '<span class="fdef-symbol">Mon</span><span class="fdef-op">∩</span><span class="fdef-symbol">C</span><span class="fdef-op">∖</span><span class="fdef-symbol">D</span>',
+            desc: "Türevlenemeyen monoton fonksiyonlar",
+            checklist: { D: false, C: true, Mon: true, Dp: true, DC: true, R: true },
+            detailed: "Monoton ve sürekli olmak, zincir gereği ($\\mathcal{C}\\subseteq\\mathcal{D}'\\subseteq\\mathcal{DC}$) antitürevi ve ara değer özelliğini otomatik getirir; süreklilik de integrallenebilirliği garantiler. Böylece bu bölgedeki fonksiyonlar <strong>türevlenebilirlik dışında</strong> her özelliği taşır. Cantor fonksiyonu gibi örnekler, sürekli ve monoton olmanın türevlenebilirliği garanti etmediğini gösterir.",
+            explanation: "Bu bölge, sürekli ve monoton olduğu halde en az bir noktada türevlenemeyen fonksiyonları temsil eder. Süreklilik ve monotonluk bir arada bile, fonksiyonun her noktada 'yumuşak' (türevlenebilir) olmasını garanti etmez.",
+            examples: [
+                {
+                    name: "Cantor Fonksiyonu (Şeytan Merdiveni)",
+                    formula: "c:[0,1]\\to[0,1],\\quad c(0)=0,\\ c(1)=1,\\ c\\ \\text{Cantor kümesi üzerinden inşa edilir}",
+                    note: "Cantor fonksiyonu [0,1] üzerinde süreklidir ve azalmayandır (monoton), fakat Cantor kümesindeki noktalarda türevlenemez. İlginç biçimde, ölçü-sıfır olan bu küme dışında türevi her yerde 0'dır — yani türev, fonksiyonun 0'dan 1'e olan artışını neredeyse hiç açıklamaz.",
+                    plot: "cantor",
+                    xMin: 0, xMax: 1,
+                    color: "#e67e22",
+                    kaynak: "Wikipedia, “Cantor function” maddesi.",
+                    kaynakUrl: "https://en.wikipedia.org/wiki/Cantor_function"
+                }
+            ],
+            furtherReading: [
+                {
+                    title: "Lebesgue'nin Türevlenebilirlik Teoremi",
+                    note: "Cantor fonksiyonunun türevsiz olduğu noktalar (Cantor kümesi) aslında ölçüsü sıfır olan bir kümedir — ve bu tesadüf değildir. Lebesgue'nin ünlü teoremine göre HER monoton fonksiyon, ölçüsü sıfır olan bir küme dışında (yani neredeyse her yerde) türevlenebilir. Şaşırtıcı biçimde bu sınır artık esnetilemez: ölçüsü sıfır olan HERHANGİ bir küme E için, tam olarak E üzerinde türevlenemeyen sürekli artan bir fonksiyon inşa edilebilir. Yani Cantor kümesi gibi sayılamaz büyüklükte kümeler bile, ölçü sıfır oldukları sürece, bir monoton fonksiyonun 'türevsizlik kümesi' olabilir.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, s. 25, 32.",
+                    url: "https://www.cambridge.org/ag/universitypress/subjects/mathematics/real-and-complex-analysis/second-course-real-functions?format=PB&isbn=9780521283618"
+                },
+                {
+                    title: "Hölder Sürekli, Ama Lipschitz Değil",
+                    note: "Cantor fonksiyonu Φ, α:=log2/log3 üsteliyle Hölder süreklidir: |Φ(x)−Φ(y)|≤2|x−y|^α (x,y∈[0,1]). Ancak tam bir Lipschitz koşulunu SAĞLAMAZ. Bu ayrım rastgele değildir: türevi hemen her yerde sıfır olan (yani 'tekil') sürekli bir fonksiyon, herhangi bir Lipschitz koşulunu sağlasaydı zorunlu olarak sabit olurdu. Cantor fonksiyonunun sabit OLMAMASININ perde arkasındaki sebep, tam da Lipschitz eşiğinin biraz altında, Hölder sürekliliğinde kalmasıdır.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, s. 100-101 (Exercise 15.N-15.O).",
+                    url: "https://www.cambridge.org/ag/universitypress/subjects/mathematics/real-and-complex-analysis/second-course-real-functions?format=PB&isbn=9780521283618"
+                },
+                {
+                    title: "Mutlak Sürekli Değil ve Özellik (N)'yi Sağlamıyor",
+                    note: "Cantor fonksiyonu sınırlı varyasyonlu ve sürekli olsa da MUTLAK SÜREKLİ DEĞİLDİR — Lipschitz ile sınırlı-varyasyonlu-süreklilik arasında bir ara kademe daha kaçırılır. Bunun çarpıcı bir sonucu var: HER mutlak sürekli fonksiyon (dolayısıyla HER türevlenebilir fonksiyon) 'Özellik (N)'yi taşır, yani ölçü-sıfır bir kümeyi yine ölçü-sıfır bir kümeye götürür. Cantor fonksiyonu bu özelliği SAĞLAMAZ: ölçü-sıfır olan Cantor kümesini doğrudan [0,1]'in TAMAMINA eşler. <a class=\"region-link\" href=\"#/bolge/1\">Bölge 1</a> ve <a class=\"region-link\" href=\"#/bolge/2\">Bölge 2</a>'deki türevlenebilir fonksiyonların hiçbir zaman yapamayacağı bu 'kümeyi şişirme' davranışı, Cantor fonksiyonunun türevsizlik noktalarının sadece ölçü-sıfır olmakla kalmayıp fonksiyonun global davranışını da temelden belirlediğini gösterir.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, s. 154, 157 (Theorem 21.9, Exercise 21.I, Lemma 21.15).",
+                    url: "https://www.cambridge.org/ag/universitypress/subjects/mathematics/real-and-complex-analysis/second-course-real-functions?format=PB&isbn=9780521283618"
+                }
+            ]
+        },
+        "4":  {
+            latex: "\\mathcal{Mon} \\setminus \\mathcal{C}",
+            formulaHtml: '<span class="fdef-symbol">Mon</span><span class="fdef-op">∖</span><span class="fdef-symbol">C</span>',
+            desc: "Ara değer özelliğini sağlamayan integrallenebilir monoton fonksiyonlar",
+            checklist: { D: false, C: false, Mon: true, Dp: false, DC: false, R: true },
+            detailed: "Bu bölgedeki fonksiyonlar <strong>sadece iki özelliği</strong> sağlar: monotonluk ve integrallenebilirlik (sınırlı monoton fonksiyonlar her zaman integrallenebilirdir). Süreksizlik burada belirleyici: monoton bir fonksiyonda süreksizlik yalnızca 'sıçrama' biçiminde olabilir, ve bir sıçrama noktası ara değer özelliğini kırar — bu da (Darboux teoremi gereği) antitürevi imkansız kılar. Türevlenebilirlik ve süreklilik de otomatik olarak devre dışı kalır.",
+            explanation: "Bu bölge, monoton olduğu halde süreksiz olan fonksiyonları temsil eder. Bir monoton fonksiyonun süreksizlik noktaları yalnızca 'sıçrama' türünde olabilir; bu da ara değer özelliğinin kaybolmasına yol açar. Buna karşın sınırlı her monoton fonksiyon yine de Riemann integrallenebilir kalır.",
+            examples: [
+                {
+                    name: "İşaret (Signum) Fonksiyonu",
+                    formula: "\\text{sgn}(x) = \\begin{cases}-1, & x<0\\\\ 0, & x=0\\\\ 1, & x>0\\end{cases}",
+                    note: "sgn fonksiyonu [-1,1] üzerinde azalmayandır (monoton) ve integrallenebilir, ancak $x=0$'da bir sıçrama süreksizliğine sahiptir. Bu süreksizlik, ara değer özelliğinin de kaybolmasına yol açar: örneğin $-0.5$ ile $0.5$ arasında f, $0$ ile $1$ arasındaki hiçbir ara değeri almaz.",
+                    plot: "signum",
+                    xMin: -1, xMax: 1,
+                    color: "#2ecc71",
+                    kaynak: "S. Öğrekçi, Temel Matematik Analiz, Nobel Akademik Yayıncılık, Ankara, 2018.",
+                    kaynakUrl: "https://sogrekci.github.io/sogrekci/192.168.1.35_8000/ornek/integrallenebilir-olan-fakat-antiturevi-primitifi-var-olmayan-fonksiyon/index.html"
+                }
+            ],
+            furtherReading: {
+                title: "Ne Kadar Süreksiz Olabilir?",
+                note: "Bir monoton fonksiyonun süreksizlik noktaları HER ZAMAN sayılabilir çokluktadır — asla sayılamaz olamaz. Fakat bu sayılabilir küme oldukça 'yoğun' olabilir: [a,b] aralığında HER rasyonel noktada süreksiz, her irrasyonel noktada sürekli olan kesin artan bir fonksiyon inşa etmek mümkündür (tersine, herhangi bir sayılabilir küme S verildiğinde, tam olarak S üzerinde süreksiz olan monoton bir fonksiyon her zaman bulunabilir). Üstelik böyle 'her rasyonelde süreksiz' bir fonksiyon, hiçbir alt aralıkta ne antitüreve ne de ara değer özelliğine sahip olabilir — bu da bizim <a class=\"region-link\" href=\"#/bolge/9\">Bölge 9</a>'daki k fonksiyonu örneğiyle aynı 'hiçbir alt aralıkta' temasını tekrar eder. İlginç bir tezat: bunun TERSİ (her rasyonelde sürekli, her irrasyonelde süreksiz olan bir fonksiyon) hiçbir fonksiyon için — monoton olsun olmasın — mümkün değildir. Süreklilik noktaları kümesi her zaman belirli bir topolojik yapıya (Gδ kümesi) sahip olmak zorundadır ve rasyonel sayılar kümesi bu yapıya asla uymaz.",
+                kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, s. 12-13, 45.",
+                url: "https://www.cambridge.org/ag/universitypress/subjects/mathematics/real-and-complex-analysis/second-course-real-functions?format=PB&isbn=9780521283618"
+            }
+        },
+        "5":  {
+            latex: "\\mathcal{C} \\setminus (\\mathcal{D} \\cup \\mathcal{Mon})",
+            formulaHtml: '<span class="fdef-symbol">C</span><span class="fdef-op">∖(</span><span class="fdef-symbol">D</span><span class="fdef-op">∪</span><span class="fdef-symbol">Mon</span><span class="fdef-op">)</span>',
+            desc: "Sürekli olan, türevlenemeyen ve monoton olmayan fonksiyonlar",
+            checklist: { D: false, C: true, Mon: false, Dp: true, DC: true, R: true },
+            detailed: "Süreklilik, zincir gereği ($\\mathcal{C}\\subseteq\\mathcal{D}'\\subseteq\\mathcal{DC}$) antitürevi ve ara değer özelliğini otomatik getirir; süreklilik integrallenebilirliği de garantiler. Dolayısıyla bu bölgedeki fonksiyonlar <strong>türevlenebilirlik ve monotonluk dışında</strong> her özelliği taşır. Weierstrass ve Takagi fonksiyonları, sürekli olmanın ne türevlenebilirliği ne de monotonluğu garanti etmediğinin klasik örnekleridir.",
+            explanation: "Bu bölge, sürekli olduğu halde hiçbir noktada türevlenemeyen ve hiçbir aralıkta monoton olmayan fonksiyonları temsil eder. Böyle bir fonksiyonun var olabilmesi, 19. yüzyılda matematik camiasında büyük şaşkınlık yaratmıştır — çünkü sürekli bir fonksiyonun neredeyse her yerde türevlenebilir olacağı sanılıyordu. Aşağıda bu sınıfın iki klasik örneği yer alıyor.",
+            examples: [
+                {
+                    name: "Weierstrass Fonksiyonu",
+                    formula: "f(x) = \\sum_{n=0}^{\\infty} a^n \\cos\\left(b^n \\pi x\\right), \\quad 0<a<1,\\ b \\text{ tek tam sayı},\\ ab > 1+\\frac{3\\pi}{2}",
+                    note: "1872'de Karl Weierstrass tarafından tanımlanan bu fonksiyon, sürekli olduğu halde hiçbir noktada türevlenemeyen ilk yayımlanmış örnektir. Sonsuz sayıda, gittikçe sıklaşan salınımdan oluştuğu için hiçbir aralıkta monoton değildir. Aşağıdaki grafikte a=0.5, b=13 değerleriyle ilk 12 terimin kısmi toplamı çizilmiştir.",
+                    plot: "weierstrass",
+                    xMin: -2, xMax: 2,
+                    color: "#b8860b",
+                    kaynak: "Wikipedia, “Weierstrass function” maddesi.",
+                    kaynakUrl: "https://en.wikipedia.org/wiki/Weierstrass_function"
+                },
+                {
+                    name: "Takagi (Blancmange) Fonksiyonu",
+                    formula: "T(x) = \\sum_{n=0}^{\\infty} \\frac{1}{2^n}\\, \\text{dist}\\left(2^n x,\\ \\mathbb{Z}\\right)",
+                    note: "1903'te Teiji Takagi tarafından tanımlanan bu fonksiyon, bir sayının en yakın tam sayıya uzaklığının ölçeklenmiş toplamıdır. Şekli bir puding tatlısına (blancmange) benzediği için bu adla da anılır. Weierstrass fonksiyonu gibi sürekli, türevlenemez ve monoton değildir; tanımı daha basit olduğu için sıklıkla 'en kolay' örnek olarak gösterilir.",
+                    plot: "takagi",
+                    xMin: 0, xMax: 2,
+                    color: "#8e44ad",
+                    kaynak: "Wolfram MathWorld, “Blancmange Function” maddesi.",
+                    kaynakUrl: "https://mathworld.wolfram.com/BlancmangeFunction.html"
+                },
+                {
+                    name: "Weierstrass'ın Ne Artan Ne Azalan Fonksiyonu",
+                    formula: "f(x) = \\sum_{n=0}^{\\infty} p^{-n}\\sin(2\\pi q^n x), \\quad p>1,\\ q\\ \\text{çift tam sayı},\\ q>(4\\pi+1)p",
+                    note: "Yukarıdaki iki örnek sadece türevsizdir; bu örnek daha da güçlü bir özellik taşır: f, ℝ'nin HİÇBİR noktasında ne artandır ne de azalandır (yani hiçbir noktanın etrafında, ne kadar küçük olursa olsun, f'in yönü belirlenemez). Bu, 'nerede artıyor nerede azalıyor' sorusunun bu tür fonksiyonlar için anlamsız kaldığını gösterir. Aşağıdaki grafikte p=2, q=28 değerleriyle ilk 7 terimin kısmi toplamı çizilmiştir.",
+                    plot: "weierstrassSine",
+                    xMin: -0.1, xMax: 0.1,
+                    color: "#2980b9",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, s. 48-49.",
+                    kaynakUrl: "https://www.cambridge.org/ag/universitypress/subjects/mathematics/real-and-complex-analysis/second-course-real-functions?format=PB&isbn=9780521283618"
+                }
+            ],
+            furtherReading: {
+                title: "Sürekli Ama 'Uzunluğu' Sonsuz",
+                note: "Yukarıdaki örneklerdeki türevsizlik ya da yön belirsizliği kadar dramatik olmasa da, daha basit bir örnek de düzlüğün ne kadar kolay bozulabileceğini gösterir: g(x)=x sin(1/x) (g(0)=0) sürekli ve sınırlıdır, fakat sınırlı varyasyonlu DEĞİLDİR — yani grafiğinin uzunluğu sonsuzdur. Süreklilik, grafiğin 'makul uzunlukta' olmasını hiç garanti etmez.",
+                kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, s. 21.",
+                url: "https://www.cambridge.org/ag/universitypress/subjects/mathematics/real-and-complex-analysis/second-course-real-functions?format=PB&isbn=9780521283618"
+            }
+        },
+        "6":  {
+            latex: "(\\mathcal{D}' \\setminus \\mathcal{C}) \\cap \\mathcal{R}",
+            formulaHtml: '<span class="fdef-op">(</span><span class="fdef-symbol">D\'</span><span class="fdef-op">∖</span><span class="fdef-symbol">C</span><span class="fdef-op">)∩</span><span class="fdef-symbol">R</span>',
+            desc: "Antitürevi var olan, süreksiz olan fakat yine de integrallenebilen fonksiyonlar",
+            checklist: { D: false, C: false, Mon: false, Dp: true, DC: true, R: true },
+            detailed: "Bu bölgedeki fonksiyonlar antitürevi, (Darboux teoremi gereği otomatik olarak) ara değer özelliğini ve integrallenebilirliği taşır, ama <strong>süreksizdir</strong> — dolayısıyla ne türevlenebilir ne de monotondur (monoton+süreksiz bir fonksiyon ara değer özelliğini kaybederdi, bu da antitürevi imkansız kılardı). Buradaki süreksizlik tek bir noktada olduğu için integrallenebilirlik bozulmaz.",
+            explanation: "Bu bölge, bir başka fonksiyonun türevi olduğu (yani antitürevi var olduğu) halde kendisi süreksiz olan, ama buna rağmen Riemann integrallenebilen fonksiyonları temsil eder. Darboux teoremi, türev fonksiyonlarının süreksiz olsalar bile ara değer özelliğini her zaman sağladığını gösterir — süreklilik, ara değer özelliği için gerekli değildir. Bu örnekte süreksizlik tek bir noktada olduğundan integrallenebilirlik bozulmaz.",
+            examples: [
+                {
+                    name: "Tek Noktada Süreksiz Olan Antitürevli Bir Fonksiyon",
+                    formula: "f(x)=\\begin{cases}\\sin(1/x), & x\\neq 0\\\\ 0, & x=0\\end{cases}",
+                    note: "f, x=0 dışında süreklidir fakat x=0'da süreksizdir. Antitürevi olduğunu göstermek için bir hile kullanılır: φ(x)=x²cos(1/x) (φ(0)=0) türevlenebilirdir ve φ'(x)=2x cos(1/x)+sin(1/x) olur. Buradan φ'=ψ+f yazılabilir; burada ψ(x)=2x cos(1/x) süreklidir, dolayısıyla kendi antitürevine sahiptir. Sonuç olarak f=φ'−ψ, iki türevin farkı olduğundan kendisi de bir türevdir — yani antitürevi vardır.",
+                    plot: "sinInvXZero",
+                    xMin: -0.6, xMax: 0.6,
+                    color: "#c0392b",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, s. 3.",
+                    kaynakUrl: "https://www.cambridge.org/ag/universitypress/subjects/mathematics/real-and-complex-analysis/second-course-real-functions?format=PB&isbn=9780521283618",
+                    extraSources: [
+                        {
+                            kaynak: "Gro-Tsen, MathOverflow cevabı, “Class of Riemann integrable functions with antiderivative”.",
+                            kaynakUrl: "https://mathoverflow.net/questions/427088/class-of-riemann-integrable-functions-with-antiderivative/427091#427091"
+                        }
+                    ]
+                },
+                {
+                    name: "Türevi Süreksiz Olan Türevlenebilir Bir Fonksiyon",
+                    formula: "F(x)=\\begin{cases}x^2\\sin(1/x), & x\\neq 0\\\\ 0, & x=0\\end{cases}\\quad\\Rightarrow\\quad F'(x)=\\begin{cases}2x\\sin(1/x)-\\cos(1/x), & x\\neq 0\\\\ 0, & x=0\\end{cases}",
+                    note: "Yukarıdaki örneğe alternatif bir kurgu: F her noktada türevlenebilirdir, dolayısıyla F', bir fonksiyonun (F'nin) türevi olarak antitürevini bulundurur. Fakat F', x=0 noktasında süreksizdir: cos(1/x) terimi x sıfıra yaklaşırken salınmaya devam eder ve hiçbir limite yaklaşmaz. Tek bir süreksizlik noktası integrallenebilirliği bozmadığından F' hem ara değer özelliğine sahiptir hem de integrallenebilirdir.",
+                    plot: "darbouxDeriv",
+                    xMin: -0.6, xMax: 0.6,
+                    color: "#e67e22",
+                    kaynak: "Wikipedia, “Darboux's theorem (analysis)” maddesi.",
+                    kaynakUrl: "https://en.wikipedia.org/wiki/Darboux's_theorem_(analysis)",
+                    extraSources: [
+                        {
+                            kaynak: "S. Öğrekçi, Temel Matematik Analiz, Nobel Akademik Yayıncılık, Ankara, 2018.",
+                            kaynakUrl: "https://sogrekci.github.io/sogrekci/192.168.1.35_8000/ornek/turevi-surekli-olmayan-bir-fonksiyon/index.html"
+                        }
+                    ]
+                }
+            ],
+            furtherReading: [
+                {
+                    title: "Genel İlke: Periyodik Her Antitürevli Fonksiyon İşe Yarar",
+                    note: "Buradaki örnekte sin(1/x)'in oynadığı rolü aslında [0,∞) üzerinde tanımlı, periyodik ve antitürevi olan HERHANGİ bir j fonksiyonu üstlenebilir: J, j'nin bir antitürevi ve A:=J(1)−J(0) olmak üzere, h(x):=j(1/x) (x∈(0,1]), h(0):=A biçiminde tanımlanan h fonksiyonu yine [0,1] üzerinde antitürevlidir. sin(1/x) örneği, bu genel inşanın sadece en tanıdık özel halidir.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, s. 85-86 (Example 14.1).",
+                    url: "https://www.cambridge.org/ag/universitypress/subjects/mathematics/real-and-complex-analysis/second-course-real-functions?format=PB&isbn=9780521283618"
+                },
+                {
+                    title: "𝒟' Bir Cebir Değildir",
+                    note: "𝒟, yani türevlenebilir fonksiyonlar sınıfı bir cebirdir: toplama ve çarpma altında kapalıdır. Ama antitürevi olan fonksiyonların sınıfı 𝒟' böyle davranmaz. j(x):=sin(2πx) gibi periyodik bir j∈𝒟' alındığında, |j| ve j² genellikle 𝒟''ye ait DEĞİLDİR — mutlak değer alma ya da kareleme işlemi antitürevin varlığını bozabilir. Bu, 𝒟' sınıfının 𝒟'ye kıyasla çok daha kırılgan bir yapıya sahip olduğunu gösterir.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, s. 86 (Exercise 14.B).",
+                    url: "https://www.cambridge.org/ag/universitypress/subjects/mathematics/real-and-complex-analysis/second-course-real-functions?format=PB&isbn=9780521283618"
+                },
+                {
+                    title: "Ama Mutlak Sürekli Bir Çarpanla Çarpmak İşe Yarar",
+                    note: "𝒟''nün cebir olmaması tam bir çıkmaz değildir. g mutlak sürekli bir fonksiyon ve f∈𝒟' ise, fg de yine 𝒟''ye aittir: F, f'in bir antitürevi olmak üzere, x↦F(x)g(x)−∫₀ˣF(t)g'(t)dt ifadesi fg'nin açık bir antitürevini verir. Yani 𝒟', HER fonksiyonla çarpma altında kapalı olmasa da, mutlak sürekli fonksiyonlarla çarpma altında kapalıdır. Bu da yukarıdaki 'periyodik her antitürevli fonksiyon işe yarar' ilkesinin aslında daha genel bir 'modül yapısının' özel bir hali olduğunu gösterir.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, s. 161 (Exercise 21.O).",
+                    url: "https://www.cambridge.org/ag/universitypress/subjects/mathematics/real-and-complex-analysis/second-course-real-functions?format=PB&isbn=9780521283618"
+                },
+                {
+                    title: "Neden Bu Kadar Çılgınca Salınıyor?",
+                    note: "Bu bölgedeki örneklerin süreksizlik noktası etrafında neden sonsuz kez yukarı-aşağı salınmak zorunda olduğu merak edilebilir: eğer bir fonksiyon hem ara değer özelliğine sahip olsaydı hem de sınırlı varyasyonlu olsaydı, otomatik olarak sürekli olurdu. Yani ara değer özelliğine sahip fakat süreksiz olan fonksiyonlar zorunlu olarak sınırsız varyasyonludur — süreksizlik noktasının çevresinde 'sonlu uzunlukta' kalarak süreksiz olamazlar.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, s. 21.",
+                    url: "https://www.cambridge.org/ag/universitypress/subjects/mathematics/real-and-complex-analysis/second-course-real-functions?format=PB&isbn=9780521283618"
+                }
+            ]
+        },
+        "7":  {
+            latex: "(\\mathcal{DC} \\setminus \\mathcal{D}') \\cap \\mathcal{R}",
+            formulaHtml: '<span class="fdef-op">(</span><span class="fdef-symbol">DC</span><span class="fdef-op">∖</span><span class="fdef-symbol">D\'</span><span class="fdef-op">)∩</span><span class="fdef-symbol">R</span>',
+            desc: "Ara değer özelliğine sahip, antitürevi var olmayan fakat integrallenebilen fonksiyonlar",
+            checklist: { D: false, C: false, Mon: false, Dp: false, DC: true, R: true },
+            detailed: "Bu bölgedeki fonksiyonlar <strong>sadece ara değer özelliğini ve integrallenebilirliği</strong> taşır. Antitürevi yoktur — yani hiçbir fonksiyonun türevi değildir; bu otomatik olarak sürekli, türevlenebilir ya da monoton olmadığı anlamına gelir, çünkü bu üç özellikten herhangi biri zincir gereği antitürevi de getirirdi.",
+            explanation: "Bu bölge, ara değer özelliğini sağladığı halde hiçbir fonksiyonun türevi olmayan (antitürevi olmayan), ama yine de Riemann integrallenebilen fonksiyonları temsil eder. <a class=\"region-link\" href=\"#/bolge/6\">Bölge 6</a>'daki örnekle neredeyse aynı formülü kullanır — aradaki tek fark, fonksiyonun süreksizlik noktasındaki değeridir.",
+            examples: [
+                {
+                    name: "Antitürevi Olmayan, Ara Değer Özellikli Bir Fonksiyon",
+                    formula: "g(x)=\\begin{cases}\\sin(1/x), & x\\neq 0\\\\ 1, & x=0\\end{cases}",
+                    note: "Bu fonksiyon, <a class=\"region-link\" href=\"#/bolge/6\">Bölge 6</a>'daki f ile birebir aynı formülü kullanır — tek fark, x=0'daki değerdir (orada 0 yerine 1). x=0 dışında sin(1/x) zaten [-1,1] aralığındaki her değeri yoğun biçimde aldığından, f=0'daki değer ne olursa olsun ara değer özelliği bozulmaz. Fakat g'nin antitürevi olamaz: eğer olsaydı, <a class=\"region-link\" href=\"#/bolge/6\">Bölge 6</a>'daki f de antitürevli olduğundan g−f de antitürevli olurdu — ama g−f, sadece x=0'da 1, başka her yerde 0 değerini alan bir fonksiyondur ve bu açıkça ara değer özelliğini bile sağlamaz. Çelişki. Tek noktalık süreksizlik integrallenebilirliği bozmadığından g yine de Riemann integrallenebilirdir.",
+                    plot: "sinInvX",
+                    xMin: -0.6, xMax: 0.6,
+                    color: "#16a085",
+                    kaynak: "S. Öğrekçi, Temel Matematik Analiz, Nobel Akademik Yayıncılık, Ankara, 2018 (van Rooij & Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, s. 4'ten uyarlanmıştır).",
+                    kaynakUrl: "https://sogrekci.github.io/sogrekci/192.168.1.35_8000/ornek/hic-bir-fonksiyonun-turevi-olmayan-fonksiyonlar/index.html"
+                }
+            ],
+            furtherReading: [
+                {
+                    title: "Aynı Genel İlke Burada da Geçerli",
+                    note: "<a class=\"region-link\" href=\"#/bolge/6\">Bölge 6</a>'daki ileri okuma notunda açıklanan genel ilke — periyodik ve antitürevi olan herhangi bir j fonksiyonunun, x↦j(1/x) biçiminde 1/x ile bileşimi altında yine antitürevli bir fonksiyon üretmesi — burada da geçerlidir. g(x)=sin(1/x) örneği bu genel inşanın yalnızca özel bir halidir; x=0'daki değerin değiştirilmesiyle (<a class=\"region-link\" href=\"#/bolge/6\">Bölge 6</a>'daki f'ten farklı olarak) ara değer özelliği hâlâ korunurken antitürev kaybolur.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, s. 85-86 (Example 14.1).",
+                    url: "https://www.cambridge.org/ag/universitypress/subjects/mathematics/real-and-complex-analysis/second-course-real-functions?format=PB&isbn=9780521283618"
+                },
+                {
+                    title: "Ara Değer Özelliği Ne Kadar Kısıtlayıcı(sız)?",
+                    note: "Monoton fonksiyonlar bir vektör uzayı oluşturmasa da, farklarının ürettiği sınıf (sınırlı varyasyonlu fonksiyonlar) hâlâ 'düzgün' bir sınıftır. Ara değer özelliğinde durum çok daha çarpıcıdır: HER fonksiyon, iki ara değer özellikli fonksiyonun farkı olarak yazılabilir! Yani ara değer özelliği tek başına neredeyse hiçbir düzenlilik garantilemez. Buna karşın, bu bölgedeki fonksiyonlar asla enjektif (bire bir) olamaz — çünkü enjektif ve ara değer özellikli olan her fonksiyon otomatik olarak süreklidir.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, s. 57-58.",
+                    url: "https://www.cambridge.org/ag/universitypress/subjects/mathematics/real-and-complex-analysis/second-course-real-functions?format=PB&isbn=9780521283618"
+                },
+                {
+                    title: "Bir Bijeksiyon Hiçbir Yerde Monoton Olmayabilir",
+                    note: "Yukarıdaki notun somut bir doğrulaması: $[0,1]\\to[0,1]$ tanımlı $f(x)=x$ ($x$ rasyonelse), $f(x)=1-x$ ($x$ irrasyonelse) fonksiyonu bire-birdir (bijeksiyondur) ama $[0,1]$'in hiçbir alt aralığında monoton değildir — genel olarak, aynı Dirichlet-tipi kurgu herhangi bir $[a,b]\\to[c,d]$ bijeksiyonuna genişletilebilir. Bu fonksiyon süreksiz olduğundan (dolayısıyla $\\mathcal{DC}$'ye ait olmadığından) yukarıdaki teoremle çelişmez; tam tersine, 'enjektif + ara değer özelliği ⟹ süreklilik' teoreminin neden enjektiflik zayıf bir varsayım olmadığını, süreklilikten vazgeçildiği an bijeksiyonların bile monotonluktan tamamen kopabileceğini gösterir.",
+                    kaynak: "S. Öğrekçi web sitesi, “Hiç Bir Yerde Monoton Olmayan Bire-Bir Fonksiyon” (kaynak: B.R. Gelbaum, J.M.H. Olmsted, Counterexamples in Analysis, Dover Publications, 1992).",
+                    url: "https://sogrekci.github.io/sogrekci/192.168.1.35_8000/ornek/hic-bir-yerde-monoton-olmayan-bire-bir-fonksiyon/index.html"
+                }
+            ]
+        },
+        "8":  {
+            latex: "(\\mathcal{D}' \\setminus \\mathcal{C}) \\setminus \\mathcal{R}",
+            formulaHtml: '<span class="fdef-op">(</span><span class="fdef-symbol">D\'</span><span class="fdef-op">∖</span><span class="fdef-symbol">C</span><span class="fdef-op">)∖</span><span class="fdef-symbol">R</span>',
+            desc: "Antitürevi var olan fakat integrallenemeyen fonksiyonlar",
+            checklist: { D: false, C: false, Mon: false, Dp: true, DC: true, R: false },
+            detailed: "Bu bölgedeki fonksiyonlar antitürevi ve (Darboux teoremi gereği otomatik olarak) ara değer özelliğini taşır, ama <strong>integrallenemez</strong>. <a class=\"region-link\" href=\"#/bolge/6\">Bölge 6</a>'nın aksine, süreksizlik burada tek bir noktada değil, pozitif ölçülü bir kümede yoğunlaşır — bu da integrallenebilirliği tamamen ortadan kaldırır. 'Antitürevi olan her fonksiyon integrallenebilir olur' sezgisi, bu bölgenin varlığıyla çürütülür.",
+            explanation: "Bu bölge, bir başka fonksiyonun türevi olduğu (antitürevi var olduğu) halde Riemann integrallenemeyen fonksiyonları temsil eder. 'Antitürevi olan her fonksiyon integrallenebilir olur' sezgisi, bu bölgenin varlığıyla çürütülür.",
+            examples: [
+                {
+                    name: "Antitürevi Olan Fakat Sınırsız Olduğu İçin İntegrallenemeyen Bir Fonksiyon",
+                    formula: "H(x)=\\begin{cases}x^2\\sin(x^{-2}), & x\\in(0,1]\\\\ 0, & x=0\\end{cases}\\ \\Rightarrow\\ h(x)=H'(x)=\\begin{cases}2x\\sin(x^{-2})-2x^{-1}\\cos(x^{-2}), & x\\in(0,1]\\\\ 0, & x=0\\end{cases}",
+                    note: "H her noktada türevlenebilirdir, dolayısıyla h=H' bir türev olarak antitürevini (H'yi) bulundurur. Fakat x sıfıra yaklaşırken −2x⁻¹cos(x⁻²) terimi sınırsız büyür; sınırsız bir fonksiyon hiçbir zaman Riemann integrallenemez. Böylece h, antitürevi olan fakat integrallenemeyen bir fonksiyon örneği oluşturur.",
+                    plot: "hFn",
+                    xMin: 0.04, xMax: 1,
+                    color: "#1abc9c",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, s. 4.",
+                    kaynakUrl: "https://www.cambridge.org/ag/universitypress/subjects/mathematics/real-and-complex-analysis/second-course-real-functions?format=PB&isbn=9780521283618",
+                    extraSources: [
+                        {
+                            kaynak: "S. Öğrekçi web sitesi (kaynak: B.R. Gelbaum, J.M.H. Olmsted, Counterexamples in Analysis, Dover Publications, 1992).",
+                            kaynakUrl: "https://sogrekci.github.io/sogrekci/192.168.1.35_8000/ornek/antiturevi-primitifi-var-olan-fakat-integrallenebilir-olmayan-fonksiyon/index.html"
+                        }
+                    ]
+                }
+            ],
+            furtherReading: [
+                {
+                    title: "Sınırlı Bir Karşı Örnek: Volterra Fonksiyonu",
+                    note: "Bu h örneği bir bakıma 'ucuz' sayılabilir: integrallenemezliğin sebebi sadece sınırsızlıktır. Sınırlı bir türevin de integrallenemeyebileceğini gösteren daha ileri bir örnek merak edenler için: Volterra'nın 1881'de inşa ettiği fonksiyon, her yerde türevlenebilir ve türevi sınırlıdır, fakat süreksizlik noktaları pozitif ölçülü bir küme oluşturduğundan yine de Riemann integrallenemez.",
+                    kaynak: "Wikipedia, “Volterra's function” maddesi.",
+                    url: "https://en.wikipedia.org/wiki/Volterra%27s_function"
+                },
+                {
+                    title: "Alternatif Bir İnşa: Ayrık Aralıklarda 'Tümsek' Fonksiyonları",
+                    note: "Volterra'nın orijinal inşasına alternatif olarak: [0,1] içinde ayrık açık aralıklar (Iᵢ) seçilip her birinde küçük, türevi sınırlı bir 'tümsek' fonksiyonu fᵢ yerleştirilir; aralıklar dışında f:=0 alınır. |f(x)|≤(sᵢ−pᵢ)² koşulu, aralıklar dışındaki her noktada da f'nin türevlenebilir olmasını (ve orada f'=0 olmasını) garanti eder. Aralıklar dışındaki A:=[0,1]∖⋃ᵢIᵢ kümesi ölçü-sıfır OLMAYACAK biçimde (kapalı, hiçbir yerde yoğun ama pozitif ölçülü) seçilirse, f' kümenin her yığılma noktasında süreksiz olur ve dolayısıyla Riemann integrallenemez. Daha da ileri gidilerek f', A'nın hemen her noktasında süreksiz ve alt yarı-sürekli (lower semicontinuous) hale bile getirilebilir — bu da integrallenemezliğin [0,1]'in HİÇBİR alt aralığında düzelmediğini gösterir.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, s. 88-90 (Example 14.3-14.5).",
+                    url: "https://www.cambridge.org/ag/universitypress/subjects/mathematics/real-and-complex-analysis/second-course-real-functions?format=PB&isbn=9780521283618"
+                },
+                {
+                    title: "Lebesgue Anlamında da İntegrallenemez",
+                    note: "Bu bölgedeki h örneğine yakın, klasik bir başka fonksiyon: f(x):=x²sin(x⁻²) (x∈(0,1]), f(0):=0. f her yerde türevlenebilirdir ama sınırlı varyasyonlu DEĞİLDİR; üstelik f' Riemann anlamında integrallenemediği gibi Lebesgue anlamında da integrallenemez! Demek ki integrallenebilirlik kavramını Riemann'dan Lebesgue'e genişletmek bile bu bölgedeki fonksiyonları 'kurtarmaya' yetmiyor. Buna karşın, türevlenebilir bir fonksiyon ya sınırlı varyasyonlu olursa YA DA türevi Lebesgue integrallenebilir olursa, fonksiyon otomatik olarak türevinin (Lebesgue) belirsiz integrali olarak geri kazanılabilir — yani bu bölgedeki 'kayıp', tam olarak bu iki koşulun ikisinin de sağlanamamasından kaynaklanır.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, s. 159-160 (Corollary 21.22-21.23, Exercise 21.M).",
+                    url: "https://www.cambridge.org/ag/universitypress/subjects/mathematics/real-and-complex-analysis/second-course-real-functions?format=PB&isbn=9780521283618"
+                }
+            ]
+        },
+        "9":  {
+            latex: "(\\mathcal{DC} \\setminus \\mathcal{D}') \\setminus \\mathcal{R}",
+            formulaHtml: '<span class="fdef-op">(</span><span class="fdef-symbol">DC</span><span class="fdef-op">∖</span><span class="fdef-symbol">D\'</span><span class="fdef-op">)∖</span><span class="fdef-symbol">R</span>',
+            desc: "Ara değer özelliğine sahip, antitürevi var olmayan ve integrallenemeyen fonksiyonlar",
+            checklist: { D: false, C: false, Mon: false, Dp: false, DC: true, R: false },
+            detailed: "Bu bölgedeki fonksiyonlar <strong>sadece ara değer özelliğini</strong> taşır — antitürevi yoktur, integrallenemez, dolayısıyla sürekli, türevlenebilir ya da monoton da değildir. Diyagramın en 'yalın' bölgelerinden biri: altı özellikten sadece birini garanti eder.",
+            explanation: "Bu bölge, ara değer özelliğini sağladığı halde ne antitürevi olan ne de Riemann integrallenebilen fonksiyonları temsil eder. <a class=\"region-link\" href=\"#/bolge/8\">Bölge 8</a>'deki örneğin, <a class=\"region-link\" href=\"#/bolge/6\">Bölge 6</a>→<a class=\"region-link\" href=\"#/bolge/7\">7</a> geçişindeki aynı yöntemle (tek bir noktadaki değeri değiştirerek) uyarlanmasıyla elde edilir. Aşağıdaki üç örnek bu bölgeye üç farklı yoldan ulaşır: ilki tek nokta değişimiyle sınırsızlığı devralır, ikincisi sınırlı olduğu halde her noktada süreksizdir, üçüncüsü ise yalnızca tek bir noktada süreksiz olup sınırsızlığı o noktada yoğunlaştırır.",
+            examples: [
+                {
+                    name: "Ne Antitürevi Ne de İntegrali Olan Bir Fonksiyon",
+                    formula: "j(x)=\\begin{cases}2x\\sin(x^{-2})-2x^{-1}\\cos(x^{-2}), & x\\in(0,1]\\\\ 1, & x=0\\end{cases}",
+                    note: "Bu fonksiyon, <a class=\"region-link\" href=\"#/bolge/8\">Bölge 8</a>'deki h ile birebir aynı formülü kullanır — tek fark, x=0'daki değerdir (0 yerine 1). h, x sıfıra yaklaşırken sınırsız büyüyüp her reel değeri yoğun biçimde aldığından, x=0'daki tek nokta değeri ne olursa olsun ara değer özelliği bozulmaz. Fakat j'nin antitürevi olamaz: eğer olsaydı, <a class=\"region-link\" href=\"#/bolge/8\">Bölge 8</a>'deki h de antitürevli olduğundan j−h de antitürevli olurdu — ama j−h, sadece x=0'da 1, başka her yerde 0 değerini alır ve bu açıkça ara değer özelliğini sağlamaz. Çelişki. Sınırsız olduğundan j de Riemann integrallenemez.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, s. 4.",
+                    kaynakUrl: "https://www.cambridge.org/ag/universitypress/subjects/mathematics/real-and-complex-analysis/second-course-real-functions?format=PB&isbn=9780521283618"
+                },
+                {
+                    name: "Sınırlı, Ekstremumlu Fakat Hiçbir Yerde Sürekli Olmayan Fonksiyon",
+                    formula: "f(x)=\\begin{cases}1, & x=0\\\\ x, & x\\in\\mathbb{Q}\\setminus\\{0,1\\}\\\\ -x, & x\\notin\\mathbb{Q}\\\\ 0, & x=1\\end{cases}\\quad [-1,1]\\to[-1,1]",
+                    note: "j örneğinin aksine bu fonksiyon sınırlıdır: mutlak maksimumu $f(0)=1$'de, mutlak minimumu $f(-1)=-1$'de alır ve ikisi arasındaki her değeri de alır (ara değer özelliğini sağlar). Buna rağmen $[-1,1]$'in hiçbir noktasında sürekli değildir — her aralıkta rasyonel ve irrasyonel noktalar yoğun olduğundan, $f$ her noktanın her komşuluğunda hem $x$'e hem $-x$'e yakın değerler alır. Sınırlı ve ara değer özellikli olmak, sürekliliğin (dolayısıyla integrallenebilirliğin) yerini hiç tutmadığını gösteren daha 'temiz' bir örnektir.",
+                    kaynak: "S. Öğrekçi web sitesi (kaynak: S. Klymchuk, Counterexamples in Calculus, Math Press, New Zealand, 2004).",
+                    kaynakUrl: "https://sogrekci.github.io/sogrekci/192.168.1.35_8000/ornek/kapali-aralikta-sinirli-olan-mutlak-ekstremumlari-olan-ara-deger-ozelligine-sahip-olan-fakat-hic-bir-yerde-surekli-olmayan-fonksiyon/index.html"
+                },
+                {
+                    name: "Sınırsız Olduğu İçin Antitürevi Olamayan Darboux Fonksiyonu",
+                    formula: "f(x)=\\begin{cases}\\dfrac{|\\sin(1/x)|}{x}, & x>0\\\\ 0, & x\\le 0\\end{cases}",
+                    note: "Yukarıdaki iki örnekten farklı bir inşa yolu: bu fonksiyon $x=0$ dışında her yerde süreklidir (dolayısıyla ara değer özelliğini otomatik sağlar) ama $x\\to0^+$ iken $1/x$ terimi sonsuza ıraksadığından $x=0$ civarında sınırsızdır ve $\\int_0^1 f(x)\\,dx=\\infty$ olur. Antitürevi olamayacağı doğrudan gösterilebilir: eğer $F'=f$ olsaydı, Ortalama Değer Teoremi'nden $F(0)\\le F(\\varepsilon)$ ve Kalkülüsün Temel Teoremi'nden $F(\\varepsilon)=F(1)-\\int_\\varepsilon^1 f(x)\\,dx$ olurdu; $\\varepsilon\\to0^+$ iken sağ taraf $-\\infty$'a gider — çelişki. Sınırsız olduğundan Riemann integrallenemez de. Böylece bu fonksiyon, sınırsızlığı kullanan ve tek bir noktada süreksiz olan alternatif bir Bölge 9 örneği oluşturur.",
+                    plot: "darbouxUnbounded",
+                    xMin: 0.03, xMax: 1,
+                    color: "#2c3e50",
+                    kaynak: "Brian Moehring, Mathematics Stack Exchange cevabı, “Are all Darboux functions derivatives?”.",
+                    kaynakUrl: "https://math.stackexchange.com/questions/4856980/are-all-darboux-functions-derivatives/4856996#4856996"
+                }
+            ],
+            furtherReading: {
+                title: "Daha Dramatik Bir Örnek: k Fonksiyonu",
+                note: "Çok daha uç bir örnek şu şekilde inşa edilebilir: [0,1] → [0,1] tanımlı, ondalık basamakların özel bir 'iç içe geçirilmiş' (t ↦ t*) kopyalanmasıyla oluşturulan bir k fonksiyonu. Bu fonksiyon sadece tüm [0,1] üzerinde değil, [0,1]'in HİÇBİR alt aralığında ne integrallenebilir ne de antitürevi vardır — her alt aralığı [0,1]'in tamamına eşler. j örneğimiz bu özellikleri sadece bütün aralıkta sağlarken, k bunu her ölçekte, sonsuz kez tekrarlayarak sağlar. Şaşırtıcı bir ek gerçek: bu denli 'çılgın' davranmasına rağmen, k aslında ölçü anlamında hemen hemen her yerde 0'dır (k=0 a.e.) — yani Riemann integrallenebilirliğin (ki bu k için imkansızdır) ile Lebesgue ölçüsü anlamında 'küçüklüğün' tamamen farklı kavramlar olduğunu gösterir. Üçüncü bir 'kötülük' katmanı daha var: k, sürekli fonksiyonların noktasal limiti bile olamaz (Baire'nin 1. sınıfından değildir) — çünkü her aralığı tamamen ℝ'ye (ya da burada [0,1]'e) eşleyen hiçbir fonksiyon bu sınıfa ait olamaz.",
+                kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, s. 6-7, 39, 73.",
+                url: "https://www.cambridge.org/ag/universitypress/subjects/mathematics/real-and-complex-analysis/second-course-real-functions?format=PB&isbn=9780521283618"
+            }
+        },
+        "10": {
+            latex: "\\mathcal{R} \\setminus \\mathcal{DC}",
+            formulaHtml: '<span class="fdef-symbol">R</span><span class="fdef-op">∖</span><span class="fdef-symbol">DC</span>',
+            desc: "Ara değer özelliği olmayan, monoton olmayan integrallenebilir fonksiyonlar",
+            checklist: { D: false, C: false, Mon: false, Dp: false, DC: false, R: true },
+            detailed: "Bu bölgedeki fonksiyonlar <strong>sadece integrallenebilirliği</strong> taşır. Ara değer özelliği yoktur, dolayısıyla antitürevi de yoktur (Darboux teoremi gereği, antitürevi olsaydı ara değer özelliği de otomatik olurdu); süreksiz, türevlenemez ve monoton değildir.",
+            explanation: "Bu bölge, Riemann integrallenebilir olduğu halde ara değer özelliğini sağlamayan ve üstelik monoton da olmayan fonksiyonları temsil eder. Sonlu sayıda sıçrama süreksizliğine sahip, sınırlı her fonksiyon integrallenebilir kalır; fakat sıçramalar hem ara değer özelliğini hem de -yön değiştirirse- monotonluğu bozabilir.",
+            examples: [
+                {
+                    name: "Thomae Fonksiyonu (Popcorn Fonksiyonu)",
+                    formula: "f(x)=\\begin{cases}1/q, & x=p/q\\ (p,q\\ \\text{aralarında asal, } q>0)\\\\ 0, & x\\ \\text{irrasyonel}\\end{cases}",
+                    note: "Bu ünlü fonksiyon her rasyonel noktada süreksiz, her irrasyonel noktada süreklidir — tam tersi (her rasyonelde sürekli) hiçbir fonksiyon için mümkün olmadığı için bu, mevcut en 'aykırı' süreksizlik deseni sayılır. Süreksizlik noktaları (rasyonel sayılar) sayılabilir olduğundan ölçü sıfırdır; Riemann integrallenebilirlik kriterine göre (integrallenebilirliğin süreksizlik kümesinin ölçü sıfır olmasına denk olması) bu, f'nin integrallenebilir olduğunu garantiler — hatta integrali tam olarak 0'dır. Fakat f'nin görüntü kümesi sadece {0}∪{1/q} gibi ayrık değerlerden oluştuğundan, ara değer özelliği açıkça sağlanmaz (örneğin f hiçbir yerde 0.3 değerini almaz).",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, s. 76.",
+                    kaynakUrl: "https://www.cambridge.org/ag/universitypress/subjects/mathematics/real-and-complex-analysis/second-course-real-functions?format=PB&isbn=9780521283618"
+                },
+                {
+                    name: "Yön Değiştiren Basamak Fonksiyonu",
+                    formula: "f(x)=\\begin{cases}0, & x<0\\\\ 1, & 0\\le x<1\\\\ -1, & x\\ge 1\\end{cases}",
+                    note: "Bu fonksiyon sınırlıdır ve yalnızca iki sıçrama noktasına sahiptir, dolayısıyla Riemann integrallenebilirdir. Fakat önce 0'dan 1'e sonra 1'den −1'e sıçradığı için ne monotondur ne de ara değer özelliğini sağlar — örneğin −0.5 ile 0.5 arasında f, 0 ile 1 arasındaki hiçbir ara değeri almaz.",
+                    plot: "stepUpDown",
+                    xMin: -1, xMax: 2,
+                    color: "#9b59b6",
+                    kaynak: "Genel referans: Wikipedia, “Step function” maddesi.",
+                    kaynakUrl: "https://en.wikipedia.org/wiki/Step_function"
+                }
+            ],
+            furtherReading: {
+                title: "Kalkülüsün Temel Teoremi Süreklilik Olmadan Çöker",
+                note: "Thomae fonksiyonu $f$'nin integrali (herhangi bir $[a,b]$ üzerinde) her zaman $0$'dır — çünkü $f$'nin sıfırdan farklı olduğu noktalar (rasyonel sayılar) ölçü sıfırlıdır. Şimdi $g(x):=\\int_0^x f(t)\\,dt$ tanımlanırsa $g\\equiv 0$ olur, dolayısıyla $g'\\equiv 0$'dır. Fakat her rasyonel $x=p/q$ için $f(x)=1/q\\neq 0=g'(x)$! Yani Kalkülüsün Temel Teoremi'nin 'integralin türevi fonksiyonun kendisidir' ifadesi, integrand her yerde rasyonellerin (yoğun, sayılabilir) her noktasında $g'(x)\\neq f(x)$ olacak biçimde çöker. Bu, teoremin süreklilik varsayımının süslü bir teknik detay değil, sonucun kendisi için gerçekten gerekli olduğunu gösterir.",
+                kaynak: "S. Öğrekçi web sitesi (kaynak: B.R. Gelbaum, J.M.H. Olmsted, Counterexamples in Analysis, Dover Publications, 1992).",
+                url: "https://sogrekci.github.io/sogrekci/192.168.1.35_8000/ornek/integralinin-turevi-yogun-bir-kumede-kendisinden-farkli-olan-bir-fonksiyon/index.html"
+            }
+        },
+        "11": {
+            latex: "\\text{Tüm} \\setminus \\mathcal{R}",
+            formulaHtml: '<span class="fdef-tum">Tüm</span><span class="fdef-op">∖</span><span class="fdef-symbol">R</span>',
+            desc: "Ara değer özelliği olmayan ve integrallenemeyen fonksiyonlar",
+            checklist: { D: false, C: false, Mon: false, Dp: false, DC: false, R: false },
+            detailed: "Bu bölgedeki fonksiyonlar listelenen altı özellikten <strong>hiçbirini</strong> taşımaz: integrallenemez, ara değer özelliği yok, antitürevi yok, süreksiz, türevlenemez, monoton değil. Diyagramın hem en 'yalın' hem de en büyük bölgesi — 'tipik' bir fonksiyonun aslında çoğu zaman burada yaşadığı söylenebilir.",
+            explanation: "Bu bölge, Riemann anlamında hiç integrallenemeyen fonksiyonları temsil eder. Riemann integrallenebilirlik kriterine göre, sınırlı bir fonksiyonun integrallenebilmesi için süreksizlik noktalarının kümesinin ölçüsünün sıfır olması gerekir; bu bölgedeki fonksiyonlar ise her noktada süreksizdir.",
+            examples: [
+                {
+                    name: "Dirichlet Fonksiyonu",
+                    formula: "D(x)=\\begin{cases}1, & x\\in\\mathbb{Q}\\\\ 0, & x\\notin\\mathbb{Q}\\end{cases}",
+                    note: "Dirichlet fonksiyonu ℝ'nin her noktasında süreksizdir, çünkü her aralıkta hem rasyonel hem irrasyonel sayılar yoğun biçimde bulunur. Herhangi bir [a,b] aralığında üst Riemann toplamı her zaman 1, alt Riemann toplamı her zaman 0 olduğundan bu fonksiyon Riemann anlamında integrallenemez. Üstelik Dirichlet fonksiyonu sürekli fonksiyonların noktasal limiti bile olamaz — yani Baire'nin 1. sınıfından bile değildir; buysa onu Thomae fonksiyonundan (<a class=\"region-link\" href=\"#/bolge/10\">Bölge 10</a>) çok daha 'kötü' kılar, çünkü Thomae fonksiyonu integrallenebilir olmasının yanında Baire'nin 1. sınıfına da aittir. (Her yerde kesikli olduğu için anlamlı biçimde çizilemez; bu yüzden burada grafiği verilmemiştir.)",
+                    kaynak: "Wikipedia, “Dirichlet function” maddesi.",
+                    kaynakUrl: "https://en.wikipedia.org/wiki/Dirichlet_function"
+                }
+            ]
+        }
+    };
 
-    regions.forEach(reg => {
-        const id = reg.getAttribute('data-id');
-        const info = data[id];
+    // ---------- English translation of all region content ----------
+    const dataEn = {
+        "1": {
+            latex: data["1"].latex, formulaHtml: data["1"].formulaHtml,
+            desc: "Differentiable monotonic functions",
+            checklist: data["1"].checklist,
+            detailed: "Functions in this region satisfy <strong>all six properties at once</strong>. Differentiability automatically implies continuity, an antiderivative, and the intermediate value property via the chain ($\\mathcal{D}\\subseteq\\mathcal{C}\\subseteq\\mathcal{D}'\\subseteq\\mathcal{DC}$); being monotonic (and bounded) also guarantees integrability. This is why Region 1 is the innermost, smallest region of the diagram — a function that belongs to this region automatically satisfies every other region's requirements as well.",
+            explanation: "This region represents functions that are differentiable everywhere and also monotonic (increasing or decreasing). Combining these two properties yields the 'nice and smooth' behavior most commonly encountered in analysis.",
+            examples: [
+                {
+                    name: "Exponential Function", formula: data["1"].examples[0].formula,
+                    note: "The exponential function is differentiable at every point of ℝ ($f'(x)=e^x$) and strictly increasing everywhere, so it belongs to both $\\mathcal{D}$ and $\\mathcal{Mon}$.",
+                    plot: "expFn", xMin: -2, xMax: 2, color: "#d35400",
+                    kaynak: "Wikipedia, the “Exponential function” entry.",
+                    kaynakUrl: data["1"].examples[0].kaynakUrl
+                }
+            ],
+            furtherReading: [
+                {
+                    title: "Strictly Increasing Even Though the Derivative Vanishes",
+                    note: "A subtler example is possible here: let φ(x) be the distance from x to the Cantor set (φ(x)=0 iff x is in the Cantor set). Since φ is continuous, F(x):=∫₀ˣφ(t)dt is defined and F is differentiable everywhere (F'=φ). F is strictly increasing with NO local extremum anywhere — yet F'(x)=0 at every point of the Cantor set (uncountable but measure zero)! A vanishing derivative therefore says nothing about the function 'flattening out' near an extremum.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, pp. 43-44.",
+                    url: data["1"].furtherReading[0].url
+                },
+                {
+                    title: "Pompeiu's Construction: Zero Derivative on a Dense Set",
+                    note: "An even more striking construction exists. Let q₁, q₂, ... enumerate [0,1]∩ℚ and define g(x):=Σₙ (1/n!)·∛(x−qₙ). g maps [0,1] continuously and strictly increasingly onto an interval [a,b]; setting f:=g⁻¹, f is continuous, strictly increasing, and differentiable at EVERY point — yet f'(g(qₙ))=0 for every n, so the derivative vanishes on a countable set that is dense in [a,b] (not merely measure-zero like the Cantor set, but genuinely dense). This refutes the idea that a strictly increasing differentiable function's derivative can barely ever vanish on an interval.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, pp. 83-84 (Example 13.3, Pompeiu's construction).",
+                    url: data["1"].furtherReading[1].url
+                }
+            ]
+        },
+        "2": {
+            latex: data["2"].latex, formulaHtml: data["2"].formulaHtml,
+            desc: "Non-monotonic differentiable functions",
+            checklist: data["2"].checklist,
+            detailed: "Being differentiable automatically implies continuity, an antiderivative, and the intermediate value property via the chain ($\\mathcal{D}\\subseteq\\mathcal{C}\\subseteq\\mathcal{D}'\\subseteq\\mathcal{DC}$); differentiable (hence continuous) functions are also always integrable. So functions here carry every property <strong>except monotonicity</strong>. Monotonicity alone is not guaranteed, since a positive derivative at one point does not force the function to increase around that point.",
+            explanation: "This region represents functions differentiable everywhere yet monotonic on no interval. A positive derivative at a single point does not imply that the function is increasing in any neighborhood of that point. This is guaranteed only if the derivative remains positive throughout an entire interval.",
+            examples: [
+                {
+                    name: "A Function with Positive Derivative That Is Not Monotonic", formula: data["2"].examples[0].formula,
+                    note: "By the squeeze theorem, f is differentiable at x=0 with $f'(0)=1$ — a positive derivative. Yet f is monotonic on no neighborhood of 0: the term $2x^2\\sin(1/x)$ oscillates infinitely often, disrupting local increase/decrease.",
+                    plot: "region2Fn", xMin: -0.2, xMax: 0.2, color: "#f39c12",
+                    kaynak: "S. Öğrekçi, Temel Matematik Analiz, Nobel Akademik Yayıncılık, Ankara, 2018.",
+                    kaynakUrl: data["2"].examples[0].kaynakUrl
+                }
+            ],
+            furtherReading: [
+                {
+                    title: "The Freedom of Non-Monotonic Functions",
+                    note: "Since functions here are not monotonic, their image sets face no special restriction. Yet for EVERY monotonic f:ℝ→ℝ, the image f(ℝ) must always be a Gδ set (a countable intersection of open sets) — a surprising topological constraint from monotonicity alone. In particular, a monotonic function whose image is exactly the irrationals can never exist, while for every closed set a monotonic function with exactly that image can always be built. Functions here are entirely exempt from this subtle restriction.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, pp. 41-42.",
+                    url: data["2"].furtherReading[0].url
+                },
+                {
+                    title: "The Katznelson–Stromberg Function: Monotonic on No Interval",
+                    note: "The example above (f(x)=x+2x²sin(1/x)) breaks monotonicity only near x=0. A far stronger example exists: the function L:ℝ→ℝ constructed by Y. Katznelson and K. Stromberg in 1974 is differentiable everywhere, satisfies |L'(x)|≤1, and both {x:L'(x)>0} and {x:L'(x)<0} are DENSE in ℝ — so L is monotonic on NO interval of ℝ whatsoever. L can also be written as the difference of two increasing functions, {x:L'(x)=0} is dense too, and L' is not Riemann integrable on any interval. This example shows, in the most extreme way, how little monotonicity is guaranteed by differentiability.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, pp. 80-83 (Example 13.2; Y. Katznelson & K. Stromberg, Amer. Math. Monthly 81 (1974), 349-353).",
+                    url: data["2"].furtherReading[1].url
+                }
+            ]
+        },
+        "3": {
+            latex: data["3"].latex, formulaHtml: data["3"].formulaHtml,
+            desc: "Non-differentiable monotonic functions",
+            checklist: data["3"].checklist,
+            detailed: "Being monotonic and continuous automatically implies (via $\\mathcal{C}\\subseteq\\mathcal{D}'\\subseteq\\mathcal{DC}$) an antiderivative and the intermediate value property; continuity also guarantees integrability. So functions here carry every property <strong>except differentiability</strong>. Examples such as the Cantor function show that even the combination of continuity and monotonicity does not guarantee differentiability.",
+            explanation: "This region represents functions that are continuous and monotonic yet fail to be differentiable at least at one point. Continuity and monotonicity together still do not force a function to be smooth everywhere.",
+            examples: [
+                {
+                    name: "Cantor Function (Devil's Staircase)", formula: "c:[0,1]\\to[0,1],\\quad c(0)=0,\\ c(1)=1,\\ c\\ \\text{constructed via the Cantor set}",
+                    note: "The Cantor function is continuous and non-decreasing (monotonic) on [0,1], but is not differentiable at points of the Cantor set. Remarkably, outside this measure-zero set its derivative is 0 everywhere — so the derivative explains almost none of the function's rise from 0 to 1.",
+                    plot: "cantor", xMin: 0, xMax: 1, color: "#e67e22",
+                    kaynak: "Wikipedia, the “Cantor function” entry.",
+                    kaynakUrl: data["3"].examples[0].kaynakUrl
+                }
+            ],
+            furtherReading: [
+                {
+                    title: "Lebesgue's Differentiability Theorem",
+                    note: "The points where the Cantor function fails to be differentiable (the Cantor set) form a measure-zero set — no coincidence. By Lebesgue's famous theorem, EVERY monotonic function is differentiable outside a measure-zero set (i.e. almost everywhere). Remarkably this bound is tight: for ANY measure-zero set E, a continuous increasing function can be built that is non-differentiable exactly on E. So even uncountably large sets like the Cantor set can serve as a monotonic function's 'non-differentiability set', as long as they have measure zero.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, pp. 25, 32.",
+                    url: data["3"].furtherReading[0].url
+                },
+                {
+                    title: "Hölder Continuous, But Not Lipschitz",
+                    note: "The Cantor function Φ is Hölder continuous with exponent α:=log2/log3: |Φ(x)−Φ(y)|≤2|x−y|^α (x,y∈[0,1]). It does NOT, however, satisfy any Lipschitz condition. This is no accident: a continuous ('singular') function whose derivative is zero almost everywhere would have to be constant if it satisfied any Lipschitz condition. The Cantor function avoids being constant precisely by staying just below the Lipschitz threshold, in Hölder continuity.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, pp. 100-101 (Exercise 15.N-15.O).",
+                    url: data["3"].furtherReading[1].url
+                },
+                {
+                    title: "Not Absolutely Continuous, and Fails Property (N)",
+                    note: "Although the Cantor function has bounded variation and is continuous, it is NOT ABSOLUTELY CONTINUOUS — one more missing step between Lipschitz and bounded-variation continuity. This has a striking consequence: EVERY absolutely continuous function (hence EVERY differentiable function) has 'Property (N)': it maps measure-zero sets to measure-zero sets. The Cantor function FAILS this: it maps the measure-zero Cantor set directly onto ALL of [0,1]. This 'set-inflating' behavior — something the differentiable functions of <a class=\"region-link\" href=\"#/bolge/1\">Region 1</a> and <a class=\"region-link\" href=\"#/bolge/2\">Region 2</a> could never exhibit — shows that the Cantor function's non-differentiability points don't just have measure zero, they shape its entire global behavior.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, pp. 154, 157 (Theorem 21.9, Exercise 21.I, Lemma 21.15).",
+                    url: data["3"].furtherReading[2].url
+                }
+            ]
+        },
+        "4": {
+            latex: data["4"].latex, formulaHtml: data["4"].formulaHtml,
+            desc: "Integrable monotonic functions without the intermediate value property",
+            checklist: data["4"].checklist,
+            detailed: "Functions here carry <strong>only two properties</strong>: monotonicity and integrability (bounded monotonic functions are always integrable). Discontinuity is decisive: a monotonic function can only have 'jump' discontinuities, and a jump breaks the intermediate value property — which (by Darboux's theorem) also rules out an antiderivative. Differentiability and continuity are automatically excluded too.",
+            explanation: "This region represents functions that are monotonic yet discontinuous. A monotonic function's discontinuities can only be jumps, which destroys the intermediate value property; nevertheless, every bounded monotonic function remains Riemann integrable.",
+            examples: [
+                {
+                    name: "Signum Function", formula: data["4"].examples[0].formula,
+                    note: "sgn is non-decreasing (monotonic) and integrable on [-1,1], but has a jump discontinuity at $x=0$. This discontinuity also destroys the intermediate value property: between $-0.5$ and $0.5$, for instance, f never takes a value strictly between $0$ and $1$.",
+                    plot: "signum", xMin: -1, xMax: 1, color: "#2ecc71",
+                    kaynak: "S. Öğrekçi, Temel Matematik Analiz, Nobel Akademik Yayıncılık, Ankara, 2018.",
+                    kaynakUrl: data["4"].examples[0].kaynakUrl
+                }
+            ],
+            furtherReading: {
+                title: "How Discontinuous Can It Get?",
+                note: "A monotonic function's discontinuities are ALWAYS countable — never uncountable. But this countable set can still be quite 'dense': one can build a strictly increasing function on $[a,b]$ discontinuous at EVERY rational point and continuous at every irrational (conversely, for any countable set S a monotonic function discontinuous exactly on S can always be found). Moreover such a function can fail to have either an antiderivative or the intermediate value property on ANY subinterval — echoing the same 'on no subinterval' theme as the function k in <a class=\"region-link\" href=\"#/bolge/9\">Region 9</a>. An interesting contrast: the REVERSE (continuous at every rational, discontinuous at every irrational) is impossible for any function, monotonic or not. The set of continuity points must always have a specific topological structure (a Gδ set), which the rationals never satisfy.",
+                kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, pp. 12-13, 45.",
+                url: data["4"].furtherReading.url
+            }
+        },
+        "5": {
+            latex: data["5"].latex, formulaHtml: data["5"].formulaHtml,
+            desc: "Continuous, non-differentiable, non-monotonic functions",
+            checklist: data["5"].checklist,
+            detailed: "Continuity automatically implies (via $\\mathcal{C}\\subseteq\\mathcal{D}'\\subseteq\\mathcal{DC}$) an antiderivative and the intermediate value property, and also guarantees integrability. So functions here carry every property <strong>except differentiability and monotonicity</strong>. The Weierstrass and Takagi functions are classic examples showing continuity guarantees neither.",
+            explanation: "This region represents functions that are continuous yet nowhere differentiable and monotonic on no interval. The existence of such a function stunned 19th-century mathematicians, who believed continuous functions had to be differentiable almost everywhere. Two classic examples follow.",
+            examples: [
+                {
+                    name: "Weierstrass Function", formula: "f(x) = \\sum_{n=0}^{\\infty} a^n \\cos\\left(b^n \\pi x\\right), \\quad 0<a<1,\\ b \\text{ odd integer},\\ ab > 1+\\frac{3\\pi}{2}",
+                    note: "Defined by Karl Weierstrass in 1872, this is the first published example of a function that is continuous yet nowhere differentiable. Consisting of infinitely many, increasingly rapid oscillations, it is monotonic on no interval. The graph below plots the partial sum of the first 12 terms with a=0.5, b=13.",
+                    plot: "weierstrass", xMin: -2, xMax: 2, color: "#b8860b",
+                    kaynak: "Wikipedia, the “Weierstrass function” entry.",
+                    kaynakUrl: data["5"].examples[0].kaynakUrl
+                },
+                {
+                    name: "Takagi (Blancmange) Function", formula: data["5"].examples[1].formula,
+                    note: "Defined by Teiji Takagi in 1903, this function is the scaled sum of a number's distance to the nearest integer. Its shape resembles a blancmange dessert, hence the name. Like the Weierstrass function it is continuous, non-differentiable, and non-monotonic; its simpler definition makes it a frequently used 'easiest' example.",
+                    plot: "takagi", xMin: 0, xMax: 2, color: "#8e44ad",
+                    kaynak: "Wolfram MathWorld, the “Blancmange Function” entry.",
+                    kaynakUrl: data["5"].examples[1].kaynakUrl
+                },
+                {
+                    name: "Weierstrass's Neither-Increasing-Nor-Decreasing Function", formula: "f(x) = \\sum_{n=0}^{\\infty} p^{-n}\\sin(2\\pi q^n x), \\quad p>1,\\ q\\ \\text{even integer},\\ q>(4\\pi+1)p",
+                    note: "The two examples above are merely non-differentiable; this one carries an even stronger property: f is neither increasing nor decreasing at ANY point of ℝ (around no point, however small the neighborhood, can f's direction be determined). This shows that 'where is it increasing, where is it decreasing' becomes meaningless for such functions. The graph below plots the partial sum of the first 7 terms with p=2, q=28.",
+                    plot: "weierstrassSine", xMin: -0.1, xMax: 0.1, color: "#2980b9",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, pp. 48-49.",
+                    kaynakUrl: data["5"].examples[2].kaynakUrl
+                }
+            ],
+            furtherReading: {
+                title: "Continuous, But of Infinite 'Length'",
+                note: "Less dramatic than the non-differentiability or directional indeterminacy above, but a simpler example still shows how easily smoothness can break down: g(x)=x sin(1/x) (g(0)=0) is continuous and bounded, but NOT of bounded variation — its graph has infinite length. Continuity never guarantees a graph of 'reasonable length'.",
+                kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, p. 21.",
+                url: data["5"].furtherReading.url
+            }
+        },
+        "6": {
+            latex: data["6"].latex, formulaHtml: data["6"].formulaHtml,
+            desc: "Functions with an antiderivative that are discontinuous yet still integrable",
+            checklist: data["6"].checklist,
+            detailed: "Functions here carry an antiderivative, (automatically, by Darboux's theorem) the intermediate value property, and integrability, but are <strong>discontinuous</strong> — hence neither differentiable nor monotonic (a monotonic + discontinuous function would lose the intermediate value property, ruling out an antiderivative). The discontinuity here occurs at a single point, so integrability survives.",
+            explanation: "This region represents functions that are the derivative of another function (i.e. have an antiderivative) while being discontinuous themselves, yet remain Riemann integrable. Darboux's theorem states that all derivatives (even discontinuous ones) satisfy the intermediate value property — continuity is not necessary for it. Here the discontinuity is a single point, so integrability is unaffected.",
+            examples: [
+                {
+                    name: "A Function Discontinuous at One Point That Has an Antiderivative", formula: data["6"].examples[0].formula,
+                    note: "f is continuous everywhere except at x=0. To show it has an antiderivative, a trick is used: φ(x)=x²cos(1/x) (φ(0)=0) is differentiable with φ'(x)=2x cos(1/x)+sin(1/x). Hence φ'=ψ+f, where ψ(x)=2x cos(1/x) is continuous and so has its own antiderivative. Consequently f=φ'−ψ, being the difference of two derivatives, is itself a derivative — i.e. it has an antiderivative.",
+                    plot: "sinInvXZero", xMin: -0.6, xMax: 0.6, color: "#c0392b",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, p. 3.",
+                    kaynakUrl: data["6"].examples[0].kaynakUrl,
+                    extraSources: [
+                        { kaynak: "Gro-Tsen, MathOverflow answer, “Class of Riemann integrable functions with antiderivative”.", kaynakUrl: data["6"].examples[0].extraSources[0].kaynakUrl }
+                    ]
+                },
+                {
+                    name: "A Differentiable Function Whose Derivative Is Discontinuous", formula: data["6"].examples[1].formula,
+                    note: "An alternative construction: F is differentiable everywhere, so F' has an antiderivative (namely F). But F' is discontinuous at x=0: the term cos(1/x) keeps oscillating as x approaches zero without settling on a limit. Since one discontinuity point does not disturb integrability, F' both satisfies the intermediate value property and is integrable.",
+                    plot: "darbouxDeriv", xMin: -0.6, xMax: 0.6, color: "#e67e22",
+                    kaynak: "Wikipedia, the “Darboux's theorem (analysis)” entry.",
+                    kaynakUrl: data["6"].examples[1].kaynakUrl,
+                    extraSources: [
+                        { kaynak: "S. Öğrekçi, Temel Matematik Analiz, Nobel Akademik Yayıncılık, Ankara, 2018.", kaynakUrl: data["6"].examples[1].extraSources[0].kaynakUrl }
+                    ]
+                }
+            ],
+            furtherReading: [
+                {
+                    title: "General Principle: Any Periodic Function with an Antiderivative Works",
+                    note: "The role sin(1/x) plays here can be taken by ANY periodic function j on [0,∞) that has an antiderivative: with J an antiderivative of j and A:=J(1)−J(0), the function h(x):=j(1/x) (x∈(0,1]), h(0):=A again has an antiderivative on [0,1]. The sin(1/x) example is just the most familiar special case of this general construction.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, pp. 85-86 (Example 14.1).",
+                    url: data["6"].furtherReading[0].url
+                },
+                {
+                    title: "𝒟' Is Not an Algebra",
+                    note: "𝒟, the class of differentiable functions, is an algebra: closed under addition and multiplication. But the class 𝒟' of functions with an antiderivative does not behave this way. For a periodic j∈𝒟' such as j(x):=sin(2πx), |j| and j² generally do NOT belong to 𝒟' — taking absolute value or squaring can destroy the existence of an antiderivative. This shows 𝒟' has a far more fragile structure than 𝒟.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, p. 86 (Exercise 14.B).",
+                    url: data["6"].furtherReading[1].url
+                },
+                {
+                    title: "But Multiplying by an Absolutely Continuous Factor Works",
+                    note: "𝒟' not being an algebra is not a total dead end. If g is absolutely continuous and f∈𝒟', then fg also belongs to 𝒟': with F an antiderivative of f, x↦F(x)g(x)−∫₀ˣF(t)g'(t)dt gives an explicit antiderivative for fg. So 𝒟' is closed under multiplication by absolutely continuous functions, even if not by every function — showing the periodic construction above is a special case of a more general 'module structure'.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, p. 161 (Exercise 21.O).",
+                    url: data["6"].furtherReading[2].url
+                },
+                {
+                    title: "Why Does It Oscillate So Wildly?",
+                    note: "One may wonder why examples in this region must oscillate up and down infinitely often around the discontinuity point: if a function had both the intermediate value property and bounded variation, it would automatically be continuous. So functions with the intermediate value property that are discontinuous are necessarily of unbounded variation — they cannot stay 'finite in length' near a discontinuity while remaining discontinuous.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, p. 21.",
+                    url: data["6"].furtherReading[3].url
+                }
+            ]
+        },
+        "7": {
+            latex: data["7"].latex, formulaHtml: data["7"].formulaHtml,
+            desc: "Functions with the intermediate value property, without an antiderivative, yet integrable",
+            checklist: data["7"].checklist,
+            detailed: "Functions here carry <strong>only the intermediate value property and integrability</strong>. They have no antiderivative — i.e. they are not the derivative of any function; this automatically makes them neither continuous, differentiable, nor monotonic, since any of those three would, via the chain, also bring an antiderivative.",
+            explanation: "This region consists of functions that possess the intermediate value property and are Riemann integrable, yet have no antiderivative. It uses nearly the same formula as the example in <a class=\"region-link\" href=\"#/bolge/6\">Region 6</a> — the only difference is the value at the discontinuity point.",
+            examples: [
+                {
+                    name: "A Function with the Intermediate Value Property but No Antiderivative", formula: data["7"].examples[0].formula,
+                    note: "This function uses exactly the same formula as f in <a class=\"region-link\" href=\"#/bolge/6\">Region 6</a> — the only difference is the value at x=0 (1 instead of 0). Since sin(1/x) already densely attains every value in [-1,1] away from x=0, the intermediate value property holds no matter what value g takes at 0. But g cannot have an antiderivative: if it did, since f in <a class=\"region-link\" href=\"#/bolge/6\">Region 6</a> also has one, g−f would too — but g−f is 1 only at x=0 and 0 elsewhere, which clearly fails even the intermediate value property. Contradiction. Since the discontinuity is a single point, g remains Riemann integrable.",
+                    plot: "sinInvX", xMin: -0.6, xMax: 0.6, color: "#16a085",
+                    kaynak: "S. Öğrekçi, Temel Matematik Analiz, Nobel Akademik Yayıncılık, Ankara, 2018 (adapted from van Rooij & Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, p. 4).",
+                    kaynakUrl: data["7"].examples[0].kaynakUrl
+                }
+            ],
+            furtherReading: [
+                {
+                    title: "The Same General Principle Applies Here",
+                    note: "The general principle from the further-reading note of <a class=\"region-link\" href=\"#/bolge/6\">Region 6</a> — that composing any periodic function j with an antiderivative as x↦j(1/x) again yields a function with an antiderivative — applies here too. The example g(x)=sin(1/x) is just a special case of that construction; changing the value at x=0 (unlike f in <a class=\"region-link\" href=\"#/bolge/6\">Region 6</a>) keeps the intermediate value property while destroying the antiderivative.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, pp. 85-86 (Example 14.1).",
+                    url: data["7"].furtherReading[0].url
+                },
+                {
+                    title: "How (Un)restrictive Is the Intermediate Value Property?",
+                    note: "Monotonic functions do not form a vector space, yet the class generated by their differences (bounded variation functions) is still 'nice'. The intermediate value property is far more striking: EVERY function can be written as the difference of two functions with the intermediate value property! So the property alone guarantees almost no regularity. Functions in this region, however, can never be injective — because any function that is both injective and has the intermediate value property is automatically continuous.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, pp. 57-58.",
+                    url: data["7"].furtherReading[1].url
+                },
+                {
+                    title: "A Bijection Can Be Monotonic Nowhere",
+                    note: "A concrete confirmation of the note above: the function $f:[0,1]\\to[0,1]$ with $f(x)=x$ if $x$ is rational and $f(x)=1-x$ if $x$ is irrational is a bijection, yet monotonic on no subinterval of $[0,1]$ — the same Dirichlet-type construction extends to any bijection $[a,b]\\to[c,d]$. This function is discontinuous (hence not in $\\mathcal{DC}$), so it doesn't contradict the theorem above; rather it shows exactly why injectivity is not a weak assumption there — once continuity is dropped, even bijections can become completely detached from monotonicity.",
+                    kaynak: "S. Öğrekçi website, “A Bijection That Is Monotonic Nowhere” (source: B.R. Gelbaum, J.M.H. Olmsted, Counterexamples in Analysis, Dover Publications, 1992).",
+                    url: data["7"].furtherReading[2].url
+                }
+            ]
+        },
+        "8": {
+            latex: data["8"].latex, formulaHtml: data["8"].formulaHtml,
+            desc: "Functions with an antiderivative that are not integrable",
+            checklist: data["8"].checklist,
+            detailed: "Functions here carry an antiderivative and (automatically, by Darboux's theorem) the intermediate value property, but are <strong>not integrable</strong>. Unlike <a class=\"region-link\" href=\"#/bolge/6\">Region 6</a>, the discontinuity is concentrated not at a single point but on a set of positive measure — destroying integrability entirely. This region refutes the widespread intuition that every function possessing an antiderivative must be integrable.",
+            explanation: "This region represents functions that are the derivative of another function (have an antiderivative) yet are not Riemann integrable. This region refutes the widespread intuition that every function possessing an antiderivative must be integrable.",
+            examples: [
+                {
+                    name: "A Function with an Antiderivative That Fails to Be Integrable Because It Is Unbounded", formula: data["8"].examples[0].formula,
+                    note: "H is differentiable everywhere, so h=H' has an antiderivative (namely H). But as x approaches zero, the term −2x⁻¹cos(x⁻²) grows without bound; an unbounded function can never be Riemann integrable. Thus h is an example of a function with an antiderivative that is not integrable.",
+                    plot: "hFn", xMin: 0.04, xMax: 1, color: "#1abc9c",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, p. 4.",
+                    kaynakUrl: data["8"].examples[0].kaynakUrl,
+                    extraSources: [
+                        { kaynak: "S. Öğrekçi website (source: B.R. Gelbaum, J.M.H. Olmsted, Counterexamples in Analysis, Dover Publications, 1992).", kaynakUrl: data["8"].examples[0].extraSources[0].kaynakUrl }
+                    ]
+                }
+            ],
+            furtherReading: [
+                {
+                    title: "A Bounded Counterexample: Volterra's Function",
+                    note: "The h example above is somewhat 'cheap': non-integrability is caused only by unboundedness. For a more advanced example showing even a bounded derivative can fail to be integrable: the function constructed by Volterra in 1881 is differentiable everywhere with bounded derivative, yet its discontinuity points form a set of positive measure, so it is still not Riemann integrable.",
+                    kaynak: "Wikipedia, the “Volterra's function” entry.",
+                    url: data["8"].furtherReading[0].url
+                },
+                {
+                    title: "An Alternative Construction: 'Bump' Functions on Disjoint Intervals",
+                    note: "As an alternative to Volterra's original construction: choose disjoint open intervals (Iᵢ) in [0,1] and place in each a small 'bump' function fᵢ with a bounded derivative; set f:=0 outside them. The condition |f(x)|≤(sᵢ−pᵢ)² guarantees f is differentiable (with f'=0) outside the intervals as well. If the leftover set A:=[0,1]∖⋃ᵢIᵢ is chosen to NOT have measure zero (closed, nowhere dense, yet of positive measure), then f' is discontinuous at every accumulation point of A and so not Riemann integrable. Going further, f' can even be made discontinuous and lower semicontinuous at almost every point of A — showing the non-integrability never resolves on ANY subinterval of [0,1].",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, pp. 88-90 (Example 14.3-14.5).",
+                    url: data["8"].furtherReading[1].url
+                },
+                {
+                    title: "Not Lebesgue Integrable Either",
+                    note: "A classic function close to h in this region: f(x):=x²sin(x⁻²) (x∈(0,1]), f(0):=0. f is differentiable everywhere but is NOT of bounded variation; moreover f' is not Riemann integrable and also fails to be Lebesgue integrable! So extending integrability from Riemann to Lebesgue is still not enough to 'rescue' functions in this region. By contrast, if a differentiable function either has bounded variation OR its derivative is Lebesgue integrable, it can automatically be recovered as the (Lebesgue) indefinite integral of its derivative — so the 'loss' here comes precisely from neither condition holding.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, pp. 159-160 (Corollary 21.22-21.23, Exercise 21.M).",
+                    url: data["8"].furtherReading[2].url
+                }
+            ]
+        },
+        "9": {
+            latex: data["9"].latex, formulaHtml: data["9"].formulaHtml,
+            desc: "Functions with the intermediate value property, without an antiderivative, and not integrable",
+            checklist: data["9"].checklist,
+            detailed: "Functions here carry <strong>only the intermediate value property</strong> — no antiderivative, not integrable, and consequently neither continuous, differentiable, nor monotonic. One of the most 'minimal' regions in the diagram: it guarantees only one of the six properties.",
+            explanation: "This region represents functions satisfying the intermediate value property yet having neither an antiderivative nor Riemann integrability. It is obtained by adapting the example in <a class=\"region-link\" href=\"#/bolge/8\">Region 8</a> the same way the <a class=\"region-link\" href=\"#/bolge/6\">Region 6</a>→<a class=\"region-link\" href=\"#/bolge/7\">7</a> transition works (changing the value at a single point). The three examples below reach this region by three different routes: the first inherits unboundedness via a single-point change, the second is bounded yet discontinuous everywhere, and the third is discontinuous at just one point but concentrates unboundedness there.",
+            examples: [
+                {
+                    name: "A Function with Neither an Antiderivative nor an Integral", formula: data["9"].examples[0].formula,
+                    note: "This function uses exactly the same formula as h in <a class=\"region-link\" href=\"#/bolge/8\">Region 8</a> — the only difference is the value at x=0 (1 instead of 0). Since h grows without bound and densely attains every real value as x approaches zero, the intermediate value property holds regardless of the single-point value j takes at 0. But j cannot have an antiderivative: if it did, since h in <a class=\"region-link\" href=\"#/bolge/8\">Region 8</a> also has one, j−h would too — but j−h is 1 only at x=0 and 0 elsewhere, clearly failing the intermediate value property. Contradiction. Being unbounded, j is also not Riemann integrable.",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, p. 4.",
+                    kaynakUrl: data["9"].examples[0].kaynakUrl
+                },
+                {
+                    name: "A Bounded Function with Extrema That Is Nowhere Continuous", formula: data["9"].examples[1].formula,
+                    note: "Unlike the j example, this function is bounded: it attains its absolute maximum at $f(0)=1$ and absolute minimum at $f(-1)=-1$, and takes every value in between (the intermediate value property). Yet it is continuous at no point of $[-1,1]$ — since rationals and irrationals are both dense in every interval, $f$ takes values near both $x$ and $-x$ in every neighborhood of every point. This is a 'cleaner' example showing boundedness plus the intermediate value property is no substitute at all for continuity (and hence integrability).",
+                    kaynak: "S. Öğrekçi website (source: S. Klymchuk, Counterexamples in Calculus, Math Press, New Zealand, 2004).",
+                    kaynakUrl: data["9"].examples[1].kaynakUrl
+                },
+                {
+                    name: "A Darboux Function With No Antiderivative Because It Is Unbounded", formula: data["9"].examples[2].formula,
+                    note: "A different construction route from the two examples above: this function is continuous everywhere except at $x=0$ (so it automatically satisfies the intermediate value property), but as $x\\to0^+$ the term $1/x$ diverges, so it is unbounded near $x=0$ and $\\int_0^1 f(x)\\,dx=\\infty$. That it cannot have an antiderivative can be shown directly: if $F'=f$ held, the Mean Value Theorem would give $F(0)\\le F(\\varepsilon)$, and the Fundamental Theorem of Calculus would give $F(\\varepsilon)=F(1)-\\int_\\varepsilon^1 f(x)\\,dx$; as $\\varepsilon\\to0^+$ the right side goes to $-\\infty$ — a contradiction. Being unbounded, it is also not Riemann integrable. This function thus offers an alternative Region 9 example, exploiting unboundedness while being discontinuous at only one point.",
+                    plot: "darbouxUnbounded", xMin: 0.03, xMax: 1, color: "#2c3e50",
+                    kaynak: "Brian Moehring, Mathematics Stack Exchange answer, “Are all Darboux functions derivatives?”.",
+                    kaynakUrl: data["9"].examples[2].kaynakUrl
+                }
+            ],
+            furtherReading: {
+                title: "A More Dramatic Example: The Function k",
+                note: "A far more extreme example can be built: a function k on [0,1] → [0,1], constructed via a special 'nested' (t ↦ t*) copying of decimal digits. This function is neither integrable nor has an antiderivative — not just on all of [0,1] but on NO subinterval of it — since it maps every subinterval onto the whole of [0,1]. Our example j achieves these properties only on the whole interval, whereas k achieves this at every scale, repeating infinitely often. A surprising extra fact: despite behaving this 'wildly', k is actually 0 almost everywhere in the measure sense (k=0 a.e.) — showing Riemann integrability (impossible for k) and Lebesgue-measure 'smallness' are entirely different notions. There is a third layer of 'badness': k cannot even be the pointwise limit of continuous functions (it is not in Baire's first class), since no function mapping every interval entirely onto ℝ (or here [0,1]) can belong to that class.",
+                kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, pp. 6-7, 39, 73.",
+                url: data["9"].furtherReading.url
+            }
+        },
+        "10": {
+            latex: data["10"].latex, formulaHtml: data["10"].formulaHtml,
+            desc: "Integrable functions without the intermediate value property, non-monotonic",
+            checklist: data["10"].checklist,
+            detailed: "Functions here carry <strong>only integrability</strong>. No intermediate value property, hence no antiderivative (by Darboux's theorem, an antiderivative would automatically bring the intermediate value property); discontinuous, non-differentiable, non-monotonic.",
+            explanation: "This region represents functions that are Riemann integrable yet fail the intermediate value property, and moreover are not monotonic. Any bounded function with finitely many jump discontinuities remains integrable, but jumps can break both the intermediate value property and — if they reverse direction — monotonicity.",
+            examples: [
+                {
+                    name: "Thomae's Function (Popcorn Function)", formula: "f(x)=\\begin{cases}1/q, & x=p/q\\ (p,q\\ \\text{coprime, } q>0)\\\\ 0, & x\\ \\text{irrational}\\end{cases}",
+                    note: "This famous function is discontinuous at every rational point and continuous at every irrational point — since the reverse (continuous at every rational) is impossible for any function, this is widely regarded as one of the most pathological possible discontinuity patterns. Since the discontinuity points (the rationals) are countable, they have measure zero; by the Riemann integrability criterion (integrability being equivalent to the discontinuity set having measure zero), this guarantees f is integrable — its integral is in fact exactly 0. But since f's image consists only of discrete values like {0}∪{1/q}, the intermediate value property clearly fails (for example, f never attains the value 0.3).",
+                    kaynak: "A.C.M. van Rooij, W.H. Schikhof, A Second Course on Real Functions, Cambridge University Press, 1982, p. 76.",
+                    kaynakUrl: data["10"].examples[0].kaynakUrl
+                },
+                {
+                    name: "A Direction-Reversing Step Function", formula: data["10"].examples[1].formula,
+                    note: "This function is bounded and has only two jump points, so it is Riemann integrable. But since it jumps from 0 to 1 and then from 1 to −1, it is neither monotonic nor does it satisfy the intermediate value property — for instance between −0.5 and 0.5, f never takes a value strictly between 0 and 1.",
+                    plot: "stepUpDown", xMin: -1, xMax: 2, color: "#9b59b6",
+                    kaynak: "General reference: Wikipedia, the “Step function” entry.",
+                    kaynakUrl: data["10"].examples[1].kaynakUrl
+                }
+            ],
+            furtherReading: {
+                title: "The Fundamental Theorem of Calculus Collapses Without Continuity",
+                note: "The integral of Thomae's function $f$ (over any $[a,b]$) is always $0$ — because the points where $f$ is nonzero (the rationals) have measure zero. Now define $g(x):=\\int_0^x f(t)\\,dt$; then $g\\equiv 0$, hence $g'\\equiv 0$. But for every rational $x=p/q$, $f(x)=1/q\\neq 0=g'(x)$! So the Fundamental Theorem of Calculus's claim that 'the derivative of the integral is the function itself' collapses, in the sense that $g'(x)\\neq f(x)$ at every point of the dense, countable set of rationals. This shows the theorem's continuity assumption is not a fancy technicality but genuinely required for the result.",
+                kaynak: "S. Öğrekçi website (source: B.R. Gelbaum, J.M.H. Olmsted, Counterexamples in Analysis, Dover Publications, 1992).",
+                url: data["10"].furtherReading.url
+            }
+        },
+        "11": {
+            latex: data["11"].latex, formulaHtml: data["11"].formulaHtml,
+            desc: "Functions without the intermediate value property that are not integrable",
+            checklist: data["11"].checklist,
+            detailed: "Functions here carry <strong>none</strong> of the six listed properties: not integrable, no intermediate value property, no antiderivative, discontinuous, non-differentiable, non-monotonic. Both the most 'minimal' and the largest region of the diagram — one could say a 'typical' function actually lives here most of the time.",
+            explanation: "This region represents functions that are not Riemann integrable at all. By the Riemann integrability criterion, a bounded function is integrable only if its discontinuity set has measure zero; functions here are discontinuous at every point.",
+            examples: [
+                {
+                    name: "Dirichlet Function", formula: data["11"].examples[0].formula,
+                    note: "The Dirichlet function is discontinuous at every point of ℝ, since every interval densely contains both rational and irrational numbers. Since the upper Riemann sum is always 1 and the lower Riemann sum always 0 on any interval [a,b], this function is not Riemann integrable. It cannot even be the pointwise limit of continuous functions — it is not even in Baire's first class — making it much 'worse' than Thomae's function (<a class=\"region-link\" href=\"#/bolge/10\">Region 10</a>), which, besides being integrable, does belong to Baire's first class. (Since it is discontinuous everywhere it cannot be meaningfully plotted, so no graph is given here.)",
+                    kaynak: "Wikipedia, the “Dirichlet function” entry.",
+                    kaynakUrl: data["11"].examples[0].kaynakUrl
+                }
+            ]
+        }
+    };
 
-        reg.addEventListener('mousemove', (e) => {
-            tooltip.innerHTML = `Bölge ${id}: ${info.text}`;
-            tooltip.style.opacity = '1';
-            tooltip.style.left = (e.clientX + 12) + 'px';
-            tooltip.style.top = (e.clientY + 12) + 'px';
-        });
+    // ---------- Bilingual UI strings ----------
+    const UI = {
+        tr: {
+            pageTitle: "Reel Fonksiyonlar",
+            pageSubtitle: "Herhangi bir bölgeye dokunun",
+            pageSubtitleTable: "Herhangi bir sınıfa tıklayın",
+            legend: ["Türetilebilir", "Sürekli", "Monoton", "Antitürevi Var", "Ara Değer Öz. Var", "Riemann İntegrallenebilir"],
+            citation: `Bu sayfanın asıl ilham kaynağı,
+            A.C.M. van Rooij ve W.H. Schikhof'un
+            <a href="https://www.cambridge.org/ag/universitypress/subjects/mathematics/real-and-complex-analysis/second-course-real-functions?format=PB&isbn=9780521283618" target="_blank" rel="noopener noreferrer">A Second Course on Real Functions</a>
+            (Cambridge University Press) adlı eseridir — reel fonksiyonlar teorisinin en şaşırtıcı köşelerini hiç sadeleştirmeden, titiz ve zevkli bir anlatımla işleyen, konuya meraklı herkese kesinlikle tavsiye edilecek bir başucu kitabı.`,
+            backBtn: "Ana sayfaya dön",
+            contactPopupTitle: "Real Functions v1.1",
+            contactPopupLicense: "Lisans: CC BY-SA 4.0 (atıf verilmesi kaydıyla serbestçe kullanılabilir)",
+            contactPopupText: "Yeni örnekler önermek için:",
+            contactAria: "Örnek öner",
+            regionPrefix: "Bölge ",
+            footerLabel: "Tüm Fonksiyonlar Kümesi",
+            kaynakLabel: "Kaynak:",
+            kaynakAria: "Kaynağı yeni sekmede aç",
+            setDef: "Küme tanımı",
+            examplesHeader: "Örnekler",
+            furtherReading: "İleri okuma",
+            goToSource: "Kaynağa git",
+            searchingExample: "Örnek aranıyor",
+            searchingExampleBody: "Bu bölgenin sağladığı ve sağlamadığı özellikler yukarıda doğrulanmıştır; fakat uygun, kaynağı gösterilebilecek bir örnek fonksiyon henüz eklenmemiştir.",
+            placeholderTag: "Yer tutucu içerik",
+            placeholderBody1: " kümesini temsil eder. Aşağıdaki içerik şimdilik sembolik bir örnektir; ilerleyen aşamada gerçek tanım, örnek fonksiyon ve ispat taslağıyla değiştirilecektir.",
+            placeholderExampleHeader: "Örnek (yer tutucu)",
+            docTitle: "Fonksiyon Kümeleri - Akademik Atıflı Katalog",
+            classTableClassHeader: "Sınıf",
+            classLabel: function(n) { return n + '. Sınıf'; },
+            tableToggleAria: "Tablo görünümü",
+            diagramToggleAria: "Diyagram görünümü",
+            notFoundTitle: "Bölge bulunamadı",
+            notFoundBody: "Aradığınız bölge numarası geçerli değil. Lütfen ana sayfadaki diyagramdan veya tablodan bir bölge seçin."
+        },
+        en: {
+            pageTitle: "Real Functions",
+            pageSubtitle: "Tap any region",
+            pageSubtitleTable: "Tap any class",
+            legend: ["Differentiable", "Continuous", "Monotonic", "Has Antiderivative", "Has Intermediate Value Property", "Riemann Integrable"],
+            citation: `The primary inspiration for this page is A.C.M. van Rooij and W.H. Schikhof's
+            <a href="https://www.cambridge.org/ag/universitypress/subjects/mathematics/real-and-complex-analysis/second-course-real-functions?format=PB&isbn=9780521283618" target="_blank" rel="noopener noreferrer">A Second Course on Real Functions</a>
+            (Cambridge University Press) — a rigorous and genuinely enjoyable treatment of the most surprising corners of real function theory, without ever simplifying them, warmly recommended to anyone curious about the subject.`,
+            backBtn: "Back to main page",
+            contactPopupTitle: "Real Functions v1.1",
+            contactPopupLicense: "License: CC BY-SA 4.0 (free to use with attribution)",
+            contactPopupText: "To suggest new examples:",
+            contactAria: "Suggest an example",
+            regionPrefix: "Region ",
+            footerLabel: "The Set of All Functions",
+            kaynakLabel: "Source:",
+            kaynakAria: "Open source in new tab",
+            setDef: "Set definition",
+            examplesHeader: "Examples",
+            furtherReading: "Further reading",
+            goToSource: "Go to source",
+            searchingExample: "Looking for an example",
+            searchingExampleBody: "The properties this region does and does not satisfy have been verified above; however, a suitable example function with a citable source has not yet been added.",
+            placeholderTag: "Placeholder content",
+            placeholderBody1: ". The content below is currently a symbolic placeholder; it will be replaced with an actual definition, example function, and proof sketch later.",
+            placeholderExampleHeader: "Example (placeholder)",
+            docTitle: "Function Classes - Academically Cited Catalog",
+            classTableClassHeader: "Class",
+            classLabel: function(n) { return 'Class ' + n; },
+            tableToggleAria: "Table view",
+            diagramToggleAria: "Diagram view",
+            notFoundTitle: "Region not found",
+            notFoundBody: "The region number you're looking for isn't valid. Please pick a region from the diagram or table on the main page."
+        }
+    };
+    let currentLang = 'en';
+    function getData() { return currentLang === 'en' ? dataEn : data; }
+    const homeView = document.getElementById('homeView');
+    const detailView = document.getElementById('detailView');
+    const svgWrapperLandscape = document.querySelector('.svg-wrapper-landscape');
+    const svgWrapperPortrait = document.querySelector('.svg-wrapper-portrait');
+    const tableWrapper = document.getElementById('tableWrapper');
+    const tableToggleBtn = document.getElementById('tableToggleBtn');
+    const contactIconBtn = document.getElementById('contactBtn');
+    let showingTable = false;
 
-        reg.addEventListener('mouseleave', () => { tooltip.style.opacity = '0'; });
+    const gridIconSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>';
+    const diagramIconSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="12" height="10" rx="1.5"/><rect x="3" y="9" width="12" height="10" rx="1.5" fill="currentColor" fill-opacity="0.35"/></svg>';
 
-        reg.addEventListener('click', (e) => {
-            pText.innerHTML = `<strong>Bölge ${id}:</strong><br>${info.text}`;
-            pLink.href = info.link;
-            popup.style.left = (e.clientX + 10) + 'px';
-            popup.style.top = (e.clientY + 10) + 'px';
-            popup.classList.add('active');
-            e.stopPropagation();
-        });
+    function updateSubtitleText() {
+        const t = UI[currentLang];
+        document.getElementById('pageSubtitle').textContent = showingTable ? t.pageSubtitleTable : t.pageSubtitle;
+    }
+
+    function updateTableToggleAria() {
+        const t = UI[currentLang];
+        tableToggleBtn.setAttribute('aria-label', showingTable ? t.diagramToggleAria : t.tableToggleAria);
+    }
+
+    function updateHomeDisplayMode() {
+        if (showingTable) {
+            svgWrapperLandscape.style.display = 'none';
+            svgWrapperPortrait.style.display = 'none';
+            tableWrapper.style.display = 'block';
+        } else {
+            svgWrapperLandscape.style.display = '';
+            svgWrapperPortrait.style.display = '';
+            tableWrapper.style.display = 'none';
+        }
+        tableToggleBtn.innerHTML = showingTable ? diagramIconSvg : gridIconSvg;
+        updateSubtitleText();
+        updateTableToggleAria();
+    }
+
+    tableToggleBtn.addEventListener('click', () => {
+        showingTable = !showingTable;
+        tableToggleBtn.classList.toggle('is-active', showingTable);
+        tableToggleBtn.setAttribute('aria-pressed', String(showingTable));
+        updateHomeDisplayMode();
     });
 
-    document.addEventListener('click', () => popup.classList.remove('active'));
+    // ---------- Örnek fonksiyonlar (Bölge 5 grafikleri için) ----------
+    function distToNearestInt(x) {
+        return Math.abs(x - Math.round(x));
+    }
+
+    function weierstrassFn(x) {
+        const a = 0.5, b = 13;
+        let sum = 0;
+        for (let n = 0; n <= 12; n++) {
+            sum += Math.pow(a, n) * Math.cos(Math.pow(b, n) * Math.PI * x);
+        }
+        return sum;
+    }
+
+    function takagiFn(x) {
+        let sum = 0;
+        for (let n = 0; n <= 12; n++) {
+            sum += distToNearestInt(Math.pow(2, n) * x) / Math.pow(2, n);
+        }
+        return sum;
+    }
+
+    function weierstrassSineFn(x) {
+        const p = 2, q = 28;
+        let sum = 0;
+        for (let n = 0; n < 7; n++) {
+            sum += Math.pow(p, -n) * Math.sin(2 * Math.PI * Math.pow(q, n) * x);
+        }
+        return sum;
+    }
+
+    function sinInvXZeroFn(x) {
+        if (x === 0) return 0;
+        return Math.sin(1 / x);
+    }
+
+    function darbouxDerivFn(x) {
+        if (x === 0) return 0;
+        return 2 * x * Math.sin(1 / x) - Math.cos(1 / x);
+    }
+
+    function sinInvXFn(x) {
+        if (x === 0) return 1;
+        return Math.sin(1 / x);
+    }
+
+    function hFn(x) {
+        if (x <= 0) return 0;
+        return 2 * x * Math.sin(1 / (x * x)) - (2 / x) * Math.cos(1 / (x * x));
+    }
+
+    function darbouxUnboundedFn(x) {
+        if (x <= 0) return 0;
+        return Math.abs(Math.sin(1 / x)) / x;
+    }
+
+    function expFn(x) { return Math.exp(x); }
+
+    function region2Fn(x) {
+        if (x === 0) return 0;
+        return x + 2 * x * x * Math.sin(1 / x);
+    }
+
+    function cantorFn(x) {
+        if (x <= 0) return 0;
+        if (x >= 1) return 1;
+        let lo = 0, hi = 1, lov = 0, hiv = 1;
+        for (let i = 0; i < 40; i++) {
+            const third = (hi - lo) / 3;
+            const mid1 = lo + third, mid2 = hi - third;
+            const midv = (lov + hiv) / 2;
+            if (x < mid1) { hi = mid1; hiv = midv; }
+            else if (x > mid2) { lo = mid2; lov = midv; }
+            else { return midv; }
+        }
+        return (lov + hiv) / 2;
+    }
+
+    function signumFn(x) { return x < 0 ? -1 : (x > 0 ? 1 : 0); }
+
+    function stepUpDownFn(x) { return x < 0 ? 0 : (x < 1 ? 1 : -1); }
+
+    const plotRegistry = {
+        weierstrass: weierstrassFn, weierstrassSine: weierstrassSineFn, takagi: takagiFn, sinInvXZero: sinInvXZeroFn, darbouxDeriv: darbouxDerivFn, sinInvX: sinInvXFn, hFn: hFn,
+        expFn: expFn, region2Fn: region2Fn, cantor: cantorFn, signum: signumFn, stepUpDown: stepUpDownFn, darbouxUnbounded: darbouxUnboundedFn
+    };
+
+    function drawGraph(canvas, fn, xMin, xMax, color) {
+        if (!canvas) return;
+        const dpr = window.devicePixelRatio || 1;
+        const W = canvas.clientWidth || canvas.width;
+        const H = canvas.clientHeight || canvas.height;
+        canvas.width = W * dpr;
+        canvas.height = H * dpr;
+        canvas.style.width = W + 'px';
+        canvas.style.height = H + 'px';
+        const ctx = canvas.getContext('2d');
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.clearRect(0, 0, W, H);
+
+        const N = 400;
+        const ys = [];
+        let yMin = Infinity, yMax = -Infinity;
+        for (let i = 0; i <= N; i++) {
+            const x = xMin + (xMax - xMin) * i / N;
+            const y = fn(x);
+            ys.push(y);
+            if (y < yMin) yMin = y;
+            if (y > yMax) yMax = y;
+        }
+        const pad = (yMax - yMin) * 0.08 || 0.1;
+        yMin -= pad; yMax += pad;
+
+        const m = 6;
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 1.4;
+        ctx.beginPath();
+        for (let i = 0; i <= N; i++) {
+            const px = m + (W - 2 * m) * i / N;
+            const py = H - m - (H - 2 * m) * (ys[i] - yMin) / (yMax - yMin);
+            if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+        }
+        ctx.stroke();
+    }
+
+    const propertyLabels = [
+        { key: 'D',   symbol: 'D' },
+        { key: 'C',   symbol: 'C' },
+        { key: 'Mon', symbol: 'Mon' },
+        { key: 'Dp',  symbol: "D'" },
+        { key: 'DC',  symbol: 'DC' },
+        { key: 'R',   symbol: 'R' }
+    ];
+    const checkIconSvg = '<svg class="prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+    const xIconSvg = '<svg class="prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+
+    function buildPropertyPanel(info) {
+        if (!info.checklist) return '';
+        const items = propertyLabels.map(l => {
+            const val = !!info.checklist[l.key];
+            return `<div class="property-item ${val ? 'is-true' : 'is-false'}">${val ? checkIconSvg : xIconSvg}<span class="prop-symbol">${l.symbol}</span></div>`;
+        }).join('');
+        const detailedHtml = info.detailed ? `<p class="detailed-explanation">${info.detailed}</p>` : '';
+        return `<div class="property-panel"><div class="property-grid">${items}</div>${detailedHtml}</div>`;
+    }
+
+    function buildSourceLine(src) {
+        if (!src || !src.kaynak) return '';
+        const t = UI[currentLang];
+        const linkIcon = src.kaynakUrl ? `
+            <a class="source-link" href="${src.kaynakUrl}" target="_blank" rel="noopener noreferrer" aria-label="${t.kaynakAria}">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>` : '';
+        return `<div class="example-source"><span><strong>${t.kaynakLabel}</strong> ${escapeHtml(src.kaynak)}</span>${linkIcon}</div>`;
+    }
+
+    function hexToRgba(hex, alpha) {
+        const h = hex.replace('#', '');
+        const bigint = parseInt(h, 16);
+        const r = (bigint >> 16) & 255, g = (bigint >> 8) & 255, b = bigint & 255;
+        return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+    }
+
+    function buildClassTable() {
+        const t = UI[currentLang];
+        const dataset = getData();
+        const symbols = ['D', 'C', 'Mon', "D'", 'DC', 'R'];
+
+        const colgroupHtml = `<colgroup>
+            <col style="width:26%;">
+            ${symbols.map(() => '<col style="width:12.33%;">').join('')}
+        </colgroup>`;
+
+        const theadHtml = `<tr>
+            <th class="class-table-corner">${escapeHtml(t.classTableClassHeader)}</th>
+            ${symbols.map(s => `<th><span class="class-table-symbol">${s}</span></th>`).join('')}
+        </tr>`;
+
+        let rowsHtml = '';
+        for (let id = 1; id <= 11; id++) {
+            const info = dataset[String(id)];
+            if (!info || !info.checklist) continue;
+            const color = regionColors[String(id)] || '#ccc';
+            const rowBg = hexToRgba(color, 0.07);
+            const label = t.classLabel(id);
+            const cellsHtml = propertyLabels.map(l => {
+                const val = !!info.checklist[l.key];
+                const icon = (val ? checkIconSvg : xIconSvg).replace('prop-icon', 'table-check-icon');
+                return `<td class="${val ? 'is-true' : 'is-false'}">${icon}</td>`;
+            }).join('');
+            rowsHtml += `<tr style="background:${rowBg};">
+                <th style="border-left: 4px solid ${color};"><a class="table-class-link" href="#/bolge/${id}">${escapeHtml(label)}</a></th>
+                ${cellsHtml}
+            </tr>`;
+        }
+
+        const table = document.getElementById('classTable');
+        if (table) table.innerHTML = `${colgroupHtml}<thead>${theadHtml}</thead><tbody>${rowsHtml}</tbody>`;
+    }
+
+    function buildBody(id, info) {
+        const t = UI[currentLang];
+        const tanimBlock = `
+            <h5>${t.setDef}</h5>
+            <div class="math-block">$$ \\mathcal{F}_{${id}} = ${info.latex} $$</div>
+        `;
+        const propertyPanelHtml = buildPropertyPanel(info);
+
+        if (info.examples && info.examples.length) {
+            const examplesHtml = info.examples.map((ex, i) => {
+                const graphHtml = ex.plot ? `<div class="graph-box"><canvas id="graph-${id}-${i}" width="560" height="160"></canvas></div>` : '';
+                const allSources = [{ kaynak: ex.kaynak, kaynakUrl: ex.kaynakUrl }].concat(ex.extraSources || []);
+                const sourcesHtml = allSources.map(buildSourceLine).join('');
+                return `
+                <div class="example-card">
+                    <div class="example-title">${escapeHtml(ex.name)}</div>
+                    <div class="math-block">$$ ${escapeHtml(ex.formula)} $$</div>
+                    <p class="example-note">${ex.note}</p>
+                    ${graphHtml}
+                    ${sourcesHtml}
+                </div>
+            `;
+            }).join('');
+
+            const frList = info.furtherReading ? (Array.isArray(info.furtherReading) ? info.furtherReading : [info.furtherReading]) : [];
+            const furtherReadingHtml = frList.map(fr => `
+                <div class="further-reading">
+                    <div class="fr-label">${t.furtherReading}</div>
+                    <div class="fr-title">${escapeHtml(fr.title)}</div>
+                    <p class="fr-note">${fr.note}</p>
+                    ${fr.kaynak ? `<p class="fr-kaynak"><strong>${t.kaynakLabel}</strong> ${escapeHtml(fr.kaynak)}</p>` : ''}
+                    <a class="fr-link" href="${fr.url}" target="_blank" rel="noopener noreferrer">
+                        ${t.goToSource}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    </a>
+                </div>
+            `).join('');
+
+            return `${tanimBlock}${propertyPanelHtml}<h5>${t.examplesHeader}</h5>${examplesHtml}${furtherReadingHtml}`;
+        }
+
+        // Regions with a verified checklist but no example added yet
+        if (info.checklist) {
+            return `
+                ${tanimBlock}
+                ${propertyPanelHtml}
+                <span class="placeholder-tag">${t.searchingExample}</span>
+                <p>${t.searchingExampleBody}</p>
+            `;
+        }
+
+        // Full placeholder for regions with no content at all yet
+        return `
+            <span class="placeholder-tag">${t.placeholderTag}</span>
+            <p>${currentLang === 'en' ? 'This region represents the set of' : 'Bu bölge,'} ${escapeHtml(info.desc.toLowerCase())}${t.placeholderBody1}</p>
+
+            ${tanimBlock}
+
+            <h5>${t.placeholderExampleHeader}</h5>
+            <p>$f(x) = \\text{(TBD)}$, $x \\in \\mathbb{R}$.</p>
+            <div class="math-block">$$ f(x) = \\;?\\quad\\text{// content to be added} $$</div>
+        `;
+    }
+
+    function escapeHtml(str) {
+        const d = document.createElement('div');
+        d.textContent = str;
+        return d.innerHTML;
+    }
+
+    let currentRegionId = null;
+
+    function renderNotFound(id) {
+        const t = UI[currentLang];
+        currentRegionId = id;
+        document.getElementById('detailRegionNo').textContent = t.notFoundTitle;
+        document.getElementById('detailRegionDesc').textContent = '';
+        document.getElementById('detailBanner').style.borderLeft = '5px solid #bdc3c7';
+        document.getElementById('detailBody').innerHTML = `<p>${escapeHtml(t.notFoundBody)}</p>`;
+        document.getElementById('detailSource').style.display = 'none';
+        document.title = `${t.notFoundTitle} | ${t.docTitle}`;
+    }
+
+    function renderDetail(id) {
+        const info = getData()[id];
+        if (!info) { renderNotFound(id); return; }
+        currentRegionId = id;
+
+        document.getElementById('detailRegionNo').textContent = UI[currentLang].regionPrefix + id;
+        document.getElementById('detailRegionDesc').textContent = info.desc;
+        document.title = `${UI[currentLang].regionPrefix}${id} — ${info.desc} | ${UI[currentLang].docTitle}`;
+        document.getElementById('detailBanner').style.borderLeft = '5px solid ' + (regionColors[id] || '#ccc');
+        document.getElementById('detailBody').innerHTML = buildBody(id, info);
+
+        const sourceEl = document.getElementById('detailSource');
+        if (info.examples && info.examples.length) {
+            // Sources are shown separately under each example card
+            sourceEl.style.display = 'none';
+            info.examples.forEach((ex, i) => {
+                const canvas = document.getElementById(`graph-${id}-${i}`);
+                const fn = plotRegistry[ex.plot];
+                if (canvas && fn) drawGraph(canvas, fn, ex.xMin, ex.xMax, ex.color || '#2d3436');
+            });
+        } else {
+            sourceEl.style.display = '';
+            sourceEl.innerHTML = '<strong>' + UI[currentLang].kaynakLabel + '</strong> ' + escapeHtml(info.kaynak);
+        }
+
+        // Re-render MathJax (henüz yüklenmediyse bekleyen isteği kaydet)
+        const detailBodyEl = document.getElementById('detailBody');
+        if (window.MathJax && window.MathJax.typesetPromise) {
+            window.MathJax.typesetPromise([detailBodyEl]);
+        } else {
+            pendingTypesetEl = detailBodyEl;
+        }
+    }
+
+    function applyStaticTranslations() {
+        const t = UI[currentLang];
+        document.documentElement.lang = currentLang;
+        document.title = t.docTitle;
+        document.getElementById('pageTitle').textContent = t.pageTitle;
+        updateSubtitleText();
+        document.querySelectorAll('#symbolLegend .legend-item').forEach((el, i) => {
+            const mathSpan = el.querySelector('.legend-math');
+            el.innerHTML = '';
+            el.appendChild(mathSpan);
+            el.appendChild(document.createTextNode(': ' + t.legend[i]));
+        });
+        document.getElementById('citationBlock').innerHTML = t.citation;
+        document.getElementById('backBtnText').textContent = t.backBtn;
+        document.getElementById('contactPopupTitle').textContent = t.contactPopupTitle;
+        document.getElementById('contactPopupLicense').textContent = t.contactPopupLicense;
+        document.getElementById('contactPopupText').textContent = t.contactPopupText;
+        document.getElementById('contactBtn').setAttribute('aria-label', t.contactAria);
+        document.getElementById('footerLabelLandscape').textContent = t.footerLabel;
+        document.getElementById('footerLabelPortrait').textContent = t.footerLabel;
+        updateTableToggleAria();
+        buildClassTable();
+    }
+
+    function updateFlagVisibility() {
+        document.getElementById('flagUK').style.display = currentLang === 'tr' ? 'block' : 'none';
+        document.getElementById('flagTR').style.display = currentLang === 'en' ? 'block' : 'none';
+    }
+
+    function toggleLanguage() {
+        currentLang = currentLang === 'tr' ? 'en' : 'tr';
+        updateFlagVisibility();
+        applyStaticTranslations();
+        if (currentRegionId && detailView.classList.contains('active')) {
+            renderDetail(currentRegionId);
+        }
+    }
+
+    document.getElementById('langToggleBtn').addEventListener('click', toggleLanguage);
+    updateFlagVisibility();
+    applyStaticTranslations();
+
+    function route() {
+        const hash = window.location.hash; // örn: #/bolge/5
+        const match = hash.match(/^#\/bolge\/(\d{1,2})$/);
+
+        if (match) {
+            homeView.classList.remove('active');
+            detailView.classList.add('active');
+            renderDetail(match[1]);
+            tableToggleBtn.style.display = 'none';
+            contactIconBtn.style.display = 'none';
+            document.getElementById('contactPopup').classList.remove('active');
+            window.scrollTo(0, 0);
+        } else {
+            homeView.classList.add('active');
+            detailView.classList.remove('active');
+            tableToggleBtn.style.display = 'flex';
+            contactIconBtn.style.display = 'flex';
+            updateHomeDisplayMode();
+            document.title = UI[currentLang].docTitle;
+        }
+    }
+
+    function goToRegion(id) {
+        window.location.hash = '#/bolge/' + id;
+    }
+
+    // Diyagram bölgeleri
+    document.querySelectorAll('.region').forEach(reg => {
+        reg.addEventListener('click', () => goToRegion(reg.getAttribute('data-id')));
+    });
+
+    document.getElementById('backBtn').addEventListener('click', () => {
+        window.location.hash = '';
+    });
+
+    // ---------- İletişim ikonu / e-posta (captcha benzeri, seçilemez metin) ----------
+    (function initContactPopup() {
+        const btn = document.getElementById('contactBtn');
+        const popup = document.getElementById('contactPopup');
+        const canvas = document.getElementById('contactEmailCanvas');
+
+        function drawEmail() {
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const dpr = window.devicePixelRatio || 1;
+            const cssW = 190, cssH = 18;
+            canvas.width = cssW * dpr;
+            canvas.height = cssH * dpr;
+            canvas.style.width = cssW + 'px';
+            canvas.style.height = cssH + 'px';
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            ctx.clearRect(0, 0, cssW, cssH);
+            ctx.font = '600 13px Arial, sans-serif';
+            ctx.fillStyle = '#2d3436';
+            ctx.textBaseline = 'middle';
+            // Basit karakter parçalarını birleştirip resme çizmek, düz metin olarak DOM'da bulunmasını engeller
+            const parts = ['s.ogrekci', '@', 'gmail.com'];
+            ctx.fillText(parts.join(''), 2, cssH / 2 + 1);
+        }
+
+        if (btn && popup) {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                popup.classList.toggle('active');
+                if (popup.classList.contains('active')) drawEmail();
+            });
+            popup.addEventListener('click', (e) => e.stopPropagation());
+            document.addEventListener('click', () => popup.classList.remove('active'));
+        }
+    })();
+
+    window.addEventListener('hashchange', route);
+    window.addEventListener('DOMContentLoaded', route);
+    route();
 </script>
 </body>
 </html>
